@@ -1,19 +1,28 @@
 
 let w = 200;
-let stepsize = 10;
-let Nwalkers = 1;
-let fr = 1;
+let stepsize = 1;
+let Nwalkers = 100;
+let fr = 100;
 
-let cw = 400;
+let cw = 500;
 let canvas, src, pg;
 
-function proposal(pos) {
-  
+let walkerpos = []
+
+let transparent;
+
+
+function proposal(pos) {}
+
+let img;
+function preload() {
+  img = loadImage('birthday.png');
 }
 
+/*
 class Walker {
   constructor() {
-    this.pos = createVector(w/2, w/2);
+    this.pos = createVector(width, height);
   }
   //draw the walker
   draw(ctx) {
@@ -27,11 +36,11 @@ class Walker {
     if (mouseIsPressed) {
       let tomouse = createVector(this.pos.x - mouseX, this.pos.y - mouseY);
       let mouse = p5.Vector.dot(tomouse, prop) / prop.mag() / tomouse.mag()
-      console.log('l, mouse:', l, mouse);
+      //console.log('l, mouse:', l, mouse);
       return l + mouse;
     }
     
-    console.log('l:', l);
+    //console.log('l:', l);
     return l;
   }
   
@@ -60,50 +69,40 @@ class Walker {
   }
 }
 
+*/
+
 function setup() {
+  console.log('canvas has size: ', cw, cw);
   canvas = createCanvas(cw, cw);
-  pixelDensity(1);
-  let d = pixelDensity();
+  canvas.parent('sketch-holder');
+  //pixelDensity(1);
+  //let d = pixelDensity();
   frameRate(fr);
   
-  src = createGraphics(w, w);
-  src.pixelDensity(1);
-  src.textAlign(CENTER, CENTER);
-  src.background(255);
-  src.textSize(6.5 * w/50);
-  src.text("Happy Birthday\n Sophie!", w/2, w/2);
-  src.loadPixels();
-  
-  dest = createGraphics(w, w);
-  dest.pixelDensity(1);
-  dest.background(255);
-  
-  pg = createGraphics(w, w);
-  pg.pixelDensity(1);
-  pg.background(255);
+  overlay = createGraphics(windowWidth, windowHeight);
+  overlay.pixelDensity(1);
+  overlay.background(255);
   
   colorMode(HSL);
-
-  image(pg, 0, 0, cw, cw);
+  transparent = color(1,1,1,0);
 
   walkers = [];
   for(let i = 0; i < Nwalkers; i += 1) {
-    append(walkers, new Walker());
+    append(walkerpos, createVector(random(width), random(height)));
   }
 }
 
-function draw() {
-  pg.reset();
-  pg.background(255);
-  
-  walkers.forEach(function(w) {
-    w.step(src);
-    w.leaveFootstep(dest);
-    w.draw(pg);
-  });
-  
-  image(src, 0, 0, cw, cw)
-  image(dest, 0, 0, cw, cw);
-  image(pg, 0, 0, cw, cw);
+function draw() {    
+  background(255);
+  image(img, 0, 0);
+  image(overlay, 0, 0)
+    
+
+  for(let i = 0; i < Nwalkers; i += 1) {
+    walkerpos[i].add(p5.Vector.random2D().mult(stepsize));
+    circle(walkerpos[i].x, walkerpos[i].y, 5);
+    overlay.set(walkerpos[i].x, walkerpos[i].y, transparent);
+  }
+  overlay.updatePixels();
 
 }
