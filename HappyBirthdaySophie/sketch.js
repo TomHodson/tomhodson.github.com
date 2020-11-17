@@ -1,8 +1,12 @@
 
 let w = 200;
 let stepsize = 1;
-let Nwalkers = 100;
-let fr = 100;
+let Nwalkers = 300;
+let fr = 30;
+let beta = 0.1; //beta = 0 chooses infinite temperature, beta = inf forces the walkers to go only towards the gradient
+let betaslider;
+
+let radio;
 
 let cw = 500;
 let canvas, src, pg;
@@ -15,61 +19,15 @@ let transparent;
 function proposal(pos) {}
 
 let img;
+let distfield;
 function preload() {
   img = loadImage('birthday.png');
+  distfield = loadImage('distfield.png');
 }
 
-/*
-class Walker {
-  constructor() {
-    this.pos = createVector(width, height);
-  }
-  //draw the walker
-  draw(ctx) {
-    ctx.circle(this.pos.x, this.pos.y, 1);
-    ctx.line(this.newpos.x, this.newpos.y, this.pos.x, this.pos.y);
-  }
-  //calculate dBH
-  get_dBH(landscape, prop) {
-    let l = lightness(landscape.get(this.newpos.x, this.newpos.y)) - lightness(landscape.get(this.pos.x, this.pos.y));
-    
-    if (mouseIsPressed) {
-      let tomouse = createVector(this.pos.x - mouseX, this.pos.y - mouseY);
-      let mouse = p5.Vector.dot(tomouse, prop) / prop.mag() / tomouse.mag()
-      //console.log('l, mouse:', l, mouse);
-      return l + mouse;
-    }
-    
-    //console.log('l:', l);
-    return l;
-  }
-  
-  //move the walker
-  step(landscape) {
-    this.prop = p5.Vector.random2D();
-    this.newpos = p5.Vector.add(this.pos, this.prop);
-    this.prop.mult(stepsize);
-    let dBH = this.get_dBH(landscape, this.prop);
-    
-    let n = this.newpos;
-    let withinBounds = (0 <= n.x) && (n.x <= w) && (0 <= n.y) && (n.y < w);
-    
-    if(withinBounds && (dBH <= 0 || exp(-dBH) > random(1))) {
-      this.pos = n;
-    }
-    
-  }
-  //leave behing a trail in the landscape
-  leaveFootstep(landscape) {
-    landscape.loadPixels();
-    let o = landscape.get(this.pos.x, this.pos.y);
-    let n = color(hue(o), saturation(o), lightness(o) * 0.9);
-    landscape.set(this.pos.x, this.pos.y, n);
-    landscape.updatePixels();
-  }
-}
-
-*/
+let dist, showdist, showtarget, showpaths, showwalkers;
+let step;
+let newpos;
 
 function setup() {
   console.log('canvas has size: ', cw, cw);
@@ -78,31 +36,68 @@ function setup() {
   //pixelDensity(1);
   //let d = pixelDensity();
   frameRate(fr);
+    
+  betaslider = createSlider(0, 1, 0.5, 0.0001);
+  //betaslider.position(10, 10);
+  betaslider.style('width', '80px');
   
+  showdist = createCheckbox('Show distance function', false);
+  showtarget = createCheckbox('Show target image', false);
+  showpaths = createCheckbox('Show paths', true);
+  showwalkers = createCheckbox('Show walkers', true);
+    
   overlay = createGraphics(windowWidth, windowHeight);
   overlay.pixelDensity(1);
-  overlay.background(255);
+  overlay.background(color(0,0,0,0));
+    
+  dist = function(pos) {
+      return distfield.get(pos.x, pos.y)[0];
+  }
   
   colorMode(HSL);
-  transparent = color(1,1,1,0);
 
   walkers = [];
   for(let i = 0; i < Nwalkers; i += 1) {
     append(walkerpos, createVector(random(width), random(height)));
   }
+    
+  step = createVector(0,0);
 }
 
+let b;
 function draw() {    
   background(255);
-  image(img, 0, 0);
-  image(overlay, 0, 0)
-    
+  if(showdist.checked()) image(distfield, 0, 0); //the min distance to the nearest non white pixel in the target image
+  if(showtarget.checked()) image(img, 0, 0); //the target image
+  if(showpaths.checked()) {
+    //tint(255, 5e6 / frameCount / Nwalkers);
+    image(overlay, 0, 0);
+  }
 
+  //text(dist(createVector(mouseX, mouseY)), width/2, height/2);
+  //text(overlay.get(mouseX, mouseY), width/2, height/2);
+
+  beta = betaslider.value();
+  beta = beta / (1 - beta);
+    
+  overlay.loadPixels();  
   for(let i = 0; i < Nwalkers; i += 1) {
-    walkerpos[i].add(p5.Vector.random2D().mult(stepsize));
-    circle(walkerpos[i].x, walkerpos[i].y, 5);
-    overlay.set(walkerpos[i].x, walkerpos[i].y, transparent);
+    //let debug = Math.sqrt((mouseX - walkerpos[i].x)**2 + (mouseY - walkerpos[i].y)**2) < 10;
+    step.x = 2*stepsize*(random() - 0.5);
+    step.y = 2*stepsize*(random() - 0.5);
+    newpos = p5.Vector.add(walkerpos[i], step);
+    let df = dist(newpos) - dist(walkerpos[i]);
+    if(df > 0 | exp(beta * df) > random(1.0)) {
+        walkerpos[i].add(step);
+    }
+    if(showwalkers.checked()) circle(walkerpos[i].x, walkerpos[i].y, 3);  
+    
+    // loop over
+    index = 4 * (int(walkerpos[i].y) * overlay.width + int(walkerpos[i].x));
+    b = overlay.pixels[index+3] + 5
+    overlay.pixels[index+3] = b;
   }
   overlay.updatePixels();
+
 
 }
