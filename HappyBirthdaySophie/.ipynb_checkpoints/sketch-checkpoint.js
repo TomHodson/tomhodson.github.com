@@ -21,8 +21,8 @@ function proposal(pos) {}
 let img;
 let distfield;
 function preload() {
-  img = loadImage('CV_image.png');
-  distfield = loadImage('CV_distfield.png');
+  img = loadImage('birthday.png');
+  distfield = loadImage('distfield.png');
 }
 
 let dist, showdist, showtarget, showpaths, showwalkers;
@@ -30,8 +30,8 @@ let step;
 let newpos;
 
 function setup() {
-  console.log('canvas has size: ', img.width, img.height);
-  canvas = createCanvas(img.width, img.height);
+  console.log('canvas has size: ', cw, cw);
+  canvas = createCanvas(cw, cw);
   canvas.parent('sketch-holder');
   //pixelDensity(1);
   //let d = pixelDensity();
@@ -90,8 +90,7 @@ function draw() {
     if(df > 0 | exp(beta * df) > random(1.0)) {
         walkerpos[i].add(step);
     }
-    //if(showwalkers.checked()) circle(walkerpos[i].x, walkerpos[i].y, 3);  
-    if(showwalkers.checked()) set(walkerpos[i].x, walkerpos[i].y);  
+    if(showwalkers.checked()) circle(walkerpos[i].x, walkerpos[i].y, 3);  
     
     // loop over
     index = 4 * (int(walkerpos[i].y) * overlay.width + int(walkerpos[i].x));
