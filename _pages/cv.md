@@ -46,14 +46,36 @@ Skills
 * Highly proficient in the Python/Numpy/Scipy scientific stack
 * Wider programming knowledge of Julia, C++/C and Javascript
 * Highly mathematically literate
+* Built a 3D printer from scratch.
+* Extensive experience using [Fusion 360][1], [OpenSCAD][2] and [custom code]() to generate parts to print on it.
+
+[1]: http://a360.co/2BjJ0z3
+[2]: https://github.com/TomHodson/Raspberry-Pi-OpenSCAD-Model
+[3]: https://github.com/TomHodson/VaseExtruder
+
+Teaching
+----------
+* 2020-2021 Interdisciplinary Research Computing, Teaching Assistant, Imperial
+  * Teaching students effective software development methods including git and HPC use.
+
+* 2018-2019 Computational Physics,Teaching Assistant, Imperial
+  * Demonstrated for the third year Computational Physics course, helping students realise complex physics based programming projects in Python.
+
+* 2019 1st Year Electronics Labs,Teaching Assistant, Imperial
+
+* 2014-Private Tutoring
+  * I’ve tutored privately for many years, covering Physics and Maths at all levels along with ComputerScience, Chemistry and Biology at GCSE and current aided one student with a financial modelling course.
 
 Service and leadership
 -----------------------
 * 2020–2021 Physics Departmental Postgraduate Representative, Imperial College London
   * I’m one of the two postgrad representatives for the Physics department at Imperial.
+
 * 2019–2020 CMTH Postgraduate Representative, Imperial College London
   * Acted as the postgrad representative for my research group at Imperial.2014-2017
+
 * Cambridge Student Community Action (SCA), President of Steering Group, Cambridge
   * President of the student steering group of the charity SCA, which runs volunteering projects for young people and the elderly in the local area. I also volunteer as a mentor to a teenager and an 11 year old meeting each once a week, helping with homework and fostering their interests.
+
 * 2016–2017 Physics Class Representative, Cambridge
   * Responsible for liaising between my fellow students, the administration and course professors to improve the curriculum
