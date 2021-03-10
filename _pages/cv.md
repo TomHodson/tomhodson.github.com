@@ -117,3 +117,11 @@ Service and leadership
   * Responsible for liaising between my fellow students, the administration and course professors to improve the curriculum
 
 [pgrep]: https://web.archive.org/web/20201126073809/https://www.imperialcollegeunion.org/your-union/your-representatives/a-to-z/physics-pg
+
+Outreach
+---------
+* 2020 [Collective Misbehaviour][poem], Imperial College London
+  * An interactive web based poetry collaboration with [Dan Simpson][dan], the then poet-in-residence at Imperial College London.
+
+[poem]: https://tomhodson.github.io/PoemProject/
+[dan]: https://www.dansimpsonpoet.co.uk/#/collective-misbehaviour/
