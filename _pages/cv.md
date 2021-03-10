@@ -64,7 +64,37 @@ Teaching
 * 2019 1st Year Electronics Labs,Teaching Assistant, Imperial
 
 * 2014-Private Tutoring
-  * I’ve tutored privately for many years, covering Physics and Maths at all levels along with ComputerScience, Chemistry and Biology at GCSE and current aided one student with a financial modelling course.
+  * I’ve tutored privately for many years, covering Physics and Maths at all levels along with Computer Science, Chemistry and Biology at GCSE and current aided one student with a financial modelling course.
+
+Talks
+------
+  <ul>{% for post in site.talks %}
+    {% include archive-single-talk-cv.html %}
+  {% endfor %}</ul>
+
+{% comment %}
+
+Projects
+------
+  <ul>{% for post in site.portfolio %}
+    {% include archive-single.html %}
+  {% endfor %}</ul>
+
+Publications
+-------------
+  <ul>{% for post in site.publications %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
+
+
+Teaching
+---------
+  <ul>{% for post in site.teaching %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
+
+
+{% endcomment %}
 
 Service and leadership
 -----------------------
