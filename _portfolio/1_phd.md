@@ -1,7 +1,10 @@
 ---
-title: "PhD Project: The one-dimensional Long-Range Falikov-Kimball Model"
-excerpt: "I study a simplified model of electrons moving about in a crystal. <br/><img src='/images/phase_diagram.png'>"
+title: "PhD Project"
+subtitle: "The one-dimensional Long-Range Falikov-Kimball Model"
+excerpt: "I study a simplified model of electrons moving about in a crystal."
 collection: portfolio
+image: "phase_diagram.png"
+alt: "A colourful scientific figure from my work."
 ---
 ## 2018 - 2021 (expected)
 
