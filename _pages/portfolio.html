@@ -3,24 +3,15 @@ layout: archive
 title: "Portfolio"
 permalink: /portfolio/
 author_profile: true
-feature_row:
-  - image_path: /phase_diagram.png
-    alt: "placeholder image 1"
-    title: "PhD"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
-  - image_path: vector_magnet_angle_view.png
-    title: "MSc"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
-  - image_path: CERN_probes.png
-    alt: "placeholder image 2"
-    title: "CERN Summer School"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
-    url: /portfolio/cern/
-
 ---
 
 {% include base_path %}
 
+{% for post in site.portfolio %}
+  {% include archive-single-portfolio.html %}
+{% endfor %}
+
+{% comment %}
 
 <div class="feature__wrapper">
   {% for post in site.portfolio %}
@@ -45,11 +36,9 @@ feature_row:
     {% endfor %}
     </div>
 
-{% comment %}
+
 {% include feature_row %}
 
-{% for post in site.portfolio %}
-  {% include archive-single-portfolio.html %}
-{% endfor %}
+
 
 {% endcomment %}

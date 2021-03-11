@@ -12,24 +12,21 @@
   {% assign title = post.title %}
 {% endif %}
 
+<style>
+h2 {margin: 1em 0 0.5em;}
+article {display: flex; padding: 1em 0 0;}
+div.flex_img {flex: 0 0 auto; width: 200px; display: flex; flex-direction: column; justify-content: center;}
+div.flex_text {flex: 1 1 auto; padding-left: 30px;}
+img.flex {align-self: center;}
+</style>
+
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    {% if include.type == "grid" and teaser %}
-      <div class="archive__item-teaser">
-        <img src=
-          {% if teaser contains "://" %}
-            "{{ teaser }}"
-          {% else %}
-            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
-          {% endif %}
-          alt="" >
-      </div>
-    {% endif %}
 
     {% if post.image %}
-    <img src = "{{ post.image | prepend: '/images/'}}" class="text-left">
+    <div class = "flex_img"><img class = "flex" src = "{{ post.image | prepend: '/images/'}}"></div>
     {% endif %}
-
+    <div class = "flex_text">
     <h2 class="archive__item-title" itemprop="headline">
       {% if post.link %}
         <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
@@ -63,6 +60,6 @@
     {% elsif post.paperurl %}
       <p>Download <a href=" {{ post.paperurl }} "><u>here</u></a></p>
     {% endif %}
-
+    </div>
   </article>
 </div>
