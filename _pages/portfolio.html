@@ -7,8 +7,38 @@ author_profile: true
 
 {% include base_path %}
 
-
 {% for post in site.portfolio %}
-  {% include archive-single.html %}
+  {% include archive-single-portfolio.html %}
 {% endfor %}
 
+{% comment %}
+
+<div class="feature__wrapper">
+  {% for post in site.portfolio %}
+    <div class="feature__item">
+      <div class="archive__item">
+
+          <div class="archive__item-teaser" style="height:250px;">
+            <img src = "{{ post.image | prepend: '/images/'}}"
+            alt="{{post.alt}}}">
+          </div>
+        <div class="archive__item-body">
+            <h2 class="archive__item-title">{{post.title}}</h2>
+            {% if post.subtitle %}
+            <p>{{post.subtitle}}</p>
+            {% endif %}
+            <div class="archive__item-excerpt">
+              <p itemprop="description">{{ post.excerpt | markdownify }}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+
+
+{% include feature_row %}
+
+
+
+{% endcomment %}

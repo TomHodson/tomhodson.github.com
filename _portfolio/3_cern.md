@@ -1,7 +1,9 @@
 ---
 title: "CERN Summmer Studentship"
-excerpt: "I worked at CERN for 3 months as a summer student, helping to design a high volume electronic measurement process for new silicon sensors for the LHC. <br/><img src='/images/CERN_probes.png'>"
+excerpt: "I worked at CERN for 3 months as a summer student, helping to design a high volume electronic measurement process for new silicon sensors for the LHC."
 collection: portfolio
+image: CERN_probes.png
+alt: "An image of some probes on a silicon wafer."
 ---
 ## 2017, CMS HGCAL Sensor Characterisation, CERN
 
