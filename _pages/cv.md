@@ -14,6 +14,7 @@ Education
 * 2018 - 2021 [Ph.D in Condensed Matter Theory][phd], 2021 (expected), Imperial College London
   * Topic: Disorder Free Localisation in the 1D Falikov-Kimball Model
   * Supervisor: Dr Johannes Knolle
+  * EPSRC Project N. [2120140][projectnumber]
 
 * 2018 [M.Sc Thesis][msc], Natural Sciences,Trinity College, Cambridge
   * Title: Imaging Magnetic Phenomena with Scanning Diamond Magnetometry
@@ -26,6 +27,7 @@ Education
 
 [phd]: /portfolio/1_phd/
 [msc]: /portfolio/2_msc/
+[projectnumber]: https://gtr.ukri.org/project/145404DD-ABAD-4CFB-A2D8-152A6AFCCEB7#/tabOverview
 
 
 Work experience
