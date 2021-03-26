@@ -121,7 +121,10 @@ Service and leadership
 Outreach
 ---------
 * 2020 [Collective Misbehaviour][poem], Imperial College London
-  * An interactive web based poetry collaboration with [Dan Simpson][dan], the then poet-in-residence at Imperial College London.
+  * An interactive web based poetry collaboration with [Dan Simpson][dan], the then poet-in-residence at Imperial College London. you can read an article about the project [here][poemarticle].
+* 2019 [Profile for Imperial's LGBTQ+ Group][imp600], Imperial College London
 
 [poem]: https://tomhodson.github.io/PoemProject/
 [dan]: https://www.dansimpsonpoet.co.uk/#/collective-misbehaviour/
+[imp600]: https://www.imperial.ac.uk/equality/staff-networks/imperial-600/meet-our-members/tom-hodson/
+[poemarticle]: https://www.imperial.ac.uk/news/210833/imperials-research-through-poetic-lens/
