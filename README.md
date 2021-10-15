@@ -2,7 +2,6 @@ Generates my personal website. I copied (rather than forked to preserve previous
 
 ## Todo
   - add CMTH talks
-  - add my first paper!
   - fix the OG tags so that https://cards-dev.twitter.com/validator works
   - figure out how to integrate a jupyter notebook
 
