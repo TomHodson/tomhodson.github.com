@@ -5,3 +5,6 @@ Generates my personal website. I copied (rather than forked to preserve previous
   - add my first paper!
   - fix the OG tags so that https://cards-dev.twitter.com/validator works
   - figure out how to integrate a jupyter notebook
+
+## Notes
+Use `bundle exec jekyll serve` to do local development of this site
