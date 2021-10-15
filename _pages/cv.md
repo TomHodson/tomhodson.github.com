@@ -63,6 +63,9 @@ Skills
 
 Teaching
 ----------
+* 2021 PyProblems
+  * Composed a set of python problems for a final year General Relativity course focussed on raytraving geodesics through the Schwarzschild metric.
+
 * 2020-2021 Interdisciplinary Research Computing, Teaching Assistant, Imperial
   * Teaching students effective software development methods including git and HPC use.
 
@@ -80,18 +83,18 @@ Talks
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
 
+Publications
+-------------
+  <ul>{% for post in site.publications %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
+
 {% comment %}
 
 Projects
 ------
   <ul>{% for post in site.portfolio %}
     {% include archive-single.html %}
-  {% endfor %}</ul>
-
-Publications
--------------
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
 
@@ -130,3 +133,16 @@ Outreach
 [dan]: https://www.dansimpsonpoet.co.uk/#/collective-misbehaviour/
 [imp600]: https://www.imperial.ac.uk/equality/staff-networks/imperial-600/meet-our-members/tom-hodson/
 [poemarticle]: https://www.imperial.ac.uk/news/210833/imperials-research-through-poetic-lens/
+
+Competitions
+-------------
+* 2021 Creativity Sandpit
+  * Pitched an accessible Android OS for the elderly to very positive reception from the judges.
+ 
+* DigiFAB and FoNS Data Science Datathon
+  * Led a winning team of PhD students on [this challenge][datathon] to predict crystal structure and packing density from chemical structure data. Used a variety of techniques including recent advances in graph neural network techniques to win the competition.
+ 
+* MSF Makeathon
+  * Designed and prototyped an inflatable mattress to reduce pressure sores for patients in field hospitals.
+
+ [datathon]: https://web.archive.org/web/20210418234129/https://www.imperial.ac.uk/news/218853/digifab-fons-data-science-datathon-competition/
