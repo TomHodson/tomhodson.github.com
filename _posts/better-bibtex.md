@@ -1,18 +1,20 @@
 ---
 title: 'How I use Zotero, Better Bibtex and Overleaf together'
+permalink: /posts/2022/zotero_betterbitex_overleaf
 date: 2022-01-01
 ---
 
-Make Overleaf project
-Activate Github repo
-
 ## Citation workflow
-Add papers using Zotero connectors from web
+Add papers to Zotero from web using 'connectors' that parse metadata from journal websites.
 Export either you entire collection or a subcollection with "automatic export" ticked
-Automatic git push with https://retorque.re/zotero-better-bibtex/exporting/auto/
 
+## [Set up automatic git push](https://retorque.re/zotero-better-bibtex/exporting/auto/)
+In a word, run:
+```bash
+git config zotero.betterbibtex.push true #in the repo that holds your overleaf project
+```
 
-#### When the citations are done
+## When the citations are finalised
 When the paper is done and the citations aren't going to change too much, use overleaf see logs feature to see the aux file.
 Import the aux into a subcollection to get only the citations used for this paper.
 Then export the subcollection again using "Keep updated"
