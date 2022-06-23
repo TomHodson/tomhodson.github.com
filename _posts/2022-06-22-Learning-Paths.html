@@ -1,0 +1,22 @@
+---
+title: Learning Paths
+excerpt: A small tool to visualise dependencies of courses.
+layout: post
+image: /assets/images/learning_paths.png
+---
+
+
+<div id="observablehq-Buttons-0f0515bd"></div>
+<div id="observablehq-page-0f0515bd"></div>
+<p><a href="https://observablehq.com/@tomhodson/learningpaths">Open in Observable</a></p>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/d/cc61c26238c6ee99.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "page") return new Inspector(document.querySelector("#observablehq-page-0f0515bd"));
+  // if (name === "Title") return new Inspector(document.querySelector("#observablehq-Title-0f0515bd"));
+  if (name === "Buttons") return new Inspector(document.querySelector("#observablehq-Buttons-0f0515bd"));
+  return ["courses_to_lines"].includes(name);
+});
+</script>

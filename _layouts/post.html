@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html>
   <head>
@@ -10,12 +12,12 @@
     <script src="/assets/js/index.js"></script>
     
     <!-- RSS feed -->
-    {% feed_meta %}
+    <link rel="alternate" type="application/rss+xml" title="RSS for Tom Hodson's Blog" href="/feed.xml">
   </head>
   <body>
-    {% include header.html %}
-    <main>
-        {{ content }}
-    </main>
+    <h1>{{ page.title }}</h1>
+    <time>{{ page.date | date_to_string }}</time>
+    {{ content }}
   </body>
 </html>
+

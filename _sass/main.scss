@@ -1,0 +1,63 @@
+@import "nav";
+@import "header";
+@import "article";
+@import "cv";
+
+* {
+    box-sizing: border-box;
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    text-rendering: geometricPrecision;
+}
+
+body {
+    background: #fcfcfc;
+    color: #222;
+
+    // constrain width and center
+    max-width: 900px;
+    margin: auto;
+}
+
+// Padding to keep the keep the content to the right of the header
+main {
+    margin-left: 240px;
+    padding-left: 30px;
+    padding-right: 30px;
+    
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main h1 {
+    font-size: 2em;
+}
+
+a {
+    text-decoration: underline;
+    color: #222;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    width: 100%;
+}
+
+@media only screen and (max-width: 700px) {  
+    main {
+      padding-top: 10px; 
+      padding-left: 20px;
+      padding-right: 20px;
+      margin: 0px;
+    }
+  
+    article {
+      margin-left: 0px; } }

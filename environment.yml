@@ -1,0 +1,8 @@
+name: jekyll
+
+channels:
+  - conda-forge
+  - default
+dependencies:
+  - ruby
+  - make

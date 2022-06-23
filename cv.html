@@ -1,0 +1,37 @@
+---
+layout: default
+title: "CV"
+permalink: /cv/
+redirect_from:
+  - /resume
+---
+<h1>CV</h1>
+
+{% for topic in site.data.cv_topics %}
+    <div class = "cv-title-container">
+      <h2>{{topic.name}}</h2>
+      <a onClick='toggle_summary_by_class(this, "{{topic.id}}");'>Expand all</a>
+    </div>
+    {% assign work  = site.cv_entries | where:'type', topic.id %}
+    {% for entry in work %}
+    <details class="{{topic.id}}">
+    <summary class="cv"><time>{{entry.period}}</time>
+                      <div class = "title-column">
+                              <h3>{{entry.title}}</h3>
+                              <span class="location">{{entry.location}}</span>
+                      </div>
+    </summary>
+    <div class = "details-container">
+        <div class = "details-img">
+            <a href="{{entry.url}}"><img  src="{{entry.image}}" alt="{{entry.alt}}"></a>
+        </div>
+        <div class = "details-text">
+            {{entry.excerpt}}
+            {% if entry.read_more %}<a href = "{{entry.url}}">Read more.</a>{% endif %}
+        </div>
+    </div>
+    </details>
+    {% endfor %}
+{% endfor %}
+
+

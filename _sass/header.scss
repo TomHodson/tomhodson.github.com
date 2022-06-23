@@ -1,0 +1,81 @@
+
+// The header with info about me
+// gets displayed on the left in a wide layout and on the top in a narrow layout
+header {
+    border-right: 2px solid #eee; //make a nice dividing line
+    position: fixed;
+    width: 240px;
+    height: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
+    
+    flex: 0 0 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+    top: 0px;
+}
+
+header .profile-pic-name {
+    text-align: center;
+}
+
+header .avatar {
+    max-width: 175px;
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid #f2f3f3;
+}
+
+header h1 {
+    font-size: 2em;
+}
+
+header h1, header h2 {
+    font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif", HelveticaNeue-CondensedBlack;
+}
+
+header img.icon {
+    height: 1em;
+    width: 1em;
+    margin-right: 0.5em;
+    flex: 0 0 auto;
+}
+
+header p.professional-links {
+    display: flex;
+    flex-direction: column;
+}
+
+header p.professional-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 700px) {
+    header {
+      position: relative;
+      width: 100%;
+      border: 0px;
+      text-align: center;
+      height: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  
+    header .avatar {
+        margin: auto;
+    } 
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    nav a {
+        margin-left: 1em;
+    }
+}
