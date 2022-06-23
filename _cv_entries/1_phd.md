@@ -14,7 +14,7 @@ read_more: true
 funding: https://gtr.ukri.org/project/145404DD-ABAD-4CFB-A2D8-152A6AFCCEB7#/tabOverview
 ---
 
-When you have lots of 
+Collective Behaviours tend occur when you have a big collection of things interacting with one another. Think of a flock of starlings or a mexican wave. Now when you make the things quantum too, _really_ interesting things happen...
 
 Disorder Free Localisation in the 1D Falikov-Kimball Model. EPSRC Project N.<a href="{{page.funding}}">2120140</a> 
 
