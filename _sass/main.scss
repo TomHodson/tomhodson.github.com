@@ -1,3 +1,5 @@
+@import "vars";
+
 @import "nav";
 @import "header";
 @import "article";
@@ -5,7 +7,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    font-family: $font_stack;
     text-rendering: geometricPrecision;
 }
 
@@ -36,10 +38,10 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
 
-main h1 {
-    font-size: 2em;
+    h1 {
+        font-size: 2em;
+    }
 }
 
 a {
@@ -55,13 +57,17 @@ img {
     width: 100%;
 }
 
-@media only screen and (max-width: 700px) {  
-    main {
-      padding-top: 10px; 
-      padding-left: 20px;
-      padding-right: 20px;
-      margin: 0px;
-    }
-  
-    article {
-      margin-left: 0px; } }
+@media 
+    only screen and (max-width: $horizontal_breakpoint),
+    only screen and (max-height: $vertical_breakpoint)
+    {  
+        main {
+        padding-top: 10px; 
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 0px;
+        }
+    
+        article {
+        margin-left: 0px; } 
+}

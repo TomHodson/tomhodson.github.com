@@ -1,3 +1,4 @@
+@import "vars";
 
 // The header with info about me
 // gets displayed on the left in a wide layout and on the top in a narrow layout
@@ -5,7 +6,7 @@ header {
     border-right: 2px solid #eee; //make a nice dividing line
     position: fixed;
     width: 240px;
-    height: 100vw;
+    height: 100vh;
     padding-right: 30px;
     padding-left: 30px;
     
@@ -41,7 +42,7 @@ header h1 {
 }
 
 header h1, header h2 {
-    font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif", HelveticaNeue-CondensedBlack;
+    font-family: $title_font_stack;
 }
 
 header img.icon {
@@ -63,7 +64,10 @@ header p.professional-links a {
     justify-content: space-between;
 }
 
-@media only screen and (max-width: 700px) {
+@media 
+    only screen and (max-width: $horizontal_breakpoint),
+    only screen and (max-height: $vertical_breakpoint)
+    {  
     header {
       position: relative;
       width: 100%;
