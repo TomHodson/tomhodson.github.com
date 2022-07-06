@@ -7,5 +7,5 @@
 - name: Side Projects
   id: side_project
 
-- name: Competitions
+- name: (Hack|Make|Data)thons
   id: competition

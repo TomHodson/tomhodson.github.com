@@ -1,4 +1,4 @@
-title: Tom Hodson's Blog
+title: Tom Hodson
 description: Physics, Programming and Baking.
 url: http://thomashodson.com/
 author:
@@ -13,6 +13,11 @@ collections:
 
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
+
+whitelist:
+  - jekyll-feed
+  - jekyll-redirect-from
 
 feed:
   posts_limit: 20

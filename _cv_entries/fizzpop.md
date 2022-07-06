@@ -6,7 +6,7 @@ location: Birmingham
 subtitle:
 
 image: /assets/images/fizzpop_logo.gif
-alt: 
+alt: The animated logo of fizzpop with a little spinner attached to the f
 
 layout: cv_entry
 ---

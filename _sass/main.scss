@@ -57,6 +57,14 @@ img {
     width: 100%;
 }
 
+.figure {
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 @media 
     only screen and (max-width: $horizontal_breakpoint),
     only screen and (max-height: $vertical_breakpoint)

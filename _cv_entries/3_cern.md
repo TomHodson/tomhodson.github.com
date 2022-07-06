@@ -1,11 +1,11 @@
 ---
-type: work
+type: education
 title: "CERN Summmer Studentship"
 period: 2018
 location: Trinity College, Cambridge
 
 image: /assets/images/CERN_probes.png
-alt: "An image of some probes on a silicon wafer."
+alt: "Some electrical probes on a silicon wafer."
 
 layout: cv_entry
 read_more: true

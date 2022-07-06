@@ -6,12 +6,12 @@ location: Imperial College London
 subtitle: An interactive web based poetry collaboration.
 
 image: /assets/images/collective_logo.png
-alt: 
+alt: A logo for the project composed of overlapping circles. 
 
 layout: cv_entry
 ---
-An interactive web based poetry collaboration with [Dan Simpson][dan], the then poet-in-residence at Imperial College London. you can read an article about the project [here][poemarticle].
-
+An [interactive poetry collaboration][poem] with [Dan Simpson][dan] the then poet-in-residence at Imperial College London and [Sophie Nadel][sophie].
 
 [poem]: https://tomhodson.github.io/PoemProject/
 [dan]: https://www.dansimpsonpoet.co.uk/#/collective-misbehaviour/
+[sophie]: https://sophienadel.com/
