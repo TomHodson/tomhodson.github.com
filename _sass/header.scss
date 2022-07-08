@@ -89,6 +89,8 @@ header p.professional-links a {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     nav a {
         margin-left: 1em;
@@ -105,5 +107,7 @@ header p.professional-links a {
     header p.professional-links a {
         margin-left: 1em;
         margin-right: 1em;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
