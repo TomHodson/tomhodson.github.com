@@ -1,0 +1,1548 @@
+---
+title: The Amorphous Kitaev Model - Results
+excerpt: The Amorphous Kitaev model is a chiral spin liquid!
+layout: none
+image: 
+
+---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="The Amorphous Kitaev model is a chiral spin liquid!" />
+  <title>The Amorphous Kitaev Model - Results</title>
+  <!-- <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style> -->
+
+<!--   <script
+       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+       type="text/javascript"></script>
+ -->
+
+<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+   -->
+
+<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+
+
+<!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/index.js"></script>
+</head>
+<body>
+{% include header.html %}
+
+<main>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#results" id="toc-results">Results</a>
+<ul>
+<li><a href="#the-ground-state" id="toc-the-ground-state">The Ground
+State</a></li>
+<li><a href="#ground-state-phase-diagram"
+id="toc-ground-state-phase-diagram">Ground State Phase Diagram</a></li>
+<li><a href="#the-flux-gap" id="toc-the-flux-gap">The Flux Gap</a></li>
+</ul></li>
+<li><a href="#conclusion" id="toc-conclusion">Conclusion</a>
+<ul>
+<li><a href="#discussion" id="toc-discussion">Discussion</a></li>
+<li><a href="#future-work" id="toc-future-work">Future Work</a></li>
+<li><a href="#fluxes-and-the-ground-state"
+id="toc-fluxes-and-the-ground-state">Fluxes and the Ground
+State</a></li>
+<li><a href="#zero-temperature-phase-diagram"
+id="toc-zero-temperature-phase-diagram">Zero Temperature Phase
+Diagram</a>
+<ul>
+<li><a href="#chern-number-and-edge-modes"
+id="toc-chern-number-and-edge-modes">Chern Number and Edge
+Modes</a></li>
+</ul></li>
+<li><a href="#anderson-transition-to-a-thermal-metal"
+id="toc-anderson-transition-to-a-thermal-metal">Anderson Transition to a
+Thermal Metal</a></li>
+<li><a href="#discussion-and-conclusions"
+id="toc-discussion-and-conclusions">Discussion and Conclusions</a></li>
+</ul></li>
+<li><a href="#apx:ground_state" id="toc-apx:ground_state">Numerical
+Evidence for the Ground State Flux Sector</a></li>
+</ul>
+</nav>
+<h1 id="results">Results</h1>
+<h2 id="the-ground-state">The Ground State</h2>
+<div id="fig:fermion_gap_vs_L" class="fignos">
+<figure>
+<img
+src="/assets/thesis/amk_chapter/results/fermion_gap_vs_L/fermion_gap_vs_L.svg"
+style="width:100.0%"
+alt="Figure 1: Within a flux sector, the fermion gap \Delta_f measures the energy between the fermionic ground state and the first excited state. This graph shows the fermion gap as a function of system size for the ground state flux sector and for a configuration of random fluxes. We see that the disorder induced by an putting the Kitaev model on an amorphous lattice does not close the gap in the ground state. The gap closes in the flux disordered limit is good evidence that the system transitions to a gapless thermal metal state at high temperature. Each point shows an average over 100 lattice realisations. System size L is defined \sqrt{N} where N is the number of plaquettes in the system. Error bars shown are 3 times the standard error of the mean. The lines shown are fits of \tfrac{\Delta_f}{J} = aL ^ b with fit parameters: Ground State: a = 0.138 \pm 0.002, b = -0.0972 \pm 0.004 Random Flux Sector: a = 1.8 \pm 0.2, b = -2.21 \pm 0.03" />
+<figcaption aria-hidden="true"><span>Figure 1:</span> Within a flux
+sector, the fermion gap <span class="math inline">\(\Delta_f\)</span>
+measures the energy between the fermionic ground state and the first
+excited state. This graph shows the fermion gap as a function of system
+size for the ground state flux sector and for a configuration of random
+fluxes. We see that the disorder induced by an putting the Kitaev model
+on an amorphous lattice does not close the gap in the ground state. The
+gap closes in the flux disordered limit is good evidence that the system
+transitions to a gapless thermal metal state at high temperature. Each
+point shows an average over 100 lattice realisations. System size <span
+class="math inline">\(L\)</span> is defined <span
+class="math inline">\(\sqrt{N}\)</span> where N is the number of
+plaquettes in the system. Error bars shown are <span
+class="math inline">\(3\)</span> times the standard error of the mean.
+The lines shown are fits of <span
+class="math inline">\(\tfrac{\Delta_f}{J} = aL ^ b\)</span> with fit
+parameters: Ground State: <span class="math inline">\(a = 0.138 \pm
+0.002, b = -0.0972 \pm 0.004\)</span> Random Flux Sector: <span
+class="math inline">\(a = 1.8 \pm 0.2, b = -2.21 \pm
+0.03\)</span></figcaption>
+</figure>
+</div>
+<h2 id="ground-state-phase-diagram">Ground State Phase Diagram</h2>
+<h2 id="the-flux-gap">The Flux Gap</h2>
+<h1 id="conclusion">Conclusion</h1>
+<h2 id="discussion">Discussion</h2>
+<h2 id="future-work">Future Work</h2>
+<p>The Kitaev Honeycomb can be quite easily turned into a quantum error
+correcting code <a
+href="https://errorcorrectionzoo.org/c/honeycomb">like this</a>, the
+same idea applies to our model.</p>
+<p>In contrast to the honeycomb case, the amorphous KSLs are gapless
+only along certain critical lines. These manifolds separate two gapped
+KSLs that are topologically differentiated by a local Chern number <span
+class="math inline">\(\nu\)</span><span class="citation"
+data-cites="peru_preprint mitchellAmorphousTopologicalInsulators2018"><sup><a
+href="#ref-peru_preprint" role="doc-biblioref">1</a>,<a
+href="#ref-mitchellAmorphousTopologicalInsulators2018"
+role="doc-biblioref">2</a></sup></span> in analogy with the KSLs on the
+decorated honeycomb lattice<span class="citation"
+data-cites="yaoExactChiralSpin2007"><sup><a
+href="#ref-yaoExactChiralSpin2007"
+role="doc-biblioref">3</a></sup></span>.</p>
+<p>The <span class="math inline">\(\nu=0\)</span> phase is the amorphous
+analogue of the abelian toric-code QSL<span class="citation"
+data-cites="kitaev_fault-tolerant_2003"><sup><a
+href="#ref-kitaev_fault-tolerant_2003"
+role="doc-biblioref">4</a></sup></span>, whereas the <span
+class="math inline">\(\nu=\pm1\)</span> KSLs is a non-Abelian chiral
+spin liquid (CSL).</p>
+<p>We study two specific features of the latter liquid: topologically
+protected edge states and a thermal-induced Anderson transition to a
+thermal metal phase<span class="citation"
+data-cites="selfThermallyInducedMetallic2019"><sup><a
+href="#ref-selfThermallyInducedMetallic2019"
+role="doc-biblioref">5</a></sup></span>.</p>
+<p>Amorphous materials are glassy condensed matter systems characterised
+by short-range constraints in the absence of long-range crystalline
+order as first studied in amorphous semiconductors <span
+class="citation" data-cites="Yonezawa1983 zallen2008physics"><sup><a
+href="#ref-Yonezawa1983" role="doc-biblioref">6</a>,<a
+href="#ref-zallen2008physics" role="doc-biblioref">7</a></sup></span>.
+In general, the bonds of a whole range of covalent compounds enforce
+local constraints around each ion, e.g. a fixed coordination number
+<span class="math inline">\(z\)</span>, which has enabled the prediction
+of energy gaps even in lattices without translational symmetry <span
+class="citation" data-cites="Weaire1976 gaskell1979structure"><sup><a
+href="#ref-Weaire1976" role="doc-biblioref">8</a>,<a
+href="#ref-gaskell1979structure"
+role="doc-biblioref">9</a></sup></span>, the most famous example being
+amorphous Ge and Si with <span class="math inline">\(z=4\)</span> <span
+class="citation" data-cites="Weaire1971 betteridge1973possible"><sup><a
+href="#ref-Weaire1971" role="doc-biblioref">10</a>,<a
+href="#ref-betteridge1973possible"
+role="doc-biblioref">11</a></sup></span>. Recently, following the
+discovery of topological insulators (TIs) it has been shown that similar
+phases can exist in amorphous systems characterized by protected edge
+states and topological bulk invariants <span class="citation"
+data-cites="mitchellAmorphousTopologicalInsulators2018 agarwala2019topological marsalTopologicalWeaireThorpeModels2020 costa2019toward agarwala2020higher spring2021amorphous corbae2019evidence"><sup><a
+href="#ref-mitchellAmorphousTopologicalInsulators2018"
+role="doc-biblioref">2</a>,<a href="#ref-agarwala2019topological"
+role="doc-biblioref">12</a>–<a href="#ref-corbae2019evidence"
+role="doc-biblioref">17</a></sup></span>. However, research on
+electronic systems has been mostly focused on non-interacting systems
+with a few notable exceptions for understanding the occurrence of
+superconductivity <span class="citation"
+data-cites="buckel1954einfluss mcmillan1981electron bergmann1976amorphous"><sup><a
+href="#ref-buckel1954einfluss" role="doc-biblioref">18</a>–<a
+href="#ref-bergmann1976amorphous"
+role="doc-biblioref">20</a></sup></span> <span
+class="math inline">\(\textbf{J}\)</span>K: CECK OLD EMAIL WITH THEORY
+WORKS in amorphous materials and recently the effect of strong repulsion
+in amorphous TIs <span class="citation"
+data-cites="kim2022fractionalization"><sup><a
+href="#ref-kim2022fractionalization"
+role="doc-biblioref">21</a></sup></span>.</p>
+<p>Magnetic phases in amorphous systems have been investigated since the
+1960s, mostly through the adaptation of theoretical tools developed for
+disordered systems<span class="citation"
+data-cites="aharony1975critical Petrakovski1981 kaneyoshi1992introduction Kaneyoshi2018"><sup><a
+href="#ref-aharony1975critical" role="doc-biblioref">22</a>–<a
+href="#ref-Kaneyoshi2018" role="doc-biblioref">25</a></sup></span> and
+numerical methods <span class="citation"
+data-cites="fahnle1984monte plascak2000ising"><sup><a
+href="#ref-fahnle1984monte" role="doc-biblioref">26</a>,<a
+href="#ref-plascak2000ising" role="doc-biblioref">27</a></sup></span>.
+Research focused on classical Heisenberg and Ising models which have
+been shown to account for observed behavior of ferromagnetism,
+disordered antiferromagnetism and widely observed spin glass
+behaviour <span class="citation" data-cites="coey1978amorphous"><sup><a
+href="#ref-coey1978amorphous" role="doc-biblioref">28</a></sup></span>.
+However, the role of spin-anisotropic interactions and quantum effects
+has not been addressed. Similarly, it is an open question whether
+magnetic frustration in amorphous quantum magnets can give rise to
+long-range entangled quantum spin liquid (QSL) phases.</p>
+<p>Two intentional simplifications of Andreev’s and Marchenko’s theory
+were the neglect of spin-orbit coupling induced anisotropies and the
+effects arising from the local structure of amorphous lattices. It is
+then expected that their theory is invalid for amorphous compounds
+generated from crystalline magnets with strong spin-orbit coupling with
+tight geometrical arrangements. Several instances of these magnets were
+synthesized in the last decade, among which we highlight the Kitaev
+materials<span class="citation"
+data-cites="Jackeli2009 HerrmannsAnRev2018 Winter2017 TrebstPhysRep2022 Takagi2019"><sup><a
+href="#ref-Jackeli2009" role="doc-biblioref">29</a>–<a
+href="#ref-Takagi2019" role="doc-biblioref">33</a></sup></span>. It was
+suggested (and later observed) that heavy-ion Mott insulators formed by
+edge-sharing octahedra could be good platforms for the celebrated Kitaev
+model on the honeycomb lattice<span class="citation"
+data-cites="Jackeli2009"><sup><a href="#ref-Jackeli2009"
+role="doc-biblioref">29</a></sup></span>, an exactly solvable model
+whose ground state is a quantum spin liquid (QSL) <span class="citation"
+data-cites="Anderson1973 Knolle2019 Savary2016 Lacroix2011"><sup><a
+href="#ref-Anderson1973" role="doc-biblioref">34</a>–<a
+href="#ref-Lacroix2011" role="doc-biblioref">37</a></sup></span>
+characterized by a static <span class="math inline">\(\mathbb
+Z_2\)</span> gauge field and Majorana fermion excitations<span
+class="citation" data-cites="kitaevAnyonsExactlySolved2006"><sup><a
+href="#ref-kitaevAnyonsExactlySolved2006"
+role="doc-biblioref">38</a></sup></span>. The model displays
+bond-dependent Ising-like exchanges that give rise to local symmetries,
+which are essential to its mapping onto a free fermion problem<span
+class="citation" data-cites="Baskaran2007 Baskaran2008"><sup><a
+href="#ref-Baskaran2007" role="doc-biblioref">39</a>,<a
+href="#ref-Baskaran2008" role="doc-biblioref">40</a></sup></span>. Such
+a mapping is rigorously extendable to any three-coordinated graph in two
+or three dimensions satisfying a simple geometrical condition<span
+class="citation"
+data-cites="Nussinov2009 OBrienPRB2016 yaoExactChiralSpin2007 Peri2020"><sup><a
+href="#ref-yaoExactChiralSpin2007" role="doc-biblioref">3</a>,<a
+href="#ref-Nussinov2009" role="doc-biblioref">41</a>–<a
+href="#ref-Peri2020" role="doc-biblioref">43</a></sup></span>. Thus, it
+reasonable to suppose that the Kitaev model is also analytically
+treatable on certain amorphous lattices, therefore becoming a realistic
+starting point to study the overlooked possibility of QSLs in amorphous
+magnets.</p>
+<p>In this letter, we study Kitaev spin liquids (KSLs) stabilized by the
+<span class="math inline">\(S=1/2\)</span> Kitaev model<span
+class="citation" data-cites="kitaevAnyonsExactlySolved2006"><sup><a
+href="#ref-kitaevAnyonsExactlySolved2006"
+role="doc-biblioref">38</a></sup></span> on coordination number <span
+class="math inline">\(z=3\)</span> random networks generated via Voronoi
+tessellation<span class="citation"
+data-cites="mitchellAmorphousTopologicalInsulators2018 marsalTopologicalWeaireThorpeModels2020"><sup><a
+href="#ref-mitchellAmorphousTopologicalInsulators2018"
+role="doc-biblioref">2</a>,<a
+href="#ref-marsalTopologicalWeaireThorpeModels2020"
+role="doc-biblioref">13</a></sup></span>. On these lattices, the KSLs
+generically break time-reversal symmetry (TRS), as expected for any
+Majorana QSL in graphs containing odd-sided plaquettes<span
+class="citation"
+data-cites="Chua2011 ChuaPRB2011 Fiete2012 Natori2016 Wu2009 WangHaoranPRB2021"><sup><a
+href="#ref-Chua2011" role="doc-biblioref">44</a>–<a
+href="#ref-WangHaoranPRB2021" role="doc-biblioref">49</a></sup></span>.
+An extensive numerical study showed that the <span
+class="math inline">\(\mathbb Z_2\)</span> gauge fluxes on the ground
+state can be described by a conjecture consistent with Lieb’s
+theorem<span class="citation" data-cites="lieb_flux_1994"><sup><a
+href="#ref-lieb_flux_1994" role="doc-biblioref">50</a></sup></span>. In
+contrast to the honeycomb case, the amorphous KSLs are gapless only
+along certain critical lines. These manifolds separate two gapped KSLs
+that are topologically differentiated by a local Chern number <span
+class="math inline">\(\nu\)</span><span class="citation"
+data-cites="peru_preprint mitchellAmorphousTopologicalInsulators2018"><sup><a
+href="#ref-peru_preprint" role="doc-biblioref">1</a>,<a
+href="#ref-mitchellAmorphousTopologicalInsulators2018"
+role="doc-biblioref">2</a></sup></span> in analogy with the KSLs on the
+decorated honeycomb lattice<span class="citation"
+data-cites="yaoExactChiralSpin2007"><sup><a
+href="#ref-yaoExactChiralSpin2007"
+role="doc-biblioref">3</a></sup></span>. The <span
+class="math inline">\(\nu=0\)</span> phase is the amorphous analogue of
+the abelian toric-code QSL<span class="citation"
+data-cites="kitaev_fault-tolerant_2003"><sup><a
+href="#ref-kitaev_fault-tolerant_2003"
+role="doc-biblioref">4</a></sup></span>, whereas the <span
+class="math inline">\(\nu=\pm1\)</span> KSLs is a non-Abelian chiral
+spin liquid (CSL). We study two specific features of the latter liquid:
+topologically protected edge states and a thermal-induced Anderson
+transition to a thermal metal phase<span class="citation"
+data-cites="selfThermallyInducedMetallic2019"><sup><a
+href="#ref-selfThermallyInducedMetallic2019"
+role="doc-biblioref">5</a></sup></span>.</p>
+<p>Once the three-edge colouring has been found, the Kitaev Hamiltonian
+is mapped onto eqn. <a href="#eqn:majorana_hamiltonian"
+data-reference-type="ref"
+data-reference="eqn:majorana_hamiltonian">[eqn:majorana_hamiltonian]</a>,
+which corresponds to the spin fractionalization in terms of a static
+<span class="math inline">\(\mathbb Z_2\)</span> gauge fields and <span
+class="math inline">\(c\)</span> matter as indicated in  <a
+href="#fig:example_lattice" data-reference-type="ref"
+data-reference="fig:example_lattice">[fig:example_lattice]</a>(b)<span
+class="citation" data-cites="Baskaran2007"><sup><a
+href="#ref-Baskaran2007" role="doc-biblioref">39</a></sup></span>.</p>
+<p>Strictly speaking, the Majorana system is equivalent to the original
+spin system after applying a projector operator<span class="citation"
+data-cites="pedrocchiPhysicalSolutionsKitaev2011 Zschocke_Physical_states2015 selfThermallyInducedMetallic2019"><sup><a
+href="#ref-selfThermallyInducedMetallic2019"
+role="doc-biblioref">5</a>,<a
+href="#ref-pedrocchiPhysicalSolutionsKitaev2011"
+role="doc-biblioref">51</a>,<a href="#ref-Zschocke_Physical_states2015"
+role="doc-biblioref">52</a></sup></span>, whose form is presented in <a
+href="#apx:projector" data-reference-type="ref"
+data-reference="apx:projector">4</a>.</p>
+<p>Despite this caveat, one can still use eqn. <a
+href="#eqn:majorana_hamiltonian" data-reference-type="ref"
+data-reference="eqn:majorana_hamiltonian">[eqn:majorana_hamiltonian]</a>
+to evaluate the expectation values of operators conserving <span
+class="math inline">\(\hat u_{jk}\)</span> in the thermodynamic
+limit<span class="citation"
+data-cites="Yao2009 knolle_dynamics_2016"><sup><a href="#ref-Yao2009"
+role="doc-biblioref">53</a>,<a href="#ref-knolle_dynamics_2016"
+role="doc-biblioref">54</a></sup></span>. This type of operator is
+exemplified by the Hamiltonian itself, for which the ground state energy
+of a fixed sector is the sum of the negative eigenvalues of <span
+class="math inline">\(iA/4\)</span> in eqn. <a
+href="#eqn:majorana_hamiltonian" data-reference-type="ref"
+data-reference="eqn:majorana_hamiltonian">[eqn:majorana_hamiltonian]</a>,
+and whose excitations are extracted from the positive eigenvalues of the
+same matrix.</p>
+<h2 id="fluxes-and-the-ground-state">Fluxes and the Ground State</h2>
+<p>Let us now consider the conserved operators <span
+class="math inline">\(W_p = \prod
+\sigma_j^{\alpha}\sigma_k^{\alpha}\)</span> on amorphous lattices. When
+represented in the Majorana Hilbert space, these operators correspond to
+ordered products of <span class="math inline">\(\hat u_{jk}\)</span>,
+and their fixed eigenvalues are written as <span
+class="math display">\[\label{eqn:flux_definition}
+    \phi_p = \prod_{(j,k) \in \partial p} (-iu_{jk}),\]</span> where the
+pairs <span class="math inline">\(j,k\)</span> are crossed around the
+border <span class="math inline">\(\partial p\)</span> of the plaquette
+on the <em>clockwise</em> orientation.</p>
+<p>In periodic boundaries there is an additional pair of global <span
+class="math inline">\(\mathbb{Z}_2\)</span> fluxes <span
+class="math inline">\(\Phi_x\)</span> and <span
+class="math inline">\(\Phi_y\)</span>, which are calculated along an
+arbitrary closed path that wraps the torus in the <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> directions respectively. The energy
+difference between distinct flux sectors decays exponentially with
+system size, so that the ground state of any flux sector in the
+thermodynamic limit displays a <strong>fourfold</strong> topological
+degeneracy<span class="citation"
+data-cites="kitaev_fault-tolerant_2003"><sup><a
+href="#ref-kitaev_fault-tolerant_2003"
+role="doc-biblioref">4</a></sup></span>.</p>
+<h2 id="zero-temperature-phase-diagram">Zero Temperature Phase
+Diagram</h2>
+<p>We numerically found that the amorphous KSLs are generally gapped,
+except along the critical lines displayed.</p>
+<p>We believe that the <span class="math inline">\(A_x, A_y,
+A_z\)</span> phases remain Abelian as they are in the Kitaev model while
+the <span class="math inline">\(B\)</span> phase is non-Abelian. The B
+phase corresponds to the same extended kitaev honeycomb model.</p>
+<h3 id="chern-number-and-edge-modes">Chern Number and Edge Modes</h3>
+<p>The QSLs separated by these lines are distinguished by a real-space
+analogue of the Chern number<span class="citation"
+data-cites="bianco_mapping_2011 Hastings_Almost_2010"><sup><a
+href="#ref-bianco_mapping_2011" role="doc-biblioref">55</a>,<a
+href="#ref-Hastings_Almost_2010"
+role="doc-biblioref">56</a></sup></span>. A similar topological number
+was discussed by Kitaev on the honeycomb lattice<span class="citation"
+data-cites="kitaevAnyonsExactlySolved2006"><sup><a
+href="#ref-kitaevAnyonsExactlySolved2006"
+role="doc-biblioref">38</a></sup></span> that we shall use here with a
+slight modification<span class="citation"
+data-cites="peru_preprint mitchellAmorphousTopologicalInsulators2018"><sup><a
+href="#ref-peru_preprint" role="doc-biblioref">1</a>,<a
+href="#ref-mitchellAmorphousTopologicalInsulators2018"
+role="doc-biblioref">2</a></sup></span>. For a choice of flux sector, we
+calculate the projector <span class="math inline">\(P\)</span> onto the
+negative energy eigenstates of the matrix <span
+class="math inline">\(iA\)</span> defined in eqn. <a
+href="#eqn:majorana_hamiltonian" data-reference-type="ref"
+data-reference="eqn:majorana_hamiltonian">[eqn:majorana_hamiltonian]</a>.
+The local Chern number around a point <span
+class="math inline">\(\textbf{R}\)</span> in the bulk is given by <span
+class="math display">\[\begin{aligned}
+    \nu (\textbf{R}) = 4\pi \Im \mathrm{Tr}_{\mathrm{Bulk}}
+    \left (
+    P\theta_{R_x} P \theta_{R_y} P
+    \right ),\end{aligned}\]</span> where <span
+class="math inline">\(\theta_{R_x}\)</span> is a step function in the
+<span class="math inline">\(x\)</span>-direction, with the step located
+at <span class="math inline">\(x = R_x\)</span>, <span
+class="math inline">\(\theta_{R_y}\)</span> is defined analogously. The
+trace is taken over a region around <span
+class="math inline">\(\textbf{R}\)</span> in the bulk of the material,
+where care must be taken not to include any points close to the edges.
+Provided that the point <span class="math inline">\(\textbf{R}\)</span>
+is sufficiently far from the edges, this quantity will be very close to
+quantised to the Chern number.</p>
+<p>The local Chern marker distinguishes between an Abelian phase (A)
+with <span class="math inline">\(\nu = 0\)</span>, and a non-Abelian (B)
+phase characterized by <span class="math inline">\(\nu = \pm 1\)</span>.
+The (A) phase is equivalent to the toric code on an amorphous
+system<span class="citation"
+data-cites="kitaev_fault-tolerant_2003"><sup><a
+href="#ref-kitaev_fault-tolerant_2003"
+role="doc-biblioref">4</a></sup></span>.</p>
+<p>Since the (A) phase displays the "topological" degeneracy described
+above, I think that "topologically trivial" is not a good term to
+describe it. Another thing that I think it should be considered here.
+The abelian phase is expected to have 2x4 degeneracy, where the factor
+of 2 comes from time-reversal. On the other hand, the non-Abelian phase
+should display 2x3 degeneracy, as discussed by<span class="citation"
+data-cites="yaoExactChiralSpin2007"><sup><a
+href="#ref-yaoExactChiralSpin2007"
+role="doc-biblioref">3</a></sup></span>. Did you get any evidence of
+this?</p>
+<p>By contrast, the (B) phase is a <em>chiral spin liquid</em>, the
+magnetic analogue of the fractional quantum Hall state. Topologically
+protected edge modes are predicted to occur in these states on periodic
+boundary conditions following the bulk-boundary correspondence<span
+class="citation" data-cites="qi_general_2006"><sup><a
+href="#ref-qi_general_2006" role="doc-biblioref">57</a></sup></span>.
+The probability density of one such edge mode is given in <a
+href="#fig:edge_modes" data-reference-type="ref"
+data-reference="fig:edge_modes">1</a> (a), where it is shown to be
+exponentially localised to the boundary of the system. The localization
+of these modes can be quantified by their inverse participation ratio
+(IPR), <span class="math display">\[\mathrm{IPR} = \int
+d^2r|\psi(\mathbf{r})|^4  \propto L^{-\tau},\]</span> where <span
+class="math inline">\(L\sim\sqrt{N}\)</span> is the characteristic
+linear dimension of the amorphous lattices and <span
+class="math inline">\(\tau\)</span> dimensional scaling exponent of
+IPR.</p>
+<p>Finally, the CSL density of states in open boundary conditions
+indicates the low-energy modes within the gap of Majorana bands in <a
+href="#fig:edge_modes" data-reference-type="ref"
+data-reference="fig:edge_modes">1</a> (b).</p>
+<p>The phase diagram of the amorphous model in <a
+href="#fig:example_lattice" data-reference-type="ref"
+data-reference="fig:example_lattice">[fig:example_lattice]</a>(c)
+displays a reduced parameter space for the non-Abelian phase when
+compared to the honeycomb model. Interestingly, similar inward
+deformations of the critical lines were found on the Kitaev honeycomb
+model subject to disorder by proliferating flux vortices<span
+class="citation" data-cites="Nasu_Thermal_2015"><sup><a
+href="#ref-Nasu_Thermal_2015" role="doc-biblioref">58</a></sup></span>
+or exchange disorder<span class="citation"
+data-cites="knolle_dynamics_2016"><sup><a
+href="#ref-knolle_dynamics_2016"
+role="doc-biblioref">54</a></sup></span>.</p>
+<h2 id="anderson-transition-to-a-thermal-metal">Anderson Transition to a
+Thermal Metal</h2>
+<p>An Ising non-Abelian anyon is formed by Majorana zero-modes bound to
+a topological defect<span class="citation"
+data-cites="Beenakker2013"><sup><a href="#ref-Beenakker2013"
+role="doc-biblioref">59</a></sup></span>. Interactions between anyons
+are modeled by pairwise projectors whose strength absolute value decays
+exponentially with the separation between the particles, and whose sign
+oscillates in analogy to RKKY exchanges<span class="citation"
+data-cites="Laumann2012 Lahtinen_2011 lahtinenTopologicalLiquidNucleation2012"><sup><a
+href="#ref-Laumann2012" role="doc-biblioref">60</a>–<a
+href="#ref-lahtinenTopologicalLiquidNucleation2012"
+role="doc-biblioref">62</a></sup></span>. Disorder can induce a finite
+density of anyons whose hybridization lead to a macroscopically
+degenerate state known as <em>thermal metal</em><span class="citation"
+data-cites="Laumann2012"><sup><a href="#ref-Laumann2012"
+role="doc-biblioref">60</a></sup></span>. One instance of this phase can
+be settled on the Kitaev CSL. In this case, the topological defects
+correspond to the <span class="math inline">\(W_p \neq +1\)</span>
+fluxes, which naturally emerge from thermal fluctuations at nonzero
+temperature<span class="citation"
+data-cites="selfThermallyInducedMetallic2019"><sup><a
+href="#ref-selfThermallyInducedMetallic2019"
+role="doc-biblioref">5</a></sup></span>.</p>
+<p>We demonstrated that the amorphous CSL undergoes the same form of
+Anderson transition by studying its properties as a function of
+disorder. Unfortunately, we could not perform a complete study of its
+properties as a function of the temperature as it was not feasible to
+evaluate an ever-present boundary condition dependent factor<span
+class="citation"
+data-cites="pedrocchiPhysicalSolutionsKitaev2011 Zschocke_Physical_states2015"><sup><a
+href="#ref-pedrocchiPhysicalSolutionsKitaev2011"
+role="doc-biblioref">51</a>,<a href="#ref-Zschocke_Physical_states2015"
+role="doc-biblioref">52</a></sup></span> for random networks. Instead,
+we evaluated the fermionic density of states (DOS) and the IPR as a
+function of the vortex density <span class="math inline">\(\rho\)</span>
+as a proxy for temperature. This approximation is exact in the limits
+<span class="math inline">\(T = 0\)</span> (corresponding to <span
+class="math inline">\(\rho = 0\)</span>) and <span
+class="math inline">\(T \to \infty\)</span> (corresponding to <span
+class="math inline">\(\rho = 0.5\)</span>). At intermediate temperatures
+the method neglects to include the influence of defect-defect
+correlations.</p>
+<p>However, such an approximation is enough to show the onset of
+low-energy excitations for <span class="math inline">\(\rho \sim
+10^{-2}-10^{-1}\)</span>, as displayed on the top graphic of <a
+href="#fig:DOS_Oscillations" data-reference-type="ref"
+data-reference="fig:DOS_Oscillations">[fig:DOS_Oscillations]</a>(a). We
+characterized these gapless excitations using the dimensional scaling
+exponential <span class="math inline">\(\tau\)</span> of the IPR on the
+bottom graphic of the same figure. At small <span
+class="math inline">\(\rho\)</span>, the states populating the gap
+possess <span class="math inline">\(\tau\approx0\)</span>, indicating
+that they are localised states pinned to the defects, and the system
+remains insulating. At large <span class="math inline">\(\rho\)</span>,
+the in-gap states merge with the bulk band and become extensive, closing
+the gap, and the system transitions to a metallic phase.</p>
+<p>The thermal metal DOS displays a logarithmic divergence at zero
+energy and characteristic oscillations at small energies.<span
+class="citation"
+data-cites="bocquet_disordered_2000 selfThermallyInducedMetallic2019"><sup><a
+href="#ref-selfThermallyInducedMetallic2019"
+role="doc-biblioref">5</a>,<a href="#ref-bocquet_disordered_2000"
+role="doc-biblioref">63</a></sup></span>. These features were indeed
+observed by the averaged density of states in the <span
+class="math inline">\(\rho = 0.5\)</span> case shown in <a
+href="#fig:DOS_Oscillations" data-reference-type="ref"
+data-reference="fig:DOS_Oscillations">[fig:DOS_Oscillations]</a>(b) for
+amorphous lattice. We emphasize that the CSL studied here emerges
+without an applied magnetic field as opposed to the CSL on the honeycomb
+lattice studied in Ref.<span class="citation"
+data-cites="selfThermallyInducedMetallic2019"><sup><a
+href="#ref-selfThermallyInducedMetallic2019"
+role="doc-biblioref">5</a></sup></span> I have the impression that <a
+href="#fig:DOS_Oscillations" data-reference-type="ref"
+data-reference="fig:DOS_Oscillations">[fig:DOS_Oscillations]</a>(b) on
+the top is very similar to Fig. 3 of<span class="citation"
+data-cites="selfThermallyInducedMetallic2019"><sup><a
+href="#ref-selfThermallyInducedMetallic2019"
+role="doc-biblioref">5</a></sup></span>. Maybe a more instructive figure
+would be the DOS of the amorphous toric code at the infinite temperature
+limit. In this case, the lack of non-Abelian anyons would be reflected
+by a gap on the DOS, which would contrast nicely to the thermal metal
+phase</p>
+<h2 id="discussion-and-conclusions">Discussion and Conclusions</h2>
+<p>We have studied an extension of the Kitaev honeycomb model to
+amorphous lattices with coordination number <span
+class="math inline">\(z= 3\)</span>. We found that it is able to support
+two quantum spin liquid phases that can be distinguished using a
+real-space generalisation of the Chern number. The presence of odd-sided
+plaquettes on these lattices let to a spontaneous breaking of time
+reversal symmetry, leading to the emergence of a chiral spin liquid
+phase. Furthermore we found evidence that the amorphous system undergoes
+an Anderson transition to a thermal metal phase, driven by the
+proliferation of vortices with increasing temperature. The next step is
+to search for an experimental realisation in amorphous Kitaev materials,
+which can be created from crystalline ones using several methods<span
+class="citation"
+data-cites="Weaire1976 Petrakovski1981 Kaneyoshi2018"><sup><a
+href="#ref-Weaire1976" role="doc-biblioref">8</a>,<a
+href="#ref-Petrakovski1981" role="doc-biblioref">23</a>,<a
+href="#ref-Kaneyoshi2018" role="doc-biblioref">25</a></sup></span>.</p>
+<p>Following the evidence for an induced chiral spin liquid phase in
+crystalline Kitaev materials<span class="citation"
+data-cites="Kasahara2018 Yokoi2021 Yamashita2020 Bruin2022"><sup><a
+href="#ref-Kasahara2018" role="doc-biblioref">64</a>–<a
+href="#ref-Bruin2022" role="doc-biblioref">67</a></sup></span>, it would
+be interesting to investigate if a similar state is produced on its
+amorphous counterpart. Besides the usual half-quantized signature on
+thermal Hall effect<span class="citation"
+data-cites="Kasahara2018 Yokoi2021 Yamashita2020 Bruin2022"><sup><a
+href="#ref-Kasahara2018" role="doc-biblioref">64</a>–<a
+href="#ref-Bruin2022" role="doc-biblioref">67</a></sup></span>, such a
+CSL could be also characterized using local probes such as
+spin-polarized scanning-tunneling microscopy<span class="citation"
+data-cites="Feldmeier2020 Konig2020 Udagawa2021"><sup><a
+href="#ref-Feldmeier2020" role="doc-biblioref">68</a>–<a
+href="#ref-Udagawa2021" role="doc-biblioref">70</a></sup></span>. The
+same probes would also be useful to manipulate non-Abelian anyons<span
+class="citation" data-cites="Pereira2020"><sup><a
+href="#ref-Pereira2020" role="doc-biblioref">71</a></sup></span>,
+thereby implementing elementary operations for topological quantum
+computation. Finally, the thermal metal phase can be diagnosed using
+bulk heat transport measurements<span class="citation"
+data-cites="Beenakker2013"><sup><a href="#ref-Beenakker2013"
+role="doc-biblioref">59</a></sup></span>.</p>
+<p>This work can be generalized in several ways. Introduction of
+symmetry allowed perturbations on the model<span class="citation"
+data-cites="Rau2014 Chaloupka2010 Chaloupka2013 Chaloupka2015 Winter2016"><sup><a
+href="#ref-Rau2014" role="doc-biblioref">72</a>–<a
+href="#ref-Winter2016" role="doc-biblioref">76</a></sup></span>.
+Generalizations to higher-spin models in random networks with different
+coordination numbers<span class="citation"
+data-cites="Baskaran2008 Yao2009 Nussinov2009 Yao2011 Chua2011 Natori2020 Chulliparambil2020 Chulliparambil2021 Seifert2020 WangHaoranPRB2021 Wu2009"><sup><a
+href="#ref-Baskaran2008" role="doc-biblioref">40</a>,<a
+href="#ref-Nussinov2009" role="doc-biblioref">41</a>,<a
+href="#ref-Chua2011" role="doc-biblioref">44</a>,<a href="#ref-Wu2009"
+role="doc-biblioref">48</a>,<a href="#ref-WangHaoranPRB2021"
+role="doc-biblioref">49</a>,<a href="#ref-Yao2009"
+role="doc-biblioref">53</a>,<a href="#ref-Yao2011"
+role="doc-biblioref">77</a>–<a href="#ref-Seifert2020"
+role="doc-biblioref">81</a></sup></span></p>
+<p>Probably one way to make this theory experimentally relevant is to do
+experiments on amorphous phases of Kitaev materials. These phases can be
+obtained by liquifying the material and cooling it fast. Apparently,
+most of crystalline magnets can be transformed into amorphous ones
+through this process.</p>
+<h1 id="apx:ground_state">Numerical Evidence for the Ground State Flux
+Sector</h1>
+<p>In this section we detail the numerical evidence collected to support
+the claim that, for an arbitrary lattice, a gapped ground state flux
+sector is found by setting the flux through each plaquette to <span
+class="math inline">\(\phi_{\mathrm{g.s.}} = -(\pm
+i)^{n_{\mathrm{sides}}}\)</span>. This was done by generating a large
+number (<span class="math inline">\(\sim\)</span> 25,000) of lattices
+and exhaustively checking every possible flux sector to find the
+configuration with the lowest energy. We checked both the isotropic
+point (<span class="math inline">\(J^\alpha = 1\)</span>), as well as in
+the toric code phase (<span class="math inline">\(J^x = J^y = 0.25, J^z
+= 1\)</span>).</p>
+<p>The argument has one complication: for a graph with <span
+class="math inline">\(n_p\)</span> plaquettes, there are <span
+class="math inline">\(2^{n_p - 1}\)</span> distinct flux sectors to
+search over, with an added factor of 4 when the global fluxes <span
+class="math inline">\(\Phi_x\)</span> and <span
+class="math inline">\(\Phi_y\)</span> are taken into account. Note that
+the <span class="math inline">\(-1\)</span> appears in this counting
+because fluxes can only be flipped in pairs. To be able to search over
+the entire flux space, one is necessarily restricted to looking at small
+system sizes – we were able to check all flux sectors for systems with
+<span class="math inline">\(n_p \leq 16\)</span> in a reasonable amount
+of time. However, at such small system size we find that finite size
+effects are substantial enough to destroy our results. In order to
+overcome these effects we tile the system and use Bloch’s theorem (a
+trick that we shall refer to as <em>twist-averaging</em> for reasons
+that shall become clear) to efficiently find the energy of a much larger
+(but periodic) lattice. Thus we are able to suppress finite size
+effects, at the expense of losing long-range disorder in the
+lattice.</p>
+<p>Our argument has three parts: First we shall detail the techniques
+used to exhaustively search the flux space for a given lattice. Next, we
+discuss finite-size effects and explain the way that our methods are
+modified by the twist-averaging procedure. Finally, we demonstrate that
+as the size of the disordered system is increased, the effect of
+twist-averaging becomes negligible – suggesting that our conclusions
+still apply in the case of large disordered lattices.</p>
+<p><em>Testing All Flux Sectors —</em> For a given lattice and flux
+sector, defined by <span class="math inline">\(\{ u_{jk}\}\)</span>, the
+fermionic ground state energy is calculated by taking the sum of the
+negative eigenvalues of the matrix <span
+class="math display">\[\begin{aligned}
+    M_{jk} = \frac{i}{2} J^{\alpha} u_{jk}.\end{aligned}\]</span> The
+set of bond variables <span class="math inline">\(u_{jk}\)</span>, which
+we are free to choose, determine the <span class="math inline">\(\mathbb
+Z_2\)</span> gauge field. However only the fluxes, defined for each
+plaquette according to eqn. <a href="#eqn:flux_definition"
+data-reference-type="ref"
+data-reference="eqn:flux_definition">[eqn:flux_definition]</a>, have any
+effect on the energies. Thus, there is enormous degeneracy in the <span
+class="math inline">\(u_{jk}\)</span> degrees of freedom. Flipping the
+bonds along any closed loop on the dual lattice has no effect on the
+fluxes, since each plaquette has had an even number of its constituent
+bonds flipped - as is shown in the following diagram:</p>
+<div class="center">
+
+</div>
+<p>where the flipped bonds are shown in red. In order to explore every
+possible flux sector using the <span
+class="math inline">\(u_{jk}\)</span> variables, we restrict ourselves
+to change only a subset of the bonds in the system. In particular, we
+construct a spanning tree on the dual lattice, which passes through
+every plaquette in the system, but contains no loops.</p>
+<div class="center">
+
+</div>
+<p>The tree contains <span class="math inline">\(n_p - 1\)</span> edges,
+shown in red, whose configuration space has a <span
+class="math inline">\(1:1\)</span> mapping onto the <span
+class="math inline">\(2^{n_p - 1}\)</span> distinct flux sectors. Each
+flux sector can be created in precisely one way by flipping edges only
+on the tree (provided all other bond variables not on the tree remain
+fixed). Thus, all possible flux sectors can be accessed by iterating
+over all configurations of edges on this spanning tree.</p>
+<p><em>Finite Size Effects —</em> In our numerical investigation, the
+objective was to test as many example lattices as possible. We aim for
+the largest lattice size that could be efficiently solved, requiring a
+balance between lattice size and cases tested. Each added plaquette
+doubles the number of flux sectors that must be checked. 25,000 lattices
+containing 16 plaquettes were used. However, in his numerical
+investigation of the honeycomb model, Kitaev demonstrated that finite
+size effects persist up to much larger lattice sizes than we were able
+to access<span class="citation"
+data-cites="kitaevAnyonsExactlySolved2006"><sup><a
+href="#ref-kitaevAnyonsExactlySolved2006"
+role="doc-biblioref">38</a></sup></span>.</p>
+<p>In order to circumvent this problem, we treat the 16-plaquette
+amorphous lattice as a unit cell in an arbitrarily large periodic
+system. The bonds that originally connected across the periodic
+boundaries now connect adjacent unit cells. This infinite periodic
+Hamiltonian can then be solved using Bloch’s theorem, since the larger
+system is diagonalised by a plane wave ansatz. For a given crystal
+momentum <span class="math inline">\(\textbf{q} \in [0,2\pi)^2\)</span>,
+we are left with a Bloch Hamiltonian, which is identical to the original
+Hamiltonian aside from an extra phase on edges that cross the periodic
+boundaries in the <span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> directions, <span
+class="math display">\[\begin{aligned}
+    M_{jk}(\textbf{q}) =  \frac{i}{2} J^{\alpha} u_{jk} e^{i
+q_{jk}},\end{aligned}\]</span> where <span class="math inline">\(q_{jk}
+= q_x\)</span> for a bond that crosses the <span
+class="math inline">\(x\)</span>-periodic boundary in the positive
+direction, with the analogous definition for <span
+class="math inline">\(y\)</span>-crossing bonds. We also have <span
+class="math inline">\(q_{jk} = -q_{kj}\)</span>. Finally <span
+class="math inline">\(q_{jk} = 0\)</span> if the edge does not cross any
+boundaries at all – in essence we are imposing twisted boundary
+conditions on our system. The total energy of the tiled system can be
+calculated by summing the energy of <span class="math inline">\(M(
+\textbf{q})\)</span> for every value of <span
+class="math inline">\(\textbf{q}\)</span>. In practice we constructed a
+lattice of <span class="math inline">\(50 \times 50\)</span> values of
+<span class="math inline">\(\textbf{q}\)</span> spanning the Brillouin
+zone. The procedure is called twist averaging because the
+energy-per-unit cell is equivalent to the average energy over the full
+range of twisted boundary conditions.</p>
+<p><em>Evidence for the Ground State Ansatz —</em> For each lattice with
+16 plaquettes, <span class="math inline">\(2^{15} =\)</span> 32,768 flux
+sectors are generated. In each case we find the energy (averaged over
+all twist values) and the size of the fermion gap, which is defined as
+the lowest energy excitation for any value of $ }$. We then check if the
+lowest energy flux sector aligns with our ansatz (eqn. <a
+href="#eqn:gnd_flux" data-reference-type="ref"
+data-reference="eqn:gnd_flux">[eqn:gnd_flux]</a>) and whether this flux
+sector is gapped.</p>
+<p>In the isotropic case (<span class="math inline">\(J^\alpha =
+1\)</span>), all 25,000 examples conformed to our guess for the ground
+state flux sector. A tiny minority (<span class="math inline">\(\sim
+10\)</span>) of the systems were found to be gapless. As we shall see
+shortly, the proportion of gapless systems vanishes as we increase the
+size of the amorphous lattice. An example of the energies and gaps for
+one of the systems tested is shown in fig. <a
+href="#fig:energy_gaps_example" data-reference-type="ref"
+data-reference="fig:energy_gaps_example">[fig:energy_gaps_example]</a>.
+For the anisotropic phase (we used <span class="math inline">\(J^x, J^y
+= 0.25, J^z = 1\)</span>) the overwhelming majority of cases adhered to
+our ansatz, however a small minority (<span class="math inline">\(\sim
+0.5 \%\)</span>) did not. In these cases, however, the energy difference
+between our ansatz and the ground state was at most of order <span
+class="math inline">\(10^{-6}\)</span>. Further investigation would need
+to be undertaken to determine whether these anomalous systems are a
+finite size effect due to the small amorphous system sizes used or a
+genuine feature of the toric code phase on such lattices.</p>
+<p><em>A Gapped Ground State —</em> Now that we have collected
+sufficient evidence to support our guess for the ground state flux
+sector, we turn our attention to checking that this sector is gapped. We
+no longer need to exhaustively search over flux space for the ground
+state, so it is possible to go to much larger system size. We generate
+40 sets of systems with plaquette numbers ranging from 9 to 1600. For
+each system size, 1000 distinct lattices are generated and the energy
+and gap size are calculated without phase twisting, since the effect is
+negligible for such large system sizes. As can be seen, for very small
+system size a small minority of gapless systems appear, however beyond
+around 20 plaquettes all systems had a stable fermion gap in the ground
+state.</p>
+<div id="refs" class="references csl-bib-body" data-line-spacing="2"
+role="doc-bibliography">
+<div id="ref-peru_preprint" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline">d’Ornellas, P., Barnett, R. &amp; Lee, D. K. K.
+Quantised bulk conductivity as a local chern marker. <em>arXiv
+preprint</em> (2022) doi:<a
+href="https://doi.org/10.48550/ARXIV.2207.01389">10.48550/ARXIV.2207.01389</a>.</div>
+</div>
+<div id="ref-mitchellAmorphousTopologicalInsulators2018"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Mitchell, N. P., Nash, L. M., Hexner, D.,
+Turner, A. M. &amp; Irvine, W. T. M. <a
+href="https://doi.org/10.1038/s41567-017-0024-5">Amorphous topological
+insulators constructed from random point sets</a>. <em>Nature Phys</em>
+<strong>14</strong>, 380–385 (2018).</div>
+</div>
+<div id="ref-yaoExactChiralSpin2007" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Yao,
+H. &amp; Kivelson, S. A. <a
+href="https://doi.org/10.1103/PhysRevLett.99.247203">An exact chiral
+spin liquid with non-<span>Abelian</span> anyons</a>. <em>Phys. Rev.
+Lett.</em> <strong>99</strong>, 247203 (2007).</div>
+</div>
+<div id="ref-kitaev_fault-tolerant_2003" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline">Kitaev, A. Y. <a
+href="https://doi.org/10.1016/S0003-4916(02)00018-0">Fault-tolerant
+quantum computation by anyons</a>. <em>Annals of Physics</em>
+<strong>303</strong>, 2–30 (2003).</div>
+</div>
+<div id="ref-selfThermallyInducedMetallic2019" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline">Self, C. N., Knolle, J., Iblisdir, S. &amp;
+Pachos, J. K. <a
+href="https://doi.org/10.1103/PhysRevB.99.045142">Thermally induced
+metallic phase in a gapped quantum spin liquid: <span>Monte</span> carlo
+study of the kitaev model with parity projection</a>. <em>Phys. Rev.
+B</em> <strong>99</strong>, 045142 (2019-01-25, 2019).</div>
+</div>
+<div id="ref-Yonezawa1983" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline"><em>Topological disorder in condensed
+matter</em>. vol. 46 (<span>Springer-Verlag</span>, 1983).</div>
+</div>
+<div id="ref-zallen2008physics" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline">Zallen, R. <em>The physics of amorphous
+solids</em>. (<span>John Wiley &amp; Sons</span>, 2008).</div>
+</div>
+<div id="ref-Weaire1976" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div
+class="csl-right-inline">Weaire, D. &amp; Thorpe, M. F. <a
+href="https://doi.org/10.1080/00107517608210851">The structure of
+amorphous solids</a>. <em>Contemporary Physics</em> <strong>17</strong>,
+173–191 (1976).</div>
+</div>
+<div id="ref-gaskell1979structure" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline">Gaskell, P. On the structure of simple
+inorganic amorphous solids. <em>Journal of Physics C: Solid State
+Physics</em> <strong>12</strong>, 4337 (1979).</div>
+</div>
+<div id="ref-Weaire1971" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline">Weaire, D. &amp; Thorpe, M. F. <a
+href="https://doi.org/10.1103/PhysRevB.4.2508">Electronic properties of
+an amorphous solid. <span>I</span>. <span>A</span> simple tight-binding
+theory</a>. <em>Phys. Rev. B</em> <strong>4</strong>, 2508–2520
+(1971).</div>
+</div>
+<div id="ref-betteridge1973possible" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline">Betteridge, G. A possible model of amorphous
+silicon and germanium. <em>Journal of Physics C: Solid State
+Physics</em> <strong>6</strong>, L427 (1973).</div>
+</div>
+<div id="ref-agarwala2019topological" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline">Agarwala, A. Topological insulators in
+amorphous systems. in <em>Excursions in ill-condensed quantum
+matter</em> 61–79 (<span>Springer</span>, 2019).</div>
+</div>
+<div id="ref-marsalTopologicalWeaireThorpeModels2020" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline">Marsal, Q., Varjas, D. &amp; Grushin, A. G. <a
+href="https://doi.org/10.1073/pnas.2007384117">Topological
+<span>Weaire-Thorpe</span> models of amorphous matter</a>. <em>Proc.
+Natl. Acad. Sci. U.S.A.</em> <strong>117</strong>, 30260–30265
+(2020).</div>
+</div>
+<div id="ref-costa2019toward" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline">Costa, M., Schleder, G. R., Buongiorno
+Nardelli, M., Lewenkopf, C. &amp; Fazzio, A. Toward realistic amorphous
+topological insulators. <em>Nano letters</em> <strong>19</strong>,
+8941–8946 (2019).</div>
+</div>
+<div id="ref-agarwala2020higher" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">15. </div><div
+class="csl-right-inline">Agarwala, A., Juričić, V. &amp; Roy, B.
+Higher-order topological insulators in amorphous solids. <em>Physical
+Review Research</em> <strong>2</strong>, 012067 (2020).</div>
+</div>
+<div id="ref-spring2021amorphous" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline">Spring, H., Akhmerov, A. &amp; Varjas, D.
+Amorphous topological phases protected by continuous rotation symmetry.
+<em>SciPost Physics</em> <strong>11</strong>, 022 (2021).</div>
+</div>
+<div id="ref-corbae2019evidence" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">17. </div><div
+class="csl-right-inline">Corbae, P. <em>et al.</em> Evidence for
+topological surface states in amorphous <span>Bi</span> _ {2}
+<span>Se</span> _ {3}. <em>arXiv preprint arXiv:1910.13412</em>
+(2019).</div>
+</div>
+<div id="ref-buckel1954einfluss" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">18. </div><div
+class="csl-right-inline">Buckel, W. &amp; Hilsch, R. Einfluß der
+kondensation bei tiefen temperaturen auf den elektrischen widerstand und
+die supraleitung für verschiedene metalle. <em>Zeitschrift für
+Physik</em> <strong>138</strong>, 109–120 (1954).</div>
+</div>
+<div id="ref-mcmillan1981electron" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">19. </div><div
+class="csl-right-inline">McMillan, W. &amp; Mochel, J. Electron
+tunneling experiments on amorphous ge 1- x au x. <em>Physical Review
+Letters</em> <strong>46</strong>, 556 (1981).</div>
+</div>
+<div id="ref-bergmann1976amorphous" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">20. </div><div
+class="csl-right-inline">Bergmann, G. Amorphous metals and their
+superconductivity. <em>Physics Reports</em> <strong>27</strong>, 159–185
+(1976).</div>
+</div>
+<div id="ref-kim2022fractionalization" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">21. </div><div
+class="csl-right-inline">Kim, S., Agarwala, A. &amp; Chowdhury, D.
+Fractionalization and topology in amorphous electronic solids. <em>arXiv
+preprint arXiv:2205.11523</em> (2022).</div>
+</div>
+<div id="ref-aharony1975critical" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">22. </div><div
+class="csl-right-inline">Aharony, A. Critical behavior of amorphous
+magnets. <em>Physical Review B</em> <strong>12</strong>, 1038
+(1975).</div>
+</div>
+<div id="ref-Petrakovski1981" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">23. </div><div
+class="csl-right-inline">Petrakovskiı̆, G. A. <a
+href="https://doi.org/10.1070/pu1981v024n06abeh004850">Amorphous
+magnetic materials</a>. <em>Soviet Physics Uspekhi</em>
+<strong>24</strong>, 511–525 (1981).</div>
+</div>
+<div id="ref-kaneyoshi1992introduction" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">24. </div><div
+class="csl-right-inline">Kaneyoshi, T. <em>Introduction to amorphous
+magnets</em>. (<span>World Scientific Publishing Company</span>,
+1992).</div>
+</div>
+<div id="ref-Kaneyoshi2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">25. </div><div
+class="csl-right-inline"><em>Amorphous magnetism</em>. (<span>CRC
+Press</span>, 2018).</div>
+</div>
+<div id="ref-fahnle1984monte" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">26. </div><div
+class="csl-right-inline">Fähnle, M. Monte <span>Carlo</span> study of
+phase transitions in bond-and site-disordered <span>Ising</span> and
+classical <span>Heisenberg</span> ferromagnets. <em>Journal of magnetism
+and magnetic materials</em> <strong>45</strong>, 279–287 (1984).</div>
+</div>
+<div id="ref-plascak2000ising" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">27. </div><div
+class="csl-right-inline">Plascak, J., Zamora, L. E. &amp; Alcazar, G. P.
+Ising model for disordered ferromagnetic <span>Fe- Al</span> alloys.
+<em>Physical Review B</em> <strong>61</strong>, 3188 (2000).</div>
+</div>
+<div id="ref-coey1978amorphous" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">28. </div><div
+class="csl-right-inline">Coey, J. Amorphous magnetic order. <em>Journal
+of Applied Physics</em> <strong>49</strong>, 1646–1652 (1978).</div>
+</div>
+<div id="ref-Jackeli2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">29. </div><div
+class="csl-right-inline">Jackeli, G. &amp; Khaliullin, G. <a
+href="https://doi.org/10.1103/PhysRevLett.102.017205">Mott insulators in
+the strong spin-orbit coupling limit: From <span>Heisenberg</span> to a
+quantum compass and <span>Kitaev</span> models</a>. <em>Physical Review
+Letters</em> <strong>102</strong>, 017205 (2009).</div>
+</div>
+<div id="ref-HerrmannsAnRev2018" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">30. </div><div
+class="csl-right-inline">Hermanns, M., Kimchi, I. &amp; Knolle, J. <a
+href="https://doi.org/10.1146/annurev-conmatphys-033117-053934">Physics
+of the kitaev model: <span>Fractionalization</span>, dynamic
+correlations, and material connections</a>. <em>Annual Review of
+Condensed Matter Physics</em> <strong>9</strong>, 17–33 (2018).</div>
+</div>
+<div id="ref-Winter2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">31. </div><div
+class="csl-right-inline">Winter, S. M. <em>et al.</em> Models and
+materials for generalized <span>Kitaev</span> magnetism. <em>Journal of
+Physics: Condensed Matter</em> <strong>29</strong>, 493002 (2017).</div>
+</div>
+<div id="ref-TrebstPhysRep2022" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">32. </div><div
+class="csl-right-inline">Trebst, S. &amp; Hickey, C. <a
+href="https://doi.org/10.1016/j.physrep.2021.11.003">Kitaev
+materials</a>. <em>Physics Reports</em> <strong>950</strong>, 1–37
+(2022).</div>
+</div>
+<div id="ref-Takagi2019" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">33. </div><div
+class="csl-right-inline">Takagi, H., Takayama, T., Jackeli, G.,
+Khaliullin, G. &amp; Nagler, S. E. Concept and realization of
+<span>Kitaev</span> quantum spin liquids. <em>Nature Reviews
+Physics</em> <strong>1</strong>, 264–280 (2019).</div>
+</div>
+<div id="ref-Anderson1973" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">34. </div><div
+class="csl-right-inline">Anderson, P. W. Resonating valence bonds: A new
+kind of insulator? <em>Mater. Res. Bull.</em> <strong>8</strong>,
+153–160 (1973).</div>
+</div>
+<div id="ref-Knolle2019" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">35. </div><div
+class="csl-right-inline">Knolle, J. &amp; Moessner, R. <a
+href="https://doi.org/10.1146/annurev-conmatphys-031218-013401">A field
+guide to spin liquids</a>. <em>Annual Review of Condensed Matter
+Physics</em> <strong>10</strong>, 451–472 (2019).</div>
+</div>
+<div id="ref-Savary2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">36. </div><div
+class="csl-right-inline">Savary, L. &amp; Balents, L. Quantum spin
+liquids: A review. <em>Reports on Progress in Physics</em>
+<strong>80</strong>, 016502 (2017).</div>
+</div>
+<div id="ref-Lacroix2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">37. </div><div
+class="csl-right-inline"><em>Introduction to frustrated magnetism</em>.
+vol. 164 (<span>Springer-Verlag</span>, 2011).</div>
+</div>
+<div id="ref-kitaevAnyonsExactlySolved2006" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">38. </div><div
+class="csl-right-inline">Kitaev, A. <a
+href="https://doi.org/10.1016/j.aop.2005.10.005">Anyons in an exactly
+solved model and beyond</a>. <em>Annals of Physics</em>
+<strong>321</strong>, 2–111 (2006-01-01, 2006).</div>
+</div>
+<div id="ref-Baskaran2007" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">39. </div><div
+class="csl-right-inline">Baskaran, G., Mandal, S. &amp; Shankar, R. <a
+href="https://doi.org/10.1103/PhysRevLett.98.247201">Exact results for
+spin dynamics and fractionalization in the kitaev model</a>. <em>Phys.
+Rev. Lett.</em> <strong>98</strong>, 247201 (2007).</div>
+</div>
+<div id="ref-Baskaran2008" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">40. </div><div
+class="csl-right-inline">Baskaran, G., Sen, D. &amp; Shankar, R. <a
+href="https://doi.org/10.1103/PhysRevB.78.115116">Spin-<span>S
+Kitaev</span> model: <span>Classical</span> ground states, order from
+disorder, and exact correlation functions</a>. <em>Phys. Rev. B</em>
+<strong>78</strong>, 115116 (2008).</div>
+</div>
+<div id="ref-Nussinov2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">41. </div><div
+class="csl-right-inline">Nussinov, Z. &amp; Ortiz, G. <a
+href="https://doi.org/10.1103/PhysRevB.79.214440">Bond algebras and
+exact solvability of <span>Hamiltonians</span>: Spin
+<span>S</span>=<span><span
+class="math inline">\(\frac{1}{2}\)</span></span> multilayer
+systems</a>. <em>Physical Review B</em> <strong>79</strong>, 214440
+(2009).</div>
+</div>
+<div id="ref-OBrienPRB2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">42. </div><div
+class="csl-right-inline">O’Brien, K., Hermanns, M. &amp; Trebst, S. <a
+href="https://doi.org/10.1103/PhysRevB.93.085101">Classification of
+gapless <span>Z</span><span><span
+class="math inline">\(_2\)</span></span> spin liquids in
+three-dimensional <span>Kitaev</span> models</a>. <em>Phys. Rev. B</em>
+<strong>93</strong>, 085101 (2016).</div>
+</div>
+<div id="ref-Peri2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">43. </div><div
+class="csl-right-inline">Peri, V. <em>et al.</em> <a
+href="https://doi.org/10.1103/PhysRevB.101.041114">Non-<span>Abelian</span>
+chiral spin liquid on a simple non-<span>Archimedean</span> lattice</a>.
+<em>Phys. Rev. B</em> <strong>101</strong>, 041114 (2020).</div>
+</div>
+<div id="ref-Chua2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">44. </div><div
+class="csl-right-inline">Chua, V., Yao, H. &amp; Fiete, G. A. <a
+href="https://doi.org/10.1103/PhysRevB.83.180412">Exact chiral spin
+liquid with stable spin <span>Fermi</span> surface on the kagome
+lattice</a>. <em>Phys. Rev. B</em> <strong>83</strong>, 180412
+(2011).</div>
+</div>
+<div id="ref-ChuaPRB2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">45. </div><div
+class="csl-right-inline">Chua, V. &amp; Fiete, G. A. <a
+href="https://doi.org/10.1103/PhysRevB.84.195129">Exactly solvable
+topological chiral spin liquid with random exchange</a>. <em>Phys. Rev.
+B</em> <strong>84</strong>, 195129 (2011).</div>
+</div>
+<div id="ref-Fiete2012" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">46. </div><div
+class="csl-right-inline">Fiete, G. A. <em>et al.</em> <a
+href="https://doi.org/10.1016/j.physe.2011.11.011">Topological
+insulators and quantum spin liquids</a>. <em>Physica E: Low-dimensional
+Systems and Nanostructures</em> <strong>44</strong>, 845–859
+(2012).</div>
+</div>
+<div id="ref-Natori2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">47. </div><div
+class="csl-right-inline">Natori, W. M. H., Andrade, E. C., Miranda, E.
+&amp; Pereira, R. G. Chiral spin-orbital liquids with nodal lines.
+<em>Phys. Rev. Lett.</em> <strong>117</strong>, 017204 (2016).</div>
+</div>
+<div id="ref-Wu2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">48. </div><div class="csl-right-inline">Wu,
+C., Arovas, D. &amp; Hung, H.-H. <span><span
+class="math inline">\(\Gamma\)</span></span>-matrix generalization of
+the <span>Kitaev</span> model. <em>Physical Review B</em>
+<strong>79</strong>, 134427 (2009).</div>
+</div>
+<div id="ref-WangHaoranPRB2021" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">49. </div><div
+class="csl-right-inline">Wang, H. &amp; Principi, A. <a
+href="https://doi.org/10.1103/PhysRevB.104.214422">Majorana edge and
+corner states in square and kagome quantum spin-<span><span
+class="math inline">\(^{3}\fracslash_2\)</span></span> liquids</a>.
+<em>Phys. Rev. B</em> <strong>104</strong>, 214422 (2021).</div>
+</div>
+<div id="ref-lieb_flux_1994" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">50. </div><div
+class="csl-right-inline">Lieb, E. H. <a
+href="https://doi.org/10.1103/PhysRevLett.73.2158">Flux
+<span>Phase</span> of the <span>Half-Filled Band</span></a>.
+<em>Physical Review Letters</em> <strong>73</strong>, 2158–2161
+(1994).</div>
+</div>
+<div id="ref-pedrocchiPhysicalSolutionsKitaev2011" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">51. </div><div
+class="csl-right-inline">Pedrocchi, F. L., Chesi, S. &amp; Loss, D. <a
+href="https://doi.org/10.1103/PhysRevB.84.165414">Physical solutions of
+the <span>Kitaev</span> honeycomb model</a>. <em>Phys. Rev. B</em>
+<strong>84</strong>, 165414 (2011).</div>
+</div>
+<div id="ref-Zschocke_Physical_states2015" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">52. </div><div
+class="csl-right-inline">Zschocke, F. &amp; Vojta, M. <a
+href="https://doi.org/10.1103/PhysRevB.92.014403">Physical states and
+finite-size effects in <span>Kitaev</span>’s honeycomb model:
+<span>Bond</span> disorder, spin excitations, and <span>NMR</span> line
+shape</a>. <em>Phys. Rev. B</em> <strong>92</strong>, 014403
+(2015).</div>
+</div>
+<div id="ref-Yao2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">53. </div><div
+class="csl-right-inline">Yao, H., Zhang, S.-C. &amp; Kivelson, S. A. <a
+href="https://doi.org/10.1103/PhysRevLett.102.217202">Algebraic spin
+liquid in an exactly solvable spin model</a>. <em>Phys. Rev. Lett.</em>
+<strong>102</strong>, 217202 (2009).</div>
+</div>
+<div id="ref-knolle_dynamics_2016" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">54. </div><div
+class="csl-right-inline">Knolle, J. Dynamics of a quantum spin liquid.
+(Max Planck Institute for the Physics of Complex Systems, Dresden,
+2016).</div>
+</div>
+<div id="ref-bianco_mapping_2011" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">55. </div><div
+class="csl-right-inline">Bianco, R. &amp; Resta, R. <a
+href="https://doi.org/10.1103/PhysRevB.84.241106">Mapping topological
+order in coordinate space</a>. <em>Physical Review B</em>
+<strong>84</strong>, 241106 (2011).</div>
+</div>
+<div id="ref-Hastings_Almost_2010" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">56. </div><div
+class="csl-right-inline">Hastings, M. B. &amp; Loring, T. A. <a
+href="https://doi.org/10.1063/1.3274817">Almost commuting matrices,
+localized <span>Wannier</span> functions, and the quantum
+<span>Hall</span> effect</a>. <em>Journal of Mathematical Physics</em>
+<strong>51</strong>, 015214 (2010).</div>
+</div>
+<div id="ref-qi_general_2006" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">57. </div><div class="csl-right-inline">Qi,
+X.-L., Wu, Y.-S. &amp; Zhang, S.-C. <a
+href="https://doi.org/10.1103/PhysRevB.74.045125">General theorem
+relating the bulk topological number to edge states in two-dimensional
+insulators</a>. <em>Physical Review B</em> <strong>74</strong>, 045125
+(2006).</div>
+</div>
+<div id="ref-Nasu_Thermal_2015" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">58. </div><div
+class="csl-right-inline">Nasu, J., Udagawa, M. &amp; Motome, Y. <a
+href="https://doi.org/10.1103/PhysRevB.92.115122">Thermal
+fractionalization of quantum spins in a <span>Kitaev</span> model: <span
+class="nocase">Temperature-linear</span> specific heat and coherent
+transport of <span>Majorana</span> fermions</a>. <em>Phys. Rev. B</em>
+<strong>92</strong>, 115122 (2015).</div>
+</div>
+<div id="ref-Beenakker2013" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">59. </div><div
+class="csl-right-inline">Beenakker, C. W. J. <a
+href="https://doi.org/10.1146/annurev-conmatphys-030212-184337">Search
+for majorana fermions in superconductors</a>. <em>Annual Review of
+Condensed Matter Physics</em> <strong>4</strong>, 113–136 (2013).</div>
+</div>
+<div id="ref-Laumann2012" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">60. </div><div
+class="csl-right-inline">Laumann, C. R., Ludwig, A. W. W., Huse, D. A.
+&amp; Trebst, S. <a
+href="https://doi.org/10.1103/PhysRevB.85.161301">Disorder-induced
+<span>Majorana</span> metal in interacting non-<span>Abelian</span>
+anyon systems</a>. <em>Phys. Rev. B</em> <strong>85</strong>, 161301
+(2012).</div>
+</div>
+<div id="ref-Lahtinen_2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">61. </div><div
+class="csl-right-inline">Lahtinen, V. <a
+href="https://doi.org/10.1088/1367-2630/13/7/075009">Interacting
+non-<span>Abelian</span> anyons as <span>Majorana</span> fermions in the
+honeycomb lattice model</a>. <em>New Journal of Physics</em>
+<strong>13</strong>, 075009 (2011).</div>
+</div>
+<div id="ref-lahtinenTopologicalLiquidNucleation2012" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">62. </div><div
+class="csl-right-inline">Lahtinen, V., Ludwig, A. W. W., Pachos, J. K.
+&amp; Trebst, S. <a
+href="https://doi.org/10.1103/PhysRevB.86.075115">Topological liquid
+nucleation induced by vortex-vortex interactions in
+<span>Kitaev</span>’s honeycomb model</a>. <em>Phys. Rev. B</em>
+<strong>86</strong>, 075115 (2012).</div>
+</div>
+<div id="ref-bocquet_disordered_2000" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">63. </div><div
+class="csl-right-inline">Bocquet, M., Serban, D. &amp; Zirnbauer, M. R.
+<a href="https://doi.org/10.1016/S0550-3213(00)00208-X">Disordered 2d
+quasiparticles in class <span>D</span>: <span>Dirac</span> fermions with
+random mass, and dirty superconductors</a>. <em>Nuclear Physics B</em>
+<strong>578</strong>, 628–680 (2000).</div>
+</div>
+<div id="ref-Kasahara2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">64. </div><div
+class="csl-right-inline">Kasahara, Y., Ohnishi, T., Mizukami, Y., <em>et
+al.</em> <a href="https://doi.org/10.1038/s41586-018-0274-0">Majorana
+quantization and half-integer thermal quantum <span>Hall</span> effect
+in a <span>Kitaev</span> spin liquid</a>. <em>Nature</em>
+<strong>559</strong>, 227–231 (2018).</div>
+</div>
+<div id="ref-Yokoi2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">65. </div><div
+class="csl-right-inline">Yokoi, T., Ma, S., Kasahara, Y., <em>et
+al.</em> <a href="https://doi.org/10.1126/science.aay5551">Majorana
+quantization and half-integer thermal quantum <span>Hall</span> effect
+in a <span>Kitaev</span> spin liquid</a>. <em>Science</em>
+<strong>373</strong>, 568–572 (2021).</div>
+</div>
+<div id="ref-Yamashita2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">66. </div><div
+class="csl-right-inline">Yamashita, M., Gouchi, J., Uwatoko, Y., Kurita,
+N. &amp; Tanaka, H. <a
+href="https://doi.org/10.1103/PhysRevB.102.220404">Sample dependence of
+half-integer quantized thermal <span>Hall</span> effect in the
+<span>Kitaev</span> spin-liquid candidate <span><span
+class="math inline">\(\alpha\)</span></span>-<span>RuCl</span><span><span
+class="math inline">\(_{3}\)</span></span></a>. <em>Phys. Rev. B</em>
+<strong>102</strong>, 220404 (2020).</div>
+</div>
+<div id="ref-Bruin2022" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">67. </div><div
+class="csl-right-inline">Bruin, J. A. N. <em>et al.</em> <a
+href="https://doi.org/10.1038/s41567-021-01501-y">Majorana quantization
+and half-integer thermal quantum <span>Hall</span> effect in a
+<span>Kitaev</span> spin liquid</a>. <em>Nature Physics</em>
+<strong>18</strong>, 401–405 (2022).</div>
+</div>
+<div id="ref-Feldmeier2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">68. </div><div
+class="csl-right-inline">Feldmeier, J., Natori, W., Knap, M. &amp;
+Knolle, J. <a href="https://doi.org/10.1103/PhysRevB.102.134423">Local
+probes for charge-neutral edge states in two-dimensional quantum
+magnets</a>. <em>Phys. Rev. B</em> <strong>102</strong>, 134423
+(2020).</div>
+</div>
+<div id="ref-Konig2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">69. </div><div
+class="csl-right-inline">König, E. J., Randeria, M. T. &amp; Jäck, B. <a
+href="https://doi.org/10.1103/PhysRevLett.125.267206">Tunneling
+spectroscopy of quantum spin liquids</a>. <em>Phys. Rev. Lett.</em>
+<strong>125</strong>, 267206 (2020).</div>
+</div>
+<div id="ref-Udagawa2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">70. </div><div
+class="csl-right-inline">Udagawa, M., Takayoshi, S. &amp; Oka, T. <a
+href="https://doi.org/10.1103/PhysRevLett.126.127201">Scanning tunneling
+microscopy as a single majorana detector of kitaev’s chiral spin
+liquid</a>. <em>Phys. Rev. Lett.</em> <strong>126</strong>, 127201
+(2021).</div>
+</div>
+<div id="ref-Pereira2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">71. </div><div
+class="csl-right-inline">Pereira, R. G. &amp; Egger, R. <a
+href="https://doi.org/10.1103/PhysRevLett.125.227202">Electrical access
+to ising anyons in kitaev spin liquids</a>. <em>Phys. Rev. Lett.</em>
+<strong>125</strong>, 227202 (2020).</div>
+</div>
+<div id="ref-Rau2014" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">72. </div><div
+class="csl-right-inline">Rau, J. G., Lee, E. K.-H. &amp; Kee, H.-Y. <a
+href="https://doi.org/10.1103/PhysRevLett.112.077204">Generic spin model
+for the honeycomb iridates beyond the kitaev limit</a>. <em>Phys. Rev.
+Lett.</em> <strong>112</strong>, 077204 (2014).</div>
+</div>
+<div id="ref-Chaloupka2010" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">73. </div><div
+class="csl-right-inline">Chaloupka, J., Jackeli, G. &amp; Khaliullin, G.
+Kitaev-<span>Heisenberg</span> model on a honeycomb lattice: Possible
+exotic phases in iridium oxides <span>A</span><span><span
+class="math inline">\(_{2}\)</span></span><span>IrO</span><span><span
+class="math inline">\(_{3}\)</span></span>. <em>Phys. Rev. Lett.</em>
+<strong>105</strong>, 027204 (2010).</div>
+</div>
+<div id="ref-Chaloupka2013" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">74. </div><div
+class="csl-right-inline">Chaloupka, J., Jackeli, G. &amp; Khaliullin, G.
+<a href="https://doi.org/10.1103/PhysRevLett.110.097204">Zigzag magnetic
+order in the iridium oxide <span>Na</span><span><span
+class="math inline">\(_{2}\)</span></span><span>IrO</span><span><span
+class="math inline">\(_{3}\)</span></span></a>. <em>Phys. Rev.
+Lett.</em> <strong>110</strong>, 097204 (2013).</div>
+</div>
+<div id="ref-Chaloupka2015" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">75. </div><div
+class="csl-right-inline">Chaloupka, J. &amp; Khaliullin, G. Hidden
+symmetries of the extended <span>Kitaev-Heisenberg</span> model:
+<span>Implications</span> for honeycomb lattice iridates
+<span>A</span><span><span
+class="math inline">\(_{2}\)</span></span><span>IrO</span><span><span
+class="math inline">\(_{3}\)</span></span>. <em>Phys. Rev. B</em>
+<strong>92</strong>, 024413 (2015).</div>
+</div>
+<div id="ref-Winter2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">76. </div><div
+class="csl-right-inline">Winter, S. M., Li, Y., Jeschke, H. O. &amp;
+Valentí, R. <a
+href="https://doi.org/10.1103/PhysRevB.93.214431">Challenges in design
+of <span>Kitaev</span> materials: <span>Magnetic</span> interactions
+from competing energy scales</a>. <em>Phys. Rev. B</em>
+<strong>93</strong>, 214431 (2016).</div>
+</div>
+<div id="ref-Yao2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">77. </div><div
+class="csl-right-inline">Yao, H. &amp; Lee, D.-H. <a
+href="https://doi.org/10.1103/PhysRevLett.107.087205">Fermionic magnons,
+non-abelian spinons, and the spin quantum hall effect from an exactly
+solvable spin-1/2 kitaev model with <span>SU</span>(2) symmetry</a>.
+<em>Phys. Rev. Lett.</em> <strong>107</strong>, 087205 (2011).</div>
+</div>
+<div id="ref-Natori2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">78. </div><div
+class="csl-right-inline">Natori, W. M. H. &amp; Knolle, J. <a
+href="https://doi.org/10.1103/PhysRevLett.125.067201">Dynamics of a
+two-dimensional quantum spin-orbital liquid: <span>Spectroscopic</span>
+signatures of fermionic magnons</a>. <em>Phys. Rev. Lett.</em>
+<strong>125</strong>, 067201 (2020).</div>
+</div>
+<div id="ref-Chulliparambil2020" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">79. </div><div
+class="csl-right-inline">Chulliparambil, S., Seifert, U. F. P., Vojta,
+M., Janssen, L. &amp; Tu, H.-H. <a
+href="https://doi.org/10.1103/PhysRevB.102.201111">Microscopic models
+for <span>Kitaev</span>’s sixteenfold way of anyon theories</a>.
+<em>Phys. Rev. B</em> <strong>102</strong>, 201111 (2020).</div>
+</div>
+<div id="ref-Chulliparambil2021" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">80. </div><div
+class="csl-right-inline">Chulliparambil, S., Janssen, L., Vojta, M., Tu,
+H.-H. &amp; Seifert, U. F. P. <a
+href="https://doi.org/10.1103/PhysRevB.103.075144">Flux crystals,
+<span>Majorana</span> metals, and flat bands in exactly solvable
+spin-orbital liquids</a>. <em>Phys. Rev. B</em> <strong>103</strong>,
+075144 (2021).</div>
+</div>
+<div id="ref-Seifert2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">81. </div><div
+class="csl-right-inline">Seifert, U. F. P. <em>et al.</em> <a
+href="https://doi.org/10.1103/PhysRevLett.125.257202">Fractionalized
+fermionic quantum criticality in spin-orbital mott insulators</a>.
+<em>Phys. Rev. Lett.</em> <strong>125</strong>, 257202 (2020).</div>
+</div>
+</div>
+</main>
+</body>
+</html>

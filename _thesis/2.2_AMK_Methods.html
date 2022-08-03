@@ -1,0 +1,1543 @@
+---
+title: The Amorphous Kitaev Model - Introduction
+excerpt: The methods I used to study the Amorphous Kitaev Model.
+layout: none
+image: 
+
+---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="The methods I used to study the Amorphous Kitaev Model." />
+  <title>The Amorphous Kitaev Model - Introduction</title>
+  <!-- <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style> -->
+
+<!--   <script
+       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+       type="text/javascript"></script>
+ -->
+
+<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+   -->
+
+<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+
+
+<!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/index.js"></script>
+</head>
+<body>
+{% include header.html %}
+
+<main>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#methods" id="toc-methods">Methods</a>
+<ul>
+<li><a href="#voronisation" id="toc-voronisation">Voronisation</a></li>
+<li><a href="#graph-representation" id="toc-graph-representation">Graph
+Representation</a></li>
+<li><a href="#coloring-the-bonds" id="toc-coloring-the-bonds">Coloring
+the Bonds</a>
+<ul>
+<li><a href="#finding-lattice-colourings-in-practice-unfinished"
+id="toc-finding-lattice-colourings-in-practice-unfinished">Finding
+Lattice colourings in practice (unfinished)</a></li>
+</ul></li>
+<li><a href="#mapping-between-flux-sectors-and-bond-sectors"
+id="toc-mapping-between-flux-sectors-and-bond-sectors">Mapping between
+flux sectors and bond sectors</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="methods">Methods</h1>
+<p>The practical implemntation of what is described in this section is
+available as a Python package called Koala (Kitaev On Amorphous
+LAttices)<span class="citation"
+data-cites="tomImperialCMTHKoalaFirst2022"><sup><a
+href="#ref-tomImperialCMTHKoalaFirst2022"
+role="doc-biblioref">1</a></sup></span> most of the figures shown were
+generated with Koala.</p>
+<h2 id="voronisation">Voronisation</h2>
+<p>In order to study the properties of the amorphous Kitaev model we
+need a way to sample from the space of possible trivalent graphs.</p>
+<p>A very simple way to do this is to use a Voronoi partition of the
+torus<span class="citation"
+data-cites="mitchellAmorphousTopologicalInsulators2018 marsalTopologicalWeaireThorpeModels2020 florescu_designer_2009"><sup><a
+href="#ref-mitchellAmorphousTopologicalInsulators2018"
+role="doc-biblioref">2</a>–<a href="#ref-florescu_designer_2009"
+role="doc-biblioref">4</a></sup></span>. We start by sampling <em>seed
+points</em> uniformly (or otherwise) on the torus. We then compute the
+partition of the torus into regions closest (with a Euclidean metric) to
+each seed point. The straight lines (if the torus is flattened out) at
+the borders of these regions become the edges of the new lattice and the
+points where they intersect beceme the vertices.</p>
+<p>The graph generated by a Voronoi partition of a two dimensional
+surface is always planar meaning that no edges cross eachother when the
+graph is embedded into the plane. It is also trivalent in the sense that
+every vertex is connected to exactly three edges
+<strong>cite</strong>.</p>
+<p>Ideally we might instead sample uniformly from the space of possible
+trivalent graphs, and indeed there has been some work on how to do this
+using a Markov Chain Monte Carlo approach<span class="citation"
+data-cites="alyamiUniformSamplingDirected2016"><sup><a
+href="#ref-alyamiUniformSamplingDirected2016"
+role="doc-biblioref">5</a></sup></span>, however it does not gurantee
+that the resulting graph is planar which we will need to ensure that the
+edges can be 3-coloured.</p>
+<p>In practice, we then use a standard algorithm<span class="citation"
+data-cites="barberQuickhullAlgorithmConvex1996"><sup><a
+href="#ref-barberQuickhullAlgorithmConvex1996"
+role="doc-biblioref">6</a></sup></span> from scipy<span class="citation"
+data-cites="virtanenSciPyFundamentalAlgorithms2020a"><sup><a
+href="#ref-virtanenSciPyFundamentalAlgorithms2020a"
+role="doc-biblioref">7</a></sup></span> which actually computes the
+Voronoi partition of the plane. In order to compute the Voronoi
+partition of the torus, I take the seed points and replicate them into a
+repeating grid, either 3x3 (or for very small numbers of seed points
+5x5). I then identify edges in the output to construct a lattice on the
+torus.</p>
+<div id="fig:lattice_construction_animated" class="fignos">
+<figure>
+<img
+src="/assets/thesis/amk_chapter/lattice_construction_animated/lattice_construction_animated.gif"
+style="width:100.0%"
+alt="Figure 1: (Left) Lattice construction begins with the Voronoi partition of the plane with respect to a set of seed points (black points) sampled uniformly from \mathbb{R}^2. (Center) However we actually want the Voronoi partition of the torus so we tile the seed points into a three by three grid. The boundaries of each tile are shown in light grey. (Right) Finally we indentify edges correspond to each other across the boundaries to produce a graph on the torus. An edge colouring is shown here to help the reader identify corresponding edges." />
+<figcaption aria-hidden="true"><span>Figure 1:</span> (Left) Lattice
+construction begins with the Voronoi partition of the plane with respect
+to a set of seed points (black points) sampled uniformly from <span
+class="math inline">\(\mathbb{R}^2\)</span>. (Center) However we
+actually want the Voronoi partition of the torus so we tile the seed
+points into a three by three grid. The boundaries of each tile are shown
+in light grey. (Right) Finally we indentify edges correspond to each
+other across the boundaries to produce a graph on the torus. An edge
+colouring is shown here to help the reader identify corresponding
+edges.</figcaption>
+</figure>
+</div>
+<h2 id="graph-representation">Graph Representation</h2>
+<p>We represent the graph structure with an ordered list of edges <span
+class="math inline">\((i,j)\)</span> so we can represent both directed
+and undirected graphs which is useful for defining the sign of bond
+operators <span class="math inline">\(u_{ij} = - u_{ji}\)</span>.</p>
+<h2 id="coloring-the-bonds">Coloring the Bonds</h2>
+<p>The Kitaev model requires that each edge in the lattice be assigned a
+label <span class="math inline">\(x\)</span>, <span
+class="math inline">\(y\)</span> or <span
+class="math inline">\(z\)</span> such that each vertex has exactly one
+edge of each type connected to it. Let <span
+class="math inline">\(\Delta\)</span> be the maximum degree of a graph
+which in our case is 3. If <span class="math inline">\(\Delta &gt;
+3\)</span> it is obviously not possible to 3 color the edges but the
+general theory of when this is and isn’t possible for graphs with <span
+class="math inline">\(\Delta \leq 3\)</span> is more subtle.</p>
+<p>In the graph theory literature, graphs where all vertices have degree
+3 are commonly called cubic graphs, there is no term for graphs with
+maximum degree 3. Planar graphs are those that can be embedded onto the
+plane without any edges crossing. Bridgeless graphs do not contain any
+edges that, when removed, would partition the graph into disconnected
+components.</p>
+<p>It’s important to be clear that this problem is different from that
+considered by the famous 4 color theorem<span class="citation"
+data-cites="appelEveryPlanarMap1989"><sup><a
+href="#ref-appelEveryPlanarMap1989"
+role="doc-biblioref">8</a></sup></span> . The 4 color thorem is
+concerned with assiging colours to the <strong>vertices</strong> of a
+graph such that no vertices that share an edge are the same colour. Here
+we are concerned with an edge colouring.</p>
+<p>The four color theorem applies to planar graphs, those that can be
+embedded onto the plane without any edges crossing. Here we are actually
+concerned with Toroidal graphs which can be embedded onto the torus
+without any edges crossing. In fact toroidal graphs require up to 7
+colors<span class="citation"
+data-cites="heawoodMapColouringTheorems"><sup><a
+href="#ref-heawoodMapColouringTheorems"
+role="doc-biblioref">9</a></sup></span> . The complete graph <span
+class="math inline">\(K_7\)</span> is a good example of a toroidal graph
+that requires 7 colours.</p>
+<p><span class="math inline">\(\Delta + 1\)</span> colours are enough to
+edge-colour any graph and there is an <span
+class="math inline">\(\mathcal{O}(mn)\)</span> algorithm to do it for a
+graph with <span class="math inline">\(m\)</span> edges and <span
+class="math inline">\(n\)</span> vertices<span class="citation"
+data-cites="gEstimateChromaticClass1964"><sup><a
+href="#ref-gEstimateChromaticClass1964"
+role="doc-biblioref">10</a></sup></span>. Restricting ourselves to
+graphs with <span class="math inline">\(\Delta = 3\)</span> like ours,
+those can be 4-edge-coloured in linear time<span class="citation"
+data-cites="skulrattanakulchai4edgecoloringGraphsMaximum2002"><sup><a
+href="#ref-skulrattanakulchai4edgecoloringGraphsMaximum2002"
+role="doc-biblioref">11</a></sup></span> .</p>
+<p>It’s trickier if we want to 3-edge-colour them however. Cubic, planar
+bridgeless graphs can be 3-edge-coloured if and only if they can be
+4-face-coloured<span class="citation"
+data-cites="tait1880remarks"><sup><a href="#ref-tait1880remarks"
+role="doc-biblioref">12</a></sup></span> . For which there is an <span
+class="math inline">\(\mathcal{O}(n^2)\)</span> algorithm
+robertson1996efficiently . However it is not clear whether this extends
+to cubic, <strong>toroidal</strong> bridgeless graphs.</p>
+<h4
+id="face-colourablity-implies-3-edge-colourability">4-face-colourablity
+implies 3-edge-colourability</h4>
+<p>The proof of that 4-face-colourablity implies 3-edge-colourability
+can be sketched out quite easily: 1. Assume the faces of G can be
+4-coloured with labels (0,1,2,3) 2. Label each edge of G according to
+<span class="math inline">\(i + j \mathrm{mod} 3\)</span> where i and j
+are the labels of the face adjacent to that edge. For each edge label
+there are two face label pairs that do not share any face labels. i,e
+the edge label <span class="math inline">\(0\)</span> can come about
+either from faces <span class="math inline">\(0 + 3\)</span> or <span
+class="math inline">\(1 + 2\)</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+0 + 3 \;\mathrm{or}\; 1 + 2 &amp;= 0 \;\mathrm{mod}\; 3\\
+0 + 1 \;\mathrm{or}\; 2 + 3 &amp;= 1 \;\mathrm{mod}\; 3\\
+0 + 2 \;\mathrm{or}\;1 + 3 &amp;= 2 \;\mathrm{mod}\; 3\\
+\end{aligned}
+\]</span></p>
+<ol start="3" type="1">
+<li>In a cubic planar G, a vertex v in G is always part of 3 faces and
+the colors of those faces determines the colors of the edges that
+connect to v. The three faces must take three distinct colors from
+(0,1,2,3).</li>
+<li>From there’s easy to convince yourself that those three distinct
+face colours can never produce repeated edge colours according to the
+<span class="math inline">\(i+j \;\mathrm{mod}\; 3\)</span> rule.</li>
+</ol>
+<p>This implies that all cubic planar graphs are 3-edge-colourable. It
+does not apply to toroidcal graphs, however I have not yet generated a
+voronoi lattices on the torus that is not 3-edge-colourable. This
+suggests that perhaps voronoi lattices have additional structure that
+makes them 3-edge-colourable. Intuitively, the kinds of toroidal graphs
+that cannot be 3-edge-coloured look as if they could never be generated
+by a voronoi partition with more than a few seed points.</p>
+<h3 id="finding-lattice-colourings-in-practice-unfinished">Finding
+Lattice colourings in practice (unfinished)</h3>
+<p>Some things are harder in theory than in practice. 3-edge-colouring
+cubic toroidal graphs appears to be one of those things.</p>
+<p>The approach I take is relatively standard in the computer science
+community for solving NP problems computationally. I don’t believe this
+problem to be in NP but I tried it anyway.</p>
+<p>The trick is to map the problem on into a Boolean Satisfiability
+‘SAT’ problem<span class="citation" data-cites="Karp1972"><sup><a
+href="#ref-Karp1972" role="doc-biblioref">13</a></sup></span>, use an
+off the shelf solver, <code>MiniSAT</code><span class="citation"
+data-cites="imms-sat18"><sup><a href="#ref-imms-sat18"
+role="doc-biblioref">14</a></sup></span>, and finally to map the problem
+back to the original domain. While SAT solvers are very general, they
+are also highly optimised and they do seem to yield good results for
+this problem.</p>
+<p>SAT solvers encode problems as constraints on some number of boolean
+variables <span class="math inline">\(x_i \in {0,1}\)</span>. The
+constraints must Conjunctive Normal Form (CNF). CNF means the
+constraints are encoded as a set of clauses of the form <span
+class="math display">\[x_1 \;\textrm{or}\; \bar{x}_3 \;\textrm{or}\;
+x_5\]</span> that containt logical ORs of some subset of the variables
+where any of the variables may also be logical NOT’d which I represent
+by over bars here.</p>
+<p>A solution of the problem is one that makes all the clauses
+simultaneously true.</p>
+<p>I encode the edge colouring problem as a set of statements about a
+set of boolean variables <span class="math inline">\(x_i \in
+{0,1}\)</span>. For <span class="math inline">\(B\)</span> bonds we take
+the <span class="math inline">\(3B\)</span> variables <span
+class="math inline">\(x_{i\alpha}\)</span> where <span
+class="math inline">\(x_{i\alpha} = 1\)</span> indicates that edge <span
+class="math inline">\(i\)</span> has colour <span
+class="math inline">\(\alpha\)</span>.</p>
+<p>For edge colouring graphs we need two kinds of constraints: 1. Each
+edge is exactly one colour. 2. No neighbouring edges are the same
+color.</p>
+<p>The first constraint is a kind of artifact of doing this mapping over
+to boolean variables, the solver doesn’t know anything about the
+structure of the problem unless it is encoded into the variables.</p>
+<p>The second constraint encodes the structure of the graph itself and
+can be constructed easily from the adjacency matrix.</p>
+<p>I’ll fill in the encoding later but the gist is that we can give this
+to a solver and get back: whether the problem is solveable, a solution
+or all the possible solutions. Finding a solution is relatively fast,
+while finding all the solutions is slower since there appear to be
+exponentially many of them. Fig <span
+class="math inline">\(\ref{fig:multiple_colourings}\)</span> shows some
+examples.</p>
+<div id="fig:multiple_colourings" class="fignos">
+<figure>
+<img
+src="/assets/thesis/amk_chapter/multiple_colourings/multiple_colourings.svg"
+style="width:100.0%"
+alt="Figure 2: Three different valid 3-edge-colourings of amorphous lattices. Colors that differ from the leftmost panel are highlighted." />
+<figcaption aria-hidden="true"><span>Figure 2:</span> Three different
+valid 3-edge-colourings of amorphous lattices. Colors that differ from
+the leftmost panel are highlighted.</figcaption>
+</figure>
+</div>
+<h2 id="mapping-between-flux-sectors-and-bond-sectors">Mapping between
+flux sectors and bond sectors</h2>
+<p>Constructing the Majorana representation of the model requires the
+particular bond configuration <span class="math inline">\(u_{jk} = \pm
+1\)</span>. However the large number of gauge symmetries of the bond
+sector make it unwieldly to work with. We therefore need a way to
+quickly map between bond sectors and flux sectors.</p>
+<p>Going from the bond sector to flux sector is easy since we can
+compute it directly by taking the product of <span
+class="math inline">\(i u_{jk}\)</span> around each plaquette <span
+class="math display">\[ \phi_i = \prod_{(j,k) \; \in \; \partial \phi_i}
+i u_{jk}\]</span></p>
+<p>Going from flux sector to bond sector requires more thought however.
+The algorithm I use is this:</p>
+<ol type="1">
+<li><p>Fix the gauge by choosing some arbitrary <span
+class="math inline">\(u_{jk}\)</span> configuration. In practice I use
+<span class="math inline">\(u_{jk} = +1\)</span>. This chooses an
+arbitrary one of the 4 topological sectors.</p></li>
+<li><p>Compute the current flux configuration and how it differs from
+the target one. Let’s call an plaquette that differs from the target a
+defect.</p></li>
+<li><p>Find any adjacent pairs of defects and flip the <span
+class="math inline">\(u_jk\)</span> between them. This leaves a set of
+isolated defects.</p></li>
+<li><p>Pair the defects up using a greedy algorithm.</p></li>
+<li><p>Compute paths along the dual lattice between each pair of
+plaquettes. Flipping the corresponding set of <span
+class="math inline">\(u_{jk}\)</span> transports one flux to the other
+and anhilates them.</p></li>
+</ol>
+<div id="fig:flux_finding" class="fignos">
+<figure>
+<img src="/assets/thesis/amk_chapter/flux_finding/flux_finding.svg"
+style="width:100.0%"
+alt="Figure 3: (Left) The ground state flux sector and bond sector for an amorphous lattice. Bond arrows indicate the direction in which u_{jk} = +1. Plaquettes are coloured blue when \hat{\phi}_i = -1 (-i) for even (odd) plaquettes and orange when \hat{\phi}_i = +1 (+i) for even/odd plaquettes. (Centre) In order to transform this to the target flux sector (all +1/+i) we first flip any u_{jk} that are between two fluxes. This leaves a set of isolated fluxes that need to be anhilated. These are then paired up as indicated by the black lines. (Right) A* search is used to find paths (coloured plaquettes) on the dual lattice between each pair of fluxes and the coresponding u_{jk} (shown in black) are flipped. One flux has will remain because the starting and target flux sectors differed by an odd number of fluxes." />
+<figcaption aria-hidden="true"><span>Figure 3:</span> (Left) The ground
+state flux sector and bond sector for an amorphous lattice. Bond arrows
+indicate the direction in which <span class="math inline">\(u_{jk} =
++1\)</span>. Plaquettes are coloured blue when <span
+class="math inline">\(\hat{\phi}_i = -1\)</span> (<span
+class="math inline">\(-i\)</span>) for even (odd) plaquettes and orange
+when <span class="math inline">\(\hat{\phi}_i = +1\)</span> (<span
+class="math inline">\(+i\)</span>) for even/odd plaquettes. (Centre) In
+order to transform this to the target flux sector (all <span
+class="math inline">\(+1\)</span>/<span
+class="math inline">\(+i\)</span>) we first flip any <span
+class="math inline">\(u_{jk}\)</span> that are between two fluxes. This
+leaves a set of isolated fluxes that need to be anhilated. These are
+then paired up as indicated by the black lines. (Right) A* search is
+used to find paths (coloured plaquettes) on the dual lattice between
+each pair of fluxes and the coresponding <span
+class="math inline">\(u_{jk}\)</span> (shown in black) are flipped. One
+flux has will remain because the starting and target flux sectors
+differed by an odd number of fluxes.</figcaption>
+</figure>
+</div>
+<p>Amorphous materials are glassy condensed matter systems characterised
+by short-range constraints in the absence of long-range crystalline
+order as first studied in amorphous semiconductors<span class="citation"
+data-cites="Yonezawa1983 zallen2008physics"><sup><a
+href="#ref-Yonezawa1983" role="doc-biblioref">15</a>,<a
+href="#ref-zallen2008physics" role="doc-biblioref">16</a></sup></span>.
+In general, the bonds of a whole range of covalent compounds enforce
+local constraints around each ion, e.g.~a fixed coordination number
+<span class="math inline">\(z\)</span>, which has enabled the prediction
+of energy gaps even in lattices without translational symmetry<span
+class="citation" data-cites="Weaire1976 gaskell1979structure"><sup><a
+href="#ref-Weaire1976" role="doc-biblioref">17</a>,<a
+href="#ref-gaskell1979structure"
+role="doc-biblioref">18</a></sup></span>, the most famous example being
+amorphous Ge and Si with <span class="math inline">\(z=4\)</span><span
+class="citation" data-cites="Weaire1971 betteridge1973possible"><sup><a
+href="#ref-Weaire1971" role="doc-biblioref">19</a>,<a
+href="#ref-betteridge1973possible"
+role="doc-biblioref">20</a></sup></span>. Recently, following the
+discovery of topological insulators (TIs) it has been shown that similar
+phases can exist in amorphous systems characterized by protected edge
+states and topological bulk invariants<span class="citation"
+data-cites="mitchellAmorphousTopologicalInsulators2018 agarwala2019topological marsalTopologicalWeaireThorpeModels2020 costa2019toward agarwala2020higher spring2021amorphous corbae2019evidence"><sup><a
+href="#ref-mitchellAmorphousTopologicalInsulators2018"
+role="doc-biblioref">2</a>,<a
+href="#ref-marsalTopologicalWeaireThorpeModels2020"
+role="doc-biblioref">3</a>,<a href="#ref-agarwala2019topological"
+role="doc-biblioref">21</a>–<a href="#ref-corbae2019evidence"
+role="doc-biblioref">25</a></sup></span>. However, research on
+electronic systems has been mostly focused on non-interacting systems
+with a few notable exceptions for understanding the occurrence of
+superconductivity<span class="citation"
+data-cites="buckel1954einfluss mcmillan1981electron bergmann1976amorphous"><sup><a
+href="#ref-buckel1954einfluss" role="doc-biblioref">26</a>–<a
+href="#ref-bergmann1976amorphous"
+role="doc-biblioref">28</a></sup></span> in amorphous materials and
+recently the effect of strong repulsion in amorphous TIs<span
+class="citation" data-cites="kim2022fractionalization"><sup><a
+href="#ref-kim2022fractionalization"
+role="doc-biblioref">29</a></sup></span>.</p>
+<p>Magnetic phases in amorphous systems have been investigated since the
+1960s, mostly through the adaptation of theoretical tools developed for
+disordered systems and numerical methods~. Research focused on classical
+Heisenberg and Ising models which have been shown to account for
+observed behavior of ferromagnetism, disordered antiferromagnetism and
+widely observed spin glass behaviour~. However, the role of
+spin-anisotropic interactions and quantum effects has not been
+addressed. Similarly, it is an open question whether magnetic
+frustration in amorphous quantum magnets can give rise to long-range
+entangled quantum spin liquid (QSL) phases.</p>
+<p>%Broad constraints to the possible phases hosted by Heisenberg
+amorphous magnets were provided by the phenomenological theory developed
+by Andreev and Marchenko<span class="citation"
+data-cites="Andreev1 Andreev2 Andreev3"><sup><a href="#ref-Andreev1"
+role="doc-biblioref">30</a>–<a href="#ref-Andreev3"
+role="doc-biblioref">32</a></sup></span>. The phases in this theory are
+described by a set of macroscopic magnetic vectors that transform
+according to the irreducible representations of the group of spatial
+symmetries of the system<span class="citation"
+data-cites="Andreev1"><sup><a href="#ref-Andreev1"
+role="doc-biblioref">30</a></sup></span>. Amorphous magnets are treated,
+on average, as homogeneous and isotropic, being thus symmetric under
+three-dimensional rotations and spatial inversion<span class="citation"
+data-cites="Andreev2"><sup><a href="#ref-Andreev2"
+role="doc-biblioref">31</a></sup></span>. Only three types of phases are
+consistent to this group of symmetries, corresponding to ferromagnets,
+disordered antiferromagnets, or spin glasses<span class="citation"
+data-cites="Andreev2 Andreev3"><sup><a href="#ref-Andreev2"
+role="doc-biblioref">31</a>,<a href="#ref-Andreev3"
+role="doc-biblioref">32</a></sup></span>.</p>
+<p>Two intentional simplifications of Andreev’s and Marchenko’s theory
+were the neglect of spin-orbit coupling induced anisotropies and the
+effects arising from the local structure of amorphous lattices. It is
+then expected that their theory is invalid for amorphous compounds
+generated from crystalline magnets with strong spin-orbit coupling with
+tight geometrical arrangements. Several instances of these magnets were
+synthesized in the last decade, among which we highlight the Kitaev
+materials<span class="citation"
+data-cites="Jackeli2009 HerrmannsAnRev2018 Winter2017 TrebstPhysRep2022 Takagi2019"><sup><a
+href="#ref-Jackeli2009" role="doc-biblioref">33</a>–<a
+href="#ref-Takagi2019" role="doc-biblioref">37</a></sup></span>. It was
+suggested (and later observed) that heavy-ion Mott insulators formed by
+edge-sharing octahedra could be good platforms for the celebrated Kitaev
+model on the honeycomb lattice<span class="citation"
+data-cites="Jackeli2009"><sup><a href="#ref-Jackeli2009"
+role="doc-biblioref">33</a></sup></span>, an exactly solvable model
+whose ground state is a quantum spin liquid (QSL)<span class="citation"
+data-cites="Anderson1973 Knolle2019 Savary2016 Lacroix2011"><sup><a
+href="#ref-Anderson1973" role="doc-biblioref">38</a>–<a
+href="#ref-Lacroix2011" role="doc-biblioref">41</a></sup></span>
+characterized by a static <span class="math inline">\(\mathbb
+Z_2\)</span> gauge field and Majorana fermion excitations<span
+class="citation" data-cites="kitaevAnyonsExactlySolved2006"><sup><a
+href="#ref-kitaevAnyonsExactlySolved2006"
+role="doc-biblioref">42</a></sup></span>. The model displays
+bond-dependent Ising-like exchanges that give rise to local symmetries,
+which are essential to its mapping onto a free fermion problem<span
+class="citation" data-cites="Baskaran2007 Baskaran2008"><sup><a
+href="#ref-Baskaran2007" role="doc-biblioref">43</a>,<a
+href="#ref-Baskaran2008" role="doc-biblioref">44</a></sup></span>. Such
+a mapping is rigorously extendable to any three-coordinated graph in two
+or three dimensions satisfying a simple geometrical condition<span
+class="citation"
+data-cites="Nussinov2009 OBrienPRB2016 yaoExactChiralSpin2007 Peri2020"><sup><a
+href="#ref-Nussinov2009" role="doc-biblioref">45</a>–<a
+href="#ref-Peri2020" role="doc-biblioref">48</a></sup></span>. Thus, it
+reasonable to suppose that the Kitaev model is also analytically
+treatable on certain amorphous lattices, therefore becoming a realistic
+starting point to study the overlooked possibility of QSLs in amorphous
+magnets.</p>
+In this letter, we study Kitaev spin liquids (KSLs) stabilized by the
+<span class="math inline">\(S=1/2\)</span> Kitaev model on coordination
+number <span class="math inline">\(z=3\)</span> random networks
+generated via Voronoi tessellation . On these lattices, the KSLs
+generically break time-reversal symmetry (TRS), as expected for any
+Majorana QSL in graphs containing odd-sided plaquettes . An extensive
+numerical study showed that the <span class="math inline">\(\mathbb
+Z_2\)</span> gauge fluxes on the ground state can be described by a
+conjecture consistent with Lieb’s theorem . In contrast to the honeycomb
+case, the amorphous KSLs are gapless only along certain critical lines.
+These manifolds separate two gapped KSLs that are topologically
+differentiated by a local Chern number <span
+class="math inline">\(\nu\)</span> in analogy with the KSLs on the
+decorated honeycomb lattice . The <span
+class="math inline">\(\nu=0\)</span> phase is the amorphous analogue of
+the abelian toric-code QSL , whereas the <span
+class="math inline">\(\nu=\pm1\)</span> KSLs is a non-Abelian chiral
+spin liquid (CSL). We study two specific features of the latter liquid:
+topologically protected edge states and a thermal-induced Anderson
+transition to a thermal metal phase .
+<p>% The Kitaev spin liquids are classified by their Majorana fermion
+dispersion and topological properties. On the honeycomb lattice, tuning
+the exchange couplings <span class="math inline">\(J^\alpha\)</span> can
+change the ground state from a gapped QSL with Abelian anyonic
+excitations (e.g., when <span class="math inline">\(J^z\gg
+J^x,J^y\)</span>) or gapless (e.g., when <span
+class="math inline">\(J^z=J^x=J^y\)</span>). In the latter case,
+breaking time reversal symmetry (TRS) opens a gap that signals the onset
+of a chiral spin liquid (CSL) phase supporting non-Abelian excitations
+and protected edge modes. On the honeycomb lattice, CSLs are only
+obtained by perturbing a Hamiltonian with, for example, magnetic fields
+or Dzyaloshinskii-Moriya exchanges . CSLs on the pure Kitaev model can
+be obtained on <span class="math inline">\(z=3\)</span> lattices
+containing odd-sided plaquettes, for which any Majorana QSL displays
+spontaneous TRS breaking , as confirmed on decorated honeycomb and
+non-Archimedean lattices.</p>
+{} We start with a brief review of the Kitaev model on the honeycomb
+lattice . Here, a spin-1/2 is placed on every vertex and each bond is
+labelled by an index <span class="math inline">\(\alpha \in \{ x, y,
+z\}\)</span>. The bonds are arranged such that each vertex connects to
+exactly one bond of each type. The Hamiltonian is given by <span
+class="math display">\[\begin{equation}
+    \label{eqn:kitham}
+    \mathcal{H} =  - \sum_{\langle j,k\rangle_\alpha}
+J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},
+\end{equation}\]</span> where <span
+class="math inline">\(\sigma^\alpha_j\)</span> is a Pauli matrix acting
+on site <span class="math inline">\(j\)</span>, (j,k_) is a pair of
+nearest-neighbour indices connected by an <span
+class="math inline">\(\alpha\)</span>-bond with exchange coupling <span
+class="math inline">\(J^\alpha\)</span>. For each plaquette of the
+lattice, we can define the conserved operator $ W_p = _j^{}_k^{}$, where
+the product runs clockwise over the bonds around the plaquette. This
+provides an extensive number of conserved plaquettes that allow us to
+split the Hilbert space in terms of the eigenvalues of <span
+class="math inline">\(W_p\)</span>.
+The KSL is uncovered by transforming eqn.~<span
+class="math inline">\(\ref{eqn:kitham}\)</span> to a four-Majorana
+representation of the spin operators, <span
+class="math inline">\(\sigma_i^\alpha = i b_i^\alpha c_i\)</span> ,
+where the Hamiltonian takes the form <span
+class="math display">\[\begin{equation}\label{eqn:majorana_hamiltonian}
+    \mathcal{H} = \frac{i}{4}\sum_{j,k}A_{jk}^{(\alpha)}c_jc_k.
+\end{equation}\]</span> Here, <span
+class="math inline">\(A_{jk}^{(\alpha)}=2J^{\alpha}u_{jk}\)</span> with
+<span class="math inline">\(\hat u_{jk} =
+ib_j^{\alpha}b_k^{\alpha}\)</span> being conserved <span
+class="math inline">\(\mathbb Z_2\)</span> bond operators. Once the
+<span class="math inline">\(\hat u_{jk}\)</span> eigenvalues are fixed,
+the Kitaev model becomes equivalent to a fermionic problem that can be
+diagonalized with standard methods .
+The Kitaev Hamiltonian remains exactly solvable on any graph in which no
+site connects to more than one bond of the same type . Thus, we are
+restricted to lattices in which every vertex has coordination number
+<span class="math inline">\(z \leq 3\)</span>. Here, such graphs are
+generated with Voronoi tessellation . A set of points are sampled
+uniformly from the unit square and cells are generated as the region of
+space closer to a given point than any other. The lattice is given by
+the boundaries between cells with edges at the interface of two cells
+and vertices at the point where three edges meet. Periodic boundary
+conditions are imposed by tiling the initial set of points and then
+connecting corresponding edges that cross the unit square boundaries -
+see for technical details. One example of such an amorphous lattice is
+shown in~(a).
+Once a random network has been generated, the bonds types must be
+assigned in a way that is consistent with our condition, which we refer
+to as a . The problem of finding such a colouring was shown to be
+equivalent to the classical problem of four-colouring the faces, which
+is always solvable in planar graphs~. On the torus, a face colouring can
+require up to seven colours , and so not all graphs can be assumed to be
+3-edge colourable. However, such exceptions are rare – every graph
+generated in this study admitted multiple distinct 3-edge colourings.
+The problem of finding a colouring for a given graph can be reduced to a
+Boolean satisfiability problem , which we then solve using the
+open-source solver ~.
+<p>Once the three-edge colouring has been found, the Kitaev Hamiltonian
+is mapped onto eqn.~<span
+class="math inline">\(\ref{eqn:majorana_hamiltonian}\)</span>, which
+corresponds to the spin fractionalization in terms of a static <span
+class="math inline">\(\mathbb Z_2\)</span> gauge fields and <span
+class="math inline">\(c\)</span> matter as indicated in ~(b) . Strictly
+speaking, the Majorana system is equivalent to the original spin system
+after applying a projector operator , whose form is presented in .
+Despite this caveat, one can still use eqn.~<span
+class="math inline">\(\ref{eqn:majorana_hamiltonian}\)</span> to
+evaluate the expectation values of operators conserving <span
+class="math inline">\(\hat u_{jk}\)</span> in the thermodynamic limit .
+This type of operator is exemplified by the Hamiltonian itself, for
+which the ground state energy of a fixed sector is the sum of the
+negative eigenvalues of <span class="math inline">\(iA/4\)</span> in
+eqn.~<span
+class="math inline">\(\ref{eqn:majorana_hamiltonian}\)</span>, and whose
+excitations are extracted from the positive eigenvalues of the same
+matrix.</p>
+{} Let us now consider the conserved operators $ W_p = _j^{}_k^{}$ on
+amorphous lattices. When represented in the Majorana Hilbert space,
+these operators correspond to ordered products of <span
+class="math inline">\(\hat u_{jk}\)</span>, and their fixed eigenvalues
+are written as <span class="math display">\[\begin{equation}
+\label{eqn:flux_definition}
+    \phi_p = \prod_{(j,k) \in \partial p} (-iu_{jk}),
+\end{equation}\]</span> where the pairs <span
+class="math inline">\(j,k\)</span> are crossed around the border <span
+class="math inline">\(\partial p\)</span> of the plaquette on the
+orientation. In periodic boundaries there is an additional pair of
+global <span class="math inline">\(\mathbb{Z}_2\)</span> fluxes <span
+class="math inline">\(\Phi_x\)</span> and <span
+class="math inline">\(\Phi_y\)</span>, which are calculated along an
+arbitrary closed path that wraps the torus in the <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> directions respectively. The energy
+difference between distinct flux sectors decays exponentially with
+system size, so that the ground state of any flux sector in the
+thermodynamic limit displays a fourfold topological degeneracy .
+We now need to determine the ground state flux sectors. First, let us
+recall that Majorana QSLs emerging on graphs containing odd-sided
+plaquette undergo a spontaneous TRS breaking . Therefore, there will be
+always a twofold ground state degeneracy due to time-reversal, in which
+one ground state is related to the other by inversion of imaginary <span
+class="math inline">\(\phi_p\)</span> fluxes . An insight pointing to
+the ground state sectors come from the model on the honeycomb lattice,
+for which a theorem proved by Lieb sets that the ground state sector to
+be <span class="math inline">\(\phi_p=+1\)</span>, <span
+class="math inline">\(\forall p\)</span> . Although Lieb’s theorem is
+not extendable to amorphous lattices, it is suggested the ground state
+energy for a sufficiently large system is minimised by setting <span
+class="math display">\[\begin{align} \label{eqn:gnd_flux}
+    \phi_p^{\textup{g.s.}} = -(\pm i)^{n_{\textup{sides}}},
+\end{align}\]</span> where <span
+class="math inline">\(n_{\textup{sides}}\)</span> is the number of edges
+that form <span class="math inline">\(p\)</span> and the global choice
+of the sign of <span class="math inline">\(i\)</span> gives each of the
+two TRS-degenerate ground state flux sectors. Such a conjecture is
+consistent with Lieb’s theorem on regular lattices and is supported by
+numerical evidence as detailed in . Once we have identified the ground
+state, any other sector can be characterized by the configuration of
+vortices, i.e. by the plaquettes whose flux is flipped with respect to
+<span
+class="math inline">\(\left\{\phi_p^{\textup{g.s.}}\right\}\)</span>.
+{} We numerically found that the amorphous KSLs are generally gapped,
+except along the critical lines displayed in <span
+class="math inline">\(\ref{fig:example_lattice}\)</span>(c). The QSLs
+separated by these lines are distinguished by a real-space analogue of
+the Chern number . A similar topological number was discussed by Kitaev
+on the honeycomb lattice that we shall use here with a slight
+modification . For a choice of flux sector, we calculate the projector
+<span class="math inline">\(P\)</span> onto the negative energy
+eigenstates of the matrix <span class="math inline">\(iA\)</span>
+defined in eqn.~<span
+class="math inline">\(\ref{eqn:majorana_hamiltonian}\)</span>. The local
+Chern number around a point <span class="math inline">\(\bf R\)</span>
+in the bulk is given by <span class="math display">\[\begin{align}
+    \nu (\bf R) = 4\pi \Im \Tr_{\textup{Bulk}}
+    \left (
+    P\theta_{R_x} P \theta_{R_y} P
+    \right ),
+\end{align}\]</span> where <span
+class="math inline">\(\theta_{R_x}\)</span> is a step function in the
+<span class="math inline">\(x\)</span>-direction, with the step located
+at <span class="math inline">\(x = R_x\)</span>, <span
+class="math inline">\(\theta_{R_y}\)</span> is defined analogously. The
+trace is taken over a region around <span class="math inline">\(\bf
+R\)</span> in the bulk of the material, where care must be taken not to
+include any points close to the edges. Provided that the point <span
+class="math inline">\(\bf R\)</span> is sufficiently far from the edges,
+this quantity will be very close to quantised to the Chern number.
+The local Chern marker distinguishes between an Abelian phase (A) with
+<span class="math inline">\(\nu = 0\)</span>, and a non-Abelian (B)
+phase characterized by <span class="math inline">\(\nu = \pm 1\)</span>.
+The (A) phase is equivalent to the toric code on an amorphous system . {
+Since the (A) phase displays the “topological” degeneracy described
+above, I think that “topologically trivial” is not a good term to
+describe it. Another thing that I think it should be considered here.
+The abelian phase is expected to have 2x4 degeneracy, where the factor
+of 2 comes from time-reversal. On the other hand, the non-Abelian phase
+should display 2x3 degeneracy, as discussed by . Did you get any
+evidence of this?}
+By contrast, the (B) phase is a , the magnetic analogue of the
+fractional quantum Hall state. Topologically protected edge modes are
+predicted to occur in these states on periodic boundary conditions
+following the bulk-boundary correspondence . The probability density of
+one such edge mode is given in (a), where it is shown to be
+exponentially localised to the boundary of the system. The localization
+of these modes can be quantified by their inverse participation ratio
+(IPR), <span class="math display">\[\begin{equation}
+    \textup{IPR} = \int d^2r|\psi(\mathbf{r})|^4  \propto L^{-\tau},
+\end{equation}\]</span> where <span
+class="math inline">\(L\sim\sqrt{N}\)</span> is the characteristic
+linear dimension of the amorphous lattices and <span
+class="math inline">\(\tau\)</span> dimensional scaling exponent of IPR.
+Finally, the CSL density of states in open boundary conditions indicates
+the low-energy modes within the gap of Majorana bands in (b). { Could
+you plot the dimensional scaling exponent <span
+class="math inline">\(\tau\)</span> in (a)?}
+<p>The phase diagram of the amorphous model in <span
+class="math inline">\(\ref{fig:example_lattice}\)</span>(c) displays a
+reduced parameter space for the non-Abelian phase when compared to the
+honeycomb model. Interestingly, similar inward deformations of the
+critical lines were found on the Kitaev honeycomb model subject to
+disorder by proliferating flux vortices or exchange disorder .</p>
+{} An Ising non-Abelian anyon is formed by Majorana zero-modes bound to
+a topological defect . Interactions between anyons are modeled by
+pairwise projectors whose strength absolute value decays exponentially
+with the separation between the particles, and whose sign oscillates in
+analogy to RKKY exchanges . Disorder can induce a finite density of
+anyons whose hybridization lead to a macroscopically degenerate state
+known as . One instance of this phase can be settled on the Kitaev CSL.
+In this case, the topological defects correspond to the <span
+class="math inline">\(W_p \neq +1\)</span> fluxes, which naturally
+emerge from thermal fluctuations at nonzero temperature .
+We demonstrated that the amorphous CSL undergoes the same form of
+Anderson transition by studying its properties as a function of
+disorder. Unfortunately, we could not perform a complete study of its
+properties as a function of the temperature as it was not feasible to
+evaluate an ever-present boundary condition dependent factor for random
+networks. Instead, we evaluated the fermionic density of states (DOS)
+and the IPR as a function of the vortex density <span
+class="math inline">\(\rho\)</span> as a proxy for temperature. This
+approximation is exact in the limits <span class="math inline">\(T =
+0\)</span> (corresponding to <span class="math inline">\(\rho =
+0\)</span>) and <span class="math inline">\(T \to \infty\)</span>
+(corresponding to <span class="math inline">\(\rho = 0.5\)</span>). At
+intermediate temperatures the method neglects to include the influence
+of defect-defect correlations. However, such an approximation is enough
+to show the onset of low-energy excitations for <span
+class="math inline">\(\rho \sim 10^{-2}-10^{-1}\)</span>, as displayed
+on the top graphic of <span
+class="math inline">\(\ref{fig:DOS_Oscillations}\)</span>(a). We
+characterized these gapless excitations using the dimensional scaling
+exponential <span class="math inline">\(\tau\)</span> of the IPR on the
+bottom graphic of the same figure. At small <span
+class="math inline">\(\rho\)</span>, the states populating the gap
+possess <span class="math inline">\(\tau\approx0\)</span>, indicating
+that they are localised states pinned to the defects, and the system
+remains insulating. At large <span class="math inline">\(\rho\)</span>,
+the in-gap states merge with the bulk band and become extensive, closing
+the gap, and the system transitions to a metallic phase. { Maybe being a
+bit more quantitative about <span class="math inline">\(\tau\)</span>
+can enrich the discussion by allowing us to discuss a bit about the
+multifractality of these low-energy states}
+The thermal metal DOS displays a logarithmic divergence at zero energy
+and characteristic oscillations at small energies. . These features were
+indeed observed by the averaged density of states in the <span
+class="math inline">\(\rho = 0.5\)</span> case shown in (b) for
+amorphous lattice. We emphasize that the CSL studied here emerges
+without an applied magnetic field as opposed to the CSL on the honeycomb
+lattice studied in Ref. { I have the impression that (b) on the top is
+very similar to Fig. 3 of . Maybe a more instructive figure would be the
+DOS of the amorphous toric code at the infinite temperature limit. In
+this case, the lack of non-Abelian anyons would be reflected by a gap on
+the DOS, which would contrast nicely to the thermal metal phase}
+<p>% This high temperature phase of the amorphous model is known as a
+thermal metal. The signature of the thermal metal phase is
+characteristic oscillations in the low energy density of states, as seen
+in~(b).</p>
+{} We have studied an extension of the Kitaev honeycomb model to
+amorphous lattices with coordination number <span
+class="math inline">\(z= 3\)</span>. We found that it is able to support
+two quantum spin liquid phases that can be distinguished using a
+real-space generalisation of the Chern number. The presence of odd-sided
+plaquettes on these lattices let to a spontaneous breaking of time
+reversal symmetry, leading to the emergence of a chiral spin liquid
+phase. Furthermore we found evidence that the amorphous system undergoes
+an Anderson transition to a thermal metal phase, driven by the
+proliferation of vortices with increasing temperature. The next step is
+to search for an experimental realisation in amorphous Kitaev materials,
+which can be created from crystalline ones using several methods .
+Following the evidence for an induced chiral spin liquid phase in
+crystalline Kitaev materials , it would be interesting to investigate if
+a similar state is produced on its amorphous counterpart. Besides the
+usual half-quantized signature on thermal Hall effect , such a CSL could
+be also characterized using local probes such as spin-polarized
+scanning-tunneling microscopy . The same probes would also be useful to
+manipulate non-Abelian anyons , thereby implementing elementary
+operations for topological quantum computation. Finally, the thermal
+metal phase can be diagnosed using bulk heat transport measurements .
+<p>This work can be generalized in several ways. Introduction of
+symmetry allowed perturbations on the model . Generalizations to
+higher-spin models in random networks with different coordination
+numbers </p>
+<p>% In the present work, we have avoided the need for a rigorous Monte
+Carlo study of the thermal phase transition. As a consequence, the
+thermodynamic nature of the transition between the chiral QSL and
+thermal metal states has not been elucidated. { insert some guff about
+the Imri-Ma argument}.</p>
+<p>{ Probably one way to make this theory experimentally relevant is to
+do experiments on amorphous phases of Kitaev materials. These phases can
+be obtained by liquifying the material and cooling it fast. Apparently,
+most of crystalline magnets can be transformed into amorphous ones
+through this process. } %Metal-organic frameworks (MOFs) are a promising
+candidate for realising Kitaev physics in an amorphous system. Yamada et
+al. propose a realisation of the Kitaev honeycomb model in a crystalline
+Ru-oxalate MOF~, and Misumi et al.~have demonstrated potential
+signatures of a resonating valence bond quantum spin liquid state in
+MOFs with Kagome geometry~. Amorphous MOFs can be generated by
+introducing disorder into crystalline MOFs through mechanical
+processes~, suggesting a natural route to realising amorphous Kitaev
+physics. Assuming it is possible to realise Kitaev physics in a
+crystalline MOF, it is unclear what superexchange couplings would be
+retained when disorder is introduced to the lattice. Because it is
+unlikely one would cleanly reproduce the exact model described in the
+present work, future work should examine how robust the CSL ground state
+of the amorphous Kitaev model is to additional disorder in the
+Hamiltonian, for example random recoloring of the bonds, additional bond
+forming and breaking, and disorder in coupling strengths.</p>
+<p>% Produces the bibliography via BibTeX. % </p>
+<p>A random pointset is used to partition space into polyhedral volumes
+enclosing the region closest to each point in the set. In two
+dimensions, the vertices and edges of these polygons form a
+tri-coordinate lattice.</p>
+%
+<p>% The Kitaev honeycomb lattice model (HLM) is composed of spin-()
+particles interacting anisotropically along the edges of a lattice: %
+\begin{equation} % =
+-<em>{(i,j)}J^{</em>{ij}}<em>i^{</em>{ij}}<em>j^{</em>{ij}} +
+_{(i,j,k)}_i^{x}<em>j^{y}<em>k^{z} % \end{equation} % where the two spin
+term runs over pairs of nearest neighbours and the three spin term runs
+over consecutive triplets around a plaquette. The Pauli matrices <span
+class="math inline">\(\sigma^\alpha\)</span> in each term are chosen
+according to the type, or
+<code>coloring', of the bond $i\to j$, $\alpha_{ij}\in\{x,y,z\}$. The bond coloring is chosen such that exactly one bond of each type is connected to each vertex. % This Hamiltonian is exactly solvable by introducing a Majorana representation \(\widetilde{\sigma}_i^{\alpha} = i b^{\alpha}_i c_i\) which the partitions the Hilbert space into a classical $\mathrm{Z}_2$ gauge degree of freedom, \(u_{jk} = ib_j^{\alpha_{jk}}b_k^{\alpha_{jk}}\), on the bonds, and Majorana fermions, $c_j$, living on the vertices. It also doubles the size of the Fock space, necessitating calculating a projector \(P\) from the Majorana Fock space \(\mathcal{\widetilde{M}}\) onto the physical subspace \(\mathcal{M}\)~\cite{pedrocchiPhysicalSolutionsKitaev2011}. We refer to a choice of gauge configuration, $\{u_{jk}\}$, as the</code>flux
+sector’. The problem then reduces to solving a free-fermion Hamiltonian
+within each flux sector (u) % \begin{equation} % ^u =
+</em>{j,k}A</em>{jk}c_jc_k % \end{equation} % where <span
+class="math inline">\(A_{jk}=2J^\alpha_{jk}u_{jk}\)</span> for <span
+class="math inline">\((j, k)\)</span> nearest-neighbours, <span
+class="math inline">\(A_{jk}=2\kappa\sum_l u_{jl}u_{kl}\)</span> for
+<span class="math inline">\((j,k)\)</span> second-nearest-neighbours,
+and <span class="math inline">\(A_{jk}=0\)</span> otherwise. Finally the
+Majorana modes can be found with a transformation (Q) % \begin{equation}
+% (b^{’}_1, b^{’’}_1, … ;b^{’}_N, b^{’‘}<em>N) = (c_1, c_2, …
+;c</em>{2N}) Q % \end{equation} % from which we create the fermionic
+operators (a_i = (b^{’}_i + ib^{’’}_i)), bringing (H) to the form %
+\begin{equation} % ^u = _m _m (n_m - ) % \end{equation} % with ground
+state energy (E_0 = -_m <em>m). The projector has the effect of removing
+many body states with either even or odd parity (= <em>i (1 - 2n_i)), an
+effect which typically leads to a correction of order (). The gauge
+symmetries of <span class="math inline">\(\{u_{jk}\}\)</span> can be
+removed by defining plaquette operators (P_i = </em>{(i,j) P_i}
+u</em>{ij}) that wind the plaquettes (faces) of the lattice.</p>
+<p>% The ground state flux sector of the HLM in the isotropic phase
+(<span class="math inline">\(J^x = J^y = J^z\)</span>) at zero field
+(<span class="math inline">\(\kappa=0\)</span>) possesses a gapless
+fermionic spectrum. A non-zero field (<span
+class="math inline">\(\kappa\neq0\)</span>) opens a gap, and the
+resulting fermionic insulator is known to host non-Abelian anyonic
+excitations and possess a non-zero Chern number~. This non-abelian phase
+has been shown to undergo a finite-temperature phase transition to a
+so-called `thermal metal’ phase, which exhibits multifractility~.</p>
+<p>For a lattice with (B) bonds, (V) vertices, (P) plaquettes and Euler
+characteristic () (0 for the torus) the Euler equation states that (B =
+P + V + ). This corresponds to the (2^{B}) gauge configurations being
+composed of (2^{P - 1}) physically distinct vortex states each of which
+is composed of (2^{V - 1}) gauge equivalent states that correspond to
+flipping three (u_{ij}) around a vertex, along with (2 - )
+non-contractible loop operators. The term (2 - ) is perhaps more easily
+understood by relating () to the genus of the surface (g), i.e the
+number of holes with (= 2 - 2g) showing that there are two
+non-contractible loops for each hole in the surface.</p>
+<p>Care must be taken in the definition of open boundary conditions,
+simply removing bonds from the lattice leaves behind unpaired (b^)
+operators that need to be paired in some way to arrive at fermionic
+modes. In order to fix a pairing we always start from a lattice defined
+on the torus and generate a lattice with open boundary conditions by
+defining the bond coupling (J^{}_{ij} = 0) for sites joined by bonds
+((i,j)) that we want to remove. This creates fermionic zero modes (u_ij)
+associated with these cut bonds which we set to 1 when calculating the
+projector.</p>
+<p>{ Add brief mention of fermions and many body ground state} Closely
+following the derivation of~ we can extend to the amorphous case
+relatively simply. The main quantity needed is the product of the local
+projectors (D_i) [_i^{2N} D_i = _i^{2N} b^x_i b^y_i b^z_i c_i ] for a
+lattice with (2N) vertices and (3N) edges. The operators can be ordered
+by bond type without utilising any property of the lattice. [_i^{2N} D_i
+= _i^{2N} b^x_i _i^{2N} b^y_i _i^{2N} b^z_i _i^{2N} c_i] The product
+over (c_i) operators reduces to a determinant of the Q matrix and the
+fermion parity. The only problem is to compute the factors (p_x,p_y,p_z
+= ) that arise from reordering the b operators such that pairs of
+vertices linked by the corresponding bonds are adjacent. [<em>i^{2N}
+b^<em>i = p</em></em>{(i,j)}b^_i b^_j] This is simple the parity of the
+permutation from one ordering to the other and can be computed easily
+with a cycle decomposition.</p>
+<p>The final form is almost identical to the honeycomb case with the
+addition of the lattice structure factors (p_x,p_y,p_z) [P^0 = 1 +
+p_x;p_y;p_z (Q^u) ; ; <em>{{i,j}} -iu</em>{ij}]</p>
+<p>((Q^u)) is the determinant of the matrix that takes ((c_1, c_2…
+c_{2N}) Q = (b_1, b_2… b_{2N})). This along with (u_{ij}) depend on the
+lattice and the particular vortex sector.</p>
+<p>( = ^{N} (1 - 2_i)) is the parity of the particular many body state
+determined by fermionic occupation numbers (n_i). The Hamiltonian is (H
+= _i (n_i - 1/2)) in this basis and this tells use that the ground state
+is either an empty system with all (n_i = 0) or a state with a single
+fermion in the lowest level.</p>
+In this section we detail the numerical evidence collected to support
+the claim that, for an arbitrary lattice, a gapped ground state flux
+sector is found by setting the flux through each plaquette to <span
+class="math inline">\(\phi_{\textup{g.s.}} = -(\pm
+i)^{n_{\textup{sides}}}\)</span>. This was done by generating a large
+number (<span class="math inline">\(\sim\)</span> 25,000) of lattices
+and exhaustively checking every possible flux sector to find the
+configuration with the lowest energy. We checked both the isotropic
+point (<span class="math inline">\(J^\alpha = 1\)</span>), as well as in
+the toric code phase (<span class="math inline">\(J^x = J^y = 0.25, J^z
+= 1\)</span>).
+The argument has one complication: for a graph with <span
+class="math inline">\(n_p\)</span> plaquettes, there are <span
+class="math inline">\(2^{n_p - 1}\)</span> distinct flux sectors to
+search over, with an added factor of 4 when the global fluxes <span
+class="math inline">\(\Phi_x\)</span> and <span
+class="math inline">\(\Phi_y\)</span> are taken into account. Note that
+the <span class="math inline">\(-1\)</span> appears in this counting
+because fluxes can only be flipped in pairs. To be able to search over
+the entire flux space, one is necessarily restricted to looking at small
+system sizes – we were able to check all flux sectors for systems with
+<span class="math inline">\(n_p \leq 16\)</span> in a reasonable amount
+of time. However, at such small system size we find that finite size
+effects are substantial enough to destroy our results. In order to
+overcome these effects we tile the system and use Bloch’s theorem (a
+trick that we shall refer to as for reasons that shall become clear) to
+efficiently find the energy of a much larger (but periodic) lattice.
+Thus we are able to suppress finite size effects, at the expense of
+losing long-range disorder in the lattice.
+<p>Our argument has three parts: First we shall detail the techniques
+used to exhaustively search the flux space for a given lattice. Next, we
+discuss finite-size effects and explain the way that our methods are
+modified by the twist-averaging procedure. Finally, we demonstrate that
+as the size of the disordered system is increased, the effect of
+twist-averaging becomes negligible – suggesting that our conclusions
+still apply in the case of large disordered lattices.</p>
+{} For a given lattice and flux sector, defined by <span
+class="math inline">\(\{ u_{jk}\}\)</span>, the fermionic ground state
+energy is calculated by taking the sum of the negative eigenvalues of
+the matrix <span class="math display">\[\begin{align}
+    M_{jk} = \frac{i}{2} J^{\alpha} u_{jk}.
+\end{align}\]</span> The set of bond variables <span
+class="math inline">\(u_{jk}\)</span>, which we are free to choose,
+determine the <span class="math inline">\(\mathbb Z_2\)</span> gauge
+field. However only the fluxes, defined for each plaquette according to
+eqn.~<span class="math inline">\(\ref{eqn:flux_definition}\)</span>,
+have any effect on the energies. Thus, there is enormous degeneracy in
+the <span class="math inline">\(u_{jk}\)</span> degrees of freedom.
+Flipping the bonds along any closed loop on the dual lattice has no
+effect on the fluxes, since each plaquette has had an even number of its
+constituent bonds flipped - as is shown in the following diagram:
+where the flipped bonds are shown in red. In order to explore every
+possible flux sector using the <span
+class="math inline">\(u_{jk}\)</span> variables, we restrict ourselves
+to change only a subset of the bonds in the system. In particular, we
+construct a spanning tree on the dual lattice, which passes through
+every plaquette in the system, but contains no loops.
+<p>The tree contains <span class="math inline">\(n_p - 1\)</span> edges,
+shown in red, whose configuration space has a <span
+class="math inline">\(1:1\)</span> mapping onto the <span
+class="math inline">\(2^{n_p - 1}\)</span> distinct flux sectors. Each
+flux sector can be created in precisely one way by flipping edges only
+on the tree (provided all other bond variables not on the tree remain
+fixed). Thus, all possible flux sectors can be accessed by iterating
+over all configurations of edges on this spanning tree.</p>
+{} In our numerical investigation, the objective was to test as many
+example lattices as possible. We aim for the largest lattice size that
+could be efficiently solved, requiring a balance between lattice size
+and cases tested. Each added plaquette doubles the number of flux
+sectors that must be checked. 25,000 lattices containing 16 plaquettes
+were used. However, in his numerical investigation of the honeycomb
+model, Kitaev demonstrated that finite size effects persist up to much
+larger lattice sizes than we were able to access .
+In order to circumvent this problem, we treat the 16-plaquette amorphous
+lattice as a unit cell in an arbitrarily large periodic system. The
+bonds that originally connected across the periodic boundaries now
+connect adjacent unit cells. This infinite periodic Hamiltonian can then
+be solved using Bloch’s theorem, since the larger system is diagonalised
+by a plane wave ansatz. For a given crystal momentum $\bf q<span
+class="math inline">\(. We then check if the lowest energy flux sector
+aligns with our ansatz (eqn.~\ref{eqn:gnd_flux}) and whether this flux
+sector is gapped. \par In the isotropic case (\)</span>J^= 1<span
+class="math inline">\(), all 25,000 examples conformed to our guess for
+the ground state flux sector. A tiny minority (\)</span>10$) of the
+systems were found to be gapless. As we shall see shortly, the
+proportion of gapless systems vanishes as we increase the size of the
+amorphous lattice. An example of the energies and gaps for one of the
+systems tested is shown in fig.~<span
+class="math inline">\(\ref{fig:energy_gaps_example}\)</span>. For the
+anisotropic phase (we used $ J^x, J^y = 0.25, J^z = 1<span
+class="math inline">\() the overwhelming majority of cases adhered to
+our ansatz, however a small minority (\)</span>0.5 %$) did not. In these
+cases, however, the energy difference between our ansatz and the ground
+state was at most of order <span class="math inline">\(10^{-6}\)</span>.
+Further investigation would need to be undertaken to determine whether
+these anomalous systems are a finite size effect due to the small
+amorphous system sizes used or a genuine feature of the toric code phase
+on such lattices.
+<p>{} Now that we have collected sufficient evidence to support our
+guess for the ground state flux sector, we turn our attention to
+checking that this sector is gapped. We no longer need to exhaustively
+search over flux space for the ground state, so it is possible to go to
+much larger system size. We generate 40 sets of systems with plaquette
+numbers ranging from 9 to 1600. For each system size, 1000 distinct
+lattices are generated and the energy and gap size are calculated
+without phase twisting, since the effect is negligible for such large
+system sizes. As can be seen, for very small system size a small
+minority of gapless systems appear, however beyond around 20 plaquettes
+all systems had a stable fermion gap in the ground state.</p>
+% Thus, we shall begin with a discussion of how finite size affects the
+eigenvalues of the Majorana Hamiltonian, followed by our solution to
+this problem. Evidence for the ground state solution was collected by
+searching over all possible flux sectors for the lowest energy states.
+This is repeated for various values of <span
+class="math inline">\(J\)</span> over a large number of randomly
+generated lattices.
+<p>% For a given lattice and flux sector, defined by <span
+class="math inline">\(\{ u_{jk}\}\)</span>, the fermionic ground state
+energy is found by taking the sum of the negative eigenvalues of the
+matrix % \begin{align} % M_{jk} = J^{} u_{jk}. % \end{align} % A gauge
+transformation involves flipping the value of <span
+class="math inline">\(u_{jk}\)</span> for the three bonds connected to
+the point at <span class="math inline">\(j\)</span>. Under a gauge
+transformation, the matrix <span class="math inline">\(M\)</span>
+transforms according to <span class="math inline">\(M \rightarrow D_j M
+D_j\)</span>, where the matrix <span class="math inline">\(D_j\)</span>
+is a diagonal matrix with <span class="math inline">\(-1\)</span> on the
+<span class="math inline">\(j\)</span>’th entry, and <span
+class="math inline">\(+1\)</span> on all others. This represents a
+unitary transformation, so the spectrum of <span
+class="math inline">\(M\)</span> is invariant under gauge
+transformations. As demonstrated in , the spectrum is determined
+entirely by the flux through all circuits in the system, which we define
+analogously to <span
+class="math inline">\(\ref{eqn:flux_definition}\)</span>. In this case
+we include not only plaquettes, but circuits that encircle several
+plaquettes. In periodic boundaries we must also consider</p>
+% In the language of graph theory, this matrix may be interpreted as
+representing a weighted, directed digraph, with weights determined by
+the individual entries of <span class="math inline">\(M\)</span>. The
+Harary-Sachs theorem states that the characteristic polynomial of such a
+matrix may be written in terms of the weights of the cycles of the
+graph, defined as the product of the elements of <span
+class="math inline">\(M\)</span> around some closed path <span
+class="math inline">\(\mathcal C\)</span> on the lattice, %
+\begin{align} % w_{} = <em>{} M</em>{jk}. % \end{align} % These weights
+are similar to the fluxes defined in the bulk text, with two important
+differences. Firstly, the cyclic weights include the factor of <span
+class="math inline">\(J^\alpha\)</span> in the product. Secondly, unlike
+tthe fluxes, which are defined for individual plaquettes, the weights
+are calculated for every closed path on the lattice. The takeaway is
+that the characteristic polynomial, and thus all eigenvalues, is
+determined only by the values of these weights. Any change to the set of
+<span class="math inline">\(u_{jk}\)</span> that does not affect the
+weight of any cycles will have no effect on the energies of the system.
+For example a gauge transformation, where <span
+class="math inline">\(u_{jk}\)</span> is flipped on the three edges
+connected to a chosen site, cannot affect the energies, as every cycle
+passing through the chosen site must contain two of the flipped edges.
+<p>\end{document}</p>
+<div id="refs" class="references csl-bib-body" data-line-spacing="2"
+role="doc-bibliography">
+<div id="ref-tomImperialCMTHKoalaFirst2022" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Tom,
+dpreuo &amp; Cassella, G. Imperial-<span>CMTH</span>/koala:
+<span>First</span> release. (2022) doi:<a
+href="https://doi.org/10.5281/zenodo.6303276">10.5281/zenodo.6303276</a>.</div>
+</div>
+<div id="ref-mitchellAmorphousTopologicalInsulators2018"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Mitchell, N. P., Nash, L. M., Hexner, D.,
+Turner, A. M. &amp; Irvine, W. T. M. <a
+href="https://doi.org/10.1038/s41567-017-0024-5">Amorphous topological
+insulators constructed from random point sets</a>. <em>Nature Phys</em>
+<strong>14</strong>, 380–385 (2018).</div>
+</div>
+<div id="ref-marsalTopologicalWeaireThorpeModels2020" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline">Marsal, Q., Varjas, D. &amp; Grushin, A. G. <a
+href="https://doi.org/10.1073/pnas.2007384117">Topological
+<span>Weaire-Thorpe</span> models of amorphous matter</a>. <em>Proc.
+Natl. Acad. Sci. U.S.A.</em> <strong>117</strong>, 30260–30265
+(2020).</div>
+</div>
+<div id="ref-florescu_designer_2009" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline">Florescu, M., Torquato, S. &amp; Steinhardt, P.
+J. <a href="https://doi.org/10.1073/pnas.0907744106">Designer disordered
+materials with large, complete photonic band gaps</a>. <em>Proceedings
+of the National Academy of Sciences</em> <strong>106</strong>,
+20658–20663 (2009).</div>
+</div>
+<div id="ref-alyamiUniformSamplingDirected2016" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline">Alyami, S. A., Azad, A. K. M. &amp; Keith, J.
+M. <a href="https://doi.org/10.1016/j.endm.2016.05.005">Uniform
+<span>Sampling</span> of <span>Directed</span> and <span>Undirected
+Graphs Conditional</span> on <span>Vertex Connectivity</span></a>.
+<em>Electronic Notes in Discrete Mathematics</em> <strong>53</strong>,
+43–55 (2016).</div>
+</div>
+<div id="ref-barberQuickhullAlgorithmConvex1996" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline">Barber, C. B., Dobkin, D. P. &amp; Huhdanpaa,
+H. <a href="https://doi.org/10.1145/235815.235821">The quickhull
+algorithm for convex hulls</a>. <em>ACM Trans. Math. Softw.</em>
+<strong>22</strong>, 469–483 (1996).</div>
+</div>
+<div id="ref-virtanenSciPyFundamentalAlgorithms2020a" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline">Virtanen, P. <em>et al.</em> <a
+href="https://doi.org/10.1038/s41592-019-0686-2"><span>SciPy</span> 1.0:
+Fundamental algorithms for scientific computing in
+<span>Python</span></a>. <em>Nat Methods</em> <strong>17</strong>,
+261–272 (2020).</div>
+</div>
+<div id="ref-appelEveryPlanarMap1989" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div
+class="csl-right-inline">Appel, K. &amp; Haken, W. Every <span>Planar
+Map Is Four Colorable</span>. in (1989). doi:<a
+href="https://doi.org/10.1090/conm/098">10.1090/conm/098</a>.</div>
+</div>
+<div id="ref-heawoodMapColouringTheorems" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline">Heawood, P. J. Map colouring theorems.
+<em>Quarterly Journal of Mathematics</em> 322–339.</div>
+</div>
+<div id="ref-gEstimateChromaticClass1964" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">G,
+V. V. On an estimate of the chromatic class of a p-graph. <em>Discret
+Analiz</em> <strong>3</strong>, 25–30 (1964).</div>
+</div>
+<div id="ref-skulrattanakulchai4edgecoloringGraphsMaximum2002"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline">Skulrattanakulchai, S. <a
+href="https://doi.org/10.1016/S0020-0190(01)00221-6">4-edge-coloring
+graphs of maximum degree 3 in linear time</a>. <em>Inf. Process.
+Lett.</em> <strong>81</strong>, 191–195 (2002).</div>
+</div>
+<div id="ref-tait1880remarks" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline">Tait, P. G. Remarks on the colouring of maps.
+in <em>Proc. <span>Roy</span>. <span>Soc</span>.
+<span>Edinburgh</span></em> vol. 10 501–503 (1880).</div>
+</div>
+<div id="ref-Karp1972" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline">Karp, R. M. Reducibility among combinatorial
+problems. in <em>Complexity of computer computations</em> (eds. Miller,
+R. E., Thatcher, J. W. &amp; Bohlinger, J. D.) 85–103 (<span>Springer
+US</span>, 1972). doi:<a
+href="https://doi.org/10.1007/978-1-4684-2001-2_9">10.1007/978-1-4684-2001-2_9</a>.</div>
+</div>
+<div id="ref-imms-sat18" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline">Ignatiev, A., Morgado, A. &amp; Marques-Silva,
+J. <span>PySAT</span>: <span>A Python</span> toolkit for prototyping
+with <span>SAT</span> oracles. in <em><span>SAT</span></em> 428–437
+(2018). doi:<a
+href="https://doi.org/10.1007/978-3-319-94144-8_26">10.1007/978-3-319-94144-8_26</a>.</div>
+</div>
+<div id="ref-Yonezawa1983" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">15. </div><div
+class="csl-right-inline"><em>Topological disorder in condensed
+matter</em>. vol. 46 (<span>Springer-Verlag</span>, 1983).</div>
+</div>
+<div id="ref-zallen2008physics" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline">Zallen, R. <em>The physics of amorphous
+solids</em>. (<span>John Wiley &amp; Sons</span>, 2008).</div>
+</div>
+<div id="ref-Weaire1976" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">17. </div><div
+class="csl-right-inline">Weaire, D. &amp; Thorpe, M. F. <a
+href="https://doi.org/10.1080/00107517608210851">The structure of
+amorphous solids</a>. <em>Contemporary Physics</em> <strong>17</strong>,
+173–191 (1976).</div>
+</div>
+<div id="ref-gaskell1979structure" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">18. </div><div
+class="csl-right-inline">Gaskell, P. On the structure of simple
+inorganic amorphous solids. <em>Journal of Physics C: Solid State
+Physics</em> <strong>12</strong>, 4337 (1979).</div>
+</div>
+<div id="ref-Weaire1971" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">19. </div><div
+class="csl-right-inline">Weaire, D. &amp; Thorpe, M. F. <a
+href="https://doi.org/10.1103/PhysRevB.4.2508">Electronic properties of
+an amorphous solid. <span>I</span>. <span>A</span> simple tight-binding
+theory</a>. <em>Phys. Rev. B</em> <strong>4</strong>, 2508–2520
+(1971).</div>
+</div>
+<div id="ref-betteridge1973possible" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">20. </div><div
+class="csl-right-inline">Betteridge, G. A possible model of amorphous
+silicon and germanium. <em>Journal of Physics C: Solid State
+Physics</em> <strong>6</strong>, L427 (1973).</div>
+</div>
+<div id="ref-agarwala2019topological" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">21. </div><div
+class="csl-right-inline">Agarwala, A. Topological insulators in
+amorphous systems. in <em>Excursions in ill-condensed quantum
+matter</em> 61–79 (<span>Springer</span>, 2019).</div>
+</div>
+<div id="ref-costa2019toward" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">22. </div><div
+class="csl-right-inline">Costa, M., Schleder, G. R., Buongiorno
+Nardelli, M., Lewenkopf, C. &amp; Fazzio, A. Toward realistic amorphous
+topological insulators. <em>Nano letters</em> <strong>19</strong>,
+8941–8946 (2019).</div>
+</div>
+<div id="ref-agarwala2020higher" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">23. </div><div
+class="csl-right-inline">Agarwala, A., Juričić, V. &amp; Roy, B.
+Higher-order topological insulators in amorphous solids. <em>Physical
+Review Research</em> <strong>2</strong>, 012067 (2020).</div>
+</div>
+<div id="ref-spring2021amorphous" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">24. </div><div
+class="csl-right-inline">Spring, H., Akhmerov, A. &amp; Varjas, D.
+Amorphous topological phases protected by continuous rotation symmetry.
+<em>SciPost Physics</em> <strong>11</strong>, 022 (2021).</div>
+</div>
+<div id="ref-corbae2019evidence" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">25. </div><div
+class="csl-right-inline">Corbae, P. <em>et al.</em> Evidence for
+topological surface states in amorphous <span>Bi</span> _ {2}
+<span>Se</span> _ {3}. <em>arXiv preprint arXiv:1910.13412</em>
+(2019).</div>
+</div>
+<div id="ref-buckel1954einfluss" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">26. </div><div
+class="csl-right-inline">Buckel, W. &amp; Hilsch, R. Einfluß der
+kondensation bei tiefen temperaturen auf den elektrischen widerstand und
+die supraleitung für verschiedene metalle. <em>Zeitschrift für
+Physik</em> <strong>138</strong>, 109–120 (1954).</div>
+</div>
+<div id="ref-mcmillan1981electron" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">27. </div><div
+class="csl-right-inline">McMillan, W. &amp; Mochel, J. Electron
+tunneling experiments on amorphous ge 1- x au x. <em>Physical Review
+Letters</em> <strong>46</strong>, 556 (1981).</div>
+</div>
+<div id="ref-bergmann1976amorphous" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">28. </div><div
+class="csl-right-inline">Bergmann, G. Amorphous metals and their
+superconductivity. <em>Physics Reports</em> <strong>27</strong>, 159–185
+(1976).</div>
+</div>
+<div id="ref-kim2022fractionalization" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">29. </div><div
+class="csl-right-inline">Kim, S., Agarwala, A. &amp; Chowdhury, D.
+Fractionalization and topology in amorphous electronic solids. <em>arXiv
+preprint arXiv:2205.11523</em> (2022).</div>
+</div>
+<div id="ref-Andreev1" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">30. </div><div
+class="csl-right-inline">Andreev, A. F. &amp; Marchenko, V. I.
+Macroscopic <span>Theory</span> of spin waves. <em>Zh. Eksp. Teor.
+Fiz.</em> <strong>70</strong>, 1522–1538 (1976).</div>
+</div>
+<div id="ref-Andreev2" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">31. </div><div
+class="csl-right-inline">Andreev, A. F. Magnetic <span>Properties</span>
+of disordered media. <em>Soviet Physics Uspekhi</em>
+<strong>21</strong>, 541 (1978).</div>
+</div>
+<div id="ref-Andreev3" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">32. </div><div
+class="csl-right-inline">Andreev, A. F. &amp; Marchenko, V. I. Symmetry
+and the macroscopic dynamics of magnetic materials. <em>Soviet Physics
+Uspekhi</em> <strong>23</strong>, 21 (1980).</div>
+</div>
+<div id="ref-Jackeli2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">33. </div><div
+class="csl-right-inline">Jackeli, G. &amp; Khaliullin, G. <a
+href="https://doi.org/10.1103/PhysRevLett.102.017205">Mott insulators in
+the strong spin-orbit coupling limit: From <span>Heisenberg</span> to a
+quantum compass and <span>Kitaev</span> models</a>. <em>Physical Review
+Letters</em> <strong>102</strong>, 017205 (2009).</div>
+</div>
+<div id="ref-HerrmannsAnRev2018" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">34. </div><div
+class="csl-right-inline">Hermanns, M., Kimchi, I. &amp; Knolle, J. <a
+href="https://doi.org/10.1146/annurev-conmatphys-033117-053934">Physics
+of the kitaev model: <span>Fractionalization</span>, dynamic
+correlations, and material connections</a>. <em>Annual Review of
+Condensed Matter Physics</em> <strong>9</strong>, 17–33 (2018).</div>
+</div>
+<div id="ref-Winter2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">35. </div><div
+class="csl-right-inline">Winter, S. M. <em>et al.</em> Models and
+materials for generalized <span>Kitaev</span> magnetism. <em>Journal of
+Physics: Condensed Matter</em> <strong>29</strong>, 493002 (2017).</div>
+</div>
+<div id="ref-TrebstPhysRep2022" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">36. </div><div
+class="csl-right-inline">Trebst, S. &amp; Hickey, C. <a
+href="https://doi.org/10.1016/j.physrep.2021.11.003">Kitaev
+materials</a>. <em>Physics Reports</em> <strong>950</strong>, 1–37
+(2022).</div>
+</div>
+<div id="ref-Takagi2019" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">37. </div><div
+class="csl-right-inline">Takagi, H., Takayama, T., Jackeli, G.,
+Khaliullin, G. &amp; Nagler, S. E. Concept and realization of
+<span>Kitaev</span> quantum spin liquids. <em>Nature Reviews
+Physics</em> <strong>1</strong>, 264–280 (2019).</div>
+</div>
+<div id="ref-Anderson1973" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">38. </div><div
+class="csl-right-inline">Anderson, P. W. Resonating valence bonds: A new
+kind of insulator? <em>Mater. Res. Bull.</em> <strong>8</strong>,
+153–160 (1973).</div>
+</div>
+<div id="ref-Knolle2019" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">39. </div><div
+class="csl-right-inline">Knolle, J. &amp; Moessner, R. <a
+href="https://doi.org/10.1146/annurev-conmatphys-031218-013401">A field
+guide to spin liquids</a>. <em>Annual Review of Condensed Matter
+Physics</em> <strong>10</strong>, 451–472 (2019).</div>
+</div>
+<div id="ref-Savary2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">40. </div><div
+class="csl-right-inline">Savary, L. &amp; Balents, L. Quantum spin
+liquids: A review. <em>Reports on Progress in Physics</em>
+<strong>80</strong>, 016502 (2017).</div>
+</div>
+<div id="ref-Lacroix2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">41. </div><div
+class="csl-right-inline"><em>Introduction to frustrated magnetism</em>.
+vol. 164 (<span>Springer-Verlag</span>, 2011).</div>
+</div>
+<div id="ref-kitaevAnyonsExactlySolved2006" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">42. </div><div
+class="csl-right-inline">Kitaev, A. <a
+href="https://doi.org/10.1016/j.aop.2005.10.005">Anyons in an exactly
+solved model and beyond</a>. <em>Annals of Physics</em>
+<strong>321</strong>, 2–111 (2006-01-01, 2006).</div>
+</div>
+<div id="ref-Baskaran2007" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">43. </div><div
+class="csl-right-inline">Baskaran, G., Mandal, S. &amp; Shankar, R. <a
+href="https://doi.org/10.1103/PhysRevLett.98.247201">Exact results for
+spin dynamics and fractionalization in the kitaev model</a>. <em>Phys.
+Rev. Lett.</em> <strong>98</strong>, 247201 (2007).</div>
+</div>
+<div id="ref-Baskaran2008" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">44. </div><div
+class="csl-right-inline">Baskaran, G., Sen, D. &amp; Shankar, R. <a
+href="https://doi.org/10.1103/PhysRevB.78.115116">Spin-<span>S
+Kitaev</span> model: <span>Classical</span> ground states, order from
+disorder, and exact correlation functions</a>. <em>Phys. Rev. B</em>
+<strong>78</strong>, 115116 (2008).</div>
+</div>
+<div id="ref-Nussinov2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">45. </div><div
+class="csl-right-inline">Nussinov, Z. &amp; Ortiz, G. <a
+href="https://doi.org/10.1103/PhysRevB.79.214440">Bond algebras and
+exact solvability of <span>Hamiltonians</span>: Spin
+<span>S</span>=<span><span
+class="math inline">\(\frac{1}{2}\)</span></span> multilayer
+systems</a>. <em>Physical Review B</em> <strong>79</strong>, 214440
+(2009).</div>
+</div>
+<div id="ref-OBrienPRB2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">46. </div><div
+class="csl-right-inline">O’Brien, K., Hermanns, M. &amp; Trebst, S. <a
+href="https://doi.org/10.1103/PhysRevB.93.085101">Classification of
+gapless <span>Z</span><span><span
+class="math inline">\(_2\)</span></span> spin liquids in
+three-dimensional <span>Kitaev</span> models</a>. <em>Phys. Rev. B</em>
+<strong>93</strong>, 085101 (2016).</div>
+</div>
+<div id="ref-yaoExactChiralSpin2007" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">47. </div><div
+class="csl-right-inline">Yao, H. &amp; Kivelson, S. A. <a
+href="https://doi.org/10.1103/PhysRevLett.99.247203">An exact chiral
+spin liquid with non-<span>Abelian</span> anyons</a>. <em>Phys. Rev.
+Lett.</em> <strong>99</strong>, 247203 (2007).</div>
+</div>
+<div id="ref-Peri2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">48. </div><div
+class="csl-right-inline">Peri, V. <em>et al.</em> <a
+href="https://doi.org/10.1103/PhysRevB.101.041114">Non-<span>Abelian</span>
+chiral spin liquid on a simple non-<span>Archimedean</span> lattice</a>.
+<em>Phys. Rev. B</em> <strong>101</strong>, 041114 (2020).</div>
+</div>
+</div>
+</main>
+</body>
+</html>
