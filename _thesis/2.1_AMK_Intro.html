@@ -209,39 +209,29 @@ image:
 <ul>
 <li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous
 Systems</a></li>
-<li><a href="#chapter-outline" id="toc-chapter-outline">Chapter
-outline</a></li>
-</ul></li>
-<li><a href="#an-in-depth-look-at-the-kitaev-model"
-id="toc-an-in-depth-look-at-the-kitaev-model">An in-depth look at the
-Kitaev Model</a>
+<li><a href="#the-kitaev-model" id="toc-the-kitaev-model">The Kitaev
+Model</a>
 <ul>
 <li><a href="#commutation-relations"
-id="toc-commutation-relations">Commutation relations</a>
-<ul>
-<li><a href="#spins" id="toc-spins">Spins</a></li>
-<li><a href="#fermions-and-majoranas"
-id="toc-fermions-and-majoranas">Fermions and Majoranas</a></li>
-</ul></li>
+id="toc-commutation-relations">Commutation relations</a></li>
 <li><a href="#the-hamiltonian" id="toc-the-hamiltonian">The
 Hamiltonian</a></li>
 <li><a href="#from-spins-to-majorana-operators"
 id="toc-from-spins-to-majorana-operators">From Spins to Majorana
-operators</a>
-<ul>
-<li><a href="#for-a-single-spin" id="toc-for-a-single-spin">For a single
-spin</a></li>
-<li><a href="#for-multiple-spins" id="toc-for-multiple-spins">For
-multiple spins</a></li>
-</ul></li>
+operators</a></li>
 <li><a href="#partitioning-the-hilbert-space-into-bond-sectors"
 id="toc-partitioning-the-hilbert-space-into-bond-sectors">Partitioning
 the Hilbert Space into Bond sectors</a></li>
+</ul></li>
 <li><a href="#the-majorana-hamiltonian"
-id="toc-the-majorana-hamiltonian">The Majorana Hamiltonian</a></li>
+id="toc-the-majorana-hamiltonian">The Majorana Hamiltonian</a>
+<ul>
 <li><a href="#mapping-back-from-bond-sectors-to-the-physical-subspace"
 id="toc-mapping-back-from-bond-sectors-to-the-physical-subspace">Mapping
 back from Bond Sectors to the Physical Subspace</a></li>
+<li><a href="#open-boundary-conditions"
+id="toc-open-boundary-conditions">Open boundary conditions</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -278,10 +268,6 @@ href="#ref-kitaevAnyonsExactlySolved2006"
 role="doc-biblioref">4</a></sup></span>. Its solubility comes about
 because the model has extensively many conserved degrees of freedom that
 mediate the interactions between quantum degrees of freedom.</p>
-<h2 id="amorphous-systems">Amorphous Systems</h2>
-<p><strong>Insert discussion of why a generalisation to the amorphous
-case is intersting</strong></p>
-<h2 id="chapter-outline">Chapter outline</h2>
 <p>In this chapter I will discuss the physics of the Kitaev Model on
 amorphous lattices.</p>
 <p>I’ll start by discussing the physics of the Kitaev model in much more
@@ -320,13 +306,15 @@ addtional small Heisenberg term <span class="math display">\[H_{KH} =  -
 \sum_{\langle j,k\rangle_\alpha}
 J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha} +
 \sigma_j\sigma_k\]</span></p>
-<h1 id="an-in-depth-look-at-the-kitaev-model">An in-depth look at the
-Kitaev Model</h1>
-<h2 id="commutation-relations">Commutation relations</h2>
+<h2 id="amorphous-systems">Amorphous Systems</h2>
+<p><strong>Insert discussion of why a generalisation to the amorphous
+case is intersting</strong></p>
+<h2 id="the-kitaev-model">The Kitaev Model</h2>
+<h3 id="commutation-relations">Commutation relations</h3>
 <p>Before diving into the Hamiltonian of the Kitaev Model, here is a
 quick refresher of the key commutation relations of spins, fermions and
 Majoranas.</p>
-<h3 id="spins">Spins</h3>
+<h4 id="spins">Spins</h4>
 <p>Skip this is you’re super familiar with the algebra of the Pauli
 martrices. Scalars like <span class="math inline">\(\delta_{ij}\)</span>
 should be understood to be multiplied by an implicit identity <span
@@ -359,7 +347,7 @@ class="math display">\[\sigma^\alpha \sigma^\beta \sigma^\gamma = i
 \epsilon^{\alpha\beta\gamma}\]</span> and <span
 class="math display">\[[\sigma^\alpha \sigma^\beta, \sigma^\gamma] =
 0\]</span></p>
-<h3 id="fermions-and-majoranas">Fermions and Majoranas</h3>
+<h4 id="fermions-and-majoranas">Fermions and Majoranas</h4>
 <p>The fermionic creation and anhilation operators are defined by the
 canonical anticommutation relations <span
 class="math display">\[\begin{aligned}
@@ -387,7 +375,7 @@ class="math inline">\(c_i\)</span>. The property that must be preserved
 however is that the Majoranas still anticommute:</p>
 <p><span class="math display">\[ \{c_i, c_j\} =
 2\delta_{ij}\]</span></p>
-<h2 id="the-hamiltonian">The Hamiltonian</h2>
+<h3 id="the-hamiltonian">The Hamiltonian</h3>
 <p>To get down to brass tacks, the Kitaev Honeycomb model is a model of
 interacting spin<span class="math inline">\(-1/2\)</span>s on the
 vertices of a honeycomb lattice. Each bond in the lattice is assigned a
@@ -497,9 +485,9 @@ of a plaqutte operator away from the ground state as
 Hilbert space into a set of ‘vortex sectors’ labelled by that particular
 flux configuration <span class="math inline">\(\phi_i = \pm 1,\pm
 i\)</span>.</p>
-<h2 id="from-spins-to-majorana-operators">From Spins to Majorana
-operators</h2>
-<h3 id="for-a-single-spin">For a single spin</h3>
+<h3 id="from-spins-to-majorana-operators">From Spins to Majorana
+operators</h3>
+<h4 id="for-a-single-spin">For a single spin</h4>
 <p>Let’s start by considering just one site and its <span
 class="math inline">\(\sigma^x, \sigma^y\)</span> and <span
 class="math inline">\(\sigma^z\)</span> operators which live in a two
@@ -560,7 +548,7 @@ alt="Figure 4: " />
 <figcaption aria-hidden="true"><span>Figure 4:</span> </figcaption>
 </figure>
 </div>
-<h3 id="for-multiple-spins">For multiple spins</h3>
+<h4 id="for-multiple-spins">For multiple spins</h4>
 <p>This construction generalises easily to the case of multiple spins:
 we get a set of 4 Majoranas <span class="math inline">\(b^x_j,\;
 b^y_j,\;b^z_j,\; c_j\)</span> and a <span class="math inline">\(D_j =
@@ -612,8 +600,8 @@ degree of degeneracy.</p>
 <p>In summary Majorana bond operators <span
 class="math inline">\(u_{ij}\)</span> are an emergent, classical, <span
 class="math inline">\(\mathbb{Z_2}\)</span> gauge field!</p>
-<h2 id="partitioning-the-hilbert-space-into-bond-sectors">Partitioning
-the Hilbert Space into Bond sectors</h2>
+<h3 id="partitioning-the-hilbert-space-into-bond-sectors">Partitioning
+the Hilbert Space into Bond sectors</h3>
 <p>Similar to the story with the plaquette operators from the spin
 language, we can break the Hilbert space <span
 class="math inline">\(\mathcal{L}\)</span> up into sectors labelled by
@@ -713,8 +701,8 @@ can take half the absolute value of the whole set to recover <span
 class="math inline">\(\sum_m \epsilon_m\)</span> easily.</p>
 <p><strong>The Majorana Hamiltonian is quadratic within a Bond
 Sector.</strong></p>
-<h2 id="mapping-back-from-bond-sectors-to-the-physical-subspace">Mapping
-back from Bond Sectors to the Physical Subspace</h2>
+<h3 id="mapping-back-from-bond-sectors-to-the-physical-subspace">Mapping
+back from Bond Sectors to the Physical Subspace</h3>
 <p>At this point, given a particular bond configuration <span
 class="math inline">\(u_{ij} = \pm 1\)</span> we are able to construct a
 quadratic Hamiltonian <span class="math inline">\(\tilde{H}_u\)</span>
@@ -771,6 +759,25 @@ class="math inline">\(u_{ij}\)</span>, these will turn out to just be
 the plaquette operators.</p>
 <p><strong>The Bond Sectors overlap with the physical subspace but are
 not contained within it.</strong></p>
+<h3 id="open-boundary-conditions">Open boundary conditions</h3>
+<p>Care must be taken in the definition of open boundary conditions.
+Simply removing bonds from the lattice leaves behind unpaired <span
+class="math inline">\(b^\alpha\)</span> operators that need to be paired
+in some way to arrive at fermionic modes. In order to fix a pairing we
+always start from a lattice defined on the torus and generate a lattice
+with open boundary conditions by defining the bond coupling <span
+class="math inline">\(J^{\alpha}_{ij} = 0\)</span> for sites joined by
+bonds <span class="math inline">\((i,j)\)</span> that we want to remove.
+This creates fermionic zero modes <span
+class="math inline">\(u_{ij}\)</span> associated with these cut bonds
+which we set to 1 when calculating the projector.</p>
+<p>Alternatively, since all the fermionic zero modes are degenerate
+anyway, an arbitrary pairing of the unpaired <span
+class="math inline">\(b^\alpha\)</span> operators could be performed.
+<strong>Is is possible that a lattice constructed and coloured like this
+would have unequal numbers of <span class="math inline">\(b^x\)</span>
+<span class="math inline">\(b^y\)</span> and <span
+class="math inline">\(b^z\)</span> operators?</strong></p>
 <div id="refs" class="references csl-bib-body" data-line-spacing="2"
 role="doc-bibliography">
 <div id="ref-banerjeeProximateKitaevQuantum2016" class="csl-entry"

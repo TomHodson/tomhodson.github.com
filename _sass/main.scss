@@ -4,7 +4,7 @@
 @import "header";
 @import "article";
 @import "cv";
-@import "figures";
+@import "thesis";
 
 * {
     box-sizing: border-box;
@@ -64,29 +64,6 @@ img {
     margin: 0 auto;
     margin-top: 1em;
     margin-bottom: 1em;
-}
-
-// For the thesis table of contents, should probably put this in a container
-li {
-    margin-bottom: 0.2em;
-}
-
-main > ul > li {
-    margin-top: 1em;
-}
-
-main > ul > ul > li {
-    margin-top: 0.5em;
-}
-
-div.csl-entry {
-    margin-bottom: 0.5em;
-}
-// div.csl-entry a {
-//     text-decoration: none;
-// }
-div.csl-entry div {
-    display: inline;
 }
 
 @media 

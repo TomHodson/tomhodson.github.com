@@ -205,8 +205,7 @@ image:
 <main>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#properties-of-the-gauge-field"
-id="toc-properties-of-the-gauge-field">Properties of the Gauge Field</a>
+<li><a href="#gauge-fields" id="toc-gauge-fields">Gauge Fields</a>
 <ul>
 <li><a href="#vortices-and-their-movements"
 id="toc-vortices-and-their-movements">Vortices and their
@@ -223,26 +222,29 @@ plaquettes and vertices</a></li>
 </ul></li>
 <li><a href="#the-projector" id="toc-the-projector">The
 Projector</a></li>
-<li><a href="#open-boundary-conditions"
-id="toc-open-boundary-conditions">Open boundary conditions</a></li>
-<li><a href="#the-ground-state-vortex-sector"
-id="toc-the-ground-state-vortex-sector">The Ground State Vortex
-Sector</a>
+<li><a href="#the-ground-state" id="toc-the-ground-state">The Ground
+State</a>
 <ul>
 <li><a href="#finite-size-effects" id="toc-finite-size-effects">Finite
 size effects</a></li>
-</ul></li>
 <li><a href="#chiral-symmetry" id="toc-chiral-symmetry">Chiral
 Symmetry</a></li>
+</ul></li>
+<li><a href="#phases-of-the-kitaev-model"
+id="toc-phases-of-the-kitaev-model">Phases of the Kitaev Model</a></li>
+<li><a href="#whats-so-great-about-two-dimensions"
+id="toc-whats-so-great-about-two-dimensions">What’s so great about two
+dimensions?</a>
+<ul>
 <li><a href="#topology-chirality-and-edge-modes"
 id="toc-topology-chirality-and-edge-modes">Topology, chirality and edge
 modes</a></li>
 <li><a href="#anyonic-statistics" id="toc-anyonic-statistics">Anyonic
 Statistics</a></li>
+</ul></li>
 </ul>
 </nav>
-<h2 id="properties-of-the-gauge-field">Properties of the Gauge
-Field</h2>
+<h2 id="gauge-fields">Gauge Fields</h2>
 <p>The bond operators <span class="math inline">\(u_{ij}\)</span> are
 useful because they label a bond sector <span
 class="math inline">\(\mathcal{\tilde{L}}_u\)</span> in which we can
@@ -513,9 +515,9 @@ take each set of <span class="math inline">\(\prod_{i \in \{i\}}
 D_j\)</span> operators and gives us the complement of that set. I said
 earlier that <span class="math inline">\(C\)</span> is the identity in
 the physical subspace and we will shortly see why.</p>
-<p>W use the complement operator to rewrite the projector as a sum over
-half the subsets <span class="math inline">\(\{\}\)</span> let’s call
-that <span class="math inline">\(\Lambda\)</span>. The complement
+<p>We use the complement operator to rewrite the projector as a sum over
+half the subsets of <span class="math inline">\(\{i\}\)</span> let’s
+call that <span class="math inline">\(\Lambda\)</span>. The complement
 operator deals with the other half</p>
 <p><span class="math display">\[ \mathcal{P} =  \left(
 \frac{1}{2^{2N-1}} \sum_{\Lambda} \prod_{i\in\{i\}} D_i\right)
@@ -538,7 +540,7 @@ reduces to a determinant of the Q matrix and the fermion parity,
 see<span class="citation"
 data-cites="pedrocchiPhysicalSolutionsKitaev2011b"><sup><a
 href="#ref-pedrocchiPhysicalSolutionsKitaev2011b"
-role="doc-biblioref">1</a></sup></span> . The only difference from the
+role="doc-biblioref">1</a></sup></span>. The only difference from the
 honeycomb case is that we cannot explicitely compute the factors <span
 class="math inline">\(p_x,p_y,p_z = \pm\;1\)</span> that arise from
 reordering the b operators such that pairs of vertices linked by the
@@ -551,19 +553,53 @@ decomposition<span class="citation"
 data-cites="app:cycle_decomp"><sup><a href="#ref-app:cycle_decomp"
 role="doc-biblioref"><strong>app:cycle_decomp?</strong></a></sup></span>.</p>
 <p>We find that <span class="math display">\[\mathcal{P}_0 = 1 +
-p_x\;p_y\;p_z\; \mathrm{det}(Q^u) \; \hat{\pi} \; \prod_{\{i,j\}}
+p_x\;p_y\;p_z\; \hat{\pi} \; \mathrm{det}(Q^u) \; \prod_{\{i,j\}}
 -iu_{ij}\]</span></p>
 <p>where <span class="math inline">\(p_x\;p_y\;p_z = \pm 1\)</span> are
-lattice structure factors. <span class="math inline">\(Q^u\)</span> is
-the determinant of the matrix mentioned earlier that maps <span
+lattice structure factors. <span class="math inline">\(det(Q^u)\)</span>
+is the determinant of the matrix mentioned earlier that maps <span
 class="math inline">\(c_i\)</span> operators to normal mode operators
 <span class="math inline">\(b&#39;_i, b&#39;&#39;_i\)</span>. These
-depend only on the lattice structure. <span class="math inline">\(\prod
--i \; u_{ij}\)</span> depend on the lattice and the particular vortex
-sector. <span class="math inline">\(\hat{\pi} = \prod{i}^{N} (1 -
+depend only on the lattice structure.</p>
+<p><span class="math inline">\(\hat{\pi} = \prod{i}^{N} (1 -
 2\hat{n}_i)\)</span> is the parity of the particular many body state
 determined by fermionic occupation numbers <span
-class="math inline">\(n_i\)</span>.</p>
+class="math inline">\(n_i\)</span>. As discussed in +<span
+class="citation"
+data-cites="pedrocchiPhysicalSolutionsKitaev2011b"><sup><a
+href="#ref-pedrocchiPhysicalSolutionsKitaev2011b"
+role="doc-biblioref">1</a></sup></span> is <span
+class="math inline">\(\hat{\pi}\)</span> is gauge invariant in the sense
+that <span class="math inline">\([\hat{\pi}, D_i] = 0\)</span>.</p>
+<p>This implies that <span class="math inline">\(det(Q^u) \prod -i
+u_{ij}\)</span> is also a guage invariant quantity. In translation
+invariant models this quantity which can be related to the parity of the
+number of vortex pairs in the system<span class="citation"
+data-cites="yaoAlgebraicSpinLiquid2009"><sup><a
+href="#ref-yaoAlgebraicSpinLiquid2009"
+role="doc-biblioref">2</a></sup></span>. However it is not so simple to
+evaluate in the amorphous case.</p>
+<p>More general arguments<span class="citation"
+data-cites="chungExplicitMonodromyMoore2007 oshikawaTopologicalDegeneracyNonAbelian2007"><sup><a
+href="#ref-chungExplicitMonodromyMoore2007"
+role="doc-biblioref">3</a>,<a
+href="#ref-oshikawaTopologicalDegeneracyNonAbelian2007"
+role="doc-biblioref">4</a></sup></span> imply that <span
+class="math inline">\(det(Q^u) \prod -i u_{ij}\)</span> has an
+interesting relationship to the topological fluxes. In the non-Abelian
+phase we expect that it will change sign in exactly on of the four
+topological sectors. This forces that sector that contain a fermion and
+hence gives the model a three-fold degerenate ground state. In the
+Abelian phase this doesn’t happen and we get a fourfold degerate ground
+state. Whether this analysis generalises to the amorphous case in
+unclear.</p>
+<p>An alternate way to view this is to consider the adiabatic insertion
+of the fluxes <span class="math inline">\(\Phi_{x,y}\)</span> as the
+operations that undo vortex transport around the lattice. In this
+picture the three fold degeneracy occurs because transporting a vortex
+around <strong>both</strong> the major and minor axes of the torus
+changes its fusion channel such that the two vortices fuse into a
+fermion excition rather than the vacuum.</p>
 <p>All these factors take values <span class="math inline">\(\pm
 1\)</span> so <span class="math inline">\(\mathcal{P}_0\)</span> is 0 or
 1 for a particular state. Since <span
@@ -602,32 +638,26 @@ fermions in the system grows.</p>
 basis we would need to include the full symmetrisation over the gauge
 fields. However this was not necessary for any of the results that will
 be presented here.</p>
-<h2 id="open-boundary-conditions">Open boundary conditions</h2>
-<p>Care must be taken in the definition of open boundary conditions.
-Simply removing bonds from the lattice leaves behind unpaired <span
-class="math inline">\(b^\alpha\)</span> operators that need to be paired
-in some way to arrive at fermionic modes. In order to fix a pairing we
-always start from a lattice defined on the torus and generate a lattice
-with open boundary conditions by defining the bond coupling <span
-class="math inline">\(J^{\alpha}_{ij} = 0\)</span> for sites joined by
-bonds <span class="math inline">\((i,j)\)</span> that we want to remove.
-This creates fermionic zero modes <span
-class="math inline">\(u_{ij}\)</span> associated with these cut bonds
-which we set to 1 when calculating the projector.</p>
-<p>Alternatively, since all the fermionic zero modes are degenerate
-anyway, an arbitrary pairing of the unpaired <span
-class="math inline">\(b^\alpha\)</span> operators could be performed.
-<strong>Is is possible that a lattice constructed and coloured like this
-would have unequal numbers of <span class="math inline">\(b^x\)</span>
-<span class="math inline">\(b^y\)</span> and <span
-class="math inline">\(b^z\)</span> operators?</strong></p>
-<h2 id="the-ground-state-vortex-sector">The Ground State Vortex
-Sector</h2>
+<h2 id="the-ground-state">The Ground State</h2>
+<p>As we have shown that the Hamiltonian is gauge invariant, only the
+flux sector and the two topological fluxes affect the spectrum of the
+Hamiltonian. Thus we can label many body ground state by a combination
+of flux sector and fermionic occupation numbers.</p>
+<p>By studying the projector we saw that the fermionic occupation
+numbers of the ground state will always be either <span
+class="math inline">\(n_m = 0\)</span> or <span
+class="math inline">\(n_0 = 1, n_{m&gt;1} = 0\)</span> because the
+projector really just enforces vortex and fermion parity.</p>
+<p>I refer to the flux sector that contains the ground state as the
+ground state flux sector. Recall that we call the excitations of the
+fluxes away from the ground ground state configuration
+<strong>vortices</strong>, so that the ground state flux sector is the
+vortex free sector by definition.</p>
 <p>On the Honeycomb, Lieb’s theorem implies that the the ground state
-corresponds to the state where all <span class="math inline">\(u_jk =
+corresponds to the state where all <span class="math inline">\(u_{jk} =
 1\)</span> implying that the flux free sector is the ground state
 sector<span class="citation" data-cites="lieb_flux_1994"><sup><a
-href="#ref-lieb_flux_1994" role="doc-biblioref">2</a></sup></span>.</p>
+href="#ref-lieb_flux_1994" role="doc-biblioref">5</a></sup></span>.</p>
 <p>Lieb’s theorem does not generalise easily to the amorphous case.
 However we can get some intuition by examining the problem that will
 lead to a guess for the ground state. We will then provide numerical
@@ -713,7 +743,7 @@ that form each plaquette and the choice of sign gives a twofold chiral
 ground state degeneracy.</p>
 <p>This conjecture is consistent with Lieb’s theorem on regular
 lattices<span class="citation" data-cites="lieb_flux_1994"><sup><a
-href="#ref-lieb_flux_1994" role="doc-biblioref">2</a></sup></span> and
+href="#ref-lieb_flux_1994" role="doc-biblioref">5</a></sup></span> and
 is supported by numerical evidence. As noted before, any flux that
 differs from the ground state is an excitation which I call a
 vortex.</p>
@@ -723,8 +753,36 @@ effects. In order to rigorously test it we would like to directly
 enumerate the <span class="math inline">\(2^N\)</span> vortex sectors
 for a smaller lattice and check that the lowest state found is the
 vortex sector predicted by ???.</p>
-<p>To do this we tile an amorphous lattice onto a repeating <span
-class="math inline">\(NxN\)</span> grid. The use of a fourier series
+<p>To do this we tile use an amorphous lattice as the unit cell of a
+periodic <span class="math inline">\(N\times N\)</span> system. Bonds
+that originally crossed the periodic boundaries now connect adjacent
+unit cells. Using Bloch’s theorem the problem then essnetially reduces
+back to the single amorphous unit cell but now the edges that cross the
+periodic boundaries pick up a phase dependent on the crystal momentum
+<span class="math inline">\(\vex{q} = (q_x, q_y)\)</span> and the
+lattice vector of the bond <span class="math inline">\(\vec{x} = (+1, 0,
+-1, +1, 0, -1)\)</span>. Assigning these lattice vectors to each bond is
+also a very conveninent way to store and plot toroidal graphs.</p>
+<p>This can then be solved using Bloch’s theorem. For a given crystal
+momentum <span class="math inline">\(\textbf{q} \in [0,2\pi)^2\)</span>,
+we are left with a Bloch Hamiltonian, which is identical to the original
+Hamiltonian aside from an extra phase on edges that cross the periodic
+boundaries in the <span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> directions, <span
+class="math display">\[\begin{aligned}
+    M_{jk}(\textbf{q}) =  \frac{i}{2} J^{\alpha} u_{jk} e^{i
+q_{jk}},\end{aligned}\]</span> where <span class="math inline">\(q_{jk}
+= q_x\)</span> for a bond that crosses the <span
+class="math inline">\(x\)</span>-periodic boundary in the positive
+direction, with the analogous definition for <span
+class="math inline">\(y\)</span>-crossing bonds. We also have <span
+class="math inline">\(q_{jk} = -q_{kj}\)</span>. Finally <span
+class="math inline">\(q_{jk} = 0\)</span> if the edge does not cross any
+boundaries at all – in essence we are imposing twisted boundary
+conditions on our system. The total energy of the tiled system can be
+calculated by summing the energy of <span class="math inline">\(M(
+\textbf{q})\)</span> for every value of <span
+class="math inline">\(\textbf{q}\)</span>. The use of a fourier series
 then allows us to compute the diagonalisation with a penalty only linear
 in the number of tiles used compared to diagonalising a single lattice.
 With this technique the finite size effects related to the
@@ -736,16 +794,16 @@ class="math inline">\(\phi_0\)</span> correctly predicts the ground
 state for hundreds of thousands of lattices with upto 20 plaquettes. For
 larger lattices we verified that random perturbations around the
 predicted ground state never yield a lower energy state.</p>
-<h2 id="chiral-symmetry">Chiral Symmetry</h2>
+<h3 id="chiral-symmetry">Chiral Symmetry</h3>
 <p>In the discussion above we see that the ground state has a twofold
 <strong>chiral</strong> degeneracy that comes about because the global
 sign of the odd plaquettes does not matter.</p>
 <p>This happens because by adding odd plaquettes we have broken the time
 reversal symmetry of the original model<span class="citation"
 data-cites="Chua2011 yaoExactChiralSpin2007 ChuaPRB2011 Fiete2012 Natori2016 Wu2009 Peri2020 WangHaoranPRB2021"><sup><a
-href="#ref-Chua2011" role="doc-biblioref">3</a>–<a
+href="#ref-Chua2011" role="doc-biblioref">6</a>–<a
 href="#ref-WangHaoranPRB2021"
-role="doc-biblioref">10</a></sup></span>.</p>
+role="doc-biblioref">13</a></sup></span>.</p>
 <p>Similar to the behaviour of the original Kitaev model in response to
 a magnetic field, we get two degenerate ground states of different
 handedness. Practicaly speaking, one ground state is related to the
@@ -753,9 +811,16 @@ other by inverting the imaginary <span
 class="math inline">\(\phi\)</span> fluxes<span class="citation"
 data-cites="yaoExactChiralSpin2007"><sup><a
 href="#ref-yaoExactChiralSpin2007"
-role="doc-biblioref">4</a></sup></span>.</p>
-<h2 id="topology-chirality-and-edge-modes">Topology, chirality and edge
-modes</h2>
+role="doc-biblioref">7</a></sup></span>.</p>
+<h2 id="phases-of-the-kitaev-model">Phases of the Kitaev Model</h2>
+<p>discuss the abelian A phase / toric code phase / anisotropic
+phase</p>
+<p>the isotropic gapless phase of the standard model</p>
+<p>The isotropic gapped phase with the addition of a magnetic field</p>
+<h2 id="whats-so-great-about-two-dimensions">What’s so great about two
+dimensions?</h2>
+<h3 id="topology-chirality-and-edge-modes">Topology, chirality and edge
+modes</h3>
 <p>Most thermodynamic and quantum phases studied can be characterised by
 a local order parameter. That is, a function or operator that only
 requires knowledge about some fixed sized patch of the system that does
@@ -772,7 +837,7 @@ breaking.</p>
 looked at it defined on a graph that is embedded either into the plane
 or onto the torus. The extension to surfaces like the torus but with
 more than one handle is relatively easy.</p>
-<h2 id="anyonic-statistics">Anyonic Statistics</h2>
+<h3 id="anyonic-statistics">Anyonic Statistics</h3>
 <p>In dimensions greater than two, the quantum state of a system must
 pick up a factor of <span class="math inline">\(-1\)</span> or <span
 class="math inline">\(+1\)</span> if two identical particles are
@@ -884,23 +949,23 @@ class="math inline">\((+1, +1), (+1, -1), (-1, +1), (-1,
 <figure>
 <img src="/assets/thesis/figure_code/amk_chapter/topological_fluxes.png"
 style="width:57.0%"
-alt="Figure 8: Wilson loops that wind the major or minor diameters of the torus measure flux winding through the hole of the donut/torus or through the filling. If they made donuts that had both a jam filling and a hole this analogy would be a lot easier to make11." />
+alt="Figure 8: Wilson loops that wind the major or minor diameters of the torus measure flux winding through the hole of the donut/torus or through the filling. If they made donuts that had both a jam filling and a hole this analogy would be a lot easier to make14." />
 <figcaption aria-hidden="true"><span>Figure 8:</span> Wilson loops that
 wind the major or minor diameters of the torus measure flux winding
 through the hole of the donut/torus or through the filling. If they made
 donuts that had both a jam filling and a hole this analogy would be a
 lot easier to make<span class="citation"
 data-cites="parkerWhyDoesThis"><sup><a href="#ref-parkerWhyDoesThis"
-role="doc-biblioref">11</a></sup></span>.</figcaption>
+role="doc-biblioref">14</a></sup></span>.</figcaption>
 </figure>
 </div>
 <p>However in the non-Abelian phase we have to wrangle with
 monodromy<span class="citation"
 data-cites="chungExplicitMonodromyMoore2007 oshikawaTopologicalDegeneracyNonAbelian2007"><sup><a
 href="#ref-chungExplicitMonodromyMoore2007"
-role="doc-biblioref">12</a>,<a
+role="doc-biblioref">3</a>,<a
 href="#ref-oshikawaTopologicalDegeneracyNonAbelian2007"
-role="doc-biblioref">13</a></sup></span>. Monodromy is behaviour of
+role="doc-biblioref">4</a></sup></span>. Monodromy is behaviour of
 objects as they move around a singularity. This manifests here in that
 the identity of a vortex and cloud of Majoranas can change as we wind
 them around the torus in such a way that rather than anhilating to the
@@ -910,7 +975,7 @@ the non-Abelian phase <span class="math inline">\((+1, +1), (+1, -1),
 (-1, +1)\)</span><span class="citation"
 data-cites="chungTopologicalQuantumPhase2010"><sup><a
 href="#ref-chungTopologicalQuantumPhase2010"
-role="doc-biblioref">14</a></sup></span>. The way that this shows up
+role="doc-biblioref">15</a></sup></span>. The way that this shows up
 concretly is that the projector enforces both flux and fermion parity.
 When we wind a vortex around both non-contractible loops of the torus,
 it flips the flux parity which forces means we have to introduce a
@@ -928,10 +993,10 @@ passively fault tolerant and actively stabilised quantum computations
 [<span class="citation"
 data-cites="kitaevFaulttolerantQuantumComputation2003"><sup><a
 href="#ref-kitaevFaulttolerantQuantumComputation2003"
-role="doc-biblioref">15</a></sup></span>;<span class="citation"
+role="doc-biblioref">16</a></sup></span>;<span class="citation"
 data-cites="poulinStabilizerFormalismOperator2005"><sup><a
 href="#ref-poulinStabilizerFormalismOperator2005"
-role="doc-biblioref">16</a></sup></span>;
+role="doc-biblioref">17</a></sup></span>;
 hastingsDynamicallyGeneratedLogical2021].</p>
 <div id="refs" class="references csl-bib-body" data-line-spacing="2"
 role="doc-bibliography">
@@ -943,8 +1008,34 @@ href="https://doi.org/10.1103/PhysRevB.84.165414">Physical solutions of
 the <span>Kitaev</span> honeycomb model</a>. <em>Phys. Rev. B</em>
 <strong>84</strong>, 165414 (2011).</div>
 </div>
+<div id="ref-yaoAlgebraicSpinLiquid2009" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Yao,
+H., Zhang, S.-C. &amp; Kivelson, S. A. <a
+href="https://doi.org/10.1103/PhysRevLett.102.217202">Algebraic
+<span>Spin Liquid</span> in an <span>Exactly Solvable Spin
+Model</span></a>. <em>Phys. Rev. Lett.</em> <strong>102</strong>, 217202
+(2009).</div>
+</div>
+<div id="ref-chungExplicitMonodromyMoore2007" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline">Chung, S. B. &amp; Stone, M. <a
+href="https://doi.org/10.1088/1751-8113/40/19/001">Explicit monodromy of
+<span>Moore</span> wavefunctions on a torus</a>. <em>J. Phys. A: Math.
+Theor.</em> <strong>40</strong>, 4923–4947 (2007).</div>
+</div>
+<div id="ref-oshikawaTopologicalDegeneracyNonAbelian2007"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline">Oshikawa, M., Kim, Y. B., Shtengel, K., Nayak,
+C. &amp; Tewari, S. <a
+href="https://doi.org/10.1016/j.aop.2006.08.001">Topological degeneracy
+of non-<span>Abelian</span> states for dummies</a>. <em>Annals of
+Physics</em> <strong>322</strong>, 1477–1498 (2007).</div>
+</div>
 <div id="ref-lieb_flux_1994" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div
+<div class="csl-left-margin">5. </div><div
 class="csl-right-inline">Lieb, E. H. <a
 href="https://doi.org/10.1103/PhysRevLett.73.2158">Flux
 <span>Phase</span> of the <span>Half-Filled Band</span></a>.
@@ -952,7 +1043,7 @@ href="https://doi.org/10.1103/PhysRevLett.73.2158">Flux
 (1994).</div>
 </div>
 <div id="ref-Chua2011" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div
+<div class="csl-left-margin">6. </div><div
 class="csl-right-inline">Chua, V., Yao, H. &amp; Fiete, G. A. <a
 href="https://doi.org/10.1103/PhysRevB.83.180412">Exact chiral spin
 liquid with stable spin <span>Fermi</span> surface on the kagome
@@ -961,21 +1052,21 @@ lattice</a>. <em>Phys. Rev. B</em> <strong>83</strong>, 180412
 </div>
 <div id="ref-yaoExactChiralSpin2007" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline">Yao,
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Yao,
 H. &amp; Kivelson, S. A. <a
 href="https://doi.org/10.1103/PhysRevLett.99.247203">An exact chiral
 spin liquid with non-<span>Abelian</span> anyons</a>. <em>Phys. Rev.
 Lett.</em> <strong>99</strong>, 247203 (2007).</div>
 </div>
 <div id="ref-ChuaPRB2011" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">5. </div><div
+<div class="csl-left-margin">8. </div><div
 class="csl-right-inline">Chua, V. &amp; Fiete, G. A. <a
 href="https://doi.org/10.1103/PhysRevB.84.195129">Exactly solvable
 topological chiral spin liquid with random exchange</a>. <em>Phys. Rev.
 B</em> <strong>84</strong>, 195129 (2011).</div>
 </div>
 <div id="ref-Fiete2012" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">6. </div><div
+<div class="csl-left-margin">9. </div><div
 class="csl-right-inline">Fiete, G. A. <em>et al.</em> <a
 href="https://doi.org/10.1016/j.physe.2011.11.011">Topological
 insulators and quantum spin liquids</a>. <em>Physica E: Low-dimensional
@@ -983,20 +1074,20 @@ Systems and Nanostructures</em> <strong>44</strong>, 845–859
 (2012).</div>
 </div>
 <div id="ref-Natori2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">7. </div><div
+<div class="csl-left-margin">10. </div><div
 class="csl-right-inline">Natori, W. M. H., Andrade, E. C., Miranda, E.
 &amp; Pereira, R. G. Chiral spin-orbital liquids with nodal lines.
 <em>Phys. Rev. Lett.</em> <strong>117</strong>, 017204 (2016).</div>
 </div>
 <div id="ref-Wu2009" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">8. </div><div class="csl-right-inline">Wu,
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">Wu,
 C., Arovas, D. &amp; Hung, H.-H. <span><span
 class="math inline">\(\Gamma\)</span></span>-matrix generalization of
 the <span>Kitaev</span> model. <em>Physical Review B</em>
 <strong>79</strong>, 134427 (2009).</div>
 </div>
 <div id="ref-Peri2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">9. </div><div
+<div class="csl-left-margin">12. </div><div
 class="csl-right-inline">Peri, V. <em>et al.</em> <a
 href="https://doi.org/10.1103/PhysRevB.101.041114">Non-<span>Abelian</span>
 chiral spin liquid on a simple non-<span>Archimedean</span> lattice</a>.
@@ -1004,7 +1095,7 @@ chiral spin liquid on a simple non-<span>Archimedean</span> lattice</a>.
 </div>
 <div id="ref-WangHaoranPRB2021" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">10. </div><div
+<div class="csl-left-margin">13. </div><div
 class="csl-right-inline">Wang, H. &amp; Principi, A. <a
 href="https://doi.org/10.1103/PhysRevB.104.214422">Majorana edge and
 corner states in square and kagome quantum spin-<span><span
@@ -1013,30 +1104,13 @@ class="math inline">\(^{3}\fracslash_2\)</span></span> liquids</a>.
 </div>
 <div id="ref-parkerWhyDoesThis" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">11. </div><div
+<div class="csl-left-margin">14. </div><div
 class="csl-right-inline">Parker, M. Why does this balloon have -1
 holes?</div>
 </div>
-<div id="ref-chungExplicitMonodromyMoore2007" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">12. </div><div
-class="csl-right-inline">Chung, S. B. &amp; Stone, M. <a
-href="https://doi.org/10.1088/1751-8113/40/19/001">Explicit monodromy of
-<span>Moore</span> wavefunctions on a torus</a>. <em>J. Phys. A: Math.
-Theor.</em> <strong>40</strong>, 4923–4947 (2007).</div>
-</div>
-<div id="ref-oshikawaTopologicalDegeneracyNonAbelian2007"
-class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">13. </div><div
-class="csl-right-inline">Oshikawa, M., Kim, Y. B., Shtengel, K., Nayak,
-C. &amp; Tewari, S. <a
-href="https://doi.org/10.1016/j.aop.2006.08.001">Topological degeneracy
-of non-<span>Abelian</span> states for dummies</a>. <em>Annals of
-Physics</em> <strong>322</strong>, 1477–1498 (2007).</div>
-</div>
 <div id="ref-chungTopologicalQuantumPhase2010" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">14. </div><div
+<div class="csl-left-margin">15. </div><div
 class="csl-right-inline">Chung, S. B., Yao, H., Hughes, T. L. &amp; Kim,
 E.-A. <a href="https://doi.org/10.1103/PhysRevB.81.060403">Topological
 quantum phase transition in an exactly solvable model of a chiral spin
@@ -1045,7 +1119,7 @@ liquid at finite temperature</a>. <em>Phys. Rev. B</em>
 </div>
 <div id="ref-kitaevFaulttolerantQuantumComputation2003"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">15. </div><div
+<div class="csl-left-margin">16. </div><div
 class="csl-right-inline">Kitaev, A. Yu. <a
 href="https://doi.org/10.1016/S0003-4916(02)00018-0">Fault-tolerant
 quantum computation by anyons</a>. <em>Annals of Physics</em>
@@ -1053,7 +1127,7 @@ quantum computation by anyons</a>. <em>Annals of Physics</em>
 </div>
 <div id="ref-poulinStabilizerFormalismOperator2005" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">16. </div><div
+<div class="csl-left-margin">17. </div><div
 class="csl-right-inline">Poulin, D. <a
 href="https://doi.org/10.1103/PhysRevLett.95.230504">Stabilizer
 <span>Formalism</span> for <span>Operator Quantum Error
