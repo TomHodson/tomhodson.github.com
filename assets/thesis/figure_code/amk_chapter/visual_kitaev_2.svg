@@ -30,14 +30,14 @@
      inkscape:document-units="pt"
      showgrid="false"
      inkscape:zoom="1.0704431"
-     inkscape:cx="283.99454"
-     inkscape:cy="145.73404"
+     inkscape:cx="197.58173"
+     inkscape:cy="160.68112"
      inkscape:window-width="1309"
      inkscape:window-height="792"
      inkscape:window-x="72"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g10139" />
   <metadata
      id="metadata5878">
     <rdf:RDF>
@@ -5659,28 +5659,19 @@
     <g
        id="g10139"
        transform="translate(43.5)">
-      <text
-         xml:space="preserve"
-         style="font-size:9.39215px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.97628;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
-         x="-7.8429718"
-         y="14.882133"
-         id="text5607"><tspan
-           sodipodi:role="line"
-           id="tspan5605"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5229px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke:none;stroke-width:6.97628"
-           x="-7.8429718"
-           y="14.882133">Plaquette operators are conserved</tspan></text>
       <path
          style="opacity:0.435449;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.768413;stroke-dasharray:none;stroke-opacity:1"
          d="M -8.838657,78.421527 H 267.85017"
-         id="path14933" />
+         id="path14933"
+         transform="translate(0,-9)" />
       <path
          style="opacity:0.435449;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.768413;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
          d="M -8.838657,122.85855 H 267.85017"
-         id="path14933-6" />
+         id="path14933-6"
+         transform="translate(0,-9)" />
       <g
          id="g62160"
-         transform="matrix(1.0435721,0,0,1.0435721,-31.637754,-26.167379)">
+         transform="matrix(1.0435721,0,0,1.0435721,-31.637754,-35.167379)">
         <g
            id="g170611-4"
            inkscape:label="hexagon"
@@ -6003,7 +5994,7 @@
       </g>
       <g
          id="g62384"
-         transform="matrix(1.0435721,0,0,1.0435721,-31.637754,-15.798091)">
+         transform="matrix(1.0435721,0,0,1.0435721,-31.637754,-24.798091)">
         <g
            id="g170611-4-2"
            inkscape:label="hexagon"
@@ -7030,7 +7021,7 @@
       </g>
       <g
          id="g62646"
-         transform="translate(-95.85481,-5.8426772)">
+         transform="translate(-95.85481,-14.842677)">
         <g
            id="g22677">
           <g
@@ -8307,7 +8298,7 @@
          ns1:alignment="middle center"
          ns1:stroke-to-path="0"
          ns1:inkscapeversion="1.2.1"
-         transform="matrix(1.0435721,0,0,1.0435721,-8.354561,23.434229)"
+         transform="matrix(1.0435721,0,0,1.0435721,-8.354561,14.434229)"
          ns1:jacobian_sqrt="1.0"
          id="g6858">
         <defs
