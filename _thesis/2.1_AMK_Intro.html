@@ -244,7 +244,19 @@ id="toc-open-boundary-conditions">Open boundary conditions</a></li>
 <p>which was a joint project of the first three authors with advice and
 guidance from Willian and Johannes. The project grew out of an interest
 Gino, Peru and I had in studying amorphous systems, coupled with
-Johannes’ expertise on the Kitaev model.</p>
+Johannes’ expertise on the Kitaev model. The idea to use voronoi
+partitions came from<span class="citation"
+data-cites="marsalTopologicalWeaireThorpe2020"><sup><a
+href="#ref-marsalTopologicalWeaireThorpe2020"
+role="doc-biblioref">1</a></sup></span> and Gino did the implementation
+of this. The idea and implementation of the edge colouring using SAT
+solvers, the mapping from flux sector to bond sector using A* search
+were both entirely my work. Peru came up with the ground state
+conjecture and implemented the local markers. Gino and I did much of the
+rest of the programming for Koala while pair programming and
+’whiteboard’ing, this included the phase diagram, edge mode and finite
+temperature analyses as well as the derivation of the projector in the
+amorphous case.</p>
 <h1 id="introduction">Introduction</h1>
 <p>The Kitaev Honeycomb model is remarkable because it combines three
 key properties.</p>
@@ -256,8 +268,8 @@ class="math inline">\(\alpha\mathrm{-RuCl}_3\)</span><span
 class="citation"
 data-cites="banerjeeProximateKitaevQuantum2016 trebstKitaevMaterials2022"><sup><a
 href="#ref-banerjeeProximateKitaevQuantum2016"
-role="doc-biblioref">1</a>,<a href="#ref-trebstKitaevMaterials2022"
-role="doc-biblioref">2</a></sup></span>.</p>
+role="doc-biblioref">2</a>,<a href="#ref-trebstKitaevMaterials2022"
+role="doc-biblioref">3</a></sup></span>.</p>
 <p>Second, this model is deeply interesting to modern condensed matter
 theory. Its ground state is almost the canonical example of the long
 sought after quantum spin liquid state. Its excitations are anyons,
@@ -267,14 +279,14 @@ because, among other reasons, they can be braided through spacetime to
 achieve noise tolerant quantum computations<span class="citation"
 data-cites="freedmanTopologicalQuantumComputation2003"><sup><a
 href="#ref-freedmanTopologicalQuantumComputation2003"
-role="doc-biblioref">3</a></sup></span>.</p>
+role="doc-biblioref">4</a></sup></span>.</p>
 <p>Third, and perhaps most importantly, this model is a rare many body
 interacting quantum system that can be treated analytically. It is
 exactly solvable. We can explicitly write down its many body ground
 states in terms of single particle states<span class="citation"
 data-cites="kitaevAnyonsExactlySolved2006"><sup><a
 href="#ref-kitaevAnyonsExactlySolved2006"
-role="doc-biblioref">4</a></sup></span>. Its solubility comes about
+role="doc-biblioref">5</a></sup></span>. Its solubility comes about
 because the model has many conserved degrees of freedom that mediate the
 interactions between quantum degrees of freedom.</p>
 <h2 id="amorphous-systems">Amorphous Systems</h2>
@@ -288,7 +300,7 @@ transformation to a Majorana hamiltonian. This discussion shows that,
 for the the model to be solvable, it needs only be defined on a
 trivalent, tri-edge-colourable lattice<span class="citation"
 data-cites="Nussinov2009"><sup><a href="#ref-Nussinov2009"
-role="doc-biblioref">5</a></sup></span>.</p>
+role="doc-biblioref">6</a></sup></span>.</p>
 <p>The methods section discusses how to generate such lattices and
 colour them. It also explain how to map back and forth between
 configurations of the gauge field and configurations of the gauge
@@ -478,7 +490,7 @@ class="math inline">\(\alpha\)</span>-bond with exchange coupling <span
 class="math inline">\(J^\alpha\)</span><span class="citation"
 data-cites="kitaevAnyonsExactlySolved2006"><sup><a
 href="#ref-kitaevAnyonsExactlySolved2006"
-role="doc-biblioref">4</a></sup></span>. For notational brevity, it is
+role="doc-biblioref">5</a></sup></span>. For notational brevity, it is
 useful to introduce the bond operators <span
 class="math inline">\(K_{ij} =
 \sigma_j^{\alpha}\sigma_k^{\alpha}\)</span> where <span
@@ -731,7 +743,7 @@ class="math inline">\(u_{ij}\)</span>. What follows is relatively
 standard theory for quadratic Majorana Hamiltonians<span
 class="citation" data-cites="BlaizotRipka1986"><sup><a
 href="#ref-BlaizotRipka1986"
-role="doc-biblioref">6</a></sup></span>.</p>
+role="doc-biblioref">7</a></sup></span>.</p>
 <p>Because of the antisymmetry of the matrix with entries <span
 class="math inline">\(J^{\alpha} u_{ij}\)</span>, the eigenvalues of the
 Hamiltonian <span class="math inline">\(\tilde{H}_u\)</span> come in
@@ -851,9 +863,18 @@ class="math inline">\(b^\alpha\)</span> operators could be performed.
 &lt;/i,j&gt;&lt;/i,j&gt;</p>
 <div id="refs" class="references csl-bib-body" data-line-spacing="2"
 role="doc-bibliography">
-<div id="ref-banerjeeProximateKitaevQuantum2016" class="csl-entry"
+<div id="ref-marsalTopologicalWeaireThorpe2020" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">1. </div><div
+class="csl-right-inline">Marsal, Q., Varjas, D. &amp; Grushin, A. G. <a
+href="https://doi.org/10.1073/pnas.2007384117">Topological
+<span>Weaire</span> models of amorphous matter</a>. <em>Proceedings of
+the National Academy of Sciences</em> <strong>117</strong>, 30260–30265
+(2020).</div>
+</div>
+<div id="ref-banerjeeProximateKitaevQuantum2016" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div
 class="csl-right-inline">Banerjee, A. <em>et al.</em> <a
 href="https://doi.org/10.1038/nmat4604">Proximate <span>Kitaev Quantum
 Spin Liquid Behaviour</span> in {\alpha}-<span>RuCl</span>$_3$</a>.
@@ -861,7 +882,7 @@ Spin Liquid Behaviour</span> in {\alpha}-<span>RuCl</span>$_3$</a>.
 </div>
 <div id="ref-trebstKitaevMaterials2022" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div
+<div class="csl-left-margin">3. </div><div
 class="csl-right-inline">Trebst, S. &amp; Hickey, C. <a
 href="https://doi.org/10.1016/j.physrep.2021.11.003">Kitaev
 materials</a>. <em>Physics Reports</em> <strong>950</strong>, 1–37
@@ -869,7 +890,7 @@ materials</a>. <em>Physics Reports</em> <strong>950</strong>, 1–37
 </div>
 <div id="ref-freedmanTopologicalQuantumComputation2003"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div
+<div class="csl-left-margin">4. </div><div
 class="csl-right-inline">Freedman, M., Kitaev, A., Larsen, M. &amp;
 Wang, Z. <a
 href="https://doi.org/10.1090/S0273-0979-02-00964-3">Topological quantum
@@ -878,14 +899,14 @@ computation</a>. <em>Bull. Amer. Math. Soc.</em> <strong>40</strong>,
 </div>
 <div id="ref-kitaevAnyonsExactlySolved2006" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div
+<div class="csl-left-margin">5. </div><div
 class="csl-right-inline">Kitaev, A. <a
 href="https://doi.org/10.1016/j.aop.2005.10.005">Anyons in an exactly
 solved model and beyond</a>. <em>Annals of Physics</em>
 <strong>321</strong>, 2–111 (2006).</div>
 </div>
 <div id="ref-Nussinov2009" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">5. </div><div
+<div class="csl-left-margin">6. </div><div
 class="csl-right-inline">Nussinov, Z. &amp; Ortiz, G. <a
 href="https://doi.org/10.1103/PhysRevB.79.214440">Bond algebras and
 exact solvability of <span>Hamiltonians</span>: Spin
@@ -895,7 +916,7 @@ systems</a>. <em>Physical Review B</em> <strong>79</strong>, 214440
 (2009).</div>
 </div>
 <div id="ref-BlaizotRipka1986" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">6. </div><div
+<div class="csl-left-margin">7. </div><div
 class="csl-right-inline">Blaizot, J.-P. &amp; Ripka, G. <em>Quantum
 theory of finite systems</em>. (<span>The MIT Press</span>, 1986).</div>
 </div>
