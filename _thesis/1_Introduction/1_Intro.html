@@ -1,0 +1,772 @@
+---
+title: 1_Intro
+excerpt: 
+layout: none
+image: 
+
+---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>1_Intro</title>
+  <!-- <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style> -->
+
+<!--   <script
+       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+       type="text/javascript"></script>
+ -->
+
+<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+   -->
+
+<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+
+
+<!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/index.js"></script>
+</head>
+<body>
+{% include header.html %}
+
+<main>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#interacting-quantum-many-body-systems"
+id="toc-interacting-quantum-many-body-systems">Interacting Quantum Many
+Body Systems</a></li>
+<li><a href="#mott-insulators-and-the-hubbard-model"
+id="toc-mott-insulators-and-the-hubbard-model">Mott Insulators and The
+Hubbard Model</a></li>
+<li><a href="#outline" id="toc-outline">Outline</a></li>
+</ul>
+</nav>
+<h1 id="interacting-quantum-many-body-systems">Interacting Quantum Many
+Body Systems</h1>
+<p>When you take many objects and let them interact together, it is
+often simpler to describe the behaviour of the group differently than
+one would describe the individual objects. Consider a flock (technically
+called a <em>murmuration</em>) of starlings like fig. <a
+href="#fig:Studland_Starlings">1</a>. Watching the flock you’ll see that
+it has a distinct outline, that waves of density will sometimes
+propagate through the closely packed birds and that the flock seems to
+respond to predators as a distinct object. The natural description of
+this phenomena is couched in terms of the flock rather than the
+individual birds.</p>
+<p>The behaviours of the flock are an emergent phenomena. The starlings
+are only interacting with their immediate six or seven neighbours<span
+class="citation"
+data-cites="king2012murmurations balleriniInteractionRulingAnimal2008"><sup><a
+href="#ref-king2012murmurations" role="doc-biblioref">1</a>,<a
+href="#ref-balleriniInteractionRulingAnimal2008"
+role="doc-biblioref">2</a></sup></span>. This is what a physicist would
+call a <em>local interaction</em>. There is much philosophical debate
+about how exactly to define emergence<span class="citation"
+data-cites="andersonMoreDifferent1972 kivelsonDefiningEmergencePhysics2016"><sup><a
+href="#ref-andersonMoreDifferent1972" role="doc-biblioref">3</a>,<a
+href="#ref-kivelsonDefiningEmergencePhysics2016"
+role="doc-biblioref">4</a></sup></span> but for our purposes it enough
+to say that emergence is the fact that the aggregate behaviour of many
+interacting objects may be very different from the individual behaviour
+of those objects.</p>
+<div id="fig:Studland_Starlings" class="fignos">
+<figure>
+<img src="/assets/thesis/intro_chapter/Studland_Starlings.jpeg"
+data-short-caption="A murmuration of Starlings" style="width:100.0%"
+alt="Figure 1: A murmuration of starlings. Dorset, UK. Credit Tanya Hart, “Studland Starlings”, 2017, CC BY-SA 3.0" />
+<figcaption aria-hidden="true"><span>Figure 1:</span> A murmuration of
+starlings. Dorset, UK. Credit <a href="twitter.com/arripay">Tanya
+Hart</a>, “Studland Starlings”, 2017, <a
+href="creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA
+3.0</a></figcaption>
+</figure>
+</div>
+<p>To give another example, our understanding of thermodynamics began
+with bulk properties like heat, energy, pressure and temperature<span
+class="citation"
+data-cites="saslowHistoryThermodynamicsMissing2020"><sup><a
+href="#ref-saslowHistoryThermodynamicsMissing2020"
+role="doc-biblioref">5</a></sup></span>. It was only later that we
+gained an understanding of how these properties emerge from microscopic
+interactions between very large numbers of particles<span
+class="citation" data-cites="flammHistoryOutlookStatistical1998"><sup><a
+href="#ref-flammHistoryOutlookStatistical1998"
+role="doc-biblioref">6</a></sup></span>.</p>
+<p>Condensed Matter is, at its heart, the study of what behaviours
+emerge from large numbers of interacting quantum objects at low energy.
+When these three properties are present together: a large number of
+objects, those objects being quantum and there are interaction between
+the objects, we call it an interacting quantum many body system. From
+these three ingredients nature builds all manner of weird and wonderful
+materials.</p>
+<p>Historically, we made initial headway in the study of many-body
+systems, ignoring interactions and quantum properties. The ideal gas law
+and the Drude classical electron gas<span class="citation"
+data-cites="ashcroftSolidStatePhysics1976"><sup><a
+href="#ref-ashcroftSolidStatePhysics1976"
+role="doc-biblioref">7</a></sup></span> are good examples. Including
+interactions into many-body physics leads to the Ising model<span
+class="citation" data-cites="isingBeitragZurTheorie1925"><sup><a
+href="#ref-isingBeitragZurTheorie1925"
+role="doc-biblioref">8</a></sup></span>, Landau theory<span
+class="citation" data-cites="landau2013fluid"><sup><a
+href="#ref-landau2013fluid" role="doc-biblioref">9</a></sup></span> and
+the classical theory of phase transitions<span class="citation"
+data-cites="jaegerEhrenfestClassificationPhase1998"><sup><a
+href="#ref-jaegerEhrenfestClassificationPhase1998"
+role="doc-biblioref">10</a></sup></span>. In contrast, condensed matter
+theory got it state in quantum many-body theory. Bloch’s theorem<span
+class="citation"
+data-cites="blochÜberQuantenmechanikElektronen1929"><sup><a
+href="#ref-blochÜberQuantenmechanikElektronen1929"
+role="doc-biblioref">11</a></sup></span> predicted the properties of
+non-interacting electrons in crystal lattices, leading to band theory.
+In the same vein, advances were made in understanding the quantum
+origins of magnetism, including ferromagnetism and
+antiferromagnetism<span class="citation"
+data-cites="MagnetismCondensedMatter"><sup><a
+href="#ref-MagnetismCondensedMatter"
+role="doc-biblioref">12</a></sup></span>.</p>
+<p>However, at some point we had to start on the interacting quantum
+many body systems. Some phenomena cannot be understood without a taking
+into account all three effects. The canonical examples are
+superconductivity<span class="citation"
+data-cites="MicroscopicTheorySuperconductivity"><sup><a
+href="#ref-MicroscopicTheorySuperconductivity"
+role="doc-biblioref">13</a></sup></span>, the fractional quantum hall
+effect<span class="citation"
+data-cites="feldmanFractionalChargeFractional2021"><sup><a
+href="#ref-feldmanFractionalChargeFractional2021"
+role="doc-biblioref">14</a></sup></span> and the Mott insulators<span
+class="citation"
+data-cites="mottBasisElectronTheory1949 fisherMottInsulatorsSpin1999"><sup><a
+href="#ref-mottBasisElectronTheory1949" role="doc-biblioref">15</a>,<a
+href="#ref-fisherMottInsulatorsSpin1999"
+role="doc-biblioref">16</a></sup></span>. We will discuss the latter in
+more detail.</p>
+<p>Electrical conductivity, the bulk movement of electrons, requires
+both that there are electronic states very close in energy to the ground
+state and that those states are delocalised so that they can contribute
+to macroscopic transport. Band insulators are systems whose Fermi level
+falls within a gap in the density of states and thus fail the first
+criteria. Anderson Insulators have only localised electronic states near
+the fermi level and therefore fail the second criteria. We will discuss
+Anderson insulators and disorder in a later section.</p>
+<p>Both band and Anderson insulators occur without electron-electron
+interactions. Mott insulators, by contrast, are by these interactions
+and hence elude band theory and single-particle methods.</p>
+<div id="fig:venn_diagram" class="fignos">
+<figure>
+<img src="/assets/thesis/intro_chapter/venn_diagram.svg"
+data-short-caption="Interacting Quantum Many Body Systems Venn Diagram"
+style="width:100.0%"
+alt="Figure 2: Three key adjectives. Many Body, the fact of describing systems in the limit of large numbers of particles. Quantum, objects whose behaviour requires quantum mechanics to describe accurately. Interacting, the constituent particles of the system affect one another via forces, either directly or indirectly. When taken together, these three properties can give rise to what are called strongly correlated materials." />
+<figcaption aria-hidden="true"><span>Figure 2:</span> Three key
+adjectives. Many Body, the fact of describing systems in the limit of
+large numbers of particles. Quantum, objects whose behaviour requires
+quantum mechanics to describe accurately. Interacting, the constituent
+particles of the system affect one another via forces, either directly
+or indirectly. When taken together, these three properties can give rise
+to what are called strongly correlated materials.</figcaption>
+</figure>
+</div>
+<h1 id="mott-insulators-and-the-hubbard-model">Mott Insulators and The
+Hubbard Model</h1>
+<p>The theory of Mott insulators developed out of the observation that
+many transition metal oxides are erroneously predicted by band theory to
+be conductive<span class="citation"
+data-cites="boerSemiconductorsPartiallyCompletely1937"><sup><a
+href="#ref-boerSemiconductorsPartiallyCompletely1937"
+role="doc-biblioref">17</a></sup></span> leading to the suggestion that
+electron-electron interactions were the cause of this effect<span
+class="citation" data-cites="mottDiscussionPaperBoer1937"><sup><a
+href="#ref-mottDiscussionPaperBoer1937"
+role="doc-biblioref">18</a></sup></span>. Interest grew with the
+discovery of high temperature superconductivity in the cuprates in
+1986<span class="citation"
+data-cites="bednorzPossibleHighTcSuperconductivity1986"><sup><a
+href="#ref-bednorzPossibleHighTcSuperconductivity1986"
+role="doc-biblioref">19</a></sup></span> which is believed to arise as
+the result of doping a Mott insulator state<span class="citation"
+data-cites="leeDopingMottInsulator2006"><sup><a
+href="#ref-leeDopingMottInsulator2006"
+role="doc-biblioref">20</a></sup></span>.</p>
+<p>The canonical toy model of the Mott insulator is the Hubbard
+model<span class="citation"
+data-cites="gutzwillerEffectCorrelationFerromagnetism1963 kanamoriElectronCorrelationFerromagnetism1963 hubbardj.ElectronCorrelationsNarrow1963"><sup><a
+href="#ref-gutzwillerEffectCorrelationFerromagnetism1963"
+role="doc-biblioref">21</a>–<a
+href="#ref-hubbardj.ElectronCorrelationsNarrow1963"
+role="doc-biblioref">23</a></sup></span> of <span
+class="math inline">\(1/2\)</span> fermions hopping on the lattice with
+hopping parameter <span class="math inline">\(t\)</span> and
+electron-electron repulsion <span class="math inline">\(U\)</span></p>
+<p><span class="math display">\[ H = -t \sum_{\langle i,j \rangle
+\alpha} c^\dagger_{i\alpha} c_{j\alpha} + U \sum_i n_{i\uparrow}
+n_{i\downarrow} - \mu \sum_{i,\alpha} n_{i\alpha}\]</span></p>
+<p>where <span class="math inline">\(c^\dagger_{i\alpha}\)</span>
+creates a spin <span class="math inline">\(\alpha\)</span> electron at
+site <span class="math inline">\(i\)</span> and the number operator
+<span class="math inline">\(n_{i\alpha}\)</span> measures the number of
+electrons with spin <span class="math inline">\(\alpha\)</span> at site
+<span class="math inline">\(i\)</span>. In the non-interacting limit
+<span class="math inline">\(U &lt;&lt; t\)</span>, the model reduces to
+free fermions and the many-body ground state is a separable product of
+Bloch waves filled up to the Fermi level. In the interacting limit <span
+class="math inline">\(U &gt;&gt; t\)</span> on the other hand, the
+system breaks up into a product of local moments, each in one the four
+states <span class="math inline">\(|0\rangle, |\uparrow\rangle,
+|\downarrow\rangle, |\uparrow\downarrow\rangle\)</span> depending on the
+filing.</p>
+<p>The Mott insulating phase occurs at half filling <span
+class="math inline">\(\mu = \tfrac{U}{2}\)</span> where there is one
+electron per lattice site<span class="citation"
+data-cites="hubbardElectronCorrelationsNarrow1964"><sup><a
+href="#ref-hubbardElectronCorrelationsNarrow1964"
+role="doc-biblioref">24</a></sup></span>. Here the model can be
+rewritten in a symmetric form <span class="math display">\[ H = -t
+\sum_{\langle i,j \rangle \alpha} c^\dagger_{i\alpha} c_{j\alpha} + U
+\sum_i (n_{i\uparrow} - \tfrac{1}{2})(n_{i\downarrow} -
+\tfrac{1}{2})\]</span></p>
+<p>The basic reason that the half filled state is insulating seems is
+trivial. Any excitation must include states of double occupancy that
+cost energy <span class="math inline">\(U\)</span>, hence the system has
+a finite bandgap and is an interaction driven Mott insulator. Originally
+it was proposed that antiferromagnetic order was a necessary condition
+for the Mott insulator transition<span class="citation"
+data-cites="mottMetalInsulatorTransitions1990"><sup><a
+href="#ref-mottMetalInsulatorTransitions1990"
+role="doc-biblioref">25</a></sup></span> but later examples were found
+without magnetic order <strong>cite</strong>.</p>
+<p>Various theoretical treatments of the Hubbard model have been made,
+including those based on Fermi liquid theory, mean field treatments, the
+local density approximation (LDA)<span class="citation"
+data-cites="slaterMagneticEffectsHartreeFock1951"><sup><a
+href="#ref-slaterMagneticEffectsHartreeFock1951"
+role="doc-biblioref">26</a></sup></span> and dynamical mean-field
+theory<span class="citation"
+data-cites="greinerQuantumPhaseTransition2002"><sup><a
+href="#ref-greinerQuantumPhaseTransition2002"
+role="doc-biblioref">27</a></sup></span>. None of these approaches is
+perfect. Strong correlations are poorly described by the Fermi liquid
+theory and the LDA approaches while mean field approximations do poorly
+in low dimensional systems. This theoretical difficulty has made the
+Hubbard model a target for cold atom simulations<span class="citation"
+data-cites="mazurenkoColdatomFermiHubbard2017"><sup><a
+href="#ref-mazurenkoColdatomFermiHubbard2017"
+role="doc-biblioref">28</a></sup></span>.</p>
+<p>From here the discussion will branch two directions. First, we will
+discuss a limit of the Hubbard model called the Falikov Kimball Model.
+Second, we will go down the rabbit hole of strongly correlated systems
+without magnetic order. This will lead us to Quantum spin liquids and
+the Kitaev honeycomb model.</p>
+<p><strong>An exactly solvable model of the Mott Insulator</strong> -
+demonstrate mott insulator in hubbard model, briefly tease the falikov
+kimball model in order to lay the ground work to talk about the falikov
+kimball model later</p>
+<ul>
+<li>FK model has extensively many conserved charges which makes it
+tractable</li>
+<li>Disorder free localisation</li>
+</ul>
+<p><strong>An exactly solvable Quantum Spin Liquid</strong> -
+relationship between mott insulators and spin liquids: the electrons in
+a mott insulator form local moments that normally form an AFM ground
+state but if they don’t, due to frustration or other reason, the local
+moments may form a QSL at T=0 instead.<span class="citation"
+data-cites="law1TTaS2QuantumSpin2017 ribakGaplessExcitationsGround2017"><sup><a
+href="#ref-law1TTaS2QuantumSpin2017" role="doc-biblioref">29</a>,<a
+href="#ref-ribakGaplessExcitationsGround2017"
+role="doc-biblioref">30</a></sup></span></p>
+<ul>
+<li><p>QSLs introduced by anderson 1973<span class="citation"
+data-cites="andersonResonatingValenceBonds1973"><sup><a
+href="#ref-andersonResonatingValenceBonds1973"
+role="doc-biblioref">31</a></sup></span></p></li>
+<li><p>Spin orbit effect is a relativistic effect that couples electron
+spin to orbital angular moment. Very roughly, an electron sees the
+electric field of the nucleus as a magnetic field due to its movement
+and the electron spin couples to this.</p></li>
+<li><p>can be string in heavy elements</p></li>
+<li><p>The Kitaev Model</p></li>
+<li><p>Kitaev model has extensively many conserved charges too</p></li>
+<li><p>Frustration</p></li>
+<li><p>anyons</p></li>
+<li><p>fractionalisation</p></li>
+<li><p>Topology -&gt; GS degeneracy depends on the genus of the
+surface</p></li>
+<li><p>the chern number</p></li>
+<li><p>quasiparticles</p></li>
+<li><p>topological order</p></li>
+<li><p>protected edge states</p></li>
+<li><p>Abelian and non-Abelian anyons</p></li>
+</ul>
+<div id="fig:correlation_spin_orbit_PT" class="fignos">
+<figure>
+<img src="/assets/thesis/intro_chapter/correlation_spin_orbit_PT.png"
+data-short-caption="Phase Diagram" style="width:100.0%"
+alt="Figure 3: From32." />
+<figcaption aria-hidden="true"><span>Figure 3:</span> From<span
+class="citation" data-cites="TrebstPhysRep2022"><sup><a
+href="#ref-TrebstPhysRep2022"
+role="doc-biblioref">32</a></sup></span>.</figcaption>
+</figure>
+</div>
+<p>kinds of mott insulators: Mott-Heisenberg (AFM order below Néel
+temperature) Mott-Hubbard (no long-range order of local magnetic
+moments) Mott-Anderson (disorder + correlations) Wigner Crystal</p>
+<h1 id="outline">Outline</h1>
+<p>This thesis is composed of two main studies of separate but related
+physical models, The Falikov-Kimball Model and the Kitaev-Honeycomb
+Model. In this chapter I will discuss the overarching motivations for
+looking at these two physical models. I will then review the literature
+and methods that are common to both models.</p>
+<p>In Chapter 2 I will look at the Falikov-Kimball model. I will review
+what it is and why we would want to study it. I’ll survey what is
+already known about it and identify the gap in the research that we aim
+to fill, namely the model’s behaviour in one dimension. I’ll then
+introduce the modified model that we came up with to close this gap. I
+will present our results on the thermodynamic phase diagram and
+localisation properties of the model</p>
+<p>In Chapter 3 I’ll study the Kitaev Honeycomb Model, following the
+same structure as Chapter 2 I will motivate the study, survey the
+literature and identify a gap. I’ll introduce our Amorphous Kitaev Model
+designed to fill this gap and present the results.</p>
+<p>Finally in chapter 4 I will summarise the results and discuss what
+implications they have for our understanding interacting many-body
+quantum systems.</p>
+<div id="refs" class="references csl-bib-body" data-line-spacing="2"
+role="doc-bibliography">
+<div id="ref-king2012murmurations" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline">King, A. J. &amp; Sumpter, D. J. Murmurations.
+<em>Current Biology</em> <strong>22</strong>, R112–R114 (2012).</div>
+</div>
+<div id="ref-balleriniInteractionRulingAnimal2008" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Ballerini, M. <em>et al.</em> <a
+href="https://doi.org/10.1073/pnas.0711437105">Interaction ruling animal
+collective behavior depends on topological rather than metric distance:
+Evidence from a field study</a>. <em>Proceedings of the National Academy
+of Sciences</em> <strong>105</strong>, 1232–1237 (2008).</div>
+</div>
+<div id="ref-andersonMoreDifferent1972" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline">Anderson, P. W. <a
+href="https://doi.org/10.1126/science.177.4047.393">More Is
+Different</a>. <em>Science</em> <strong>177</strong>, 393–396
+(1972).</div>
+</div>
+<div id="ref-kivelsonDefiningEmergencePhysics2016" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline">Kivelson, S. &amp; Kivelson, S. A. <a
+href="https://doi.org/10.1038/npjquantmats.2016.24">Defining emergence
+in physics</a>. <em>npj Quant Mater</em> <strong>1</strong>, 1–2
+(2016).</div>
+</div>
+<div id="ref-saslowHistoryThermodynamicsMissing2020" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline">Saslow, W. M. <a
+href="https://doi.org/10.3390/e22010077">A History of Thermodynamics:
+The Missing Manual</a>. <em>Entropy (Basel)</em> <strong>22</strong>, 77
+(2020).</div>
+</div>
+<div id="ref-flammHistoryOutlookStatistical1998" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline">Flamm, D. History and outlook of statistical
+physics. Preprint at <a
+href="https://doi.org/10.48550/arXiv.physics/9803005">https://doi.org/10.48550/arXiv.physics/9803005</a>
+(1998).</div>
+</div>
+<div id="ref-ashcroftSolidStatePhysics1976" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline">Ashcroft, N. W. &amp; Mermin, N. D. <em>Solid
+State Physics</em>. (Holt, Rinehart and Winston, 1976).</div>
+</div>
+<div id="ref-isingBeitragZurTheorie1925" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div
+class="csl-right-inline">Ising, E. <a
+href="https://doi.org/10.1007/BF02980577">Beitrag zur Theorie des
+Ferromagnetismus</a>. <em>Z. Physik</em> <strong>31</strong>, 253–258
+(1925).</div>
+</div>
+<div id="ref-landau2013fluid" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline">Landau, L. D. &amp; Lifshitz, E. M. <em>Fluid
+mechanics: Landau and lifshitz: Course of theoretical physics, volume
+6</em>. vol. 6 (Elsevier, 2013).</div>
+</div>
+<div id="ref-jaegerEhrenfestClassificationPhase1998" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline">Jaeger, G. <a
+href="https://doi.org/10.1007/s004070050021">The Ehrenfest
+Classification of Phase Transitions: Introduction and Evolution</a>.
+<em>Arch Hist Exact Sc.</em> <strong>53</strong>, 51–81 (1998).</div>
+</div>
+<div id="ref-blochÜberQuantenmechanikElektronen1929" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline">Bloch, F. <a
+href="https://doi.org/10.1007/BF01339455">Über die Quantenmechanik der
+Elektronen in Kristallgittern</a>. <em>Z. Physik</em>
+<strong>52</strong>, 555–600 (1929).</div>
+</div>
+<div id="ref-MagnetismCondensedMatter" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline">Blundell, S. <em>Magnetism in Condensed
+Matter</em>. (OUP Oxford, 2001).</div>
+</div>
+<div id="ref-MicroscopicTheorySuperconductivity" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline">Bardeen, J., Cooper, L. N. &amp; Schrieffer, J.
+R. <a href="https://doi.org/10.1103/PhysRev.106.162">Microscopic Theory
+of Superconductivity</a>. <em>Phys. Rev.</em> <strong>106</strong>,
+162–164 (1957).</div>
+</div>
+<div id="ref-feldmanFractionalChargeFractional2021" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline">Feldman, D. E. &amp; Halperin, B. I. <a
+href="https://doi.org/10.1088/1361-6633/ac03aa">Fractional charge and
+fractional statistics in the quantum Hall effects</a>. <em>Rep. Prog.
+Phys.</em> <strong>84</strong>, 076501 (2021).</div>
+</div>
+<div id="ref-mottBasisElectronTheory1949" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">15. </div><div
+class="csl-right-inline">Mott, N. F. <a
+href="https://doi.org/10.1088/0370-1298/62/7/303">The Basis of the
+Electron Theory of Metals, with Special Reference to the Transition
+Metals</a>. <em>Proc. Phys. Soc. A</em> <strong>62</strong>, 416–422
+(1949).</div>
+</div>
+<div id="ref-fisherMottInsulatorsSpin1999" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline">Fisher, M. P. A. <a
+href="https://doi.org/10.1007/3-540-46637-1_8">Mott insulators, Spin
+liquids and Quantum Disordered Superconductivity</a>. in <em>Aspects
+topologiques de la physique en basse dimension. Topological aspects of
+low dimensional systems</em> (eds. Comtet, A., Jolicœur, T., Ouvry, S.
+&amp; David, F.) vol. 69 575–641 (Springer Berlin Heidelberg,
+1999).</div>
+</div>
+<div id="ref-boerSemiconductorsPartiallyCompletely1937"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">17. </div><div
+class="csl-right-inline">Boer, J. H. de &amp; Verwey, E. J. W. <a
+href="https://doi.org/10.1088/0959-5309/49/4S/307">Semi-conductors with
+partially and with completely filled &lt;script&gt;3d-lattice
+bands&lt;/script&gt;</a>. <em>Proc. Phys. Soc.</em> <strong>49</strong>,
+59–71 (1937).</div>
+</div>
+<div id="ref-mottDiscussionPaperBoer1937" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">18. </div><div
+class="csl-right-inline">Mott, N. F. &amp; Peierls, R. <a
+href="https://doi.org/10.1088/0959-5309/49/4S/308">Discussion of the
+paper by de Boer and Verwey</a>. <em>Proc. Phys. Soc.</em>
+<strong>49</strong>, 72–73 (1937).</div>
+</div>
+<div id="ref-bednorzPossibleHighTcSuperconductivity1986"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">19. </div><div
+class="csl-right-inline">Bednorz, J. G. &amp; Müller, K. A. <a
+href="https://doi.org/10.1007/BF01303701">Possible highTc
+superconductivity in the Ba−La−Cu−O system</a>. <em>Z. Physik B -
+Condensed Matter</em> <strong>64</strong>, 189–193 (1986).</div>
+</div>
+<div id="ref-leeDopingMottInsulator2006" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">20. </div><div
+class="csl-right-inline">Lee, P. A., Nagaosa, N. &amp; Wen, X.-G. <a
+href="https://doi.org/10.1103/RevModPhys.78.17">Doping a Mott insulator:
+Physics of high-temperature superconductivity</a>. <em>Rev. Mod.
+Phys.</em> <strong>78</strong>, 17–85 (2006).</div>
+</div>
+<div id="ref-gutzwillerEffectCorrelationFerromagnetism1963"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">21. </div><div
+class="csl-right-inline">Gutzwiller, M. C. <a
+href="https://doi.org/10.1103/PhysRevLett.10.159">Effect of Correlation
+on the Ferromagnetism of Transition Metals</a>. <em>Phys. Rev.
+Lett.</em> <strong>10</strong>, 159–162 (1963).</div>
+</div>
+<div id="ref-kanamoriElectronCorrelationFerromagnetism1963"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">22. </div><div
+class="csl-right-inline">Kanamori, J. <a
+href="https://doi.org/10.1143/PTP.30.275">Electron Correlation and
+Ferromagnetism of Transition Metals</a>. <em>Progress of Theoretical
+Physics</em> <strong>30</strong>, 275–289 (1963).</div>
+</div>
+<div id="ref-hubbardj.ElectronCorrelationsNarrow1963" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">23. </div><div
+class="csl-right-inline">Hubbard, J. <a
+href="https://doi.org/10.1098/rspa.1963.0204">Electron correlations in
+narrow energy bands</a>. <em>Proceedings of the Royal Society of London.
+Series A. Mathematical and Physical Sciences</em> <strong>276</strong>,
+238–257 (1963).</div>
+</div>
+<div id="ref-hubbardElectronCorrelationsNarrow1964" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">24. </div><div
+class="csl-right-inline">Hubbard, J. &amp; Flowers, B. H. <a
+href="https://doi.org/10.1098/rspa.1964.0190">Electron correlations in
+narrow energy bands III. An improved solution</a>. <em>Proceedings of
+the Royal Society of London. Series A. Mathematical and Physical
+Sciences</em> <strong>281</strong>, 401–419 (1964).</div>
+</div>
+<div id="ref-mottMetalInsulatorTransitions1990" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">25. </div><div
+class="csl-right-inline">Mott, N. <em>Metal-Insulator Transitions</em>.
+(CRC Press, 1990). doi:<a
+href="https://doi.org/10.1201/b12795">10.1201/b12795</a>.</div>
+</div>
+<div id="ref-slaterMagneticEffectsHartreeFock1951" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">26. </div><div
+class="csl-right-inline">Slater, J. C. <a
+href="https://doi.org/10.1103/PhysRev.82.538">Magnetic Effects and the
+Hartree-Fock Equation</a>. <em>Phys. Rev.</em> <strong>82</strong>,
+538–541 (1951).</div>
+</div>
+<div id="ref-greinerQuantumPhaseTransition2002" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">27. </div><div
+class="csl-right-inline">Greiner, M., Mandel, O., Esslinger, T., Hänsch,
+T. W. &amp; Bloch, I. <a href="https://doi.org/10.1038/415039a">Quantum
+phase transition from a superfluid to a Mott insulator in a gas of
+ultracold atoms</a>. <em>Nature</em> <strong>415</strong>, 39
+(2002).</div>
+</div>
+<div id="ref-mazurenkoColdatomFermiHubbard2017" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">28. </div><div
+class="csl-right-inline">Mazurenko, A. <em>et al.</em> <a
+href="https://doi.org/10.1038/nature22362">A cold-atom Fermi–Hubbard
+antiferromagnet</a>. <em>Nature</em> <strong>545</strong>, 462–466
+(2017).</div>
+</div>
+<div id="ref-law1TTaS2QuantumSpin2017" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">29. </div><div
+class="csl-right-inline">Law, K. T. &amp; Lee, P. A. <a
+href="https://doi.org/10.1073/pnas.1706769114">1T-TaS2 as a quantum spin
+liquid</a>. <em>Proceedings of the National Academy of Sciences</em>
+<strong>114</strong>, 6996–7000 (2017).</div>
+</div>
+<div id="ref-ribakGaplessExcitationsGround2017" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">30. </div><div
+class="csl-right-inline">Ribak, A. <em>et al.</em> <a
+href="https://doi.org/10.1103/PhysRevB.96.195131">Gapless excitations in
+the ground state of
+&lt;script&gt;$1T\text{\ensuremath{-}}{\mathrm{TaS}}_{2}$&lt;/script&gt;</a>.
+<em>Phys. Rev. B</em> <strong>96</strong>, 195131 (2017).</div>
+</div>
+<div id="ref-andersonResonatingValenceBonds1973" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">31. </div><div
+class="csl-right-inline">Anderson, P. W. <a
+href="https://doi.org/10.1016/0025-5408(73)90167-0">Resonating valence
+bonds: A new kind of insulator?</a> <em>Materials Research Bulletin</em>
+<strong>8</strong>, 153–160 (1973).</div>
+</div>
+<div id="ref-TrebstPhysRep2022" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">32. </div><div
+class="csl-right-inline">Trebst, S. &amp; Hickey, C. <a
+href="https://doi.org/10.1016/j.physrep.2021.11.003">Kitaev
+materials</a>. <em>Physics Reports</em> <strong>950</strong>, 1–37
+(2022).</div>
+</div>
+</div>
+</main>
+</body>
+</html>

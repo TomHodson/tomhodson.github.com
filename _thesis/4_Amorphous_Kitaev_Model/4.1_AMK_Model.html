@@ -1,0 +1,918 @@
+---
+title: The Amorphous Kitaev Model - Introduction
+excerpt: A short introduction to the weird and wonderful world of exactly solvable quantum models.
+layout: none
+image: 
+
+---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="A short introduction to the weird and wonderful world of exactly solvable quantum models." />
+  <title>The Amorphous Kitaev Model - Introduction</title>
+  <!-- <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style> -->
+
+<!--   <script
+       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+       type="text/javascript"></script>
+ -->
+
+<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+   -->
+
+<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+
+
+<!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/index.js"></script>
+</head>
+<body>
+{% include header.html %}
+
+<main>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#contributions"
+id="toc-contributions">Contributions</a></li>
+<li><a href="#introduction" id="toc-introduction">Introduction</a>
+<ul>
+<li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous
+Systems</a></li>
+<li><a href="#glossary" id="toc-glossary">Glossary</a></li>
+<li><a href="#the-kitaev-model" id="toc-the-kitaev-model">The Kitaev
+Model</a>
+<ul>
+<li><a href="#commutation-relations"
+id="toc-commutation-relations">Commutation relations</a></li>
+<li><a href="#the-hamiltonian" id="toc-the-hamiltonian">The
+Hamiltonian</a></li>
+<li><a href="#from-spins-to-majorana-operators"
+id="toc-from-spins-to-majorana-operators">From Spins to Majorana
+operators</a></li>
+<li><a href="#partitioning-the-hilbert-space-into-bond-sectors"
+id="toc-partitioning-the-hilbert-space-into-bond-sectors">Partitioning
+the Hilbert Space into Bond sectors</a></li>
+</ul></li>
+<li><a href="#the-majorana-hamiltonian"
+id="toc-the-majorana-hamiltonian">The Majorana Hamiltonian</a>
+<ul>
+<li><a href="#mapping-back-from-bond-sectors-to-the-physical-subspace"
+id="toc-mapping-back-from-bond-sectors-to-the-physical-subspace">Mapping
+back from Bond Sectors to the Physical Subspace</a></li>
+<li><a href="#open-boundary-conditions"
+id="toc-open-boundary-conditions">Open boundary conditions</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="contributions">Contributions</h1>
+<p>The material in this chapter expands on work presented in</p>
+<p><strong>Insert citation of amorphous Kitaev paper here</strong></p>
+<p>which was a joint project of the first three authors with advice and
+guidance from Willian and Johannes. The project grew out of an interest
+Gino, Peru and I had in studying amorphous systems, coupled with
+Johannes’ expertise on the Kitaev model. The idea to use voronoi
+partitions came from<span class="citation"
+data-cites="marsalTopologicalWeaireThorpe2020"><sup><a
+href="#ref-marsalTopologicalWeaireThorpe2020"
+role="doc-biblioref">1</a></sup></span> and Gino did the implementation
+of this. The idea and implementation of the edge colouring using SAT
+solvers, the mapping from flux sector to bond sector using A* search
+were both entirely my work. Peru came up with the ground state
+conjecture and implemented the local markers. Gino and I did much of the
+rest of the programming for Koala while pair programming and
+’whiteboard’ing, this included the phase diagram, edge mode and finite
+temperature analyses as well as the derivation of the projector in the
+amorphous case.</p>
+<h1 id="introduction">Introduction</h1>
+<div id="fig:intro_figure_by_hand" class="fignos">
+<figure>
+<img
+src="/assets/thesis/amk_chapter/intro/honeycomb_zoom/intro_figure_by_hand.svg"
+data-short-caption="The Kitaev Honeycomb Model" style="width:100.0%"
+alt="Figure 1: (a) The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e. the lattice is trivalent. One of three labels is assigned to each (b). We represent the antisymmetric gauge degree of freedom u_{jk} = \pm 1 with arrows that point in the direction u_{jk} = +1 (c). The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical \mathbb{Z}_2 gauge field u_{ij}. This leavies a single Majorana c_i per site." />
+<figcaption aria-hidden="true"><span>Figure 1:</span>
+<strong>(a)</strong> The standard Kitaev model is defined on a honeycomb
+lattice. The special feature of the honeycomb lattice that makes the
+model solvable is that each vertex is joined by exactly three bonds,
+i.e. the lattice is trivalent. One of three labels is assigned to each
+<strong>(b)</strong>. We represent the antisymmetric gauge degree of
+freedom <span class="math inline">\(u_{jk} = \pm 1\)</span> with arrows
+that point in the direction <span class="math inline">\(u_{jk} =
++1\)</span> <strong>(c)</strong>. The Majorana transformation can be
+visualised as breaking each spin into four Majoranas which then pair
+along the bonds. The pairs of x,y and z Majoranas become part of the
+classical <span class="math inline">\(\mathbb{Z}_2\)</span> gauge field
+<span class="math inline">\(u_{ij}\)</span>. This leavies a single
+Majorana <span class="math inline">\(c_i\)</span> per site.</figcaption>
+</figure>
+</div>
+<p>The Kitaev Honeycomb model <span class="math display">\[H =  -
+\sum_{\langle j,k\rangle_\alpha}
+J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\]</span> is remarkable
+because it combines three key properties.</p>
+<p>First, the form of the Hamiltonian plausibly be realised by a real
+material. Candidate materials, such as <span
+class="math inline">\(\alpha\mathrm{-RuCl}_3\)</span>, are known to have
+sufficiently strong spin-orbit coupling and the correct lattice
+structure to behave according to the Kitaev Honeycomb model with small
+corrections<span class="citation"
+data-cites="banerjeeProximateKitaevQuantum2016 trebstKitaevMaterials2022"><sup><a
+href="#ref-banerjeeProximateKitaevQuantum2016"
+role="doc-biblioref">2</a>,<a href="#ref-trebstKitaevMaterials2022"
+role="doc-biblioref"><strong>trebstKitaevMaterials2022?</strong></a></sup></span>.</p>
+<p><strong>expand later: Why do we need spin orbit coupling and what
+will the corrections be?</strong></p>
+<p>Second, its ground state is the canonical example of the long sought
+after quantum spin liquid state. Its excitations are anyons, particles
+that can only exist in two dimensions that break the normal
+fermion/boson dichotomy. Anyons have been the subject of much attention
+because, among other reasons, they can be braided through spacetime to
+achieve noise tolerant quantum computations<span class="citation"
+data-cites="freedmanTopologicalQuantumComputation2003"><sup><a
+href="#ref-freedmanTopologicalQuantumComputation2003"
+role="doc-biblioref">3</a></sup></span>.</p>
+<p>Third, and perhaps most importantly, this model is a rare many body
+interacting quantum system that can be treated analytically. It is
+exactly solvable. We can explicitly write down its many body ground
+states in terms of single particle states<span class="citation"
+data-cites="kitaevAnyonsExactlySolved2006"><sup><a
+href="#ref-kitaevAnyonsExactlySolved2006"
+role="doc-biblioref">4</a></sup></span>. The solubility of the Kitaev
+Honeycomb Model, like the Falikov-Kimball model of chapter 1, comes
+about because the model has extensively many conserved degrees of
+freedom. These conserved quantities can be factored out as classical
+degrees of freedom, leaving behind a non-interacting quantum model that
+is easy to solve.</p>
+<h2 id="amorphous-systems">Amorphous Systems</h2>
+<p><strong>Insert discussion of why a generalisation to the amorphous
+case is interesting</strong></p>
+<p>This chapter details the physics of the Kitaev model on amorphous
+lattices.</p>
+<p>It starts by expanding on the physics of the Kitaev model. It will
+look at the gauge symmetries of the model as well as its solution via a
+transformation to a Majorana hamiltonian. This discussion shows that,
+for the the model to be solvable, it needs only be defined on a
+trivalent, tri-edge-colourable lattice<span class="citation"
+data-cites="Nussinov2009"><sup><a href="#ref-Nussinov2009"
+role="doc-biblioref">5</a></sup></span>.</p>
+<p>The methods section discusses how to generate such lattices and
+colour them. It also explain how to map back and forth between
+configurations of the gauge field and configurations of the gauge
+invariant quantities.</p>
+<p>The results section begins by looking at the zero temperature
+physics. It presents numerical evidence that the ground state of the
+Kitaev model is given by a simple rule depending only on the number of
+sides of each plaquette. It assesses the gapless, Abelian and
+non-Abelian, phases that are present, characterising them by the
+presence of a gap and using local Chern markers. Next it looks at
+spontaneous chiral symmetry breaking and topological edge states. It
+also compares the zero temperature phase diagram to that of the Kitaev
+Honeycomb Model. Finally, we introduce flux disorder and demonstrate
+that there is a phase transition to a thermal metal state.</p>
+<p>The discussion considers possible physical realisations of this model
+and the motivations for doing so. It also discusses how a well known
+quantum error correcting code defined on the Kitaev Honeycomb model
+could be generalised to the amorphous case.</p>
+<h2 id="glossary">Glossary</h2>
+<ul>
+<li><p>Lattice: The underlying graph on which the models are defined.
+Composed of sites (vertices), bonds (edges) and plaquettes
+(faces).</p></li>
+<li><p>The model : Used when I refer to properties of the the Kitaev
+model that do not depend on the particular lattice.</p></li>
+<li><p>The Honeycomb model : The Kitaev Model defined on the honeycomb
+lattice.</p></li>
+<li><p>The Amorphous model : The Kitaev Model defined on the amorphous
+lattices described here.</p></li>
+</ul>
+<p><strong>The Spin Hamiltonian</strong></p>
+<ul>
+<li>Spin Bond Operators: <span class="math inline">\(\hat{k}_{ij} =
+\sigma_i^\alpha \sigma_j^\alpha\)</span></li>
+<li>Loop Operators: <span class="math inline">\(\hat{W_p} =
+\prod_{&lt;i,j&gt;} k_{ij}\)</span></li>
+<li>Plaquette Operators: Loops that enclose a single plaquette.</li>
+</ul>
+<p><strong>The Majorana Model</strong></p>
+<ul>
+<li>Majorana Operators on site <span class="math inline">\(i\)</span>:
+<span class="math inline">\(\hat{b}^x_i, \hat{b}^y_i, \hat{b}^z_i,
+\hat{c}_i\)</span></li>
+<li>Majorana Bond Operators: <span class="math inline">\(\hat{u}_{ij} =
+i \sigma_i^\alpha \sigma_j^\alpha\)</span></li>
+<li>Loop Operators: <span class="math inline">\(\hat{W_p} =
+\prod_{&lt;i,j&gt;} u_{ij}\)</span></li>
+<li>Plaquette Operators: Loops that enclose a single plaquette.</li>
+<li>Gauge Operators: <span class="math inline">\(D_i = \hat{b}^x_i
+\hat{b}^y_i \hat{b}^z_i \hat{c}_i\)</span></li>
+<li>The Extended Hilbert space: The larger Hilbert space spanned by the
+Majorana operators.</li>
+<li>The physical subspace: The subspace of the extended Hilbert space
+that we identify with the Hilbert space of the original spin model.</li>
+<li>The Projector <span class="math inline">\(\hat{P}\)</span>: The
+projector onto the physical subspace.</li>
+</ul>
+<p><strong>Flux Sectors</strong></p>
+<ul>
+<li><p>Odd/Even Plaquettes: Plaquettes with an odd/even number of
+sides.</p></li>
+<li><p>Fluxes <span class="math inline">\(\phi_i\)</span>: The
+expectation values of the plaquette operators <span
+class="math inline">\(\pm 1\)</span> for even and <span
+class="math inline">\(\pm i\)</span> for odd plaquettes.</p></li>
+<li><p>Flux Sector: A subspace of Hilbert space in which the fluxes take
+particular values.</p></li>
+<li><p>Ground state flux sector: The Flux Sector containing the lowest
+energy many body state.</p></li>
+<li><p>Vortices: Flux excitations away from the ground state flux
+sector.</p></li>
+<li><p>Dual Loops: A set of <span class="math inline">\(u_{jk}\)</span>
+that correspond to loops on the dual lattice.</p></li>
+<li><p>non-contractible loops or dual loops: The two loops topologically
+distinct loops on the torus that cannot be smoothly deformed to a
+point.</p></li>
+<li><p>Topological Fluxes <span class="math inline">\(\Phi_{x},
+\Phi_{y}\)</span>: The two fluxes associated with the two
+non-contractible loops.</p></li>
+<li><p>Topological Transport Operators: <span
+class="math inline">\(\mathcal{T}_{x}, \mathcal{T}_{y}\)</span>: The two
+vortex-pair operations associated with the non-contractible
+<em>dual</em> loops.</p></li>
+</ul>
+<p><strong>Phases</strong></p>
+<ul>
+<li>The A phase: The three anisotropic regions of the phase diagram
+<span class="math inline">\(A_x, A_y, A_z\)</span> where <span
+class="math inline">\(A_\alpha\)</span> means <span
+class="math inline">\(J_\alpha &gt;&gt; J_\beta, J_\gamma\)</span>.</li>
+<li>The B phase: The roughly isotropic region of the phase diagram.</li>
+</ul>
+<h2 id="the-kitaev-model">The Kitaev Model</h2>
+<h3 id="commutation-relations">Commutation relations</h3>
+<p>Before diving into the Hamiltonian of the Kitaev model, the following
+describes the key commutation relations of spins, fermions and
+Majoranas.</p>
+<h4 id="spins">Spins</h4>
+<p>Skip this is you are familiar with the algebra of the Pauli matrices.
+Scalars like <span class="math inline">\(\delta_{ij}\)</span> should be
+understood to be multiplied by an implicit identity <span
+class="math inline">\(\mathbb{1}\)</span> where necessary.</p>
+<p>We can represent a single spin<span
+class="math inline">\(-1/2\)</span> particle using the Pauli matrices
+<span class="math inline">\((\sigma^x, \sigma^y, \sigma^z) =
+\vec{\sigma}\)</span>, these matrices all square to the identity <span
+class="math inline">\(\sigma^\alpha \sigma^\alpha = \mathbb{1}\)</span>
+and obey nice commutation and exchange rules: <span
+class="math display">\[\sigma^\alpha \sigma^\beta = \delta^{\alpha
+\beta} + i \epsilon^{\alpha \beta \gamma} \sigma^\gamma\]</span> <span
+class="math display">\[[\sigma^\alpha, \sigma^\beta] = 2 i
+\epsilon^{\alpha \beta \gamma} \sigma^\gamma\]</span></p>
+<p>Adding site indices, spins at different spatial sites always commute
+<span class="math inline">\([\vec{\sigma}_i, \vec{\sigma}_j] =
+0\)</span> so when <span class="math inline">\(i \neq j\)</span> <span
+class="math display">\[\sigma_i^\alpha \sigma_j^\beta = \sigma_j^\alpha
+\sigma_i^\beta\]</span> <span class="math display">\[[\sigma_i^\alpha,
+\sigma_j^\beta] = 0\]</span> while the previous equations hold for <span
+class="math inline">\(i = j\)</span>.</p>
+<p>Two extra relations useful for the Kitaev model are the value of
+<span class="math inline">\(\sigma^\alpha \sigma^\beta
+\sigma^\gamma\)</span> and <span class="math inline">\([\sigma^\alpha
+\sigma^\beta, \sigma^\gamma]\)</span> when <span
+class="math inline">\(\alpha \neq \beta \neq \gamma\)</span> these can
+be computed relatively easily by applying the above relations yielding:
+<span class="math display">\[\sigma^\alpha \sigma^\beta \sigma^\gamma =
+i \epsilon^{\alpha\beta\gamma}\]</span> and <span
+class="math display">\[[\sigma^\alpha \sigma^\beta, \sigma^\gamma] =
+0\]</span></p>
+<h4 id="fermions-and-majoranas">Fermions and Majoranas</h4>
+<p>The fermionic creation and anhilation operators are defined by the
+canonical anticommutation relations <span
+class="math display">\[\begin{aligned}
+\{f_i, f_j\} &amp;= \{f^\dagger_i, f^\dagger_j\} = 0\\
+\{f_i, f^\dagger_j\} &amp;= \delta_{ij}
+\end{aligned}\]</span> which give us the exchange statistics and Pauli
+exclusion principle.</p>
+<p>From fermionic operators, we can construct Majorana operators: <span
+class="math display">\[\begin{aligned}
+f_i         &amp;= 1/2 (a_i + ib_i)\\
+f^\dagger_i &amp;= 1/2(a_i - ib_i)\\
+a_i         &amp;= f_i + f^\dagger_i = 2\Re f\\
+b_i         &amp;= 1/i(f_i - f^\dagger_i) = 2\Im f
+\end{aligned}\]</span></p>
+<p>Majorana operators are the real and imaginary parts of the fermionic
+operators. Physically, they correspond to the orthogonal superpositions
+of the presence and absence of the fermion and are, thus, a kind of
+quasiparticle.</p>
+<p>Once we involve multiple fermions, there is some freedom in how we
+can perform the transformation from <span
+class="math inline">\(n\)</span> fermions <span
+class="math inline">\(f_i\)</span> to <span
+class="math inline">\(2n\)</span> Majoranas <span
+class="math inline">\(c_i\)</span>. The property that must be preserved,
+however, is that the Majoranas still anticommute:</p>
+<p><span class="math display">\[ \{c_i, c_j\} =
+2\delta_{ij}\]</span></p>
+<div id="fig:visual_kitaev_1" class="fignos">
+<figure>
+<img src="/assets/thesis/amk_chapter/visual_kitaev_1.svg"
+data-short-caption="A Visual Intro to the Kitaev Model"
+style="width:100.0%"
+alt="Figure 2: A visual introduction to the Kitaev Model." />
+<figcaption aria-hidden="true"><span>Figure 2:</span> A visual
+introduction to the Kitaev Model.</figcaption>
+</figure>
+</div>
+<h3 id="the-hamiltonian">The Hamiltonian</h3>
+<p>To start from the fundamentals, the Kitaev Honeycomb model is a model
+of interacting spin<span class="math inline">\(-1/2\)</span>s on the
+vertices of a honeycomb lattice. Each bond in the lattice is assigned a
+label <span class="math inline">\(\alpha \in \{ x, y, z\}\)</span> and
+that bond couples its two spin neighbours along the <span
+class="math inline">\(\alpha\)</span> axis. See fig. <a
+href="#fig:visual_kitaev_1">2</a> for a diagram.</p>
+<p>This gives us the Hamiltonian <span class="math display">\[H =  -
+\sum_{\langle j,k\rangle_\alpha}
+J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\]</span> where <span
+class="math inline">\(\sigma^\alpha_j\)</span> is a Pauli matrix acting
+on site <span class="math inline">\(j\)</span> and <span
+class="math inline">\(\langle j,k\rangle_\alpha\)</span> is a pair of
+nearest-neighbour indices connected by an <span
+class="math inline">\(\alpha\)</span>-bond with exchange coupling <span
+class="math inline">\(J^\alpha\)</span><span class="citation"
+data-cites="kitaevAnyonsExactlySolved2006"><sup><a
+href="#ref-kitaevAnyonsExactlySolved2006"
+role="doc-biblioref">4</a></sup></span>. For notational brevity, it is
+useful to introduce the bond operators <span
+class="math inline">\(K_{ij} =
+\sigma_j^{\alpha}\sigma_k^{\alpha}\)</span> where <span
+class="math inline">\(\alpha\)</span> is a function of <span
+class="math inline">\(i,j\)</span> that picks the correct bond type.</p>
+<p>This Kitaev model has a set of conserved quantities that, in the spin
+language, take the form of Wilson loop operators <span
+class="math inline">\(W_p\)</span> winding around a closed path on the
+lattice. The direction does not matter, but we will keep to clockwise
+here. We will use the term plaquette and the symbol <span
+class="math inline">\(\phi\)</span> to refer to a Wilson loop operator
+that does not enclose any other sites, such as a single hexagon in a
+honeycomb lattice.</p>
+<p><span class="math display">\[W_p = \prod_{\mathrm{i,j}\; \in\; p}
+K_{ij} = \sigma_1^z \sigma_2^x \sigma_2^y \sigma_3^y .. \sigma_n^y
+\sigma_n^y \sigma_1^z\]</span></p>
+<p><strong>add a diagram of a single plaquette with labelled site and
+bond types</strong></p>
+<p>In closed loops, each site appears twice in the product with two of
+the three bond types. Applying <span class="math inline">\(\sigma^\alpha
+\sigma^\beta = \epsilon^{\alpha \beta \gamma} \sigma^\gamma, \alpha \neq
+\beta\)</span> then gives us a product containing a single Pauli matrix
+associated with each site in the loop with the type of the
+<em>outward</em> pointing bond. This shows that the <span
+class="math inline">\(W_p\)</span> associated with hexagons or shapes
+with an even number of sides all square to 1 and, hence, have
+eigenvalues <span class="math inline">\(\pm 1\)</span>.</p>
+<p>A bipartite lattice is composed of A and B sublattices with no
+intra-sublattice edges, i.e. no A-A or B-B edges. Any closed loop must
+begin and end at the same site. If we start at an A site, the loop must
+go A-B-A-B… until it returns to the original site. It must, therefore,
+contain an even number of edges to end on the same sublattice that it
+started on.</p>
+<p>As the honeycomb lattice is bipartite, there are no closed loops that
+contain an even number of edges. Therefore, all the <span
+class="math inline">\(W_p\)</span> have eigenvalues <span
+class="math inline">\(\pm 1\)</span> on bipartite lattices. Later, we
+will show that plaquettes with an odd number of sides (odd plaquettes
+for short) have eigenvalues <span class="math inline">\(\pm
+i\)</span>.</p>
+<div id="fig:regular_plaquettes" class="fignos">
+<figure>
+<img
+src="/assets/thesis/amk_chapter/intro/regular_plaquettes/regular_plaquettes.svg"
+data-short-caption="Plaquettes in the Kitaev Model" style="width:86.0%"
+alt="Figure 3: The eigenvalues of a loop or plaquette operators depend on the number of bonds in its enclosing path." />
+<figcaption aria-hidden="true"><span>Figure 3:</span> The eigenvalues of
+a loop or plaquette operators depend on the number of bonds in its
+enclosing path.</figcaption>
+</figure>
+</div>
+<p>Remarkably, all of the spin bond operators <span
+class="math inline">\(K_{ij}\)</span> commute with all the Wilson loop
+operators <span class="math inline">\(W_p\)</span>. <span
+class="math display">\[[W_p, K_{ij}] = 0\]</span> We can prove this by
+considering three cases: 1. neither <span
+class="math inline">\(i\)</span> nor <span
+class="math inline">\(j\)</span> is part of the loop 2. one of <span
+class="math inline">\(i\)</span> or <span
+class="math inline">\(j\)</span> are part of the loop 3. both are part
+of the loop</p>
+<p>The first case is trivial. The other two require some algebra,
+outlined in fig. <a href="#fig:visual_kitaev_2">4</a>.</p>
+<div id="fig:visual_kitaev_2" class="fignos">
+<figure>
+<img src="/assets/thesis/amk_chapter/visual_kitaev_2.svg"
+data-short-caption="Plaquette Operators are Conserved"
+style="width:100.0%"
+alt="Figure 4: Plaquette operators are conserved." />
+<figcaption aria-hidden="true"><span>Figure 4:</span> Plaquette
+operators are conserved.</figcaption>
+</figure>
+</div>
+<p>Since the Hamiltonian is a linear combination of bond operators, it
+commutes with the plaquette operators. This is helpful because it leads
+to a simultaneous eigenbasis for the Hamiltonian and the plaquette
+operators. We can, thus, work in <em>or “on”???</em> a basis in which
+the eigenvalues of the plaquette operators take on a definite value and,
+for all intents and purposes, act like classical degrees of freedom.
+These are the extensively many conserved quantities that make the model
+tractable.</p>
+<p>Plaquette operators measure flux. We will find that the ground state
+of the model corresponds to some particular choice of flux through each
+plaquette. We will refer to excitations which flip the expectation value
+of a plaquette operator away from the ground state as
+<strong>vortices</strong>.</p>
+<p>Thus, fixing a configuration of the vortices partitions the many-body
+Hilbert space into a set of ‘vortex sectors’ labelled by that particular
+flux configuration <span class="math inline">\(\phi_i = \pm 1,\pm
+i\)</span>.</p>
+<h3 id="from-spins-to-majorana-operators">From Spins to Majorana
+operators</h3>
+<h4 id="for-a-single-spin">For a single spin</h4>
+<p>Let us start by considering only one site and its <span
+class="math inline">\(\sigma^x, \sigma^y\)</span> and <span
+class="math inline">\(\sigma^z\)</span> operators which live in a two
+dimensional Hilbert space <span
+class="math inline">\(\mathcal{L}\)</span>.</p>
+<p>We will introduce two fermionic modes <span
+class="math inline">\(f\)</span> and <span
+class="math inline">\(g\)</span> that satisfy the canonical
+anticommutation relations along with their number operators <span
+class="math inline">\(n_f = f^\dagger f, n_g = g^\dagger g\)</span> and
+the total fermionic parity operator <span class="math inline">\(F_p =
+(2n_f - 1)(2n_g - 1)\)</span> which can be used to divide their Fock
+space up into even and odd parity subspaces. These subspaces are
+separated by the addition or removal of one fermion.</p>
+<p>From these two fermionic modes, we can build four Majorana operators:
+<span class="math display">\[\begin{aligned}
+b^x &amp;= f + f^\dagger\\
+b^y &amp;= -i(f - f^\dagger)\\
+b^z &amp;= g + g^\dagger\\
+c   &amp;= -i(g - g^\dagger)
+\end{aligned}\]</span></p>
+<p>The Majoranas obey the usual commutation relations, squaring to one
+and anticommuting with each other. The fermions and Majorana live in a
+four dimensional Fock space <span
+class="math inline">\(\mathcal{\tilde{L}}\)</span>. We can therefore
+identify the two dimensional space <span
+class="math inline">\(\mathcal{M}\)</span> with one of the parity
+subspaces of <span class="math inline">\(\mathcal{\tilde{L}}\)</span>
+which will be called the <em>physical subspace</em> <span
+class="math inline">\(\mathcal{\tilde{L}}_p\)</span>. Kitaev defines the
+operator <span class="math display">\[D = b^xb^yb^zc\]</span> which can
+be expanded to <span class="math display">\[D = -(2n_f - 1)(2n_g - 1) =
+-F_p\]</span> and labels the physical subspace as the space spanned by
+states for which <span class="math display">\[ D|\phi\rangle =
+|\phi\rangle\]</span></p>
+<p>We can also think of the physical subspace as whatever is left after
+applying the projector <span class="math display">\[P  = \frac{1 -
+D}{2}\]</span> This formulation will be useful for taking states that
+span the extended space <span
+class="math inline">\(\mathcal{\tilde{M}}\)</span> and projecting them
+into the physical subspace.</p>
+<p>So now, with the caveat that we are working in the physical subspace,
+we can define new Pauli operators:</p>
+<p><span class="math display">\[\tilde{\sigma}^x = i b^x c,\;
+\tilde{\sigma}^y = i b^y c,\; \tilde{\sigma}^y = i b^y c\]</span></p>
+<p>These extended space Pauli operators satisfy all the usual
+commutation relations. The only difference is that if we evaluate <span
+class="math inline">\(\sigma^x \sigma^y \sigma^z = i\)</span>, we
+instead get <span class="math display">\[
+\tilde{\sigma}^x\tilde{\sigma}^y\tilde{\sigma}^z = iD \]</span></p>
+<p>This makes sense if we promise to confine ourselves to the physical
+subspace <span class="math inline">\(D = 1\)</span>.</p>
+<h4 id="for-multiple-spins">For multiple spins</h4>
+<p>This construction easily generalises to the case of multiple spins.
+We get a set of 4 Majoranas <span class="math inline">\(b^x_j,\;
+b^y_j,\;b^z_j,\; c_j\)</span> and a <span class="math inline">\(D_j =
+b^x_jb^y_jb^z_jc_j\)</span> operator for every spin. For a state to be
+physical, we require that <span class="math inline">\(D_j |\psi\rangle =
+|\psi\rangle\)</span> for all <span
+class="math inline">\(j\)</span>.</p>
+<p>From these each Pauli operator can be constructed: <span
+class="math display">\[\tilde{\sigma}^\alpha_j = i b^\alpha_j
+c_j\]</span></p>
+<p>This is where the magic happens. We can promote the spin hamiltonian
+from <span class="math inline">\(\mathcal{L}\)</span> into the extended
+space <span class="math inline">\(\mathcal{\tilde{L}}\)</span>, safe in
+the knowledge that nothing changes so long as we only actually work with
+physical states. The Hamiltonian <span
+class="math display">\[\begin{aligned}
+\tilde{H} &amp;=  - \sum_{\langle j,k\rangle_\alpha}
+J^{\alpha}\tilde{\sigma}_j^{\alpha}\tilde{\sigma}_k^{\alpha}\\
+          &amp;= \frac{i}{4} \sum_{\langle j,k\rangle_\alpha}
+2J^{\alpha} (ib^\alpha_i b^\alpha_j) c_i c_j\\
+          &amp;=  \frac{i}{4} \sum_{\langle i,j\rangle_\alpha}
+2J^{\alpha} \hat{u}_{ij} \hat{c}_i \hat{c}_j
+\end{aligned}\]</span></p>
+<p>We can factor out the Majorana bond operators <span
+class="math inline">\(\hat{u}_{ij} = i b^\alpha_i b^\alpha_j\)</span>.
+Note that these bond operators are not equal to the spin bond operators
+<span class="math inline">\(K_{ij} = \sigma^\alpha_i \sigma^\alpha_j = -
+\hat{u}_{ij} c_i c_j\)</span>. In what follows, we will work much more
+frequently with the Majorana bond operators. Therefore, when we refer to
+bond operators without qualification, we are referring to the Majorana
+variety.</p>
+<p>Similarly to the argument with the spin bond operators <span
+class="math inline">\(K_{ij}\)</span>, we can quickly verify by
+considering three cases that the Majorana bond operators <span
+class="math inline">\(u_{ij}\)</span> all commute with one another. They
+square to one, so have eigenvalues <span class="math inline">\(\pm
+1\)</span>. They also commute with the <span
+class="math inline">\(c_i\)</span> operators.</p>
+<p>Importantly, the operators <span class="math inline">\(D_i = b^x_i
+b^y_i b^z_i c_i\)</span> commute with <span
+class="math inline">\(K_{ij}\)</span> and, therefore, with <span
+class="math inline">\(\tilde{H}\)</span>. We will show later that the
+action of <span class="math inline">\(D_i\)</span> on a state is to flip
+the values of the three <span class="math inline">\(u_{ij}\)</span>
+bonds that connect to site <span class="math inline">\(i\)</span>.
+Physically, this indicates that <span
+class="math inline">\(u_{ij}\)</span> is a gauge field with a high
+degree of degeneracy.</p>
+<p>In summary, Majorana bond operators <span
+class="math inline">\(u_{ij}\)</span> are an emergent, classical, <span
+class="math inline">\(\mathbb{Z_2}\)</span> gauge field!</p>
+<h3 id="partitioning-the-hilbert-space-into-bond-sectors">Partitioning
+the Hilbert Space into Bond sectors</h3>
+<p>Similarly to the story with the plaquette operators from the spin
+language, we can divide the Hilbert space <span
+class="math inline">\(\mathcal{L}\)</span> into sectors labelled by a
+set of choices <span class="math inline">\(\{\pm 1\}\)</span> for the
+value of each <span class="math inline">\(u_{ij}\)</span> operator which
+we denote by <span class="math inline">\(\mathcal{L}_u\)</span>. Since
+<span class="math inline">\(u_{ij} = -u_{ji}\)</span>, we can represent
+the <span class="math inline">\(u_{ij}\)</span> graphically with an
+arrow that points along each bond in the direction in which <span
+class="math inline">\(u_{ij} = 1\)</span>.</p>
+<p>Once confined to a particular <span
+class="math inline">\(\mathcal{L}_u\)</span>, we can ‘remove the hats’
+from the <span class="math inline">\(\hat{u}_{ij}\)</span>. The
+hamiltonian becomes a quadratic, free fermion problem <span
+class="math display">\[\tilde{H_u} =  \frac{i}{4} \sum_{\langle
+i,j\rangle_\alpha} 2J^{\alpha} u_{ij} c_i c_j\]</span> The ground state,
+<span class="math inline">\(|\psi_u\rangle\)</span> can be found easily
+as will be explained in the next part. At this point, we may wonder
+whether the <span class="math inline">\(\mathcal{L}_u\)</span> are
+confined entirely within the physical subspace <span
+class="math inline">\(\mathcal{L}_p\)</span> and, indeed, we will see
+that they are not. However, it will be helpful to first develop the
+theory of the Majorana Hamiltonian further.</p>
+<h2 id="the-majorana-hamiltonian">The Majorana Hamiltonian</h2>
+<p>We now have a quadratic Hamiltonian <span class="math display">\[
+\tilde{H} =  \frac{i}{4} \sum_{\langle i,j\rangle_\alpha} 2J^{\alpha}
+u_{ij} c_i c_j\]</span> in which most of the Majorana degrees of freedom
+have paired along bonds to become a classical gauge field <span
+class="math inline">\(u_{ij}\)</span>. What follows is relatively
+standard theory for quadratic Majorana Hamiltonians<span
+class="citation" data-cites="BlaizotRipka1986"><sup><a
+href="#ref-BlaizotRipka1986"
+role="doc-biblioref">6</a></sup></span>.</p>
+<p>Because of the antisymmetry of the matrix with entries <span
+class="math inline">\(J^{\alpha} u_{ij}\)</span>, the eigenvalues of the
+Hamiltonian <span class="math inline">\(\tilde{H}_u\)</span> come in
+pairs <span class="math inline">\(\pm \epsilon_m\)</span>. This
+redundant information is a consequence of the doubling of the Hilbert
+space which occurred when we transformed to the Majorana
+representation.</p>
+<p>If we organise the eigenmodes of <span
+class="math inline">\(H\)</span> into pairs, such that <span
+class="math inline">\(b_m\)</span> and <span
+class="math inline">\(b_m&#39;\)</span> have energies <span
+class="math inline">\(\epsilon_m\)</span> and <span
+class="math inline">\(-\epsilon_m\)</span>, we can construct the
+transformation <span class="math inline">\(Q\)</span> <span
+class="math display">\[(c_1, c_2... c_{2N}) Q = (b_1, b_1&#39;, b_2,
+b_2&#39; ... b_{N}, b_{N}&#39;)\]</span> and put the Hamiltonian into
+the form <span class="math display">\[\tilde{H}_u = \frac{i}{2} \sum_m
+\epsilon_m b_m b_m&#39;\]</span></p>
+<p>The determinant of <span class="math inline">\(Q\)</span> will be
+useful later when we consider the projector from <span
+class="math inline">\(\mathcal{\tilde{L}}\)</span> to <span
+class="math inline">\(\mathcal{L}\)</span>. Otherwise, the <span
+class="math inline">\(b_m\)</span> are merely an intermediate step. From
+them, we form fermionic operators <span class="math display">\[ f_i =
+\tfrac{1}{2} (b_m + ib_m&#39;)\]</span> with their associated number
+operators <span class="math inline">\(n_i = f^\dagger_i f_i\)</span>.
+These let us write the Hamiltonian neatly as</p>
+<p><span class="math display">\[ \tilde{H}_u = \sum_m \epsilon_m (n_m -
+\tfrac{1}{2}).\]</span></p>
+<p>The ground state <span class="math inline">\(|n_m = 0\rangle\)</span>
+of the many body system at fixed <span class="math inline">\(u\)</span>
+is then <span class="math display">\[E_{u,0} = -\frac{1}{2}\sum_m
+\epsilon_m \]</span> We can construct any state from a particular choice
+of <span class="math inline">\(n_m = 0,1\)</span>.</p>
+<p>If we only care about the value of <span
+class="math inline">\(E_{u,0}\)</span>, it is possible to skip forming
+the fermionic operators. The eigenvalues obtained directly from
+diagonalising <span class="math inline">\(J^{\alpha} u_{ij}\)</span>
+come in <span class="math inline">\(\pm \epsilon_m\)</span> pairs. We
+can take half the absolute value of the whole set to recover <span
+class="math inline">\(\sum_m \epsilon_m\)</span> easily.</p>
+<p>Takeaway: the Majorana Hamiltonian is quadratic within a Bond
+Sector.</p>
+<h3 id="mapping-back-from-bond-sectors-to-the-physical-subspace">Mapping
+back from Bond Sectors to the Physical Subspace</h3>
+<p>At this point, given a particular bond configuration <span
+class="math inline">\(u_{ij} = \pm 1\)</span>, we can construct a
+quadratic Hamiltonian <span class="math inline">\(\tilde{H}_u\)</span>
+in the extended space and diagonalise it to find its ground state <span
+class="math inline">\(|\vec{u}, \vec{n} = 0\rangle\)</span>. This is not
+necessarily the ground state of the system as a whole, it is just the
+lowest energy state within the subspace <span
+class="math inline">\(\mathcal{L}_u\)</span></p>
+<p><strong>However, <span class="math inline">\(|u, n_m =
+0\rangle\)</span> does not lie in the physical subspace</strong>. As an
+example, consider the lowest energy state associated with <span
+class="math inline">\(u_{ij} = +1\)</span>. This state satisfies <span
+class="math display">\[u_{ij} |\vec{u}=1, \vec{n} = 0\rangle =
+|\vec{u}=1, \vec{n} = 0\rangle\]</span> for all bonds <span
+class="math inline">\(i,j\)</span>.</p>
+<p>If we act on it, this state with one of the gauge operators <span
+class="math inline">\(D_j = b_j^x b_j^y b_j^z c_j\)</span>, we see that
+<span class="math inline">\(D_j\)</span> flips the value of the three
+bonds <span class="math inline">\(u_{ij}\)</span> that surround site
+<span class="math inline">\(k\)</span>:</p>
+<p><span class="math display">\[ |u&#39;\rangle = D_j |u=1, n_m =
+0\rangle\]</span></p>
+<p><span class="math display">\[ \begin{aligned}
+\langle u&#39;|u_{ij}|u&#39;\rangle &amp;=  \langle u| b_j^x b_j^y b_j^z
+c_j \;ib^x_i b^x_j\; b_j^x b_j^y b_j^z c_j|u\rangle\\
+&amp;= -1
+\end{aligned}\]</span></p>
+<p>Since <span class="math inline">\(D_j\)</span> commutes with the
+Hamiltonian in the extended space <span
+class="math inline">\(\tilde{H}\)</span>, the fact that <span
+class="math inline">\(D_j\)</span> flips the value of bond operators
+indicates that there is a gauge degeneracy between the ground state of
+<span class="math inline">\(\tilde{H}_u\)</span> and the set of <span
+class="math inline">\(\tilde{H}_{u&#39;}\)</span> related to it by gauge
+transformations <span class="math inline">\(D_j\)</span>. Thus, we can
+flip any three bonds around a vertex and the physics will stay the
+same.</p>
+<p>We can turn this into a symmetrisation procedure by taking a
+superposition of every possible gauge transformation. Every possible
+gauge transformation is just every possible subset of <span
+class="math inline">\({D_0, D_1 ... D_n}\)</span> which can be neatly
+expressed as <span class="math display">\[|\phi_w\rangle = \prod_i
+\left( \frac{1 + D_i}{2}\right) |\tilde{\phi}_u\rangle\]</span> This is
+convenient because the quantity <span class="math inline">\(\frac{1 +
+D_i}{2}\)</span> is also the local projector onto the physical subspace.
+Here <span class="math inline">\(|\phi_w\rangle\)</span> is a gauge
+invariant state that lives in <span
+class="math inline">\(\mathcal{L}_p\)</span> which has been constructed
+from a set of states in different <span
+class="math inline">\(\mathcal{L}_u\)</span>.</p>
+<p>This gauge degeneracy leads us to the next topic of discussion,
+namely how to construct a set of gauge invariant quantities out of the
+<span class="math inline">\(u_{ij}\)</span>, these will turn out to just
+be the plaquette operators.</p>
+<p>Takeaway: The Bond Sectors overlap with the physical subspace but are
+not contained within it.</p>
+<h3 id="open-boundary-conditions">Open boundary conditions</h3>
+<p>Care must be taken when defining open boundary conditions. Simply
+removing bonds from the lattice leaves behind unpaired <span
+class="math inline">\(b^\alpha\)</span> operators that must be paired in
+some way to arrive at fermionic modes. To fix a pairing, we always start
+from a lattice defined on the torus and generate a lattice with open
+boundary conditions by defining the bond coupling <span
+class="math inline">\(J^{\alpha}_{ij} = 0\)</span> for sites joined by
+bonds <span class="math inline">\((i,j)\)</span> that we want to remove.
+This creates fermionic zero modes <span
+class="math inline">\(u_{ij}\)</span> associated with these cut bonds
+which we set to 1 when calculating the projector.</p>
+<p>Alternatively, since all the fermionic zero modes are degenerate
+anyway, an arbitrary pairing of the unpaired <span
+class="math inline">\(b^\alpha\)</span> operators could be performed.
+&lt;/i,j&gt;&lt;/i,j&gt;</p>
+<div id="refs" class="references csl-bib-body" data-line-spacing="2"
+role="doc-bibliography">
+<div id="ref-marsalTopologicalWeaireThorpe2020" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline">Marsal, Q., Varjas, D. &amp; Grushin, A. G. <a
+href="https://doi.org/10.1073/pnas.2007384117">Topological Weaire–Thorpe
+models of amorphous matter</a>. <em>Proceedings of the National Academy
+of Sciences</em> <strong>117</strong>, 30260–30265 (2020).</div>
+</div>
+<div id="ref-banerjeeProximateKitaevQuantum2016" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Banerjee, A. <em>et al.</em> <a
+href="https://doi.org/10.1038/nmat4604">Proximate Kitaev Quantum Spin
+Liquid Behaviour in {\alpha}-RuCl$_3$</a>. <em>Nature Mater</em>
+<strong>15</strong>, 733–740 (2016).</div>
+</div>
+<div id="ref-freedmanTopologicalQuantumComputation2003"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline">Freedman, M., Kitaev, A., Larsen, M. &amp;
+Wang, Z. <a
+href="https://doi.org/10.1090/S0273-0979-02-00964-3">Topological quantum
+computation</a>. <em>Bull. Amer. Math. Soc.</em> <strong>40</strong>,
+31–38 (2003).</div>
+</div>
+<div id="ref-kitaevAnyonsExactlySolved2006" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline">Kitaev, A. <a
+href="https://doi.org/10.1016/j.aop.2005.10.005">Anyons in an exactly
+solved model and beyond</a>. <em>Annals of Physics</em>
+<strong>321</strong>, 2–111 (2006).</div>
+</div>
+<div id="ref-Nussinov2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline">Nussinov, Z. &amp; Ortiz, G. <a
+href="https://doi.org/10.1103/PhysRevB.79.214440">Bond algebras and
+exact solvability of Hamiltonians: spin S=½ multilayer systems</a>.
+<em>Physical Review B</em> <strong>79</strong>, 214440 (2009).</div>
+</div>
+<div id="ref-BlaizotRipka1986" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline">Blaizot, J.-P. &amp; Ripka, G. <em>Quantum
+theory of finite systems</em>. (The MIT Press, 1986).</div>
+</div>
+</div>
+</main>
+</body>
+</html>

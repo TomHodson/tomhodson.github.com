@@ -1,0 +1,1701 @@
+---
+title: 3.2_LRFK_Methods
+excerpt: 
+layout: none
+image: 
+
+---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>3.2_LRFK_Methods</title>
+  <!-- <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style> -->
+
+<!--   <script
+       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+       type="text/javascript"></script>
+ -->
+
+<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+   -->
+
+<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+
+
+<!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/index.js"></script>
+</head>
+<body>
+{% include header.html %}
+
+<main>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#markov-chain-monte-carlo"
+id="toc-markov-chain-monte-carlo">Markov Chain Monte Carlo</a>
+<ul>
+<li><a href="#sampling" id="toc-sampling">Sampling</a></li>
+<li><a href="#markov-chains" id="toc-markov-chains">Markov
+Chains</a></li>
+<li><a href="#application-to-the-fk-model"
+id="toc-application-to-the-fk-model">Application to the FK Model</a>
+<ul>
+<li><a href="#markov-chain-monte-carlo-1"
+id="toc-markov-chain-monte-carlo-1">Markov Chain Monte Carlo</a></li>
+</ul></li>
+<li><a href="#the-metropolis-hasting-algorithm"
+id="toc-the-metropolis-hasting-algorithm">The Metropolis-Hasting
+Algorithm</a></li>
+<li><a href="#metropolis-hastings"
+id="toc-metropolis-hastings">Metropolis-Hastings</a></li>
+<li><a href="#convergence-auto-correlation-and-binning"
+id="toc-convergence-auto-correlation-and-binning">Convergence,
+Auto-correlation and Binning</a></li>
+<li><a href="#applying-mcmc-to-the-fk-model"
+id="toc-applying-mcmc-to-the-fk-model">Applying MCMC to the FK
+model</a></li>
+<li><a href="#proposal-distributions"
+id="toc-proposal-distributions">Proposal Distributions</a></li>
+<li><a href="#perturbation-mcmc" id="toc-perturbation-mcmc">Perturbation
+MCMC</a></li>
+<li><a href="#scaling" id="toc-scaling">Scaling</a></li>
+<li><a href="#binder-cumulants" id="toc-binder-cumulants">Binder
+Cumulants</a></li>
+<li><a href="#markov-chain-monte-carlo-in-practice"
+id="toc-markov-chain-monte-carlo-in-practice">Markov Chain Monte-Carlo
+in Practice</a>
+<ul>
+<li><a href="#quick-intro-to-mcmc" id="toc-quick-intro-to-mcmc">Quick
+Intro to MCMC</a></li>
+<li><a href="#convergence-time" id="toc-convergence-time">Convergence
+Time</a></li>
+<li><a href="#auto-correlation-time"
+id="toc-auto-correlation-time">Auto-correlation Time</a></li>
+<li><a href="#the-metropolis-hastings-algorithm"
+id="toc-the-metropolis-hastings-algorithm">The Metropolis-Hastings
+Algorithm</a></li>
+</ul></li>
+<li><a href="#two-step-trick" id="toc-two-step-trick">Two Step
+Trick</a></li>
+<li><a href="#detailed-balance-for-the-two-step-method"
+id="toc-detailed-balance-for-the-two-step-method">Detailed Balance for
+the two step method</a>
+<ul>
+<li><a href="#two-step-trick-1" id="toc-two-step-trick-1">Two Step
+Trick</a></li>
+<li><a href="#tuning-the-proposal-distribution"
+id="toc-tuning-the-proposal-distribution">Tuning the proposal
+distribution</a></li>
+</ul></li>
+<li><a href="#diagnostics-of-localisation"
+id="toc-diagnostics-of-localisation">Diagnostics of Localisation</a>
+<ul>
+<li><a href="#inverse-participation-ratio"
+id="toc-inverse-participation-ratio">Inverse Participation
+Ratio</a></li>
+</ul></li>
+<li><a href="#markov-chain-monte-carlo-2"
+id="toc-markov-chain-monte-carlo-2">Markov Chain Monte-Carlo</a></li>
+<li><a href="#convergence-time-1"
+id="toc-convergence-time-1">Convergence Time</a></li>
+<li><a href="#auto-correlation-time-1"
+id="toc-auto-correlation-time-1">Auto-correlation Time</a></li>
+<li><a href="#the-metropolis-hastings-algorithm-1"
+id="toc-the-metropolis-hastings-algorithm-1">The Metropolis-Hastings
+Algorithm</a></li>
+<li><a href="#choosing-the-proposal-distribution"
+id="toc-choosing-the-proposal-distribution">Choosing the proposal
+distribution</a></li>
+<li><a href="#two-step-trick-2" id="toc-two-step-trick-2">Two Step
+Trick</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="markov-chain-monte-carlo">Markov Chain Monte Carlo</h1>
+<h2 id="sampling">Sampling</h2>
+<p>Markov Chain Monte Carlo (MCMC) is a useful method whenever we have a
+probability distribution that we want to sample from but there is not
+direct sampling way to do so.</p>
+<p>In almost any computer simulation the ultimate source of randomness
+is a stream of (close to) uniform, uncorrelated bits generated from a
+pseudo random number generator. A direct sampling method takes such a
+source and outputs uncorrelated samples from the target distribution.
+The fact they’re uncorrelated is key as we’ll see later. Examples of
+direct sampling methods range from the trivial: take n random bits to
+generate integers uniformly between 0 and <span
+class="math inline">\(2^n\)</span> to more complex methods such as
+inverse transform sampling and rejection sampling<span class="citation"
+data-cites="devroyeRandomSampling1986"><sup><a
+href="#ref-devroyeRandomSampling1986"
+role="doc-biblioref">1</a></sup></span>.</p>
+<p>In physics the distribution we usually want to sample from is the
+Boltzmann probability over states of the system <span
+class="math inline">\(S\)</span>: <span class="math display">\[
+\begin{aligned}
+p(S)  &amp;= \frac{1}{\mathcal{Z}} e^{-\beta H(S)} \\
+\end{aligned}
+\]</span> where <span class="math inline">\(\mathcal{Z} = \sum_S
+e^{-\beta H(S)}\)</span> is the normalisation factor and ubiquitous
+partition function. In principle we could directly sample from this, for
+a discrete system there are finitely many choices. We could calculate
+the probability of each one and assign each a region of the unit
+interval which we could then sample uniformly from.</p>
+<p>However if we actually try to do this we will run into two problems,
+we can’t calculate <span class="math inline">\(\mathcal{Z}\)</span> for
+any reasonably sized systems because the state space grows exponentially
+with system size. Even if we could calculate <span
+class="math inline">\(\mathcal{Z}\)</span>, sampling from an
+exponentially large number of options quickly become tricky. This kind
+of problem happens in many other disciplines too, particularly when
+fitting statistical models using Bayesian inference<span
+class="citation" data-cites="BMCP2021"><sup><a href="#ref-BMCP2021"
+role="doc-biblioref">2</a></sup></span>.</p>
+<h2 id="markov-chains">Markov Chains</h2>
+<p>So what can we do? Well it turns out that if we’re willing to give up
+in the requirement that the samples be uncorrelated then we can use MCMC
+instead.</p>
+<p>MCMC defines a weighted random walk over the states <span
+class="math inline">\((S_0, S_1, S_2, ...)\)</span>, such that in the
+long time limit, states are visited according to their probability <span
+class="math inline">\(p(S)\)</span>.<span class="citation"
+data-cites="binderGuidePracticalWork1988 kerteszAdvancesComputerSimulation1998 wolffMonteCarloErrors2004"><sup><a
+href="#ref-binderGuidePracticalWork1988" role="doc-biblioref">3</a>–<a
+href="#ref-wolffMonteCarloErrors2004"
+role="doc-biblioref">5</a></sup></span>.</p>
+<p>In a physics context this lets us evaluate any observable with a mean
+over the states visited by the walk. <span
+class="math display">\[\begin{aligned}
+\langle O \rangle &amp; = \sum_{S} p(S) \langle O \rangle_{S} = \sum_{i
+= 0}^{M} \expval{O}_{S_i} + \mathcal{O}(\tfrac{1}{\sqrt{M}})\\
+\end{aligned}\]</span></p>
+<p>The choice of the transition function for MCMC is under-determined as
+one only needs to satisfy a set of balance conditions for which there
+are many solutions <span class="citation"
+data-cites="kellyReversibilityStochasticNetworks1981"><sup><a
+href="#ref-kellyReversibilityStochasticNetworks1981"
+role="doc-biblioref">6</a></sup></span>.</p>
+<h2 id="application-to-the-fk-model">Application to the FK Model</h2>
+<p>We will work in the grand canonical ensemble of fixed temperature,
+chemical potential and volume.</p>
+<p>Since the spin configurations are classical, the Hamiltonian can be
+split into a classical spin part <span
+class="math inline">\(H_s\)</span> and an operator valued part <span
+class="math inline">\(H_c\)</span>. <span
+class="math display">\[\begin{aligned}
+H_s&amp; = - \frac{U}{2}S_i + \sum_{i, j}^{N} J_{ij} S_i S_j \\
+H_c&amp; = \sum_i U S_i c^\dagger_{i}c_{i} -t(c^\dagger_{i}c_{i+1} +
+c^\dagger_{i+1}c_{i})
+\end{aligned}\]</span> The partition function can then be written as a
+sum over spin configurations, <span class="math inline">\(\vec{S} =
+(S_0, S_1...S_{N-1})\)</span>: <span
+class="math display">\[\begin{aligned}
+\mathcal{Z} = \mathrm{Tr} e^{-\beta H}= \sum_{\vec{S}} e^{-\beta H_s}
+\mathrm{Tr}_c e^{-\beta H_c} .
+\end{aligned}
+\]</span> The contribution of <span class="math inline">\(H_c\)</span>
+to the grand canonical partition function can be obtained by performing
+the sum over eigenstate occupation numbers giving <span
+class="math inline">\(-\beta F_c[\vec{S}] = \sum_k \ln{(1 + e^{- \beta
+\epsilon_k})}\)</span> where <span
+class="math inline">\({\epsilon_k[\vec{S}]}\)</span> are the eigenvalues
+of the matrix representation of <span class="math inline">\(H_c\)</span>
+determined through exact diagonalisation. This gives a partition
+function containing a classical energy which corresponds to the
+long-range interaction of the spins, and a free energy which corresponds
+to the quantum subsystem. <span class="math display">\[\begin{aligned}
+\mathcal{Z} = \sum_{\vec{S}} e^{-\beta H_S[\vec{S}] - \beta
+F_c[\vec{S}]} = \sum_{\vec{S}} e^{-\beta E[\vec{S}]}
+\end{aligned}\]</span></p>
+<h3 id="markov-chain-monte-carlo-1">Markov Chain Monte Carlo</h3>
+<p>Markov Chain Monte Carlo (MCMC) is a technique for evaluating thermal
+expectation values <span class="math inline">\(\expval{O}\)</span> with
+respect to some physical system defined by a set of states <span
+class="math inline">\(\{x: x \in S\}\)</span> and a free energy <span
+class="math inline">\(F(x)\)</span><span class="citation"
+data-cites="krauthIntroductionMonteCarlo1998"><sup><a
+href="#ref-krauthIntroductionMonteCarlo1998"
+role="doc-biblioref">7</a></sup></span>. The thermal expectation value
+is defined via a Boltzmann weighted sum over the entire states: <span
+class="math display">\[
+\begin{aligned}
+    \expval{O} &amp;= \frac{1}{\mathcal{Z}} \sum_{x \in S} O(x) P(x) \\
+    P(x) &amp;= \frac{1}{\mathcal{Z}} e^{-\beta F(x)} \\
+    \mathcal{Z} &amp;= \sum_{x \in S} e^{-\beta F(x)}
+\end{aligned}
+\]</span></p>
+<p>When the state space is too large to evaluate this sum directly, MCMC
+defines a stochastic algorithm which generates a random walk <span
+class="math inline">\(\{x_0\ldots x_i\ldots x_N\}\)</span> whose
+distribution <span class="math inline">\(p(x_i)\)</span> approaches a
+target distribution <span class="math inline">\(P(x)\)</span> in the
+large N limit.</p>
+<p><span class="math display">\[\lim_{i\to\infty} p(x_i) =
+P(x)\]</span></p>
+<p>In this case the target distribution will be the thermal one <span
+class="math inline">\(P(x) \rightarrow \mathcal{Z}^{-1} e^{-\beta
+F(x)}\)</span>. The major benefit of the method being that as long as
+one can express the desired <span class="math inline">\(P(x)\)</span> up
+to a multiplicative constant, MCMC can be applied. Since <span
+class="math inline">\(e^{-\beta F(x)}\)</span> is relatively easy to
+evaluate, MCMC provides a useful method for finite temperature
+physics.</p>
+<p>Once the random walk has been carried out for many steps, the
+expectation values of <span class="math inline">\(O\)</span> can be
+estimated from the MCMC samples: <span class="math display">\[
+    \expval{O} = \sum_{i = 0}^{N} O(x_i) +
+\mathcal{O}(\frac{1}{\sqrt{N}})
+\]</span> The the samples in the random walk are correlated so the
+samples effectively contain less information than <span
+class="math inline">\(N\)</span> independent samples would. As a
+consequence the variance is larger than the <span
+class="math inline">\(\expval{O^2} - \expval{O}^2\)</span> form it would
+have if the estimates were uncorrelated. Methods of estimating the true
+variance of <span class="math inline">\(\expval{O}\)</span> and decided
+how many steps are needed will be considered later.</p>
+<h2 id="the-metropolis-hasting-algorithm">The Metropolis-Hasting
+Algorithm</h2>
+<p>Markov chains are defined by a transition function $(x_{i+1} x_i) $
+giving the probability that a chain in state <span
+class="math inline">\(x_i\)</span> at time <span
+class="math inline">\(i\)</span> will transition to a state <span
+class="math inline">\(x_{i+1}\)</span>. Since we must transition
+somewhere at each step, this comes with the normalisation condition that
+<span class="math inline">\(\sum\limits_x \mathcal{T}(x&#39; \rightarrow
+x) = 1\)</span>.</p>
+<p>If we define an ensemble of Markov chains and consider the
+distributions we get a sequence of distributions <span
+class="math inline">\(\{p_0(x), p_1(x), p_2(x)\ldots\}\)</span> with
+<span class="math display">\[\begin{aligned}
+p_{i+1}(x) &amp;= \sum_{x&#39; \in S} p_i(x&#39;) \mathcal{T}(x&#39;
+\rightarrow x)
+\end{aligned}\]</span> <span class="math inline">\(p_o(x)\)</span> might
+be a delta function on one particular starting state which would then be
+smoothed out by the transition function repeatedly.</p>
+<p>As we’d like to draw samples from the target distribution <span
+class="math inline">\(P(x)\)</span> the trick is to choose $(x_{i+1}
+x_i) $ such that :</p>
+<p><span class="math display">\[\begin{aligned}
+P(x) &amp;= \sum_{x&#39;} P(x&#39;) \mathcal{T}(x&#39; \rightarrow x)
+\end{aligned}
+\]</span> In other words the MCMC dynamics defined by <span
+class="math inline">\(\mathcal{T}\)</span> must be constructed to have
+the target distribution as their only fixed point. This condition is
+called the global balance condition. Along with some more technical
+considerations such as ergodicity which won’t be considered here, global
+balance suffices to ensure that a MCMC method is correct.</p>
+<p>A sufficient but not necessary condition for global balance to hold
+is detailed balance:</p>
+<p><span class="math display">\[
+P(x) \mathcal{T}(x \rightarrow x&#39;) = P(x&#39;) \mathcal{T}(x&#39;
+\rightarrow x)
+\]</span> % In practice most algorithms are constructed to satisfy
+detailed balance though there are arguments that relaxing the condition
+can lead to faster algorithms<span class="citation"
+data-cites="kapferSamplingPolytopeHarddisk2013"><sup><a
+href="#ref-kapferSamplingPolytopeHarddisk2013"
+role="doc-biblioref">8</a></sup></span>.</p>
+<p>The goal of MCMC is then to choose <span
+class="math inline">\(\mathcal{T}\)</span> so that it has the desired
+thermal distribution <span class="math inline">\(P(x)\)</span> as its
+fixed point and that it converges quickly onto it. This boils down to
+requiring that the matrix representation of <span
+class="math inline">\(T_{ij} = \mathcal{T}(x_i \to x_j)\)</span> has an
+eigenvector equal to <span class="math inline">\(P_i = P(x_i)\)</span>
+with eigenvalue 1 and all other eigenvalues with magnitude less than
+one. The convergence time depends on the magnitude of the second largest
+eigenvalue.</p>
+<h2 id="metropolis-hastings">Metropolis-Hastings</h2>
+<p>In order to actually choose new states according to <span
+class="math inline">\(\mathcal{T}\)</span> one chooses states from a
+proposal distribution <span class="math inline">\(q(x_i \to
+x&#39;)\)</span> that can be directly sampled from. For instance, this
+might mean flipping a single random spin in a spin chain, in which case
+<span class="math inline">\(q(x&#39;\to x_i)\)</span> is the uniform
+distribution on states reachable by one spin flip from <span
+class="math inline">\(x_i\)</span>. The proposal <span
+class="math inline">\(x&#39;\)</span> is then accepted or rejected with
+an acceptance probability <span
+class="math inline">\(\mathcal{A}(x&#39;\to x_{i+1})\)</span>, if the
+proposal is rejected then <span class="math inline">\(x_{i+1} =
+x_{i}\)</span>. Now <span class="math inline">\(\mathcal{T}(x\to x&#39;)
+= q(x\to x&#39;)\mathcal{A}(x \to x&#39;)\)</span>.</p>
+<p>The Metropolis-Hasting algorithm is a slight extension of the
+original Metropolis algorithm that allows for non-symmetric proposal
+distributions $q(xx’) q(x’x) $. It can be derived starting from detailed
+balance<span class="citation"
+data-cites="krauthIntroductionMonteCarlo1998"><sup><a
+href="#ref-krauthIntroductionMonteCarlo1998"
+role="doc-biblioref">7</a></sup></span>: <span
+class="math display">\[\begin{aligned}
+P(x)\mathcal{T}(x \to x&#39;) &amp;= P(x&#39;)\mathcal{T}(x&#39; \to x)
+\\
+P(x)q(x \to x&#39;)\mathcal{A}(x \to x&#39;) &amp;= P(x&#39;)q(x&#39;
+\to x)\mathcal{A}(x&#39; \to x) \\
+\label{eq:db2} \frac{\mathcal{A}(x \to x&#39;)}{\mathcal{A}(x&#39; \to
+x)} &amp;= \frac{P(x&#39;)q(x&#39; \to x)}{P(x)q(x \to x&#39;)} = f(x,
+x&#39;)\\
+\end{aligned}
+\]</span> % The Metropolis-Hastings algorithm is the choice: <span
+class="math display">\[
+\begin{aligned}
+\label{eq:mh}
+\mathcal{A}(x \to x&#39;) = \min\left(1, f(x,x&#39;)\right)
+\end{aligned}
+\]</span> % Noting that <span class="math inline">\(f(x,x&#39;) =
+1/f(x&#39;,x)\)</span>, Eq. <span
+class="math inline">\(\ref{eq:mh}\)</span> can be seen to satisfy Eq.
+<span class="math inline">\(\ref{eq:db2}\)</span> by considering the two
+cases <span class="math inline">\(f(x,x&#39;) &gt; 1\)</span> and <span
+class="math inline">\(f(x,x&#39;) &lt; 1\)</span>.</p>
+<p>By choosing the proposal distribution such that <span
+class="math inline">\(f(x,x&#39;)\)</span> is as close as possible to
+one, the rate of rejections can be reduced and the algorithm sped
+up.</p>
+<h2 id="convergence-auto-correlation-and-binning">Convergence,
+Auto-correlation and Binning</h2>
+<p>%Thinning, burn in, multiple runs</p>
+<h2 id="applying-mcmc-to-the-fk-model">Applying MCMC to the FK
+model</h2>
+<p>MCMC can be applied to sample over the classical degrees of freedom
+of the model. We take the full Hamiltonian and split it into a classical
+and a quantum part: <span class="math display">\[\begin{aligned}
+    H_{\mathrm{FK}} &amp;= -\sum_{&lt;ij&gt;} c^\dagger_{i}c_{j} + U
+\sum_{i} (c^\dagger_{i}c_{i} - 1/2)( n_i - 1/2) \\
+    &amp;+ \sum_{ij} J_{ij} (n_i - 1/2) (n_j - 1/2)  - \mu \sum_i
+(c^\dagger_{i}c_{i} + n_i)\\
+    H_q &amp;= -\sum_{&lt;ij&gt;} c^\dagger_{i}c_{j} + \sum_{i}
+\left(U(n_i - 1/2) - \mu\right) c^\dagger_{i}c_{i}\\
+    H_c &amp;= \sum_i \mu n_i - \frac{U}{2}(n_i - 1/2) +
+\sum_{ij}J_{ij}(n_i - 1/2)(n_j - 1/2)
+\end{aligned}
+\]</span> % There are <span class="math inline">\(2^N\)</span> possible
+ion configurations <span class="math inline">\(\{ n_i \}\)</span>, we
+define <span class="math inline">\(n^k_i\)</span> to be the occupation
+of the ith site of the kth configuration. The quantum part of the free
+energy can then be defined through the quantum partition function <span
+class="math inline">\(\mathcal{Z}^k\)</span> associated with each ionic
+state <span class="math inline">\(n^k_i\)</span>: <span
+class="math display">\[\begin{aligned}
+F^k &amp;= -1/\beta \ln{\mathcal{Z}^k} \\
+\end{aligned}\]</span> % Such that the overall partition function is:
+<span class="math display">\[\begin{aligned}
+\mathcal{Z} &amp;= \sum_k e^{- \beta H^k} Z^k \\
+&amp;= \sum_k e^{-\beta (H^k + F^k)} \\
+\end{aligned}\]</span> % Because fermions are limited to occupation
+numbers of 0 or 1 <span class="math inline">\(Z^k\)</span> simplifies
+nicely. If <span class="math inline">\(m^j_i = \{0,1\}\)</span> is
+defined as the occupation of the level with energy <span
+class="math inline">\(\epsilon^k_i\)</span> then the partition function
+is a sum over all the occupation states labelled by j: <span
+class="math display">\[\begin{aligned}
+Z^k    &amp;= \Tr e^{-\beta F^k} = \sum_j e^{-\beta \sum_i m^j_i
+\epsilon^k_i}\\
+       &amp;= \sum_j \prod_i e^{- \beta m^j_i \epsilon^k_i}= \prod_i
+\sum_j e^{- \beta m^j_i \epsilon^k_i}\\
+       &amp;= \prod_i (1 + e^{- \beta \epsilon^k_i})\\
+F^k    &amp;= -1/\beta \sum_k \ln{(1 + e^{- \beta \epsilon^k_i})}
+\end{aligned}\]</span> % Observables can then be calculated from the
+partition function, for examples the occupation numbers:</p>
+<p><span class="math display">\[\begin{aligned}
+\tex{N} &amp;= \frac{1}{\beta} \frac{1}{Z} \frac{\partial Z}{\partial
+\mu} = - \frac{\partial F}{\partial \mu}\\
+    &amp;= \frac{1}{\beta} \frac{1}{Z} \frac{\partial}{\partial \mu}
+\sum_k e^{-\beta (H^k + F^k)}\\
+    &amp;= 1/Z \sum_k (N^k_{\mathrm{ion}} + N^k_{\mathrm{electron}})
+e^{-\beta (H^k + F^k)}\\
+\end{aligned}\]</span> % with the definitions:</p>
+<p><span class="math display">\[\begin{aligned}
+N^k_{\mathrm{ion}} &amp;= - \frac{\partial H^k}{\partial \mu} = \sum_i
+n^k_i\\
+N^k_{\mathrm{electron}} &amp;= - \frac{\partial F^k}{\partial \mu} =
+\sum_i \left(1 + e^{\beta \epsilon^k_i}\right)^{-1}\\
+\end{aligned}\]</span> % The MCMC algorithm consists of performing a
+random walk over the states <span class="math inline">\(\{ n^k_i
+\}\)</span>. In the simplest case the proposal distribution corresponds
+to flipping a random site from occupied to unoccupied or vice versa,
+since this proposal is symmetric the acceptance function becomes: <span
+class="math display">\[\begin{aligned}
+P(k) &amp;= \mathcal{Z}^{-1} e^{-\beta(H^k + F^k)} \\
+\mathcal{A}(k \to k&#39;) &amp;= \min\left(1,
+\frac{P(k&#39;)}{P(k)}\right) = \min\left(1, e^{\beta(H^{k&#39;} +
+F^{k&#39;})-\beta(H^k + F^k)}\right)
+\end{aligned}\]</span> % At each step <span
+class="math inline">\(F^k\)</span> is calculated by diagonalising the
+tri-diagonal matrix representation of <span
+class="math inline">\(H_q\)</span> with open boundary conditions.
+Observables are simply averages over the their value at each step of the
+random walk. The full spectrum and eigenbasis is too large to save to
+disk so usually running averages of key observables are taken as the
+walk progresses.</p>
+<h2 id="proposal-distributions">Proposal Distributions</h2>
+<p>In a MCMC method a key property is the proportion of the time that
+proposals are accepted, the acceptance rate. If this rate is too low the
+random walk is trying to take overly large steps in energy space which
+problematic because it means very few new samples will be generated. If
+it is too high it implies the steps are too small, a problem because
+then the walk will take longer to explore the state space and the
+samples will be highly correlated. Ideal values for the acceptance rate
+can be calculated under certain assumptions<span class="citation"
+data-cites="robertsWeakConvergenceOptimal1997"><sup><a
+href="#ref-robertsWeakConvergenceOptimal1997"
+role="doc-biblioref">9</a></sup></span>. Here we monitor the acceptance
+rate and if it is too high we re-run the MCMC with a modified proposal
+distribution that has a chance to propose moves that flip multiple sites
+at a time.</p>
+<p>In addition we exploit the particle-hole symmetry of the problem by
+occasionally proposing a flip of the entire state. This works because
+near half-filling, flipping the occupations of all the sites will
+produce a state at or near the energy of the current one.</p>
+<h2 id="perturbation-mcmc">Perturbation MCMC</h2>
+<p>The matrix diagonalisation is the most computationally expensive step
+of the process, a speed up can be obtained by modifying the proposal
+distribution to depend on the classical part of the energy, a trick
+gleaned from Ref.<span class="citation"
+data-cites="krauthIntroductionMonteCarlo1998"><sup><a
+href="#ref-krauthIntroductionMonteCarlo1998"
+role="doc-biblioref">7</a></sup></span>: <span class="math display">\[
+\begin{aligned}
+q(k \to k&#39;) &amp;= \min\left(1, e^{\beta (H^{k&#39;} - H^k)}\right)
+\\
+\mathcal{A}(k \to k&#39;) &amp;= \min\left(1, e^{\beta(F^{k&#39;}-
+F^k)}\right)
+\end{aligned}\]</span> % This allows the method to reject some states
+without performing the diagonalisation at no cost to the accuracy of the
+MCMC method.</p>
+<p>An extension of this idea is to try to define a classical model with
+a similar free energy dependence on the classical state as the full
+quantum, Ref.<span class="citation"
+data-cites="huangAcceleratedMonteCarlo2017"><sup><a
+href="#ref-huangAcceleratedMonteCarlo2017"
+role="doc-biblioref">10</a></sup></span> does this with restricted
+Boltzmann machines whose form is very similar to a classical spin
+model.</p>
+<h2 id="scaling">Scaling</h2>
+<p>In order to reduce the effects of the boundary conditions and the
+finite size of the system we redefine and normalise the coupling matrix
+to have 0 derivative at its furthest extent rather than cutting off
+abruptly.</p>
+<p><span class="math display">\[
+\begin{aligned}
+J&#39;(x) &amp;= \abs{\frac{L}{\pi}\sin \frac{\pi x}{L}}^{-\alpha} \\
+J(x) &amp;= \frac{J_0 J&#39;(x)}{\sum_y J&#39;(y)}
+\end{aligned}\]</span> % The scaling ensures that, in the ordered phase,
+the overall potential felt by each site due to the rest of the system is
+independent of system size.</p>
+<h2 id="binder-cumulants">Binder Cumulants</h2>
+<p>The Binder cumulant is defined as: <span class="math display">\[U_B =
+1 - \frac{\tex{\mu_4}}{3\tex{\mu_2}^2}\]</span> % where <span
+class="math display">\[\mu_n = \tex{(m - \tex{m})^n}\]</span> % are the
+central moments of the order parameter m: <span class="math display">\[m
+= \sum_i (-1)^i (2n_i - 1) / N\]</span> % The Binder cumulant evaluated
+against temperature can be used as a diagnostic for the existence of a
+phase transition. If multiple such curves are plotted for different
+system sizes, a crossing indicates the location of a critical point<span
+class="citation"
+data-cites="binderFiniteSizeScaling1981 musialMonteCarloSimulations2002"><sup><a
+href="#ref-binderFiniteSizeScaling1981" role="doc-biblioref">11</a>,<a
+href="#ref-musialMonteCarloSimulations2002"
+role="doc-biblioref"><strong>musialMonteCarloSimulations2002?</strong></a></sup></span>.</p>
+<h2 id="markov-chain-monte-carlo-in-practice">Markov Chain Monte-Carlo
+in Practice</h2>
+<h3 id="quick-intro-to-mcmc">Quick Intro to MCMC</h3>
+<p>The main paper relies on extensively to evaluate thermal expectation
+values within the model by walking over states of the classical spin
+system <span class="math inline">\(S_i\)</span>. For a classical system,
+the thermal expectation value of some operator <span
+class="math inline">\(O\)</span> is defined by a Boltzmann weighted sum
+over the classical state space: <span
+class="math display">\[\being{aligned}
+    \tex{O} &amp;= \frac{1}{\mathcal{Z}} \sum_{\s \in S} O(x) P(x) \\
+    P(x) &amp;= \frac{1}{\mathcal{Z}} e^{-\beta F(x)} \\
+    \mathcal{Z} &amp;= \sum_{\s \in S} e^{-\beta F(x)}
+\end{aligned}\]</span> While for a quantum system these sums are
+replaced by equivalent traces. The obvious approach to evaluate these
+sums numerically would be to directly loop over all the classical states
+in the system and perform the sum. But we all know know why this isn’t
+feasible: the state space is too large! Indeed even if we could do it,
+it would still be computationally wasteful since at low temperatures the
+sums are dominated by low energy excitations about the ground states of
+the system. Even worse, in our case we must fully solve the fermionic
+system via exact diagonalisation for each classical state in the sum, a
+very expensive operation!~\footnote{The effort involved in exact
+diagonalisation scales like <span class="math inline">\(N^2\)</span> for
+systems with a tri-diagonal matrix representation (open boundary
+conditions and nearest neighbour hopping) and like <span
+class="math inline">\(N^3\)</span> for a generic matrix<span
+class="citation"
+data-cites="bolchQueueingNetworksMarkov2006 usmaniInversionTridiagonalJacobi1994"><sup><a
+href="#ref-bolchQueueingNetworksMarkov2006"
+role="doc-biblioref">12</a>,<a
+href="#ref-usmaniInversionTridiagonalJacobi1994"
+role="doc-biblioref">13</a></sup></span>.</p>
+<p>c</p>
+<p>MCMC sidesteps these issues by defining a random walk that focuses on
+the states with the greatest Boltzmann weight. At low temperatures this
+means we need only visit a few low energy states to make good estimates
+while at high temperatures the weights become uniform so a small number
+of samples distributed across the state space suffice. However we will
+see that the method is not without difficulties of its own.</p>
+<p>%MCMC from an ensemble point of view In implementation can be boiled
+down to choosing a transition function $(_{t} _t+1) $ where <span
+class="math inline">\(\s\)</span> are vectors representing classical
+spin configurations. We start in some initial state <span
+class="math inline">\(\s_0\)</span> and then repeatedly jump to new
+states according to the probabilities given by <span
+class="math inline">\(\mathcal{T}\)</span>. This defines a set of random
+walks <span class="math inline">\(\{\s_0\ldots \s_i\ldots
+\s_N\}\)</span>. Fig.~<span
+class="math inline">\(\ref{fig:single}\)</span> shows this in practice:
+we have a (rather small) ensemble of <span class="math inline">\(M =
+2\)</span> walkers starting at the same point in state space and then
+spreading outwards by flipping spins along the way.</p>
+<p>In pseudo-code one could write the MCMC simulation for a single
+walker as:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>current_state <span class="op">=</span> initial_state</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N_steps):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    new_state <span class="op">=</span> sample_T(current_state) </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    states[i] <span class="op">=</span> current_state</span></code></pre></div>
+<p>Where the <code>sample_T</code> function here produces a state with
+probability determined by the <code>current_state</code> and the
+transition function <span
+class="math inline">\(\mathcal{T}\)</span>.</p>
+<p>If we ran many such walkers in parallel we could then approximate the
+distribution <span class="math inline">\(p_t(\s; \s_0)\)</span> which
+tells us where the walkers are likely to be after they’ve evolved for
+<span class="math inline">\(t\)</span> steps from an initial state <span
+class="math inline">\(\s_0\)</span>. We need to carefully choose <span
+class="math inline">\(\mathcal{T}\)</span> such that after a large
+number of steps <span class="math inline">\(k\)</span> (the convergence
+time) the probability <span class="math inline">\(p_t(\s;\s_0)\)</span>
+approaches the thermal distribution <span class="math inline">\(P(\s;
+\beta) = \mathcal{Z}^{-1} e^{-\beta F(\s)}\)</span>. This turns out to
+be quite easy to achieve using the Metropolis-Hasting algorithm.</p>
+<h3 id="convergence-time">Convergence Time</h3>
+<p>Considering <span class="math inline">\(p(\s)\)</span> as a vector
+<span class="math inline">\(\vec{p}\)</span> whose jth entry is the
+probability of the jth state <span class="math inline">\(p_j =
+p(\s_j)\)</span>, and writing <span
+class="math inline">\(\mathcal{T}\)</span> as the matrix with entries
+<span class="math inline">\(T_{ij} = \mathcal{T}(\s_j \rightarrow
+\s_i)\)</span> we can write the update rule for the ensemble probability
+as: <span class="math display">\[\vec{p}_{t+1} = \mathcal{T} \vec{p}_t
+\implies \vec{p}_{t} = \mathcal{T}^t \vec{p}_0\]</span> where <span
+class="math inline">\(\vec{p}_0\)</span> is vector which is one on the
+starting state and zero everywhere else. Since all states must
+transition to somewhere with probability one: <span
+class="math inline">\(\sum_i T_{ij} = 1\)</span>.</p>
+<p>Matrices that satisfy this are called stochastic matrices exactly
+because they model these kinds of Markov processes. It can be shown that
+they have real eigenvalues, and ordering them by magnitude, that <span
+class="math inline">\(\lambda_0 = 1\)</span> and <span
+class="math inline">\(0 &lt; \lambda_{i\neq0} &lt; 1\)</span>.
+%https://en.wikipedia.org/wiki/Stochastic_matrix</p>
+<p>Assuming <span class="math inline">\(\mathcal{T}\)</span> has been
+chosen correctly, its single eigenvector with eigenvalue 1 will be the
+thermal distribution so repeated application of the transition function
+eventually leads there, while memory of the initial conditions decays
+exponentially with a convergence time <span
+class="math inline">\(k\)</span> determined by <span
+class="math inline">\(\lambda_1\)</span>. In practice this means that
+one throws away the data from the beginning of the random walk in order
+reduce the dependence on the initial conditions and be close enough to
+the target distribution.</p>
+<h3 id="auto-correlation-time">Auto-correlation Time</h3>
+<div id="fig:m_autocorr" class="fignos">
+<figure>
+<img src="../figure_code/fk_chapter/lsr/figs/m_autocorr.png"
+data-short-caption="no title" style="width:100.0%"
+alt="Figure 1: (Upper) 10 MCMC chains starting from the same initial state for a system with N = 150 sites and 3000 MCMC steps. At each MCMC step, n spins are flipped where n is drawn from Uniform(1,N) and this is repeated N^2/100 times. The simulations therefore have the potential to necessitate 10*N^2 matrix diagonalisations for each 100 MCMC steps. (Lower) The normalised auto-correlation (\expval{m_i m_{i-j}} - \expval{m_i}\expval{m_i}) / Var(m_i)) averaged over i. It can be seen that even with each MCMC step already being composed of many individual flip attempts, the auto-correlation is still non negligible and must be taken into account in the statistics. t = 1, \alpha = 1.25, T = 2.2, J = U = 5" />
+<figcaption aria-hidden="true"><span>Figure 1:</span> (Upper) 10 MCMC
+chains starting from the same initial state for a system with <span
+class="math inline">\(N = 150\)</span> sites and 3000 MCMC steps. At
+each MCMC step, n spins are flipped where n is drawn from Uniform(1,N)
+and this is repeated <span class="math inline">\(N^2/100\)</span> times.
+The simulations therefore have the potential to necessitate <span
+class="math inline">\(10*N^2\)</span> matrix diagonalisations for each
+100 MCMC steps. (Lower) The normalised auto-correlation <span
+class="math inline">\((\expval{m_i m_{i-j}} - \expval{m_i}\expval{m_i})
+/ Var(m_i))\)</span> averaged over <span
+class="math inline">\(i\)</span>. It can be seen that even with each
+MCMC step already being composed of many individual flip attempts, the
+auto-correlation is still non negligible and must be taken into account
+in the statistics. <span class="math inline">\(t = 1, \alpha = 1.25, T =
+2.2, J = U = 5\)</span></figcaption>
+</figure>
+</div>
+<p>At this stage one might think we’re done. We can indeed draw
+independent samples from <span class="math inline">\(P(\s;
+\beta)\)</span> by starting from some arbitrary initial state and doing
+<span class="math inline">\(k\)</span> steps to arrive at a sample.
+However a key insight is that after the convergence time, every state
+generated is a sample from <span class="math inline">\(P(\s;
+\beta)\)</span>! They are not, however, independent samples. In
+Fig.~<span class="math inline">\(\ref{fig:raw}\)</span> it is already
+clear that the samples of the order parameter m have some
+auto-correlation because only a few spins are flipped each step but even
+when the number of spins flipped per step is increased, Fig.~<span
+class="math inline">\(\ref{fig:m_autocorr}\)</span> shows that it can be
+an important effect near the phase transition. Let’s define the
+auto-correlation time <span class="math inline">\(\tau(O)\)</span>
+informally as the number of MCMC samples of some observable O that are
+statistically equal to one independent sample or equivalently as the
+number of MCMC steps after which the samples are correlated below some
+cutoff, see<span class="citation"
+data-cites="krauthIntroductionMonteCarlo1996"><sup><a
+href="#ref-krauthIntroductionMonteCarlo1996"
+role="doc-biblioref">14</a></sup></span> for a more rigorous definition
+involving a sum over the auto-correlation function. The auto-correlation
+time is generally shorter than the convergence time so it therefore
+makes sense from an efficiency standpoint to run a single walker for
+many MCMC steps rather than to run a huge ensemble for <span
+class="math inline">\(k\)</span> steps each.</p>
+<p>Once the random walk has been carried out for many steps, the
+expectation values of <span class="math inline">\(O\)</span> can be
+estimated from the MCMC samples <span
+class="math inline">\(\s_i\)</span>: <span class="math display">\[
+    \tex{O} = \sum_{i = 0}^{N} O(\s_i) + \mathcal{O}(\frac{1}{\sqrt{N}})
+\]</span> The the samples are correlated so the N of them effectively
+contains less information than <span class="math inline">\(N\)</span>
+independent samples would, in fact roughly <span
+class="math inline">\(N/\tau\)</span> effective samples. As a
+consequence the variance is larger than the <span
+class="math inline">\(\qex{O^2} - \qex{O}^2\)</span> form it would have
+if the estimates were uncorrelated. There are many methods in the
+literature for estimating the true variance of <span
+class="math inline">\(\qex{O}\)</span> and deciding how many steps are
+needed but my approach has been to run a small number of parallel
+chains, which are independent, in order to estimate the statistical
+error produced. This is a slightly less computationally efficient
+because it requires throwing away those <span
+class="math inline">\(k\)</span> steps generated before convergence
+multiple times but it is a conceptually simple workaround.</p>
+<p>In summary, to do efficient simulations we want to reduce both the
+convergence time and the auto-correlation time as much as possible. In
+order to explain how, we need to introduce the Metropolis-Hasting (MH)
+algorithm and how it gives an explicit form for the transition
+function.</p>
+<h3 id="the-metropolis-hastings-algorithm">The Metropolis-Hastings
+Algorithm</h3>
+<p>MH breaks up the transition function into a proposal distribution
+<span class="math inline">\(q(\s \to \s&#39;)\)</span> and an acceptance
+function <span class="math inline">\(\mathcal{A}(\s \to
+\s&#39;)\)</span>. <span class="math inline">\(q\)</span> needs to be
+something that we can directly sample from, and in our case generally
+takes the form of flipping some number of spins in <span
+class="math inline">\(\s\)</span>, i.e if we’re flipping a single random
+spin in the spin chain, <span class="math inline">\(q(\s \to
+\s&#39;)\)</span> is the uniform distribution on states reachable by one
+spin flip from <span class="math inline">\(\s\)</span>. This also gives
+the nice symmetry property that <span class="math inline">\(q(\s \to
+\s&#39;) = q(\s&#39; \to \s)\)</span>.</p>
+<p>The proposal <span class="math inline">\(\s&#39;\)</span> is then
+accepted or rejected with an acceptance probability <span
+class="math inline">\(\mathcal{A}(\s \to \s&#39;)\)</span>, if the
+proposal is rejected then <span class="math inline">\(\s_{i+1} =
+\s_{i}\)</span>. Hence:</p>
+<p><span class="math display">\[\mathcal{T}(x\to x&#39;) = q(x\to
+x&#39;)\mathcal{A}(x \to x&#39;)\]</span></p>
+<p>When the proposal distribution is symmetric as ours is, it cancels
+out in the expression for the acceptance function and the
+Metropolis-Hastings algorithm is simply the choice: <span
+class="math display">\[ \mathcal{A}(x \to x&#39;) = \min\left(1,
+e^{-\beta\;\Delta F}\right)\]</span> Where <span
+class="math inline">\(F\)</span> is the overall free energy of the
+system, including both the quantum and classical sector.</p>
+<p>To implement the acceptance function in practice we pick a random
+number in the unit interval and accept if it is less than <span
+class="math inline">\(e^{-\beta\;\Delta F}\)</span>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>current_state <span class="op">=</span> initial_state</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N_steps):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    new_state <span class="op">=</span> proposal(current_state)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> free_energy_change(current_state, new_state, parameters)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> uniform(<span class="dv">0</span>,<span class="dv">1</span>) <span class="op">&lt;</span> exp(<span class="op">-</span>beta <span class="op">*</span> df):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        current_state <span class="op">=</span> new_state</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    states[i] <span class="op">=</span> current_state</span></code></pre></div>
+<p>This has the effect of always accepting proposed states that are
+lower in energy and sometimes accepting those that are higher in energy
+than the current state.</p>
+<h2 id="two-step-trick">Two Step Trick</h2>
+<p>Here, we incorporate a modification to the standard
+Metropolis-Hastings algorithm <span class="citation"
+data-cites="hastingsMonteCarloSampling1970"><sup><a
+href="#ref-hastingsMonteCarloSampling1970"
+role="doc-biblioref">15</a></sup></span> gleaned from Krauth <span
+class="citation" data-cites="krauthIntroductionMonteCarlo1998"><sup><a
+href="#ref-krauthIntroductionMonteCarlo1998"
+role="doc-biblioref">7</a></sup></span>.</p>
+<p>In our computations <span class="citation"
+data-cites="hodsonMCMCFKModel2021"><sup><a
+href="#ref-hodsonMCMCFKModel2021"
+role="doc-biblioref">16</a></sup></span> we employ a modification of the
+algorithm which is based on the observation that the free energy of the
+FK system is composed of a classical part which is much quicker to
+compute than the quantum part. Hence, we can obtain a computational
+speedup by first considering the value of the classical energy
+difference <span class="math inline">\(\Delta H_s\)</span> and rejecting
+the transition if the former is too high. We only compute the quantum
+energy difference <span class="math inline">\(\Delta F_c\)</span> if the
+transition is accepted. We then perform a second rejection sampling step
+based upon it. This corresponds to two nested comparisons with the
+majority of the work only occurring if the first test passes and has the
+acceptance function <span class="math display">\[\mathcal{A}(a \to b) =
+\min\left(1, e^{-\beta \Delta H_s}\right)\min\left(1, e^{-\beta \Delta
+F_c}\right)\;.\]</span></p>
+<p>For the model parameters used in Fig. <a href="#fig:indiv_IPR"
+data-reference-type="ref" data-reference="fig:indiv_IPR">2</a>, we find
+that with our new scheme the matrix diagonalisation is skipped around
+30% of the time at <span class="math inline">\(T = 2.5\)</span> and up
+to 80% at <span class="math inline">\(T = 1.5\)</span>. We observe that
+for <span class="math inline">\(N = 50\)</span>, the matrix
+diagonalisation, if it occurs, occupies around 60% of the total
+computation time for a single step. This rises to 90% at N = 300 and
+further increases for larger N. We therefore get the greatest speedup
+for large system sizes at low temperature where many prospective
+transitions are rejected at the classical stage and the matrix
+computation takes up the greatest fraction of the total computation
+time. The upshot is that we find a speedup of up to a factor of 10 at
+the cost of very little extra algorithmic complexity.</p>
+<p>Our two-step method should be distinguished from the more common
+method for speeding up MCMC which is to add asymmetry to the proposal
+distribution to make it as similar as possible to <span
+class="math inline">\(\min\left(1, e^{-\beta \Delta E}\right)\)</span>.
+This reduces the number of rejected states, which brings the algorithm
+closer in efficiency to a direct sampling method. However it comes at
+the expense of requiring a way to directly sample from this complex
+distribution, a problem which MCMC was employed to solve in the first
+place. For example, recent work trains restricted Boltzmann machines
+(RBMs) to generate samples for the proposal distribution of the FK
+model <span class="citation"
+data-cites="huangAcceleratedMonteCarlo2017"><sup><a
+href="#ref-huangAcceleratedMonteCarlo2017"
+role="doc-biblioref">10</a></sup></span>. The RBMs are chosen as a
+parametrisation of the proposal distribution that can be efficiently
+sampled from while offering sufficient flexibility that they can be
+adjusted to match the target distribution. Our proposed method is
+considerably simpler and does not require training while still reaping
+some of the benefits of reduced computation.</p>
+<h2 id="detailed-balance-for-the-two-step-method">Detailed Balance for
+the two step method</h2>
+<p>Given a MCMC algorithm with target distribution <span
+class="math inline">\(\pi(a)\)</span> and transition function <span
+class="math inline">\(\mathcal{T}\)</span> the detailed balance
+condition is sufficient (along with some technical constraints<span
+class="citation" data-cites="wolffMonteCarloErrors2004"><sup><a
+href="#ref-wolffMonteCarloErrors2004"
+role="doc-biblioref">5</a></sup></span>) to guarantee that in the long
+time limit the algorithm produces samples from <span
+class="math inline">\(\pi\)</span>. <span
+class="math display">\[\pi(a)\mathcal{T}(a \to b) = \pi(b)\mathcal{T}(b
+\to a)\]</span></p>
+<p>In pseudo-code, our two step method corresponds to two nested
+comparisons with the majority of the work only occurring if the first
+test passes:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>current_state <span class="op">=</span> initial_state</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N_steps):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  new_state <span class="op">=</span> proposal(current_state)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  c_dE <span class="op">=</span> classical_energy_change(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                               current_state,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                               new_state)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> uniform(<span class="dv">0</span>,<span class="dv">1</span>) <span class="op">&lt;</span> exp(<span class="op">-</span>beta <span class="op">*</span> c_dE):</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    q_dF <span class="op">=</span> quantum_free_energy_change(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                                current_state,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                                new_state)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> uniform(<span class="dv">0</span>,<span class="dv">1</span>) <span class="op">&lt;</span> exp(<span class="op">-</span> beta <span class="op">*</span> q_dF):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      current_state <span class="op">=</span> new_state</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    states[i] <span class="op">=</span> current_state</span></code></pre></div>
+<p>Defining <span class="math inline">\(r_c = e^{-\beta H_c}\)</span>
+and <span class="math inline">\(r_q = e^{-\beta F_q}\)</span> our target
+distribution is <span class="math inline">\(\pi(a) = r_c r_q\)</span>.
+This method has <span class="math inline">\(\mathcal{T}(a\to b) = q(a\to
+b)\mathcal{A}(a \to b)\)</span> with symmetric <span
+class="math inline">\(p(a \to b) = \pi(b \to a)\)</span> and <span
+class="math inline">\(\mathcal{A} = \min\left(1, r_c\right) \min\left(1,
+r_q\right)\)</span></p>
+<p>Substituting this into the detailed balance equation gives: <span
+class="math display">\[\mathcal{T}(a \to b)/\mathcal{T}(b \to a) =
+\pi(b)/\pi(a) = r_c r_q\]</span></p>
+<p>Taking the LHS and substituting in our transition function: <span
+class="math display">\[\begin{aligned}
+\mathcal{T}(a \to b)/\mathcal{T}(b \to a) = \frac{\min\left(1,
+r_c\right) \min\left(1, r_q\right)}{ \min\left(1, 1/r_c\right)
+\min\left(1, 1/r_q\right)}\end{aligned}\]</span></p>
+<p>which simplifies to <span class="math inline">\(r_c r_q\)</span> as
+<span class="math inline">\(\min(1,r)/\min(1,1/r) = r\)</span> for <span
+class="math inline">\(r &gt; 0\)</span>.</p>
+<h3 id="two-step-trick-1">Two Step Trick</h3>
+<p>Our method already relies heavily on the split between the classical
+and quantum sector to derive a sign problem free MCMC algorithm but it
+turns out that there is a further trick we can play with it. The free
+energy term is the sum of an easy to compute classical energy and a more
+expensive quantum free energy, we can split the acceptance function into
+two in such as way as to avoid having to compute the full exact
+diagonalisation some of the time:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>current_state <span class="op">=</span> initial_state</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N_steps):</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    new_state <span class="op">=</span> proposal(current_state)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    df_classical <span class="op">=</span> classical_free_energy_change(current_state, new_state, parameters)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> exp(<span class="op">-</span>beta <span class="op">*</span> df_classical) <span class="op">&lt;</span> uniform(<span class="dv">0</span>,<span class="dv">1</span>):</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        f_quantum <span class="op">=</span> quantum_free_energy(current_state, new_state, parameters)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> exp(<span class="op">-</span> beta <span class="op">*</span> df_quantum) <span class="op">&lt;</span> uniform(<span class="dv">0</span>,<span class="dv">1</span>):</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>          current_state <span class="op">=</span> new_state</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        states[i] <span class="op">=</span> current_state</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<h3 id="tuning-the-proposal-distribution">Tuning the proposal
+distribution</h3>
+<div id="fig:autocorr_multiple_proposals" class="fignos">
+<figure>
+<img
+src="../figure_code/fk_chapter/lsr/figs/autocorr_multiple_proposals.png"
+data-short-caption="no title" style="width:100.0%"
+alt="Figure 2: Simulations showing how the autocorrelation of the order parameter depends on the proposal distribution used at different temperatures, we see that at T = 1.5 &lt; T_c a single spin flip is likely the best choice, while at the high temperature T = 2.5 &gt; T_c flipping two sites or a mixture of flipping two and 1 sites is likely a better choice. $t = 1, = 1.25, J = U = 5 $" />
+<figcaption aria-hidden="true"><span>Figure 2:</span> Simulations
+showing how the autocorrelation of the order parameter depends on the
+proposal distribution used at different temperatures, we see that at
+<span class="math inline">\(T = 1.5 &lt; T_c\)</span> a single spin flip
+is likely the best choice, while at the high temperature <span
+class="math inline">\(T = 2.5 &gt; T_c\)</span> flipping two sites or a
+mixture of flipping two and 1 sites is likely a better choice. $t = 1, =
+1.25, J = U = 5 $</figcaption>
+</figure>
+</div>
+<p>Now we can discuss how to minimise the auto-correlations. The general
+principle is that one must balance the proposal distribution between two
+extremes. Choose overlay small steps, like flipping only a single spin
+and the acceptance rate will be high because <span
+class="math inline">\(\Delta F\)</span> will usually be small, but each
+state will be very similar to the previous and the auto-correlations
+will be high too, making sampling inefficient. On the other hand,
+overlay large steps, like randomising a large portion of the spins each
+step, will result in very frequent rejections, especially at low
+temperatures.</p>
+<p>I evaluated a few different proposal distributions for use with the
+FK model.</p>
+<ol type="1">
+<li>Flipping a single random site</li>
+<li>Flipping N random sites for some N</li>
+<li>Choosing n from Uniform(1, N) and then flipping n sites for some
+fixed N.</li>
+<li>Attempting to tune the proposal distribution for each parameter
+regime.</li>
+</ol>
+<p>Fro Figure~<span class="math inline">\(\ref{fig:comparison}\)</span>
+we see that even at moderately high temperatures <span
+class="math inline">\(T &gt; T_c\)</span> flipping one or two sites is
+the best choice. However for some simulations at very high temperature
+flipping more spins is warranted. Tuning the proposal distribution
+automatically seems like something that would not yield enough benefit
+for the additional complexity it would require.</p>
+<h2 id="diagnostics-of-localisation">Diagnostics of Localisation</h2>
+<h3 id="inverse-participation-ratio">Inverse Participation Ratio</h3>
+<p>The inverse participation ratio is defined for a normalised wave
+function <span class="math inline">\(\psi_i = \psi(x_i), \sum_i
+\abs{\psi_i}^2 = 1\)</span> as its fourth moment<span class="citation"
+data-cites="kramerLocalizationTheoryExperiment1993"><sup><a
+href="#ref-kramerLocalizationTheoryExperiment1993"
+role="doc-biblioref">17</a></sup></span>: <span class="math display">\[
+P^{-1} = \sum_i \abs{\psi_i}^4
+\]</span> % It acts as a measure of the portion of space occupied by the
+wave function. For localised states it will be independent of system
+size while for plane wave states in d dimensions $P = L^d $. States may
+also be intermediate between localised and extended, described by their
+fractal dimensionality <span class="math inline">\(d &gt; d* &gt;
+0\)</span>: <span class="math display">\[
+P(L) \goeslike L^{d*}
+\]</span> % For extended states <span class="math inline">\(d* =
+0\)</span> while for localised ones <span class="math inline">\(d* =
+0\)</span>. In this work we take use an energy resolved IPR<span
+class="citation"
+data-cites="andersonAbsenceDiffusionCertain1958"><sup><a
+href="#ref-andersonAbsenceDiffusionCertain1958"
+role="doc-biblioref">18</a></sup></span>: <span class="math display">\[
+DOS(\omega) = \sum_n \delta(\omega - \epsilon_n)
+IPR(\omega) = DOS(\omega)^{-1} \sum_{n,i} \delta(\omega - \epsilon_n)
+\abs{\psi_{n,i}}^4
+\]</span> Where <span class="math inline">\(\psi_{n,i}\)</span> is the
+wavefunction corresponding to the energy <span
+class="math inline">\(\epsilon_n\)</span> at the ith site. In practice
+we bin the energies and IPRs into a fine energy grid and use Lorentzian
+smoothing if necessary.</p>
+<p>Dimensionality can be both a blessing and a curse. In section ?? I’ll
+discuss the fact that statistical physics can be somewhat boring in one
+dimension where most simple models have no phase transitions. This
+chapter is motivated by the the converse problem, high dimensional
+spaces can sometimes be just too much.</p>
+<p>While there are many problems with high dimensions, my favourite
+being that there are no stable gravitational orbits in 4D and above, the
+specific issue we’ll focus on here is that it’s very hard to compute
+integrals over high dimensional spaces.</p>
+<p>The standard methods for numerical integration in 1,2 and 3
+dimensions mostly work in the same way REFERENCE. You evaluate the
+integrand at a grid of points, define an interpolating function over the
+points that’s easy to integrate and then integrate the function. For a
+fixed grid spacing <span class="math inline">\(d\)</span> on a finite
+domain of integration we’ll find that we need to evaluate <span
+class="math inline">\(\propto (1/d)^D\)</span> points, which scales
+exponentially with dimension!</p>
+<p>In statistical physics the main integral that one would love to be
+able to evaluate is of course the partition function.</p>
+<p><span class="math display">\[Z = \int ds e^{-\beta F}\]</span></p>
+<p>And as this is condensed matter theory, we will mainly be looking at
+quantum models in which our states are discrete occupation numbers of
+single particle energy states. For a spin model with just two states per
+site and N sites we therefore end up with <span
+class="math inline">\(2^N\)</span> possible states of the system.</p>
+<p>domain of integration is bounded we can cif we take a discrete space
+with <span class="math inline">\(M\)</span> dimensions each taking <span
+class="math inline">\(N\)</span> distinct values.</p>
+<p>Detailed and Global balance equation Mixing times Cluster updates and
+Critical slowing down Effective Sample Size</p>
+<h2 id="markov-chain-monte-carlo-2">Markov Chain Monte-Carlo</h2>
+<p>Dimensionality can be both a blessing and a curse. In I’ll discuss
+the fact that statistical physics can be somewhat boring in one
+dimension where most simple models have no phase transitions. This
+chapter is motivated by the the converse problem, high dimensional
+spaces can sometimes be just too much.</p>
+<p>While there are many problems with high dimensions <a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+it’s very hard to compute integrals over high dimensional spaces. If we
+take a discrete space with <span class="math inline">\(M\)</span>
+dimensions each taking <span class="math inline">\(N\)</span> distinct
+values.</p>
+<p>For a classical system, the thermal expectation value of some
+operator <span class="math inline">\(O\)</span> is defined by a
+Boltzmann weighted sum over the classical state space: <span
+class="math display">\[\begin{aligned}
+    \tex{O} &amp;= \frac{1}{\Z} \sum_{\s \in S} O(x) P(x) \\
+    P(x) &amp;= \frac{1}{\Z} e^{-\beta F(x)} \\
+    \Z &amp;= \sum_{\s \in S} e^{-\beta F(x)}\end{aligned}\]</span>
+While for a quantum system these sums are replaced by equivalent traces.
+The obvious approach to evaluate these sums numerically would be to
+directly loop over all the classical states in the system and perform
+the sum. But we all know know why this isn’t feasible: the state space
+is too large! Indeed even if we could do it, it would still be
+computationally wasteful since at low temperatures the sums are
+dominated by low energy excitations about the ground states of the
+system. Even worse, in our case we must fully solve the fermionic system
+via exact diagonalisation for each classical state in the sum, a very
+expensive operation! <a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a></p>
+<div id="fig:raw" class="fignos">
+<figure>
+<embed src="figs/lsr/raw_steps_single_flip.pdf" />
+<figcaption aria-hidden="true"><span>Figure 3:</span> An MCMC walk
+starting from the staggered charge density wave ground state for a
+system with <span class="math inline">\(N = 100\)</span> sites and
+10,000 MCMC steps. In this simulation only a single spin can be flipped
+per step according to the Metropolis-Hastings Algorithm. The staggered
+magnetisation <span class="math inline">\(m = N^{-1} \sum_i (-1)^i \;
+S_i\)</span> order parameter is plotted below. At this temperature the
+thermal average of m is zero, while the initial state has m = 1. We see
+that it takes about 1000 steps for the system to converge, after which
+it moves about the m = 0 average with a finite auto-correlation time.
+<span class="math inline">\(t = 1, \alpha = 1.25, T = 3, J = U =
+5\)</span> <span id="fig:raw"
+label="fig:raw">[fig:raw]</span></figcaption>
+</figure>
+</div>
+<p><span data-acronym-label="MCMC"
+data-acronym-form="singular+short">MCMC</span> sidesteps these issues by
+defining a random walk that focuses on the states with the greatest
+Boltzmann weight. At low temperatures this means we need only visit a
+few low energy states to make good estimates while at high temperatures
+the weights become uniform so a small number of samples distributed
+across the state space suffice. However we will see that the method is
+not without difficulties of its own.</p>
+<div id="fig:single" class="fignos">
+<figure>
+<embed src="figs/lsr/single.pdf" />
+<figcaption aria-hidden="true"><span>Figure 4:</span> Two MCMC chains
+starting from the same initial state for a system with <span
+class="math inline">\(N = 90\)</span> sites and 1000 MCMC steps. In this
+simulation the MCMC step is defined differently: an attempt is made to
+flip n spins, where n is drawn from Uniform(1,N). This is repeated <span
+class="math inline">\(N^2/100\)</span> times for each step. This trades
+off computation time for storage space, as it makes the samples less
+correlated, giving smaller statistical error for a given number of
+stored samples. These simulations therefore have the potential to
+necessitate <span class="math inline">\(N^2/100\)</span> matrix
+diagonalisations for every MCMC sample, though this can be cut down with
+caching and other tricks. <span class="math inline">\(t = 1, \alpha =
+1.25, T = 2.2, J = U = 5\)</span> <span id="fig:single"
+label="fig:single">[fig:single]</span></figcaption>
+</figure>
+</div>
+<p>In implementation <span data-acronym-label="MCMC"
+data-acronym-form="singular+short">MCMC</span> can be boiled down to
+choosing a transition function <span class="math inline">\(\T(\s_{t}
+\rightarrow \s_t+1)\)</span> where <span
+class="math inline">\(\s\)</span> are vectors representing classical
+spin configurations. We start in some initial state <span
+class="math inline">\(\s_0\)</span> and then repeatedly jump to new
+states according to the probabilities given by <span
+class="math inline">\(\T\)</span>. This defines a set of random walks
+<span class="math inline">\(\{\s_0\ldots \s_i\ldots \s_N\}\)</span>.
+Fig. <a href="#fig:single" data-reference-type="ref"
+data-reference="fig:single">2</a> shows this in practice: we have a
+(rather small) ensemble of <span class="math inline">\(M = 2\)</span>
+walkers starting at the same point in state space and then spreading
+outwards by flipping spins along the way.</p>
+<p>In pseudo-code one could write the MCMC simulation for a single
+walker as:</p>
+<div class="markdown">
+<p>“’python current_state = initial_state</p>
+<p>for i in range(N_steps): new_state = sample_T(current_state)
+states[i] = current_state “’</p>
+</div>
+<p>Where the <code>sample_T</code> function here produces a state with
+probability determined by the <code>current_state</code> and the
+transition function <span class="math inline">\(\T\)</span>.</p>
+<p>If we ran many such walkers in parallel we could then approximate the
+distribution <span class="math inline">\(p_t(\s; \s_0)\)</span> which
+tells us where the walkers are likely to be after they’ve evolved for
+<span class="math inline">\(t\)</span> steps from an initial state <span
+class="math inline">\(\s_0\)</span>. We need to carefully choose <span
+class="math inline">\(\T\)</span> such that after a large number of
+steps <span class="math inline">\(k\)</span> (the convergence time) the
+probability <span class="math inline">\(p_t(\s;\s_0)\)</span> approaches
+the thermal distribution <span class="math inline">\(P(\s; \beta) =
+\Z^{-1} e^{-\beta F(\s)}\)</span>. This turns out to be quite easy to
+achieve using the Metropolis-Hasting algorithm.</p>
+<h2 id="convergence-time-1">Convergence Time</h2>
+<p>Considering <span class="math inline">\(p(\s)\)</span> as a vector
+<span class="math inline">\(\vec{p}\)</span> whose jth entry is the
+probability of the jth state <span class="math inline">\(p_j =
+p(\s_j)\)</span>, and writing <span class="math inline">\(\T\)</span> as
+the matrix with entries <span class="math inline">\(T_{ij} = \T(\s_j
+\rightarrow \s_i)\)</span> we can write the update rule for the ensemble
+probability as: <span class="math display">\[\vec{p}_{t+1} = \T
+\vec{p}_t \implies \vec{p}_{t} = \T^t \vec{p}_0\]</span> where <span
+class="math inline">\(\vec{p}_0\)</span> is vector which is one on the
+starting state and zero everywhere else. Since all states must
+transition to somewhere with probability one: <span
+class="math inline">\(\sum_i T_{ij} = 1\)</span>.</p>
+<p>Matrices that satisfy this are called stochastic matrices exactly
+because they model these kinds of Markov processes. It can be shown that
+they have real eigenvalues, and ordering them by magnitude, that <span
+class="math inline">\(\lambda_0 = 1\)</span> and <span
+class="math inline">\(0 &lt; \lambda_{i\neq0} &lt; 1\)</span>. Assuming
+<span class="math inline">\(\T\)</span> has been chosen correctly, its
+single eigenvector with eigenvalue 1 will be the thermal distribution <a
+href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a> so repeated application of the
+transition function eventually leads there, while memory of the initial
+conditions decays exponentially with a convergence time <span
+class="math inline">\(k\)</span> determined by <span
+class="math inline">\(\lambda_1\)</span>. In practice this means that
+one throws away the data from the beginning of the random walk in order
+reduce the dependence on the initial conditions and be close enough to
+the target distribution.</p>
+<h2 id="auto-correlation-time-1">Auto-correlation Time</h2>
+<div id="fig:m_autocorr" class="fignos">
+<figure>
+<img src="figs/lsr/m_autocorr.png"
+alt="Figure 5: (Upper) 10 MCMC chains starting from the same initial state for a system with N = 150 sites and 3000 MCMC steps. At each MCMC step, n spins are flipped where n is drawn from Uniform(1,N) and this is repeated N^2/100 times. The simulations therefore have the potential to necessitate 10*N^2 matrix diagonalisations for each 100 MCMC steps. (Lower) The normalised auto-correlation (\expval{m_i m_{i-j}} - \expval{m_i}\expval{m_i}) / Var(m_i)) averaged over i. It can be seen that even with each MCMC step already being composed of many individual flip attempts, the auto-correlation is still non negligible and must be taken into account in the statistics. t = 1, \alpha = 1.25, T = 2.2, J = U = 5 [fig:m_autocorr]" />
+<figcaption aria-hidden="true"><span>Figure 5:</span> (Upper) 10 MCMC
+chains starting from the same initial state for a system with <span
+class="math inline">\(N = 150\)</span> sites and 3000 MCMC steps. At
+each MCMC step, n spins are flipped where n is drawn from Uniform(1,N)
+and this is repeated <span class="math inline">\(N^2/100\)</span> times.
+The simulations therefore have the potential to necessitate <span
+class="math inline">\(10*N^2\)</span> matrix diagonalisations for each
+100 MCMC steps. (Lower) The normalised auto-correlation <span
+class="math inline">\((\expval{m_i m_{i-j}} - \expval{m_i}\expval{m_i})
+/ Var(m_i))\)</span> averaged over <span
+class="math inline">\(i\)</span>. It can be seen that even with each
+MCMC step already being composed of many individual flip attempts, the
+auto-correlation is still non negligible and must be taken into account
+in the statistics. <span class="math inline">\(t = 1, \alpha = 1.25, T =
+2.2, J = U = 5\)</span> <span id="fig:m_autocorr"
+label="fig:m_autocorr">[fig:m_autocorr]</span></figcaption>
+</figure>
+</div>
+<p>At this stage one might think we’re done. We can indeed draw
+independent samples from <span class="math inline">\(P(\s;
+\beta)\)</span> by starting from some arbitrary initial state and doing
+<span class="math inline">\(k\)</span> steps to arrive at a sample.
+However a key insight is that after the convergence time, every state
+generated is a sample from <span class="math inline">\(P(\s;
+\beta)\)</span>! They are not, however, independent samples. In Fig. <a
+href="#fig:raw" data-reference-type="ref" data-reference="fig:raw">1</a>
+it is already clear that the samples of the order parameter m have some
+auto-correlation because only a few spins are flipped each step but even
+when the number of spins flipped per step is increased, Fig. <a
+href="#fig:m_autocorr" data-reference-type="ref"
+data-reference="fig:m_autocorr">3</a> shows that it can be an important
+effect near the phase transition. Let’s define the auto-correlation time
+<span class="math inline">\(\tau(O)\)</span> informally as the number of
+MCMC samples of some observable O that are statistically equal to one
+independent sample. <a href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a> The auto-correlation time is
+generally shorter than the convergence time so it therefore makes sense
+from an efficiency standpoint to run a single walker for many MCMC steps
+rather than to run a huge ensemble for <span
+class="math inline">\(k\)</span> steps each.</p>
+<p>Once the random walk has been carried out for many steps, the
+expectation values of <span class="math inline">\(O\)</span> can be
+estimated from the MCMC samples <span
+class="math inline">\(\s_i\)</span>: <span
+class="math display">\[\tex{O} = \sum_{i = 0}^{N} O(\s_i) +
+\mathcal{O}(\frac{1}{\sqrt{N}})\]</span> The the samples are correlated
+so the N of them effectively contains less information than <span
+class="math inline">\(N\)</span> independent samples would, in fact
+roughly <span class="math inline">\(N/\tau\)</span> effective samples.
+As a consequence the variance is larger than the <span
+class="math inline">\(\qex{O^2} - \qex{O}^2\)</span> form it would have
+if the estimates were uncorrelated. There are many methods in the
+literature for estimating the true variance of <span
+class="math inline">\(\qex{O}\)</span> and deciding how many steps are
+needed but my approach has been to run a small number of parallel
+chains, which are independent, in order to estimate the statistical
+error produced. This is a slightly less computationally efficient
+because it requires throwing away those <span
+class="math inline">\(k\)</span> steps generated before convergence
+multiple times but it is a conceptually simple workaround.</p>
+<p>In summary, to do efficient simulations we want to reduce both the
+convergence time and the auto-correlation time as much as possible. In
+order to explain how, we need to introduce the Metropolis-Hasting (MH)
+algorithm and how it gives an explicit form for the transition
+function.</p>
+<h2 id="the-metropolis-hastings-algorithm-1">The Metropolis-Hastings
+Algorithm</h2>
+<p>MH breaks up the transition function into a proposal distribution
+<span class="math inline">\(q(\s \to \s&#39;)\)</span> and an acceptance
+function <span class="math inline">\(\A(\s \to \s&#39;)\)</span>. <span
+class="math inline">\(q\)</span> needs to be something that we can
+directly sample from, and in our case generally takes the form of
+flipping some number of spins in <span
+class="math inline">\(\s\)</span>, i.e if we’re flipping a single random
+spin in the spin chain, <span class="math inline">\(q(\s \to
+\s&#39;)\)</span> is the uniform distribution on states reachable by one
+spin flip from <span class="math inline">\(\s\)</span>. This also gives
+the nice symmetry property that <span class="math inline">\(q(\s \to
+\s&#39;) = q(\s&#39; \to \s)\)</span>.</p>
+<p>The proposal <span class="math inline">\(\s&#39;\)</span> is then
+accepted or rejected with an acceptance probability <span
+class="math inline">\(\A(\s \to \s&#39;)\)</span>, if the proposal is
+rejected then <span class="math inline">\(\s_{i+1} = \s_{i}\)</span>.
+Hence:</p>
+<p><span class="math display">\[\T(x\to x&#39;) = q(x\to x&#39;)\A(x \to
+x&#39;)\]</span></p>
+<p>When the proposal distribution is symmetric as ours is, it cancels
+out in the expression for the acceptance function and the
+Metropolis-Hastings algorithm is simply the choice: <span
+class="math display">\[\A(x \to x&#39;) = \min\left(1, e^{-\beta\;\Delta
+F}\right)\]</span> Where <span class="math inline">\(F\)</span> is the
+overall free energy of the system, including both the quantum and
+classical sector.</p>
+<p>To implement the acceptance function in practice we pick a random
+number in the unit interval and accept if it is less than <span
+class="math inline">\(e^{-\beta\;\Delta F}\)</span>:</p>
+<div class="sourceCode" id="cb5" data-language="Python"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>current_state <span class="op">=</span> initial_state</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N_steps):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    new_state <span class="op">=</span> proposal(current_state)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> free_energy_change(current_state, new_state, parameters)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> uniform(<span class="dv">0</span>,<span class="dv">1</span>) <span class="op">&lt;</span> exp(<span class="op">-</span>beta <span class="op">*</span> df):</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        current_state <span class="op">=</span> new_state</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    states[i] <span class="op">=</span> current_state</span></code></pre></div>
+<p>This has the effect of always accepting proposed states that are
+lower in energy and sometimes accepting those that are higher in energy
+than the current state.</p>
+<h2 id="choosing-the-proposal-distribution">Choosing the proposal
+distribution</h2>
+<p><img src="figs/lsr/autocorr_multiple_proposals.png" title="fig:"
+id="fig:comparison"
+alt="t = 1, \alpha = 1.25, J = U = 5 [fig:comparison]" /> Simulations
+showing how the autocorrelation of the order parameter depends on the
+proposal distribution used at different temperatures, we see that at
+<span class="math inline">\(T = 1.5 &lt; T_c\)</span> a single spin flip
+is likely the best choice, while at the high temperature <span
+class="math inline">\(T = 2.5 &gt; T_c\)</span> flipping two sites or a
+mixture of flipping two and 1 sites is likely a better choice.</p>
+<p>Now we can discuss how to minimise the auto-correlations. The general
+principle is that one must balance the proposal distribution between two
+extremes. Choose overlay small steps, like flipping only a single spin
+and the acceptance rate will be high because <span
+class="math inline">\(\Delta F\)</span> will usually be small, but each
+state will be very similar to the previous and the auto-correlations
+will be high too, making sampling inefficient. On the other hand,
+overlay large steps, like randomising a large portion of the spins each
+step, will result in very frequent rejections, especially at low
+temperatures.</p>
+<p>I evaluated a few different proposal distributions for use with the
+FK model.</p>
+<ol type="1">
+<li><p>Flipping a single random site</p></li>
+<li><p>Flipping N random sites for some N</p></li>
+<li><p>Choosing n from Uniform(1, N) and then flipping n sites for some
+fixed N.</p></li>
+<li><p>Attempting to tune the proposal distribution for each parameter
+regime.</p></li>
+</ol>
+<p>Fro Figure <a href="#fig:comparison" data-reference-type="ref"
+data-reference="fig:comparison">4</a> we see that even at moderately
+high temperatures <span class="math inline">\(T &gt; T_c\)</span>
+flipping one or two sites is the best choice. However for some
+simulations at very high temperature flipping more spins is warranted.
+Tuning the proposal distribution automatically seems like something that
+would not yield enough benefit for the additional complexity it would
+require.</p>
+<h2 id="two-step-trick-2">Two Step Trick</h2>
+<p>Our method already relies heavily on the split between the classical
+and quantum sector to derive a sign problem free MCMC algorithm but it
+turns out that there is a further trick we can play with it. The free
+energy term is the sum of an easy to compute classical energy and a more
+expensive quantum free energy, we can split the acceptance function into
+two in such as way as to avoid having to compute the full exact
+diagonalisation some of the time:</p>
+<div class="sourceCode" id="cb6" data-language="Python"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>current_state <span class="op">=</span> initial_state</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N_steps):</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    new_state <span class="op">=</span> proposal(current_state)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    df_classical <span class="op">=</span> classical_free_energy_change(current_state, new_state, parameters)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> exp(<span class="op">-</span>beta <span class="op">*</span> df_classical) <span class="op">&lt;</span> uniform(<span class="dv">0</span>,<span class="dv">1</span>):</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        f_quantum <span class="op">=</span> quantum_free_energy(current_state, new_state, parameters)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> exp(<span class="op">-</span> beta <span class="op">*</span> df_quantum) <span class="op">&lt;</span> uniform(<span class="dv">0</span>,<span class="dv">1</span>):</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>          current_state <span class="op">=</span> new_state</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        states[i] <span class="op">=</span> current_state</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<p></ij></ij></p>
+<div id="refs" class="references csl-bib-body" data-line-spacing="2"
+role="doc-bibliography">
+<div id="ref-devroyeRandomSampling1986" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline">Devroye, L. Random Sampling. in <em>Non-Uniform
+Random Variate Generation</em> (ed. Devroye, L.) 611–641 (Springer,
+1986). doi:<a
+href="https://doi.org/10.1007/978-1-4613-8643-8_12">10.1007/978-1-4613-8643-8_12</a>.</div>
+</div>
+<div id="ref-BMCP2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Martin, O. A., Kumar, R. &amp; Lao, J.
+<em>Bayesian modeling and computation in python</em>. (2021).</div>
+</div>
+<div id="ref-binderGuidePracticalWork1988" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline">Binder, K. &amp; Heermann, D. W. Guide to
+Practical Work with the Monte Carlo Method. in <em>Monte Carlo
+Simulation in Statistical Physics: An Introduction</em> (eds. Binder, K.
+&amp; Heermann, D. W.) 68–112 (Springer Berlin Heidelberg, 1988). doi:<a
+href="https://doi.org/10.1007/978-3-662-08854-8_3">10.1007/978-3-662-08854-8_3</a>.</div>
+</div>
+<div id="ref-kerteszAdvancesComputerSimulation1998" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline"><em>Advances in Computer Simulation: Lectures
+Held at the Eötvös Summer School in Budapest, Hungary, 16–20 July
+1996</em>. (Springer-Verlag, 1998). doi:<a
+href="https://doi.org/10.1007/BFb0105456">10.1007/BFb0105456</a>.</div>
+</div>
+<div id="ref-wolffMonteCarloErrors2004" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline">Wolff, U. <a
+href="https://doi.org/10.1016/S0010-4655(03)00467-3">Monte Carlo errors
+with less errors</a>. <em>Computer Physics Communications</em>
+<strong>156</strong>, 143–153 (2004).</div>
+</div>
+<div id="ref-kellyReversibilityStochasticNetworks1981" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline">Kelly, F. P. <a
+href="https://doi.org/10.2307/2287860">Reversibility and stochastic
+networks / F.P. Kelly</a>. <em>SERBIULA (sistema Librum 2.0)</em>
+<strong>76</strong>, (1981).</div>
+</div>
+<div id="ref-krauthIntroductionMonteCarlo1998" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline">Krauth, W. Introduction To Monte Carlo
+Algorithms. in <em>Advances in Computer Simulation: Lectures Held at the
+Eötvös Summer School in Budapest, Hungary, 16–20 July 1996</em>
+(Springer-Verlag, 1998). doi:<a
+href="https://doi.org/10.1007/BFb0105456">10.1007/BFb0105456</a>.</div>
+</div>
+<div id="ref-kapferSamplingPolytopeHarddisk2013" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div
+class="csl-right-inline">Kapfer, S. C. &amp; Krauth, W. <a
+href="https://doi.org/10.1088/1742-6596/454/1/012031">Sampling from a
+polytope and hard-disk Monte Carlo</a>. <em>J. Phys.: Conf. Ser.</em>
+<strong>454</strong>, 012031 (2013).</div>
+</div>
+<div id="ref-robertsWeakConvergenceOptimal1997" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline">Roberts, G. O., Gelman, A. &amp; Gilks, W. R.
+<a href="https://doi.org/10.1214/aoap/1034625254">Weak convergence and
+optimal scaling of random walk Metropolis algorithms</a>. <em>Ann. Appl.
+Probab.</em> <strong>7</strong>, 110–120 (1997).</div>
+</div>
+<div id="ref-huangAcceleratedMonteCarlo2017" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline">Huang, L. &amp; Wang, L. <a
+href="https://doi.org/10.1103/PhysRevB.95.035105">Accelerated Monte
+Carlo simulations with restricted Boltzmann machines</a>. <em>Phys. Rev.
+B</em> <strong>95</strong>, 035105 (2017).</div>
+</div>
+<div id="ref-binderFiniteSizeScaling1981" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline">Binder, K. <a
+href="https://doi.org/10.1007/BF01293604">Finite size scaling analysis
+of ising model block distribution functions</a>. <em>Z. Physik B -
+Condensed Matter</em> <strong>43</strong>, 119–140 (1981).</div>
+</div>
+<div id="ref-bolchQueueingNetworksMarkov2006" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline">Bolch, G., Greiner, S., Meer, H. de &amp;
+Trivedi, K. S. <em>Queueing Networks and Markov Chains: Modeling and
+Performance Evaluation with Computer Science Applications</em>. (John
+Wiley &amp; Sons, 2006).</div>
+</div>
+<div id="ref-usmaniInversionTridiagonalJacobi1994" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline">Usmani, R. A. <a
+href="https://doi.org/10.1016/0024-3795(94)90414-6">Inversion of a
+tridiagonal jacobi matrix</a>. <em>Linear Algebra and its
+Applications</em> <strong>212-213</strong>, 413–414 (1994).</div>
+</div>
+<div id="ref-krauthIntroductionMonteCarlo1996" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline">Krauth, W. <a
+href="http://arxiv.org/abs/cond-mat/9612186">Introduction To Monte Carlo
+Algorithms</a>. <em>arXiv:cond-mat/9612186</em> (1996).</div>
+</div>
+<div id="ref-hastingsMonteCarloSampling1970" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">15. </div><div
+class="csl-right-inline">Hastings, W. K. <a
+href="https://doi.org/10.1093/biomet/57.1.97">Monte Carlo sampling
+methods using Markov chains and their applications</a>.
+<em>Biometrika</em> <strong>57</strong>, 97–109 (1970).</div>
+</div>
+<div id="ref-hodsonMCMCFKModel2021" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline">Hodson, T. Markov Chain Monte Carlo for the
+Kitaev Model. (2021) doi:<a
+href="https://doi.org/10.5281/zenodo.4593904">10.5281/zenodo.4593904</a>.</div>
+</div>
+<div id="ref-kramerLocalizationTheoryExperiment1993" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">17. </div><div
+class="csl-right-inline">Kramer, B. &amp; MacKinnon, A. <a
+href="https://doi.org/10.1088/0034-4885/56/12/001">Localization: theory
+and experiment</a>. <em>Rep. Prog. Phys.</em> <strong>56</strong>,
+1469–1564 (1993).</div>
+</div>
+<div id="ref-andersonAbsenceDiffusionCertain1958" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">18. </div><div
+class="csl-right-inline">Anderson, P. W. <a
+href="https://doi.org/10.1103/PhysRev.109.1492">Absence of Diffusion in
+Certain Random Lattices</a>. <em>Phys. Rev.</em> <strong>109</strong>,
+1492–1505 (1958).</div>
+</div>
+</div>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>my favourite being that there are no
+stable gravitational orbits in 4D and above<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>The effort involved in exact
+diagonalisation scales like <span class="math inline">\(N^2\)</span> for
+systems with a tri-diagonal matrix representation (open boundary
+conditions and nearest neighbour hopping) and like <span
+class="math inline">\(N^3\)</span> for a generic matrix <span
+class="citation"
+data-cites="bolchQueueingNetworksMarkov2006 usmaniInversionTridiagonalJacobi1994"><sup><a
+href="#ref-bolchQueueingNetworksMarkov2006"
+role="doc-biblioref">12</a>,<a
+href="#ref-usmaniInversionTridiagonalJacobi1994"
+role="doc-biblioref">13</a></sup></span>.<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>or, in the general case, any desired
+distribution. MCMC has found a lot of use in sampling from the
+complicated distributions that arise when taking a Bayesian approach to
+statistics.<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>or equivalently as the number of MCMC
+steps after which the samples are correlated below some cutoff,
+see <span class="citation"
+data-cites="krauthIntroductionMonteCarlo1996"><sup><a
+href="#ref-krauthIntroductionMonteCarlo1996"
+role="doc-biblioref">14</a></sup></span> for a more rigorous definition
+involving a sum over the auto-correlation function.<a href="#fnref4"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>
