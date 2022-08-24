@@ -240,15 +240,28 @@ image:
 <script src="/assets/js/index.js"></script>
 </head>
 <body>
-{% include header.html %}
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+Contents:
+<ul>
+<li><a href="#lattice-colouring" id="toc-lattice-colouring">Lattice
+Colouring</a></li>
+</ul>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable -->
+{% include header.html extra=tableOfContents %}
 
 <main>
-<nav id="TOC" role="doc-toc">
+<!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#lattice-colouring" id="toc-lattice-colouring">Lattice
 Colouring</a></li>
 </ul>
 </nav>
+ -->
 <h1 id="lattice-colouring">Lattice Colouring</h1>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode python"><code class="sourceCode python"></code></pre></div>

@@ -262,10 +262,34 @@ image:
 <script src="/assets/js/index.js"></script>
 </head>
 <body>
-{% include header.html %}
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+Contents:
+<ul>
+<li><a href="#the-kitaev-honeycomb-model"
+id="toc-the-kitaev-honeycomb-model">The Kitaev Honeycomb Model</a>
+<ul>
+<li><a href="#the-model" id="toc-the-model">The Model</a></li>
+<li><a href="#a-mapping-to-majorana-fermions"
+id="toc-a-mapping-to-majorana-fermions">A mapping to Majorana
+Fermions</a></li>
+<li><a href="#gauge-fields" id="toc-gauge-fields">Gauge Fields</a></li>
+<li><a href="#anyons-topology-and-the-chern-number"
+id="toc-anyons-topology-and-the-chern-number">Anyons, Topology and the
+Chern number</a></li>
+<li><a href="#phase-diagram" id="toc-phase-diagram">Phase
+Diagram</a></li>
+</ul></li>
+</ul>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable -->
+{% include header.html extra=tableOfContents %}
 
 <main>
-<nav id="TOC" role="doc-toc">
+<!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#the-kitaev-honeycomb-model"
 id="toc-the-kitaev-honeycomb-model">The Kitaev Honeycomb Model</a>
@@ -283,6 +307,7 @@ Diagram</a></li>
 </ul></li>
 </ul>
 </nav>
+ -->
 <h1 id="the-kitaev-honeycomb-model">The Kitaev Honeycomb Model</h1>
 <p><strong>intro</strong> - strong spin orbit coupling leads to
 anisotropic spin exchange (as opposed to isotropic exchange like the
@@ -319,7 +344,7 @@ Majorana <span class="math inline">\(c_i\)</span> per site.</figcaption>
 </div>
 <ul>
 <li>strong spin orbit coupling yields spatial anisotropic spin exchange
-leading to compass models <span class="citation"
+leading to compass models <span class="citation"
 data-cites="kugelJahnTellerEffectMagnetism1982"> [<a
 href="#ref-kugelJahnTellerEffectMagnetism1982"
 role="doc-biblioref">1</a>]</span></li>

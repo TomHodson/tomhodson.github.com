@@ -200,10 +200,65 @@ image:
 <script src="/assets/js/index.js"></script>
 </head>
 <body>
-{% include header.html %}
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+Contents:
+<ul>
+<li><a href="#gauge-fields" id="toc-gauge-fields">Gauge Fields</a>
+<ul>
+<li><a href="#vortices-and-their-movements"
+id="toc-vortices-and-their-movements">Vortices and their
+movements</a></li>
+<li><a href="#dual-loops-and-gauge-symmetries"
+id="toc-dual-loops-and-gauge-symmetries">Dual Loops and gauge
+symmetries</a></li>
+<li><a href="#composition-of-wilson-loops"
+id="toc-composition-of-wilson-loops">Composition of Wilson
+loops</a></li>
+<li><a href="#gauge-degeneracy-and-the-euler-equation"
+id="toc-gauge-degeneracy-and-the-euler-equation">Gauge Degeneracy and
+the Euler Equation</a></li>
+<li><a href="#counting-edges-plaquettes-and-vertices"
+id="toc-counting-edges-plaquettes-and-vertices">Counting edges,
+plaquettes and vertices</a></li>
+</ul></li>
+<li><a href="#the-projector" id="toc-the-projector">The Projector</a>
+<ul>
+<li><a href="#ground-state-degeneracy"
+id="toc-ground-state-degeneracy">Ground State Degeneracy</a></li>
+<li><a href="#quick-breather" id="toc-quick-breather">Quick
+Breather</a></li>
+</ul></li>
+<li><a href="#the-ground-state" id="toc-the-ground-state">The Ground
+State</a>
+<ul>
+<li><a href="#finite-size-effects" id="toc-finite-size-effects">Finite
+size effects</a></li>
+<li><a href="#chiral-symmetry" id="toc-chiral-symmetry">Chiral
+Symmetry</a></li>
+</ul></li>
+<li><a href="#phases-of-the-kitaev-model"
+id="toc-phases-of-the-kitaev-model">Phases of the Kitaev Model</a></li>
+<li><a href="#what-is-so-great-about-two-dimensions"
+id="toc-what-is-so-great-about-two-dimensions">What is so great about
+two dimensions?</a>
+<ul>
+<li><a href="#topology-chirality-and-edge-modes"
+id="toc-topology-chirality-and-edge-modes">Topology, chirality and edge
+modes</a></li>
+<li><a href="#anyonic-statistics" id="toc-anyonic-statistics">Anyonic
+Statistics</a></li>
+</ul></li>
+</ul>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable -->
+{% include header.html extra=tableOfContents %}
 
 <main>
-<nav id="TOC" role="doc-toc">
+<!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#gauge-fields" id="toc-gauge-fields">Gauge Fields</a>
 <ul>
@@ -252,6 +307,7 @@ Statistics</a></li>
 </ul></li>
 </ul>
 </nav>
+ -->
 <h2 id="gauge-fields">Gauge Fields</h2>
 <p>The bond operators <span class="math inline">\(u_{ij}\)</span> are
 useful because they label a bond sector <span
@@ -539,7 +595,7 @@ symmetries</strong> and <strong><span class="math inline">\(2^2 =
 4\)</span> topological sectors</strong>.</p>
 <p>The topological sector forms the basis of proposals to construct
 topologically protected qubits since the four sectors can only be mixed
-by a highly non-local perturbations <span class="citation"
+by a highly non-local perturbations <span class="citation"
 data-cites="kitaevFaulttolerantQuantumComputation2003"> [<a
 href="#ref-kitaevFaulttolerantQuantumComputation2003"
 role="doc-biblioref">1</a>]</span>.</p>
@@ -675,8 +731,8 @@ any information about the underlying lattice.</p>
 <p><span class="math display">\[\prod_i^{2N} D_i = \prod_i^{2N} b^x_i
 \prod_i^{2N} b^y_i \prod_i^{2N} b^z_i \prod_i^{2N} c_i\]</span></p>
 <p>The product over <span class="math inline">\(c_i\)</span> operators
-reduces to a determinant of the Q matrix and the fermion parity, see
-<span class="citation"
+reduces to a determinant of the Q matrix and the fermion parity,
+see <span class="citation"
 data-cites="pedrocchiPhysicalSolutionsKitaev2011"> [<a
 href="#ref-pedrocchiPhysicalSolutionsKitaev2011"
 role="doc-biblioref">2</a>]</span>. The only difference from the
@@ -702,7 +758,7 @@ depend only on the lattice structure.</p>
 <p><span class="math inline">\(\hat{\pi} = \prod{i}^{N} (1 -
 2\hat{n}_i)\)</span> is the parity of the particular many body state
 determined by fermionic occupation numbers <span
-class="math inline">\(n_i\)</span>. As discussed in <span
+class="math inline">\(n_i\)</span>. As discussed in <span
 class="citation" data-cites="pedrocchiPhysicalSolutionsKitaev2011"> [<a
 href="#ref-pedrocchiPhysicalSolutionsKitaev2011"
 role="doc-biblioref">2</a>]</span>, <span
@@ -711,7 +767,7 @@ that <span class="math inline">\([\hat{\pi}, D_i] = 0\)</span>.</p>
 <p>This implies that <span class="math inline">\(det(Q^u) \prod -i
 u_{ij}\)</span> is also a gauge invariant quantity. In translation
 invariant models this quantity which can be related to the parity of the
-number of vortex pairs in the system <span class="citation"
+number of vortex pairs in the system <span class="citation"
 data-cites="yaoAlgebraicSpinLiquid2009"> [<a
 href="#ref-yaoAlgebraicSpinLiquid2009"
 role="doc-biblioref">3</a>]</span>.</p>
@@ -743,7 +799,7 @@ vortex pair, transporting one of them around the major or minor
 diameters of the torus and, then, annihilating them again.</figcaption>
 </figure>
 </div>
-<p>More general arguments <span class="citation"
+<p>More general arguments <span class="citation"
 data-cites="chungExplicitMonodromyMoore2007 oshikawaTopologicalDegeneracyNonAbelian2007"> [<a
 href="#ref-chungExplicitMonodromyMoore2007"
 role="doc-biblioref">4</a>,<a
@@ -837,7 +893,7 @@ definition, the vortex free sector.</p>
 <p>On the Honeycomb, Lieb’s theorem implies that the ground state
 corresponds to the state where all <span class="math inline">\(u_{jk} =
 1\)</span>. This implies that the flux free sector is the ground state
-sector <span class="citation" data-cites="lieb_flux_1994"> [<a
+sector <span class="citation" data-cites="lieb_flux_1994"> [<a
 href="#ref-lieb_flux_1994" role="doc-biblioref">6</a>]</span>.</p>
 <p>Lieb’s theorem does not generalise easily to the amorphous case.
 However, we can get some intuition by examining the problem that will
@@ -918,8 +974,8 @@ i)^{n_{\mathrm{sides}}},
 class="math inline">\(n_{\mathrm{sides}}\)</span> is the number of edges
 that form each plaquette and the choice of sign gives a twofold chiral
 ground state degeneracy.</p>
-<p>This conjecture is consistent with Lieb’s theorem on regular lattices
-<span class="citation" data-cites="lieb_flux_1994"> [<a
+<p>This conjecture is consistent with Lieb’s theorem on regular
+lattices <span class="citation" data-cites="lieb_flux_1994"> [<a
 href="#ref-lieb_flux_1994" role="doc-biblioref">6</a>]</span> and is
 supported by numerical evidence. As noted before, any flux that differs
 from the ground state is an excitation which we call a vortex.</p>
@@ -973,7 +1029,7 @@ around the predicted ground state never yield a lower energy state.</p>
 <strong>chiral</strong> degeneracy which arises because the global sign
 of the odd plaquettes does not matter.</p>
 <p>This happens because we have broken the time reversal symmetry of the
-original model by adding odd plaquettes <span class="citation"
+original model by adding odd plaquettes <span class="citation"
 data-cites="Chua2011 yaoExactChiralSpin2007 ChuaPRB2011 Fiete2012 Natori2016 Wu2009 Peri2020 WangHaoranPRB2021"> [<a
 href="#ref-Chua2011" role="doc-biblioref">7</a>–<a
 href="#ref-WangHaoranPRB2021" role="doc-biblioref">14</a>]</span>.</p>
@@ -981,7 +1037,7 @@ href="#ref-WangHaoranPRB2021" role="doc-biblioref">14</a>]</span>.</p>
 to a magnetic field, we get two degenerate ground states of different
 handedness. Practically speaking, one ground state is related to the
 other by inverting the imaginary <span
-class="math inline">\(\phi\)</span> fluxes <span class="citation"
+class="math inline">\(\phi\)</span> fluxes <span class="citation"
 data-cites="yaoExactChiralSpin2007"> [<a
 href="#ref-yaoExactChiralSpin2007"
 role="doc-biblioref">8</a>]</span>.</p>
@@ -1111,18 +1167,18 @@ and construct the set <span class="math inline">\((+1, +1), (+1, -1),
 <figure>
 <img src="/assets/thesis/amk_chapter/topological_fluxes.png"
 data-short-caption="Topological Fluxes" style="width:57.0%"
-alt="Figure 14: Wilson loops that wind the major or minor diameters of the torus measure flux winding through the hole of the doughnut/torus or through the filling. If they made doughnuts that both had a jam filling and a hole, this analogy would be a lot easier to make  [15]." />
+alt="Figure 14: Wilson loops that wind the major or minor diameters of the torus measure flux winding through the hole of the doughnut/torus or through the filling. If they made doughnuts that both had a jam filling and a hole, this analogy would be a lot easier to make  [15]." />
 <figcaption aria-hidden="true"><span>Figure 14:</span> Wilson loops that
 wind the major or minor diameters of the torus measure flux winding
 through the hole of the doughnut/torus or through the filling. If they
 made doughnuts that both had a jam filling and a hole, this analogy
-would be a lot easier to make <span class="citation"
+would be a lot easier to make <span class="citation"
 data-cites="parkerWhyDoesThis"> [<a href="#ref-parkerWhyDoesThis"
 role="doc-biblioref">15</a>]</span>.</figcaption>
 </figure>
 </div>
-<p>However, in the non-Abelian phase we have to wrangle with monodromy
-<span class="citation"
+<p>However, in the non-Abelian phase we have to wrangle with
+monodromy <span class="citation"
 data-cites="chungExplicitMonodromyMoore2007 oshikawaTopologicalDegeneracyNonAbelian2007"> [<a
 href="#ref-chungExplicitMonodromyMoore2007"
 role="doc-biblioref">4</a>,<a
@@ -1134,7 +1190,7 @@ them around the torus in such a way that, rather than annihilating to
 the vacuum, we annihilate them to create an excited state instead of a
 ground state. This means that we end up with only three degenerate
 ground states in the non-Abelian phase <span class="math inline">\((+1,
-+1), (+1, -1), (-1, +1)\)</span> <span class="citation"
++1), (+1, -1), (-1, +1)\)</span> <span class="citation"
 data-cites="chungTopologicalQuantumPhase2010 yaoAlgebraicSpinLiquid2009"> [<a
 href="#ref-yaoAlgebraicSpinLiquid2009" role="doc-biblioref">3</a>,<a
 href="#ref-chungTopologicalQuantumPhase2010"
@@ -1146,8 +1202,8 @@ the state physical. Hence, the process does not give a fourth ground
 state.</p>
 <p>Recently, the topology has notably gained interest because of
 proposals to use this ground state degeneracy to implement both
-passively fault tolerant and actively stabilised quantum computations
-<span class="citation"
+passively fault tolerant and actively stabilised quantum
+computations <span class="citation"
 data-cites="kitaevFaulttolerantQuantumComputation2003 poulinStabilizerFormalismOperator2005 hastingsDynamicallyGeneratedLogical2021"> [<a
 href="#ref-kitaevFaulttolerantQuantumComputation2003"
 role="doc-biblioref">1</a>,<a

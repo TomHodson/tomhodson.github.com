@@ -262,10 +262,31 @@ image:
 <script src="/assets/js/index.js"></script>
 </head>
 <body>
-{% include header.html %}
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+Contents:
+<ul>
+<li><a href="#the-phase-diagram" id="toc-the-phase-diagram">The Phase
+Diagram</a></li>
+<li><a href="#localisation-properties"
+id="toc-localisation-properties">Localisation Properties</a></li>
+<li><a href="#discussion-conclusion"
+id="toc-discussion-conclusion">Discussion &amp; Conclusion</a></li>
+<li><a href="#acknowledgments"
+id="toc-acknowledgments">Acknowledgments</a></li>
+<li><a href="#uncorrelated-disorder-model"
+id="toc-uncorrelated-disorder-model"><span id="app:disorder_model"
+label="app:disorder_model"></span> UNCORRELATED DISORDER MODEL</a></li>
+</ul>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable -->
+{% include header.html extra=tableOfContents %}
 
 <main>
-<nav id="TOC" role="doc-toc">
+<!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#the-phase-diagram" id="toc-the-phase-diagram">The Phase
 Diagram</a></li>
@@ -280,6 +301,7 @@ id="toc-uncorrelated-disorder-model"><span id="app:disorder_model"
 label="app:disorder_model"></span> UNCORRELATED DISORDER MODEL</a></li>
 </ul>
 </nav>
+ -->
 <div id="fig:phase_diagram" class="fignos">
 <figure>
 <img src="pdf_figs/phase_diagram.svg"

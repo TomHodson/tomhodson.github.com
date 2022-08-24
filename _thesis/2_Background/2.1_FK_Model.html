@@ -240,10 +240,33 @@ image:
 <script src="/assets/js/index.js"></script>
 </head>
 <body>
-{% include header.html %}
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+Contents:
+<ul>
+<li><a href="#the-falikov-kimball-model"
+id="toc-the-falikov-kimball-model">The Falikov Kimball Model</a>
+<ul>
+<li><a href="#the-model" id="toc-the-model">The Model</a>
+<ul>
+<li><a href="#particle-hole-symmetry"
+id="toc-particle-hole-symmetry">Particle Hole Symmetry</a></li>
+</ul></li>
+<li><a href="#phase-diagram" id="toc-phase-diagram">Phase
+Diagram</a></li>
+<li><a href="#long-range-ising-models"
+id="toc-long-range-ising-models">Long Range Ising Models</a></li>
+</ul></li>
+</ul>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable -->
+{% include header.html extra=tableOfContents %}
 
 <main>
-<nav id="TOC" role="doc-toc">
+<!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#the-falikov-kimball-model"
 id="toc-the-falikov-kimball-model">The Falikov Kimball Model</a>
@@ -260,6 +283,7 @@ id="toc-long-range-ising-models">Long Range Ising Models</a></li>
 </ul></li>
 </ul>
 </nav>
+ -->
 <h1 id="the-falikov-kimball-model">The Falikov Kimball Model</h1>
 <h2 id="the-model">The Model</h2>
 <p>discuss CDW phase of 2d model as motivation for studying 1d phase

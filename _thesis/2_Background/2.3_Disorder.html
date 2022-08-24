@@ -240,10 +240,31 @@ image:
 <script src="/assets/js/index.js"></script>
 </head>
 <body>
-{% include header.html %}
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+Contents:
+<ul>
+<li><a href="#disorder-localisation"
+id="toc-disorder-localisation">Disorder &amp; Localisation</a>
+<ul>
+<li><a href="#localisation-anderson-many-body-and-disorder-free"
+id="toc-localisation-anderson-many-body-and-disorder-free">Localisation:
+Anderson, Many Body and Disorder-Free</a></li>
+<li><a href="#disorder-and-spin-liquids"
+id="toc-disorder-and-spin-liquids">Disorder and Spin liquids</a></li>
+<li><a href="#amorphous-magnetism"
+id="toc-amorphous-magnetism">Amorphous Magnetism</a></li>
+</ul></li>
+</ul>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable -->
+{% include header.html extra=tableOfContents %}
 
 <main>
-<nav id="TOC" role="doc-toc">
+<!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#disorder-localisation"
 id="toc-disorder-localisation">Disorder &amp; Localisation</a>
@@ -258,6 +279,7 @@ id="toc-amorphous-magnetism">Amorphous Magnetism</a></li>
 </ul></li>
 </ul>
 </nav>
+ -->
 <h1 id="disorder-localisation">Disorder &amp; Localisation</h1>
 <h2 id="localisation-anderson-many-body-and-disorder-free">Localisation:
 Anderson, Many Body and Disorder-Free</h2>

@@ -262,10 +262,98 @@ image:
 <script src="/assets/js/index.js"></script>
 </head>
 <body>
-{% include header.html %}
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+Contents:
+<ul>
+<li><a href="#markov-chain-monte-carlo"
+id="toc-markov-chain-monte-carlo">Markov Chain Monte Carlo</a>
+<ul>
+<li><a href="#sampling" id="toc-sampling">Sampling</a></li>
+<li><a href="#markov-chains" id="toc-markov-chains">Markov
+Chains</a></li>
+<li><a href="#application-to-the-fk-model"
+id="toc-application-to-the-fk-model">Application to the FK Model</a>
+<ul>
+<li><a href="#markov-chain-monte-carlo-1"
+id="toc-markov-chain-monte-carlo-1">Markov Chain Monte Carlo</a></li>
+</ul></li>
+<li><a href="#the-metropolis-hasting-algorithm"
+id="toc-the-metropolis-hasting-algorithm">The Metropolis-Hasting
+Algorithm</a></li>
+<li><a href="#metropolis-hastings"
+id="toc-metropolis-hastings">Metropolis-Hastings</a></li>
+<li><a href="#convergence-auto-correlation-and-binning"
+id="toc-convergence-auto-correlation-and-binning">Convergence,
+Auto-correlation and Binning</a></li>
+<li><a href="#applying-mcmc-to-the-fk-model"
+id="toc-applying-mcmc-to-the-fk-model">Applying MCMC to the FK
+model</a></li>
+<li><a href="#proposal-distributions"
+id="toc-proposal-distributions">Proposal Distributions</a></li>
+<li><a href="#perturbation-mcmc" id="toc-perturbation-mcmc">Perturbation
+MCMC</a></li>
+<li><a href="#scaling" id="toc-scaling">Scaling</a></li>
+<li><a href="#binder-cumulants" id="toc-binder-cumulants">Binder
+Cumulants</a></li>
+<li><a href="#markov-chain-monte-carlo-in-practice"
+id="toc-markov-chain-monte-carlo-in-practice">Markov Chain Monte-Carlo
+in Practice</a>
+<ul>
+<li><a href="#quick-intro-to-mcmc" id="toc-quick-intro-to-mcmc">Quick
+Intro to MCMC</a></li>
+<li><a href="#convergence-time" id="toc-convergence-time">Convergence
+Time</a></li>
+<li><a href="#auto-correlation-time"
+id="toc-auto-correlation-time">Auto-correlation Time</a></li>
+<li><a href="#the-metropolis-hastings-algorithm"
+id="toc-the-metropolis-hastings-algorithm">The Metropolis-Hastings
+Algorithm</a></li>
+</ul></li>
+<li><a href="#two-step-trick" id="toc-two-step-trick">Two Step
+Trick</a></li>
+<li><a href="#detailed-balance-for-the-two-step-method"
+id="toc-detailed-balance-for-the-two-step-method">Detailed Balance for
+the two step method</a>
+<ul>
+<li><a href="#two-step-trick-1" id="toc-two-step-trick-1">Two Step
+Trick</a></li>
+<li><a href="#tuning-the-proposal-distribution"
+id="toc-tuning-the-proposal-distribution">Tuning the proposal
+distribution</a></li>
+</ul></li>
+<li><a href="#diagnostics-of-localisation"
+id="toc-diagnostics-of-localisation">Diagnostics of Localisation</a>
+<ul>
+<li><a href="#inverse-participation-ratio"
+id="toc-inverse-participation-ratio">Inverse Participation
+Ratio</a></li>
+</ul></li>
+<li><a href="#markov-chain-monte-carlo-2"
+id="toc-markov-chain-monte-carlo-2">Markov Chain Monte-Carlo</a></li>
+<li><a href="#convergence-time-1"
+id="toc-convergence-time-1">Convergence Time</a></li>
+<li><a href="#auto-correlation-time-1"
+id="toc-auto-correlation-time-1">Auto-correlation Time</a></li>
+<li><a href="#the-metropolis-hastings-algorithm-1"
+id="toc-the-metropolis-hastings-algorithm-1">The Metropolis-Hastings
+Algorithm</a></li>
+<li><a href="#choosing-the-proposal-distribution"
+id="toc-choosing-the-proposal-distribution">Choosing the proposal
+distribution</a></li>
+<li><a href="#two-step-trick-2" id="toc-two-step-trick-2">Two Step
+Trick</a></li>
+</ul></li>
+</ul>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable -->
+{% include header.html extra=tableOfContents %}
 
 <main>
-<nav id="TOC" role="doc-toc">
+<!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#markov-chain-monte-carlo"
 id="toc-markov-chain-monte-carlo">Markov Chain Monte Carlo</a>
@@ -347,6 +435,7 @@ Trick</a></li>
 </ul></li>
 </ul>
 </nav>
+ -->
 <h1 id="markov-chain-monte-carlo">Markov Chain Monte Carlo</h1>
 <h2 id="sampling">Sampling</h2>
 <p>Markov Chain Monte Carlo (MCMC) is a useful method whenever we have a
@@ -360,7 +449,7 @@ The fact they’re uncorrelated is key as we’ll see later. Examples of
 direct sampling methods range from the trivial: take n random bits to
 generate integers uniformly between 0 and <span
 class="math inline">\(2^n\)</span> to more complex methods such as
-inverse transform sampling and rejection sampling <span class="citation"
+inverse transform sampling and rejection sampling <span class="citation"
 data-cites="devroyeRandomSampling1986"> [<a
 href="#ref-devroyeRandomSampling1986"
 role="doc-biblioref">1</a>]</span>.</p>
@@ -383,7 +472,7 @@ with system size. Even if we could calculate <span
 class="math inline">\(\mathcal{Z}\)</span>, sampling from an
 exponentially large number of options quickly become tricky. This kind
 of problem happens in many other disciplines too, particularly when
-fitting statistical models using Bayesian inference <span
+fitting statistical models using Bayesian inference <span
 class="citation" data-cites="BMCP2021"> [<a href="#ref-BMCP2021"
 role="doc-biblioref">2</a>]</span>.</p>
 <h2 id="markov-chains">Markov Chains</h2>
@@ -393,7 +482,7 @@ instead.</p>
 <p>MCMC defines a weighted random walk over the states <span
 class="math inline">\((S_0, S_1, S_2, ...)\)</span>, such that in the
 long time limit, states are visited according to their probability <span
-class="math inline">\(p(S)\)</span>. <span class="citation"
+class="math inline">\(p(S)\)</span>. <span class="citation"
 data-cites="binderGuidePracticalWork1988 kerteszAdvancesComputerSimulation1998 wolffMonteCarloErrors2004"> [<a
 href="#ref-binderGuidePracticalWork1988" role="doc-biblioref">3</a>–<a
 href="#ref-wolffMonteCarloErrors2004"
@@ -447,7 +536,7 @@ F_c[\vec{S}]} = \sum_{\vec{S}} e^{-\beta E[\vec{S}]}
 expectation values <span class="math inline">\(\expval{O}\)</span> with
 respect to some physical system defined by a set of states <span
 class="math inline">\(\{x: x \in S\}\)</span> and a free energy <span
-class="math inline">\(F(x)\)</span> <span class="citation"
+class="math inline">\(F(x)\)</span> <span class="citation"
 data-cites="krauthIntroductionMonteCarlo1998"> [<a
 href="#ref-krauthIntroductionMonteCarlo1998"
 role="doc-biblioref">7</a>]</span>. The thermal expectation value is
@@ -526,7 +615,7 @@ P(x) \mathcal{T}(x \rightarrow x&#39;) = P(x&#39;) \mathcal{T}(x&#39;
 \rightarrow x)
 \]</span> % In practice most algorithms are constructed to satisfy
 detailed balance though there are arguments that relaxing the condition
-can lead to faster algorithms <span class="citation"
+can lead to faster algorithms <span class="citation"
 data-cites="kapferSamplingPolytopeHarddisk2013"> [<a
 href="#ref-kapferSamplingPolytopeHarddisk2013"
 role="doc-biblioref">8</a>]</span>.</p>
@@ -558,7 +647,7 @@ x_{i}\)</span>. Now <span class="math inline">\(\mathcal{T}(x\to x&#39;)
 <p>The Metropolis-Hasting algorithm is a slight extension of the
 original Metropolis algorithm that allows for non-symmetric proposal
 distributions $q(xx’) q(x’x) $. It can be derived starting from detailed
-balance <span class="citation"
+balance <span class="citation"
 data-cites="krauthIntroductionMonteCarlo1998"> [<a
 href="#ref-krauthIntroductionMonteCarlo1998"
 role="doc-biblioref">7</a>]</span>: <span
@@ -671,7 +760,7 @@ problematic because it means very few new samples will be generated. If
 it is too high it implies the steps are too small, a problem because
 then the walk will take longer to explore the state space and the
 samples will be highly correlated. Ideal values for the acceptance rate
-can be calculated under certain assumptions <span class="citation"
+can be calculated under certain assumptions <span class="citation"
 data-cites="robertsWeakConvergenceOptimal1997"> [<a
 href="#ref-robertsWeakConvergenceOptimal1997"
 role="doc-biblioref">9</a>]</span>. Here we monitor the acceptance rate
@@ -686,7 +775,7 @@ produce a state at or near the energy of the current one.</p>
 <p>The matrix diagonalisation is the most computationally expensive step
 of the process, a speed up can be obtained by modifying the proposal
 distribution to depend on the classical part of the energy, a trick
-gleaned from Ref. <span class="citation"
+gleaned from Ref. <span class="citation"
 data-cites="krauthIntroductionMonteCarlo1998"> [<a
 href="#ref-krauthIntroductionMonteCarlo1998"
 role="doc-biblioref">7</a>]</span>: <span class="math display">\[
@@ -700,7 +789,7 @@ without performing the diagonalisation at no cost to the accuracy of the
 MCMC method.</p>
 <p>An extension of this idea is to try to define a classical model with
 a similar free energy dependence on the classical state as the full
-quantum, Ref. <span class="citation"
+quantum, Ref. <span class="citation"
 data-cites="huangAcceleratedMonteCarlo2017"> [<a
 href="#ref-huangAcceleratedMonteCarlo2017"
 role="doc-biblioref">10</a>]</span> does this with restricted Boltzmann
@@ -725,8 +814,8 @@ central moments of the order parameter m: <span class="math display">\[m
 = \sum_i (-1)^i (2n_i - 1) / N\]</span> % The Binder cumulant evaluated
 against temperature can be used as a diagnostic for the existence of a
 phase transition. If multiple such curves are plotted for different
-system sizes, a crossing indicates the location of a critical point
-<span class="citation"
+system sizes, a crossing indicates the location of a critical
+point <span class="citation"
 data-cites="binderFiniteSizeScaling1981 musialMonteCarloSimulations2002"> [<a
 href="#ref-binderFiniteSizeScaling1981" role="doc-biblioref">11</a>,<a
 href="#ref-musialMonteCarloSimulations2002"
@@ -757,7 +846,7 @@ very expensive operation!~\footnote{The effort involved in exact
 diagonalisation scales like <span class="math inline">\(N^2\)</span> for
 systems with a tri-diagonal matrix representation (open boundary
 conditions and nearest neighbour hopping) and like <span
-class="math inline">\(N^3\)</span> for a generic matrix <span
+class="math inline">\(N^3\)</span> for a generic matrix <span
 class="citation"
 data-cites="bolchQueueingNetworksMarkov2006 usmaniInversionTridiagonalJacobi1994"> [<a
 href="#ref-bolchQueueingNetworksMarkov2006"
@@ -877,7 +966,7 @@ auto-correlation time <span class="math inline">\(\tau(O)\)</span>
 informally as the number of MCMC samples of some observable O that are
 statistically equal to one independent sample or equivalently as the
 number of MCMC steps after which the samples are correlated below some
-cutoff, see <span class="citation"
+cutoff, see <span class="citation"
 data-cites="krauthIntroductionMonteCarlo1996"> [<a
 href="#ref-krauthIntroductionMonteCarlo1996"
 role="doc-biblioref">14</a>]</span> for a more rigorous definition
@@ -1020,7 +1109,7 @@ the two step method</h2>
 <p>Given a MCMC algorithm with target distribution <span
 class="math inline">\(\pi(a)\)</span> and transition function <span
 class="math inline">\(\mathcal{T}\)</span> the detailed balance
-condition is sufficient (along with some technical constraints <span
+condition is sufficient (along with some technical constraints <span
 class="citation" data-cites="wolffMonteCarloErrors2004"> [<a
 href="#ref-wolffMonteCarloErrors2004"
 role="doc-biblioref">5</a>]</span>) to guarantee that in the long time
@@ -1140,7 +1229,7 @@ for the additional complexity it would require.</p>
 <h3 id="inverse-participation-ratio">Inverse Participation Ratio</h3>
 <p>The inverse participation ratio is defined for a normalised wave
 function <span class="math inline">\(\psi_i = \psi(x_i), \sum_i
-\abs{\psi_i}^2 = 1\)</span> as its fourth moment <span class="citation"
+\abs{\psi_i}^2 = 1\)</span> as its fourth moment <span class="citation"
 data-cites="kramerLocalizationTheoryExperiment1993"> [<a
 href="#ref-kramerLocalizationTheoryExperiment1993"
 role="doc-biblioref">17</a>]</span>: <span class="math display">\[
@@ -1154,7 +1243,7 @@ fractal dimensionality <span class="math inline">\(d &gt; d* &gt;
 P(L) \goeslike L^{d*}
 \]</span> % For extended states <span class="math inline">\(d* =
 0\)</span> while for localised ones <span class="math inline">\(d* =
-0\)</span>. In this work we take use an energy resolved IPR <span
+0\)</span>. In this work we take use an energy resolved IPR <span
 class="citation" data-cites="andersonAbsenceDiffusionCertain1958"> [<a
 href="#ref-andersonAbsenceDiffusionCertain1958"
 role="doc-biblioref">18</a>]</span>: <span class="math display">\[

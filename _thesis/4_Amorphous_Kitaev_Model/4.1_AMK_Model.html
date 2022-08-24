@@ -200,10 +200,51 @@ image:
 <script src="/assets/js/index.js"></script>
 </head>
 <body>
-{% include header.html %}
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+Contents:
+<ul>
+<li><a href="#contributions"
+id="toc-contributions">Contributions</a></li>
+<li><a href="#introduction" id="toc-introduction">Introduction</a>
+<ul>
+<li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous
+Systems</a></li>
+<li><a href="#glossary" id="toc-glossary">Glossary</a></li>
+<li><a href="#the-kitaev-model" id="toc-the-kitaev-model">The Kitaev
+Model</a>
+<ul>
+<li><a href="#commutation-relations"
+id="toc-commutation-relations">Commutation relations</a></li>
+<li><a href="#the-hamiltonian" id="toc-the-hamiltonian">The
+Hamiltonian</a></li>
+<li><a href="#from-spins-to-majorana-operators"
+id="toc-from-spins-to-majorana-operators">From Spins to Majorana
+operators</a></li>
+<li><a href="#partitioning-the-hilbert-space-into-bond-sectors"
+id="toc-partitioning-the-hilbert-space-into-bond-sectors">Partitioning
+the Hilbert Space into Bond sectors</a></li>
+</ul></li>
+<li><a href="#the-majorana-hamiltonian"
+id="toc-the-majorana-hamiltonian">The Majorana Hamiltonian</a>
+<ul>
+<li><a href="#mapping-back-from-bond-sectors-to-the-physical-subspace"
+id="toc-mapping-back-from-bond-sectors-to-the-physical-subspace">Mapping
+back from Bond Sectors to the Physical Subspace</a></li>
+<li><a href="#open-boundary-conditions"
+id="toc-open-boundary-conditions">Open boundary conditions</a></li>
+</ul></li>
+</ul></li>
+</ul>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable -->
+{% include header.html extra=tableOfContents %}
 
 <main>
-<nav id="TOC" role="doc-toc">
+<!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#contributions"
 id="toc-contributions">Contributions</a></li>
@@ -238,6 +279,7 @@ id="toc-open-boundary-conditions">Open boundary conditions</a></li>
 </ul></li>
 </ul>
 </nav>
+ -->
 <h1 id="contributions">Contributions</h1>
 <p>The material in this chapter expands on work presented in</p>
 <p><strong>Insert citation of amorphous Kitaev paper here</strong></p>
@@ -245,7 +287,7 @@ id="toc-open-boundary-conditions">Open boundary conditions</a></li>
 guidance from Willian and Johannes. The project grew out of an interest
 Gino, Peru and I had in studying amorphous systems, coupled with
 Johannes’ expertise on the Kitaev model. The idea to use voronoi
-partitions came from <span class="citation"
+partitions came from <span class="citation"
 data-cites="marsalTopologicalWeaireThorpe2020"> [<a
 href="#ref-marsalTopologicalWeaireThorpe2020"
 role="doc-biblioref">1</a>]</span> and Gino did the implementation of
@@ -289,7 +331,7 @@ material. Candidate materials, such as <span
 class="math inline">\(\alpha\mathrm{-RuCl}_3\)</span>, are known to have
 sufficiently strong spin-orbit coupling and the correct lattice
 structure to behave according to the Kitaev Honeycomb model with small
-corrections <span class="citation"
+corrections <span class="citation"
 data-cites="banerjeeProximateKitaevQuantum2016 trebstKitaevMaterials2022"> [<a
 href="#ref-banerjeeProximateKitaevQuantum2016"
 role="doc-biblioref">2</a>,<a href="#ref-trebstKitaevMaterials2022"
@@ -301,14 +343,14 @@ after quantum spin liquid state. Its excitations are anyons, particles
 that can only exist in two dimensions that break the normal
 fermion/boson dichotomy. Anyons have been the subject of much attention
 because, among other reasons, they can be braided through spacetime to
-achieve noise tolerant quantum computations <span class="citation"
+achieve noise tolerant quantum computations <span class="citation"
 data-cites="freedmanTopologicalQuantumComputation2003"> [<a
 href="#ref-freedmanTopologicalQuantumComputation2003"
 role="doc-biblioref">3</a>]</span>.</p>
 <p>Third, and perhaps most importantly, this model is a rare many body
 interacting quantum system that can be treated analytically. It is
 exactly solvable. We can explicitly write down its many body ground
-states in terms of single particle states <span class="citation"
+states in terms of single particle states <span class="citation"
 data-cites="kitaevAnyonsExactlySolved2006"> [<a
 href="#ref-kitaevAnyonsExactlySolved2006"
 role="doc-biblioref">4</a>]</span>. The solubility of the Kitaev
@@ -326,7 +368,7 @@ lattices.</p>
 look at the gauge symmetries of the model as well as its solution via a
 transformation to a Majorana hamiltonian. This discussion shows that,
 for the the model to be solvable, it needs only be defined on a
-trivalent, tri-edge-colourable lattice <span class="citation"
+trivalent, tri-edge-colourable lattice <span class="citation"
 data-cites="Nussinov2009"> [<a href="#ref-Nussinov2009"
 role="doc-biblioref">5</a>]</span>.</p>
 <p>The methods section discusses how to generate such lattices and
@@ -512,7 +554,7 @@ on site <span class="math inline">\(j\)</span> and <span
 class="math inline">\(\langle j,k\rangle_\alpha\)</span> is a pair of
 nearest-neighbour indices connected by an <span
 class="math inline">\(\alpha\)</span>-bond with exchange coupling <span
-class="math inline">\(J^\alpha\)</span> <span class="citation"
+class="math inline">\(J^\alpha\)</span> <span class="citation"
 data-cites="kitaevAnyonsExactlySolved2006"> [<a
 href="#ref-kitaevAnyonsExactlySolved2006"
 role="doc-biblioref">4</a>]</span>. For notational brevity, it is useful
@@ -743,7 +785,7 @@ theory of the Majorana Hamiltonian further.</p>
 u_{ij} c_i c_j\]</span> in which most of the Majorana degrees of freedom
 have paired along bonds to become a classical gauge field <span
 class="math inline">\(u_{ij}\)</span>. What follows is relatively
-standard theory for quadratic Majorana Hamiltonians <span
+standard theory for quadratic Majorana Hamiltonians <span
 class="citation" data-cites="BlaizotRipka1986"> [<a
 href="#ref-BlaizotRipka1986" role="doc-biblioref">6</a>]</span>.</p>
 <p>Because of the antisymmetry of the matrix with entries <span

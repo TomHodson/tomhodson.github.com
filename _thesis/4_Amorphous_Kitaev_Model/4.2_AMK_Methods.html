@@ -200,10 +200,44 @@ image:
 <script src="/assets/js/index.js"></script>
 </head>
 <body>
-{% include header.html %}
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+Contents:
+<ul>
+<li><a href="#methods" id="toc-methods">Methods</a>
+<ul>
+<li><a href="#voronisation" id="toc-voronisation">Voronisation</a></li>
+<li><a href="#graph-representation" id="toc-graph-representation">Graph
+Representation</a></li>
+<li><a href="#colouring-the-bonds"
+id="toc-colouring-the-bonds">Colouring the Bonds</a>
+<ul>
+<li><a href="#four-colourings-and-three-colourings"
+id="toc-four-colourings-and-three-colourings">Four-colourings and
+three-colourings</a></li>
+<li><a href="#finding-lattice-colourings-with-minisat"
+id="toc-finding-lattice-colourings-with-minisat">Finding Lattice
+colourings with miniSAT</a></li>
+<li><a href="#does-it-matter-which-colouring-we-choose"
+id="toc-does-it-matter-which-colouring-we-choose">Does it matter which
+colouring we choose?</a></li>
+</ul></li>
+<li><a href="#mapping-between-flux-sectors-and-bond-sectors"
+id="toc-mapping-between-flux-sectors-and-bond-sectors">Mapping between
+flux sectors and bond sectors</a></li>
+<li><a href="#chern-markers" id="toc-chern-markers">Chern
+Markers</a></li>
+</ul></li>
+</ul>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable -->
+{% include header.html extra=tableOfContents %}
 
 <main>
-<nav id="TOC" role="doc-toc">
+<!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#methods" id="toc-methods">Methods</a>
 <ul>
@@ -231,10 +265,11 @@ Markers</a></li>
 </ul></li>
 </ul>
 </nav>
+ -->
 <h1 id="methods">Methods</h1>
 <p>The practical implementation of what is described in this section is
 available as a Python package called Koala (Kitaev On Amorphous
-LAttices) <span class="citation"
+LAttices) <span class="citation"
 data-cites="tomImperialCMTHKoalaFirst2022"> [<a
 href="#ref-tomImperialCMTHKoalaFirst2022"
 role="doc-biblioref"><strong>tomImperialCMTHKoalaFirst2022?</strong></a>]</span>.
@@ -242,7 +277,7 @@ All results and figures were generated with Koala.</p>
 <h2 id="voronisation">Voronisation</h2>
 <p>To study the properties of the amorphous Kitaev model, we need to
 sample from the space of possible trivalent graphs.</p>
-<p>A simple method is to use a Voronoi partition of the torus <span
+<p>A simple method is to use a Voronoi partition of the torus <span
 class="citation"
 data-cites="mitchellAmorphousTopologicalInsulators2018 marsalTopologicalWeaireThorpeModels2020 florescu_designer_2009"> [<a
 href="#ref-mitchellAmorphousTopologicalInsulators2018"
@@ -259,16 +294,16 @@ the graph is embedded into the plane. It is also trivalent in that every
 vertex is connected to exactly three edges <strong>cite</strong>.</p>
 <p>Ideally, we would sample uniformly from the space of possible
 trivalent graphs. Indeed, there has been some work on how to do this
-using a Markov Chain Monte Carlo approach <span class="citation"
+using a Markov Chain Monte Carlo approach <span class="citation"
 data-cites="alyamiUniformSamplingDirected2016"> [<a
 href="#ref-alyamiUniformSamplingDirected2016"
 role="doc-biblioref">4</a>]</span>. However, it does not guarantee that
 the resulting graph is planar, which we must ensure so that the edges
 can be 3-coloured.</p>
-<p>In practice, we use a standard algorithm <span class="citation"
+<p>In practice, we use a standard algorithm <span class="citation"
 data-cites="barberQuickhullAlgorithmConvex1996"> [<a
 href="#ref-barberQuickhullAlgorithmConvex1996"
-role="doc-biblioref">5</a>]</span> from Scipy <span class="citation"
+role="doc-biblioref">5</a>]</span> from Scipy <span class="citation"
 data-cites="virtanenSciPyFundamentalAlgorithms2020"> [<a
 href="#ref-virtanenSciPyFundamentalAlgorithms2020"
 role="doc-biblioref">6</a>]</span> which computes the Voronoi partition
@@ -368,7 +403,7 @@ onto the plane without any edges crossing. Bridgeless graphs do not
 contain any edges that, when removed, would partition the graph into
 disconnected components.</p>
 <p>This problem must be distinguished from that considered by the famous
-four-colour theorem <span class="citation"
+four-colour theorem <span class="citation"
 data-cites="appelEveryPlanarMap1989"> [<a
 href="#ref-appelEveryPlanarMap1989" role="doc-biblioref">7</a>]</span>.
 The 4-colour theorem is concerned with assigning colours to the
@@ -379,7 +414,7 @@ colouring.</p>
 embedded onto the plane without any edges crossing. Here we are
 concerned with Toroidal graphs, which can be embedded onto the torus
 without any edges crossing. In fact, toroidal graphs require up to seven
-colours <span class="citation"
+colours <span class="citation"
 data-cites="heawoodMapColouringTheorems"> [<a
 href="#ref-heawoodMapColouringTheorems"
 role="doc-biblioref">8</a>]</span>. The complete graph <span
@@ -389,22 +424,22 @@ that requires seven colours.</p>
 edge-colour any graph. An <span
 class="math inline">\(\mathcal{O}(mn)\)</span> algorithm exists to do it
 for a graph with <span class="math inline">\(m\)</span> edges and <span
-class="math inline">\(n\)</span> vertices <span class="citation"
+class="math inline">\(n\)</span> vertices <span class="citation"
 data-cites="gEstimateChromaticClass1964"> [<a
 href="#ref-gEstimateChromaticClass1964"
 role="doc-biblioref">9</a>]</span>. Restricting ourselves to graphs with
 <span class="math inline">\(\Delta = 3\)</span> like ours, those can be
-four-edge-coloured in linear time <span class="citation"
+four-edge-coloured in linear time <span class="citation"
 data-cites="skulrattanakulchai4edgecoloringGraphsMaximum2002"> [<a
 href="#ref-skulrattanakulchai4edgecoloringGraphsMaximum2002"
 role="doc-biblioref">10</a>]</span>.</p>
 <p>However, three-edge-colouring them is more difficult. Cubic, planar,
 bridgeless graphs can be three-edge-coloured if and only if they can be
-four-face-coloured <span class="citation"
+four-face-coloured <span class="citation"
 data-cites="tait1880remarks"> [<a href="#ref-tait1880remarks"
 role="doc-biblioref">11</a>]</span>. An <span
-class="math inline">\(\mathcal{O}(n^2)\)</span> algorithm exists here
-<span class="citation" data-cites="robertson1996efficiently"> [<a
+class="math inline">\(\mathcal{O}(n^2)\)</span> algorithm exists
+here <span class="citation" data-cites="robertson1996efficiently"> [<a
 href="#ref-robertson1996efficiently"
 role="doc-biblioref">12</a>]</span>. However, it is not clear whether
 this extends to cubic, <strong>toroidal</strong> bridgeless graphs.</p>
@@ -466,17 +501,17 @@ solver. A SAT problem is a set of statements about some number of
 boolean variables , such as “<span class="math inline">\(x_1\)</span> or
 not <span class="math inline">\(x_3\)</span> is true”, and looks for an
 assignment <span class="math inline">\(x_i \in {0,1}\)</span> that
-satisfies all the statements <span class="citation"
+satisfies all the statements <span class="citation"
 data-cites="Karp1972"> [<a href="#ref-Karp1972"
 role="doc-biblioref">13</a>]</span>.</p>
 <p>General purpose, high performance programs for solving SAT problems
-have been an area of active research for decades <span class="citation"
+have been an area of active research for decades <span class="citation"
 data-cites="alounehComprehensiveStudyAnalysis2019"> [<a
 href="#ref-alounehComprehensiveStudyAnalysis2019"
 role="doc-biblioref">14</a>]</span>. Such programs are useful because,
 by the Cook-Levin theorem, any NP problem can be encoded in polynomial
 time as an instance of a SAT problem . This property is what makes SAT
-one of the subset of NP problems called NP-Complete <span
+one of the subset of NP problems called NP-Complete <span
 class="citation"
 data-cites="cookComplexityTheoremprovingProcedures1971 levin1973universal"> [<a
 href="#ref-cookComplexityTheoremprovingProcedures1971"
@@ -494,7 +529,7 @@ could be used to speed up its solution, using a SAT solver appears to be
 a reasonable first method to try. As will be discussed later, this
 turned out to work well enough and looking for a better solution was not
 necessary.</p>
-<p>We use a solver called <code>MiniSAT</code> <span class="citation"
+<p>We use a solver called <code>MiniSAT</code> <span class="citation"
 data-cites="imms-sat18"> [<a href="#ref-imms-sat18"
 role="doc-biblioref">17</a>]</span>. Like most modern SAT solvers,
 <code>MiniSAT</code> requires the input problem to be specified in
@@ -554,7 +589,7 @@ a graph and assigns them a colour that is not already disallowed. This
 does not work for our purposes because it is not designed to look for a
 particular n-colouring. However, it does include the option of using a
 heuristic function that determine the order in which vertices will be
-coloured <span class="citation"
+coloured <span class="citation"
 data-cites="kosowski2004classical matulaSmallestlastOrderingClustering1983"> [<a
 href="#ref-kosowski2004classical" role="doc-biblioref">18</a>,<a
 href="#ref-matulaSmallestlastOrderingClustering1983"

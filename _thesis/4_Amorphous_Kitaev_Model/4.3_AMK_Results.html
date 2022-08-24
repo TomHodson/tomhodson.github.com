@@ -200,10 +200,55 @@ image:
 <script src="/assets/js/index.js"></script>
 </head>
 <body>
-{% include header.html %}
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+Contents:
+<ul>
+<li><a href="#results" id="toc-results">Results</a>
+<ul>
+<li><a href="#the-ground-state-flux-sector"
+id="toc-the-ground-state-flux-sector">The Ground State Flux
+Sector</a></li>
+<li><a href="#spontaneous-chiral-symmetry-breaking"
+id="toc-spontaneous-chiral-symmetry-breaking">Spontaneous Chiral
+Symmetry Breaking</a></li>
+<li><a href="#ground-state-phase-diagram"
+id="toc-ground-state-phase-diagram">Ground State Phase Diagram</a>
+<ul>
+<li><a href="#is-it-abelian-or-non-abelian"
+id="toc-is-it-abelian-or-non-abelian">Is it Abelian or
+non-Abelian?</a></li>
+<li><a href="#edge-modes" id="toc-edge-modes">Edge Modes</a></li>
+</ul></li>
+<li><a href="#anderson-transition-to-a-thermal-metal"
+id="toc-anderson-transition-to-a-thermal-metal">Anderson Transition to a
+Thermal Metal</a></li>
+</ul></li>
+<li><a href="#conclusion" id="toc-conclusion">Conclusion</a></li>
+<li><a href="#discussion" id="toc-discussion">Discussion</a>
+<ul>
+<li><a href="#limits-of-the-ground-state-conjecture"
+id="toc-limits-of-the-ground-state-conjecture">Limits of the ground
+state conjecture</a></li>
+</ul></li>
+<li><a href="#outlook" id="toc-outlook">Outlook</a>
+<ul>
+<li><a href="#experimental-realisations-and-signatures"
+id="toc-experimental-realisations-and-signatures">Experimental
+Realisations and Signatures</a></li>
+<li><a href="#generalisations"
+id="toc-generalisations">Generalisations</a></li>
+</ul></li>
+</ul>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable -->
+{% include header.html extra=tableOfContents %}
 
 <main>
-<nav id="TOC" role="doc-toc">
+<!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#results" id="toc-results">Results</a>
 <ul>
@@ -242,6 +287,7 @@ id="toc-generalisations">Generalisations</a></li>
 </ul></li>
 </ul>
 </nav>
+ -->
 <h1 id="results">Results</h1>
 <h2 id="the-ground-state-flux-sector">The Ground State Flux Sector</h2>
 <p>Here I will discuss the numerical evidence that our guess for the
@@ -249,7 +295,7 @@ ground state flux sector is correct. We will do this by enumerating all
 the flux sectors of many separate system realisations. However there are
 some issues we will need to address to make this argument work.</p>
 <p>We have two seemingly irreconcilable problems. Finite size effects
-have a large energetic contribution for small systems <span
+have a large energetic contribution for small systems <span
 class="citation" data-cites="kitaevAnyonsExactlySolved2006"> [<a
 href="#ref-kitaevAnyonsExactlySolved2006"
 role="doc-biblioref">1</a>]</span> so we would like to perform our
@@ -308,7 +354,7 @@ relatively regular pattern for the imaginary fluxes with only a global
 two-fold chiral degeneracy.</p>
 <p>Thus, states with a fixed flux sector spontaneously break time
 reversal symmetry. This was first described by Yao and Kivelson for a
-translation invariant Kitaev model with odd sided plaquettes <span
+translation invariant Kitaev model with odd sided plaquettes <span
 class="citation" data-cites="Yao2011"> [<a href="#ref-Yao2011"
 role="doc-biblioref">2</a>]</span>.</p>
 <p>So we have flux sectors that come in degenerate pairs, where time
@@ -348,9 +394,9 @@ straight lines <span class="math inline">\(|J^x| = |J^y| +
 class="math inline">\(x,y,z\)</span>, shown as dotted line on ~<a
 href="#fig:phase_diagram">1</a> (Right). We find that on the amorphous
 lattice these boundaries exhibit an inward curvature, similar to
-honeycomb Kitaev models with flux <span class="citation"
+honeycomb Kitaev models with flux <span class="citation"
 data-cites="Nasu_Thermal_2015"> [<a href="#ref-Nasu_Thermal_2015"
-role="doc-biblioref">5</a>]</span> or bond <span class="citation"
+role="doc-biblioref">5</a>]</span> or bond <span class="citation"
 data-cites="knolle_dynamics_2016"> [<a href="#ref-knolle_dynamics_2016"
 role="doc-biblioref">6</a>]</span> disorder.</p>
 <div id="fig:phase_diagram" class="fignos">
@@ -387,7 +433,7 @@ class="math inline">\(0\)</span> to <span class="math inline">\(\pm
 later I’ll double check this with finite size scaling.</p>
 <p>The next question is: do these phases support excitations with
 Abelian or non-Abelian statistics? To answer that we turn to Chern
-numbers <span class="citation"
+numbers <span class="citation"
 data-cites="berryQuantalPhaseFactors1984 simonHolonomyQuantumAdiabatic1983 thoulessQuantizedHallConductance1982"> [<a
 href="#ref-berryQuantalPhaseFactors1984" role="doc-biblioref">7</a>–<a
 href="#ref-thoulessQuantizedHallConductance1982"
@@ -399,17 +445,17 @@ to its Chern number <strong>[citation]</strong>. However the Chern
 number is only defined for the translation invariant case because it
 relies on integrals defined in k-space.</p>
 <p>A family of real space generalisations of the Chern number that work
-for amorphous systems exist called local topological markers <span
+for amorphous systems exist called local topological markers <span
 class="citation"
 data-cites="bianco_mapping_2011 Hastings_Almost_2010 mitchellAmorphousTopologicalInsulators2018"> [<a
 href="#ref-bianco_mapping_2011" role="doc-biblioref">10</a>–<a
 href="#ref-mitchellAmorphousTopologicalInsulators2018"
 role="doc-biblioref">12</a>]</span> and indeed Kitaev defines one in his
-original paper on the model <span class="citation"
+original paper on the model <span class="citation"
 data-cites="kitaevAnyonsExactlySolved2006"> [<a
 href="#ref-kitaevAnyonsExactlySolved2006"
 role="doc-biblioref">1</a>]</span>.</p>
-<p>Here we use the crosshair marker of <span class="citation"
+<p>Here we use the crosshair marker of <span class="citation"
 data-cites="peru_preprint"> [<a href="#ref-peru_preprint"
 role="doc-biblioref">13</a>]</span> because it works well on smaller
 systems. We calculate the projector <span class="math inline">\(P =
@@ -438,13 +484,14 @@ character of the phases.</p>
 <p>In the A phase of the amorphous model we find that <span
 class="math inline">\(\nu=0\)</span> and hence the excitations have
 Abelian character, similar to the honeycomb model. This phase is thus
-the amorphous analogue of the Abelian toric-code quantum spin liquid
-<span class="citation" data-cites="kitaev_fault-tolerant_2003"> [<a
+the amorphous analogue of the Abelian toric-code quantum spin
+liquid <span class="citation"
+data-cites="kitaev_fault-tolerant_2003"> [<a
 href="#ref-kitaev_fault-tolerant_2003"
 role="doc-biblioref">14</a>]</span>.</p>
 <p>The B phase has <span class="math inline">\(\nu=\pm1\)</span> so is a
 non-Abelian <em>chiral spin liquid</em> (CSL) similar to that of the
-Yao-Kivelson model <span class="citation"
+Yao-Kivelson model <span class="citation"
 data-cites="yaoExactChiralSpin2007"> [<a
 href="#ref-yaoExactChiralSpin2007" role="doc-biblioref">3</a>]</span>.
 The CSL state is the the magnetic analogue of the fractional quantum
@@ -455,9 +502,9 @@ this phase.</p>
 <img
 src="/assets/thesis/amk_chapter/results/phase_diagram_chern/phase_diagram_chern.svg"
 data-short-caption="Local Chern Markers" style="width:100.0%"
-alt="Figure 2: (Center) The crosshair marker  [13], a local topological marker, evaluated on the Amorphous Kitaev Model. The marker is defined around a point, denoted by the dotted crosshair. Information about the local topological properties of the system are encoded within a region around that point. (Left) Summing these contributions up to some finite radius (dotted line here, dotted circle in the centre) gives a generalised version of the Chern number for the system which becomes quantised in the thermodynamic limit. The radius must be chosen large enough to capture information about the local properties of the lattice while not so large as to include contributions from the edge states. The isotropic regime J_\alpha = 1 in red has \nu = \pm 1 implying it supports excitations with non-Abelian statistics, while the anisotropic regime in orange has \nu = \pm 0 implying it has Abelian statistics. (Right) Extending this analysis to the whole J_\alpha phase diagram with fixed r = 0.3 nicely confirms that the isotropic phase is non-Abelian." />
+alt="Figure 2: (Center) The crosshair marker  [13], a local topological marker, evaluated on the Amorphous Kitaev Model. The marker is defined around a point, denoted by the dotted crosshair. Information about the local topological properties of the system are encoded within a region around that point. (Left) Summing these contributions up to some finite radius (dotted line here, dotted circle in the centre) gives a generalised version of the Chern number for the system which becomes quantised in the thermodynamic limit. The radius must be chosen large enough to capture information about the local properties of the lattice while not so large as to include contributions from the edge states. The isotropic regime J_\alpha = 1 in red has \nu = \pm 1 implying it supports excitations with non-Abelian statistics, while the anisotropic regime in orange has \nu = \pm 0 implying it has Abelian statistics. (Right) Extending this analysis to the whole J_\alpha phase diagram with fixed r = 0.3 nicely confirms that the isotropic phase is non-Abelian." />
 <figcaption aria-hidden="true"><span>Figure 2:</span> (Center) The
-crosshair marker <span class="citation" data-cites="peru_preprint"> [<a
+crosshair marker <span class="citation" data-cites="peru_preprint"> [<a
 href="#ref-peru_preprint" role="doc-biblioref">13</a>]</span>, a local
 topological marker, evaluated on the Amorphous Kitaev Model. The marker
 is defined around a point, denoted by the dotted crosshair. Information
@@ -480,7 +527,7 @@ that the isotropic phase is non-Abelian.</figcaption>
 </div>
 <h3 id="edge-modes">Edge Modes</h3>
 <p>Chiral Spin Liquids support topological protected edge modes on open
-boundary conditions <span class="citation"
+boundary conditions <span class="citation"
 data-cites="qi_general_2006"> [<a href="#ref-qi_general_2006"
 role="doc-biblioref">15</a>]</span>. fig. <a
 href="#fig:edge_modes">3</a> shows the probability density of one such
@@ -517,31 +564,31 @@ states.</figcaption>
 Thermal Metal</h2>
 <p>Previous work on the honeycomb model at finite temperature has shown
 that the B phase undergoes a thermal transition from a quantum spin
-liquid phase a to a <strong>thermal metal</strong> phase <span
+liquid phase a to a <strong>thermal metal</strong> phase <span
 class="citation" data-cites="selfThermallyInducedMetallic2019"> [<a
 href="#ref-selfThermallyInducedMetallic2019"
 role="doc-biblioref">16</a>]</span>.</p>
 <p>This happens because at finite temperature, thermal fluctuations lead
 to spontaneous vortex-pair formation. As discussed previously these
 fluxes are dressed by Majorana bounds states and the composite object is
-an Ising-type non-Abelian anyon <span class="citation"
+an Ising-type non-Abelian anyon <span class="citation"
 data-cites="Beenakker2013"> [<a href="#ref-Beenakker2013"
 role="doc-biblioref">17</a>]</span>. The interactions between these
 anyons are oscillatory similar to the RKKY exchange and decay
-exponentially with separation <span class="citation"
+exponentially with separation <span class="citation"
 data-cites="Laumann2012 Lahtinen_2011 lahtinenTopologicalLiquidNucleation2012"> [<a
 href="#ref-Laumann2012" role="doc-biblioref">18</a>–<a
 href="#ref-lahtinenTopologicalLiquidNucleation2012"
 role="doc-biblioref">20</a>]</span>. At sufficient density, the anyons
 hybridise to a macroscopically degenerate state known as <em>thermal
-metal</em> <span class="citation" data-cites="Laumann2012"> [<a
+metal</em> <span class="citation" data-cites="Laumann2012"> [<a
 href="#ref-Laumann2012" role="doc-biblioref">18</a>]</span>. At close
 range the oscillatory behaviour of the interactions can be modelled by a
 random sign which forms the basis for a random matrix theory description
 of the thermal metal state.</p>
 <p>The amorphous chiral spin liquid undergoes the same form of Anderson
 transition to a thermal metal state. Markov Chain Monte Carlo would be
-necessary to simulate this in full detail <span class="citation"
+necessary to simulate this in full detail <span class="citation"
 data-cites="selfThermallyInducedMetallic2019"> [<a
 href="#ref-selfThermallyInducedMetallic2019"
 role="doc-biblioref">16</a>]</span> but in order to avoid that
@@ -635,7 +682,7 @@ model onto a Majorana model with interactions that take random signs
 which can itself be mapped onto a coarser lattice with lower energy
 excitations and so on. This can be repeating indefinitely, showing the
 model must have excitations at arbitrarily low energies in the
-thermodynamic limit <span class="citation"
+thermodynamic limit <span class="citation"
 data-cites="bocquet_disordered_2000 selfThermallyInducedMetallic2019"> [<a
 href="#ref-selfThermallyInducedMetallic2019"
 role="doc-biblioref">16</a>,<a href="#ref-bocquet_disordered_2000"
@@ -650,10 +697,10 @@ field.</p>
 src="/assets/thesis/amk_chapter/results/DOS_oscillations/DOS_oscillations.svg"
 data-short-caption="Distinctive Oscillations in the Density of States"
 style="width:100.0%"
-alt="Figure 6: Density of states at high temperature showing the logarithmic divergence at zero energy and oscillations characteristic of the thermal metal state  [16,21]. (a) shows the honeycomb lattice model in the B phase with magnetic field, while (b) shows that our model transitions to a thermal metal phase without an external magnetic field but rather due to the spontaneous chiral symmetry breaking. In both plots the density of vortices is \rho = 0.5 corresponding to the T = \infty limit." />
+alt="Figure 6: Density of states at high temperature showing the logarithmic divergence at zero energy and oscillations characteristic of the thermal metal state  [16,21]. (a) shows the honeycomb lattice model in the B phase with magnetic field, while (b) shows that our model transitions to a thermal metal phase without an external magnetic field but rather due to the spontaneous chiral symmetry breaking. In both plots the density of vortices is \rho = 0.5 corresponding to the T = \infty limit." />
 <figcaption aria-hidden="true"><span>Figure 6:</span> Density of states
 at high temperature showing the logarithmic divergence at zero energy
-and oscillations characteristic of the thermal metal state <span
+and oscillations characteristic of the thermal metal state <span
 class="citation"
 data-cites="bocquet_disordered_2000 selfThermallyInducedMetallic2019"> [<a
 href="#ref-selfThermallyInducedMetallic2019"
@@ -713,20 +760,20 @@ Realisations and Signatures</h2>
 <p>The obvious question is whether amorphous Kitaev materials could be
 physically realised.</p>
 <p>Most crystals can as exists in a metastable amorphous state if they
-are cooled rapidly, freezing them into a disordered configuration <span
+are cooled rapidly, freezing them into a disordered configuration <span
 class="citation"
 data-cites="Weaire1976 Petrakovski1981 Kaneyoshi2018"> [<a
 href="#ref-Weaire1976" role="doc-biblioref">22</a>–<a
 href="#ref-Kaneyoshi2018" role="doc-biblioref">24</a>]</span>. Indeed
 quenching has been used by humans to control the hardness of steel or
 iron for thousands of years. It would therefore be interesting to study
-amorphous version of candidate Kitaev materials <span class="citation"
+amorphous version of candidate Kitaev materials <span class="citation"
 data-cites="trebstKitaevMaterials2022"> [<a
 href="#ref-trebstKitaevMaterials2022"
 role="doc-biblioref"><strong>trebstKitaevMaterials2022?</strong></a>]</span>
 such as <span class="math inline">\(\alpha-\textrm{RuCl}_3\)</span> to
 see whether they maintain even approximate fixed coordination number
-locally as is the case with amorphous Silicon and Germanium <span
+locally as is the case with amorphous Silicon and Germanium <span
 class="citation" data-cites="Weaire1971 betteridge1973possible"> [<a
 href="#ref-Weaire1971" role="doc-biblioref">25</a>,<a
 href="#ref-betteridge1973possible"
@@ -747,7 +794,7 @@ role="doc-biblioref">29</a>]</span>.</p>
 <h2 id="generalisations">Generalisations</h2>
 <p>The model presented here could be generalized in several ways.</p>
 <p>First, it would be interesting to study the stability of the chiral
-amorphous Kitaev QSL with respect to perturbations <span
+amorphous Kitaev QSL with respect to perturbations\ <span
 class="citation"
 data-cites="Rau2014 Chaloupka2010 Chaloupka2013 Chaloupka2015 Winter2016"> [<a
 href="#ref-Rau2014" role="doc-biblioref">30</a>–<a
@@ -760,7 +807,7 @@ j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha} +
 \sigma_j\sigma_k\]</span> With a view to more realistic prospects of
 observation, it would be interesting to see if the properties of the
 Kitaev-Heisenberg model generalise from the honeycomb to the amorphous
-case[<span class="citation" data-cites="Chaloupka2010"> [<a
+case [<span class="citation" data-cites="Chaloupka2010"> [<a
 href="#ref-Chaloupka2010" role="doc-biblioref">31</a>]</span>; <span
 class="citation" data-cites="Chaloupka2015"> [<a
 href="#ref-Chaloupka2015" role="doc-biblioref">33</a>]</span>; <span
@@ -773,7 +820,7 @@ href="#ref-manousakisSpinTextonehalfHeisenberg1991"
 role="doc-biblioref">37</a>]</span>;].</p>
 <p>Finally it might be possible to look at generalizations to
 higher-spin models or those on random networks with different
-coordination numbers <span class="citation"
+coordination numbers <span class="citation"
 data-cites="Baskaran2008 Yao2009 Nussinov2009 Yao2011 Chua2011 Natori2020 Chulliparambil2020 Chulliparambil2021 Seifert2020 WangHaoranPRB2021 Wu2009"> [<a
 href="#ref-Yao2011" role="doc-biblioref">2</a>,<a
 href="#ref-Baskaran2008" role="doc-biblioref">38</a>–<a

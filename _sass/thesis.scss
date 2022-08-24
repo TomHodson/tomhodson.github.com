@@ -58,3 +58,13 @@ div.csl-entry a {
 div.csl-entry div {
     display: inline;
 }
+
+header li {
+    list-style: none;
+    a {
+        text-decoration: none;
+        margin-bottom: 0.5em;
+        display:block;
+        
+    }
+}
