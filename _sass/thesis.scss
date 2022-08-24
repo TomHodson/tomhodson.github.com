@@ -35,13 +35,25 @@ main > ul > ul > li {
     margin-top: 0.5em;
 }
 
-// Mess with the formatting of the citations
+// Pull the citations a little closer in to the previous word
+span.citation {
+    margin-left: -1em;
+
+    a {
+        text-decoration: none;
+        color: darkblue;
+    }
+}
+
+// Mess with the formatting of the bibliography
 div.csl-entry {
     margin-bottom: 0.5em;
 }
-// div.csl-entry a {
+div.csl-entry a {
 //     text-decoration: none;
-// }
+        text-decoration: none; 
+        color: darkblue;
+}
 
 div.csl-entry div {
     display: inline;

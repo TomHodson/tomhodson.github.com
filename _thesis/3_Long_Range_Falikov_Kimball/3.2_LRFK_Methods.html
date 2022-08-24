@@ -360,10 +360,10 @@ The fact they’re uncorrelated is key as we’ll see later. Examples of
 direct sampling methods range from the trivial: take n random bits to
 generate integers uniformly between 0 and <span
 class="math inline">\(2^n\)</span> to more complex methods such as
-inverse transform sampling and rejection sampling<span class="citation"
-data-cites="devroyeRandomSampling1986"><sup><a
+inverse transform sampling and rejection sampling <span class="citation"
+data-cites="devroyeRandomSampling1986"> [<a
 href="#ref-devroyeRandomSampling1986"
-role="doc-biblioref">1</a></sup></span>.</p>
+role="doc-biblioref">1</a>]</span>.</p>
 <p>In physics the distribution we usually want to sample from is the
 Boltzmann probability over states of the system <span
 class="math inline">\(S\)</span>: <span class="math display">\[
@@ -383,9 +383,9 @@ with system size. Even if we could calculate <span
 class="math inline">\(\mathcal{Z}\)</span>, sampling from an
 exponentially large number of options quickly become tricky. This kind
 of problem happens in many other disciplines too, particularly when
-fitting statistical models using Bayesian inference<span
-class="citation" data-cites="BMCP2021"><sup><a href="#ref-BMCP2021"
-role="doc-biblioref">2</a></sup></span>.</p>
+fitting statistical models using Bayesian inference <span
+class="citation" data-cites="BMCP2021"> [<a href="#ref-BMCP2021"
+role="doc-biblioref">2</a>]</span>.</p>
 <h2 id="markov-chains">Markov Chains</h2>
 <p>So what can we do? Well it turns out that if we’re willing to give up
 in the requirement that the samples be uncorrelated then we can use MCMC
@@ -393,11 +393,11 @@ instead.</p>
 <p>MCMC defines a weighted random walk over the states <span
 class="math inline">\((S_0, S_1, S_2, ...)\)</span>, such that in the
 long time limit, states are visited according to their probability <span
-class="math inline">\(p(S)\)</span>.<span class="citation"
-data-cites="binderGuidePracticalWork1988 kerteszAdvancesComputerSimulation1998 wolffMonteCarloErrors2004"><sup><a
+class="math inline">\(p(S)\)</span>. <span class="citation"
+data-cites="binderGuidePracticalWork1988 kerteszAdvancesComputerSimulation1998 wolffMonteCarloErrors2004"> [<a
 href="#ref-binderGuidePracticalWork1988" role="doc-biblioref">3</a>–<a
 href="#ref-wolffMonteCarloErrors2004"
-role="doc-biblioref">5</a></sup></span>.</p>
+role="doc-biblioref">5</a>]</span>.</p>
 <p>In a physics context this lets us evaluate any observable with a mean
 over the states visited by the walk. <span
 class="math display">\[\begin{aligned}
@@ -407,9 +407,9 @@ class="math display">\[\begin{aligned}
 <p>The choice of the transition function for MCMC is under-determined as
 one only needs to satisfy a set of balance conditions for which there
 are many solutions <span class="citation"
-data-cites="kellyReversibilityStochasticNetworks1981"><sup><a
+data-cites="kellyReversibilityStochasticNetworks1981"> [<a
 href="#ref-kellyReversibilityStochasticNetworks1981"
-role="doc-biblioref">6</a></sup></span>.</p>
+role="doc-biblioref">6</a>]</span>.</p>
 <h2 id="application-to-the-fk-model">Application to the FK Model</h2>
 <p>We will work in the grand canonical ensemble of fixed temperature,
 chemical potential and volume.</p>
@@ -447,11 +447,11 @@ F_c[\vec{S}]} = \sum_{\vec{S}} e^{-\beta E[\vec{S}]}
 expectation values <span class="math inline">\(\expval{O}\)</span> with
 respect to some physical system defined by a set of states <span
 class="math inline">\(\{x: x \in S\}\)</span> and a free energy <span
-class="math inline">\(F(x)\)</span><span class="citation"
-data-cites="krauthIntroductionMonteCarlo1998"><sup><a
+class="math inline">\(F(x)\)</span> <span class="citation"
+data-cites="krauthIntroductionMonteCarlo1998"> [<a
 href="#ref-krauthIntroductionMonteCarlo1998"
-role="doc-biblioref">7</a></sup></span>. The thermal expectation value
-is defined via a Boltzmann weighted sum over the entire states: <span
+role="doc-biblioref">7</a>]</span>. The thermal expectation value is
+defined via a Boltzmann weighted sum over the entire states: <span
 class="math display">\[
 \begin{aligned}
     \expval{O} &amp;= \frac{1}{\mathcal{Z}} \sum_{x \in S} O(x) P(x) \\
@@ -526,10 +526,10 @@ P(x) \mathcal{T}(x \rightarrow x&#39;) = P(x&#39;) \mathcal{T}(x&#39;
 \rightarrow x)
 \]</span> % In practice most algorithms are constructed to satisfy
 detailed balance though there are arguments that relaxing the condition
-can lead to faster algorithms<span class="citation"
-data-cites="kapferSamplingPolytopeHarddisk2013"><sup><a
+can lead to faster algorithms <span class="citation"
+data-cites="kapferSamplingPolytopeHarddisk2013"> [<a
 href="#ref-kapferSamplingPolytopeHarddisk2013"
-role="doc-biblioref">8</a></sup></span>.</p>
+role="doc-biblioref">8</a>]</span>.</p>
 <p>The goal of MCMC is then to choose <span
 class="math inline">\(\mathcal{T}\)</span> so that it has the desired
 thermal distribution <span class="math inline">\(P(x)\)</span> as its
@@ -558,10 +558,10 @@ x_{i}\)</span>. Now <span class="math inline">\(\mathcal{T}(x\to x&#39;)
 <p>The Metropolis-Hasting algorithm is a slight extension of the
 original Metropolis algorithm that allows for non-symmetric proposal
 distributions $q(xx’) q(x’x) $. It can be derived starting from detailed
-balance<span class="citation"
-data-cites="krauthIntroductionMonteCarlo1998"><sup><a
+balance <span class="citation"
+data-cites="krauthIntroductionMonteCarlo1998"> [<a
 href="#ref-krauthIntroductionMonteCarlo1998"
-role="doc-biblioref">7</a></sup></span>: <span
+role="doc-biblioref">7</a>]</span>: <span
 class="math display">\[\begin{aligned}
 P(x)\mathcal{T}(x \to x&#39;) &amp;= P(x&#39;)\mathcal{T}(x&#39; \to x)
 \\
@@ -671,11 +671,11 @@ problematic because it means very few new samples will be generated. If
 it is too high it implies the steps are too small, a problem because
 then the walk will take longer to explore the state space and the
 samples will be highly correlated. Ideal values for the acceptance rate
-can be calculated under certain assumptions<span class="citation"
-data-cites="robertsWeakConvergenceOptimal1997"><sup><a
+can be calculated under certain assumptions <span class="citation"
+data-cites="robertsWeakConvergenceOptimal1997"> [<a
 href="#ref-robertsWeakConvergenceOptimal1997"
-role="doc-biblioref">9</a></sup></span>. Here we monitor the acceptance
-rate and if it is too high we re-run the MCMC with a modified proposal
+role="doc-biblioref">9</a>]</span>. Here we monitor the acceptance rate
+and if it is too high we re-run the MCMC with a modified proposal
 distribution that has a chance to propose moves that flip multiple sites
 at a time.</p>
 <p>In addition we exploit the particle-hole symmetry of the problem by
@@ -686,10 +686,10 @@ produce a state at or near the energy of the current one.</p>
 <p>The matrix diagonalisation is the most computationally expensive step
 of the process, a speed up can be obtained by modifying the proposal
 distribution to depend on the classical part of the energy, a trick
-gleaned from Ref.<span class="citation"
-data-cites="krauthIntroductionMonteCarlo1998"><sup><a
+gleaned from Ref. <span class="citation"
+data-cites="krauthIntroductionMonteCarlo1998"> [<a
 href="#ref-krauthIntroductionMonteCarlo1998"
-role="doc-biblioref">7</a></sup></span>: <span class="math display">\[
+role="doc-biblioref">7</a>]</span>: <span class="math display">\[
 \begin{aligned}
 q(k \to k&#39;) &amp;= \min\left(1, e^{\beta (H^{k&#39;} - H^k)}\right)
 \\
@@ -700,12 +700,11 @@ without performing the diagonalisation at no cost to the accuracy of the
 MCMC method.</p>
 <p>An extension of this idea is to try to define a classical model with
 a similar free energy dependence on the classical state as the full
-quantum, Ref.<span class="citation"
-data-cites="huangAcceleratedMonteCarlo2017"><sup><a
+quantum, Ref. <span class="citation"
+data-cites="huangAcceleratedMonteCarlo2017"> [<a
 href="#ref-huangAcceleratedMonteCarlo2017"
-role="doc-biblioref">10</a></sup></span> does this with restricted
-Boltzmann machines whose form is very similar to a classical spin
-model.</p>
+role="doc-biblioref">10</a>]</span> does this with restricted Boltzmann
+machines whose form is very similar to a classical spin model.</p>
 <h2 id="scaling">Scaling</h2>
 <p>In order to reduce the effects of the boundary conditions and the
 finite size of the system we redefine and normalise the coupling matrix
@@ -726,12 +725,12 @@ central moments of the order parameter m: <span class="math display">\[m
 = \sum_i (-1)^i (2n_i - 1) / N\]</span> % The Binder cumulant evaluated
 against temperature can be used as a diagnostic for the existence of a
 phase transition. If multiple such curves are plotted for different
-system sizes, a crossing indicates the location of a critical point<span
-class="citation"
-data-cites="binderFiniteSizeScaling1981 musialMonteCarloSimulations2002"><sup><a
+system sizes, a crossing indicates the location of a critical point
+<span class="citation"
+data-cites="binderFiniteSizeScaling1981 musialMonteCarloSimulations2002"> [<a
 href="#ref-binderFiniteSizeScaling1981" role="doc-biblioref">11</a>,<a
 href="#ref-musialMonteCarloSimulations2002"
-role="doc-biblioref"><strong>musialMonteCarloSimulations2002?</strong></a></sup></span>.</p>
+role="doc-biblioref"><strong>musialMonteCarloSimulations2002?</strong></a>]</span>.</p>
 <h2 id="markov-chain-monte-carlo-in-practice">Markov Chain Monte-Carlo
 in Practice</h2>
 <h3 id="quick-intro-to-mcmc">Quick Intro to MCMC</h3>
@@ -758,13 +757,13 @@ very expensive operation!~\footnote{The effort involved in exact
 diagonalisation scales like <span class="math inline">\(N^2\)</span> for
 systems with a tri-diagonal matrix representation (open boundary
 conditions and nearest neighbour hopping) and like <span
-class="math inline">\(N^3\)</span> for a generic matrix<span
+class="math inline">\(N^3\)</span> for a generic matrix <span
 class="citation"
-data-cites="bolchQueueingNetworksMarkov2006 usmaniInversionTridiagonalJacobi1994"><sup><a
+data-cites="bolchQueueingNetworksMarkov2006 usmaniInversionTridiagonalJacobi1994"> [<a
 href="#ref-bolchQueueingNetworksMarkov2006"
 role="doc-biblioref">12</a>,<a
 href="#ref-usmaniInversionTridiagonalJacobi1994"
-role="doc-biblioref">13</a></sup></span>.</p>
+role="doc-biblioref">13</a>]</span>.</p>
 <p>c</p>
 <p>MCMC sidesteps these issues by defining a random walk that focuses on
 the states with the greatest Boltzmann weight. At low temperatures this
@@ -878,10 +877,10 @@ auto-correlation time <span class="math inline">\(\tau(O)\)</span>
 informally as the number of MCMC samples of some observable O that are
 statistically equal to one independent sample or equivalently as the
 number of MCMC steps after which the samples are correlated below some
-cutoff, see<span class="citation"
-data-cites="krauthIntroductionMonteCarlo1996"><sup><a
+cutoff, see <span class="citation"
+data-cites="krauthIntroductionMonteCarlo1996"> [<a
 href="#ref-krauthIntroductionMonteCarlo1996"
-role="doc-biblioref">14</a></sup></span> for a more rigorous definition
+role="doc-biblioref">14</a>]</span> for a more rigorous definition
 involving a sum over the auto-correlation function. The auto-correlation
 time is generally shorter than the convergence time so it therefore
 makes sense from an efficiency standpoint to run a single walker for
@@ -960,28 +959,28 @@ than the current state.</p>
 <h2 id="two-step-trick">Two Step Trick</h2>
 <p>Here, we incorporate a modification to the standard
 Metropolis-Hastings algorithm <span class="citation"
-data-cites="hastingsMonteCarloSampling1970"><sup><a
+data-cites="hastingsMonteCarloSampling1970"> [<a
 href="#ref-hastingsMonteCarloSampling1970"
-role="doc-biblioref">15</a></sup></span> gleaned from Krauth <span
-class="citation" data-cites="krauthIntroductionMonteCarlo1998"><sup><a
+role="doc-biblioref">15</a>]</span> gleaned from Krauth <span
+class="citation" data-cites="krauthIntroductionMonteCarlo1998"> [<a
 href="#ref-krauthIntroductionMonteCarlo1998"
-role="doc-biblioref">7</a></sup></span>.</p>
+role="doc-biblioref">7</a>]</span>.</p>
 <p>In our computations <span class="citation"
-data-cites="hodsonMCMCFKModel2021"><sup><a
-href="#ref-hodsonMCMCFKModel2021"
-role="doc-biblioref">16</a></sup></span> we employ a modification of the
-algorithm which is based on the observation that the free energy of the
-FK system is composed of a classical part which is much quicker to
-compute than the quantum part. Hence, we can obtain a computational
-speedup by first considering the value of the classical energy
-difference <span class="math inline">\(\Delta H_s\)</span> and rejecting
-the transition if the former is too high. We only compute the quantum
-energy difference <span class="math inline">\(\Delta F_c\)</span> if the
-transition is accepted. We then perform a second rejection sampling step
-based upon it. This corresponds to two nested comparisons with the
-majority of the work only occurring if the first test passes and has the
-acceptance function <span class="math display">\[\mathcal{A}(a \to b) =
-\min\left(1, e^{-\beta \Delta H_s}\right)\min\left(1, e^{-\beta \Delta
+data-cites="hodsonMCMCFKModel2021"> [<a
+href="#ref-hodsonMCMCFKModel2021" role="doc-biblioref">16</a>]</span> we
+employ a modification of the algorithm which is based on the observation
+that the free energy of the FK system is composed of a classical part
+which is much quicker to compute than the quantum part. Hence, we can
+obtain a computational speedup by first considering the value of the
+classical energy difference <span class="math inline">\(\Delta
+H_s\)</span> and rejecting the transition if the former is too high. We
+only compute the quantum energy difference <span
+class="math inline">\(\Delta F_c\)</span> if the transition is accepted.
+We then perform a second rejection sampling step based upon it. This
+corresponds to two nested comparisons with the majority of the work only
+occurring if the first test passes and has the acceptance function <span
+class="math display">\[\mathcal{A}(a \to b) = \min\left(1, e^{-\beta
+\Delta H_s}\right)\min\left(1, e^{-\beta \Delta
 F_c}\right)\;.\]</span></p>
 <p>For the model parameters used in Fig. <a href="#fig:indiv_IPR"
 data-reference-type="ref" data-reference="fig:indiv_IPR">2</a>, we find
@@ -1008,9 +1007,9 @@ distribution, a problem which MCMC was employed to solve in the first
 place. For example, recent work trains restricted Boltzmann machines
 (RBMs) to generate samples for the proposal distribution of the FK
 model <span class="citation"
-data-cites="huangAcceleratedMonteCarlo2017"><sup><a
+data-cites="huangAcceleratedMonteCarlo2017"> [<a
 href="#ref-huangAcceleratedMonteCarlo2017"
-role="doc-biblioref">10</a></sup></span>. The RBMs are chosen as a
+role="doc-biblioref">10</a>]</span>. The RBMs are chosen as a
 parametrisation of the proposal distribution that can be efficiently
 sampled from while offering sufficient flexibility that they can be
 adjusted to match the target distribution. Our proposed method is
@@ -1021,11 +1020,11 @@ the two step method</h2>
 <p>Given a MCMC algorithm with target distribution <span
 class="math inline">\(\pi(a)\)</span> and transition function <span
 class="math inline">\(\mathcal{T}\)</span> the detailed balance
-condition is sufficient (along with some technical constraints<span
-class="citation" data-cites="wolffMonteCarloErrors2004"><sup><a
+condition is sufficient (along with some technical constraints <span
+class="citation" data-cites="wolffMonteCarloErrors2004"> [<a
 href="#ref-wolffMonteCarloErrors2004"
-role="doc-biblioref">5</a></sup></span>) to guarantee that in the long
-time limit the algorithm produces samples from <span
+role="doc-biblioref">5</a>]</span>) to guarantee that in the long time
+limit the algorithm produces samples from <span
 class="math inline">\(\pi\)</span>. <span
 class="math display">\[\pi(a)\mathcal{T}(a \to b) = \pi(b)\mathcal{T}(b
 \to a)\]</span></p>
@@ -1141,10 +1140,10 @@ for the additional complexity it would require.</p>
 <h3 id="inverse-participation-ratio">Inverse Participation Ratio</h3>
 <p>The inverse participation ratio is defined for a normalised wave
 function <span class="math inline">\(\psi_i = \psi(x_i), \sum_i
-\abs{\psi_i}^2 = 1\)</span> as its fourth moment<span class="citation"
-data-cites="kramerLocalizationTheoryExperiment1993"><sup><a
+\abs{\psi_i}^2 = 1\)</span> as its fourth moment <span class="citation"
+data-cites="kramerLocalizationTheoryExperiment1993"> [<a
 href="#ref-kramerLocalizationTheoryExperiment1993"
-role="doc-biblioref">17</a></sup></span>: <span class="math display">\[
+role="doc-biblioref">17</a>]</span>: <span class="math display">\[
 P^{-1} = \sum_i \abs{\psi_i}^4
 \]</span> % It acts as a measure of the portion of space occupied by the
 wave function. For localised states it will be independent of system
@@ -1155,11 +1154,10 @@ fractal dimensionality <span class="math inline">\(d &gt; d* &gt;
 P(L) \goeslike L^{d*}
 \]</span> % For extended states <span class="math inline">\(d* =
 0\)</span> while for localised ones <span class="math inline">\(d* =
-0\)</span>. In this work we take use an energy resolved IPR<span
-class="citation"
-data-cites="andersonAbsenceDiffusionCertain1958"><sup><a
+0\)</span>. In this work we take use an energy resolved IPR <span
+class="citation" data-cites="andersonAbsenceDiffusionCertain1958"> [<a
 href="#ref-andersonAbsenceDiffusionCertain1958"
-role="doc-biblioref">18</a></sup></span>: <span class="math display">\[
+role="doc-biblioref">18</a>]</span>: <span class="math display">\[
 DOS(\omega) = \sum_n \delta(\omega - \epsilon_n)
 IPR(\omega) = DOS(\omega)^{-1} \sum_{n,i} \delta(\omega - \epsilon_n)
 \abs{\psi_{n,i}}^4
@@ -1518,148 +1516,141 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a hr
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <p></ij></ij></p>
-<div id="refs" class="references csl-bib-body" data-line-spacing="2"
-role="doc-bibliography">
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-devroyeRandomSampling1986" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div
-class="csl-right-inline">Devroye, L. Random Sampling. in <em>Non-Uniform
-Random Variate Generation</em> (ed. Devroye, L.) 611–641 (Springer,
-1986). doi:<a
-href="https://doi.org/10.1007/978-1-4613-8643-8_12">10.1007/978-1-4613-8643-8_12</a>.</div>
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">L.
+Devroye, <em><a
+href="https://doi.org/10.1007/978-1-4613-8643-8_12">Random
+Sampling</a></em>, in <em>Non-Uniform Random Variate Generation</em>,
+edited by L. Devroye (Springer, New York, NY, 1986), pp. 611–641.</div>
 </div>
 <div id="ref-BMCP2021" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div
-class="csl-right-inline">Martin, O. A., Kumar, R. &amp; Lao, J.
-<em>Bayesian modeling and computation in python</em>. (2021).</div>
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">O.
+A. Martin, R. Kumar, and J. Lao, <em>Bayesian Modeling and Computation
+in Python</em> (Boca Raton, 2021).</div>
 </div>
 <div id="ref-binderGuidePracticalWork1988" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div
-class="csl-right-inline">Binder, K. &amp; Heermann, D. W. Guide to
-Practical Work with the Monte Carlo Method. in <em>Monte Carlo
-Simulation in Statistical Physics: An Introduction</em> (eds. Binder, K.
-&amp; Heermann, D. W.) 68–112 (Springer Berlin Heidelberg, 1988). doi:<a
-href="https://doi.org/10.1007/978-3-662-08854-8_3">10.1007/978-3-662-08854-8_3</a>.</div>
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">K.
+Binder and D. W. Heermann, <em><a
+href="https://doi.org/10.1007/978-3-662-08854-8_3">Guide to Practical
+Work with the Monte Carlo Method</a></em>, in <em>Monte Carlo Simulation
+in Statistical Physics: An Introduction</em>, edited by K. Binder and D.
+W. Heermann (Springer Berlin Heidelberg, Berlin, Heidelberg, 1988), pp.
+68–112.</div>
 </div>
 <div id="ref-kerteszAdvancesComputerSimulation1998" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div
-class="csl-right-inline"><em>Advances in Computer Simulation: Lectures
-Held at the Eötvös Summer School in Budapest, Hungary, 16–20 July
-1996</em>. (Springer-Verlag, 1998). doi:<a
-href="https://doi.org/10.1007/BFb0105456">10.1007/BFb0105456</a>.</div>
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">J.
+Kertesz and I. Kondor, editors, <em><a
+href="https://doi.org/10.1007/BFb0105456">Advances in Computer
+Simulation: Lectures Held at the Eötvös Summer School in Budapest,
+Hungary, 16–20 July 1996</a></em> (Springer-Verlag, Berlin Heidelberg,
+1998).</div>
 </div>
 <div id="ref-wolffMonteCarloErrors2004" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">5. </div><div
-class="csl-right-inline">Wolff, U. <a
-href="https://doi.org/10.1016/S0010-4655(03)00467-3">Monte Carlo errors
-with less errors</a>. <em>Computer Physics Communications</em>
-<strong>156</strong>, 143–153 (2004).</div>
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">U.
+Wolff, <em><a href="https://doi.org/10.1016/S0010-4655(03)00467-3">Monte
+Carlo Errors with Less Errors</a></em>, Computer Physics Communications
+<strong>156</strong>, 143 (2004).</div>
 </div>
 <div id="ref-kellyReversibilityStochasticNetworks1981" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">6. </div><div
-class="csl-right-inline">Kelly, F. P. <a
-href="https://doi.org/10.2307/2287860">Reversibility and stochastic
-networks / F.P. Kelly</a>. <em>SERBIULA (sistema Librum 2.0)</em>
-<strong>76</strong>, (1981).</div>
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">F.
+P. Kelly, <em><a href="https://doi.org/10.2307/2287860">Reversibility
+and Stochastic Networks / F.P. Kelly</a></em>, SERBIULA (Sistema Librum
+2.0) <strong>76</strong>, (1981).</div>
 </div>
 <div id="ref-krauthIntroductionMonteCarlo1998" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">7. </div><div
-class="csl-right-inline">Krauth, W. Introduction To Monte Carlo
-Algorithms. in <em>Advances in Computer Simulation: Lectures Held at the
-Eötvös Summer School in Budapest, Hungary, 16–20 July 1996</em>
-(Springer-Verlag, 1998). doi:<a
-href="https://doi.org/10.1007/BFb0105456">10.1007/BFb0105456</a>.</div>
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">W.
+Krauth, <em><a href="https://doi.org/10.1007/BFb0105456">Introduction To
+Monte Carlo Algorithms</a></em>, in <em>Advances in Computer Simulation:
+Lectures Held at the Eötvös Summer School in Budapest, Hungary, 16–20
+July 1996</em> (Springer-Verlag, Berlin Heidelberg, 1998).</div>
 </div>
 <div id="ref-kapferSamplingPolytopeHarddisk2013" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">8. </div><div
-class="csl-right-inline">Kapfer, S. C. &amp; Krauth, W. <a
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">S.
+C. Kapfer and W. Krauth, <em><a
 href="https://doi.org/10.1088/1742-6596/454/1/012031">Sampling from a
-polytope and hard-disk Monte Carlo</a>. <em>J. Phys.: Conf. Ser.</em>
+Polytope and Hard-Disk Monte Carlo</a></em>, J. Phys.: Conf. Ser.
 <strong>454</strong>, 012031 (2013).</div>
 </div>
 <div id="ref-robertsWeakConvergenceOptimal1997" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">9. </div><div
-class="csl-right-inline">Roberts, G. O., Gelman, A. &amp; Gilks, W. R.
-<a href="https://doi.org/10.1214/aoap/1034625254">Weak convergence and
-optimal scaling of random walk Metropolis algorithms</a>. <em>Ann. Appl.
-Probab.</em> <strong>7</strong>, 110–120 (1997).</div>
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">G.
+O. Roberts, A. Gelman, and W. R. Gilks, <em><a
+href="https://doi.org/10.1214/aoap/1034625254">Weak Convergence and
+Optimal Scaling of Random Walk Metropolis Algorithms</a></em>, Ann.
+Appl. Probab. <strong>7</strong>, 110 (1997).</div>
 </div>
 <div id="ref-huangAcceleratedMonteCarlo2017" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">10. </div><div
-class="csl-right-inline">Huang, L. &amp; Wang, L. <a
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">L.
+Huang and L. Wang, <em><a
 href="https://doi.org/10.1103/PhysRevB.95.035105">Accelerated Monte
-Carlo simulations with restricted Boltzmann machines</a>. <em>Phys. Rev.
-B</em> <strong>95</strong>, 035105 (2017).</div>
+Carlo Simulations with Restricted Boltzmann Machines</a></em>, Phys.
+Rev. B <strong>95</strong>, 035105 (2017).</div>
 </div>
 <div id="ref-binderFiniteSizeScaling1981" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">11. </div><div
-class="csl-right-inline">Binder, K. <a
-href="https://doi.org/10.1007/BF01293604">Finite size scaling analysis
-of ising model block distribution functions</a>. <em>Z. Physik B -
-Condensed Matter</em> <strong>43</strong>, 119–140 (1981).</div>
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">K.
+Binder, <em><a href="https://doi.org/10.1007/BF01293604">Finite Size
+Scaling Analysis of Ising Model Block Distribution Functions</a></em>,
+Z. Physik B - Condensed Matter <strong>43</strong>, 119 (1981).</div>
 </div>
 <div id="ref-bolchQueueingNetworksMarkov2006" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">12. </div><div
-class="csl-right-inline">Bolch, G., Greiner, S., Meer, H. de &amp;
-Trivedi, K. S. <em>Queueing Networks and Markov Chains: Modeling and
-Performance Evaluation with Computer Science Applications</em>. (John
-Wiley &amp; Sons, 2006).</div>
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">G.
+Bolch, S. Greiner, H. de Meer, and K. S. Trivedi, <em>Queueing Networks
+and Markov Chains: Modeling and Performance Evaluation with Computer
+Science Applications</em> (John Wiley &amp; Sons, 2006).</div>
 </div>
 <div id="ref-usmaniInversionTridiagonalJacobi1994" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">13. </div><div
-class="csl-right-inline">Usmani, R. A. <a
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">R.
+A. Usmani, <em><a
 href="https://doi.org/10.1016/0024-3795(94)90414-6">Inversion of a
-tridiagonal jacobi matrix</a>. <em>Linear Algebra and its
-Applications</em> <strong>212-213</strong>, 413–414 (1994).</div>
+Tridiagonal Jacobi Matrix</a></em>, Linear Algebra and Its Applications
+<strong>212-213</strong>, 413 (1994).</div>
 </div>
 <div id="ref-krauthIntroductionMonteCarlo1996" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">14. </div><div
-class="csl-right-inline">Krauth, W. <a
-href="http://arxiv.org/abs/cond-mat/9612186">Introduction To Monte Carlo
-Algorithms</a>. <em>arXiv:cond-mat/9612186</em> (1996).</div>
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">W.
+Krauth, <em><a href="http://arxiv.org/abs/cond-mat/9612186">Introduction
+To Monte Carlo Algorithms</a></em>, arXiv:cond-Mat/9612186 (1996).</div>
 </div>
 <div id="ref-hastingsMonteCarloSampling1970" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">15. </div><div
-class="csl-right-inline">Hastings, W. K. <a
-href="https://doi.org/10.1093/biomet/57.1.97">Monte Carlo sampling
-methods using Markov chains and their applications</a>.
-<em>Biometrika</em> <strong>57</strong>, 97–109 (1970).</div>
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">W.
+K. Hastings, <em><a href="https://doi.org/10.1093/biomet/57.1.97">Monte
+Carlo Sampling Methods Using Markov Chains and Their
+Applications</a></em>, Biometrika <strong>57</strong>, 97 (1970).</div>
 </div>
 <div id="ref-hodsonMCMCFKModel2021" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">16. </div><div
-class="csl-right-inline">Hodson, T. Markov Chain Monte Carlo for the
-Kitaev Model. (2021) doi:<a
-href="https://doi.org/10.5281/zenodo.4593904">10.5281/zenodo.4593904</a>.</div>
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">T.
+Hodson, <em><a href="https://doi.org/10.5281/zenodo.4593904">Markov
+Chain Monte Carlo for the Kitaev Model</a></em>, (2021).</div>
 </div>
 <div id="ref-kramerLocalizationTheoryExperiment1993" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">17. </div><div
-class="csl-right-inline">Kramer, B. &amp; MacKinnon, A. <a
-href="https://doi.org/10.1088/0034-4885/56/12/001">Localization: theory
-and experiment</a>. <em>Rep. Prog. Phys.</em> <strong>56</strong>,
-1469–1564 (1993).</div>
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">B.
+Kramer and A. MacKinnon, <em><a
+href="https://doi.org/10.1088/0034-4885/56/12/001">Localization: Theory
+and Experiment</a></em>, Rep. Prog. Phys. <strong>56</strong>, 1469
+(1993).</div>
 </div>
 <div id="ref-andersonAbsenceDiffusionCertain1958" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">18. </div><div
-class="csl-right-inline">Anderson, P. W. <a
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">P.
+W. Anderson, <em><a
 href="https://doi.org/10.1103/PhysRev.109.1492">Absence of Diffusion in
-Certain Random Lattices</a>. <em>Phys. Rev.</em> <strong>109</strong>,
-1492–1505 (1958).</div>
+Certain Random Lattices</a></em>, Phys. Rev. <strong>109</strong>, 1492
+(1958).</div>
 </div>
 </div>
 <section class="footnotes footnotes-end-of-document"
@@ -1675,11 +1666,11 @@ systems with a tri-diagonal matrix representation (open boundary
 conditions and nearest neighbour hopping) and like <span
 class="math inline">\(N^3\)</span> for a generic matrix <span
 class="citation"
-data-cites="bolchQueueingNetworksMarkov2006 usmaniInversionTridiagonalJacobi1994"><sup><a
+data-cites="bolchQueueingNetworksMarkov2006 usmaniInversionTridiagonalJacobi1994"> [<a
 href="#ref-bolchQueueingNetworksMarkov2006"
 role="doc-biblioref">12</a>,<a
 href="#ref-usmaniInversionTridiagonalJacobi1994"
-role="doc-biblioref">13</a></sup></span>.<a href="#fnref2"
+role="doc-biblioref">13</a>]</span>.<a href="#fnref2"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3" role="doc-endnote"><p>or, in the general case, any desired
 distribution. MCMC has found a lot of use in sampling from the
@@ -1689,9 +1680,9 @@ role="doc-backlink">↩︎</a></p></li>
 <li id="fn4" role="doc-endnote"><p>or equivalently as the number of MCMC
 steps after which the samples are correlated below some cutoff,
 see <span class="citation"
-data-cites="krauthIntroductionMonteCarlo1996"><sup><a
+data-cites="krauthIntroductionMonteCarlo1996"> [<a
 href="#ref-krauthIntroductionMonteCarlo1996"
-role="doc-biblioref">14</a></sup></span> for a more rigorous definition
+role="doc-biblioref">14</a>]</span> for a more rigorous definition
 involving a sum over the auto-correlation function.<a href="#fnref4"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
