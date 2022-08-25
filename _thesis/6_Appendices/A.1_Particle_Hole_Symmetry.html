@@ -1,0 +1,128 @@
+---
+title: A.1_Particle_Hole_Symmetry
+excerpt: 
+layout: none
+image: 
+
+---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>A.1_Particle_Hole_Symmetry</title>
+
+
+<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+<script src="/assets/js/thesis_scrollspy.js"></script>
+
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/index.js"></script>
+</head>
+<body>
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+<nav aria-label="Table of Contents" class="page-table-of-contents">
+<ul>
+<li><a href="#particle-hole-symmetry"
+id="toc-particle-hole-symmetry">Particle-Hole Symmetry</a></li>
+<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
+</ul>
+</nav>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable so it can be put into the sidebar-->
+{% include header.html extra=tableOfContents %}
+
+<main>
+
+<!-- Table of Contents -->
+<!-- <nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#particle-hole-symmetry"
+id="toc-particle-hole-symmetry">Particle-Hole Symmetry</a></li>
+<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
+</ul>
+</nav>
+ -->
+
+<!-- Main Page Body -->
+<section id="particle-hole-symmetry" class="level1">
+<h1>Particle-Hole Symmetry</h1>
+<p>The Hubbard and FK models on a bipartite lattice have particle-hole
+(PH) symmetry <span class="math inline">\(\mathcal{P}^\dagger H
+\mathcal{P} = - H\)</span>, accordingly they have symmetric energy
+spectra. The associated symmetry operator <span
+class="math inline">\(\mathcal{P}\)</span> exchanges creation and
+annihilation operators along with a sign change between the two
+sublattices. In the language of the Hubbard model of electrons <span
+class="math inline">\(c_{\alpha,i}\)</span> with spin <span
+class="math inline">\(\alpha\)</span> at site <span
+class="math inline">\(i\)</span> the particle hole operator corresponds
+to the substitution of new fermion operators <span
+class="math inline">\(d^\dagger_{\alpha,i}\)</span> and number operators
+<span class="math inline">\(m_{\alpha,i}\)</span> where</p>
+<p><span class="math display">\[d^\dagger_{\alpha,i} = \epsilon_i
+c_{\alpha,i}\]</span> <span class="math display">\[m_{\alpha,i} =
+d^\dagger_{\alpha,i}d_{\alpha,i}\]</span></p>
+<p>the lattices must be bipartite because to make this work we set <span
+class="math inline">\(\epsilon_i = +1\)</span> for the A sublattice and
+<span class="math inline">\(-1\)</span> for the even sublattice <span
+class="citation" data-cites="gruberFalicovKimballModel2005"> [<a
+href="#ref-gruberFalicovKimballModel2005"
+role="doc-biblioref">1</a>]</span>.</p>
+<p>The entirely filled state <span class="math inline">\(\ket{\Omega} =
+\sum_{\alpha,i} c^\dagger_{\alpha,i} \ket{0}\)</span> becomes the new
+vacuum state <span class="math display">\[d_{i\sigma} \ket{\Omega} =
+(-1)^i c^\dagger_{i\sigma} \sum_{j\rho} c^\dagger_{j\rho} \ket{0} =
+0.\]</span></p>
+<p>The number operator <span class="math inline">\(m_{\alpha,i} =
+0,1\)</span> counts holes rather than electrons <span
+class="math display">\[ m_{\alpha,i} = c_{\alpha,i} c^\dagger_{\alpha,i}
+= 1 - c^\dagger_{\alpha,i} c_{\alpha,i}.\]</span></p>
+<p>With the last equality following from the fermionic commutation
+relations. In the case of nearest neighbour hopping on a bipartite
+lattice this transformation also leaves the hopping term unchanged
+because <span class="math inline">\(\epsilon_i \epsilon_j = -1\)</span>
+when <span class="math inline">\(i\)</span> and <span
+class="math inline">\(j\)</span> are on different sublattices: <span
+class="math display">\[ d^\dagger_{\alpha,i} d_{\alpha,j} = \epsilon_i
+\epsilon_j c_{\alpha,i} c^\dagger_{\alpha,j} = c^\dagger_{\alpha,i}
+c_{\alpha,j} \]</span></p>
+<p>Defining the particle density <span
+class="math inline">\(\rho\)</span> as the number of fermions per site:
+<span class="math display">\[
+    \rho = \frac{1}{N} \sum_i \left( n_{i \uparrow} + n_{i \downarrow}
+\right)
+\]</span></p>
+<p>The PH symmetry maps the Hamiltonian to itself with the sign of the
+chemical potential reversed and the density inverted about half filling:
+<span class="math display">\[ \text{PH} : H(t, U, \mu) \rightarrow H(t,
+U, -\mu) \]</span> <span class="math display">\[ \rho \rightarrow 2 -
+\rho \]</span></p>
+<p>The Hamiltonian is symmetric under PH at <span
+class="math inline">\(\mu = 0\)</span> and so must all the observables,
+hence half filling <span class="math inline">\(\rho = 1\)</span> occurs
+here. This symmetry and known observable acts as a useful test for the
+numerical calculations.</p>
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Bibliography</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-gruberFalicovKimballModel2005" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">C.
+Gruber and D. Ueltschi, <em><a
+href="http://arxiv.org/abs/math-ph/0502041">The Falicov-Kimball
+Model</a></em>, arXiv:math-Ph/0502041 (2005).</div>
+</div>
+</div>
+</section>
+
+
+</main>
+</body>
+</html>

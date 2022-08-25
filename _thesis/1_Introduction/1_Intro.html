@@ -12,189 +12,11 @@ image:
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>1_Intro</title>
-  <!-- <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-    }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style> -->
 
-<!--   <script
-       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-       type="text/javascript"></script>
- -->
-
-<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
-   -->
 
 <script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+<script src="/assets/js/thesis_scrollspy.js"></script>
 
-
-<!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-<![endif]-->
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script src="/assets/js/index.js"></script>
 </head>
@@ -203,7 +25,7 @@ image:
 <!--Capture the table of contents from pandoc as a jekyll variable  -->
 {% capture tableOfContents %}
 <br>
-Contents:
+<nav aria-label="Table of Contents" class="page-table-of-contents">
 <ul>
 <li><a href="#interacting-quantum-many-body-systems"
 id="toc-interacting-quantum-many-body-systems">Interacting Quantum Many
@@ -215,12 +37,15 @@ id="toc-quantum-spin-liquids">Quantum Spin Liquids</a></li>
 <li><a href="#outline" id="toc-outline">Outline</a></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
+</nav>
 {% endcapture %}
 
-<!-- Give the table of contents to header as a variable -->
+<!-- Give the table of contents to header as a variable so it can be put into the sidebar-->
 {% include header.html extra=tableOfContents %}
 
 <main>
+
+<!-- Table of Contents -->
 <!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#interacting-quantum-many-body-systems"
@@ -235,8 +60,10 @@ id="toc-quantum-spin-liquids">Quantum Spin Liquids</a></li>
 </ul>
 </nav>
  -->
-<h1 id="interacting-quantum-many-body-systems">Interacting Quantum Many
-Body Systems</h1>
+
+<!-- Main Page Body -->
+<section id="interacting-quantum-many-body-systems" class="level1">
+<h1>Interacting Quantum Many Body Systems</h1>
 <p>When you take many objects and let them interact together, it is
 often simpler to describe the behaviour of the group differently from
 the way one would describe the individual objects. Consider a flock of
@@ -321,25 +148,39 @@ antiferromagnetism <span class="citation"
 data-cites="MagnetismCondensedMatter"> [<a
 href="#ref-MagnetismCondensedMatter"
 role="doc-biblioref">12</a>]</span>.</p>
-<p>However, at some point we had to start on the interacting quantum
-many body systems. The properties of some materials cannot be understood
-without a taking into account all three effects and these are
-collectively called strongly correlated materials. The canonical
-examples are superconductivity <span class="citation"
-data-cites="MicroscopicTheorySuperconductivity"> [<a
+<p>The development of Landau-Fermi Liquid theory explained why band
+theory works so well even in cases where an analysis of the relevant
+energies suggests that it should not <span class="citation"
+data-cites="wenQuantumFieldTheory2007"> [<a
+href="#ref-wenQuantumFieldTheory2007"
+role="doc-biblioref">13</a>]</span>. Landau Fermi Liquid theory
+demonstrates that in many cases where electron-electron interactions are
+significant, the system can still be described in terms on generalised
+non-interacting quasiparticles.</p>
+<p>However there are systems where even Landau Fermi Liquid theory
+fails. An effective theoretical description of these systems must
+include electron-electron correlations and they are thus called Strongly
+Correlated Materials <span class="citation"
+data-cites="morosanStronglyCorrelatedMaterials2012"> [<a
+href="#ref-morosanStronglyCorrelatedMaterials2012"
+role="doc-biblioref">14</a>]</span>, Correlated Electron systems or
+Quantum Materials. The canonical examples are superconductivity <span
+class="citation" data-cites="MicroscopicTheorySuperconductivity"> [<a
 href="#ref-MicroscopicTheorySuperconductivity"
-role="doc-biblioref">13</a>]</span>, the fractional quantum hall
+role="doc-biblioref">15</a>]</span>, the fractional quantum hall
 effect <span class="citation"
 data-cites="feldmanFractionalChargeFractional2021"> [<a
 href="#ref-feldmanFractionalChargeFractional2021"
-role="doc-biblioref">14</a>]</span> and the Mott insulators <span
+role="doc-biblioref">16</a>]</span> and the Mott insulators <span
 class="citation"
 data-cites="mottBasisElectronTheory1949 fisherMottInsulatorsSpin1999"> [<a
-href="#ref-mottBasisElectronTheory1949" role="doc-biblioref">15</a>,<a
+href="#ref-mottBasisElectronTheory1949" role="doc-biblioref">17</a>,<a
 href="#ref-fisherMottInsulatorsSpin1999"
-role="doc-biblioref">16</a>]</span>. We’ll start by looking at the
+role="doc-biblioref">18</a>]</span>. We’ll start by looking at the
 latter but shall see that there are many links between three topics.</p>
-<h1 id="mott-insulators">Mott Insulators</h1>
+</section>
+<section id="mott-insulators" class="level1">
+<h1>Mott Insulators</h1>
 <p>Mott Insulators are remarkable because their electrical insulator
 properties come from electron-electron interactions. Electrical
 conductivity, the bulk movement of electrons, requires both that there
@@ -375,27 +216,27 @@ many transition metal oxides are erroneously predicted by band theory to
 be conductive <span class="citation"
 data-cites="boerSemiconductorsPartiallyCompletely1937"> [<a
 href="#ref-boerSemiconductorsPartiallyCompletely1937"
-role="doc-biblioref">17</a>]</span> leading to the suggestion that
+role="doc-biblioref">19</a>]</span> leading to the suggestion that
 electron-electron interactions were the cause of this effect <span
 class="citation" data-cites="mottDiscussionPaperBoer1937"> [<a
 href="#ref-mottDiscussionPaperBoer1937"
-role="doc-biblioref">18</a>]</span>. Interest grew with the discovery of
+role="doc-biblioref">20</a>]</span>. Interest grew with the discovery of
 high temperature superconductivity in the cuprates in 1986 <span
 class="citation"
 data-cites="bednorzPossibleHighTcSuperconductivity1986"> [<a
 href="#ref-bednorzPossibleHighTcSuperconductivity1986"
-role="doc-biblioref">19</a>]</span> which is believed to arise as the
+role="doc-biblioref">21</a>]</span> which is believed to arise as the
 result of a doped Mott insulator state <span class="citation"
 data-cites="leeDopingMottInsulator2006"> [<a
 href="#ref-leeDopingMottInsulator2006"
-role="doc-biblioref">20</a>]</span>.</p>
+role="doc-biblioref">22</a>]</span>.</p>
 <p>The canonical toy model of the Mott insulator is the Hubbard
 model <span class="citation"
 data-cites="gutzwillerEffectCorrelationFerromagnetism1963 kanamoriElectronCorrelationFerromagnetism1963 hubbardj.ElectronCorrelationsNarrow1963"> [<a
 href="#ref-gutzwillerEffectCorrelationFerromagnetism1963"
-role="doc-biblioref">21</a>–<a
+role="doc-biblioref">23</a>–<a
 href="#ref-hubbardj.ElectronCorrelationsNarrow1963"
-role="doc-biblioref">23</a>]</span> of <span
+role="doc-biblioref">25</a>]</span> of <span
 class="math inline">\(1/2\)</span> fermions hopping on the lattice with
 hopping parameter <span class="math inline">\(t\)</span> and
 electron-electron repulsion <span class="math inline">\(U\)</span></p>
@@ -425,7 +266,7 @@ class="math inline">\(\mu = \tfrac{U}{2}\)</span> where there is one
 electron per lattice site <span class="citation"
 data-cites="hubbardElectronCorrelationsNarrow1964"> [<a
 href="#ref-hubbardElectronCorrelationsNarrow1964"
-role="doc-biblioref">24</a>]</span>. Here the model can be rewritten in
+role="doc-biblioref">26</a>]</span>. Here the model can be rewritten in
 a symmetric form <span class="math display">\[ H_{\mathrm{H}} = -t
 \sum_{\langle i,j \rangle \alpha} c^\dagger_{i\alpha} c_{j\alpha} + U
 \sum_i (n_{i\uparrow} - \tfrac{1}{2})(n_{i\downarrow} -
@@ -439,12 +280,12 @@ Originally it was proposed that this antiferromagnetic order was the
 cause of the gap opening <span class="citation"
 data-cites="mottMetalInsulatorTransitions1990"> [<a
 href="#ref-mottMetalInsulatorTransitions1990"
-role="doc-biblioref">25</a>]</span>. However, Mott insulators have been
+role="doc-biblioref">27</a>]</span>. However, Mott insulators have been
 found <span class="citation"
 data-cites="law1TTaS2QuantumSpin2017 ribakGaplessExcitationsGround2017"> [<a
-href="#ref-law1TTaS2QuantumSpin2017" role="doc-biblioref">26</a>,<a
+href="#ref-law1TTaS2QuantumSpin2017" role="doc-biblioref">28</a>,<a
 href="#ref-ribakGaplessExcitationsGround2017"
-role="doc-biblioref">27</a>]</span> without magnetic order. Instead the
+role="doc-biblioref">29</a>]</span> without magnetic order. Instead the
 local moments may form a highly entangled state known as a quantum spin
 liquid, which will be discussed shortly.</p>
 <p>Various theoretical treatments of the Hubbard model have been made,
@@ -452,18 +293,18 @@ including those based on Fermi liquid theory, mean field treatments, the
 local density approximation (LDA) <span class="citation"
 data-cites="slaterMagneticEffectsHartreeFock1951"> [<a
 href="#ref-slaterMagneticEffectsHartreeFock1951"
-role="doc-biblioref">28</a>]</span> and dynamical mean-field
+role="doc-biblioref">30</a>]</span> and dynamical mean-field
 theory <span class="citation"
 data-cites="greinerQuantumPhaseTransition2002"> [<a
 href="#ref-greinerQuantumPhaseTransition2002"
-role="doc-biblioref">29</a>]</span>. None of these approaches are
+role="doc-biblioref">31</a>]</span>. None of these approaches are
 perfect. Strong correlations are poorly described by the Fermi liquid
 theory and the LDA approaches while mean field approximations do poorly
 in low dimensional systems. This theoretical difficulty has made the
 Hubbard model a target for cold atom simulations <span class="citation"
 data-cites="mazurenkoColdatomFermiHubbard2017"> [<a
 href="#ref-mazurenkoColdatomFermiHubbard2017"
-role="doc-biblioref">30</a>]</span>.</p>
+role="doc-biblioref">32</a>]</span>.</p>
 <p>From here the discussion will branch two directions. First, we will
 discuss a limit of the Hubbard model called the Falikov-Kimball Model.
 Second, we will look at quantum spin liquids and the Kitaev honeycomb
@@ -487,9 +328,9 @@ c^\dagger_{i}c_{j} + \;U \sum_{i} S_i\;(c^\dagger_{i}c_{i} -
 transition is still poorly understood <span class="citation"
 data-cites="belitzAndersonMottTransition1994 baskoMetalInsulatorTransition2006"> [<a
 href="#ref-belitzAndersonMottTransition1994"
-role="doc-biblioref">31</a>,<a
+role="doc-biblioref">33</a>,<a
 href="#ref-baskoMetalInsulatorTransition2006"
-role="doc-biblioref">32</a>]</span> the FK model provides a rich test
+role="doc-biblioref">34</a>]</span> the FK model provides a rich test
 bed to explore interaction driven MI transition physics. Despite its
 simplicity, the model has a rich phase diagram in <span
 class="math inline">\(D \geq 2\)</span> dimensions. It shows an Mott
@@ -497,23 +338,23 @@ insulator transition even at high temperature, similar to the
 corresponding Hubbard Model <span class="citation"
 data-cites="brandtThermodynamicsCorrelationFunctions1989"> [<a
 href="#ref-brandtThermodynamicsCorrelationFunctions1989"
-role="doc-biblioref">33</a>]</span>. In 1D, the ground state
+role="doc-biblioref">35</a>]</span>. In 1D, the ground state
 phenomenology as a function of filling can be rich <span
 class="citation" data-cites="gruberGroundStatesSpinless1990"> [<a
 href="#ref-gruberGroundStatesSpinless1990"
-role="doc-biblioref">34</a>]</span> but the system is disordered for all
+role="doc-biblioref">36</a>]</span> but the system is disordered for all
 <span class="math inline">\(T &gt; 0\)</span> <span class="citation"
 data-cites="kennedyItinerantElectronModel1986"> [<a
 href="#ref-kennedyItinerantElectronModel1986"
-role="doc-biblioref">35</a>]</span>. The model has also been a test-bed
+role="doc-biblioref">37</a>]</span>. The model has also been a test-bed
 for many-body methods, interest took off when an exact dynamical
 mean-field theory solution in the infinite dimensional case was
 found <span class="citation"
 data-cites="antipovCriticalExponentsStrongly2014 ribicNonlocalCorrelationsSpectral2016 freericksExactDynamicalMeanfield2003 herrmannNonequilibriumDynamicalCluster2016"> [<a
 href="#ref-antipovCriticalExponentsStrongly2014"
-role="doc-biblioref">36</a>–<a
+role="doc-biblioref">38</a>–<a
 href="#ref-herrmannNonequilibriumDynamicalCluster2016"
-role="doc-biblioref">39</a>]</span>.</p>
+role="doc-biblioref">41</a>]</span>.</p>
 <p>In Chapter 3 I will introduce a generalized FK model in one
 dimension. With the addition of long-range interactions in the
 background field, the model shows a similarly rich phase diagram. I use
@@ -523,16 +364,18 @@ then compare the behaviour of this transitionally invariant model to an
 Anderson model of uncorrelated binary disorder about a background charge
 density wave field which confirms that the fermionic sector only fully
 localizes for very large system sizes.</p>
-<h1 id="quantum-spin-liquids">Quantum Spin Liquids</h1>
+</section>
+<section id="quantum-spin-liquids" class="level1">
+<h1>Quantum Spin Liquids</h1>
 <p>To turn to the other key topic of this thesis, we have discussed the
 question of the magnetic ordering of local moments in the Mott
 insulating state. The local moments may form an AFM ground state.
 Alternatively they may fail to order even at zero temperature <span
 class="citation"
 data-cites="law1TTaS2QuantumSpin2017 ribakGaplessExcitationsGround2017"> [<a
-href="#ref-law1TTaS2QuantumSpin2017" role="doc-biblioref">26</a>,<a
+href="#ref-law1TTaS2QuantumSpin2017" role="doc-biblioref">28</a>,<a
 href="#ref-ribakGaplessExcitationsGround2017"
-role="doc-biblioref">27</a>]</span>, giving rise to what is known as a
+role="doc-biblioref">29</a>]</span>, giving rise to what is known as a
 quantum spin liquid (QSL) state.</p>
 <p>Landau-Ginzburg-Wilson theory characterises phases of matter as
 inextricably linked to the emergence of long range order via a
@@ -543,29 +386,29 @@ exhibit fractionalised excitations linked to their ground state having
 long range entanglement and non-trivial topological properties <span
 class="citation" data-cites="broholmQuantumSpinLiquids2020"> [<a
 href="#ref-broholmQuantumSpinLiquids2020"
-role="doc-biblioref">40</a>]</span>. Quantum spin liquids are the
+role="doc-biblioref">42</a>]</span>. Quantum spin liquids are the
 analogous phase of matter for spin systems. Remarkably the existence of
 QSLs was first suggested by Anderson in 1973 <span class="citation"
 data-cites="andersonResonatingValenceBonds1973"> [<a
 href="#ref-andersonResonatingValenceBonds1973"
-role="doc-biblioref">41</a>]</span>.</p>
+role="doc-biblioref">43</a>]</span>.</p>
 <div id="fig:correlation_spin_orbit_PT" class="fignos">
 <figure>
 <img src="/assets/thesis/intro_chapter/correlation_spin_orbit_PT.png"
 data-short-caption="Phase Diagram" style="width:100.0%"
-alt="Figure 3: From  [42]." />
+alt="Figure 3: From  [44]." />
 <figcaption aria-hidden="true"><span>Figure 3:</span> From <span
 class="citation" data-cites="TrebstPhysRep2022"> [<a
 href="#ref-TrebstPhysRep2022"
-role="doc-biblioref">42</a>]</span>.</figcaption>
+role="doc-biblioref">44</a>]</span>.</figcaption>
 </figure>
 </div>
 <p>The main route to QSLs, though there are others <span
 class="citation"
 data-cites="balentsNodalLiquidTheory1998 balentsDualOrderParameter1999 linExactSymmetryWeaklyinteracting1998"> [<a
-href="#ref-balentsNodalLiquidTheory1998" role="doc-biblioref">43</a>–<a
+href="#ref-balentsNodalLiquidTheory1998" role="doc-biblioref">45</a>–<a
 href="#ref-linExactSymmetryWeaklyinteracting1998"
-role="doc-biblioref">45</a>]</span>, is via frustration of spin models
+role="doc-biblioref">47</a>]</span>, is via frustration of spin models
 that would otherwise order have AFM order. This frustration can come
 geometrically, triangular lattices for instance cannot support AFM
 order. It can also come about as a result of spin-orbit coupling.</p>
@@ -580,16 +423,16 @@ class="math inline">\(\tfrac{1}{2}\)</span> Mott insulating states with
 strongly anisotropic spin-spin couplings known as Kitaev Materials <span
 class="citation"
 data-cites="Jackeli2009 HerrmannsAnRev2018 Winter2017 TrebstPhysRep2022 Takagi2019"> [<a
-href="#ref-TrebstPhysRep2022" role="doc-biblioref">42</a>,<a
-href="#ref-Jackeli2009" role="doc-biblioref">46</a>–<a
-href="#ref-Takagi2019" role="doc-biblioref">49</a>]</span>. Kitaev
+href="#ref-TrebstPhysRep2022" role="doc-biblioref">44</a>,<a
+href="#ref-Jackeli2009" role="doc-biblioref">48</a>–<a
+href="#ref-Takagi2019" role="doc-biblioref">51</a>]</span>. Kitaev
 materials draw their name from the celebrated Kitaev Honeycomb Model as
 it is believed they will realise the QSL state via the mechanisms of the
 Kitaev Model.</p>
 <p>The Kitaev Honeycomb model <span class="citation"
 data-cites="kitaevAnyonsExactlySolved2006"> [<a
 href="#ref-kitaevAnyonsExactlySolved2006"
-role="doc-biblioref">50</a>]</span> was the first concrete model with a
+role="doc-biblioref">52</a>]</span> was the first concrete model with a
 QSL ground state. It is defined on the honeycomb lattice and provides an
 exactly solvable model whose ground state is a QSL characterized by a
 static <span class="math inline">\(\mathbb Z_2\)</span> gauge field and
@@ -601,37 +444,37 @@ its QSL ground state, it supports a rich phase diagram hosting gapless,
 Abelian and non-Abelian phases <span class="citation"
 data-cites="knolleDynamicsFractionalizationQuantum2015"> [<a
 href="#ref-knolleDynamicsFractionalizationQuantum2015"
-role="doc-biblioref">51</a>]</span> and a finite temperature phase
+role="doc-biblioref">53</a>]</span> and a finite temperature phase
 transition to a thermal metal state <span class="citation"
 data-cites="selfThermallyInducedMetallic2019"> [<a
 href="#ref-selfThermallyInducedMetallic2019"
-role="doc-biblioref">52</a>]</span>. It been proposed that its
+role="doc-biblioref">54</a>]</span>. It been proposed that its
 non-Abelian excitations could be used to support robust topological
 quantum computing [<span class="citation"
 data-cites="kitaev_fault-tolerant_2003"> [<a
 href="#ref-kitaev_fault-tolerant_2003"
-role="doc-biblioref">53</a>]</span>; <span class="citation"
+role="doc-biblioref">55</a>]</span>; <span class="citation"
 data-cites="freedmanTopologicalQuantumComputation2003"> [<a
 href="#ref-freedmanTopologicalQuantumComputation2003"
-role="doc-biblioref">54</a>]</span>;
+role="doc-biblioref">56</a>]</span>;
 nayakNonAbelianAnyonsTopological2008].</p>
 <p>It is by now understood that the Kitaev model on any tri-coordinated
 <span class="math inline">\(z=3\)</span> graph has conserved plaquette
 operators and local symmetries <span class="citation"
 data-cites="Baskaran2007 Baskaran2008"> [<a href="#ref-Baskaran2007"
-role="doc-biblioref">55</a>,<a href="#ref-Baskaran2008"
-role="doc-biblioref">56</a>]</span> which allow a mapping onto effective
+role="doc-biblioref">57</a>,<a href="#ref-Baskaran2008"
+role="doc-biblioref">58</a>]</span> which allow a mapping onto effective
 free Majorana fermion problems in a background of static <span
 class="math inline">\(\mathbb Z_2\)</span> fluxes <span class="citation"
 data-cites="Nussinov2009 OBrienPRB2016 yaoExactChiralSpin2007 hermanns2015weyl"> [<a
-href="#ref-Nussinov2009" role="doc-biblioref">57</a>–<a
-href="#ref-hermanns2015weyl" role="doc-biblioref">60</a>]</span>.
+href="#ref-Nussinov2009" role="doc-biblioref">59</a>–<a
+href="#ref-hermanns2015weyl" role="doc-biblioref">62</a>]</span>.
 However, depending on lattice symmetries, finding the ground state flux
 sector and understanding the QSL properties can still be
 challenging <span class="citation"
 data-cites="eschmann2019thermodynamics Peri2020"> [<a
-href="#ref-eschmann2019thermodynamics" role="doc-biblioref">61</a>,<a
-href="#ref-Peri2020" role="doc-biblioref">62</a>]</span>.</p>
+href="#ref-eschmann2019thermodynamics" role="doc-biblioref">63</a>,<a
+href="#ref-Peri2020" role="doc-biblioref">64</a>]</span>.</p>
 <p><strong>paragraph about amorphous lattices</strong></p>
 <p>In Chapter 4 I will introduce a soluble chiral amorphous quantum spin
 liquid by extending the Kitaev honeycomb model to random lattices with
@@ -643,14 +486,18 @@ phases with a remarkably simple ground state flux pattern. Furthermore,
 I show that the system undergoes a finite-temperature phase transition
 to a conducting thermal metal state and discuss possible experimental
 realisations.</p>
-<h1 id="outline">Outline</h1>
+</section>
+<section id="outline" class="level1">
+<h1>Outline</h1>
 <p>The next chapter, Chapter 2, will introduce some necessary background
 to the Falikov-Kimball Model, the Kitaev Honeycomb Model, disorder and
 localisation.</p>
 <p>In Chapter 3 I introduce the Long Range Falikov-Kimball Model in
 greater detail. I will present results that. Chapter 4 focusses on the
 Amorphous Kitaev Model.</p>
-<h1 class="unnumbered" id="bibliography">Bibliography</h1>
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Bibliography</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-king2012murmurations" class="csl-entry"
 role="doc-biblioentry">
@@ -735,9 +582,25 @@ role="doc-biblioentry">
 Blundell, <em>Magnetism in Condensed Matter</em> (OUP Oxford,
 2001).</div>
 </div>
+<div id="ref-wenQuantumFieldTheory2007" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[13] </div><div
+class="csl-right-inline">X.-G. Wen, <em><a
+href="https://doi.org/10.1093/acprof:oso/9780199227259.001.0001">Quantum
+Field Theory of Many-Body Systems: From the Origin of Sound to an Origin
+of Light and Electrons</a></em> (Oxford University Press, Oxford,
+2007).</div>
+</div>
+<div id="ref-morosanStronglyCorrelatedMaterials2012" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">E.
+Morosan, D. Natelson, A. H. Nevidomskyy, and Q. Si, <em><a
+href="https://doi.org/10.1002/adma.201202018">Strongly Correlated
+Materials</a></em>, Adv. Mater. <strong>24</strong>, 4896 (2012).</div>
+</div>
 <div id="ref-MicroscopicTheorySuperconductivity" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[13] </div><div class="csl-right-inline">J.
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">J.
 Bardeen, L. N. Cooper, and J. R. Schrieffer, <em><a
 href="https://doi.org/10.1103/PhysRev.106.162">Microscopic Theory of
 Superconductivity</a></em>, Phys. Rev. <strong>106</strong>, 162
@@ -745,7 +608,7 @@ Superconductivity</a></em>, Phys. Rev. <strong>106</strong>, 162
 </div>
 <div id="ref-feldmanFractionalChargeFractional2021" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[14] </div><div class="csl-right-inline">D.
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">D.
 E. Feldman and B. I. Halperin, <em><a
 href="https://doi.org/10.1088/1361-6633/ac03aa">Fractional Charge and
 Fractional Statistics in the Quantum Hall Effects</a></em>, Rep. Prog.
@@ -753,7 +616,7 @@ Phys. <strong>84</strong>, 076501 (2021).</div>
 </div>
 <div id="ref-mottBasisElectronTheory1949" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[15] </div><div class="csl-right-inline">N.
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">N.
 F. Mott, <em><a href="https://doi.org/10.1088/0370-1298/62/7/303">The
 Basis of the Electron Theory of Metals, with Special Reference to the
 Transition Metals</a></em>, Proc. Phys. Soc. A <strong>62</strong>, 416
@@ -761,7 +624,7 @@ Transition Metals</a></em>, Proc. Phys. Soc. A <strong>62</strong>, 416
 </div>
 <div id="ref-fisherMottInsulatorsSpin1999" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[16] </div><div class="csl-right-inline">M.
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">M.
 P. A. Fisher, <em><a href="https://doi.org/10.1007/3-540-46637-1_8">Mott
 Insulators, Spin Liquids and Quantum Disordered
 Superconductivity</a></em>, in <em>Aspects Topologiques de La Physique
@@ -772,16 +635,15 @@ edited by A. Comtet, T. Jolicœur, S. Ouvry, and F. David, Vol. 69
 </div>
 <div id="ref-boerSemiconductorsPartiallyCompletely1937"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[17] </div><div class="csl-right-inline">J.
+<div class="csl-left-margin">[19] </div><div class="csl-right-inline">J.
 H. de Boer and E. J. W. Verwey, <em><a
 href="https://doi.org/10.1088/0959-5309/49/4S/307">Semi-Conductors with
-Partially and with Completely Filled &lt;Script&gt;3d-Lattice
-Bands&lt;/Script&gt;</a></em>, Proc. Phys. Soc. <strong>49</strong>, 59
-(1937).</div>
+Partially and with Completely Filled 3d-Lattice Bands</a></em>, Proc.
+Phys. Soc. <strong>49</strong>, 59 (1937).</div>
 </div>
 <div id="ref-mottDiscussionPaperBoer1937" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[18] </div><div class="csl-right-inline">N.
+<div class="csl-left-margin">[20] </div><div class="csl-right-inline">N.
 F. Mott and R. Peierls, <em><a
 href="https://doi.org/10.1088/0959-5309/49/4S/308">Discussion of the
 Paper by de Boer and Verwey</a></em>, Proc. Phys. Soc.
@@ -789,7 +651,7 @@ Paper by de Boer and Verwey</a></em>, Proc. Phys. Soc.
 </div>
 <div id="ref-bednorzPossibleHighTcSuperconductivity1986"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[19] </div><div class="csl-right-inline">J.
+<div class="csl-left-margin">[21] </div><div class="csl-right-inline">J.
 G. Bednorz and K. A. Müller, <em><a
 href="https://doi.org/10.1007/BF01303701">Possible highTc
 Superconductivity in the Ba−La−Cu−O System</a></em>, Z. Physik B -
@@ -797,7 +659,7 @@ Condensed Matter <strong>64</strong>, 189 (1986).</div>
 </div>
 <div id="ref-leeDopingMottInsulator2006" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[20] </div><div class="csl-right-inline">P.
+<div class="csl-left-margin">[22] </div><div class="csl-right-inline">P.
 A. Lee, N. Nagaosa, and X.-G. Wen, <em><a
 href="https://doi.org/10.1103/RevModPhys.78.17">Doping a Mott Insulator:
 Physics of High-Temperature Superconductivity</a></em>, Rev. Mod. Phys.
@@ -805,7 +667,7 @@ Physics of High-Temperature Superconductivity</a></em>, Rev. Mod. Phys.
 </div>
 <div id="ref-gutzwillerEffectCorrelationFerromagnetism1963"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[21] </div><div class="csl-right-inline">M.
+<div class="csl-left-margin">[23] </div><div class="csl-right-inline">M.
 C. Gutzwiller, <em><a
 href="https://doi.org/10.1103/PhysRevLett.10.159">Effect of Correlation
 on the Ferromagnetism of Transition Metals</a></em>, Phys. Rev. Lett.
@@ -813,14 +675,14 @@ on the Ferromagnetism of Transition Metals</a></em>, Phys. Rev. Lett.
 </div>
 <div id="ref-kanamoriElectronCorrelationFerromagnetism1963"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[22] </div><div class="csl-right-inline">J.
+<div class="csl-left-margin">[24] </div><div class="csl-right-inline">J.
 Kanamori, <em><a href="https://doi.org/10.1143/PTP.30.275">Electron
 Correlation and Ferromagnetism of Transition Metals</a></em>, Progress
 of Theoretical Physics <strong>30</strong>, 275 (1963).</div>
 </div>
 <div id="ref-hubbardj.ElectronCorrelationsNarrow1963" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[23] </div><div
+<div class="csl-left-margin">[25] </div><div
 class="csl-right-inline">Hubbard, J., <em><a
 href="https://doi.org/10.1098/rspa.1963.0204">Electron Correlations in
 Narrow Energy Bands</a></em>, Proceedings of the Royal Society of
@@ -829,7 +691,7 @@ London. Series A. Mathematical and Physical Sciences
 </div>
 <div id="ref-hubbardElectronCorrelationsNarrow1964" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[24] </div><div class="csl-right-inline">J.
+<div class="csl-left-margin">[26] </div><div class="csl-right-inline">J.
 Hubbard and B. H. Flowers, <em><a
 href="https://doi.org/10.1098/rspa.1964.0190">Electron Correlations in
 Narrow Energy Bands III. An Improved Solution</a></em>, Proceedings of
@@ -838,13 +700,13 @@ Sciences <strong>281</strong>, 401 (1964).</div>
 </div>
 <div id="ref-mottMetalInsulatorTransitions1990" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[25] </div><div class="csl-right-inline">N.
+<div class="csl-left-margin">[27] </div><div class="csl-right-inline">N.
 Mott, <em><a href="https://doi.org/10.1201/b12795">Metal-Insulator
 Transitions</a></em> (CRC Press, London, 1990).</div>
 </div>
 <div id="ref-law1TTaS2QuantumSpin2017" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[26] </div><div class="csl-right-inline">K.
+<div class="csl-left-margin">[28] </div><div class="csl-right-inline">K.
 T. Law and P. A. Lee, <em><a
 href="https://doi.org/10.1073/pnas.1706769114">1t-TaS2 as a Quantum Spin
 Liquid</a></em>, Proceedings of the National Academy of Sciences
@@ -852,24 +714,24 @@ Liquid</a></em>, Proceedings of the National Academy of Sciences
 </div>
 <div id="ref-ribakGaplessExcitationsGround2017" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[27] </div><div class="csl-right-inline">A.
+<div class="csl-left-margin">[29] </div><div class="csl-right-inline">A.
 Ribak, I. Silber, C. Baines, K. Chashka, Z. Salman, Y. Dagan, and A.
 Kanigel, <em><a
 href="https://doi.org/10.1103/PhysRevB.96.195131">Gapless Excitations in
 the Ground State of
-&lt;Script&gt;$1T\text{\ensuremath{-}}{\Mathrm{TaS}}_{2}$&lt;/Script&gt;</a></em>,
-Phys. Rev. B <strong>96</strong>, 195131 (2017).</div>
+$1t\text{\ensuremath{-}}{\Mathrm{TaS}}_{2}$</a></em>, Phys. Rev. B
+<strong>96</strong>, 195131 (2017).</div>
 </div>
 <div id="ref-slaterMagneticEffectsHartreeFock1951" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[28] </div><div class="csl-right-inline">J.
+<div class="csl-left-margin">[30] </div><div class="csl-right-inline">J.
 C. Slater, <em><a href="https://doi.org/10.1103/PhysRev.82.538">Magnetic
 Effects and the Hartree-Fock Equation</a></em>, Phys. Rev.
 <strong>82</strong>, 538 (1951).</div>
 </div>
 <div id="ref-greinerQuantumPhaseTransition2002" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[29] </div><div class="csl-right-inline">M.
+<div class="csl-left-margin">[31] </div><div class="csl-right-inline">M.
 Greiner, O. Mandel, T. Esslinger, T. W. Hänsch, and I. Bloch, <em><a
 href="https://doi.org/10.1038/415039a">Quantum Phase Transition from a
 Superfluid to a Mott Insulator in a Gas of Ultracold Atoms</a></em>,
@@ -877,7 +739,7 @@ Nature <strong>415</strong>, 39 (2002).</div>
 </div>
 <div id="ref-mazurenkoColdatomFermiHubbard2017" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[30] </div><div class="csl-right-inline">A.
+<div class="csl-left-margin">[32] </div><div class="csl-right-inline">A.
 Mazurenko, C. S. Chiu, G. Ji, M. F. Parsons, M. Kanász-Nagy, R. Schmidt,
 F. Grusdt, E. Demler, D. Greif, and M. Greiner, <em><a
 href="https://doi.org/10.1038/nature22362">A Cold-Atom Fermi–Hubbard
@@ -885,7 +747,7 @@ Antiferromagnet</a></em>, Nature <strong>545</strong>, 462 (2017).</div>
 </div>
 <div id="ref-belitzAndersonMottTransition1994" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[31] </div><div class="csl-right-inline">D.
+<div class="csl-left-margin">[33] </div><div class="csl-right-inline">D.
 Belitz and T. R. Kirkpatrick, <em><a
 href="https://doi.org/10.1103/RevModPhys.66.261">The Anderson-Mott
 Transition</a></em>, Rev. Mod. Phys. <strong>66</strong>, 261
@@ -893,7 +755,7 @@ Transition</a></em>, Rev. Mod. Phys. <strong>66</strong>, 261
 </div>
 <div id="ref-baskoMetalInsulatorTransition2006" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[32] </div><div class="csl-right-inline">D.
+<div class="csl-left-margin">[34] </div><div class="csl-right-inline">D.
 M. Basko, I. L. Aleiner, and B. L. Altshuler, <em><a
 href="https://doi.org/10.1016/j.aop.2005.11.014">Metal–Insulator
 Transition in a Weakly Interacting Many-Electron System with Localized
@@ -902,7 +764,7 @@ Single-Particle States</a></em>, Annals of Physics <strong>321</strong>,
 </div>
 <div id="ref-brandtThermodynamicsCorrelationFunctions1989"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[33] </div><div class="csl-right-inline">U.
+<div class="csl-left-margin">[35] </div><div class="csl-right-inline">U.
 Brandt and C. Mielsch, <em><a
 href="https://doi.org/10.1007/BF01321824">Thermodynamics and Correlation
 Functions of the Falicov-Kimball Model in Large Dimensions</a></em>, Z.
@@ -910,7 +772,7 @@ Physik B - Condensed Matter <strong>75</strong>, 365 (1989).</div>
 </div>
 <div id="ref-gruberGroundStatesSpinless1990" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[34] </div><div class="csl-right-inline">C.
+<div class="csl-left-margin">[36] </div><div class="csl-right-inline">C.
 Gruber, J. Iwanski, J. Jedrzejewski, and P. Lemberger, <em><a
 href="https://doi.org/10.1103/PhysRevB.41.2198">Ground States of the
 Spinless Falicov-Kimball Model</a></em>, Phys. Rev. B
@@ -918,7 +780,7 @@ Spinless Falicov-Kimball Model</a></em>, Phys. Rev. B
 </div>
 <div id="ref-kennedyItinerantElectronModel1986" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[35] </div><div class="csl-right-inline">T.
+<div class="csl-left-margin">[37] </div><div class="csl-right-inline">T.
 Kennedy and E. H. Lieb, <em><a
 href="https://doi.org/10.1016/0378-4371(86)90188-3">An Itinerant
 Electron Model with Crystalline or Magnetic Long Range Order</a></em>,
@@ -927,7 +789,7 @@ Physica A: Statistical Mechanics and Its Applications
 </div>
 <div id="ref-antipovCriticalExponentsStrongly2014" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[36] </div><div class="csl-right-inline">A.
+<div class="csl-left-margin">[38] </div><div class="csl-right-inline">A.
 E. Antipov, E. Gull, and S. Kirchner, <em><a
 href="https://doi.org/10.1103/PhysRevLett.112.226401">Critical Exponents
 of Strongly Correlated Fermion Systems from Diagrammatic Multiscale
@@ -936,7 +798,7 @@ Methods</a></em>, Phys. Rev. Lett. <strong>112</strong>, 226401
 </div>
 <div id="ref-ribicNonlocalCorrelationsSpectral2016" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[37] </div><div class="csl-right-inline">T.
+<div class="csl-left-margin">[39] </div><div class="csl-right-inline">T.
 Ribic, G. Rohringer, and K. Held, <em><a
 href="https://doi.org/10.1103/PhysRevB.93.195105">Nonlocal Correlations
 and Spectral Properties of the Falicov-Kimball Model</a></em>, Phys.
@@ -944,7 +806,7 @@ Rev. B <strong>93</strong>, 195105 (2016).</div>
 </div>
 <div id="ref-freericksExactDynamicalMeanfield2003" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[38] </div><div class="csl-right-inline">J.
+<div class="csl-left-margin">[40] </div><div class="csl-right-inline">J.
 K. Freericks and V. Zlatić, <em><a
 href="https://doi.org/10.1103/RevModPhys.75.1333">Exact Dynamical
 Mean-Field Theory of the Falicov-Kimball Model</a></em>, Rev. Mod. Phys.
@@ -952,7 +814,7 @@ Mean-Field Theory of the Falicov-Kimball Model</a></em>, Rev. Mod. Phys.
 </div>
 <div id="ref-herrmannNonequilibriumDynamicalCluster2016"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[39] </div><div class="csl-right-inline">A.
+<div class="csl-left-margin">[41] </div><div class="csl-right-inline">A.
 J. Herrmann, N. Tsuji, M. Eckstein, and P. Werner, <em><a
 href="https://doi.org/10.1103/PhysRevB.94.245114">Nonequilibrium
 Dynamical Cluster Approximation Study of the Falicov-Kimball
@@ -960,7 +822,7 @@ Model</a></em>, Phys. Rev. B <strong>94</strong>, 245114 (2016).</div>
 </div>
 <div id="ref-broholmQuantumSpinLiquids2020" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[40] </div><div class="csl-right-inline">C.
+<div class="csl-left-margin">[42] </div><div class="csl-right-inline">C.
 Broholm, R. J. Cava, S. A. Kivelson, D. G. Nocera, M. R. Norman, and T.
 Senthil, <em><a href="https://doi.org/10.1126/science.aay0668">Quantum
 Spin Liquids</a></em>, Science <strong>367</strong>, eaay0668
@@ -968,7 +830,7 @@ Spin Liquids</a></em>, Science <strong>367</strong>, eaay0668
 </div>
 <div id="ref-andersonResonatingValenceBonds1973" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[41] </div><div class="csl-right-inline">P.
+<div class="csl-left-margin">[43] </div><div class="csl-right-inline">P.
 W. Anderson, <em><a
 href="https://doi.org/10.1016/0025-5408(73)90167-0">Resonating Valence
 Bonds: A New Kind of Insulator?</a></em>, Materials Research Bulletin
@@ -976,7 +838,7 @@ Bonds: A New Kind of Insulator?</a></em>, Materials Research Bulletin
 </div>
 <div id="ref-TrebstPhysRep2022" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[42] </div><div class="csl-right-inline">S.
+<div class="csl-left-margin">[44] </div><div class="csl-right-inline">S.
 Trebst and C. Hickey, <em><a
 href="https://doi.org/10.1016/j.physrep.2021.11.003">Kitaev
 Materials</a></em>, Physics Reports <strong>950</strong>, 1
@@ -984,7 +846,7 @@ Materials</a></em>, Physics Reports <strong>950</strong>, 1
 </div>
 <div id="ref-balentsNodalLiquidTheory1998" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[43] </div><div class="csl-right-inline">L.
+<div class="csl-left-margin">[45] </div><div class="csl-right-inline">L.
 Balents, M. P. A. Fisher, and C. Nayak, <em><a
 href="https://doi.org/10.1142/S0217979298000570">Nodal Liquid Theory of
 the Pseudo-Gap Phase of High-Tc Superconductors</a></em>, Int. J. Mod.
@@ -992,7 +854,7 @@ Phys. B <strong>12</strong>, 1033 (1998).</div>
 </div>
 <div id="ref-balentsDualOrderParameter1999" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[44] </div><div class="csl-right-inline">L.
+<div class="csl-left-margin">[46] </div><div class="csl-right-inline">L.
 Balents, M. P. A. Fisher, and C. Nayak, <em><a
 href="https://doi.org/10.1103/PhysRevB.60.1654">Dual Order Parameter for
 the Nodal Liquid</a></em>, Phys. Rev. B <strong>60</strong>, 1654
@@ -1000,14 +862,14 @@ the Nodal Liquid</a></em>, Phys. Rev. B <strong>60</strong>, 1654
 </div>
 <div id="ref-linExactSymmetryWeaklyinteracting1998" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[45] </div><div
+<div class="csl-left-margin">[47] </div><div
 class="csl-right-inline">H.-H. Lin, L. Balents, and M. P. A. Fisher,
 <em><a href="https://doi.org/10.1103/PhysRevB.58.1794">Exact SO(8)
 Symmetry in the Weakly-Interacting Two-Leg Ladder</a></em>, Phys. Rev. B
 <strong>58</strong>, 1794 (1998).</div>
 </div>
 <div id="ref-Jackeli2009" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[46] </div><div class="csl-right-inline">G.
+<div class="csl-left-margin">[48] </div><div class="csl-right-inline">G.
 Jackeli and G. Khaliullin, <em><a
 href="https://doi.org/10.1103/PhysRevLett.102.017205">Mott Insulators in
 the Strong Spin-Orbit Coupling Limit: From Heisenberg to a Quantum
@@ -1016,7 +878,7 @@ Compass and Kitaev Models</a></em>, Physical Review Letters
 </div>
 <div id="ref-HerrmannsAnRev2018" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[47] </div><div class="csl-right-inline">M.
+<div class="csl-left-margin">[49] </div><div class="csl-right-inline">M.
 Hermanns, I. Kimchi, and J. Knolle, <em><a
 href="https://doi.org/10.1146/annurev-conmatphys-033117-053934">Physics
 of the Kitaev Model: Fractionalization, Dynamic Correlations, and
@@ -1024,28 +886,28 @@ Material Connections</a></em>, Annual Review of Condensed Matter Physics
 <strong>9</strong>, 17 (2018).</div>
 </div>
 <div id="ref-Winter2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[48] </div><div class="csl-right-inline">S.
+<div class="csl-left-margin">[50] </div><div class="csl-right-inline">S.
 M. Winter, A. A. Tsirlin, M. Daghofer, J. van den Brink, Y. Singh, P.
 Gegenwart, and R. Valentí, <em>Models and Materials for Generalized
 Kitaev Magnetism</em>, Journal of Physics: Condensed Matter
 <strong>29</strong>, 493002 (2017).</div>
 </div>
 <div id="ref-Takagi2019" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[49] </div><div class="csl-right-inline">H.
+<div class="csl-left-margin">[51] </div><div class="csl-right-inline">H.
 Takagi, T. Takayama, G. Jackeli, G. Khaliullin, and S. E. Nagler,
 <em>Concept and Realization of Kitaev Quantum Spin Liquids</em>, Nature
 Reviews Physics <strong>1</strong>, 264 (2019).</div>
 </div>
 <div id="ref-kitaevAnyonsExactlySolved2006" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[50] </div><div class="csl-right-inline">A.
+<div class="csl-left-margin">[52] </div><div class="csl-right-inline">A.
 Kitaev, <em><a href="https://doi.org/10.1016/j.aop.2005.10.005">Anyons
 in an Exactly Solved Model and Beyond</a></em>, Annals of Physics
 <strong>321</strong>, 2 (2006).</div>
 </div>
 <div id="ref-knolleDynamicsFractionalizationQuantum2015"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[51] </div><div class="csl-right-inline">J.
+<div class="csl-left-margin">[53] </div><div class="csl-right-inline">J.
 Knolle, D. L. Kovrizhin, J. T. Chalker, and R. Moessner, <em><a
 href="https://doi.org/10.1103/PhysRevB.92.115127">Dynamics of
 Fractionalization in Quantum Spin Liquids</a></em>, Phys. Rev. B
@@ -1053,7 +915,7 @@ Fractionalization in Quantum Spin Liquids</a></em>, Phys. Rev. B
 </div>
 <div id="ref-selfThermallyInducedMetallic2019" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[52] </div><div class="csl-right-inline">C.
+<div class="csl-left-margin">[54] </div><div class="csl-right-inline">C.
 N. Self, J. Knolle, S. Iblisdir, and J. K. Pachos, <em><a
 href="https://doi.org/10.1103/PhysRevB.99.045142">Thermally Induced
 Metallic Phase in a Gapped Quantum Spin Liquid - a Monte Carlo Study of
@@ -1062,7 +924,7 @@ the Kitaev Model with Parity Projection</a></em>, Phys. Rev. B
 </div>
 <div id="ref-kitaev_fault-tolerant_2003" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[53] </div><div class="csl-right-inline">A.
+<div class="csl-left-margin">[55] </div><div class="csl-right-inline">A.
 Yu. Kitaev, <em><a
 href="https://doi.org/10.1016/S0003-4916(02)00018-0">Fault-Tolerant
 Quantum Computation by Anyons</a></em>, Annals of Physics
@@ -1070,21 +932,21 @@ Quantum Computation by Anyons</a></em>, Annals of Physics
 </div>
 <div id="ref-freedmanTopologicalQuantumComputation2003"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[54] </div><div class="csl-right-inline">M.
+<div class="csl-left-margin">[56] </div><div class="csl-right-inline">M.
 Freedman, A. Kitaev, M. Larsen, and Z. Wang, <em><a
 href="https://doi.org/10.1090/S0273-0979-02-00964-3">Topological Quantum
 Computation</a></em>, Bull. Amer. Math. Soc. <strong>40</strong>, 31
 (2003).</div>
 </div>
 <div id="ref-Baskaran2007" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[55] </div><div class="csl-right-inline">G.
+<div class="csl-left-margin">[57] </div><div class="csl-right-inline">G.
 Baskaran, S. Mandal, and R. Shankar, <em><a
 href="https://doi.org/10.1103/PhysRevLett.98.247201">Exact Results for
 Spin Dynamics and Fractionalization in the Kitaev Model</a></em>, Phys.
 Rev. Lett. <strong>98</strong>, 247201 (2007).</div>
 </div>
 <div id="ref-Baskaran2008" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[56] </div><div class="csl-right-inline">G.
+<div class="csl-left-margin">[58] </div><div class="csl-right-inline">G.
 Baskaran, D. Sen, and R. Shankar, <em><a
 href="https://doi.org/10.1103/PhysRevB.78.115116">Spin-S Kitaev Model:
 Classical Ground States, Order from Disorder, and Exact Correlation
@@ -1092,14 +954,14 @@ Functions</a></em>, Phys. Rev. B <strong>78</strong>, 115116
 (2008).</div>
 </div>
 <div id="ref-Nussinov2009" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[57] </div><div class="csl-right-inline">Z.
+<div class="csl-left-margin">[59] </div><div class="csl-right-inline">Z.
 Nussinov and G. Ortiz, <em><a
 href="https://doi.org/10.1103/PhysRevB.79.214440">Bond Algebras and
 Exact Solvability of Hamiltonians: Spin S=½ Multilayer Systems</a></em>,
 Physical Review B <strong>79</strong>, 214440 (2009).</div>
 </div>
 <div id="ref-OBrienPRB2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[58] </div><div class="csl-right-inline">K.
+<div class="csl-left-margin">[60] </div><div class="csl-right-inline">K.
 O’Brien, M. Hermanns, and S. Trebst, <em><a
 href="https://doi.org/10.1103/PhysRevB.93.085101">Classification of
 Gapless Z₂ Spin Liquids in Three-Dimensional Kitaev Models</a></em>,
@@ -1107,27 +969,27 @@ Phys. Rev. B <strong>93</strong>, 085101 (2016).</div>
 </div>
 <div id="ref-yaoExactChiralSpin2007" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[59] </div><div class="csl-right-inline">H.
+<div class="csl-left-margin">[61] </div><div class="csl-right-inline">H.
 Yao and S. A. Kivelson, <em><a
 href="https://doi.org/10.1103/PhysRevLett.99.247203">An Exact Chiral
 Spin Liquid with Non-Abelian Anyons</a></em>, Phys. Rev. Lett.
 <strong>99</strong>, 247203 (2007).</div>
 </div>
 <div id="ref-hermanns2015weyl" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[60] </div><div class="csl-right-inline">M.
+<div class="csl-left-margin">[62] </div><div class="csl-right-inline">M.
 Hermanns, K. O’Brien, and S. Trebst, <em>Weyl Spin Liquids</em>,
 Physical Review Letters <strong>114</strong>, 157202 (2015).</div>
 </div>
 <div id="ref-eschmann2019thermodynamics" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[61] </div><div class="csl-right-inline">T.
+<div class="csl-left-margin">[63] </div><div class="csl-right-inline">T.
 Eschmann, P. A. Mishchenko, T. A. Bojesen, Y. Kato, M. Hermanns, Y.
 Motome, and S. Trebst, <em>Thermodynamics of a Gauge-Frustrated Kitaev
 Spin Liquid</em>, Physical Review Research <strong>1</strong>, 032011(R)
 (2019).</div>
 </div>
 <div id="ref-Peri2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[62] </div><div class="csl-right-inline">V.
+<div class="csl-left-margin">[64] </div><div class="csl-right-inline">V.
 Peri, S. Ok, S. S. Tsirkin, T. Neupert, G. Baskaran, M. Greiter, R.
 Moessner, and R. Thomale, <em><a
 href="https://doi.org/10.1103/PhysRevB.101.041114">Non-Abelian Chiral
@@ -1135,6 +997,9 @@ Spin Liquid on a Simple Non-Archimedean Lattice</a></em>, Phys. Rev. B
 <strong>101</strong>, 041114 (2020).</div>
 </div>
 </div>
+</section>
+
+
 </main>
 </body>
 </html>

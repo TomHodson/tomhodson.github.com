@@ -1,0 +1,146 @@
+---
+title: A.2_Markov_Chain_Monte_Carlo
+excerpt: 
+layout: none
+image: 
+
+---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>A.2_Markov_Chain_Monte_Carlo</title>
+
+
+<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+<script src="/assets/js/thesis_scrollspy.js"></script>
+
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/index.js"></script>
+</head>
+<body>
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+<nav aria-label="Table of Contents" class="page-table-of-contents">
+<ul>
+<li><a href="#markov-chain-monte-carlo"
+id="toc-markov-chain-monte-carlo">Markov Chain Monte Carlo</a>
+<ul>
+<li><a href="#applying-mcmc-to-the-fk-model"
+id="toc-applying-mcmc-to-the-fk-model">Applying MCMC to the FK
+model</a></li>
+</ul></li>
+</ul>
+</nav>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable so it can be put into the sidebar-->
+{% include header.html extra=tableOfContents %}
+
+<main>
+
+<!-- Table of Contents -->
+<!-- <nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#markov-chain-monte-carlo"
+id="toc-markov-chain-monte-carlo">Markov Chain Monte Carlo</a>
+<ul>
+<li><a href="#applying-mcmc-to-the-fk-model"
+id="toc-applying-mcmc-to-the-fk-model">Applying MCMC to the FK
+model</a></li>
+</ul></li>
+</ul>
+</nav>
+ -->
+
+<!-- Main Page Body -->
+<section id="markov-chain-monte-carlo" class="level1">
+<h1>Markov Chain Monte Carlo</h1>
+<section id="applying-mcmc-to-the-fk-model" class="level2">
+<h2>Applying MCMC to the FK model</h2>
+<p>MCMC can be applied to sample over the classical degrees of freedom
+of the model. We take the full Hamiltonian and split it into a classical
+and a quantum part: <span class="math display">\[\begin{aligned}
+    H_{\mathrm{FK}} &amp;= -\sum_{&lt;ij&gt;} c^\dagger_{i}c_{j} + U
+\sum_{i} (c^\dagger_{i}c_{i} - 1/2)( n_i - 1/2) \\
+    &amp;+ \sum_{ij} J_{ij} (n_i - 1/2) (n_j - 1/2)  - \mu \sum_i
+(c^\dagger_{i}c_{i} + n_i)\\
+    H_q &amp;= -\sum_{&lt;ij&gt;} c^\dagger_{i}c_{j} + \sum_{i}
+\left(U(n_i - 1/2) - \mu\right) c^\dagger_{i}c_{i}\\
+    H_c &amp;= \sum_i \mu n_i - \frac{U}{2}(n_i - 1/2) +
+\sum_{ij}J_{ij}(n_i - 1/2)(n_j - 1/2)
+\end{aligned}
+\]</span></p>
+<p>There are <span class="math inline">\(2^N\)</span> possible ion
+configurations <span class="math inline">\(\{ n_i \}\)</span>, we define
+<span class="math inline">\(n^k_i\)</span> to be the occupation of the
+ith site of the kth configuration. The quantum part of the free energy
+can then be defined through the quantum partition function <span
+class="math inline">\(\mathcal{Z}^k\)</span> associated with each ionic
+state <span class="math inline">\(n^k_i\)</span>: <span
+class="math display">\[\begin{aligned}
+F^k &amp;= -1/\beta \ln{\mathcal{Z}^k} \\
+\end{aligned}\]</span> % Such that the overall partition function is:
+<span class="math display">\[\begin{aligned}
+\mathcal{Z} &amp;= \sum_k e^{- \beta H^k} Z^k \\
+&amp;= \sum_k e^{-\beta (H^k + F^k)} \\
+\end{aligned}\]</span> % Because fermions are limited to occupation
+numbers of 0 or 1 <span class="math inline">\(Z^k\)</span> simplifies
+nicely. If <span class="math inline">\(m^j_i = \{0,1\}\)</span> is
+defined as the occupation of the level with energy <span
+class="math inline">\(\epsilon^k_i\)</span> then the partition function
+is a sum over all the occupation states labelled by j: <span
+class="math display">\[\begin{aligned}
+Z^k    &amp;= \Tr e^{-\beta F^k} = \sum_j e^{-\beta \sum_i m^j_i
+\epsilon^k_i}\\
+       &amp;= \sum_j \prod_i e^{- \beta m^j_i \epsilon^k_i}= \prod_i
+\sum_j e^{- \beta m^j_i \epsilon^k_i}\\
+       &amp;= \prod_i (1 + e^{- \beta \epsilon^k_i})\\
+F^k    &amp;= -1/\beta \sum_k \ln{(1 + e^{- \beta \epsilon^k_i})}
+\end{aligned}\]</span> % Observables can then be calculated from the
+partition function, for examples the occupation numbers:</p>
+<p><span class="math display">\[\begin{aligned}
+\tex{N} &amp;= \frac{1}{\beta} \frac{1}{Z} \frac{\partial Z}{\partial
+\mu} = - \frac{\partial F}{\partial \mu}\\
+    &amp;= \frac{1}{\beta} \frac{1}{Z} \frac{\partial}{\partial \mu}
+\sum_k e^{-\beta (H^k + F^k)}\\
+    &amp;= 1/Z \sum_k (N^k_{\mathrm{ion}} + N^k_{\mathrm{electron}})
+e^{-\beta (H^k + F^k)}\\
+\end{aligned}\]</span> % with the definitions:</p>
+<p><span class="math display">\[\begin{aligned}
+N^k_{\mathrm{ion}} &amp;= - \frac{\partial H^k}{\partial \mu} = \sum_i
+n^k_i\\
+N^k_{\mathrm{electron}} &amp;= - \frac{\partial F^k}{\partial \mu} =
+\sum_i \left(1 + e^{\beta \epsilon^k_i}\right)^{-1}\\
+\end{aligned}\]</span> % The MCMC algorithm consists of performing a
+random walk over the states <span class="math inline">\(\{ n^k_i
+\}\)</span>. In the simplest case the proposal distribution corresponds
+to flipping a random site from occupied to unoccupied or vice versa,
+since this proposal is symmetric the acceptance function becomes: <span
+class="math display">\[\begin{aligned}
+P(k) &amp;= \mathcal{Z}^{-1} e^{-\beta(H^k + F^k)} \\
+\mathcal{A}(k \to k&#39;) &amp;= \min\left(1,
+\frac{P(k&#39;)}{P(k)}\right) = \min\left(1, e^{\beta(H^{k&#39;} +
+F^{k&#39;})-\beta(H^k + F^k)}\right)
+\end{aligned}\]</span> % At each step <span
+class="math inline">\(F^k\)</span> is calculated by diagonalising the
+tri-diagonal matrix representation of <span
+class="math inline">\(H_q\)</span> with open boundary conditions.
+Observables are simply averages over the their value at each step of the
+random walk. The full spectrum and eigenbasis is too large to save to
+disk so usually running averages of key observables are taken as the
+walk progresses.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<p></ij></ij></p>
+</section>
+</section>
+
+
+</main>
+</body>
+</html>

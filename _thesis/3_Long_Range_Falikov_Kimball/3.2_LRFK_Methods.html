@@ -12,252 +12,11 @@ image:
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>3.2_LRFK_Methods</title>
-  <!-- <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-    }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style> -->
 
-<!--   <script
-       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-       type="text/javascript"></script>
- -->
-
-<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
-   -->
 
 <script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+<script src="/assets/js/thesis_scrollspy.js"></script>
 
-
-<!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-<![endif]-->
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script src="/assets/js/index.js"></script>
 </head>
@@ -266,11 +25,12 @@ image:
 <!--Capture the table of contents from pandoc as a jekyll variable  -->
 {% capture tableOfContents %}
 <br>
-Contents:
+<nav aria-label="Table of Contents" class="page-table-of-contents">
+<ul>
+<li><a href="#sec:FK-Methods" id="toc-sec:FK-Methods">Methods</a>
 <ul>
 <li><a href="#markov-chain-monte-carlo"
-id="toc-markov-chain-monte-carlo">Markov Chain Monte Carlo</a>
-<ul>
+id="toc-markov-chain-monte-carlo">Markov Chain Monte Carlo</a></li>
 <li><a href="#sampling" id="toc-sampling">Sampling</a></li>
 <li><a href="#markov-chains" id="toc-markov-chains">Markov
 Chains</a></li>
@@ -288,9 +48,6 @@ id="toc-metropolis-hastings">Metropolis-Hastings</a></li>
 <li><a href="#convergence-auto-correlation-and-binning"
 id="toc-convergence-auto-correlation-and-binning">Convergence,
 Auto-correlation and Binning</a></li>
-<li><a href="#applying-mcmc-to-the-fk-model"
-id="toc-applying-mcmc-to-the-fk-model">Applying MCMC to the FK
-model</a></li>
 <li><a href="#proposal-distributions"
 id="toc-proposal-distributions">Proposal Distributions</a></li>
 <li><a href="#perturbation-mcmc" id="toc-perturbation-mcmc">Perturbation
@@ -348,17 +105,21 @@ Trick</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
+</nav>
 {% endcapture %}
 
-<!-- Give the table of contents to header as a variable -->
+<!-- Give the table of contents to header as a variable so it can be put into the sidebar-->
 {% include header.html extra=tableOfContents %}
 
 <main>
+
+<!-- Table of Contents -->
 <!-- <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#markov-chain-monte-carlo"
-id="toc-markov-chain-monte-carlo">Markov Chain Monte Carlo</a>
+<li><a href="#sec:FK-Methods" id="toc-sec:FK-Methods">Methods</a>
 <ul>
+<li><a href="#markov-chain-monte-carlo"
+id="toc-markov-chain-monte-carlo">Markov Chain Monte Carlo</a></li>
 <li><a href="#sampling" id="toc-sampling">Sampling</a></li>
 <li><a href="#markov-chains" id="toc-markov-chains">Markov
 Chains</a></li>
@@ -376,9 +137,6 @@ id="toc-metropolis-hastings">Metropolis-Hastings</a></li>
 <li><a href="#convergence-auto-correlation-and-binning"
 id="toc-convergence-auto-correlation-and-binning">Convergence,
 Auto-correlation and Binning</a></li>
-<li><a href="#applying-mcmc-to-the-fk-model"
-id="toc-applying-mcmc-to-the-fk-model">Applying MCMC to the FK
-model</a></li>
 <li><a href="#proposal-distributions"
 id="toc-proposal-distributions">Proposal Distributions</a></li>
 <li><a href="#perturbation-mcmc" id="toc-perturbation-mcmc">Perturbation
@@ -438,8 +196,15 @@ Trick</a></li>
 </ul>
 </nav>
  -->
-<h1 id="markov-chain-monte-carlo">Markov Chain Monte Carlo</h1>
-<h2 id="sampling">Sampling</h2>
+
+<!-- Main Page Body -->
+<section id="sec:FK-Methods" class="level1">
+<h1>Methods</h1>
+<section id="markov-chain-monte-carlo" class="level2">
+<h2>Markov Chain Monte Carlo</h2>
+</section>
+<section id="sampling" class="level2">
+<h2>Sampling</h2>
 <p>Markov Chain Monte Carlo (MCMC) is a useful method whenever we have a
 probability distribution that we want to sample from but there is not
 direct sampling way to do so.</p>
@@ -477,7 +242,9 @@ of problem happens in many other disciplines too, particularly when
 fitting statistical models using Bayesian inference <span
 class="citation" data-cites="BMCP2021"> [<a href="#ref-BMCP2021"
 role="doc-biblioref">2</a>]</span>.</p>
-<h2 id="markov-chains">Markov Chains</h2>
+</section>
+<section id="markov-chains" class="level2">
+<h2>Markov Chains</h2>
 <p>So what can we do? Well it turns out that if we’re willing to give up
 in the requirement that the samples be uncorrelated then we can use MCMC
 instead.</p>
@@ -501,7 +268,9 @@ are many solutions <span class="citation"
 data-cites="kellyReversibilityStochasticNetworks1981"> [<a
 href="#ref-kellyReversibilityStochasticNetworks1981"
 role="doc-biblioref">6</a>]</span>.</p>
-<h2 id="application-to-the-fk-model">Application to the FK Model</h2>
+</section>
+<section id="application-to-the-fk-model" class="level2">
+<h2>Application to the FK Model</h2>
 <p>We will work in the grand canonical ensemble of fixed temperature,
 chemical potential and volume.</p>
 <p>Since the spin configurations are classical, the Hamiltonian can be
@@ -533,7 +302,8 @@ to the quantum subsystem. <span class="math display">\[\begin{aligned}
 \mathcal{Z} = \sum_{\vec{S}} e^{-\beta H_S[\vec{S}] - \beta
 F_c[\vec{S}]} = \sum_{\vec{S}} e^{-\beta E[\vec{S}]}
 \end{aligned}\]</span></p>
-<h3 id="markov-chain-monte-carlo-1">Markov Chain Monte Carlo</h3>
+<section id="markov-chain-monte-carlo-1" class="level3">
+<h3>Markov Chain Monte Carlo</h3>
 <p>Markov Chain Monte Carlo (MCMC) is a technique for evaluating thermal
 expectation values <span class="math inline">\(\expval{O}\)</span> with
 respect to some physical system defined by a set of states <span
@@ -579,8 +349,10 @@ class="math inline">\(\expval{O^2} - \expval{O}^2\)</span> form it would
 have if the estimates were uncorrelated. Methods of estimating the true
 variance of <span class="math inline">\(\expval{O}\)</span> and decided
 how many steps are needed will be considered later.</p>
-<h2 id="the-metropolis-hasting-algorithm">The Metropolis-Hasting
-Algorithm</h2>
+</section>
+</section>
+<section id="the-metropolis-hasting-algorithm" class="level2">
+<h2>The Metropolis-Hasting Algorithm</h2>
 <p>Markov chains are defined by a transition function $(x_{i+1} x_i) $
 giving the probability that a chain in state <span
 class="math inline">\(x_i\)</span> at time <span
@@ -631,7 +403,9 @@ eigenvector equal to <span class="math inline">\(P_i = P(x_i)\)</span>
 with eigenvalue 1 and all other eigenvalues with magnitude less than
 one. The convergence time depends on the magnitude of the second largest
 eigenvalue.</p>
-<h2 id="metropolis-hastings">Metropolis-Hastings</h2>
+</section>
+<section id="metropolis-hastings" class="level2">
+<h2>Metropolis-Hastings</h2>
 <p>In order to actually choose new states according to <span
 class="math inline">\(\mathcal{T}\)</span> one chooses states from a
 proposal distribution <span class="math inline">\(q(x_i \to
@@ -678,83 +452,13 @@ class="math inline">\(f(x,x&#39;) &lt; 1\)</span>.</p>
 class="math inline">\(f(x,x&#39;)\)</span> is as close as possible to
 one, the rate of rejections can be reduced and the algorithm sped
 up.</p>
-<h2 id="convergence-auto-correlation-and-binning">Convergence,
-Auto-correlation and Binning</h2>
+</section>
+<section id="convergence-auto-correlation-and-binning" class="level2">
+<h2>Convergence, Auto-correlation and Binning</h2>
 <p>%Thinning, burn in, multiple runs</p>
-<h2 id="applying-mcmc-to-the-fk-model">Applying MCMC to the FK
-model</h2>
-<p>MCMC can be applied to sample over the classical degrees of freedom
-of the model. We take the full Hamiltonian and split it into a classical
-and a quantum part: <span class="math display">\[\begin{aligned}
-    H_{\mathrm{FK}} &amp;= -\sum_{&lt;ij&gt;} c^\dagger_{i}c_{j} + U
-\sum_{i} (c^\dagger_{i}c_{i} - 1/2)( n_i - 1/2) \\
-    &amp;+ \sum_{ij} J_{ij} (n_i - 1/2) (n_j - 1/2)  - \mu \sum_i
-(c^\dagger_{i}c_{i} + n_i)\\
-    H_q &amp;= -\sum_{&lt;ij&gt;} c^\dagger_{i}c_{j} + \sum_{i}
-\left(U(n_i - 1/2) - \mu\right) c^\dagger_{i}c_{i}\\
-    H_c &amp;= \sum_i \mu n_i - \frac{U}{2}(n_i - 1/2) +
-\sum_{ij}J_{ij}(n_i - 1/2)(n_j - 1/2)
-\end{aligned}
-\]</span> % There are <span class="math inline">\(2^N\)</span> possible
-ion configurations <span class="math inline">\(\{ n_i \}\)</span>, we
-define <span class="math inline">\(n^k_i\)</span> to be the occupation
-of the ith site of the kth configuration. The quantum part of the free
-energy can then be defined through the quantum partition function <span
-class="math inline">\(\mathcal{Z}^k\)</span> associated with each ionic
-state <span class="math inline">\(n^k_i\)</span>: <span
-class="math display">\[\begin{aligned}
-F^k &amp;= -1/\beta \ln{\mathcal{Z}^k} \\
-\end{aligned}\]</span> % Such that the overall partition function is:
-<span class="math display">\[\begin{aligned}
-\mathcal{Z} &amp;= \sum_k e^{- \beta H^k} Z^k \\
-&amp;= \sum_k e^{-\beta (H^k + F^k)} \\
-\end{aligned}\]</span> % Because fermions are limited to occupation
-numbers of 0 or 1 <span class="math inline">\(Z^k\)</span> simplifies
-nicely. If <span class="math inline">\(m^j_i = \{0,1\}\)</span> is
-defined as the occupation of the level with energy <span
-class="math inline">\(\epsilon^k_i\)</span> then the partition function
-is a sum over all the occupation states labelled by j: <span
-class="math display">\[\begin{aligned}
-Z^k    &amp;= \Tr e^{-\beta F^k} = \sum_j e^{-\beta \sum_i m^j_i
-\epsilon^k_i}\\
-       &amp;= \sum_j \prod_i e^{- \beta m^j_i \epsilon^k_i}= \prod_i
-\sum_j e^{- \beta m^j_i \epsilon^k_i}\\
-       &amp;= \prod_i (1 + e^{- \beta \epsilon^k_i})\\
-F^k    &amp;= -1/\beta \sum_k \ln{(1 + e^{- \beta \epsilon^k_i})}
-\end{aligned}\]</span> % Observables can then be calculated from the
-partition function, for examples the occupation numbers:</p>
-<p><span class="math display">\[\begin{aligned}
-\tex{N} &amp;= \frac{1}{\beta} \frac{1}{Z} \frac{\partial Z}{\partial
-\mu} = - \frac{\partial F}{\partial \mu}\\
-    &amp;= \frac{1}{\beta} \frac{1}{Z} \frac{\partial}{\partial \mu}
-\sum_k e^{-\beta (H^k + F^k)}\\
-    &amp;= 1/Z \sum_k (N^k_{\mathrm{ion}} + N^k_{\mathrm{electron}})
-e^{-\beta (H^k + F^k)}\\
-\end{aligned}\]</span> % with the definitions:</p>
-<p><span class="math display">\[\begin{aligned}
-N^k_{\mathrm{ion}} &amp;= - \frac{\partial H^k}{\partial \mu} = \sum_i
-n^k_i\\
-N^k_{\mathrm{electron}} &amp;= - \frac{\partial F^k}{\partial \mu} =
-\sum_i \left(1 + e^{\beta \epsilon^k_i}\right)^{-1}\\
-\end{aligned}\]</span> % The MCMC algorithm consists of performing a
-random walk over the states <span class="math inline">\(\{ n^k_i
-\}\)</span>. In the simplest case the proposal distribution corresponds
-to flipping a random site from occupied to unoccupied or vice versa,
-since this proposal is symmetric the acceptance function becomes: <span
-class="math display">\[\begin{aligned}
-P(k) &amp;= \mathcal{Z}^{-1} e^{-\beta(H^k + F^k)} \\
-\mathcal{A}(k \to k&#39;) &amp;= \min\left(1,
-\frac{P(k&#39;)}{P(k)}\right) = \min\left(1, e^{\beta(H^{k&#39;} +
-F^{k&#39;})-\beta(H^k + F^k)}\right)
-\end{aligned}\]</span> % At each step <span
-class="math inline">\(F^k\)</span> is calculated by diagonalising the
-tri-diagonal matrix representation of <span
-class="math inline">\(H_q\)</span> with open boundary conditions.
-Observables are simply averages over the their value at each step of the
-random walk. The full spectrum and eigenbasis is too large to save to
-disk so usually running averages of key observables are taken as the
-walk progresses.</p>
-<h2 id="proposal-distributions">Proposal Distributions</h2>
+</section>
+<section id="proposal-distributions" class="level2">
+<h2>Proposal Distributions</h2>
 <p>In a MCMC method a key property is the proportion of the time that
 proposals are accepted, the acceptance rate. If this rate is too low the
 random walk is trying to take overly large steps in energy space which
@@ -773,7 +477,9 @@ at a time.</p>
 occasionally proposing a flip of the entire state. This works because
 near half-filling, flipping the occupations of all the sites will
 produce a state at or near the energy of the current one.</p>
-<h2 id="perturbation-mcmc">Perturbation MCMC</h2>
+</section>
+<section id="perturbation-mcmc" class="level2">
+<h2>Perturbation MCMC</h2>
 <p>The matrix diagonalisation is the most computationally expensive step
 of the process, a speed up can be obtained by modifying the proposal
 distribution to depend on the classical part of the energy, a trick
@@ -796,7 +502,9 @@ data-cites="huangAcceleratedMonteCarlo2017"> [<a
 href="#ref-huangAcceleratedMonteCarlo2017"
 role="doc-biblioref">10</a>]</span> does this with restricted Boltzmann
 machines whose form is very similar to a classical spin model.</p>
-<h2 id="scaling">Scaling</h2>
+</section>
+<section id="scaling" class="level2">
+<h2>Scaling</h2>
 <p>In order to reduce the effects of the boundary conditions and the
 finite size of the system we redefine and normalise the coupling matrix
 to have 0 derivative at its furthest extent rather than cutting off
@@ -808,7 +516,9 @@ J(x) &amp;= \frac{J_0 J&#39;(x)}{\sum_y J&#39;(y)}
 \end{aligned}\]</span> % The scaling ensures that, in the ordered phase,
 the overall potential felt by each site due to the rest of the system is
 independent of system size.</p>
-<h2 id="binder-cumulants">Binder Cumulants</h2>
+</section>
+<section id="binder-cumulants" class="level2">
+<h2>Binder Cumulants</h2>
 <p>The Binder cumulant is defined as: <span class="math display">\[U_B =
 1 - \frac{\tex{\mu_4}}{3\tex{\mu_2}^2}\]</span> % where <span
 class="math display">\[\mu_n = \tex{(m - \tex{m})^n}\]</span> % are the
@@ -822,9 +532,11 @@ data-cites="binderFiniteSizeScaling1981 musialMonteCarloSimulations2002"> [<a
 href="#ref-binderFiniteSizeScaling1981" role="doc-biblioref">11</a>,<a
 href="#ref-musialMonteCarloSimulations2002"
 role="doc-biblioref"><strong>musialMonteCarloSimulations2002?</strong></a>]</span>.</p>
-<h2 id="markov-chain-monte-carlo-in-practice">Markov Chain Monte-Carlo
-in Practice</h2>
-<h3 id="quick-intro-to-mcmc">Quick Intro to MCMC</h3>
+</section>
+<section id="markov-chain-monte-carlo-in-practice" class="level2">
+<h2>Markov Chain Monte-Carlo in Practice</h2>
+<section id="quick-intro-to-mcmc" class="level3">
+<h3>Quick Intro to MCMC</h3>
 <p>The main paper relies on extensively to evaluate thermal expectation
 values within the model by walking over states of the classical spin
 system <span class="math inline">\(S_i\)</span>. For a classical system,
@@ -898,7 +610,9 @@ time) the probability <span class="math inline">\(p_t(\s;\s_0)\)</span>
 approaches the thermal distribution <span class="math inline">\(P(\s;
 \beta) = \mathcal{Z}^{-1} e^{-\beta F(\s)}\)</span>. This turns out to
 be quite easy to achieve using the Metropolis-Hasting algorithm.</p>
-<h3 id="convergence-time">Convergence Time</h3>
+</section>
+<section id="convergence-time" class="level3">
+<h3>Convergence Time</h3>
 <p>Considering <span class="math inline">\(p(\s)\)</span> as a vector
 <span class="math inline">\(\vec{p}\)</span> whose jth entry is the
 probability of the jth state <span class="math inline">\(p_j =
@@ -928,7 +642,9 @@ class="math inline">\(\lambda_1\)</span>. In practice this means that
 one throws away the data from the beginning of the random walk in order
 reduce the dependence on the initial conditions and be close enough to
 the target distribution.</p>
-<h3 id="auto-correlation-time">Auto-correlation Time</h3>
+</section>
+<section id="auto-correlation-time" class="level3">
+<h3>Auto-correlation Time</h3>
 <div id="fig:m_autocorr" class="fignos">
 <figure>
 <img src="../figure_code/fk_chapter/lsr/figs/m_autocorr.png"
@@ -1002,8 +718,9 @@ convergence time and the auto-correlation time as much as possible. In
 order to explain how, we need to introduce the Metropolis-Hasting (MH)
 algorithm and how it gives an explicit form for the transition
 function.</p>
-<h3 id="the-metropolis-hastings-algorithm">The Metropolis-Hastings
-Algorithm</h3>
+</section>
+<section id="the-metropolis-hastings-algorithm" class="level3">
+<h3>The Metropolis-Hastings Algorithm</h3>
 <p>MH breaks up the transition function into a proposal distribution
 <span class="math inline">\(q(\s \to \s&#39;)\)</span> and an acceptance
 function <span class="math inline">\(\mathcal{A}(\s \to
@@ -1047,7 +764,10 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a hr
 <p>This has the effect of always accepting proposed states that are
 lower in energy and sometimes accepting those that are higher in energy
 than the current state.</p>
-<h2 id="two-step-trick">Two Step Trick</h2>
+</section>
+</section>
+<section id="two-step-trick" class="level2">
+<h2>Two Step Trick</h2>
 <p>Here, we incorporate a modification to the standard
 Metropolis-Hastings algorithm <span class="citation"
 data-cites="hastingsMonteCarloSampling1970"> [<a
@@ -1106,8 +826,9 @@ sampled from while offering sufficient flexibility that they can be
 adjusted to match the target distribution. Our proposed method is
 considerably simpler and does not require training while still reaping
 some of the benefits of reduced computation.</p>
-<h2 id="detailed-balance-for-the-two-step-method">Detailed Balance for
-the two step method</h2>
+</section>
+<section id="detailed-balance-for-the-two-step-method" class="level2">
+<h2>Detailed Balance for the two step method</h2>
 <p>Given a MCMC algorithm with target distribution <span
 class="math inline">\(\pi(a)\)</span> and transition function <span
 class="math inline">\(\mathcal{T}\)</span> the detailed balance
@@ -1158,7 +879,8 @@ r_c\right) \min\left(1, r_q\right)}{ \min\left(1, 1/r_c\right)
 <p>which simplifies to <span class="math inline">\(r_c r_q\)</span> as
 <span class="math inline">\(\min(1,r)/\min(1,1/r) = r\)</span> for <span
 class="math inline">\(r &gt; 0\)</span>.</p>
-<h3 id="two-step-trick-1">Two Step Trick</h3>
+<section id="two-step-trick-1" class="level3">
+<h3>Two Step Trick</h3>
 <p>Our method already relies heavily on the split between the classical
 and quantum sector to derive a sign problem free MCMC algorithm but it
 turns out that there is a further trick we can play with it. The free
@@ -1182,8 +904,9 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a hr
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        states[i] <span class="op">=</span> current_state</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
-<h3 id="tuning-the-proposal-distribution">Tuning the proposal
-distribution</h3>
+</section>
+<section id="tuning-the-proposal-distribution" class="level3">
+<h3>Tuning the proposal distribution</h3>
 <div id="fig:autocorr_multiple_proposals" class="fignos">
 <figure>
 <img
@@ -1227,8 +950,12 @@ the best choice. However for some simulations at very high temperature
 flipping more spins is warranted. Tuning the proposal distribution
 automatically seems like something that would not yield enough benefit
 for the additional complexity it would require.</p>
-<h2 id="diagnostics-of-localisation">Diagnostics of Localisation</h2>
-<h3 id="inverse-participation-ratio">Inverse Participation Ratio</h3>
+</section>
+</section>
+<section id="diagnostics-of-localisation" class="level2">
+<h2>Diagnostics of Localisation</h2>
+<section id="inverse-participation-ratio" class="level3">
+<h3>Inverse Participation Ratio</h3>
 <p>The inverse participation ratio is defined for a normalised wave
 function <span class="math inline">\(\psi_i = \psi(x_i), \sum_i
 \abs{\psi_i}^2 = 1\)</span> as its fourth moment <span class="citation"
@@ -1287,7 +1014,10 @@ with <span class="math inline">\(M\)</span> dimensions each taking <span
 class="math inline">\(N\)</span> distinct values.</p>
 <p>Detailed and Global balance equation Mixing times Cluster updates and
 Critical slowing down Effective Sample Size</p>
-<h2 id="markov-chain-monte-carlo-2">Markov Chain Monte-Carlo</h2>
+</section>
+</section>
+<section id="markov-chain-monte-carlo-2" class="level2">
+<h2>Markov Chain Monte-Carlo</h2>
 <p>Dimensionality can be both a blessing and a curse. In I’ll discuss
 the fact that statistical physics can be somewhat boring in one
 dimension where most simple models have no phase transitions. This
@@ -1398,7 +1128,9 @@ probability <span class="math inline">\(p_t(\s;\s_0)\)</span> approaches
 the thermal distribution <span class="math inline">\(P(\s; \beta) =
 \Z^{-1} e^{-\beta F(\s)}\)</span>. This turns out to be quite easy to
 achieve using the Metropolis-Hasting algorithm.</p>
-<h2 id="convergence-time-1">Convergence Time</h2>
+</section>
+<section id="convergence-time-1" class="level2">
+<h2>Convergence Time</h2>
 <p>Considering <span class="math inline">\(p(\s)\)</span> as a vector
 <span class="math inline">\(\vec{p}\)</span> whose jth entry is the
 probability of the jth state <span class="math inline">\(p_j =
@@ -1427,7 +1159,9 @@ class="math inline">\(\lambda_1\)</span>. In practice this means that
 one throws away the data from the beginning of the random walk in order
 reduce the dependence on the initial conditions and be close enough to
 the target distribution.</p>
-<h2 id="auto-correlation-time-1">Auto-correlation Time</h2>
+</section>
+<section id="auto-correlation-time-1" class="level2">
+<h2>Auto-correlation Time</h2>
 <div id="fig:m_autocorr" class="fignos">
 <figure>
 <img src="figs/lsr/m_autocorr.png"
@@ -1497,8 +1231,9 @@ convergence time and the auto-correlation time as much as possible. In
 order to explain how, we need to introduce the Metropolis-Hasting (MH)
 algorithm and how it gives an explicit form for the transition
 function.</p>
-<h2 id="the-metropolis-hastings-algorithm-1">The Metropolis-Hastings
-Algorithm</h2>
+</section>
+<section id="the-metropolis-hastings-algorithm-1" class="level2">
+<h2>The Metropolis-Hastings Algorithm</h2>
 <p>MH breaks up the transition function into a proposal distribution
 <span class="math inline">\(q(\s \to \s&#39;)\)</span> and an acceptance
 function <span class="math inline">\(\A(\s \to \s&#39;)\)</span>. <span
@@ -1542,8 +1277,9 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a hr
 <p>This has the effect of always accepting proposed states that are
 lower in energy and sometimes accepting those that are higher in energy
 than the current state.</p>
-<h2 id="choosing-the-proposal-distribution">Choosing the proposal
-distribution</h2>
+</section>
+<section id="choosing-the-proposal-distribution" class="level2">
+<h2>Choosing the proposal distribution</h2>
 <p><img src="figs/lsr/autocorr_multiple_proposals.png" title="fig:"
 id="fig:comparison"
 alt="t = 1, \alpha = 1.25, J = U = 5 [fig:comparison]" /> Simulations
@@ -1581,7 +1317,9 @@ simulations at very high temperature flipping more spins is warranted.
 Tuning the proposal distribution automatically seems like something that
 would not yield enough benefit for the additional complexity it would
 require.</p>
-<h2 id="two-step-trick-2">Two Step Trick</h2>
+</section>
+<section id="two-step-trick-2" class="level2">
+<h2>Two Step Trick</h2>
 <p>Our method already relies heavily on the split between the classical
 and quantum sector to derive a sign problem free MCMC algorithm but it
 turns out that there is a further trick we can play with it. The free
@@ -1604,10 +1342,10 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a hr
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        states[i] <span class="op">=</span> current_state</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<p></ij></ij></p>
-<h1 class="unnumbered" id="bibliography">Bibliography</h1>
+</section>
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Bibliography</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-devroyeRandomSampling1986" class="csl-entry"
 role="doc-biblioentry">
@@ -1745,6 +1483,7 @@ Certain Random Lattices</a></em>, Phys. Rev. <strong>109</strong>, 1492
 (1958).</div>
 </div>
 </div>
+</section>
 <section class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
@@ -1779,6 +1518,8 @@ involving a sum over the auto-correlation function.<a href="#fnref4"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
+
+
 </main>
 </body>
 </html>

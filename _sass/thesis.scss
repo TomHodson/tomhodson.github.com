@@ -17,10 +17,17 @@ figcaption {
 
 // For the table of contents, should probably put this in a container
 
-// remove underline from toc links
-nav a {
-    text-decoration: none;
+//For the animation that plays in the nav as you scroll
+nav.page-table-of-contents a {
+    transition: all 200ms ease-in-out;
+    color: #000;
+    font-weight:normal;
 }
+
+nav.page-table-of-contents li.active > a {
+    color: #000!important;
+    font-weight:bold;
+  }
 
 // modify the spacing of the various levels
 li {
@@ -66,5 +73,15 @@ header li {
         margin-bottom: 0.5em;
         display:block;
         
+    }
+}
+
+nav.overall-table-of-contents > ul {
+    padding-inline-start: 0px;
+    
+
+    > li {
+        list-style: none;
+        margin-top: 1em;
     }
 }

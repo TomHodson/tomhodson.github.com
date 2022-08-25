@@ -13,189 +13,11 @@ image:
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="description" content="A short introduction to the weird and wonderful world of exactly solvable quantum models." />
   <title>The Amorphous Kitaev Model - Introduction part 2</title>
-  <!-- <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-    }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style> -->
 
-<!--   <script
-       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-       type="text/javascript"></script>
- -->
-
-<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
-   -->
 
 <script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+<script src="/assets/js/thesis_scrollspy.js"></script>
 
-
-<!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-<![endif]-->
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script src="/assets/js/index.js"></script>
 </head>
@@ -204,7 +26,7 @@ image:
 <!--Capture the table of contents from pandoc as a jekyll variable  -->
 {% capture tableOfContents %}
 <br>
-Contents:
+<nav aria-label="Table of Contents" class="page-table-of-contents">
 <ul>
 <li><a href="#gauge-fields" id="toc-gauge-fields">Gauge Fields</a>
 <ul>
@@ -253,12 +75,15 @@ Statistics</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
+</nav>
 {% endcapture %}
 
-<!-- Give the table of contents to header as a variable -->
+<!-- Give the table of contents to header as a variable so it can be put into the sidebar-->
 {% include header.html extra=tableOfContents %}
 
 <main>
+
+<!-- Table of Contents -->
 <!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#gauge-fields" id="toc-gauge-fields">Gauge Fields</a>
@@ -310,7 +135,10 @@ Statistics</a></li>
 </ul>
 </nav>
  -->
-<h2 id="gauge-fields">Gauge Fields</h2>
+
+<!-- Main Page Body -->
+<section id="gauge-fields" class="level2">
+<h2>Gauge Fields</h2>
 <p>The bond operators <span class="math inline">\(u_{ij}\)</span> are
 useful because they label a bond sector <span
 class="math inline">\(\mathcal{\tilde{L}}_u\)</span> in which we can
@@ -337,7 +165,8 @@ to its neighbour in each plaquette operator. This is consistent with the
 earlier observation that each <span class="math inline">\(W_p\)</span>
 takes values <span class="math inline">\(\pm 1\)</span> for even paths
 and <span class="math inline">\(\pm i\)</span> for odd paths.</p>
-<h3 id="vortices-and-their-movements">Vortices and their movements</h3>
+<section id="vortices-and-their-movements" class="level3">
+<h3>Vortices and their movements</h3>
 <div id="fig:types_of_dual_loops_animated" class="fignos">
 <figure>
 <img
@@ -381,8 +210,9 @@ a closed loop on the dual lattice. Applying such a bond flip leaves the
 vortex sector unchanged. We can also do the same thing but move the
 vortex around one the non-contractible loops of the lattice (fig. <a
 href="#fig:types_of_dual_loops_animated">1</a> (d)).</p>
-<h3 id="dual-loops-and-gauge-symmetries">Dual Loops and gauge
-symmetries</h3>
+</section>
+<section id="dual-loops-and-gauge-symmetries" class="level3">
+<h3>Dual Loops and gauge symmetries</h3>
 <div id="fig:gauge_symmetries" class="fignos">
 <figure>
 <img
@@ -428,7 +258,9 @@ class="math inline">\(D_j\)</span>s, the non-contractible loops.</p>
 <p><strong>The plaquette operators and topological fluxes are the gauge
 invariant quantities which determine the physics of the
 model</strong></p>
-<h3 id="composition-of-wilson-loops">Composition of Wilson loops</h3>
+</section>
+<section id="composition-of-wilson-loops" class="level3">
+<h3>Composition of Wilson loops</h3>
 <div id="fig:plaquette_addition_by_hand" class="fignos">
 <figure>
 <img
@@ -475,8 +307,9 @@ discrete version of Stoke’s theorem.</figcaption>
 </div>
 <p>Takeaway: Wilson loops can always be decomposed into products of
 plaquettes operators unless they are non-contractable.</p>
-<h3 id="gauge-degeneracy-and-the-euler-equation">Gauge Degeneracy and
-the Euler Equation</h3>
+</section>
+<section id="gauge-degeneracy-and-the-euler-equation" class="level3">
+<h3>Gauge Degeneracy and the Euler Equation</h3>
 <div id="fig:state_decomposition_animated" class="fignos">
 <figure>
 <img
@@ -626,8 +459,9 @@ chosen from a tree since loops can be removed by a gauge
 transformation.</figcaption>
 </figure>
 </div>
-<h3 id="counting-edges-plaquettes-and-vertices">Counting edges,
-plaquettes and vertices</h3>
+</section>
+<section id="counting-edges-plaquettes-and-vertices" class="level3">
+<h3>Counting edges, plaquettes and vertices</h3>
 <p>It is useful to know how the trivalent structure of the lattice
 constrains the number of bonds <span class="math inline">\(B\)</span>,
 plaquettes <span class="math inline">\(P\)</span> and vertices <span
@@ -667,7 +501,10 @@ fig. <a href="#fig:flood_fill">7</a> but for the amorphous
 lattice.</figcaption>
 </figure>
 </div>
-<h2 id="the-projector">The Projector</h2>
+</section>
+</section>
+<section id="the-projector" class="level2">
+<h2>The Projector</h2>
 <p>The projection from the extended space to the physical space will not
 be particularly important for the results presented here. However, the
 theory remains useful to explain why this is.</p>
@@ -782,7 +619,8 @@ determined the single particle eigenstates of a bond sector, the true
 many body ground state has the same energy as either the empty state
 with <span class="math inline">\(n_i = 0\)</span> or a state with a
 single fermion in the lowest level.</p>
-<h3 id="ground-state-degeneracy">Ground State Degeneracy</h3>
+<section id="ground-state-degeneracy" class="level3">
+<h3>Ground State Degeneracy</h3>
 <div id="fig:loops_and_dual_loops" class="fignos">
 <figure>
 <img
@@ -848,7 +686,9 @@ degeneracy in the Abelian phase and a threefold degeneracy in the
 non-Abelian phase.</figcaption>
 </figure>
 </div>
-<h3 id="quick-breather">Quick Breather</h3>
+</section>
+<section id="quick-breather" class="level3">
+<h3>Quick Breather</h3>
 <p>Let’s consider where are with the model now. We can map the spin
 Hamiltonian to a Majorana Hamiltonian in an extended Hilbert space.
 Along with that mapping comes a gauge field <span
@@ -877,7 +717,10 @@ fermions in the system grows.</p>
 basis, we would need to include the full symmetrisation over the gauge
 fields. However, this was not necessary for any of the results that will
 be presented here.</p>
-<h2 id="the-ground-state">The Ground State</h2>
+</section>
+</section>
+<section id="the-ground-state" class="level2">
+<h2>The Ground State</h2>
 <p>We have shown that the Hamiltonian is gauge invariant. As a result,
 only the flux sector and the two topological fluxes affect the spectrum
 of the Hamiltonian. Thus, we can label the many body ground state by a
@@ -981,7 +824,8 @@ lattices <span class="citation" data-cites="lieb_flux_1994"> [<a
 href="#ref-lieb_flux_1994" role="doc-biblioref">5</a>]</span> and is
 supported by numerical evidence. As noted before, any flux that differs
 from the ground state is an excitation which we call a vortex.</p>
-<h3 id="finite-size-effects">Finite size effects</h3>
+<section id="finite-size-effects" class="level3">
+<h3>Finite size effects</h3>
 <p>This guess only works for larger lattices. To rigorously test it, we
 would want to directly enumerate the <span
 class="math inline">\(2^N\)</span> vortex sectors for a smaller lattice
@@ -1026,7 +870,9 @@ class="math inline">\(\phi_0\)</span> correctly predicts the ground
 state for hundreds of thousands of lattices with up to twenty
 plaquettes. For larger lattices, we verified that random perturbations
 around the predicted ground state never yield a lower energy state.</p>
-<h3 id="chiral-symmetry">Chiral Symmetry</h3>
+</section>
+<section id="chiral-symmetry" class="level3">
+<h3>Chiral Symmetry</h3>
 <p>The discussion above shows that the ground state has a twofold
 <strong>chiral</strong> degeneracy which arises because the global sign
 of the odd plaquettes does not matter.</p>
@@ -1043,15 +889,19 @@ class="math inline">\(\phi\)</span> fluxes <span class="citation"
 data-cites="yaoExactChiralSpin2007"> [<a
 href="#ref-yaoExactChiralSpin2007"
 role="doc-biblioref">7</a>]</span>.</p>
-<h2 id="phases-of-the-kitaev-model">Phases of the Kitaev Model</h2>
+</section>
+</section>
+<section id="phases-of-the-kitaev-model" class="level2">
+<h2>Phases of the Kitaev Model</h2>
 <p>discuss the Abelian A phase / toric code phase / anisotropic
 phase</p>
 <p>the isotropic gapless phase of the standard model</p>
 <p>The isotropic gapped phase with the addition of a magnetic field</p>
-<h2 id="what-is-so-great-about-two-dimensions">What is so great about
-two dimensions?</h2>
-<h3 id="topology-chirality-and-edge-modes">Topology, chirality and edge
-modes</h3>
+</section>
+<section id="what-is-so-great-about-two-dimensions" class="level2">
+<h2>What is so great about two dimensions?</h2>
+<section id="topology-chirality-and-edge-modes" class="level3">
+<h3>Topology, chirality and edge modes</h3>
 <p>Most thermodynamic and quantum phases studied can be characterised by
 a local order parameter. That is, a function or operator that only
 requires knowledge about some fixed sized patch of the system that does
@@ -1067,7 +917,9 @@ distinguish it from standard symmetry breaking.</p>
 defined on a graph that is embedded either into the plane or onto the
 torus. The extension to surfaces like the torus but with more than one
 handle is relatively easy.</p>
-<h3 id="anyonic-statistics">Anyonic Statistics</h3>
+</section>
+<section id="anyonic-statistics" class="level3">
+<h3>Anyonic Statistics</h3>
 <p><strong>NB: I’m thinking about moving this section to the overall
 intro, but it’s nice to be able to refer to specifics of the Kitaev
 model also so I’m not sure. It currently repeats a discussion of the
@@ -1213,7 +1065,10 @@ href="#ref-hastingsDynamicallyGeneratedLogical2021"
 role="doc-biblioref">17</a>,<a
 href="#ref-kitaevFaulttolerantQuantumComputation2003"
 role="doc-biblioref"><strong>kitaevFaulttolerantQuantumComputation2003?</strong></a>]</span>.</p>
-<h1 class="unnumbered" id="bibliography">Bibliography</h1>
+</section>
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Bibliography</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-pedrocchiPhysicalSolutionsKitaev2011" class="csl-entry"
 role="doc-biblioentry">
@@ -1343,6 +1198,9 @@ href="https://doi.org/10.22331/q-2021-10-19-564">Dynamically Generated
 Logical Qubits</a></em>, Quantum <strong>5</strong>, 564 (2021).</div>
 </div>
 </div>
+</section>
+
+
 </main>
 </body>
 </html>

@@ -13,189 +13,11 @@ image:
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="description" content="A short introduction to the weird and wonderful world of exactly solvable quantum models." />
   <title>The Amorphous Kitaev Model - Introduction</title>
-  <!-- <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-    }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style> -->
 
-<!--   <script
-       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-       type="text/javascript"></script>
- -->
-
-<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
-   -->
 
 <script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+<script src="/assets/js/thesis_scrollspy.js"></script>
 
-
-<!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-<![endif]-->
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script src="/assets/js/index.js"></script>
 </head>
@@ -204,11 +26,9 @@ image:
 <!--Capture the table of contents from pandoc as a jekyll variable  -->
 {% capture tableOfContents %}
 <br>
-Contents:
+<nav aria-label="Table of Contents" class="page-table-of-contents">
 <ul>
-<li><a href="#contributions"
-id="toc-contributions">Contributions</a></li>
-<li><a href="#introduction" id="toc-introduction">Introduction</a>
+<li><a href="#sec:AMK-Model" id="toc-sec:AMK-Model">The Model</a>
 <ul>
 <li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous
 Systems</a></li>
@@ -239,17 +59,18 @@ id="toc-open-boundary-conditions">Open boundary conditions</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
+</nav>
 {% endcapture %}
 
-<!-- Give the table of contents to header as a variable -->
+<!-- Give the table of contents to header as a variable so it can be put into the sidebar-->
 {% include header.html extra=tableOfContents %}
 
 <main>
+
+<!-- Table of Contents -->
 <!-- <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#contributions"
-id="toc-contributions">Contributions</a></li>
-<li><a href="#introduction" id="toc-introduction">Introduction</a>
+<li><a href="#sec:AMK-Model" id="toc-sec:AMK-Model">The Model</a>
 <ul>
 <li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous
 Systems</a></li>
@@ -282,7 +103,9 @@ id="toc-open-boundary-conditions">Open boundary conditions</a></li>
 </ul>
 </nav>
  -->
-<h1 id="contributions">Contributions</h1>
+
+<!-- Main Page Body -->
+<p><strong>Contributions</strong></p>
 <p>The material in this chapter expands on work presented in</p>
 <p><strong>Insert citation of amorphous Kitaev paper here</strong></p>
 <p>which was a joint project of the first three authors with advice and
@@ -301,7 +124,8 @@ rest of the programming for Koala while pair programming and
 ’whiteboard’ing, this included the phase diagram, edge mode and finite
 temperature analyses as well as the derivation of the projector in the
 amorphous case.</p>
-<h1 id="introduction">Introduction</h1>
+<section id="sec:AMK-Model" class="level1">
+<h1>The Model</h1>
 <div id="fig:intro_figure_by_hand" class="fignos">
 <figure>
 <img
@@ -361,7 +185,8 @@ about because the model has extensively many conserved degrees of
 freedom. These conserved quantities can be factored out as classical
 degrees of freedom, leaving behind a non-interacting quantum model that
 is easy to solve.</p>
-<h2 id="amorphous-systems">Amorphous Systems</h2>
+<section id="amorphous-systems" class="level2">
+<h2>Amorphous Systems</h2>
 <p><strong>Insert discussion of why a generalisation to the amorphous
 case is interesting</strong></p>
 <p>This chapter details the physics of the Kitaev model on amorphous
@@ -391,7 +216,9 @@ that there is a phase transition to a thermal metal state.</p>
 and the motivations for doing so. It also discusses how a well known
 quantum error correcting code defined on the Kitaev Honeycomb model
 could be generalised to the amorphous case.</p>
-<h2 id="glossary">Glossary</h2>
+</section>
+<section id="glossary" class="level2">
+<h2>Glossary</h2>
 <ul>
 <li><p>Lattice: The underlying graph on which the models are defined.
 Composed of sites (vertices), bonds (edges) and plaquettes
@@ -465,12 +292,16 @@ class="math inline">\(A_\alpha\)</span> means <span
 class="math inline">\(J_\alpha &gt;&gt; J_\beta, J_\gamma\)</span>.</li>
 <li>The B phase: The roughly isotropic region of the phase diagram.</li>
 </ul>
-<h2 id="the-kitaev-model">The Kitaev Model</h2>
-<h3 id="commutation-relations">Commutation relations</h3>
+</section>
+<section id="the-kitaev-model" class="level2">
+<h2>The Kitaev Model</h2>
+<section id="commutation-relations" class="level3">
+<h3>Commutation relations</h3>
 <p>Before diving into the Hamiltonian of the Kitaev model, the following
 describes the key commutation relations of spins, fermions and
 Majoranas.</p>
-<h4 id="spins">Spins</h4>
+<section id="spins" class="level4">
+<h4>Spins</h4>
 <p>Skip this is you are familiar with the algebra of the Pauli matrices.
 Scalars like <span class="math inline">\(\delta_{ij}\)</span> should be
 understood to be multiplied by an implicit identity <span
@@ -502,7 +333,9 @@ be computed relatively easily by applying the above relations yielding:
 i \epsilon^{\alpha\beta\gamma}\]</span> and <span
 class="math display">\[[\sigma^\alpha \sigma^\beta, \sigma^\gamma] =
 0\]</span></p>
-<h4 id="fermions-and-majoranas">Fermions and Majoranas</h4>
+</section>
+<section id="fermions-and-majoranas" class="level4">
+<h4>Fermions and Majoranas</h4>
 <p>The fermionic creation and anhilation operators are defined by the
 canonical anticommutation relations <span
 class="math display">\[\begin{aligned}
@@ -540,7 +373,10 @@ alt="Figure 2: A visual introduction to the Kitaev Model." />
 introduction to the Kitaev Model.</figcaption>
 </figure>
 </div>
-<h3 id="the-hamiltonian">The Hamiltonian</h3>
+</section>
+</section>
+<section id="the-hamiltonian" class="level3">
+<h3>The Hamiltonian</h3>
 <p>To start from the fundamentals, the Kitaev Honeycomb model is a model
 of interacting spin<span class="math inline">\(-1/2\)</span>s on the
 vertices of a honeycomb lattice. Each bond in the lattice is assigned a
@@ -649,9 +485,11 @@ of a plaquette operator away from the ground state as
 Hilbert space into a set of ‘vortex sectors’ labelled by that particular
 flux configuration <span class="math inline">\(\phi_i = \pm 1,\pm
 i\)</span>.</p>
-<h3 id="from-spins-to-majorana-operators">From Spins to Majorana
-operators</h3>
-<h4 id="for-a-single-spin">For a single spin</h4>
+</section>
+<section id="from-spins-to-majorana-operators" class="level3">
+<h3>From Spins to Majorana operators</h3>
+<section id="for-a-single-spin" class="level4">
+<h4>For a single spin</h4>
 <p>Let us start by considering only one site and its <span
 class="math inline">\(\sigma^x, \sigma^y\)</span> and <span
 class="math inline">\(\sigma^z\)</span> operators which live in a two
@@ -704,7 +542,9 @@ instead get <span class="math display">\[
 \tilde{\sigma}^x\tilde{\sigma}^y\tilde{\sigma}^z = iD \]</span></p>
 <p>This makes sense if we promise to confine ourselves to the physical
 subspace <span class="math inline">\(D = 1\)</span>.</p>
-<h4 id="for-multiple-spins">For multiple spins</h4>
+</section>
+<section id="for-multiple-spins" class="level4">
+<h4>For multiple spins</h4>
 <p>This construction easily generalises to the case of multiple spins.
 We get a set of 4 Majoranas <span class="math inline">\(b^x_j,\;
 b^y_j,\;b^z_j,\; c_j\)</span> and a <span class="math inline">\(D_j =
@@ -756,8 +596,11 @@ degree of degeneracy.</p>
 <p>In summary, Majorana bond operators <span
 class="math inline">\(u_{ij}\)</span> are an emergent, classical, <span
 class="math inline">\(\mathbb{Z_2}\)</span> gauge field!</p>
-<h3 id="partitioning-the-hilbert-space-into-bond-sectors">Partitioning
-the Hilbert Space into Bond sectors</h3>
+</section>
+</section>
+<section id="partitioning-the-hilbert-space-into-bond-sectors"
+class="level3">
+<h3>Partitioning the Hilbert Space into Bond sectors</h3>
 <p>Similarly to the story with the plaquette operators from the spin
 language, we can divide the Hilbert space <span
 class="math inline">\(\mathcal{L}\)</span> into sectors labelled by a
@@ -781,7 +624,10 @@ confined entirely within the physical subspace <span
 class="math inline">\(\mathcal{L}_p\)</span> and, indeed, we will see
 that they are not. However, it will be helpful to first develop the
 theory of the Majorana Hamiltonian further.</p>
-<h2 id="the-majorana-hamiltonian">The Majorana Hamiltonian</h2>
+</section>
+</section>
+<section id="the-majorana-hamiltonian" class="level2">
+<h2>The Majorana Hamiltonian</h2>
 <p>We now have a quadratic Hamiltonian <span class="math display">\[
 \tilde{H} =  \frac{i}{4} \sum_{\langle i,j\rangle_\alpha} 2J^{\alpha}
 u_{ij} c_i c_j\]</span> in which most of the Majorana degrees of freedom
@@ -833,8 +679,9 @@ can take half the absolute value of the whole set to recover <span
 class="math inline">\(\sum_m \epsilon_m\)</span> easily.</p>
 <p>Takeaway: the Majorana Hamiltonian is quadratic within a Bond
 Sector.</p>
-<h3 id="mapping-back-from-bond-sectors-to-the-physical-subspace">Mapping
-back from Bond Sectors to the Physical Subspace</h3>
+<section id="mapping-back-from-bond-sectors-to-the-physical-subspace"
+class="level3">
+<h3>Mapping back from Bond Sectors to the Physical Subspace</h3>
 <p>At this point, given a particular bond configuration <span
 class="math inline">\(u_{ij} = \pm 1\)</span>, we can construct a
 quadratic Hamiltonian <span class="math inline">\(\tilde{H}_u\)</span>
@@ -891,7 +738,9 @@ namely how to construct a set of gauge invariant quantities out of the
 be the plaquette operators.</p>
 <p>Takeaway: The Bond Sectors overlap with the physical subspace but are
 not contained within it.</p>
-<h3 id="open-boundary-conditions">Open boundary conditions</h3>
+</section>
+<section id="open-boundary-conditions" class="level3">
+<h3>Open boundary conditions</h3>
 <p>Care must be taken when defining open boundary conditions. Simply
 removing bonds from the lattice leaves behind unpaired <span
 class="math inline">\(b^\alpha\)</span> operators that must be paired in
@@ -907,7 +756,11 @@ which we set to 1 when calculating the projector.</p>
 anyway, an arbitrary pairing of the unpaired <span
 class="math inline">\(b^\alpha\)</span> operators could be performed.
 &lt;/i,j&gt;&lt;/i,j&gt;</p>
-<h1 class="unnumbered" id="bibliography">Bibliography</h1>
+</section>
+</section>
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Bibliography</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-marsalTopologicalWeaireThorpe2020" class="csl-entry"
 role="doc-biblioentry">
@@ -953,6 +806,9 @@ class="csl-right-inline">J.-P. Blaizot and G. Ripka, <em>Quantum Theory
 of Finite Systems</em> (The MIT Press, 1986).</div>
 </div>
 </div>
+</section>
+
+
 </main>
 </body>
 </html>

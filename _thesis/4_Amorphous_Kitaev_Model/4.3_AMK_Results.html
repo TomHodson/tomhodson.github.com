@@ -13,189 +13,11 @@ image:
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="description" content="The Amorphous Kitaev model is a chiral spin liquid!" />
   <title>The Amorphous Kitaev Model - Results</title>
-  <!-- <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-    }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style> -->
 
-<!--   <script
-       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-       type="text/javascript"></script>
- -->
-
-<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
-   -->
 
 <script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+<script src="/assets/js/thesis_scrollspy.js"></script>
 
-
-<!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-<![endif]-->
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script src="/assets/js/index.js"></script>
 </head>
@@ -204,9 +26,9 @@ image:
 <!--Capture the table of contents from pandoc as a jekyll variable  -->
 {% capture tableOfContents %}
 <br>
-Contents:
+<nav aria-label="Table of Contents" class="page-table-of-contents">
 <ul>
-<li><a href="#results" id="toc-results">Results</a>
+<li><a href="#sec:AMK-Results" id="toc-sec:AMK-Results">Results</a>
 <ul>
 <li><a href="#the-ground-state-flux-sector"
 id="toc-the-ground-state-flux-sector">The Ground State Flux
@@ -226,32 +48,27 @@ non-Abelian?</a></li>
 id="toc-anderson-transition-to-a-thermal-metal">Anderson Transition to a
 Thermal Metal</a></li>
 </ul></li>
+<li><a href="#sec:AMK-Conclusion" id="toc-sec:AMK-Conclusion">Discussion
+and Conclusion</a>
+<ul>
 <li><a href="#conclusion" id="toc-conclusion">Conclusion</a></li>
-<li><a href="#discussion" id="toc-discussion">Discussion</a>
-<ul>
-<li><a href="#limits-of-the-ground-state-conjecture"
-id="toc-limits-of-the-ground-state-conjecture">Limits of the ground
-state conjecture</a></li>
-</ul></li>
-<li><a href="#outlook" id="toc-outlook">Outlook</a>
-<ul>
-<li><a href="#experimental-realisations-and-signatures"
-id="toc-experimental-realisations-and-signatures">Experimental
-Realisations and Signatures</a></li>
-<li><a href="#generalisations"
-id="toc-generalisations">Generalisations</a></li>
+<li><a href="#discussion" id="toc-discussion">Discussion</a></li>
+<li><a href="#outlook" id="toc-outlook">Outlook</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
+</nav>
 {% endcapture %}
 
-<!-- Give the table of contents to header as a variable -->
+<!-- Give the table of contents to header as a variable so it can be put into the sidebar-->
 {% include header.html extra=tableOfContents %}
 
 <main>
+
+<!-- Table of Contents -->
 <!-- <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#results" id="toc-results">Results</a>
+<li><a href="#sec:AMK-Results" id="toc-sec:AMK-Results">Results</a>
 <ul>
 <li><a href="#the-ground-state-flux-sector"
 id="toc-the-ground-state-flux-sector">The Ground State Flux
@@ -271,27 +88,23 @@ non-Abelian?</a></li>
 id="toc-anderson-transition-to-a-thermal-metal">Anderson Transition to a
 Thermal Metal</a></li>
 </ul></li>
+<li><a href="#sec:AMK-Conclusion" id="toc-sec:AMK-Conclusion">Discussion
+and Conclusion</a>
+<ul>
 <li><a href="#conclusion" id="toc-conclusion">Conclusion</a></li>
-<li><a href="#discussion" id="toc-discussion">Discussion</a>
-<ul>
-<li><a href="#limits-of-the-ground-state-conjecture"
-id="toc-limits-of-the-ground-state-conjecture">Limits of the ground
-state conjecture</a></li>
-</ul></li>
-<li><a href="#outlook" id="toc-outlook">Outlook</a>
-<ul>
-<li><a href="#experimental-realisations-and-signatures"
-id="toc-experimental-realisations-and-signatures">Experimental
-Realisations and Signatures</a></li>
-<li><a href="#generalisations"
-id="toc-generalisations">Generalisations</a></li>
+<li><a href="#discussion" id="toc-discussion">Discussion</a></li>
+<li><a href="#outlook" id="toc-outlook">Outlook</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
 </nav>
  -->
-<h1 id="results">Results</h1>
-<h2 id="the-ground-state-flux-sector">The Ground State Flux Sector</h2>
+
+<!-- Main Page Body -->
+<section id="sec:AMK-Results" class="level1">
+<h1>Results</h1>
+<section id="the-ground-state-flux-sector" class="level2">
+<h2>The Ground State Flux Sector</h2>
 <p>Here I will discuss the numerical evidence that our guess for the
 ground state flux sector is correct. We will do this by enumerating all
 the flux sectors of many separate system realisations. However there are
@@ -345,8 +158,9 @@ conjecture. In these cases, the energy difference between the true
 ground state and our prediction was on the order of <span
 class="math inline">\(10^{-6} J\)</span>. It is unclear whether this is
 a finite size effect or something else.</p>
-<h2 id="spontaneous-chiral-symmetry-breaking">Spontaneous Chiral
-Symmetry Breaking</h2>
+</section>
+<section id="spontaneous-chiral-symmetry-breaking" class="level2">
+<h2>Spontaneous Chiral Symmetry Breaking</h2>
 <p>The spin Kitaev Hamiltonian is real and therefore has time reversal
 symmetry (TRS). However, the flux <span
 class="math inline">\(\phi_p\)</span> through any plaquette with an odd
@@ -368,7 +182,9 @@ href="#ref-Peri2020" role="doc-biblioref">4</a>]</span>. This
 spontaneously broken symmetry avoids the need to explicitly break TRS
 with a magnetic field term as is done in the original honeycomb
 model.</p>
-<h2 id="ground-state-phase-diagram">Ground State Phase Diagram</h2>
+</section>
+<section id="ground-state-phase-diagram" class="level2">
+<h2>Ground State Phase Diagram</h2>
 <p>As previously discussed, the standard Honeycomb model has a Abelian,
 gapped phase in the anisotropic region (the A phase) and is gapless in
 the isotropic region. The introduction of a magnetic field breaks the
@@ -430,7 +246,8 @@ class="math inline">\(0\)</span> to <span class="math inline">\(\pm
 <strong>citation</strong>.</figcaption>
 </figure>
 </div>
-<h3 id="is-it-abelian-or-non-abelian">Is it Abelian or non-Abelian?</h3>
+<section id="is-it-abelian-or-non-abelian" class="level3">
+<h3>Is it Abelian or non-Abelian?</h3>
 <p>The two phases of the amorphous model are clearly gapped, though
 later I’ll double check this with finite size scaling.</p>
 <p>The next question is: do these phases support excitations with
@@ -527,7 +344,9 @@ with fixed <span class="math inline">\(r = 0.3\)</span> nicely confirms
 that the isotropic phase is non-Abelian.</figcaption>
 </figure>
 </div>
-<h3 id="edge-modes">Edge Modes</h3>
+</section>
+<section id="edge-modes" class="level3">
+<h3>Edge Modes</h3>
 <p>Chiral Spin Liquids support topological protected edge modes on open
 boundary conditions <span class="citation"
 data-cites="qi_general_2006"> [<a href="#ref-qi_general_2006"
@@ -562,8 +381,10 @@ each energy window. Cutting the boundary fills the gap with localised
 states.</figcaption>
 </figure>
 </div>
-<h2 id="anderson-transition-to-a-thermal-metal">Anderson Transition to a
-Thermal Metal</h2>
+</section>
+</section>
+<section id="anderson-transition-to-a-thermal-metal" class="level2">
+<h2>Anderson Transition to a Thermal Metal</h2>
 <p>Previous work on the honeycomb model at finite temperature has shown
 that the B phase undergoes a thermal transition from a quantum spin
 liquid phase a to a <strong>thermal metal</strong> phase <span
@@ -716,7 +537,12 @@ plots the density of vortices is <span class="math inline">\(\rho =
 \infty\)</span> limit.</figcaption>
 </figure>
 </div>
-<h1 id="conclusion">Conclusion</h1>
+</section>
+</section>
+<section id="sec:AMK-Conclusion" class="level1">
+<h1>Discussion and Conclusion</h1>
+<section id="conclusion" class="level2">
+<h2>Conclusion</h2>
 <p>In this chapter we have looked at an extension of the Kitaev
 honeycomb model to amorphous lattices with coordination number three. We
 discussed a method to construct arbitrary trivalent lattices using
@@ -735,9 +561,10 @@ spin liquid phase.</p>
 <p>Finally we showed evidence that the amorphous system undergoes an
 Anderson transition to a thermal metal phase, driven by the
 proliferation of vortices with increasing temperature.</p>
-<h1 id="discussion">Discussion</h1>
-<h2 id="limits-of-the-ground-state-conjecture">Limits of the ground
-state conjecture</h2>
+</section>
+<section id="discussion" class="level2">
+<h2>Discussion</h2>
+<p><strong>Limits of the ground state conjecture</strong></p>
 <p>We found a small number of lattices for which the ground state
 conjecture did not correctly predict the true ground state flux sector.
 I see two possibilities for what could cause this.</p>
@@ -753,12 +580,13 @@ colouring for a lattice affects the physical properties in the toric
 code A phase. It is possible that some property of the particular
 colouring chosen is what leads to failure of the ground state conjecture
 here.</p>
-<h1 id="outlook">Outlook</h1>
+</section>
+<section id="outlook" class="level2">
+<h2>Outlook</h2>
 <p>This exactly solvable chiral QSL provides a first example of a
 topological quantum many-body phase in amorphous magnets, which raises a
 number of questions for future research.</p>
-<h2 id="experimental-realisations-and-signatures">Experimental
-Realisations and Signatures</h2>
+<p><strong>Experimental Realisations and Signatures</strong></p>
 <p>The obvious question is whether amorphous Kitaev materials could be
 physically realised.</p>
 <p>Most crystals can as exists in a metastable amorphous state if they
@@ -793,7 +621,7 @@ behavior <span class="citation"
 data-cites="misumiQuantumSpinLiquid2020"> [<a
 href="#ref-misumiQuantumSpinLiquid2020"
 role="doc-biblioref">29</a>]</span>.</p>
-<h2 id="generalisations">Generalisations</h2>
+<p><strong>Generalisations</strong></p>
 <p>The model presented here could be generalized in several ways.</p>
 <p>First, it would be interesting to study the stability of the chiral
 amorphous Kitaev QSL with respect to perturbations\ <span
@@ -831,7 +659,10 @@ href="#ref-Wu2009" role="doc-biblioref">47</a>]</span></p>
 quantum many body phases albeit material candidates aplenty. We expect
 our exact chiral amorphous spin liquid to find many generalisation to
 realistic amorphous quantum magnets and beyond.</p>
-<h1 class="unnumbered" id="bibliography">Bibliography</h1>
+</section>
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Bibliography</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-kitaevAnyonsExactlySolved2006" class="csl-entry"
 role="doc-biblioentry">
@@ -1188,6 +1019,9 @@ Wu, D. Arovas, and H.-H. Hung, <em>Γ-Matrix Generalization of the Kitaev
 Model</em>, Physical Review B <strong>79</strong>, 134427 (2009).</div>
 </div>
 </div>
+</section>
+
+
 </main>
 </body>
 </html>

@@ -12,230 +12,11 @@ image:
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>2.1_FK_Model</title>
-  <!-- <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style> -->
 
-<!--  -->
-
-<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
-   -->
 
 <script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+<script src="/assets/js/thesis_scrollspy.js"></script>
 
-
-<!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-<![endif]-->
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script src="/assets/js/index.js"></script>
 </head>
@@ -244,55 +25,529 @@ image:
 <!--Capture the table of contents from pandoc as a jekyll variable  -->
 {% capture tableOfContents %}
 <br>
-Contents:
+<nav aria-label="Table of Contents" class="page-table-of-contents">
 <ul>
 <li><a href="#the-falikov-kimball-model"
 id="toc-the-falikov-kimball-model">The Falikov Kimball Model</a>
 <ul>
-<li><a href="#the-model" id="toc-the-model">The Model</a>
-<ul>
-<li><a href="#particle-hole-symmetry"
-id="toc-particle-hole-symmetry">Particle Hole Symmetry</a></li>
+<li><a href="#the-model" id="toc-the-model">The Model</a></li>
+<li><a href="#phase-diagrams" id="toc-phase-diagrams">Phase
+Diagrams</a></li>
+<li><a href="#long-ranged-ising-model"
+id="toc-long-ranged-ising-model">Long Ranged Ising model</a></li>
 </ul></li>
-<li><a href="#phase-diagram" id="toc-phase-diagram">Phase
-Diagram</a></li>
-<li><a href="#long-range-ising-models"
-id="toc-long-range-ising-models">Long Range Ising Models</a></li>
-</ul></li>
+<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
+</nav>
 {% endcapture %}
 
-<!-- Give the table of contents to header as a variable -->
+<!-- Give the table of contents to header as a variable so it can be put into the sidebar-->
 {% include header.html extra=tableOfContents %}
 
 <main>
+
+<!-- Table of Contents -->
 <!-- <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#the-falikov-kimball-model"
 id="toc-the-falikov-kimball-model">The Falikov Kimball Model</a>
 <ul>
-<li><a href="#the-model" id="toc-the-model">The Model</a>
-<ul>
-<li><a href="#particle-hole-symmetry"
-id="toc-particle-hole-symmetry">Particle Hole Symmetry</a></li>
+<li><a href="#the-model" id="toc-the-model">The Model</a></li>
+<li><a href="#phase-diagrams" id="toc-phase-diagrams">Phase
+Diagrams</a></li>
+<li><a href="#long-ranged-ising-model"
+id="toc-long-ranged-ising-model">Long Ranged Ising model</a></li>
 </ul></li>
-<li><a href="#phase-diagram" id="toc-phase-diagram">Phase
-Diagram</a></li>
-<li><a href="#long-range-ising-models"
-id="toc-long-range-ising-models">Long Range Ising Models</a></li>
-</ul></li>
+<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
 </nav>
  -->
-<h1 id="the-falikov-kimball-model">The Falikov Kimball Model</h1>
-<h2 id="the-model">The Model</h2>
-<p>discuss CDW phase of 2d model as motivation for studying 1d phase
-with long range forces</p>
-<h3 id="particle-hole-symmetry">Particle Hole Symmetry</h3>
-<h2 id="phase-diagram">Phase Diagram</h2>
-<h2 id="long-range-ising-models">Long Range Ising Models</h2>
+
+<!-- Main Page Body -->
+<section id="the-falikov-kimball-model" class="level1">
+<h1>The Falikov Kimball Model</h1>
+<section id="the-model" class="level2">
+<h2>The Model</h2>
+<p>The Falikov-Kimball (FK) model is one of the simplest models of the
+correlated electron problem. It captures the essence of the interaction
+between itinerant and localized electrons. It was originally introduced
+to explain the metal-insulator transition in f-electron systems but in
+its long history it has been interpreted variously as a model of
+electrons and ions, binary alloys or of crystal formation <span
+class="citation"
+data-cites="hubbardj.ElectronCorrelationsNarrow1963 falicovSimpleModelSemiconductorMetal1969 gruberFalicovKimballModelReview1996 gruberFalicovKimballModel2006"> [<a
+href="#ref-hubbardj.ElectronCorrelationsNarrow1963"
+role="doc-biblioref">1</a>–<a href="#ref-gruberFalicovKimballModel2006"
+role="doc-biblioref">4</a>]</span>. In terms of immobile fermions <span
+class="math inline">\(d_i\)</span> and light fermions <span
+class="math inline">\(c_i\)</span> and with chemical potential fixed at
+half-filling, the model reads</p>
+<p><span class="math display">\[\begin{aligned}
+H_{\mathrm{FK}} = &amp; \;U \sum_{i} (d^\dagger_{i}d_{i} -
+\tfrac{1}{2})\;(c^\dagger_{i}c_{i} - \tfrac{1}{2}) -\;t \sum_{\langle
+i,j\rangle} c^\dagger_{i}c_{j}.\\
+\end{aligned}\]</span></p>
+<p>The connection to the Hubbard model is that we have relabel the up
+and down spin electron states and removed the hopping term for one
+species, the equivalent of taking the limit of infinite mass ratio <span
+class="citation" data-cites="devriesSimplifiedHubbardModel1993"> [<a
+href="#ref-devriesSimplifiedHubbardModel1993"
+role="doc-biblioref">5</a>]</span>.</p>
+<p>Like other exactly solvable models <span class="citation"
+data-cites="smithDisorderFreeLocalization2017"> [<a
+href="#ref-smithDisorderFreeLocalization2017"
+role="doc-biblioref">6</a>]</span> and the Kitaev Model, the FK model
+possesses extensively many conserved degrees of freedom <span
+class="math inline">\([d^\dagger_{i}d_{i}, H] = 0\)</span>. The Hilbert
+space therefore breaks up into a set of sectors in which these operators
+take a definite value. Crucially, this reduces the interaction term
+<span class="math inline">\((d^\dagger_{i}d_{i} -
+\tfrac{1}{2})\;(c^\dagger_{i}c_{i} - \tfrac{1}{2})\)</span> from being
+quartic in fermion operators to quadratic. This is what makes the FK
+model exactly solvable, in contrast to the Hubbard model.</p>
+<p>Due to Pauli exclusion, maximum filling occurs when each lattice site
+is fully occupied, <span class="math inline">\(\langle n_c + n_d \rangle
+= 2\)</span>. Here we will focus on the half filled case <span
+class="math inline">\(\langle n_c + n_d \rangle = 1\)</span>. Doping the
+model away from the half-filled point leads to rich physics including
+superconductivity <span class="citation"
+data-cites="jedrzejewskiFalicovKimballModels2001"> [<a
+href="#ref-jedrzejewskiFalicovKimballModels2001"
+role="doc-biblioref">7</a>]</span>.</p>
+<p>At half-filling and on bipartite lattices, FK the model is
+particle-hole symmetric. That is, the Hamiltonian anticommutes with the
+particle hole operator <span
+class="math inline">\(\mathcal{P}H\mathcal{P}^{-1} = -H\)</span>. As a
+consequence the energy spectrum is symmetric about <span
+class="math inline">\(E = 0\)</span> and this is the Fermi energy. The
+particle hole operator corresponds to the substitution <span
+class="math inline">\(c^\dagger_i \rightarrow \epsilon_i c_i,
+d^\dagger_i \rightarrow d_i\)</span> where <span
+class="math inline">\(\epsilon_i = +1\)</span> for the A sublattice and
+<span class="math inline">\(-1\)</span> for the even sublattice <span
+class="citation" data-cites="gruberFalicovKimballModel2005"> [<a
+href="#ref-gruberFalicovKimballModel2005"
+role="doc-biblioref">8</a>]</span>. The absence of a hopping term for
+the heavy electrons means they do not need the factor of <span
+class="math inline">\(\epsilon_i\)</span>.</p>
+<div id="fig:simple_DOS" class="fignos">
+<figure>
+<img src="/assets/thesis/background_chapter/simple_DOS.svg"
+data-short-caption="Cubic Lattice dispersion with disorder"
+style="width:100.0%"
+alt="Figure 1: The dispersion (upper row) and density of states (lower row) obtained from a cubic lattice model H = \sum_{i} V_i c^\dagger_{i}c_{i} - t \sum_{\langle i,j\rangle} c^\dagger_{i}c_{j} in one dimension. (a) With not external potential. (b) With a static charge density wave background V_i = (-1)^i (c) A static charge density wave background with 2% binary disorder." />
+<figcaption aria-hidden="true"><span>Figure 1:</span> The dispersion
+(upper row) and density of states (lower row) obtained from a cubic
+lattice model <span class="math inline">\(H = \sum_{i} V_i
+c^\dagger_{i}c_{i} - t \sum_{\langle i,j\rangle}
+c^\dagger_{i}c_{j}\)</span> in one dimension. (a) With not external
+potential. (b) With a static charge density wave background <span
+class="math inline">\(V_i = (-1)^i\)</span> (c) A static charge density
+wave background with 2% binary disorder.</figcaption>
+</figure>
+</div>
+<p>We will later add a long range interaction between the localised
+electrons so we will replace the immobile fermions with a classical
+Ising field <span class="math inline">\(S_i = 1 - 2d^\dagger_id_i =
+\pm\tfrac{1}{2}\)</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+H_{\mathrm{FK}} = &amp; \;U \sum_{i} S_i\;(c^\dagger_{i}c_{i} -
+\tfrac{1}{2}) -\;t \sum_{\langle i,j\rangle} c^\dagger_{i}c_{j}.\\
+\end{aligned}\]</span></p>
+<p>The FK model can be solved exaclty with dynamic mean field theory in
+the infinite dimensional <span class="citation"
+data-cites="antipovCriticalExponentsStrongly2014 ribicNonlocalCorrelationsSpectral2016 freericksExactDynamicalMeanfield2003 herrmannNonequilibriumDynamicalCluster2016"> [<a
+href="#ref-antipovCriticalExponentsStrongly2014"
+role="doc-biblioref">9</a>–<a
+href="#ref-herrmannNonequilibriumDynamicalCluster2016"
+role="doc-biblioref">12</a>]</span>.</p>
+<ul>
+<li>displays disorder free localisation</li>
+</ul>
+</section>
+<section id="phase-diagrams" class="level2">
+<h2>Phase Diagrams</h2>
+<div id="fig:fk_phase_diagram" class="fignos">
+<figure>
+<img src="/assets/thesis/background_chapter/fk_phase_diagram.svg"
+data-short-caption="Fermi-Hubbard and Falikov-Kimball Temperatue-Interaction Phase Diagrams"
+style="width:100.0%"
+alt="Figure 2: Schematic Phase diagrams of the Fermi-Hubbard (left) and Falikov-Kimball model (right) showing temperature (T) and repulsive interaction strength (U). Hubbard model diagram adapted from  [13], Falikov-Kimball model from  [14,15]" />
+<figcaption aria-hidden="true"><span>Figure 2:</span> Schematic Phase
+diagrams of the Fermi-Hubbard (left) and Falikov-Kimball model (right)
+showing temperature (T) and repulsive interaction strength (U). Hubbard
+model diagram adapted from <span class="citation"
+data-cites="micnasSuperconductivityNarrowbandSystems1990"> [<a
+href="#ref-micnasSuperconductivityNarrowbandSystems1990"
+role="doc-biblioref">13</a>]</span>, Falikov-Kimball model from <span
+class="citation"
+data-cites="antipovInteractionTunedAndersonMott2016 antipovCriticalExponentsStrongly2014a"> [<a
+href="#ref-antipovInteractionTunedAndersonMott2016"
+role="doc-biblioref">14</a>,<a
+href="#ref-antipovCriticalExponentsStrongly2014a"
+role="doc-biblioref">15</a>]</span></figcaption>
+</figure>
+</div>
+<ul>
+<li>rich phase diagram in 2d Despite its simplicity, the FK model has a
+rich phase diagram in <span class="math inline">\(D \geq 2\)</span>
+dimensions. For example, it shows an interaction-induced gap opening
+even at high temperatures, similar to the corresponding Hubbard
+Model <span class="citation"
+data-cites="brandtThermodynamicsCorrelationFunctions1989"> [<a
+href="#ref-brandtThermodynamicsCorrelationFunctions1989"
+role="doc-biblioref">16</a>]</span>.</li>
+</ul>
+<p>At half filling and in dimensions greater than one, the FK model
+exhibits a phase transition at some <span
+class="math inline">\(U\)</span> dependent critical temperature <span
+class="math inline">\(T_c(U)\)</span> to a low temperature charge
+density wave state in which the spins order antiferromagnetically. This
+corresponds to the heavy electrons occupying one of the two sublattices
+A and B <span class="citation"
+data-cites="maskaThermodynamicsTwodimensionalFalicovKimball2006"> [<a
+href="#ref-maskaThermodynamicsTwodimensionalFalicovKimball2006"
+role="doc-biblioref">17</a>]</span>. In the disordered region above
+<span class="math inline">\(T_c(U)\)</span> there is a transition
+between an Anderson insulator phase at weak interaction and a Mott
+insulator phase in the strongly interacting regime <span
+class="citation" data-cites="andersonAbsenceDiffusionCertain1958"> [<a
+href="#ref-andersonAbsenceDiffusionCertain1958"
+role="doc-biblioref">18</a>]</span>.</p>
+<ul>
+<li>superconductivity when doped</li>
+</ul>
+<p>In 1D, the ground state phenomenology as the model is doped away from
+the half-filled state can be rich <span class="citation"
+data-cites="gruberGroundStatesSpinless1990"> [<a
+href="#ref-gruberGroundStatesSpinless1990"
+role="doc-biblioref">19</a>]</span> but the system is disordered for all
+<span class="math inline">\(T &gt; 0\)</span> <span class="citation"
+data-cites="kennedyItinerantElectronModel1986"> [<a
+href="#ref-kennedyItinerantElectronModel1986"
+role="doc-biblioref">20</a>]</span>.</p>
+<p>In the one dimensional FK model there is no ordered CDW phase <span
+class="citation" data-cites="liebAbsenceMottTransition1968"> [<a
+href="#ref-liebAbsenceMottTransition1968"
+role="doc-biblioref">21</a>]</span>. The supression of phase transition
+is a common phenomena in one dimensional systems. It can be understood
+via Peierls’ argument <span class="citation"
+data-cites="peierlsIsingModelFerromagnetism1936 kennedyItinerantElectronModel1986"> [<a
+href="#ref-kennedyItinerantElectronModel1986"
+role="doc-biblioref">20</a>,<a
+href="#ref-peierlsIsingModelFerromagnetism1936"
+role="doc-biblioref">22</a>]</span> to be a consequence of the low
+energy penalty for domain walls in one dimensional systems.</p>
+<p>Following Peierls’ argument, consider the difference in free energy
+<span class="math inline">\(\Delta F = \Delta E - T\Delta S\)</span>
+between an ordered state and a state with single domain wall in a
+discrete order parameter. Short range interactions produce a constant
+energy penalty for such a domain wall that does not scale with system
+size. In contrast, the number of such single domain wall states scales
+linearly so the entropy is <span class="math inline">\(\propto \ln
+L\)</span>. Thus the entropic contribution dominates (eventually) in the
+thermodynamic limit and no finite temperature order is possible. In two
+dimensions and above, the energy penalty of a domain wall scales like
+<span class="math inline">\(L^{d-1}\)</span> so they can support ordered
+phases.</p>
+</section>
+<section id="long-ranged-ising-model" class="level2">
+<h2>Long Ranged Ising model</h2>
+<p>Our extension to the FK model could now be though of as spinless
+fermions coupled to a long range Ising (LRI) model. The LRI model has
+been extensively studied and its behaviour may be bear relation to the
+behaviour of our modified FK model.</p>
+<p><span class="math display">\[H_{\mathrm{LRI}} = \sum_{ij} J(|i-j|)
+\tau_i \tau_j = J \sum_{i\neq j} |i - j|^{-\alpha} \tau_i
+\tau_j\]</span></p>
+<p>Renormalisation group analyses show that the LRI model has an ordered
+phase in 1D for $1 &lt; &lt; 2 $ <span class="citation"
+data-cites="dysonExistencePhasetransitionOnedimensional1969"> [<a
+href="#ref-dysonExistencePhasetransitionOnedimensional1969"
+role="doc-biblioref">23</a>]</span>. Peierls’ argument can be
+extended <span class="citation"
+data-cites="thoulessLongRangeOrderOneDimensional1969"> [<a
+href="#ref-thoulessLongRangeOrderOneDimensional1969"
+role="doc-biblioref">24</a>]</span> to long range interactions to
+provide intuition for why this is the case. Again considering the energy
+difference between the ordered state <span
+class="math inline">\(\ket{\ldots\uparrow\uparrow\uparrow\uparrow\ldots}\)</span>
+and a domain wall state <span
+class="math inline">\(\ket{\ldots\uparrow\uparrow\downarrow\downarrow\ldots}\)</span>.
+In the case of the LRI model, careful counting shows that this energy
+penalty is: <span class="math display">\[\Delta E \propto
+\sum_{n=1}^{\infty} n J(n)\]</span></p>
+<p>because each interaction between spins separated across the domain by
+a bond length <span class="math inline">\(n\)</span> can be drawn
+between <span class="math inline">\(n\)</span> equivalent pairs of
+sites. Ruelle proved rigorously for a very general class of 1D systems,
+that if <span class="math inline">\(\Delta E\)</span> or its many-body
+generalisation converges in the thermodynamic limit then the free energy
+is analytic <span class="citation"
+data-cites="ruelleStatisticalMechanicsOnedimensional1968"> [<a
+href="#ref-ruelleStatisticalMechanicsOnedimensional1968"
+role="doc-biblioref">25</a>]</span>. This rules out a finite order phase
+transition, though not one of the Kosterlitz-Thouless type. Dyson also
+proves this though with a slightly different condition on <span
+class="math inline">\(J(n)\)</span> <span class="citation"
+data-cites="dysonExistencePhasetransitionOnedimensional1969"> [<a
+href="#ref-dysonExistencePhasetransitionOnedimensional1969"
+role="doc-biblioref">23</a>]</span>.</p>
+<p>With a power law form for <span class="math inline">\(J(n)\)</span>,
+there are three cases to consider:</p>
+<ol type="1">
+<li>$ = 0$ For infinite range interactions the Ising model is exactly
+solveable and mean field theory is exact <span class="citation"
+data-cites="lipkinValidityManybodyApproximation1965"> [<a
+href="#ref-lipkinValidityManybodyApproximation1965"
+role="doc-biblioref">26</a>]</span>.</li>
+<li>$ $ For slowly decaying interactions <span
+class="math inline">\(\sum_n J(n)\)</span> does not converge so the
+Hamiltonian is non-extensive, a case which won’t be further considered
+here.</li>
+<li>$ 1 &lt; &lt; 2 $ A phase transition to an ordered state at a finite
+temperature.</li>
+<li>$ = 2 $ The energy of domain walls diverges logarithmically, and
+this turns out to be a Kostelitz-Thouless transition <span
+class="citation"
+data-cites="thoulessLongRangeOrderOneDimensional1969"> [<a
+href="#ref-thoulessLongRangeOrderOneDimensional1969"
+role="doc-biblioref">24</a>]</span>.</li>
+<li>$ 2 &lt; $ For quickly decaying interactions, domain walls have a
+finite energy penalty, hence Peirels’ argument holds and there is no
+phase transition.</li>
+</ol>
+<div id="fig:alpha_diagram" class="fignos">
+<figure>
+<img src="/assets/thesis/background_chapter/alpha_diagram.svg"
+data-short-caption="Long Range Ising Model Behaviour"
+style="width:100.0%" alt="Figure 3: " />
+<figcaption aria-hidden="true"><span>Figure 3:</span> </figcaption>
+</figure>
+</div>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</section>
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Bibliography</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-hubbardj.ElectronCorrelationsNarrow1963" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div
+class="csl-right-inline">Hubbard, J., <em><a
+href="https://doi.org/10.1098/rspa.1963.0204">Electron Correlations in
+Narrow Energy Bands</a></em>, Proceedings of the Royal Society of
+London. Series A. Mathematical and Physical Sciences
+<strong>276</strong>, 238 (1963).</div>
+</div>
+<div id="ref-falicovSimpleModelSemiconductorMetal1969" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">L.
+M. Falicov and J. C. Kimball, <em><a
+href="https://doi.org/10.1103/PhysRevLett.22.997">Simple Model for
+Semiconductor-Metal Transitions: Sm${\mathrm{B}}_{6}$ and
+Transition-Metal Oxides</a></em>, Phys. Rev. Lett. <strong>22</strong>,
+997 (1969).</div>
+</div>
+<div id="ref-gruberFalicovKimballModelReview1996" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">C.
+Gruber and N. Macris, <em>The Falicov-Kimball Model: A Review of Exact
+Results and Extensions</em>, Helvetica Physica Acta <strong>69</strong>,
+(1996).</div>
+</div>
+<div id="ref-gruberFalicovKimballModel2006" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">C.
+Gruber and D. Ueltschi, <em>The Falicov-Kimball model</em>, in
+<em>Encyclopedia of mathematical physics. 1, 1,</em> (Elsevier,
+Amsterdam, 2006).</div>
+</div>
+<div id="ref-devriesSimplifiedHubbardModel1993" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">P.
+de Vries, K. Michielsen, and H. De Raedt, <em><a
+href="https://doi.org/10.1007/BF01308754">The Simplified Hubbard Model
+in One and Two Dimensions</a></em>, Z. Physik B - Condensed Matter
+<strong>92</strong>, 353 (1993).</div>
+</div>
+<div id="ref-smithDisorderFreeLocalization2017" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">A.
+Smith, J. Knolle, D.  L. Kovrizhin, and R. Moessner, <em><a
+href="https://doi.org/10.1103/PhysRevLett.118.266601">Disorder-Free
+Localization</a></em>, Phys. Rev. Lett. <strong>118</strong>, 266601
+(2017).</div>
+</div>
+<div id="ref-jedrzejewskiFalicovKimballModels2001" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">J.
+Jedrzejewski and R. Lemanski, <em><a
+href="http://adsabs.harvard.edu/abs/2001AcPPB..32.3243J">Falicov--Kimball
+Models of Collective Phenomena in Solids (A Concise Guide)</a></em>,
+Acta Physica Polonica B <strong>32</strong>, 3243 (2001).</div>
+</div>
+<div id="ref-gruberFalicovKimballModel2005" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">C.
+Gruber and D. Ueltschi, <em><a
+href="http://arxiv.org/abs/math-ph/0502041">The Falicov-Kimball
+Model</a></em>, arXiv:math-Ph/0502041 (2005).</div>
+</div>
+<div id="ref-antipovCriticalExponentsStrongly2014" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">A.
+E. Antipov, E. Gull, and S. Kirchner, <em><a
+href="https://doi.org/10.1103/PhysRevLett.112.226401">Critical Exponents
+of Strongly Correlated Fermion Systems from Diagrammatic Multiscale
+Methods</a></em>, Phys. Rev. Lett. <strong>112</strong>, 226401
+(2014).</div>
+</div>
+<div id="ref-ribicNonlocalCorrelationsSpectral2016" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">T.
+Ribic, G. Rohringer, and K. Held, <em><a
+href="https://doi.org/10.1103/PhysRevB.93.195105">Nonlocal Correlations
+and Spectral Properties of the Falicov-Kimball Model</a></em>, Phys.
+Rev. B <strong>93</strong>, 195105 (2016).</div>
+</div>
+<div id="ref-freericksExactDynamicalMeanfield2003" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">J.
+K. Freericks and V. Zlatić, <em><a
+href="https://doi.org/10.1103/RevModPhys.75.1333">Exact Dynamical
+Mean-Field Theory of the Falicov-Kimball Model</a></em>, Rev. Mod. Phys.
+<strong>75</strong>, 1333 (2003).</div>
+</div>
+<div id="ref-herrmannNonequilibriumDynamicalCluster2016"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">A.
+J. Herrmann, N. Tsuji, M. Eckstein, and P. Werner, <em><a
+href="https://doi.org/10.1103/PhysRevB.94.245114">Nonequilibrium
+Dynamical Cluster Approximation Study of the Falicov-Kimball
+Model</a></em>, Phys. Rev. B <strong>94</strong>, 245114 (2016).</div>
+</div>
+<div id="ref-micnasSuperconductivityNarrowbandSystems1990"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">R.
+Micnas, J. Ranninger, and S. Robaszkiewicz, <em><a
+href="https://doi.org/10.1103/RevModPhys.62.113">Superconductivity in
+Narrow-Band Systems with Local Nonretarded Attractive
+Interactions</a></em>, Rev. Mod. Phys. <strong>62</strong>, 113
+(1990).</div>
+</div>
+<div id="ref-antipovInteractionTunedAndersonMott2016" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">A.
+E. Antipov, Y. Javanmard, P. Ribeiro, and S. Kirchner, <em><a
+href="https://doi.org/10.1103/PhysRevLett.117.146601">Interaction-Tuned
+Anderson Versus Mott Localization</a></em>, Phys. Rev. Lett.
+<strong>117</strong>, 146601 (2016).</div>
+</div>
+<div id="ref-antipovCriticalExponentsStrongly2014a" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">A.
+E. Antipov, E. Gull, and S. Kirchner, <em><a
+href="https://doi.org/10.1103/PhysRevLett.112.226401">Critical Exponents
+of Strongly Correlated Fermion Systems from Diagrammatic Multiscale
+Methods</a></em>, Phys. Rev. Lett. <strong>112</strong>, 226401
+(2014).</div>
+</div>
+<div id="ref-brandtThermodynamicsCorrelationFunctions1989"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">U.
+Brandt and C. Mielsch, <em><a
+href="https://doi.org/10.1007/BF01321824">Thermodynamics and Correlation
+Functions of the Falicov-Kimball Model in Large Dimensions</a></em>, Z.
+Physik B - Condensed Matter <strong>75</strong>, 365 (1989).</div>
+</div>
+<div id="ref-maskaThermodynamicsTwodimensionalFalicovKimball2006"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">M.
+M. Maśka and K. Czajka, <em><a
+href="https://doi.org/10.1103/PhysRevB.74.035109">Thermodynamics of the
+Two-Dimensional Falicov-Kimball Model: A Classical Monte Carlo
+Study</a></em>, Phys. Rev. B <strong>74</strong>, 035109 (2006).</div>
+</div>
+<div id="ref-andersonAbsenceDiffusionCertain1958" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">P.
+W. Anderson, <em><a
+href="https://doi.org/10.1103/PhysRev.109.1492">Absence of Diffusion in
+Certain Random Lattices</a></em>, Phys. Rev. <strong>109</strong>, 1492
+(1958).</div>
+</div>
+<div id="ref-gruberGroundStatesSpinless1990" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[19] </div><div class="csl-right-inline">C.
+Gruber, J. Iwanski, J. Jedrzejewski, and P. Lemberger, <em><a
+href="https://doi.org/10.1103/PhysRevB.41.2198">Ground States of the
+Spinless Falicov-Kimball Model</a></em>, Phys. Rev. B
+<strong>41</strong>, 2198 (1990).</div>
+</div>
+<div id="ref-kennedyItinerantElectronModel1986" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[20] </div><div class="csl-right-inline">T.
+Kennedy and E. H. Lieb, <em><a
+href="https://doi.org/10.1016/0378-4371(86)90188-3">An Itinerant
+Electron Model with Crystalline or Magnetic Long Range Order</a></em>,
+Physica A: Statistical Mechanics and Its Applications
+<strong>138</strong>, 320 (1986).</div>
+</div>
+<div id="ref-liebAbsenceMottTransition1968" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[21] </div><div class="csl-right-inline">E.
+H. Lieb and F. Y. Wu, <em><a
+href="https://doi.org/10.1103/PhysRevLett.20.1445">Absence of Mott
+Transition in an Exact Solution of the Short-Range, One-Band Model in
+One Dimension</a></em>, Phys. Rev. Lett. <strong>20</strong>, 1445
+(1968).</div>
+</div>
+<div id="ref-peierlsIsingModelFerromagnetism1936" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[22] </div><div class="csl-right-inline">R.
+Peierls, <em><a href="https://doi.org/10.1017/S0305004100019174">On
+Ising’s Model of Ferromagnetism</a></em>, Mathematical Proceedings of
+the Cambridge Philosophical Society <strong>32</strong>, 477
+(1936).</div>
+</div>
+<div id="ref-dysonExistencePhasetransitionOnedimensional1969"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[23] </div><div class="csl-right-inline">F.
+J. Dyson, <em><a href="https://doi.org/10.1007/BF01645907">Existence of
+a Phase-Transition in a One-Dimensional Ising Ferromagnet</a></em>,
+Commun.Math. Phys. <strong>12</strong>, 91 (1969).</div>
+</div>
+<div id="ref-thoulessLongRangeOrderOneDimensional1969" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[24] </div><div class="csl-right-inline">D.
+J. Thouless, <em><a
+href="https://doi.org/10.1103/PhysRev.187.732">Long-Range Order in
+One-Dimensional Ising Systems</a></em>, Phys. Rev. <strong>187</strong>,
+732 (1969).</div>
+</div>
+<div id="ref-ruelleStatisticalMechanicsOnedimensional1968"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[25] </div><div class="csl-right-inline">D.
+Ruelle, <em><a
+href="https://mathscinet.ams.org/mathscinet-getitem?mr=0234697">Statistical
+Mechanics of a One-Dimensional Lattice Gas</a></em>, Comm. Math. Phys.
+<strong>9</strong>, 267 (1968).</div>
+</div>
+<div id="ref-lipkinValidityManybodyApproximation1965" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[26] </div><div class="csl-right-inline">H.
+J. Lipkin, N. Meshkov, and A. J. Glick, <em><a
+href="https://doi.org/10.1016/0029-5582(65)90862-X">Validity of
+Many-Body Approximation Methods for a Solvable Model. (I). Exact
+Solutions and Perturbation Theory</a></em>, Nuclear Physics
+<strong>62</strong>, 188 (1965).</div>
+</div>
+</div>
+</section>
+
+
 </main>
 </body>
 </html>
