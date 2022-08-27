@@ -28,7 +28,7 @@ image:
 <br>
 <nav aria-label="Table of Contents" class="page-table-of-contents">
 <ul>
-<li><a href="#sec:AMK-Model" id="toc-sec:AMK-Model">The Model</a>
+<li><a href="#amk-Model" id="toc-amk-Model">The Model</a>
 <ul>
 <li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous
 Systems</a></li>
@@ -70,7 +70,7 @@ id="toc-open-boundary-conditions">Open boundary conditions</a></li>
 <!-- Table of Contents -->
 <!-- <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#sec:AMK-Model" id="toc-sec:AMK-Model">The Model</a>
+<li><a href="#amk-Model" id="toc-amk-Model">The Model</a>
 <ul>
 <li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous
 Systems</a></li>
@@ -107,24 +107,32 @@ id="toc-open-boundary-conditions">Open boundary conditions</a></li>
 <!-- Main Page Body -->
 <p><strong>Contributions</strong></p>
 <p>The material in this chapter expands on work presented in</p>
-<p><strong>Insert citation of amorphous Kitaev paper here</strong></p>
-<p>which was a joint project of the first three authors with advice and
+<p> <span class="citation"
+data-cites="cassellaExactChiralAmorphous2022"> [<a
+href="#ref-cassellaExactChiralAmorphous2022"
+role="doc-biblioref">1</a>]</span> Cassella, G., D’Ornellas, P., Hodson,
+T., Natori, W. M., &amp; Knolle, J. (2022). An exact chiral amorphous
+spin liquid. <em>arXiv preprint arXiv:2208.08246.</em></p>
+<p>the code is available at <span class="citation"
+data-cites="hodsonKoalaKitaevAmorphous2022"> [<a
+href="#ref-hodsonKoalaKitaevAmorphous2022"
+role="doc-biblioref">2</a>]</span>.</p>
+<p>This was a joint project of Gino, Peru and myself with advice and
 guidance from Willian and Johannes. The project grew out of an interest
-Gino, Peru and I had in studying amorphous systems, coupled with
+the three of us had in studying amorphous systems, coupled with
 Johannes’ expertise on the Kitaev model. The idea to use voronoi
 partitions came from <span class="citation"
 data-cites="marsalTopologicalWeaireThorpe2020"> [<a
 href="#ref-marsalTopologicalWeaireThorpe2020"
-role="doc-biblioref">1</a>]</span> and Gino did the implementation of
+role="doc-biblioref">3</a>]</span> and Gino did the implementation of
 this. The idea and implementation of the edge colouring using SAT
 solvers, the mapping from flux sector to bond sector using A* search
-were both entirely my work. Peru came up with the ground state
-conjecture and implemented the local markers. Gino and I did much of the
-rest of the programming for Koala while pair programming and
-’whiteboard’ing, this included the phase diagram, edge mode and finite
-temperature analyses as well as the derivation of the projector in the
-amorphous case.</p>
-<section id="sec:AMK-Model" class="level1">
+were both entirely my work. Peru found the ground state and implemented
+the local markers. Gino and I did much of the rest of the programming
+for Koala while pair programming and ’whiteboard’ing, this included the
+phase diagram, edge mode and finite temperature analyses as well as the
+derivation of the projector in the amorphous case.</p>
+<section id="amk-Model" class="level1">
 <h1>The Model</h1>
 <div id="fig:intro_figure_by_hand" class="fignos">
 <figure>
@@ -160,7 +168,7 @@ structure to behave according to the Kitaev Honeycomb model with small
 corrections <span class="citation"
 data-cites="banerjeeProximateKitaevQuantum2016 trebstKitaevMaterials2022"> [<a
 href="#ref-banerjeeProximateKitaevQuantum2016"
-role="doc-biblioref">2</a>,<a href="#ref-trebstKitaevMaterials2022"
+role="doc-biblioref">4</a>,<a href="#ref-trebstKitaevMaterials2022"
 role="doc-biblioref"><strong>trebstKitaevMaterials2022?</strong></a>]</span>.</p>
 <p><strong>expand later: Why do we need spin orbit coupling and what
 will the corrections be?</strong></p>
@@ -172,14 +180,14 @@ because, among other reasons, they can be braided through spacetime to
 achieve noise tolerant quantum computations <span class="citation"
 data-cites="freedmanTopologicalQuantumComputation2003"> [<a
 href="#ref-freedmanTopologicalQuantumComputation2003"
-role="doc-biblioref">3</a>]</span>.</p>
+role="doc-biblioref">5</a>]</span>.</p>
 <p>Third, and perhaps most importantly, this model is a rare many body
 interacting quantum system that can be treated analytically. It is
 exactly solvable. We can explicitly write down its many body ground
 states in terms of single particle states <span class="citation"
 data-cites="kitaevAnyonsExactlySolved2006"> [<a
 href="#ref-kitaevAnyonsExactlySolved2006"
-role="doc-biblioref">4</a>]</span>. The solubility of the Kitaev
+role="doc-biblioref">6</a>]</span>. The solubility of the Kitaev
 Honeycomb Model, like the Falikov-Kimball model of chapter 1, comes
 about because the model has extensively many conserved degrees of
 freedom. These conserved quantities can be factored out as classical
@@ -197,7 +205,7 @@ transformation to a Majorana hamiltonian. This discussion shows that,
 for the the model to be solvable, it needs only be defined on a
 trivalent, tri-edge-colourable lattice <span class="citation"
 data-cites="Nussinov2009"> [<a href="#ref-Nussinov2009"
-role="doc-biblioref">5</a>]</span>.</p>
+role="doc-biblioref">7</a>]</span>.</p>
 <p>The methods section discusses how to generate such lattices and
 colour them. It also explain how to map back and forth between
 configurations of the gauge field and configurations of the gauge
@@ -395,7 +403,7 @@ class="math inline">\(\alpha\)</span>-bond with exchange coupling <span
 class="math inline">\(J^\alpha\)</span> <span class="citation"
 data-cites="kitaevAnyonsExactlySolved2006"> [<a
 href="#ref-kitaevAnyonsExactlySolved2006"
-role="doc-biblioref">4</a>]</span>. For notational brevity, it is useful
+role="doc-biblioref">6</a>]</span>. For notational brevity, it is useful
 to introduce the bond operators <span class="math inline">\(K_{ij} =
 \sigma_j^{\alpha}\sigma_k^{\alpha}\)</span> where <span
 class="math inline">\(\alpha\)</span> is a function of <span
@@ -635,7 +643,7 @@ have paired along bonds to become a classical gauge field <span
 class="math inline">\(u_{ij}\)</span>. What follows is relatively
 standard theory for quadratic Majorana Hamiltonians <span
 class="citation" data-cites="BlaizotRipka1986"> [<a
-href="#ref-BlaizotRipka1986" role="doc-biblioref">6</a>]</span>.</p>
+href="#ref-BlaizotRipka1986" role="doc-biblioref">8</a>]</span>.</p>
 <p>Because of the antisymmetry of the matrix with entries <span
 class="math inline">\(J^{\alpha} u_{ij}\)</span>, the eigenvalues of the
 Hamiltonian <span class="math inline">\(\tilde{H}_u\)</span> come in
@@ -762,9 +770,23 @@ class="math inline">\(b^\alpha\)</span> operators could be performed.
 <section id="bibliography" class="level1 unnumbered">
 <h1 class="unnumbered">Bibliography</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-cassellaExactChiralAmorphous2022" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">G.
+Cassella, P. D’Ornellas, T. Hodson, W. M. H. Natori, and J. Knolle,
+<em><a href="https://doi.org/10.48550/arXiv.2208.08246">An Exact Chiral
+Amorphous Spin Liquid</a></em>, arXiv:2208.08246.</div>
+</div>
+<div id="ref-hodsonKoalaKitaevAmorphous2022" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">T.
+Hodson, P. D’Ornellas, and G. Cassella, <em><a
+href="https://doi.org/10.5281/zenodo.6303275">Koala: Kitaev on Amorphous
+Lattices</a></em>, (2022).</div>
+</div>
 <div id="ref-marsalTopologicalWeaireThorpe2020" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Q.
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">Q.
 Marsal, D. Varjas, and A. G. Grushin, <em><a
 href="https://doi.org/10.1073/pnas.2007384117">Topological Weaire–Thorpe
 Models of Amorphous Matter</a></em>, Proceedings of the National Academy
@@ -772,7 +794,7 @@ of Sciences <strong>117</strong>, 30260 (2020).</div>
 </div>
 <div id="ref-banerjeeProximateKitaevQuantum2016" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">A.
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">A.
 Banerjee et al., <em><a
 href="https://doi.org/10.1038/nmat4604">Proximate Kitaev Quantum Spin
 Liquid Behaviour in {\Alpha}-RuCl$_3$</a></em>, Nature Mater
@@ -780,7 +802,7 @@ Liquid Behaviour in {\Alpha}-RuCl$_3$</a></em>, Nature Mater
 </div>
 <div id="ref-freedmanTopologicalQuantumComputation2003"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">M.
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">M.
 Freedman, A. Kitaev, M. Larsen, and Z. Wang, <em><a
 href="https://doi.org/10.1090/S0273-0979-02-00964-3">Topological Quantum
 Computation</a></em>, Bull. Amer. Math. Soc. <strong>40</strong>, 31
@@ -788,20 +810,20 @@ Computation</a></em>, Bull. Amer. Math. Soc. <strong>40</strong>, 31
 </div>
 <div id="ref-kitaevAnyonsExactlySolved2006" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">A.
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">A.
 Kitaev, <em><a href="https://doi.org/10.1016/j.aop.2005.10.005">Anyons
 in an Exactly Solved Model and Beyond</a></em>, Annals of Physics
 <strong>321</strong>, 2 (2006).</div>
 </div>
 <div id="ref-Nussinov2009" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">Z.
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">Z.
 Nussinov and G. Ortiz, <em><a
 href="https://doi.org/10.1103/PhysRevB.79.214440">Bond Algebras and
 Exact Solvability of Hamiltonians: Spin S=½ Multilayer Systems</a></em>,
 Physical Review B <strong>79</strong>, 214440 (2009).</div>
 </div>
 <div id="ref-BlaizotRipka1986" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[6] </div><div
+<div class="csl-left-margin">[8] </div><div
 class="csl-right-inline">J.-P. Blaizot and G. Ripka, <em>Quantum Theory
 of Finite Systems</em> (The MIT Press, 1986).</div>
 </div>

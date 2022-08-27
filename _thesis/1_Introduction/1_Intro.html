@@ -1,6 +1,6 @@
 ---
-title: 1_Intro
-excerpt: 
+title: Introduction
+excerpt: Why do we do Condensed Matter theory at all?
 layout: none
 image: 
 
@@ -11,7 +11,8 @@ image:
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>1_Intro</title>
+  <meta name="description" content="Why do we do Condensed Matter theory at all?" />
+  <title>Introduction</title>
 
 
 <script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
@@ -34,7 +35,6 @@ Body Systems</a></li>
 Insulators</a></li>
 <li><a href="#quantum-spin-liquids"
 id="toc-quantum-spin-liquids">Quantum Spin Liquids</a></li>
-<li><a href="#outline" id="toc-outline">Outline</a></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
 </nav>
@@ -55,7 +55,6 @@ Body Systems</a></li>
 Insulators</a></li>
 <li><a href="#quantum-spin-liquids"
 id="toc-quantum-spin-liquids">Quantum Spin Liquids</a></li>
-<li><a href="#outline" id="toc-outline">Outline</a></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
 </nav>
@@ -355,43 +354,61 @@ href="#ref-antipovCriticalExponentsStrongly2014"
 role="doc-biblioref">38</a>–<a
 href="#ref-herrmannNonequilibriumDynamicalCluster2016"
 role="doc-biblioref">41</a>]</span>.</p>
-<p>In Chapter 3 I will introduce a generalized FK model in one
-dimension. With the addition of long-range interactions in the
-background field, the model shows a similarly rich phase diagram. I use
-an exact Markov chain Monte Carlo method to map the phase diagram and
-compute the energy-resolved localization properties of the fermions. I
-then compare the behaviour of this transitionally invariant model to an
-Anderson model of uncorrelated binary disorder about a background charge
-density wave field which confirms that the fermionic sector only fully
-localizes for very large system sizes.</p>
+<p>In Chapter 3 I will introduce a generalized Falikov-Kimball model in
+one dimension I call the Long-Range Falikov-Kimball model. With the
+addition of long-range interactions in the background field, the model
+shows a similarly rich phase diagram its higher dimensional cousins. I
+use an exact Markov chain Monte Carlo method to map the phase diagram
+and compute the energy-resolved localization properties of the fermions.
+I then compare the behaviour of this transitionally invariant model to
+an Anderson model of uncorrelated binary disorder about a background
+charge density wave field which confirms that the fermionic sector only
+fully localizes for very large system sizes.</p>
 </section>
 <section id="quantum-spin-liquids" class="level1">
 <h1>Quantum Spin Liquids</h1>
-<p>To turn to the other key topic of this thesis, we have discussed the
-question of the magnetic ordering of local moments in the Mott
-insulating state. The local moments may form an AFM ground state.
-Alternatively they may fail to order even at zero temperature <span
-class="citation"
-data-cites="law1TTaS2QuantumSpin2017 ribakGaplessExcitationsGround2017"> [<a
-href="#ref-law1TTaS2QuantumSpin2017" role="doc-biblioref">28</a>,<a
-href="#ref-ribakGaplessExcitationsGround2017"
-role="doc-biblioref">29</a>]</span>, giving rise to what is known as a
-quantum spin liquid (QSL) state.</p>
-<p>Landau-Ginzburg-Wilson theory characterises phases of matter as
+<p>To turn to the other key topic of this thesis, we have already
+discussed the AFM ordering of local moments in the Mott insulating
+state. Landau-Ginzburg-Wilson theory characterises phases of matter as
 inextricably linked to the emergence of long range order via a
-spontaneously broken symmetry. The fractional quantum Hall (FQH) state,
-discovered in the 1980s is an explicit example of an electronic system
-that falls outside of the Landau-Ginzburg-Wilson paradigm. FQH systems
-exhibit fractionalised excitations linked to their ground state having
-long range entanglement and non-trivial topological properties <span
-class="citation" data-cites="broholmQuantumSpinLiquids2020"> [<a
-href="#ref-broholmQuantumSpinLiquids2020"
-role="doc-biblioref">42</a>]</span>. Quantum spin liquids are the
-analogous phase of matter for spin systems. Remarkably the existence of
-QSLs was first suggested by Anderson in 1973 <span class="citation"
-data-cites="andersonResonatingValenceBonds1973"> [<a
+spontaneously broken symmetry. So within this paradigm we would not
+expect any interesting phases of matter not associated with AFM or other
+long-range order. However, Anderson first proposed in 1973 <span
+class="citation" data-cites="andersonResonatingValenceBonds1973"> [<a
 href="#ref-andersonResonatingValenceBonds1973"
-role="doc-biblioref">43</a>]</span>.</p>
+role="doc-biblioref">42</a>]</span> that if long range order is
+suppressed by some mechanism, it might lead to a liquid-like state even
+at zero temperature, the Quantum Spin Liquid (QSL).</p>
+<p>This QSL state would exist at zero or very low temperatures, so we
+would expect quantum effects to be very strong, which will turn out to
+have far reaching consequences. It was the discovery of a different
+phase, however that really kickstarted interest in the topic. The
+fractional quantum Hall (FQH) state, discovered in the 1980s is an
+explicit example of an interacting electron system that falls outside of
+the Landau-Ginzburg-Wilson paradigm. It shares many phenomenological
+properties with the QSL state. They both exhibit fractionalised
+excitations, braiding statistics and non-trivial topological
+properties <span class="citation"
+data-cites="broholmQuantumSpinLiquids2020"> [<a
+href="#ref-broholmQuantumSpinLiquids2020"
+role="doc-biblioref">43</a>]</span>. The many-body ground state of such
+systems acts as a complex and highly entangled vacuum. This vacuum can
+support quasiparticle excitations with properties unbound from that of
+the Dirac fermions of the standard model.</p>
+<p>How do we actually make a QSL? Frustration is one mechanism that we
+can use to suppress magnetic order in spin models <span class="citation"
+data-cites="TrebstPhysRep2022"> [<a href="#ref-TrebstPhysRep2022"
+role="doc-biblioref">44</a>]</span>. Frustration can be geometric,
+triangular lattices for instance cannot support AFM order. It can also
+come about as a result of spin-orbit coupling or other physics. There
+are also other routes to QSLs besides frustrated spin systems that we
+will not discuss here <span class="citation"
+data-cites="balentsNodalLiquidTheory1998 balentsDualOrderParameter1999 linExactSymmetryWeaklyinteracting1998"> [<a
+href="#ref-balentsNodalLiquidTheory1998" role="doc-biblioref">45</a>–<a
+href="#ref-linExactSymmetryWeaklyinteracting1998"
+role="doc-biblioref">47</a>]</span>.</p>
+<!-- Experimentally, Mott insulating systems without magnetic order have been proposed as QSL systems\ [@law1TTaS2QuantumSpin2017; @ribakGaplessExcitationsGround2017].  -->
+<!-- Other exampels:   Quantum spin liquids are the analogous phase of matter for spin systems. Spin ice support deconfined magnetic monopoles. -->
 <div id="fig:correlation_spin_orbit_PT" class="fignos">
 <figure>
 <img src="/assets/thesis/intro_chapter/correlation_spin_orbit_PT.png"
@@ -403,97 +420,176 @@ href="#ref-TrebstPhysRep2022"
 role="doc-biblioref">44</a>]</span>.</figcaption>
 </figure>
 </div>
-<p>The main route to QSLs, though there are others <span
-class="citation"
-data-cites="balentsNodalLiquidTheory1998 balentsDualOrderParameter1999 linExactSymmetryWeaklyinteracting1998"> [<a
-href="#ref-balentsNodalLiquidTheory1998" role="doc-biblioref">45</a>–<a
-href="#ref-linExactSymmetryWeaklyinteracting1998"
-role="doc-biblioref">47</a>]</span>, is via frustration of spin models
-that would otherwise order have AFM order. This frustration can come
-geometrically, triangular lattices for instance cannot support AFM
-order. It can also come about as a result of spin-orbit coupling.</p>
-<p>Electron spin naturally couples to magnetic fields. Spin-orbit
-coupling is a relativistic effect, that very roughly corresponds to the
-fact that in the frame of reference of a moving electron, the electric
-field of nearby nuclei look like magnetic field to which the electron
-spin couples. In certain transition metal based compounds, such as those
-based on Iridium and Rutheniun, crystal field effects, strong spin-orbit
-coupling and narrow bandwidths lead to effective spin-<span
+<p>Spin-orbit coupling is a relativistic effect, that very roughly
+corresponds to the fact that in the frame of reference of a moving
+electron, the electric field of nearby nuclei look like magnetic fields
+to which the electron spin couples. This effectively couples the spatial
+and spin parts of the electron wavefunction, meaning that the lattice
+structure can influence the form of the spin-spin interactions leading
+to spatial anisotropy. This anisotropy will be how we frustrate the Mott
+insulators <span class="citation"
+data-cites="jackeliMottInsulatorsStrong2009 khaliullinOrbitalOrderFluctuations2005"> [<a
+href="#ref-jackeliMottInsulatorsStrong2009"
+role="doc-biblioref">48</a>,<a
+href="#ref-khaliullinOrbitalOrderFluctuations2005"
+role="doc-biblioref">49</a>]</span>. As we saw with the Hubbard model,
+interaction effects are only strong or weak in comparison to the
+bandwidth or hopping integral <span class="math inline">\(t\)</span> so
+what we need to see strong frustration is a material with strong
+spin-orbit coupling <span class="math inline">\(\lambda\)</span>
+relative to its bandwidth <span class="math inline">\(t\)</span>.</p>
+<p>In certain transition metal based compounds, such as those based on
+Iridium and Ruthenium, the lattice structure, strong spin-orbit coupling
+and narrow bandwidths lead to effective spin-<span
 class="math inline">\(\tfrac{1}{2}\)</span> Mott insulating states with
-strongly anisotropic spin-spin couplings known as Kitaev Materials <span
-class="citation"
+strongly anisotropic spin-spin couplings. These transition metal
+compounds, known Kitaev Materials, draw their name from the celebrated
+Kitaev Honeycomb Model which is expected to model their low temperature
+behaviour <span class="citation"
 data-cites="Jackeli2009 HerrmannsAnRev2018 Winter2017 TrebstPhysRep2022 Takagi2019"> [<a
 href="#ref-TrebstPhysRep2022" role="doc-biblioref">44</a>,<a
-href="#ref-Jackeli2009" role="doc-biblioref">48</a>–<a
-href="#ref-Takagi2019" role="doc-biblioref">51</a>]</span>. Kitaev
-materials draw their name from the celebrated Kitaev Honeycomb Model as
-it is believed they will realise the QSL state via the mechanisms of the
-Kitaev Model.</p>
+href="#ref-Jackeli2009" role="doc-biblioref">50</a>–<a
+href="#ref-Takagi2019" role="doc-biblioref">53</a>]</span>.</p>
+<p>At this point we can sketch out a phase diagram like that of fig. <a
+href="#fig:correlation_spin_orbit_PT">3</a>. When both electron-electron
+interactions <span class="math inline">\(U\)</span> and spin-orbit
+couplings <span class="math inline">\(\lambda\)</span> are small
+relative to the bandwidth <span class="math inline">\(t\)</span> we
+recover standard band theory of band insulators and metals. In the upper
+left we have the simple Mott insulating state as described by the
+Hubbard model. In the lower right, strong spin-orbit coupling gives rise
+to Topological insulators (TIs) characterised by symmetry protected edge
+modes and non-zero Chern number. Kitaev materials occur in the region
+where strong electron-electron interaction and spin-orbit coupling
+interact. See <span class="citation"
+data-cites="witczak-krempaCorrelatedQuantumPhenomena2014"> [<a
+href="#ref-witczak-krempaCorrelatedQuantumPhenomena2014"
+role="doc-biblioref">54</a>]</span> for a much more expansive version of
+this diagram.</p>
 <p>The Kitaev Honeycomb model <span class="citation"
 data-cites="kitaevAnyonsExactlySolved2006"> [<a
 href="#ref-kitaevAnyonsExactlySolved2006"
-role="doc-biblioref">52</a>]</span> was the first concrete model with a
-QSL ground state. It is defined on the honeycomb lattice and provides an
-exactly solvable model whose ground state is a QSL characterized by a
-static <span class="math inline">\(\mathbb Z_2\)</span> gauge field and
-Majorana fermion excitations. It can be reduced to a free fermion
-problem via a mapping to Majorana fermions which yields an extensive
-number of static <span class="math inline">\(\mathbb Z_2\)</span> fluxes
-tied to an emergent gauge field. The model is remarkable not only for
-its QSL ground state, it supports a rich phase diagram hosting gapless,
-Abelian and non-Abelian phases <span class="citation"
+role="doc-biblioref">55</a>]</span> was the first concrete spin model
+with a QSL ground state. It is defined on the two dimensional honeycomb
+lattice and provides an exactly solvable model that can be reduced to a
+free fermion problem via a mapping to Majorana fermions. This yields an
+extensive number of static <span class="math inline">\(\mathbb
+Z_2\)</span> fluxes tied to an emergent gauge field. The model is
+remarkable not only for its QSL ground state but also for its
+fractionalised excitations with non-trivial braiding statistics. It has
+a rich phase diagram hosting gapless, Abelian and non-Abelian
+phases <span class="citation"
 data-cites="knolleDynamicsFractionalizationQuantum2015"> [<a
 href="#ref-knolleDynamicsFractionalizationQuantum2015"
-role="doc-biblioref">53</a>]</span> and a finite temperature phase
+role="doc-biblioref">56</a>]</span> and a finite temperature phase
 transition to a thermal metal state <span class="citation"
 data-cites="selfThermallyInducedMetallic2019"> [<a
 href="#ref-selfThermallyInducedMetallic2019"
-role="doc-biblioref">54</a>]</span>. It been proposed that its
+role="doc-biblioref">57</a>]</span>. It been proposed that its
 non-Abelian excitations could be used to support robust topological
-quantum computing [<span class="citation"
-data-cites="kitaev_fault-tolerant_2003"> [<a
-href="#ref-kitaev_fault-tolerant_2003"
-role="doc-biblioref">55</a>]</span>; <span class="citation"
-data-cites="freedmanTopologicalQuantumComputation2003"> [<a
-href="#ref-freedmanTopologicalQuantumComputation2003"
-role="doc-biblioref">56</a>]</span>;
-nayakNonAbelianAnyonsTopological2008].</p>
-<p>It is by now understood that the Kitaev model on any tri-coordinated
-<span class="math inline">\(z=3\)</span> graph has conserved plaquette
-operators and local symmetries <span class="citation"
-data-cites="Baskaran2007 Baskaran2008"> [<a href="#ref-Baskaran2007"
-role="doc-biblioref">57</a>,<a href="#ref-Baskaran2008"
-role="doc-biblioref">58</a>]</span> which allow a mapping onto effective
-free Majorana fermion problems in a background of static <span
-class="math inline">\(\mathbb Z_2\)</span> fluxes <span class="citation"
-data-cites="Nussinov2009 OBrienPRB2016 yaoExactChiralSpin2007 hermanns2015weyl"> [<a
-href="#ref-Nussinov2009" role="doc-biblioref">59</a>–<a
-href="#ref-hermanns2015weyl" role="doc-biblioref">62</a>]</span>.
-However, depending on lattice symmetries, finding the ground state flux
-sector and understanding the QSL properties can still be
+quantum computing <span class="citation"
+data-cites="kitaev_fault-tolerant_2003 freedmanTopologicalQuantumComputation2003 nayakNonAbelianAnyonsTopological2008"> [<a
+href="#ref-kitaev_fault-tolerant_2003" role="doc-biblioref">58</a>–<a
+href="#ref-nayakNonAbelianAnyonsTopological2008"
+role="doc-biblioref">60</a>]</span>.</p>
+<p>As Kitaev points out in his original paper, the model remains
+solvable on any tri-coordinated <span class="math inline">\(z=3\)</span>
+graph which can be 3-edge-coloured. Indeed many generalisations of the
+model to  <span class="citation"
+data-cites="Baskaran2007 Baskaran2008 Nussinov2009 OBrienPRB2016 hermanns2015weyl"> [<a
+href="#ref-Baskaran2007" role="doc-biblioref">61</a>–<a
+href="#ref-hermanns2015weyl" role="doc-biblioref">65</a>]</span>.
+Notably, the Yao-Kivelson model <span class="citation"
+data-cites="yaoExactChiralSpin2007"> [<a
+href="#ref-yaoExactChiralSpin2007" role="doc-biblioref">66</a>]</span>
+introduces triangular plaquettes to the honeycomb lattice leading to
+spontaneous chiral symmetry breaking. These extensions all retain
+translation symmetry, likely because edge-colouring and finding the
+ground state become much harder without it. Finding the ground state
+flux sector and understanding the QSL properties can still be
 challenging <span class="citation"
 data-cites="eschmann2019thermodynamics Peri2020"> [<a
-href="#ref-eschmann2019thermodynamics" role="doc-biblioref">63</a>,<a
-href="#ref-Peri2020" role="doc-biblioref">64</a>]</span>.</p>
-<p><strong>paragraph about amorphous lattices</strong></p>
-<p>In Chapter 4 I will introduce a soluble chiral amorphous quantum spin
-liquid by extending the Kitaev honeycomb model to random lattices with
-fixed coordination number three. The model retains its exact solubility
-but the presence of plaquettes with an odd number of sides leads to a
-spontaneous breaking of time reversal symmetry. I unearth a rich phase
-diagram displaying Abelian as well as a non-Abelian quantum spin liquid
-phases with a remarkably simple ground state flux pattern. Furthermore,
-I show that the system undergoes a finite-temperature phase transition
-to a conducting thermal metal state and discuss possible experimental
-realisations.</p>
-</section>
-<section id="outline" class="level1">
-<h1>Outline</h1>
+href="#ref-eschmann2019thermodynamics" role="doc-biblioref">67</a>,<a
+href="#ref-Peri2020" role="doc-biblioref">68</a>]</span>. Undeterred,
+this gap lead us to wonder what might happen if we remove translation
+symmetry from the Kitaev Model. This might would be a model of a
+tri-coordinated, highly bond anisotropic but otherwise amorphous
+material.</p>
+<p>Amorphous materials do no have long-range lattice regularities but
+covalent compounds can induce short-range regularities in the lattice
+structure such as fixed coordination number <span
+class="math inline">\(z\)</span>. The best examples being amorphous
+Silicon and Germanium with <span class="math inline">\(z=4\)</span>
+which are used to make thin-film solar cells <span class="citation"
+data-cites="Weaire1971 betteridge1973possible"> [<a
+href="#ref-Weaire1971" role="doc-biblioref">69</a>,<a
+href="#ref-betteridge1973possible" role="doc-biblioref">70</a>]</span>.
+Recently is has been shown that topological insulating (TI) phases can
+exist in amorphous systems. Amorphous TIs are characterized by similar
+protected edge states to their translation invariant cousins and
+generalised topological bulk invariants <span class="citation"
+data-cites="mitchellAmorphousTopologicalInsulators2018 agarwala2019topological marsalTopologicalWeaireThorpeModels2020 costa2019toward agarwala2020higher spring2021amorphous corbae2019evidence"> [<a
+href="#ref-mitchellAmorphousTopologicalInsulators2018"
+role="doc-biblioref">71</a>–<a href="#ref-corbae2019evidence"
+role="doc-biblioref">77</a>]</span>. However, research on amorphous
+electronic systems has been mostly focused on non-interacting systems
+with a few exceptions, for example, to account for the observation of
+superconductivity <span class="citation"
+data-cites="buckel1954einfluss mcmillan1981electron meisel1981eliashberg bergmann1976amorphous mannaNoncrystallineTopologicalSuperconductors2022"> [<a
+href="#ref-buckel1954einfluss" role="doc-biblioref">78</a>–<a
+href="#ref-mannaNoncrystallineTopologicalSuperconductors2022"
+role="doc-biblioref">82</a>]</span> in amorphous materials or very
+recently to understand the effect of strong electron repulsion in
+TIs <span class="citation" data-cites="kim2022fractionalization"> [<a
+href="#ref-kim2022fractionalization"
+role="doc-biblioref">83</a>]</span>.</p>
+<p>Amorphous <em>magnetic</em> systems has been investigated since the
+1960s, mostly through the adaptation of theoretical tools developed for
+disordered systems <span class="citation"
+data-cites="aharony1975critical Petrakovski1981 kaneyoshi1992introduction Kaneyoshi2018"> [<a
+href="#ref-aharony1975critical" role="doc-biblioref">84</a>–<a
+href="#ref-Kaneyoshi2018" role="doc-biblioref">87</a>]</span> and with
+numerical methods <span class="citation"
+data-cites="fahnle1984monte plascak2000ising"> [<a
+href="#ref-fahnle1984monte" role="doc-biblioref">88</a>,<a
+href="#ref-plascak2000ising" role="doc-biblioref">89</a>]</span>.
+Research on classical Heisenberg and Ising models has been shown to
+account for observed behaviour of ferromagnetism, disordered
+antiferromagnetism and widely observed spin glass behaviour <span
+class="citation" data-cites="coey1978amorphous"> [<a
+href="#ref-coey1978amorphous" role="doc-biblioref">90</a>]</span>.
+However, the role of spin-anisotropic interactions and quantum effects
+in amorphous magnets has not been addressed. It is an open question
+whether frustrated magnetic interactions on amorphous lattices can give
+rise genuine quantum phases, i.e. to long-range entangled quantum spin
+liquids (QSL) <span class="citation"
+data-cites="Anderson1973 Knolle2019 Savary2016 Lacroix2011"> [<a
+href="#ref-Anderson1973" role="doc-biblioref">91</a>–<a
+href="#ref-Lacroix2011" role="doc-biblioref">94</a>]</span>.</p>
+<p>In Chapter 4 I will introduce the Amorphous Kitaev model, a
+generalisation of the Kitaev honeycomb model to random lattices with
+fixed coordination number three. We will show that this model is a
+soluble chiral amorphous quantum spin liquid. The model retains its
+exact solubility but, as with the Yao-Kivelson model <span
+class="citation" data-cites="yaoExactChiralSpin2007"> [<a
+href="#ref-yaoExactChiralSpin2007" role="doc-biblioref">66</a>]</span>,
+the presence of plaquettes with an odd number of sides leads to a
+spontaneous breaking of time reversal symmetry. We will confirm prior
+observations that the form of the ground state can be written in terms
+of the number of sides of elementary plaquettes of the model <span
+class="citation"
+data-cites="OBrienPRB2016 eschmannThermodynamicClassificationThreedimensional2020"> [<a
+href="#ref-OBrienPRB2016" role="doc-biblioref">64</a>,<a
+href="#ref-eschmannThermodynamicClassificationThreedimensional2020"
+role="doc-biblioref">95</a>]</span>. We unearth a rich phase diagram
+displaying Abelian as well as a non-Abelian chiral spin liquid phases.
+Furthermore, I show that the system undergoes a finite-temperature phase
+transition to a conducting thermal metal state and discuss possible
+experimental realisations.</p>
 <p>The next chapter, Chapter 2, will introduce some necessary background
 to the Falikov-Kimball Model, the Kitaev Honeycomb Model, disorder and
-localisation.</p>
-<p>In Chapter 3 I introduce the Long Range Falikov-Kimball Model in
-greater detail. I will present results that. Chapter 4 focusses on the
+localisation. Then Chapter 3 introduces and studies the Long Range
+Falikov-Kimball Model in one dimension while Chapter 4 focusses on the
 Amorphous Kitaev Model.</p>
 </section>
 <section id="bibliography" class="level1 unnumbered">
@@ -820,21 +916,21 @@ href="https://doi.org/10.1103/PhysRevB.94.245114">Nonequilibrium
 Dynamical Cluster Approximation Study of the Falicov-Kimball
 Model</a></em>, Phys. Rev. B <strong>94</strong>, 245114 (2016).</div>
 </div>
-<div id="ref-broholmQuantumSpinLiquids2020" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[42] </div><div class="csl-right-inline">C.
-Broholm, R. J. Cava, S. A. Kivelson, D. G. Nocera, M. R. Norman, and T.
-Senthil, <em><a href="https://doi.org/10.1126/science.aay0668">Quantum
-Spin Liquids</a></em>, Science <strong>367</strong>, eaay0668
-(2020).</div>
-</div>
 <div id="ref-andersonResonatingValenceBonds1973" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[43] </div><div class="csl-right-inline">P.
+<div class="csl-left-margin">[42] </div><div class="csl-right-inline">P.
 W. Anderson, <em><a
 href="https://doi.org/10.1016/0025-5408(73)90167-0">Resonating Valence
 Bonds: A New Kind of Insulator?</a></em>, Materials Research Bulletin
 <strong>8</strong>, 153 (1973).</div>
+</div>
+<div id="ref-broholmQuantumSpinLiquids2020" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[43] </div><div class="csl-right-inline">C.
+Broholm, R. J. Cava, S. A. Kivelson, D. G. Nocera, M. R. Norman, and T.
+Senthil, <em><a href="https://doi.org/10.1126/science.aay0668">Quantum
+Spin Liquids</a></em>, Science <strong>367</strong>, eaay0668
+(2020).</div>
 </div>
 <div id="ref-TrebstPhysRep2022" class="csl-entry"
 role="doc-biblioentry">
@@ -868,8 +964,24 @@ class="csl-right-inline">H.-H. Lin, L. Balents, and M. P. A. Fisher,
 Symmetry in the Weakly-Interacting Two-Leg Ladder</a></em>, Phys. Rev. B
 <strong>58</strong>, 1794 (1998).</div>
 </div>
-<div id="ref-Jackeli2009" class="csl-entry" role="doc-biblioentry">
+<div id="ref-jackeliMottInsulatorsStrong2009" class="csl-entry"
+role="doc-biblioentry">
 <div class="csl-left-margin">[48] </div><div class="csl-right-inline">G.
+Jackeli and G. Khaliullin, <em><a
+href="https://doi.org/10.1103/PhysRevLett.102.017205">Mott Insulators in
+the Strong Spin-Orbit Coupling Limit: From Heisenberg to a Quantum
+Compass and Kitaev Models</a></em>, Phys. Rev. Lett.
+<strong>102</strong>, 017205 (2009).</div>
+</div>
+<div id="ref-khaliullinOrbitalOrderFluctuations2005" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[49] </div><div class="csl-right-inline">G.
+Khaliullin, <em><a href="https://doi.org/10.1143/PTPS.160.155">Orbital
+Order and Fluctuations in Mott Insulators</a></em>, Progress of
+Theoretical Physics Supplement <strong>160</strong>, 155 (2005).</div>
+</div>
+<div id="ref-Jackeli2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[50] </div><div class="csl-right-inline">G.
 Jackeli and G. Khaliullin, <em><a
 href="https://doi.org/10.1103/PhysRevLett.102.017205">Mott Insulators in
 the Strong Spin-Orbit Coupling Limit: From Heisenberg to a Quantum
@@ -878,7 +990,7 @@ Compass and Kitaev Models</a></em>, Physical Review Letters
 </div>
 <div id="ref-HerrmannsAnRev2018" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[49] </div><div class="csl-right-inline">M.
+<div class="csl-left-margin">[51] </div><div class="csl-right-inline">M.
 Hermanns, I. Kimchi, and J. Knolle, <em><a
 href="https://doi.org/10.1146/annurev-conmatphys-033117-053934">Physics
 of the Kitaev Model: Fractionalization, Dynamic Correlations, and
@@ -886,28 +998,36 @@ Material Connections</a></em>, Annual Review of Condensed Matter Physics
 <strong>9</strong>, 17 (2018).</div>
 </div>
 <div id="ref-Winter2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[50] </div><div class="csl-right-inline">S.
+<div class="csl-left-margin">[52] </div><div class="csl-right-inline">S.
 M. Winter, A. A. Tsirlin, M. Daghofer, J. van den Brink, Y. Singh, P.
 Gegenwart, and R. Valentí, <em>Models and Materials for Generalized
 Kitaev Magnetism</em>, Journal of Physics: Condensed Matter
 <strong>29</strong>, 493002 (2017).</div>
 </div>
 <div id="ref-Takagi2019" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[51] </div><div class="csl-right-inline">H.
+<div class="csl-left-margin">[53] </div><div class="csl-right-inline">H.
 Takagi, T. Takayama, G. Jackeli, G. Khaliullin, and S. E. Nagler,
 <em>Concept and Realization of Kitaev Quantum Spin Liquids</em>, Nature
 Reviews Physics <strong>1</strong>, 264 (2019).</div>
 </div>
+<div id="ref-witczak-krempaCorrelatedQuantumPhenomena2014"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[54] </div><div class="csl-right-inline">W.
+Witczak-Krempa, G. Chen, Y. B. Kim, and L. Balents, <em><a
+href="https://doi.org/10.1146/annurev-conmatphys-020911-125138">Correlated
+Quantum Phenomena in the Strong Spin-Orbit Regime</a></em>, Annual
+Review of Condensed Matter Physics <strong>5</strong>, 57 (2014).</div>
+</div>
 <div id="ref-kitaevAnyonsExactlySolved2006" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[52] </div><div class="csl-right-inline">A.
+<div class="csl-left-margin">[55] </div><div class="csl-right-inline">A.
 Kitaev, <em><a href="https://doi.org/10.1016/j.aop.2005.10.005">Anyons
 in an Exactly Solved Model and Beyond</a></em>, Annals of Physics
 <strong>321</strong>, 2 (2006).</div>
 </div>
 <div id="ref-knolleDynamicsFractionalizationQuantum2015"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[53] </div><div class="csl-right-inline">J.
+<div class="csl-left-margin">[56] </div><div class="csl-right-inline">J.
 Knolle, D. L. Kovrizhin, J. T. Chalker, and R. Moessner, <em><a
 href="https://doi.org/10.1103/PhysRevB.92.115127">Dynamics of
 Fractionalization in Quantum Spin Liquids</a></em>, Phys. Rev. B
@@ -915,7 +1035,7 @@ Fractionalization in Quantum Spin Liquids</a></em>, Phys. Rev. B
 </div>
 <div id="ref-selfThermallyInducedMetallic2019" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[54] </div><div class="csl-right-inline">C.
+<div class="csl-left-margin">[57] </div><div class="csl-right-inline">C.
 N. Self, J. Knolle, S. Iblisdir, and J. K. Pachos, <em><a
 href="https://doi.org/10.1103/PhysRevB.99.045142">Thermally Induced
 Metallic Phase in a Gapped Quantum Spin Liquid - a Monte Carlo Study of
@@ -924,7 +1044,7 @@ the Kitaev Model with Parity Projection</a></em>, Phys. Rev. B
 </div>
 <div id="ref-kitaev_fault-tolerant_2003" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[55] </div><div class="csl-right-inline">A.
+<div class="csl-left-margin">[58] </div><div class="csl-right-inline">A.
 Yu. Kitaev, <em><a
 href="https://doi.org/10.1016/S0003-4916(02)00018-0">Fault-Tolerant
 Quantum Computation by Anyons</a></em>, Annals of Physics
@@ -932,69 +1052,258 @@ Quantum Computation by Anyons</a></em>, Annals of Physics
 </div>
 <div id="ref-freedmanTopologicalQuantumComputation2003"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[56] </div><div class="csl-right-inline">M.
+<div class="csl-left-margin">[59] </div><div class="csl-right-inline">M.
 Freedman, A. Kitaev, M. Larsen, and Z. Wang, <em><a
 href="https://doi.org/10.1090/S0273-0979-02-00964-3">Topological Quantum
 Computation</a></em>, Bull. Amer. Math. Soc. <strong>40</strong>, 31
 (2003).</div>
 </div>
+<div id="ref-nayakNonAbelianAnyonsTopological2008" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[60] </div><div class="csl-right-inline">C.
+Nayak, S. H. Simon, A. Stern, M. Freedman, and S. Das Sarma, <em><a
+href="https://doi.org/10.1103/RevModPhys.80.1083">Non-Abelian Anyons and
+Topological Quantum Computation</a></em>, Rev. Mod. Phys.
+<strong>80</strong>, 1083 (2008).</div>
+</div>
 <div id="ref-Baskaran2007" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[57] </div><div class="csl-right-inline">G.
+<div class="csl-left-margin">[61] </div><div class="csl-right-inline">G.
 Baskaran, S. Mandal, and R. Shankar, <em><a
 href="https://doi.org/10.1103/PhysRevLett.98.247201">Exact Results for
 Spin Dynamics and Fractionalization in the Kitaev Model</a></em>, Phys.
 Rev. Lett. <strong>98</strong>, 247201 (2007).</div>
 </div>
 <div id="ref-Baskaran2008" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[58] </div><div class="csl-right-inline">G.
+<div class="csl-left-margin">[62] </div><div class="csl-right-inline">G.
 Baskaran, D. Sen, and R. Shankar, <em><a
-href="https://doi.org/10.1103/PhysRevB.78.115116">Spin-S Kitaev Model:
+href="https://doi.org/10.1103/PhysRevB.78.115116">Spin- S Kitaev Model:
 Classical Ground States, Order from Disorder, and Exact Correlation
 Functions</a></em>, Phys. Rev. B <strong>78</strong>, 115116
 (2008).</div>
 </div>
 <div id="ref-Nussinov2009" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[59] </div><div class="csl-right-inline">Z.
+<div class="csl-left-margin">[63] </div><div class="csl-right-inline">Z.
 Nussinov and G. Ortiz, <em><a
 href="https://doi.org/10.1103/PhysRevB.79.214440">Bond Algebras and
 Exact Solvability of Hamiltonians: Spin S=½ Multilayer Systems</a></em>,
 Physical Review B <strong>79</strong>, 214440 (2009).</div>
 </div>
 <div id="ref-OBrienPRB2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[60] </div><div class="csl-right-inline">K.
+<div class="csl-left-margin">[64] </div><div class="csl-right-inline">K.
 O’Brien, M. Hermanns, and S. Trebst, <em><a
 href="https://doi.org/10.1103/PhysRevB.93.085101">Classification of
 Gapless Z₂ Spin Liquids in Three-Dimensional Kitaev Models</a></em>,
 Phys. Rev. B <strong>93</strong>, 085101 (2016).</div>
 </div>
+<div id="ref-hermanns2015weyl" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[65] </div><div class="csl-right-inline">M.
+Hermanns, K. O’Brien, and S. Trebst, <em>Weyl Spin Liquids</em>,
+Physical Review Letters <strong>114</strong>, 157202 (2015).</div>
+</div>
 <div id="ref-yaoExactChiralSpin2007" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[61] </div><div class="csl-right-inline">H.
+<div class="csl-left-margin">[66] </div><div class="csl-right-inline">H.
 Yao and S. A. Kivelson, <em><a
 href="https://doi.org/10.1103/PhysRevLett.99.247203">An Exact Chiral
 Spin Liquid with Non-Abelian Anyons</a></em>, Phys. Rev. Lett.
 <strong>99</strong>, 247203 (2007).</div>
 </div>
-<div id="ref-hermanns2015weyl" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[62] </div><div class="csl-right-inline">M.
-Hermanns, K. O’Brien, and S. Trebst, <em>Weyl Spin Liquids</em>,
-Physical Review Letters <strong>114</strong>, 157202 (2015).</div>
-</div>
 <div id="ref-eschmann2019thermodynamics" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">[63] </div><div class="csl-right-inline">T.
+<div class="csl-left-margin">[67] </div><div class="csl-right-inline">T.
 Eschmann, P. A. Mishchenko, T. A. Bojesen, Y. Kato, M. Hermanns, Y.
 Motome, and S. Trebst, <em>Thermodynamics of a Gauge-Frustrated Kitaev
 Spin Liquid</em>, Physical Review Research <strong>1</strong>, 032011(R)
 (2019).</div>
 </div>
 <div id="ref-Peri2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[64] </div><div class="csl-right-inline">V.
+<div class="csl-left-margin">[68] </div><div class="csl-right-inline">V.
 Peri, S. Ok, S. S. Tsirkin, T. Neupert, G. Baskaran, M. Greiter, R.
 Moessner, and R. Thomale, <em><a
 href="https://doi.org/10.1103/PhysRevB.101.041114">Non-Abelian Chiral
 Spin Liquid on a Simple Non-Archimedean Lattice</a></em>, Phys. Rev. B
 <strong>101</strong>, 041114 (2020).</div>
+</div>
+<div id="ref-Weaire1971" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[69] </div><div class="csl-right-inline">D.
+Weaire and M. F. Thorpe, <em><a
+href="https://doi.org/10.1103/PhysRevB.4.2508">Electronic Properties of
+an Amorphous Solid. I. A Simple Tight-Binding Theory</a></em>, Phys.
+Rev. B <strong>4</strong>, 2508 (1971).</div>
+</div>
+<div id="ref-betteridge1973possible" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[70] </div><div class="csl-right-inline">G.
+Betteridge, <em>A Possible Model of Amorphous Silicon and
+Germanium</em>, Journal of Physics C: Solid State Physics
+<strong>6</strong>, L427 (1973).</div>
+</div>
+<div id="ref-mitchellAmorphousTopologicalInsulators2018"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[71] </div><div class="csl-right-inline">N.
+P. Mitchell, L. M. Nash, D. Hexner, A. M. Turner, and W. T. M. Irvine,
+<em><a href="https://doi.org/10.1038/s41567-017-0024-5">Amorphous
+topological insulators constructed from random point sets</a></em>,
+Nature Phys <strong>14</strong>, 380 (2018).</div>
+</div>
+<div id="ref-agarwala2019topological" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[72] </div><div class="csl-right-inline">A.
+Agarwala, <em>Topological Insulators in Amorphous Systems</em>, in
+<em>Excursions in Ill-Condensed Quantum Matter</em> (Springer, 2019),
+pp. 61–79.</div>
+</div>
+<div id="ref-marsalTopologicalWeaireThorpeModels2020" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[73] </div><div class="csl-right-inline">Q.
+Marsal, D. Varjas, and A. G. Grushin, <em><a
+href="https://doi.org/10.1073/pnas.2007384117">Topological Weaire-Thorpe
+Models of Amorphous Matter</a></em>, Proc. Natl. Acad. Sci. U.S.A.
+<strong>117</strong>, 30260 (2020).</div>
+</div>
+<div id="ref-costa2019toward" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[74] </div><div class="csl-right-inline">M.
+Costa, G. R. Schleder, M. Buongiorno Nardelli, C. Lewenkopf, and A.
+Fazzio, <em>Toward Realistic Amorphous Topological Insulators</em>, Nano
+Letters <strong>19</strong>, 8941 (2019).</div>
+</div>
+<div id="ref-agarwala2020higher" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[75] </div><div class="csl-right-inline">A.
+Agarwala, V. Juričić, and B. Roy, <em>Higher-Order Topological
+Insulators in Amorphous Solids</em>, Physical Review Research
+<strong>2</strong>, 012067 (2020).</div>
+</div>
+<div id="ref-spring2021amorphous" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[76] </div><div class="csl-right-inline">H.
+Spring, A. Akhmerov, and D. Varjas, <em>Amorphous Topological Phases
+Protected by Continuous Rotation Symmetry</em>, SciPost Physics
+<strong>11</strong>, 022 (2021).</div>
+</div>
+<div id="ref-corbae2019evidence" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[77] </div><div class="csl-right-inline">P.
+Corbae et al., <em>Evidence for Topological Surface States in Amorphous
+Bi _ {2} Se _ {3}</em>, arXiv Preprint arXiv:1910.13412 (2019).</div>
+</div>
+<div id="ref-buckel1954einfluss" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[78] </div><div class="csl-right-inline">W.
+Buckel and R. Hilsch, <em>Einfluß Der Kondensation Bei Tiefen
+Temperaturen Auf Den Elektrischen Widerstand Und Die Supraleitung Für
+Verschiedene Metalle</em>, Zeitschrift Für Physik <strong>138</strong>,
+109 (1954).</div>
+</div>
+<div id="ref-mcmillan1981electron" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[79] </div><div class="csl-right-inline">W.
+McMillan and J. Mochel, <em>Electron Tunneling Experiments on Amorphous
+Ge 1- x Au x</em>, Physical Review Letters <strong>46</strong>, 556
+(1981).</div>
+</div>
+<div id="ref-meisel1981eliashberg" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[80] </div><div class="csl-right-inline">L.
+V. Meisel and P. J. Cote, <em><a
+href="https://doi.org/10.1103/PhysRevB.23.5834">Eliashberg Function in
+Amorphous Metals</a></em>, Phys. Rev. B <strong>23</strong>, 5834
+(1981).</div>
+</div>
+<div id="ref-bergmann1976amorphous" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[81] </div><div class="csl-right-inline">G.
+Bergmann, <em>Amorphous Metals and Their Superconductivity</em>, Physics
+Reports <strong>27</strong>, 159 (1976).</div>
+</div>
+<div id="ref-mannaNoncrystallineTopologicalSuperconductors2022"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[82] </div><div class="csl-right-inline">S.
+Manna, S. K. Das, and B. Roy, <em><a
+href="http://arxiv.org/abs/2207.02203">Noncrystalline Topological
+Superconductors</a></em>, arXiv:2207.02203.</div>
+</div>
+<div id="ref-kim2022fractionalization" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[83] </div><div class="csl-right-inline">S.
+Kim, A. Agarwala, and D. Chowdhury, <em>Fractionalization and Topology
+in Amorphous Electronic Solids</em>, arXiv Preprint arXiv:2205.11523
+(2022).</div>
+</div>
+<div id="ref-aharony1975critical" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[84] </div><div class="csl-right-inline">A.
+Aharony, <em>Critical Behavior of Amorphous Magnets</em>, Physical
+Review B <strong>12</strong>, 1038 (1975).</div>
+</div>
+<div id="ref-Petrakovski1981" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[85] </div><div class="csl-right-inline">G.
+A. Petrakovskii, <em><a
+href="https://doi.org/10.1070/pu1981v024n06abeh004850">Amorphous
+Magnetic Materials</a></em>, Soviet Physics Uspekhi <strong>24</strong>,
+511 (1981).</div>
+</div>
+<div id="ref-kaneyoshi1992introduction" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[86] </div><div class="csl-right-inline">T.
+Kaneyoshi, <em>Introduction to Amorphous Magnets</em> (World Scientific
+Publishing Company, 1992).</div>
+</div>
+<div id="ref-Kaneyoshi2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[87] </div><div class="csl-right-inline">T.
+Kaneyoshi, editor, <em>Amorphous Magnetism</em> (CRC Press, Boca Raton,
+2018).</div>
+</div>
+<div id="ref-fahnle1984monte" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[88] </div><div class="csl-right-inline">M.
+Fähnle, <em>Monte Carlo Study of Phase Transitions in Bond-and
+Site-Disordered Ising and Classical Heisenberg Ferromagnets</em>,
+Journal of Magnetism and Magnetic Materials <strong>45</strong>, 279
+(1984).</div>
+</div>
+<div id="ref-plascak2000ising" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[89] </div><div class="csl-right-inline">J.
+Plascak, L. E. Zamora, and G. P. Alcazar, <em>Ising Model for Disordered
+Ferromagnetic Fe- Al Alloys</em>, Physical Review B <strong>61</strong>,
+3188 (2000).</div>
+</div>
+<div id="ref-coey1978amorphous" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">[90] </div><div class="csl-right-inline">J.
+Coey, <em>Amorphous Magnetic Order</em>, Journal of Applied Physics
+<strong>49</strong>, 1646 (1978).</div>
+</div>
+<div id="ref-Anderson1973" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[91] </div><div class="csl-right-inline">P.
+W. Anderson, <em>Resonating Valence Bonds: A New Kind of
+Insulator?</em>, Mater. Res. Bull. <strong>8</strong>, 153 (1973).</div>
+</div>
+<div id="ref-Knolle2019" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[92] </div><div class="csl-right-inline">J.
+Knolle and R. Moessner, <em><a
+href="https://doi.org/10.1146/annurev-conmatphys-031218-013401">A Field
+Guide to Spin Liquids</a></em>, Annual Review of Condensed Matter
+Physics <strong>10</strong>, 451 (2019).</div>
+</div>
+<div id="ref-Savary2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[93] </div><div class="csl-right-inline">L.
+Savary and L. Balents, <em>Quantum Spin Liquids: A Review</em>, Reports
+on Progress in Physics <strong>80</strong>, 016502 (2017).</div>
+</div>
+<div id="ref-Lacroix2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[94] </div><div class="csl-right-inline">C.
+Lacroix, P. Mendels, and F. Mila, editors, <em>Introduction to
+Frustrated Magnetism</em>, Vol. 164 (Springer-Verlag, Berlin Heidelberg,
+2011).</div>
+</div>
+<div id="ref-eschmannThermodynamicClassificationThreedimensional2020"
+class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[95] </div><div class="csl-right-inline">T.
+Eschmann, P. A. Mishchenko, K. O’Brien, T. A. Bojesen, Y. Kato, M.
+Hermanns, Y. Motome, and S. Trebst, <em><a
+href="https://doi.org/10.1103/PhysRevB.102.075125">Thermodynamic
+Classification of Three-Dimensional Kitaev Spin Liquids</a></em>, Phys.
+Rev. B <strong>102</strong>, 075125 (2020).</div>
 </div>
 </div>
 </section>
