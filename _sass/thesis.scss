@@ -88,5 +88,11 @@ nav.overall-table-of-contents > ul {
 
 // Page header
 div#page-header {
+    //make the header sticky, I don't really like how this looks but it's fun to play with
+    // position: sticky;
+    // top: 0px;
+    // background: white;
+    // z-index: 10;
+    // width: 100%;
     p { margin-block-end: 0px;}
 }
