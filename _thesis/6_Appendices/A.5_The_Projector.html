@@ -27,8 +27,8 @@ image:
 <br>
 <nav aria-label="Table of Contents" class="page-table-of-contents">
 <ul>
-<li><a href="#app-the-projector" id="toc-app-the-projector">The
-Projector</a></li>
+<li><a href="#app-the-projector" id="toc-app-the-projector">The Projector</a></li>
+<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
 </nav>
 {% endcapture %}
@@ -41,8 +41,8 @@ Projector</a></li>
 <!-- Table of Contents -->
 <!-- <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#app-the-projector" id="toc-app-the-projector">The
-Projector</a></li>
+<li><a href="#app-the-projector" id="toc-app-the-projector">The Projector</a></li>
+<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
 </nav>
  -->
@@ -54,6 +54,40 @@ Projector</a></li>
 </div>
 <section id="app-the-projector" class="level1">
 <h1>The Projector</h1>
+<p>The projection from the extended space to the physical space will not be particularly important for the results presented here. However, the theory remains useful to explain why this is.</p>
+<figure>
+<img src="/assets/thesis/amk_chapter/hilbert_spaces.svg" id="fig:hilbert_spaces" data-short-caption="How the different Hilbert Spaces relate to one another" style="width:100.0%" alt="Figure 1: The relationship between the different Hilbert spaces used in the solution. needs updating" />
+<figcaption aria-hidden="true">Figure 1: The relationship between the different Hilbert spaces used in the solution. <strong>needs updating</strong></figcaption>
+</figure>
+<p>The physical states are defined as those for which <span class="math inline">\(D_i |\phi\rangle = |\phi\rangle\)</span> for all <span class="math inline">\(D_i\)</span>. Since <span class="math inline">\(D_i\)</span> has eigenvalues <span class="math inline">\(\pm1\)</span>, the quantity <span class="math inline">\(\tfrac{(1+D_i)}{2}\)</span> has eigenvalue <span class="math inline">\(1\)</span> for physical states and <span class="math inline">\(0\)</span> for extended states so is the local projector onto the physical subspace.</p>
+<p>Therefore, the global projector is <span class="math display">\[ \mathcal{P} = \prod_{i=1}^{2N} \left( \frac{1 + D_i}{2}\right)\]</span></p>
+<p>for a toroidal trivalent lattice with <span class="math inline">\(N\)</span> plaquettes <span class="math inline">\(2N\)</span> vertices and <span class="math inline">\(3N\)</span> edges. As discussed earlier, the product over <span class="math inline">\((1 + D_j)\)</span> can also be thought of as the sum of all possible subsets <span class="math inline">\(\{i\}\)</span> of the <span class="math inline">\(D_j\)</span> operators, which is the set of all possible gauge symmetry operations.</p>
+<p><span class="math display">\[ \mathcal{P} = \frac{1}{2^{2N}} \sum_{\{i\}} \prod_{i\in\{i\}} D_i\]</span></p>
+<p>Since the gauge operators <span class="math inline">\(D_j\)</span> commute and square to one, we can define the complement operator <span class="math inline">\(C = \prod_{i=1}^{2N} D_i\)</span> and see that it takes each set of <span class="math inline">\(\prod_{i \in \{i\}} D_j\)</span> operators and gives us the complement of that set. We will shortly see why <span class="math inline">\(C\)</span> is the identity in the physical subspace, as noted earlier.</p>
+<p>We use the complement operator to rewrite the projector as a sum over half the subsets of <span class="math inline">\(\{i\}\)</span> - referred to as <span class="math inline">\(\Lambda\)</span>. The complement operator deals with the other half</p>
+<p><span class="math display">\[ \mathcal{P} =  \left( \frac{1}{2^{2N-1}} \sum_{\Lambda} \prod_{i\in\{i\}} D_i\right) \left(\frac{1 + \prod_i^{2N} D_i}{2}\right) = \mathcal{S} \cdot \mathcal{P}_0\]</span></p>
+<p>To compute <span class="math inline">\(\mathcal{P}_0\)</span>, the main quantity needed is the product of the local projectors <span class="math inline">\(D_i\)</span> <span class="math display">\[\prod_i^{2N} D_i = \prod_i^{2N} b^x_i b^y_i b^z_i c_i \]</span> for a toroidal trivalent lattice with <span class="math inline">\(N\)</span> plaquettes <span class="math inline">\(2N\)</span> vertices and <span class="math inline">\(3N\)</span> edges.</p>
+<p>First, we reorder the operators by bond type. This does not require any information about the underlying lattice.</p>
+<p><span class="math display">\[\prod_i^{2N} D_i = \prod_i^{2N} b^x_i \prod_i^{2N} b^y_i \prod_i^{2N} b^z_i \prod_i^{2N} c_i\]</span></p>
+<p>The product over <span class="math inline">\(c_i\)</span> operators reduces to a determinant of the Q matrix and the fermion parity, see <span class="citation" data-cites="pedrocchiPhysicalSolutionsKitaev2011"> [<a href="#ref-pedrocchiPhysicalSolutionsKitaev2011" role="doc-biblioref">1</a>]</span>. The only difference from the honeycomb case is that we cannot explicitly compute the factors <span class="math inline">\(p_x,p_y,p_z = \pm\;1\)</span> that arise from reordering the b operators such that pairs of vertices linked by the corresponding bonds are adjacent.</p>
+<p><span class="math display">\[\prod_i^{2N} b^\alpha_i = p_\alpha \prod_{(i,j)}b^\alpha_i b^\alpha_j\]</span></p>
+<p>However, they are simply the parity of the permutation from one ordering to the other and can be computed in linear time with a cycle decomposition <strong>cite</strong>.</p>
+<p>We find that <span class="math display">\[\mathcal{P}_0 = 1 + p_x\;p_y\;p_z\; \hat{\pi} \; \mathrm{det}(Q^u) \; \prod_{\{i,j\}} -iu_{ij}\]</span></p>
+<p>where <span class="math inline">\(p_x\;p_y\;p_z = \pm 1\)</span> are lattice structure factors and <span class="math inline">\(\mathrm{det}(Q^u)\)</span> is the determinant of the matrix mentioned earlier that maps <span class="math inline">\(c_i\)</span> operators to normal mode operators <span class="math inline">\(b&#39;_i, b&#39;&#39;_i\)</span>. These depend only on the lattice structure.</p>
+<p><span class="math inline">\(\hat{\pi} = \prod{i}^{N} (1 - 2\hat{n}_i)\)</span> is the parity of the particular many body state determined by fermionic occupation numbers <span class="math inline">\(n_i\)</span>. As discussed in <span class="citation" data-cites="pedrocchiPhysicalSolutionsKitaev2011"> [<a href="#ref-pedrocchiPhysicalSolutionsKitaev2011" role="doc-biblioref">1</a>]</span>, <span class="math inline">\(\hat{\pi}\)</span> is gauge invariant in the sense that <span class="math inline">\([\hat{\pi}, D_i] = 0\)</span>.</p>
+<p>This implies that <span class="math inline">\(det(Q^u) \prod -i u_{ij}\)</span> is also a gauge invariant quantity. In translation invariant models this quantity which can be related to the parity of the number of vortex pairs in the system <span class="citation" data-cites="yaoAlgebraicSpinLiquid2009"> [<a href="#ref-yaoAlgebraicSpinLiquid2009" role="doc-biblioref">2</a>]</span>.</p>
+<p>All these factors take values <span class="math inline">\(\pm 1\)</span> so <span class="math inline">\(\mathcal{P}_0\)</span> is 0 or 1 for a particular state. Since <span class="math inline">\(\mathcal{S}\)</span> corresponds to symmetrising over all the gauge configurations and cannot be 0, once we have determined the single particle eigenstates of a bond sector, the true many body ground state has the same energy as either the empty state with <span class="math inline">\(n_i = 0\)</span> or a state with a single fermion in the lowest level.</p>
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Bibliography</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-pedrocchiPhysicalSolutionsKitaev2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">F. L. Pedrocchi, S. Chesi, and D. Loss, <em><a href="https://doi.org/10.1103/PhysRevB.84.165414">Physical solutions of the Kitaev honeycomb model</a></em>, Phys. Rev. B <strong>84</strong>, 165414 (2011).</div>
+</div>
+<div id="ref-yaoAlgebraicSpinLiquid2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">H. Yao, S.-C. Zhang, and S. A. Kivelson, <em><a href="https://doi.org/10.1103/PhysRevLett.102.217202">Algebraic Spin Liquid in an Exactly Solvable Spin Model</a></em>, Phys. Rev. Lett. <strong>102</strong>, 217202 (2009).</div>
+</div>
+</div>
 </section>
 
 

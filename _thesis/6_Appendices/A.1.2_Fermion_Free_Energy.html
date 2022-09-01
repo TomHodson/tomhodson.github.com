@@ -27,9 +27,8 @@ image:
 <br>
 <nav aria-label="Table of Contents" class="page-table-of-contents">
 <ul>
-<li><a href="#evaluation-of-the-fermion-free-energy"
-id="toc-evaluation-of-the-fermion-free-energy">Evaluation of the Fermion
-Free Energy</a></li>
+<li><a href="#chap:appendices" id="toc-chap:appendices">Appendices</a></li>
+<li><a href="#evaluation-of-the-fermion-free-energy" id="toc-evaluation-of-the-fermion-free-energy">Evaluation of the Fermion Free Energy</a></li>
 </ul>
 </nav>
 {% endcapture %}
@@ -42,9 +41,8 @@ Free Energy</a></li>
 <!-- Table of Contents -->
 <!-- <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#evaluation-of-the-fermion-free-energy"
-id="toc-evaluation-of-the-fermion-free-energy">Evaluation of the Fermion
-Free Energy</a></li>
+<li><a href="#chap:appendices" id="toc-chap:appendices">Appendices</a></li>
+<li><a href="#evaluation-of-the-fermion-free-energy" id="toc-evaluation-of-the-fermion-free-energy">Evaluation of the Fermion Free Energy</a></li>
 </ul>
 </nav>
  -->
@@ -54,54 +52,33 @@ Free Energy</a></li>
 <p>Appendices</p>
 <hr />
 </div>
+<section id="chap:appendices" class="level1">
+<h1>Appendices</h1>
+</section>
 <section id="evaluation-of-the-fermion-free-energy" class="level1">
 <h1>Evaluation of the Fermion Free Energy</h1>
-<p>There are <span class="math inline">\(2^N\)</span> possible ion
-configurations <span class="math inline">\(\{ n_i \}\)</span>, we define
-<span class="math inline">\(n^k_i\)</span> to be the occupation of the
-ith site of the kth configuration. The quantum part of the free energy
-can then be defined through the quantum partition function <span
-class="math inline">\(\mathcal{Z}^k\)</span> associated with each ionic
-state <span class="math inline">\(n^k_i\)</span>: <span
-class="math display">\[\begin{aligned}
+<p>There are <span class="math inline">\(2^N\)</span> possible ion configurations <span class="math inline">\(\{ n_i \}\)</span>, we define <span class="math inline">\(n^k_i\)</span> to be the occupation of the ith site of the kth configuration. The quantum part of the free energy can then be defined through the quantum partition function <span class="math inline">\(\mathcal{Z}^k\)</span> associated with each ionic state <span class="math inline">\(n^k_i\)</span>: <span class="math display">\[\begin{aligned}
 F^k &amp;= -1/\beta \ln{\mathcal{Z}^k} \\
-\end{aligned}\]</span> % Such that the overall partition function is:
-<span class="math display">\[\begin{aligned}
+\end{aligned}\]</span> % Such that the overall partition function is: <span class="math display">\[\begin{aligned}
 \mathcal{Z} &amp;= \sum_k e^{- \beta H^k} Z^k \\
 &amp;= \sum_k e^{-\beta (H^k + F^k)} \\
 \end{aligned}\]</span></p>
-<p>Because fermions are limited to occupation numbers of 0 or 1 <span
-class="math inline">\(Z^k\)</span> simplifies nicely. If <span
-class="math inline">\(m^j_i = \{0,1\}\)</span> is defined as the
-occupation of the level with energy <span
-class="math inline">\(\epsilon^k_i\)</span> then the partition function
-is a sum over all the occupation states labelled by j: <span
-class="math display">\[\begin{aligned}
-Z^k    &amp;= \mathrm{Tr} e^{-\beta F^k} = \sum_j e^{-\beta \sum_i m^j_i
-\epsilon^k_i}\\
-       &amp;= \sum_j \prod_i e^{- \beta m^j_i \epsilon^k_i}= \prod_i
-\sum_j e^{- \beta m^j_i \epsilon^k_i}\\
+<p>Because fermions are limited to occupation numbers of 0 or 1 <span class="math inline">\(Z^k\)</span> simplifies nicely. If <span class="math inline">\(m^j_i = \{0,1\}\)</span> is defined as the occupation of the level with energy <span class="math inline">\(\epsilon^k_i\)</span> then the partition function is a sum over all the occupation states labelled by j: <span class="math display">\[\begin{aligned}
+Z^k    &amp;= \mathrm{Tr} e^{-\beta F^k} = \sum_j e^{-\beta \sum_i m^j_i \epsilon^k_i}\\
+       &amp;= \sum_j \prod_i e^{- \beta m^j_i \epsilon^k_i}= \prod_i \sum_j e^{- \beta m^j_i \epsilon^k_i}\\
        &amp;= \prod_i (1 + e^{- \beta \epsilon^k_i})\\
 F^k    &amp;= -1/\beta \sum_k \ln{(1 + e^{- \beta \epsilon^k_i})}
-\end{aligned}\]</span> % Observables can then be calculated from the
-partition function, for examples the occupation numbers:</p>
+\end{aligned}\]</span> % Observables can then be calculated from the partition function, for examples the occupation numbers:</p>
 <p><span class="math display">\[\begin{aligned}
-\langle N \rangle &amp;= \frac{1}{\beta} \frac{1}{Z} \frac{\partial
-Z}{\partial \mu} = - \frac{\partial F}{\partial \mu}\\
-    &amp;= \frac{1}{\beta} \frac{1}{Z} \frac{\partial}{\partial \mu}
-\sum_k e^{-\beta (H^k + F^k)}\\
-    &amp;= 1/Z \sum_k (N^k_{\mathrm{ion}} + N^k_{\mathrm{electron}})
-e^{-\beta (H^k + F^k)}\\
+\langle N \rangle &amp;= \frac{1}{\beta} \frac{1}{Z} \frac{\partial Z}{\partial \mu} = - \frac{\partial F}{\partial \mu}\\
+    &amp;= \frac{1}{\beta} \frac{1}{Z} \frac{\partial}{\partial \mu} \sum_k e^{-\beta (H^k + F^k)}\\
+    &amp;= 1/Z \sum_k (N^k_{\mathrm{ion}} + N^k_{\mathrm{electron}}) e^{-\beta (H^k + F^k)}\\
 \end{aligned}\]</span> % with the definitions:</p>
 <p><span class="math display">\[\begin{aligned}
-N^k_{\mathrm{ion}} &amp;= - \frac{\partial H^k}{\partial \mu} = \sum_i
-n^k_i\\
-N^k_{\mathrm{electron}} &amp;= - \frac{\partial F^k}{\partial \mu} =
-\sum_i \left(1 + e^{\beta \epsilon^k_i}\right)^{-1}\\
+N^k_{\mathrm{ion}} &amp;= - \frac{\partial H^k}{\partial \mu} = \sum_i n^k_i\\
+N^k_{\mathrm{electron}} &amp;= - \frac{\partial F^k}{\partial \mu} = \sum_i \left(1 + e^{\beta \epsilon^k_i}\right)^{-1}\\
 \end{aligned}\]</span></p>
-<p>Next Section: <a
-href="../6_Appendices/A.1_Particle_Hole_Symmetry-Copy1.html">Particle-Hole
-Symmetry</a></p>
+<p>Next Section: <a href="../6_Appendices/A.1_Particle_Hole_Symmetry.html">Particle-Hole Symmetry</a></p>
 </section>
 
 

@@ -31,26 +31,15 @@ image:
 <li><a href="#amk-methods" id="toc-amk-methods">Methods</a>
 <ul>
 <li><a href="#voronisation" id="toc-voronisation">Voronisation</a></li>
-<li><a href="#graph-representation" id="toc-graph-representation">Graph
-Representation</a></li>
-<li><a href="#colouring-the-bonds"
-id="toc-colouring-the-bonds">Colouring the Bonds</a>
+<li><a href="#graph-representation" id="toc-graph-representation">Graph Representation</a></li>
+<li><a href="#colouring-the-bonds" id="toc-colouring-the-bonds">Colouring the Bonds</a>
 <ul>
-<li><a href="#four-colourings-and-three-colourings"
-id="toc-four-colourings-and-three-colourings">Four-colourings and
-three-colourings</a></li>
-<li><a href="#finding-lattice-colourings-with-minisat"
-id="toc-finding-lattice-colourings-with-minisat">Finding Lattice
-colourings with miniSAT</a></li>
-<li><a href="#does-it-matter-which-colouring-we-choose"
-id="toc-does-it-matter-which-colouring-we-choose">Does it matter which
-colouring we choose?</a></li>
+<li><a href="#four-colourings-and-three-colourings" id="toc-four-colourings-and-three-colourings">Four-colourings and three-colourings</a></li>
+<li><a href="#finding-lattice-colourings-with-minisat" id="toc-finding-lattice-colourings-with-minisat">Finding Lattice colourings with miniSAT</a></li>
+<li><a href="#does-it-matter-which-colouring-we-choose" id="toc-does-it-matter-which-colouring-we-choose">Does it matter which colouring we choose?</a></li>
 </ul></li>
-<li><a href="#mapping-between-flux-sectors-and-bond-sectors"
-id="toc-mapping-between-flux-sectors-and-bond-sectors">Mapping between
-flux sectors and bond sectors</a></li>
-<li><a href="#chern-markers" id="toc-chern-markers">Chern
-Markers</a></li>
+<li><a href="#mapping-between-flux-sectors-and-bond-sectors" id="toc-mapping-between-flux-sectors-and-bond-sectors">Mapping between flux sectors and bond sectors</a></li>
+<li><a href="#chern-markers" id="toc-chern-markers">Chern Markers</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -68,26 +57,15 @@ Markers</a></li>
 <li><a href="#amk-methods" id="toc-amk-methods">Methods</a>
 <ul>
 <li><a href="#voronisation" id="toc-voronisation">Voronisation</a></li>
-<li><a href="#graph-representation" id="toc-graph-representation">Graph
-Representation</a></li>
-<li><a href="#colouring-the-bonds"
-id="toc-colouring-the-bonds">Colouring the Bonds</a>
+<li><a href="#graph-representation" id="toc-graph-representation">Graph Representation</a></li>
+<li><a href="#colouring-the-bonds" id="toc-colouring-the-bonds">Colouring the Bonds</a>
 <ul>
-<li><a href="#four-colourings-and-three-colourings"
-id="toc-four-colourings-and-three-colourings">Four-colourings and
-three-colourings</a></li>
-<li><a href="#finding-lattice-colourings-with-minisat"
-id="toc-finding-lattice-colourings-with-minisat">Finding Lattice
-colourings with miniSAT</a></li>
-<li><a href="#does-it-matter-which-colouring-we-choose"
-id="toc-does-it-matter-which-colouring-we-choose">Does it matter which
-colouring we choose?</a></li>
+<li><a href="#four-colourings-and-three-colourings" id="toc-four-colourings-and-three-colourings">Four-colourings and three-colourings</a></li>
+<li><a href="#finding-lattice-colourings-with-minisat" id="toc-finding-lattice-colourings-with-minisat">Finding Lattice colourings with miniSAT</a></li>
+<li><a href="#does-it-matter-which-colouring-we-choose" id="toc-does-it-matter-which-colouring-we-choose">Does it matter which colouring we choose?</a></li>
 </ul></li>
-<li><a href="#mapping-between-flux-sectors-and-bond-sectors"
-id="toc-mapping-between-flux-sectors-and-bond-sectors">Mapping between
-flux sectors and bond sectors</a></li>
-<li><a href="#chern-markers" id="toc-chern-markers">Chern
-Markers</a></li>
+<li><a href="#mapping-between-flux-sectors-and-bond-sectors" id="toc-mapping-between-flux-sectors-and-bond-sectors">Mapping between flux sectors and bond sectors</a></li>
+<li><a href="#chern-markers" id="toc-chern-markers">Chern Markers</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -99,215 +77,50 @@ Markers</a></li>
 <p>4 The Amorphous Kitaev Model</p>
 <hr />
 </div>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <section id="amk-methods" class="level1">
 <h1>Methods</h1>
-<p>The practical implementation of what is described in this section is
-available as a Python package called Koala (Kitaev On Amorphous
-LAttices) <span class="citation"
-data-cites="tomImperialCMTHKoalaFirst2022"> [<a
-href="#ref-tomImperialCMTHKoalaFirst2022"
-role="doc-biblioref"><strong>tomImperialCMTHKoalaFirst2022?</strong></a>]</span>.
-All results and figures were generated with Koala.</p>
+<p>The practical implementation of what is described in this section is available as a Python package called Koala (Kitaev On Amorphous LAttices) <span class="citation" data-cites="hodsonKoalaKitaevAmorphous2022"> [<a href="#ref-hodsonKoalaKitaevAmorphous2022" role="doc-biblioref">1</a>]</span>. All results and figures were generated with Koala.</p>
 <section id="voronisation" class="level2">
 <h2>Voronisation</h2>
-<p>To study the properties of the amorphous Kitaev model, we need to
-sample from the space of possible trivalent graphs.</p>
-<p>A simple method is to use a Voronoi partition of the torus <span
-class="citation"
-data-cites="mitchellAmorphousTopologicalInsulators2018 marsalTopologicalWeaireThorpeModels2020 florescu_designer_2009"> [<a
-href="#ref-mitchellAmorphousTopologicalInsulators2018"
-role="doc-biblioref">1</a>–<a href="#ref-florescu_designer_2009"
-role="doc-biblioref">3</a>]</span>. We start by sampling <em>seed
-points</em> uniformly (or otherwise) on the torus. Then, we compute the
-partition of the torus into regions closest (with a Euclidean metric) to
-each seed point. The straight lines (if the torus is flattened out) at
-the borders of these regions become the edges of the new lattice. The
-points where they intersect become the vertices.</p>
-<p>The graph generated by a Voronoi partition of a two dimensional
-surface is always planar. This means that no edges cross each other when
-the graph is embedded into the plane. It is also trivalent in that every
-vertex is connected to exactly three edges <strong>cite</strong>.</p>
-<p>Ideally, we would sample uniformly from the space of possible
-trivalent graphs. Indeed, there has been some work on how to do this
-using a Markov Chain Monte Carlo approach <span class="citation"
-data-cites="alyamiUniformSamplingDirected2016"> [<a
-href="#ref-alyamiUniformSamplingDirected2016"
-role="doc-biblioref">4</a>]</span>. However, it does not guarantee that
-the resulting graph is planar, which we must ensure so that the edges
-can be 3-coloured.</p>
-<p>In practice, we use a standard algorithm <span class="citation"
-data-cites="barberQuickhullAlgorithmConvex1996"> [<a
-href="#ref-barberQuickhullAlgorithmConvex1996"
-role="doc-biblioref">5</a>]</span> from Scipy <span class="citation"
-data-cites="virtanenSciPyFundamentalAlgorithms2020"> [<a
-href="#ref-virtanenSciPyFundamentalAlgorithms2020"
-role="doc-biblioref">6</a>]</span> which computes the Voronoi partition
-of the plane. To compute the Voronoi partition of the torus, we take the
-seed points and replicate them into a repeating grid. This will be
-either 3x3 or, for very small numbers of seed points, 5x5. Then, we
-identify edges in the output to construct a lattice on the torus.</p>
-<div id="fig:lattice_construction_animated" class="fignos">
+<p>To study the properties of the amorphous Kitaev model, we need to sample from the space of possible trivalent graphs.</p>
+<p>A simple method is to use a Voronoi partition of the torus <span class="citation" data-cites="mitchellAmorphousTopologicalInsulators2018 marsalTopologicalWeaireThorpeModels2020 florescu_designer_2009"> [<a href="#ref-mitchellAmorphousTopologicalInsulators2018" role="doc-biblioref">2</a>–<a href="#ref-florescu_designer_2009" role="doc-biblioref">4</a>]</span>. We start by sampling <em>seed points</em> uniformly (or otherwise) on the torus. Then, we compute the partition of the torus into regions closest (with a Euclidean metric) to each seed point. The straight lines (if the torus is flattened out) at the borders of these regions become the edges of the new lattice. The points where they intersect become the vertices.</p>
+<p>The graph generated by a Voronoi partition of a two dimensional surface is always planar. This means that no edges cross each other when the graph is embedded into the plane. It is also trivalent in that every vertex is connected to exactly three edges <strong>cite</strong>.</p>
+<p>Ideally, we would sample uniformly from the space of possible trivalent graphs. Indeed, there has been some work on how to do this using a Markov Chain Monte Carlo approach <span class="citation" data-cites="alyamiUniformSamplingDirected2016"> [<a href="#ref-alyamiUniformSamplingDirected2016" role="doc-biblioref">5</a>]</span>. However, it does not guarantee that the resulting graph is planar, which we must ensure so that the edges can be 3-coloured.</p>
+<p>In practice, we use a standard algorithm <span class="citation" data-cites="barberQuickhullAlgorithmConvex1996"> [<a href="#ref-barberQuickhullAlgorithmConvex1996" role="doc-biblioref">6</a>]</span> from Scipy <span class="citation" data-cites="virtanenSciPyFundamentalAlgorithms2020"> [<a href="#ref-virtanenSciPyFundamentalAlgorithms2020" role="doc-biblioref">7</a>]</span> which computes the Voronoi partition of the plane. To compute the Voronoi partition of the torus, we take the seed points and replicate them into a repeating grid. This will be either 3x3 or, for very small numbers of seed points, 5x5. Then, we identify edges in the output to construct a lattice on the torus.</p>
 <figure>
-<img
-src="/assets/thesis/amk_chapter/lattice_construction_animated/lattice_construction_animated.gif"
-data-short-caption="Lattice Construction" style="width:100.0%"
-alt="Figure 1: (Left) Lattice construction begins with the Voronoi partition of the plane with respect to a set of seed points (black points) sampled uniformly from \mathbb{R}^2. (Center) However, we want the Voronoi partition of the torus, so we tile the seed points into a three by three grid. The boundaries of each tile are shown in light grey. (Right) Finally, we identify edges corresponding to each other across the boundaries to produce a graph on the torus. An edge colouring is shown here to help the reader identify corresponding edges." />
-<figcaption aria-hidden="true"><span>Figure 1:</span> (Left) Lattice
-construction begins with the Voronoi partition of the plane with respect
-to a set of seed points (black points) sampled uniformly from <span
-class="math inline">\(\mathbb{R}^2\)</span>. (Center) However, we want
-the Voronoi partition of the torus, so we tile the seed points into a
-three by three grid. The boundaries of each tile are shown in light
-grey. (Right) Finally, we identify edges corresponding to each other
-across the boundaries to produce a graph on the torus. An edge colouring
-is shown here to help the reader identify corresponding
-edges.</figcaption>
+<img src="/assets/thesis/amk_chapter/lattice_construction_animated/lattice_construction_animated.gif" id="fig:lattice_construction_animated" data-short-caption="Lattice Construction" style="width:100.0%" alt="Figure 1: (Left) Lattice construction begins with the Voronoi partition of the plane with respect to a set of seed points (black points) sampled uniformly from \mathbb{R}^2. (Center) However, we want the Voronoi partition of the torus, so we tile the seed points into a three by three grid. The boundaries of each tile are shown in light grey. (Right) Finally, we identify edges corresponding to each other across the boundaries to produce a graph on the torus. An edge colouring is shown here to help the reader identify corresponding edges." />
+<figcaption aria-hidden="true">Figure 1: (Left) Lattice construction begins with the Voronoi partition of the plane with respect to a set of seed points (black points) sampled uniformly from <span class="math inline">\(\mathbb{R}^2\)</span>. (Center) However, we want the Voronoi partition of the torus, so we tile the seed points into a three by three grid. The boundaries of each tile are shown in light grey. (Right) Finally, we identify edges corresponding to each other across the boundaries to produce a graph on the torus. An edge colouring is shown here to help the reader identify corresponding edges.</figcaption>
 </figure>
-</div>
 </section>
 <section id="graph-representation" class="level2">
 <h2>Graph Representation</h2>
-<p>Three keys pieces of information allow us to represent amorphous
-lattices.</p>
-<p>Most of the graph connectivity is encoded by an ordered list of edges
-<span class="math inline">\((i,j)\)</span>. These are ordered to
-represent both directed and undirected graphs. This is useful for
-defining the sign of bond operators <span class="math inline">\(u_{ij} =
-- u_{ji}\)</span>.</p>
-<p>Information about the embedding of the lattice onto the torus is
-encoded into a point on the unit square associated with each vertex. The
-torus is unwrapped onto the square by defining an arbitrary pair of cuts
-along the major and minor axes. For simplicity, we take these axes to be
-the lines <span class="math inline">\(x = 0\)</span> and <span
-class="math inline">\(y = 0\)</span>. We can wrap the unit square back
-up into a torus by identifying the lines <span class="math inline">\(x =
-0\)</span> with <span class="math inline">\(x = 1\)</span> and <span
-class="math inline">\(y = 0\)</span> with <span class="math inline">\(y
-= 1\)</span>.</p>
-<p>Finally, we need to encode the topology of the graph. This is
-necessary because, if we are simply given an edge <span
-class="math inline">\((i, j)\)</span> we do not know how the edge gets
-from vertex i to vertex j. One method would be taking the shortest path,
-but it could also ‘go the long way around’ by crossing one of the cuts.
-To encode this information, we store an additional vector <span
-class="math inline">\(\vec{r}\)</span> associated with each edge. <span
-class="math inline">\(r_i^x = 0\)</span> means that edge i does not
-cross the x. <span class="math inline">\(r_i^x = +1\)</span> (<span
-class="math inline">\(-1\)</span>) means it crossed the cut in a
-positive (negative) sense.</p>
-<p>This description of the lattice has a very nice relationship to
-Bloch’s theorem. Applying Bloch’s theorem to a periodic lattice
-essentially means wrappping the unit cell onto a torus. Variations that
-happen at longer length scales than the size of the unit cell are
-captured by the crystal momentum. The crystal momentum inserts a phase
-factor <span class="math inline">\(e^{i \vec{q}\cdot\vec{r}}\)</span>
-onto bonds that cross to adjacent unit cells. The vector <span
-class="math inline">\(\vec{r}\)</span> is exactly what we use to encode
-the topology of our lattices.</p>
-<div id="fig:bloch" class="fignos">
+<p>Three keys pieces of information allow us to represent amorphous lattices.</p>
+<p>Most of the graph connectivity is encoded by an ordered list of edges <span class="math inline">\((i,j)\)</span>. These are ordered to represent both directed and undirected graphs. This is useful for defining the sign of bond operators <span class="math inline">\(u_{ij} = - u_{ji}\)</span>.</p>
+<p>Information about the embedding of the lattice onto the torus is encoded into a point on the unit square associated with each vertex. The torus is unwrapped onto the square by defining an arbitrary pair of cuts along the major and minor axes. For simplicity, we take these axes to be the lines <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(y = 0\)</span>. We can wrap the unit square back up into a torus by identifying the lines <span class="math inline">\(x = 0\)</span> with <span class="math inline">\(x = 1\)</span> and <span class="math inline">\(y = 0\)</span> with <span class="math inline">\(y = 1\)</span>.</p>
+<p>Finally, we need to encode the topology of the graph. This is necessary because, if we are simply given an edge <span class="math inline">\((i, j)\)</span> we do not know how the edge gets from vertex i to vertex j. One method would be taking the shortest path, but it could also ‘go the long way around’ by crossing one of the cuts. To encode this information, we store an additional vector <span class="math inline">\(\vec{r}\)</span> associated with each edge. <span class="math inline">\(r_i^x = 0\)</span> means that edge i does not cross the x. <span class="math inline">\(r_i^x = +1\)</span> (<span class="math inline">\(-1\)</span>) means it crossed the cut in a positive (negative) sense.</p>
+<p>This description of the lattice has a very nice relationship to Bloch’s theorem. Applying Bloch’s theorem to a periodic lattice essentially means wrappping the unit cell onto a torus. Variations that happen at longer length scales than the size of the unit cell are captured by the crystal momentum. The crystal momentum inserts a phase factor <span class="math inline">\(e^{i \vec{q}\cdot\vec{r}}\)</span> onto bonds that cross to adjacent unit cells. The vector <span class="math inline">\(\vec{r}\)</span> is exactly what we use to encode the topology of our lattices.</p>
 <figure>
-<img src="/assets/thesis/amk_chapter/methods/bloch.png"
-data-short-caption="Bloch&#39;s Theorem and the Torus"
-style="width:100.0%"
-alt="Figure 2: Bloch’s theorem can be thought of as transforming from a periodic Hamiltonian on the place to the unit cell defined an torus. In addition we get some phase factors e^{i\vec{k}\cdot\vec{r}} associated with bonds that cross unit cells that depend on the sense in which they do so \vec{r} = (\pm1, \pm1). Representing graphs on the torus turns out to require a similar idea, we unwrap the torus to one unit cell and keep track of which bonds cross the cell boundaries." />
-<figcaption aria-hidden="true"><span>Figure 2:</span> Bloch’s theorem
-can be thought of as transforming from a periodic Hamiltonian on the
-place to the unit cell defined an torus. In addition we get some phase
-factors <span class="math inline">\(e^{i\vec{k}\cdot\vec{r}}\)</span>
-associated with bonds that cross unit cells that depend on the sense in
-which they do so <span class="math inline">\(\vec{r} = (\pm1,
-\pm1)\)</span>. Representing graphs on the torus turns out to require a
-similar idea, we unwrap the torus to one unit cell and keep track of
-which bonds cross the cell boundaries.</figcaption>
+<img src="/assets/thesis/amk_chapter/methods/bloch.png" id="fig:bloch" data-short-caption="Bloch&#39;s Theorem and the Torus" style="width:100.0%" alt="Figure 2: Bloch’s theorem can be thought of as transforming from a periodic Hamiltonian on the place to the unit cell defined an torus. In addition we get some phase factors e^{i\vec{k}\cdot\vec{r}} associated with bonds that cross unit cells that depend on the sense in which they do so \vec{r} = (\pm1, \pm1). Representing graphs on the torus turns out to require a similar idea, we unwrap the torus to one unit cell and keep track of which bonds cross the cell boundaries." />
+<figcaption aria-hidden="true">Figure 2: Bloch’s theorem can be thought of as transforming from a periodic Hamiltonian on the place to the unit cell defined an torus. In addition we get some phase factors <span class="math inline">\(e^{i\vec{k}\cdot\vec{r}}\)</span> associated with bonds that cross unit cells that depend on the sense in which they do so <span class="math inline">\(\vec{r} = (\pm1, \pm1)\)</span>. Representing graphs on the torus turns out to require a similar idea, we unwrap the torus to one unit cell and keep track of which bonds cross the cell boundaries.</figcaption>
 </figure>
-</div>
 </section>
 <section id="colouring-the-bonds" class="level2">
 <h2>Colouring the Bonds</h2>
-<p>The Kitaev Model requires that each edge in the lattice be assigned a
-label <span class="math inline">\(x\)</span>, <span
-class="math inline">\(y\)</span> or <span
-class="math inline">\(z\)</span>, such that each vertex has exactly one
-edge of each type connected to it. Let <span
-class="math inline">\(\Delta\)</span> be the maximum degree of a graph
-which, in our case, is 3. If <span class="math inline">\(\Delta &gt;
-3\)</span>, it is obviously not possible to three-colour the edges.
-However, the general theory of when this is and is not possible for
-graphs with <span class="math inline">\(\Delta \leq 3\)</span> is more
-subtle.</p>
-<p>In the graph theory literature, graphs where all vertices have degree
-three are commonly called cubic graphs. There is no term for graphs with
-maximum degree three. Planar graphs are graphs which can be embedded
-onto the plane without any edges crossing. Bridgeless graphs do not
-contain any edges that, when removed, would partition the graph into
-disconnected components.</p>
-<p>This problem must be distinguished from that considered by the famous
-four-colour theorem <span class="citation"
-data-cites="appelEveryPlanarMap1989"> [<a
-href="#ref-appelEveryPlanarMap1989" role="doc-biblioref">7</a>]</span>.
-The 4-colour theorem is concerned with assigning colours to the
-<strong>vertices</strong> of a graph, such that no vertices that share
-an edge have the same colour. Here we are concerned with an edge
-colouring.</p>
-<p>The four-colour theorem applies to planar graphs, those that can be
-embedded onto the plane without any edges crossing. Here we are
-concerned with Toroidal graphs, which can be embedded onto the torus
-without any edges crossing. In fact, toroidal graphs require up to seven
-colours <span class="citation"
-data-cites="heawoodMapColouringTheorems"> [<a
-href="#ref-heawoodMapColouringTheorems"
-role="doc-biblioref">8</a>]</span>. The complete graph <span
-class="math inline">\(K_7\)</span> is a good example of a toroidal graph
-that requires seven colours.</p>
-<p><span class="math inline">\(\Delta + 1\)</span> colours are enough to
-edge-colour any graph. An <span
-class="math inline">\(\mathcal{O}(mn)\)</span> algorithm exists to do it
-for a graph with <span class="math inline">\(m\)</span> edges and <span
-class="math inline">\(n\)</span> vertices <span class="citation"
-data-cites="gEstimateChromaticClass1964"> [<a
-href="#ref-gEstimateChromaticClass1964"
-role="doc-biblioref">9</a>]</span>. Restricting ourselves to graphs with
-<span class="math inline">\(\Delta = 3\)</span> like ours, those can be
-four-edge-coloured in linear time <span class="citation"
-data-cites="skulrattanakulchai4edgecoloringGraphsMaximum2002"> [<a
-href="#ref-skulrattanakulchai4edgecoloringGraphsMaximum2002"
-role="doc-biblioref">10</a>]</span>.</p>
-<p>However, three-edge-colouring them is more difficult. Cubic, planar,
-bridgeless graphs can be three-edge-coloured if and only if they can be
-four-face-coloured <span class="citation"
-data-cites="tait1880remarks"> [<a href="#ref-tait1880remarks"
-role="doc-biblioref">11</a>]</span>. An <span
-class="math inline">\(\mathcal{O}(n^2)\)</span> algorithm exists
-here <span class="citation" data-cites="robertson1996efficiently"> [<a
-href="#ref-robertson1996efficiently"
-role="doc-biblioref">12</a>]</span>. However, it is not clear whether
-this extends to cubic, <strong>toroidal</strong> bridgeless graphs.</p>
-<div id="fig:multiple_colourings" class="fignos">
+<p>The Kitaev Model requires that each edge in the lattice be assigned a label <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> or <span class="math inline">\(z\)</span>, such that each vertex has exactly one edge of each type connected to it. Let <span class="math inline">\(\Delta\)</span> be the maximum degree of a graph which, in our case, is 3. If <span class="math inline">\(\Delta &gt; 3\)</span>, it is obviously not possible to three-colour the edges. However, the general theory of when this is and is not possible for graphs with <span class="math inline">\(\Delta \leq 3\)</span> is more subtle.</p>
+<p>In the graph theory literature, graphs where all vertices have degree three are commonly called cubic graphs. There is no term for graphs with maximum degree three. Planar graphs are graphs which can be embedded onto the plane without any edges crossing. Bridgeless graphs do not contain any edges that, when removed, would partition the graph into disconnected components.</p>
+<p>This problem must be distinguished from that considered by the famous four-colour theorem <span class="citation" data-cites="appelEveryPlanarMap1989"> [<a href="#ref-appelEveryPlanarMap1989" role="doc-biblioref">8</a>]</span>. The 4-colour theorem is concerned with assigning colours to the <strong>vertices</strong> of a graph, such that no vertices that share an edge have the same colour. Here we are concerned with an edge colouring.</p>
+<p>The four-colour theorem applies to planar graphs, those that can be embedded onto the plane without any edges crossing. Here we are concerned with Toroidal graphs, which can be embedded onto the torus without any edges crossing. In fact, toroidal graphs require up to seven colours <span class="citation" data-cites="heawoodMapColouringTheorems"> [<a href="#ref-heawoodMapColouringTheorems" role="doc-biblioref">9</a>]</span>. The complete graph <span class="math inline">\(K_7\)</span> is a good example of a toroidal graph that requires seven colours.</p>
+<p><span class="math inline">\(\Delta + 1\)</span> colours are enough to edge-colour any graph. An <span class="math inline">\(\mathcal{O}(mn)\)</span> algorithm exists to do it for a graph with <span class="math inline">\(m\)</span> edges and <span class="math inline">\(n\)</span> vertices <span class="citation" data-cites="gEstimateChromaticClass1964"> [<a href="#ref-gEstimateChromaticClass1964" role="doc-biblioref">10</a>]</span>. Restricting ourselves to graphs with <span class="math inline">\(\Delta = 3\)</span> like ours, those can be four-edge-coloured in linear time <span class="citation" data-cites="skulrattanakulchai4edgecoloringGraphsMaximum2002"> [<a href="#ref-skulrattanakulchai4edgecoloringGraphsMaximum2002" role="doc-biblioref">11</a>]</span>.</p>
+<p>However, three-edge-colouring them is more difficult. Cubic, planar, bridgeless graphs can be three-edge-coloured if and only if they can be four-face-coloured <span class="citation" data-cites="tait1880remarks"> [<a href="#ref-tait1880remarks" role="doc-biblioref">12</a>]</span>. An <span class="math inline">\(\mathcal{O}(n^2)\)</span> algorithm exists here <span class="citation" data-cites="robertson1996efficiently"> [<a href="#ref-robertson1996efficiently" role="doc-biblioref">13</a>]</span>. However, it is not clear whether this extends to cubic, <strong>toroidal</strong> bridgeless graphs.</p>
 <figure>
-<img
-src="/assets/thesis/amk_chapter/multiple_colourings/multiple_colourings.svg"
-data-short-caption="Colourings of an Amorphous Lattice"
-style="width:100.0%"
-alt="Figure 3: Three different valid 3-edge-colourings of amorphous lattices. Colors that differ from the leftmost panel are highlighted." />
-<figcaption aria-hidden="true"><span>Figure 3:</span> Three different
-valid 3-edge-colourings of amorphous lattices. Colors that differ from
-the leftmost panel are highlighted.</figcaption>
+<img src="/assets/thesis/amk_chapter/multiple_colourings/multiple_colourings.svg" id="fig:multiple_colourings" data-short-caption="Colourings of an Amorphous Lattice" style="width:100.0%" alt="Figure 3: Three different valid 3-edge-colourings of amorphous lattices. Colors that differ from the leftmost panel are highlighted." />
+<figcaption aria-hidden="true">Figure 3: Three different valid 3-edge-colourings of amorphous lattices. Colors that differ from the leftmost panel are highlighted.</figcaption>
 </figure>
-</div>
 <section id="four-colourings-and-three-colourings" class="level3">
 <h3>Four-colourings and three-colourings</h3>
 <p><strong>add diagram of this</strong></p>
-<p>A four-face-colouring can be converted into a three-edge-colouring
-quite easily: 1. Assume the faces of G can be four-coloured with labels
-(0,1,2,3) 2. Label each edge of G according to <span
-class="math inline">\(i + j \;\textrm{mod}\; 3\)</span> where i and j
-are the labels of the face adjacent to that edge. For each edge label
-there are two face label pairs that do not share any face labels. i,e
-the edge label <span class="math inline">\(0\)</span> can come about
-either from faces <span class="math inline">\(0 + 3\)</span> or <span
-class="math inline">\(1 + 2\)</span>.</p>
+<p>A four-face-colouring can be converted into a three-edge-colouring quite easily: 1. Assume the faces of G can be four-coloured with labels (0,1,2,3) 2. Label each edge of G according to <span class="math inline">\(i + j \;\textrm{mod}\; 3\)</span> where i and j are the labels of the face adjacent to that edge. For each edge label there are two face label pairs that do not share any face labels. i,e the edge label <span class="math inline">\(0\)</span> can come about either from faces <span class="math inline">\(0 + 3\)</span> or <span class="math inline">\(1 + 2\)</span>.</p>
 <p>Explicitly, the mapping from face labels to edge labels is:</p>
 <p><span class="math display">\[\begin{aligned}
 0 + 3 \;\mathrm{or}\; 1 + 2 &amp;= 0 \;\mathrm{mod}\; 3\\
@@ -316,377 +129,131 @@ class="math inline">\(1 + 2\)</span>.</p>
 \end{aligned}
 \]</span></p>
 <ol start="3" type="1">
-<li><p>In a cubic planar G, a vertex v in G is always part of three
-faces and the colours of those faces determine the colours of the edges
-that connect to v. The three faces must take three distinct colours from
-the set <span class="math inline">\(\{0,1,2,3\}\)</span>.</p></li>
-<li><p>From there, one can easily be convinced that those three distinct
-face colours can never produce repeated edge colours according to the
-<span class="math inline">\(i+j \;\mathrm{mod}\; 3\)</span>
-rule.</p></li>
+<li><p>In a cubic planar G, a vertex v in G is always part of three faces and the colours of those faces determine the colours of the edges that connect to v. The three faces must take three distinct colours from the set <span class="math inline">\(\{0,1,2,3\}\)</span>.</p></li>
+<li><p>From there, one can easily be convinced that those three distinct face colours can never produce repeated edge colours according to the <span class="math inline">\(i+j \;\mathrm{mod}\; 3\)</span> rule.</p></li>
 </ol>
-<p>This implies that all cubic planar graphs are three-edge-colourable.
-This does not apply to toroidal graphs. We have not yet generated a
-Voronoi lattices on the torus that is not three-edge-colourable. This
-suggests that Voronoi lattices may have additional structures that make
-them three-edge-colourable. Intuitively, it seems that the kinds of
-toroidal graphs that cannot be three-edge-coloured could never be
-generated by a Voronoi partition with more than a few seed points.</p>
+<p>This implies that all cubic planar graphs are three-edge-colourable. This does not apply to toroidal graphs. We have not yet generated a Voronoi lattices on the torus that is not three-edge-colourable. This suggests that Voronoi lattices may have additional structures that make them three-edge-colourable. Intuitively, it seems that the kinds of toroidal graphs that cannot be three-edge-coloured could never be generated by a Voronoi partition with more than a few seed points.</p>
 </section>
 <section id="finding-lattice-colourings-with-minisat" class="level3">
 <h3>Finding Lattice colourings with miniSAT</h3>
-<p>Some issues are harder in theory than in practice.
-Three-edge-colouring cubic toroidal graphs appears to be one of those
-things.</p>
-<p>To find colourings, we use a Boolean Satisfiability Solver or SAT
-solver. A SAT problem is a set of statements about some number of
-boolean variables , such as “<span class="math inline">\(x_1\)</span> or
-not <span class="math inline">\(x_3\)</span> is true”, and looks for an
-assignment <span class="math inline">\(x_i \in {0,1}\)</span> that
-satisfies all the statements <span class="citation"
-data-cites="Karp1972"> [<a href="#ref-Karp1972"
-role="doc-biblioref">13</a>]</span>.</p>
-<p>General purpose, high performance programs for solving SAT problems
-have been an area of active research for decades <span class="citation"
-data-cites="alounehComprehensiveStudyAnalysis2019"> [<a
-href="#ref-alounehComprehensiveStudyAnalysis2019"
-role="doc-biblioref">14</a>]</span>. Such programs are useful because,
-by the Cook-Levin theorem, any NP problem can be encoded in polynomial
-time as an instance of a SAT problem . This property is what makes SAT
-one of the subset of NP problems called NP-Complete <span
-class="citation"
-data-cites="cookComplexityTheoremprovingProcedures1971 levin1973universal"> [<a
-href="#ref-cookComplexityTheoremprovingProcedures1971"
-role="doc-biblioref">15</a>,<a href="#ref-levin1973universal"
-role="doc-biblioref">16</a>]</span>.</p>
-<p>Thus, it is a relatively standard technique in the computer science
-community to solve NP problems by first transforming them to SAT
-instances and then using an off the shelf SAT solver. The output of this
-can then be mapped back to the original problem domain.</p>
-<p>NP problems can be loosely considered as those which do not have a
-special structure than can be exploited to compute their solution in
-polynomial time. Our three-edge-colouring problem is likely not in NP.
-However, since we do not know what special structure it might have that
-could be used to speed up its solution, using a SAT solver appears to be
-a reasonable first method to try. As will be discussed later, this
-turned out to work well enough and looking for a better solution was not
-necessary.</p>
-<p>We use a solver called <code>MiniSAT</code> <span class="citation"
-data-cites="imms-sat18"> [<a href="#ref-imms-sat18"
-role="doc-biblioref">17</a>]</span>. Like most modern SAT solvers,
-<code>MiniSAT</code> requires the input problem to be specified in
-Conjunctive Normal Form (CNF). CNF requires that the constraints be
-encoded as a set of <em>clauses</em> of the form <span
-class="math display">\[x_1 \;\textrm{or}\; -x_3 \;\textrm{or}\;
-x_5\]</span> that contain logical ORs of some subset of the variables
-where any of the variables may also be logically NOT’d, which we
-represent by negation here.</p>
-<p>A solution of the problem is one that makes all the clauses
-simultaneously true.</p>
-<p>We encode the edge colouring problem by assigning <span
-class="math inline">\(3B\)</span> boolean variables to each of the <span
-class="math inline">\(B\)</span> edges of the graph, <span
-class="math inline">\(x_{i\alpha}\)</span> where <span
-class="math inline">\(x_{i\alpha} = 1\)</span> indicates that edge <span
-class="math inline">\(i\)</span> has colour <span
-class="math inline">\(\alpha\)</span>.</p>
-<p>For edge colouring graphs we need two types of constraints: 1. Each
-edge is exactly one colour. 2. No neighbouring edges are the same
-colour.</p>
-<p>The first constraint is a product of doing this mapping to boolean
-variables. The solver does not know anything about the structure of the
-problem unless it is encoded into the variables.</p>
-<p>Let’s say we have three variables that correspond to particular edge
-being red <span class="math inline">\(r\)</span>, green <span
-class="math inline">\(g\)</span> or blue <span
-class="math inline">\(b\)</span>.</p>
-<p>To require that exactly one of the variables be true, we can enforce
-that no pair of variables be true:
-<code>-(r and b) -(r and g) -(b and g)</code></p>
-<p>However, these clauses are not in CNF form. Therefore, we also have
-to use the fact that <code>-(a and b) = (-a OR -b)</code>. To enforce
-that at least one of these is true we simply OR them all together
-<code>(r or b or g)</code></p>
-<p>To encode the fact that no adjacent edges can have the same colour,
-we emit a clause that, for each pair of adjacent edges, they cannot be
-both red, both green or both blue.</p>
-<p>We get a solution or set of solutions from the solver, which we can
-map back to a labelling of the edges. fig. <a
-href="#fig:multiple_colourings">3</a> shows some examples.</p>
-<p>The solution presented here works well enough for our purposes. It
-does not take up a substantial fraction of the overall computation time,
-see +fig:times but other approaches could likely work.</p>
-<p>When translating problems to CNF form, there is often some
-flexibility. For instance, we used three boolean variables to encode the
-colour of each edge and, then, additional constraints to require that
-only one of these variables be true. An alternative method which we did
-not try would be to encode the label of each edge using two variables,
-yielding four states per edge, and then add a constraint that one of the
-states, say (true, true) is disallowed. This would, however, have added
-some complexity to the encoding of the constraint that no adjacent edges
-can have the same colour.</p>
-<p>The popular <em>Networkx</em> Python library uses a greedy graph
-colouring algorithm. It simply iterates over the vertices/edges/faces of
-a graph and assigns them a colour that is not already disallowed. This
-does not work for our purposes because it is not designed to look for a
-particular n-colouring. However, it does include the option of using a
-heuristic function that determine the order in which vertices will be
-coloured <span class="citation"
-data-cites="kosowski2004classical matulaSmallestlastOrderingClustering1983"> [<a
-href="#ref-kosowski2004classical" role="doc-biblioref">18</a>,<a
-href="#ref-matulaSmallestlastOrderingClustering1983"
-role="doc-biblioref">19</a>]</span>. Perhaps</p>
-<div id="fig:times" class="fignos">
+<p>Some issues are harder in theory than in practice. Three-edge-colouring cubic toroidal graphs appears to be one of those things.</p>
+<p>To find colourings, we use a Boolean Satisfiability Solver or SAT solver. A SAT problem is a set of statements about some number of boolean variables , such as “<span class="math inline">\(x_1\)</span> or not <span class="math inline">\(x_3\)</span> is true”, and looks for an assignment <span class="math inline">\(x_i \in {0,1}\)</span> that satisfies all the statements <span class="citation" data-cites="Karp1972"> [<a href="#ref-Karp1972" role="doc-biblioref">14</a>]</span>.</p>
+<p>General purpose, high performance programs for solving SAT problems have been an area of active research for decades <span class="citation" data-cites="alounehComprehensiveStudyAnalysis2019"> [<a href="#ref-alounehComprehensiveStudyAnalysis2019" role="doc-biblioref">15</a>]</span>. Such programs are useful because, by the Cook-Levin theorem, any NP problem can be encoded in polynomial time as an instance of a SAT problem . This property is what makes SAT one of the subset of NP problems called NP-Complete <span class="citation" data-cites="cookComplexityTheoremprovingProcedures1971 levin1973universal"> [<a href="#ref-cookComplexityTheoremprovingProcedures1971" role="doc-biblioref">16</a>,<a href="#ref-levin1973universal" role="doc-biblioref">17</a>]</span>.</p>
+<p>Thus, it is a relatively standard technique in the computer science community to solve NP problems by first transforming them to SAT instances and then using an off the shelf SAT solver. The output of this can then be mapped back to the original problem domain.</p>
+<p>NP problems can be loosely considered as those which do not have a special structure than can be exploited to compute their solution in polynomial time. Our three-edge-colouring problem is likely not in NP. However, since we do not know what special structure it might have that could be used to speed up its solution, using a SAT solver appears to be a reasonable first method to try. As will be discussed later, this turned out to work well enough and looking for a better solution was not necessary.</p>
+<p>We use a solver called <code>MiniSAT</code> <span class="citation" data-cites="imms-sat18"> [<a href="#ref-imms-sat18" role="doc-biblioref">18</a>]</span>. Like most modern SAT solvers, <code>MiniSAT</code> requires the input problem to be specified in Conjunctive Normal Form (CNF). CNF requires that the constraints be encoded as a set of <em>clauses</em> of the form <span class="math display">\[x_1 \;\textrm{or}\; -x_3 \;\textrm{or}\; x_5\]</span> that contain logical ORs of some subset of the variables where any of the variables may also be logically NOT’d, which we represent by negation here.</p>
+<p>A solution of the problem is one that makes all the clauses simultaneously true.</p>
+<p>We encode the edge colouring problem by assigning <span class="math inline">\(3B\)</span> boolean variables to each of the <span class="math inline">\(B\)</span> edges of the graph, <span class="math inline">\(x_{i\alpha}\)</span> where <span class="math inline">\(x_{i\alpha} = 1\)</span> indicates that edge <span class="math inline">\(i\)</span> has colour <span class="math inline">\(\alpha\)</span>.</p>
+<p>For edge colouring graphs we need two types of constraints: 1. Each edge is exactly one colour. 2. No neighbouring edges are the same colour.</p>
+<p>The first constraint is a product of doing this mapping to boolean variables. The solver does not know anything about the structure of the problem unless it is encoded into the variables.</p>
+<p>Let’s say we have three variables that correspond to particular edge being red <span class="math inline">\(r\)</span>, green <span class="math inline">\(g\)</span> or blue <span class="math inline">\(b\)</span>.</p>
+<p>To require that exactly one of the variables be true, we can enforce that no pair of variables be true: <code>-(r and b) -(r and g) -(b and g)</code></p>
+<p>However, these clauses are not in CNF form. Therefore, we also have to use the fact that <code>-(a and b) = (-a OR -b)</code>. To enforce that at least one of these is true we simply OR them all together <code>(r or b or g)</code></p>
+<p>To encode the fact that no adjacent edges can have the same colour, we emit a clause that, for each pair of adjacent edges, they cannot be both red, both green or both blue.</p>
+<p>We get a solution or set of solutions from the solver, which we can map back to a labelling of the edges. fig. <a href="#fig:multiple_colourings">3</a> shows some examples.</p>
+<p>The solution presented here works well enough for our purposes. It does not take up a substantial fraction of the overall computation time, see +fig:times but other approaches could likely work.</p>
+<p>When translating problems to CNF form, there is often some flexibility. For instance, we used three boolean variables to encode the colour of each edge and, then, additional constraints to require that only one of these variables be true. An alternative method which we did not try would be to encode the label of each edge using two variables, yielding four states per edge, and then add a constraint that one of the states, say (true, true) is disallowed. This would, however, have added some complexity to the encoding of the constraint that no adjacent edges can have the same colour.</p>
+<p>The popular <em>Networkx</em> Python library uses a greedy graph colouring algorithm. It simply iterates over the vertices/edges/faces of a graph and assigns them a colour that is not already disallowed. This does not work for our purposes because it is not designed to look for a particular n-colouring. However, it does include the option of using a heuristic function that determine the order in which vertices will be coloured <span class="citation" data-cites="kosowski2004classical matulaSmallestlastOrderingClustering1983"> [<a href="#ref-kosowski2004classical" role="doc-biblioref">19</a>,<a href="#ref-matulaSmallestlastOrderingClustering1983" role="doc-biblioref">20</a>]</span>. Perhaps</p>
 <figure>
-<img src="/assets/thesis/amk_chapter/methods/times/times.svg"
-data-short-caption="Computation Time Spent on Different Procedures."
-style="width:100.0%"
-alt="Figure 4: The proportion of computation time taken up by the four longest running steps when generating a lattice. For larger systems, the time taken to perform the diagonalisation dominates." />
-<figcaption aria-hidden="true"><span>Figure 4:</span> The proportion of
-computation time taken up by the four longest running steps when
-generating a lattice. For larger systems, the time taken to perform the
-diagonalisation dominates.</figcaption>
+<img src="/assets/thesis/amk_chapter/methods/times/times.svg" id="fig:times" data-short-caption="Computation Time Spent on Different Procedures." style="width:100.0%" alt="Figure 4: The proportion of computation time taken up by the four longest running steps when generating a lattice. For larger systems, the time taken to perform the diagonalisation dominates." />
+<figcaption aria-hidden="true">Figure 4: The proportion of computation time taken up by the four longest running steps when generating a lattice. For larger systems, the time taken to perform the diagonalisation dominates.</figcaption>
 </figure>
-</div>
 </section>
 <section id="does-it-matter-which-colouring-we-choose" class="level3">
 <h3>Does it matter which colouring we choose?</h3>
-<p>In the isotropic case <span class="math inline">\(J^\alpha =
-1\)</span>, it is easy to show that choosing a particular valid
-colouring cannot make a difference. As the choice of how we define the
-four Majoranas at a site is arbitrary, we can define a local operator
-that transforms the colouring of any particular site to another
-permutation. The operators commute with the Hamiltonian and, by
-composing such operators, we can transform the Hamiltonian generated by
-one colouring into that generated by another.</p>
-<p>We cannot do this in the anisotropic case. It remains an open
-question whether particular physical properties could arise by
-engineering the colouring in this phase though we expect them to exhibit
-a self averaging behaviour.</p>
+<p>In the isotropic case <span class="math inline">\(J^\alpha = 1\)</span>, it is easy to show that choosing a particular valid colouring cannot make a difference. As the choice of how we define the four Majoranas at a site is arbitrary, we can define a local operator that transforms the colouring of any particular site to another permutation. The operators commute with the Hamiltonian and, by composing such operators, we can transform the Hamiltonian generated by one colouring into that generated by another.</p>
+<p>We cannot do this in the anisotropic case. It remains an open question whether particular physical properties could arise by engineering the colouring in this phase though we expect them to exhibit a self averaging behaviour.</p>
 </section>
 </section>
-<section id="mapping-between-flux-sectors-and-bond-sectors"
-class="level2">
+<section id="mapping-between-flux-sectors-and-bond-sectors" class="level2">
 <h2>Mapping between flux sectors and bond sectors</h2>
-<p>Constructing the Majorana representation of the model requires the
-particular bond configuration <span class="math inline">\(u_{jk} = \pm
-1\)</span>. However, the large number of gauge symmetries of the bond
-sector makes it unwieldy to work with. Therefore, we need a way to
-quickly map between bond sectors and flux sectors.</p>
-<p>Going from the bond sector to flux sector is easy. We can compute it
-directly by taking the product of <span class="math inline">\(i
-u_{jk}\)</span> around each plaquette <span class="math display">\[
-\phi_i = \prod_{(j,k) \; \in \; \partial \phi_i} i u_{jk}\]</span></p>
-<p>Going from flux sector to bond sector requires more thought. The
-algorithm we use is this:</p>
+<p>Constructing the Majorana representation of the model requires the particular bond configuration <span class="math inline">\(u_{jk} = \pm 1\)</span>. However, the large number of gauge symmetries of the bond sector makes it unwieldy to work with. Therefore, we need a way to quickly map between bond sectors and flux sectors.</p>
+<p>Going from the bond sector to flux sector is easy. We can compute it directly by taking the product of <span class="math inline">\(i u_{jk}\)</span> around each plaquette <span class="math display">\[ \phi_i = \prod_{(j,k) \; \in \; \partial \phi_i} i u_{jk}\]</span></p>
+<p>Going from flux sector to bond sector requires more thought. The algorithm we use is this:</p>
 <ol type="1">
-<li><p>Fix the gauge by choosing some arbitrary <span
-class="math inline">\(u_{jk}\)</span> configuration. In practice, we use
-<span class="math inline">\(u_{jk} = +1\)</span>. This chooses an
-arbitrary one of the four topological sectors.</p></li>
-<li><p>Compute the current flux configuration and how it differs from
-the target one. We refer to a plaquette that differs from the target as
-a “defect”.</p></li>
-<li><p>Find any adjacent pairs of defects and flip the <span
-class="math inline">\(u_jk\)</span> between them. This leaves a set of
-isolated defects.</p></li>
+<li><p>Fix the gauge by choosing some arbitrary <span class="math inline">\(u_{jk}\)</span> configuration. In practice, we use <span class="math inline">\(u_{jk} = +1\)</span>. This chooses an arbitrary one of the four topological sectors.</p></li>
+<li><p>Compute the current flux configuration and how it differs from the target one. We refer to a plaquette that differs from the target as a “defect”.</p></li>
+<li><p>Find any adjacent pairs of defects and flip the <span class="math inline">\(u_jk\)</span> between them. This leaves a set of isolated defects.</p></li>
 <li><p>Pair the defects up using a greedy algorithm.</p></li>
-<li><p>Compute paths along the dual lattice between each pair of
-plaquettes. Flipping the corresponding set of bonds transports one flux
-to the other and annihilates them.</p></li>
+<li><p>Compute paths along the dual lattice between each pair of plaquettes. Flipping the corresponding set of bonds transports one flux to the other and annihilates them.</p></li>
 </ol>
-<div id="fig:flux_finding" class="fignos">
 <figure>
-<img src="/assets/thesis/amk_chapter/flux_finding/flux_finding.svg"
-data-short-caption="Finding Bond Sectors from Flux Sectors"
-style="width:100.0%"
-alt="Figure 5: (Left) The ground state flux sector and bond sector for an amorphous lattice. Bond arrows indicate the direction in which u_{jk} = +1. Plaquettes are coloured blue when \hat{\phi}_i = -1 (-i) for even/odd plaquettes and orange when \hat{\phi}_i = +1 (+i) for even/odd plaquettes. (Centre) To transform this to the target flux sector (all +1/+i), we first flip any u_{jk} that are between two fluxes. This leaves a set of isolated fluxes that must be annihilated. Then, these are paired up as indicated by the black lines. (Right) A* search is used to find paths (coloured plaquettes) on the dual lattice between each pair of fluxes and the corresponding u_{jk} (shown in black) are flipped. One flux will remain because the starting and target flux sectors differed by an odd number of fluxes." />
-<figcaption aria-hidden="true"><span>Figure 5:</span> (Left) The ground
-state flux sector and bond sector for an amorphous lattice. Bond arrows
-indicate the direction in which <span class="math inline">\(u_{jk} =
-+1\)</span>. Plaquettes are coloured blue when <span
-class="math inline">\(\hat{\phi}_i = -1\)</span> (<span
-class="math inline">\(-i\)</span>) for even/odd plaquettes and orange
-when <span class="math inline">\(\hat{\phi}_i = +1\)</span> (<span
-class="math inline">\(+i\)</span>) for even/odd plaquettes. (Centre) To
-transform this to the target flux sector (all <span
-class="math inline">\(+1\)</span>/<span
-class="math inline">\(+i\)</span>), we first flip any <span
-class="math inline">\(u_{jk}\)</span> that are between two fluxes. This
-leaves a set of isolated fluxes that must be annihilated. Then, these
-are paired up as indicated by the black lines. (Right) A* search is used
-to find paths (coloured plaquettes) on the dual lattice between each
-pair of fluxes and the corresponding <span
-class="math inline">\(u_{jk}\)</span> (shown in black) are flipped. One
-flux will remain because the starting and target flux sectors differed
-by an odd number of fluxes.</figcaption>
+<img src="/assets/thesis/amk_chapter/flux_finding/flux_finding.svg" id="fig:flux_finding" data-short-caption="Finding Bond Sectors from Flux Sectors" style="width:100.0%" alt="Figure 5: (Left) The ground state flux sector and bond sector for an amorphous lattice. Bond arrows indicate the direction in which u_{jk} = +1. Plaquettes are coloured blue when \hat{\phi}_i = -1 (-i) for even/odd plaquettes and orange when \hat{\phi}_i = +1 (+i) for even/odd plaquettes. (Centre) To transform this to the target flux sector (all +1/+i), we first flip any u_{jk} that are between two fluxes. This leaves a set of isolated fluxes that must be annihilated. Then, these are paired up as indicated by the black lines. (Right) A* search is used to find paths (coloured plaquettes) on the dual lattice between each pair of fluxes and the corresponding u_{jk} (shown in black) are flipped. One flux will remain because the starting and target flux sectors differed by an odd number of fluxes." />
+<figcaption aria-hidden="true">Figure 5: (Left) The ground state flux sector and bond sector for an amorphous lattice. Bond arrows indicate the direction in which <span class="math inline">\(u_{jk} = +1\)</span>. Plaquettes are coloured blue when <span class="math inline">\(\hat{\phi}_i = -1\)</span> (<span class="math inline">\(-i\)</span>) for even/odd plaquettes and orange when <span class="math inline">\(\hat{\phi}_i = +1\)</span> (<span class="math inline">\(+i\)</span>) for even/odd plaquettes. (Centre) To transform this to the target flux sector (all <span class="math inline">\(+1\)</span>/<span class="math inline">\(+i\)</span>), we first flip any <span class="math inline">\(u_{jk}\)</span> that are between two fluxes. This leaves a set of isolated fluxes that must be annihilated. Then, these are paired up as indicated by the black lines. (Right) A* search is used to find paths (coloured plaquettes) on the dual lattice between each pair of fluxes and the corresponding <span class="math inline">\(u_{jk}\)</span> (shown in black) are flipped. One flux will remain because the starting and target flux sectors differed by an odd number of fluxes.</figcaption>
 </figure>
-</div>
 </section>
 <section id="chern-markers" class="level2">
 <h2>Chern Markers</h2>
-<p>We know that the standard Kitaev model supports both Abelian and
-non-Abelian phases. Therefore, how can we assess whether this is also
-the case for the amorphous Kitaev model?</p>
-<p>We have already discussed the fact that topology and anyonic
-statistics are intimately linked. This will help here. The Chern number
-is a quantity that measures the topological characteristics of a
-material.</p>
-<p>The original definition of the Chern number relies on the model
-having translation symmetry. This leads to the development of <em>local
-markers</em>. These are operators that generalise the notion of the
-Chern number to an observable over some region smaller than the entire
-system.</p>
+<p>We know that the standard Kitaev model supports both Abelian and non-Abelian phases. Therefore, how can we assess whether this is also the case for the amorphous Kitaev model?</p>
+<p>We have already discussed the fact that topology and anyonic statistics are intimately linked. This will help here. The Chern number is a quantity that measures the topological characteristics of a material.</p>
+<p>The original definition of the Chern number relies on the model having translation symmetry. This leads to the development of <em>local markers</em>. These are operators that generalise the notion of the Chern number to an observable over some region smaller than the entire system.</p>
 <p><strong>Expand on definition here</strong></p>
-<p><strong>Discuss link between Chern number and Anyonic
-Statistics</strong></p>
-<p>Next Section: <a
-href="../4_Amorphous_Kitaev_Model/4.3_AMK_Results.html">Results</a></p>
+<p><strong>Discuss link between Chern number and Anyonic Statistics</strong></p>
+<p>Next Section: <a href="../4_Amorphous_Kitaev_Model/4.3_AMK_Results.html">Results</a></p>
 </section>
 </section>
 <section id="bibliography" class="level1 unnumbered">
 <h1 class="unnumbered">Bibliography</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-mitchellAmorphousTopologicalInsulators2018"
-class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">N.
-P. Mitchell, L. M. Nash, D. Hexner, A. M. Turner, and W. T. M. Irvine,
-<em><a href="https://doi.org/10.1038/s41567-017-0024-5">Amorphous
-topological insulators constructed from random point sets</a></em>,
-Nature Phys <strong>14</strong>, 380 (2018).</div>
+<div id="ref-hodsonKoalaKitaevAmorphous2022" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">T. Hodson, P. D’Ornellas, and G. Cassella, <em><a href="https://doi.org/10.5281/zenodo.6303275">Koala: Kitaev on Amorphous Lattices</a></em>, (2022).</div>
 </div>
-<div id="ref-marsalTopologicalWeaireThorpeModels2020" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">Q.
-Marsal, D. Varjas, and A. G. Grushin, <em><a
-href="https://doi.org/10.1073/pnas.2007384117">Topological Weaire-Thorpe
-Models of Amorphous Matter</a></em>, Proc. Natl. Acad. Sci. U.S.A.
-<strong>117</strong>, 30260 (2020).</div>
+<div id="ref-mitchellAmorphousTopologicalInsulators2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">N. P. Mitchell, L. M. Nash, D. Hexner, A. M. Turner, and W. T. M. Irvine, <em><a href="https://doi.org/10.1038/s41567-017-0024-5">Amorphous topological insulators constructed from random point sets</a></em>, Nature Phys <strong>14</strong>, 380 (2018).</div>
 </div>
-<div id="ref-florescu_designer_2009" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">M.
-Florescu, S. Torquato, and P. J. Steinhardt, <em><a
-href="https://doi.org/10.1073/pnas.0907744106">Designer Disordered
-Materials with Large, Complete Photonic Band Gaps</a></em>, Proceedings
-of the National Academy of Sciences <strong>106</strong>, 20658
-(2009).</div>
+<div id="ref-marsalTopologicalWeaireThorpeModels2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">Q. Marsal, D. Varjas, and A. G. Grushin, <em><a href="https://doi.org/10.1073/pnas.2007384117">Topological Weaire-Thorpe Models of Amorphous Matter</a></em>, Proc. Natl. Acad. Sci. U.S.A. <strong>117</strong>, 30260 (2020).</div>
 </div>
-<div id="ref-alyamiUniformSamplingDirected2016" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">S.
-A. Alyami, A. K. M. Azad, and J. M. Keith, <em><a
-href="https://doi.org/10.1016/j.endm.2016.05.005">Uniform Sampling of
-Directed and Undirected Graphs Conditional on Vertex
-Connectivity</a></em>, Electronic Notes in Discrete Mathematics
-<strong>53</strong>, 43 (2016).</div>
+<div id="ref-florescu_designer_2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">M. Florescu, S. Torquato, and P. J. Steinhardt, <em><a href="https://doi.org/10.1073/pnas.0907744106">Designer Disordered Materials with Large, Complete Photonic Band Gaps</a></em>, Proceedings of the National Academy of Sciences <strong>106</strong>, 20658 (2009).</div>
 </div>
-<div id="ref-barberQuickhullAlgorithmConvex1996" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">C.
-B. Barber, D. P. Dobkin, and H. Huhdanpaa, <em><a
-href="https://doi.org/10.1145/235815.235821">The Quickhull Algorithm for
-Convex Hulls</a></em>, ACM Trans. Math. Softw. <strong>22</strong>, 469
-(1996).</div>
+<div id="ref-alyamiUniformSamplingDirected2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">S. A. Alyami, A. K. M. Azad, and J. M. Keith, <em><a href="https://doi.org/10.1016/j.endm.2016.05.005">Uniform Sampling of Directed and Undirected Graphs Conditional on Vertex Connectivity</a></em>, Electronic Notes in Discrete Mathematics <strong>53</strong>, 43 (2016).</div>
 </div>
-<div id="ref-virtanenSciPyFundamentalAlgorithms2020" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[6] </div><div class="csl-right-inline">P.
-Virtanen et al., <em><a
-href="https://doi.org/10.1038/s41592-019-0686-2">SciPy 1.0: Fundamental
-Algorithms for Scientific Computing in Python</a></em>, Nature Methods
-<strong>17</strong>, 3 (2020).</div>
+<div id="ref-barberQuickhullAlgorithmConvex1996" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">C. B. Barber, D. P. Dobkin, and H. Huhdanpaa, <em><a href="https://doi.org/10.1145/235815.235821">The Quickhull Algorithm for Convex Hulls</a></em>, ACM Trans. Math. Softw. <strong>22</strong>, 469 (1996).</div>
 </div>
-<div id="ref-appelEveryPlanarMap1989" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[7] </div><div class="csl-right-inline">K.
-Appel and W. Haken, <em><a href="https://doi.org/10.1090/conm/098">Every
-Planar Map Is Four Colorable</a></em>, in (1989).</div>
+<div id="ref-virtanenSciPyFundamentalAlgorithms2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">P. Virtanen et al., <em><a href="https://doi.org/10.1038/s41592-019-0686-2">SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python</a></em>, Nature Methods <strong>17</strong>, 3 (2020).</div>
 </div>
-<div id="ref-heawoodMapColouringTheorems" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[8] </div><div class="csl-right-inline">P.
-J. Heawood, <em>Map Colouring Theorems</em>, Quarterly Journal of
-Mathematics 322 (n.d.).</div>
+<div id="ref-appelEveryPlanarMap1989" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">K. Appel and W. Haken, <em><a href="https://doi.org/10.1090/conm/098">Every Planar Map Is Four Colorable</a></em>, in (1989).</div>
 </div>
-<div id="ref-gEstimateChromaticClass1964" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[9] </div><div class="csl-right-inline">V.
-V. G, <em><a href="https://cir.nii.ac.jp/crid/1571980075458819456">On an
-Estimate of the Chromatic Class of a p-Graph</a></em>, Discret Analiz
-<strong>3</strong>, 25 (1964).</div>
+<div id="ref-heawoodMapColouringTheorems" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">P. J. Heawood, <em>Map Colouring Theorems</em>, Quarterly Journal of Mathematics 322 (n.d.).</div>
 </div>
-<div id="ref-skulrattanakulchai4edgecoloringGraphsMaximum2002"
-class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[10] </div><div class="csl-right-inline">S.
-Skulrattanakulchai, <em><a
-href="https://doi.org/10.1016/S0020-0190(01)00221-6">4-edge-coloring
-graphs of maximum degree 3 in linear time</a></em>, Inf. Process. Lett.
-<strong>81</strong>, 191 (2002).</div>
+<div id="ref-gEstimateChromaticClass1964" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">V. V. G, <em><a href="https://cir.nii.ac.jp/crid/1571980075458819456">On an Estimate of the Chromatic Class of a p-Graph</a></em>, Discret Analiz <strong>3</strong>, 25 (1964).</div>
+</div>
+<div id="ref-skulrattanakulchai4edgecoloringGraphsMaximum2002" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">S. Skulrattanakulchai, <em><a href="https://doi.org/10.1016/S0020-0190(01)00221-6">4-edge-coloring graphs of maximum degree 3 in linear time</a></em>, Inf. Process. Lett. <strong>81</strong>, 191 (2002).</div>
 </div>
 <div id="ref-tait1880remarks" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[11] </div><div class="csl-right-inline">P.
-G. Tait, <em>Remarks on the Colouring of Maps</em>, in <em>Proc. Roy.
-Soc. Edinburgh</em>, Vol. 10 (1880), pp. 501–503.</div>
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">P. G. Tait, <em>Remarks on the Colouring of Maps</em>, in <em>Proc. Roy. Soc. Edinburgh</em>, Vol. 10 (1880), pp. 501–503.</div>
 </div>
-<div id="ref-robertson1996efficiently" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[12] </div><div class="csl-right-inline">N.
-Robertson, D. P. Sanders, P. Seymour, and R. Thomas, <em>Efficiently
-Four-Coloring Planar Graphs</em>, in <em>Proceedings of the
-Twenty-Eighth Annual ACM Symposium on Theory of Computing</em> (1996),
-pp. 571–575.</div>
+<div id="ref-robertson1996efficiently" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">N. Robertson, D. P. Sanders, P. Seymour, and R. Thomas, <em>Efficiently Four-Coloring Planar Graphs</em>, in <em>Proceedings of the Twenty-Eighth Annual ACM Symposium on Theory of Computing</em> (1996), pp. 571–575.</div>
 </div>
 <div id="ref-Karp1972" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[13] </div><div class="csl-right-inline">R.
-M. Karp, <em><a
-href="https://doi.org/10.1007/978-1-4684-2001-2_9">Reducibility Among
-Combinatorial Problems</a></em>, in <em>Complexity of Computer
-Computations</em>, edited by R. E. Miller, J. W. Thatcher, and J. D.
-Bohlinger (Springer US, Boston, MA, 1972), pp. 85–103.</div>
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">R. M. Karp, <em><a href="https://doi.org/10.1007/978-1-4684-2001-2_9">Reducibility Among Combinatorial Problems</a></em>, in <em>Complexity of Computer Computations</em>, edited by R. E. Miller, J. W. Thatcher, and J. D. Bohlinger (Springer US, Boston, MA, 1972), pp. 85–103.</div>
 </div>
-<div id="ref-alounehComprehensiveStudyAnalysis2019" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[14] </div><div class="csl-right-inline">S.
-Alouneh, S. Abed, M. H. Al Shayeji, and R. Mesleh, <em><a
-href="https://doi.org/10.1007/s10462-018-9628-0">A Comprehensive Study
-and Analysis on SAT-Solvers: Advances, Usages and Achievements</a></em>,
-Artif Intell Rev <strong>52</strong>, 2575 (2019).</div>
+<div id="ref-alounehComprehensiveStudyAnalysis2019" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">S. Alouneh, S. Abed, M. H. Al Shayeji, and R. Mesleh, <em><a href="https://doi.org/10.1007/s10462-018-9628-0">A Comprehensive Study and Analysis on SAT-Solvers: Advances, Usages and Achievements</a></em>, Artif Intell Rev <strong>52</strong>, 2575 (2019).</div>
 </div>
-<div id="ref-cookComplexityTheoremprovingProcedures1971"
-class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[15] </div><div class="csl-right-inline">S.
-A. Cook, <em><a href="https://doi.org/10.1145/800157.805047">The
-Complexity of Theorem-Proving Procedures</a></em>, in <em>Proceedings of
-the Third Annual ACM Symposium on Theory of Computing</em> (Association
-for Computing Machinery, New York, NY, USA, 1971), pp. 151–158.</div>
+<div id="ref-cookComplexityTheoremprovingProcedures1971" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">S. A. Cook, <em><a href="https://doi.org/10.1145/800157.805047">The Complexity of Theorem-Proving Procedures</a></em>, in <em>Proceedings of the Third Annual ACM Symposium on Theory of Computing</em> (Association for Computing Machinery, New York, NY, USA, 1971), pp. 151–158.</div>
 </div>
-<div id="ref-levin1973universal" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[16] </div><div class="csl-right-inline">L.
-A. Levin, <em>Universal Sequential Search Problems</em>, Problemy
-Peredachi Informatsii <strong>9</strong>, 115 (1973).</div>
+<div id="ref-levin1973universal" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">L. A. Levin, <em>Universal Sequential Search Problems</em>, Problemy Peredachi Informatsii <strong>9</strong>, 115 (1973).</div>
 </div>
 <div id="ref-imms-sat18" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[17] </div><div class="csl-right-inline">A.
-Ignatiev, A. Morgado, and J. Marques-Silva, <em><a
-href="https://doi.org/10.1007/978-3-319-94144-8_26">PySAT: A Python
-Toolkit for Prototyping with SAT Oracles</a></em>, in <em>SAT</em>
-(2018), pp. 428–437.</div>
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">A. Ignatiev, A. Morgado, and J. Marques-Silva, <em><a href="https://doi.org/10.1007/978-3-319-94144-8_26">PySAT: A Python Toolkit for Prototyping with SAT Oracles</a></em>, in <em>SAT</em> (2018), pp. 428–437.</div>
 </div>
-<div id="ref-kosowski2004classical" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[18] </div><div class="csl-right-inline">A.
-Kosowski and K. Manuszewski, <em>Classical Coloring of Graphs</em>,
-Contemporary Mathematics <strong>352</strong>, 1 (2004).</div>
+<div id="ref-kosowski2004classical" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[19] </div><div class="csl-right-inline">A. Kosowski and K. Manuszewski, <em>Classical Coloring of Graphs</em>, Contemporary Mathematics <strong>352</strong>, 1 (2004).</div>
 </div>
-<div id="ref-matulaSmallestlastOrderingClustering1983" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">[19] </div><div class="csl-right-inline">D.
-W. Matula and L. L. Beck, <em><a
-href="https://doi.org/10.1145/2402.322385">Smallest-Last Ordering and
-Clustering and Graph Coloring Algorithms</a></em>, J. ACM
-<strong>30</strong>, 417 (1983).</div>
+<div id="ref-matulaSmallestlastOrderingClustering1983" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[20] </div><div class="csl-right-inline">D. W. Matula and L. L. Beck, <em><a href="https://doi.org/10.1145/2402.322385">Smallest-Last Ordering and Clustering and Graph Coloring Algorithms</a></em>, J. ACM <strong>30</strong>, 417 (1983).</div>
 </div>
 </div>
 </section>
