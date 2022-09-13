@@ -30,7 +30,10 @@ image:
 <ul>
 <li><a href="#amk-Model" id="toc-amk-Model">The Model</a>
 <ul>
-<li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous Systems</a></li>
+<li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous Systems</a>
+<ul>
+<li><a href="#open-boundary-conditions" id="toc-open-boundary-conditions">Open boundary conditions</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -47,7 +50,10 @@ image:
 <ul>
 <li><a href="#amk-Model" id="toc-amk-Model">The Model</a>
 <ul>
-<li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous Systems</a></li>
+<li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous Systems</a>
+<ul>
+<li><a href="#open-boundary-conditions" id="toc-open-boundary-conditions">Open boundary conditions</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -66,10 +72,7 @@ image:
 <p>This was a joint project of Gino, Peru and myself with advice and guidance from Willian and Johannes. The project grew out of an interest the three of us had in studying amorphous systems, coupled with Johannes’ expertise on the Kitaev model. The idea to use voronoi partitions came from <span class="citation" data-cites="marsalTopologicalWeaireThorpe2020"> [<a href="#ref-marsalTopologicalWeaireThorpe2020" role="doc-biblioref">3</a>]</span> and Gino did the implementation of this. The idea and implementation of the edge colouring using SAT solvers, the mapping from flux sector to bond sector using A* search were both entirely my work. Peru found the ground state and implemented the local markers. Gino and I did much of the rest of the programming for Koala while pair programming and ’whiteboard’ing, this included the phase diagram, edge mode and finite temperature analyses as well as the derivation of the projector in the amorphous case.</p>
 <section id="amk-Model" class="level1">
 <h1>The Model</h1>
-<figure>
-<img src="/assets/thesis/amk_chapter/intro/honeycomb_zoom/intro_figure_by_hand.svg" id="fig:intro_figure_by_hand" data-short-caption="The Kitaev Honeycomb Model" style="width:100.0%" alt="Figure 1: (a) The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e. the lattice is trivalent. One of three labels is assigned to each (b). We represent the antisymmetric gauge degree of freedom u_{jk} = \pm 1 with arrows that point in the direction u_{jk} = +1 (c). The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical \mathbb{Z}_2 gauge field u_{ij}. This leavies a single Majorana c_i per site." />
-<figcaption aria-hidden="true">Figure 1: <strong>(a)</strong> The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e. the lattice is trivalent. One of three labels is assigned to each <strong>(b)</strong>. We represent the antisymmetric gauge degree of freedom <span class="math inline">\(u_{jk} = \pm 1\)</span> with arrows that point in the direction <span class="math inline">\(u_{jk} = +1\)</span> <strong>(c)</strong>. The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical <span class="math inline">\(\mathbb{Z}_2\)</span> gauge field <span class="math inline">\(u_{ij}\)</span>. This leavies a single Majorana <span class="math inline">\(c_i\)</span> per site.</figcaption>
-</figure>
+<p><img src="/assets/thesis/amk_chapter/intro/honeycomb_zoom/intro_figure_by_hand.svg" id="fig:intro_figure_by_hand" data-short-caption="The Kitaev Honeycomb Model" style="width:100.0%" alt="(a) The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e. the lattice is trivalent. One of three labels is assigned to each (b). We represent the antisymmetric gauge degree of freedom u_{jk} = \pm 1 with arrows that point in the direction u_{jk} = +1 (c). The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical \mathbb{Z}_2 gauge field u_{ij}. This leavies a single Majorana c_i per site." /> <img src="/assets/thesis/amk_chapter/intro/regular_plaquettes/regular_plaquettes.svg" id="fig:regular_plaquettes" data-short-caption="Plaquettes in the Kitaev Model" style="width:86.0%" alt="The eigenvalues of a loop or plaquette operators depend on the number of bonds in its enclosing path." /></p>
 <section id="amorphous-systems" class="level2">
 <h2>Amorphous Systems</h2>
 <p><strong>Insert discussion of why a generalisation to the amorphous case is interesting</strong></p>
@@ -78,7 +81,18 @@ image:
 <p>The methods section discusses how to generate such lattices and colour them. It also explain how to map back and forth between configurations of the gauge field and configurations of the gauge invariant quantities.</p>
 <p>The results section begins by looking at the zero temperature physics. It presents numerical evidence that the ground state of the Kitaev model is given by a simple rule depending only on the number of sides of each plaquette. It assesses the gapless, Abelian and non-Abelian, phases that are present, characterising them by the presence of a gap and using local Chern markers. Next it looks at spontaneous chiral symmetry breaking and topological edge states. It also compares the zero temperature phase diagram to that of the Kitaev Honeycomb Model. Finally, we introduce flux disorder and demonstrate that there is a phase transition to a thermal metal state.</p>
 <p>The discussion considers possible physical realisations of this model and the motivations for doing so. It also discusses how a well known quantum error correcting code defined on the Kitaev Honeycomb model could be generalised to the amorphous case.</p>
+<p>Lieb’s theorem is only valid for bipartite, translation invariant lattices like the honeycomb. Luckily, extensive numerical simulations have shown that the ground state flux sector is generally given by simple functions of the side length of the plaquettes. cite cite cite</p>
+<section id="open-boundary-conditions" class="level3">
+<h3>Open boundary conditions</h3>
+<p>Care must be taken when defining open boundary conditions. Simply removing bonds from the lattice leaves behind unpaired <span class="math inline">\(b^\alpha\)</span> operators that must be paired in some way to arrive at fermionic modes. To fix a pairing, we always start from a lattice defined on the torus and generate a lattice with open boundary conditions by defining the bond coupling <span class="math inline">\(J^{\alpha}_{ij} = 0\)</span> for sites joined by bonds <span class="math inline">\((i,j)\)</span> that we want to remove. This creates fermionic zero modes <span class="math inline">\(u_{ij}\)</span> associated with these cut bonds which we set to 1 when calculating the projector.</p>
+<p>Alternatively, since all the fermionic zero modes are degenerate anyway, an arbitrary pairing of the unpaired <span class="math inline">\(b^\alpha\)</span> operators could be performed.</p>
+<figure>
+<img src="/assets/thesis/amk_chapter/loops_and_dual_loops/loops_and_dual_loops.svg" id="fig:loops_and_dual_loops" data-short-caption="Topological Loops and Dual Loops" style="width:100.0%" alt="Figure 1: (Left) The two topological flux operators of the toroidal lattice. These do not correspond to any face of the lattice, but rather measure flux that threads through the major and minor axes of the torus. This shows a particular choice. Yet, any loop that crosses the boundary is gauge equivalent to one of or the sum of these two loop. (Right) The two ways to transport vortices around the diameters. These amount to creating a vortex pair, transporting one of them around the major or minor diameters of the torus and, then, annihilating them again." />
+<figcaption aria-hidden="true">Figure 1: (Left) The two topological flux operators of the toroidal lattice. These do not correspond to any face of the lattice, but rather measure flux that threads through the major and minor axes of the torus. This shows a particular choice. Yet, any loop that crosses the boundary is gauge equivalent to one of or the sum of these two loop. (Right) The two ways to transport vortices around the diameters. These amount to creating a vortex pair, transporting one of them around the major or minor diameters of the torus and, then, annihilating them again.</figcaption>
+</figure>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <p>Next Section: <a href="../4_Amorphous_Kitaev_Model/4.2_AMK_Methods.html">Methods</a></p>
+</section>
 </section>
 </section>
 <section id="bibliography" class="level1 unnumbered">

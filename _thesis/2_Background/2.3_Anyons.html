@@ -26,12 +26,7 @@ image:
 {% capture tableOfContents %}
 <br>
 <nav aria-label="Table of Contents" class="page-table-of-contents">
-<ul>
-<li><a href="#anyonic-statistics" id="toc-anyonic-statistics">Anyonic Statistics</a></li>
-<li><a href="#what-is-so-great-about-two-dimensions" id="toc-what-is-so-great-about-two-dimensions">What is so great about two dimensions?</a></li>
-<li><a href="#topology-chirality-and-edge-modes" id="toc-topology-chirality-and-edge-modes">Topology chirality and edge modes</a></li>
-<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
-</ul>
+
 </nav>
 {% endcapture %}
 
@@ -41,94 +36,10 @@ image:
 <main>
 
 <!-- Table of Contents -->
-<!-- <nav id="TOC" role="doc-toc">
-<ul>
-<li><a href="#anyonic-statistics" id="toc-anyonic-statistics">Anyonic Statistics</a></li>
-<li><a href="#what-is-so-great-about-two-dimensions" id="toc-what-is-so-great-about-two-dimensions">What is so great about two dimensions?</a></li>
-<li><a href="#topology-chirality-and-edge-modes" id="toc-topology-chirality-and-edge-modes">Topology chirality and edge modes</a></li>
-<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
-</ul>
-</nav>
- -->
+<!--  -->
 
 <!-- Main Page Body -->
-<div id="page-header">
-<p>2 Background</p>
-<hr />
-</div>
-<p>Anyons are exotic two dimensional particles that are intermediate between bosons and fermions. Abelian anyons pick up an arbitrary phase <span class="math inline">\(e^{i\phi}\)</span> up interchange. The Kitaev model is also topologically non-trivial, supporting a degenerate ground state manifold of varying size. The interchange of non-Abelian anyons corresponds to arbitrary rotations within the ground state manifold, operations which may not commute and thus form a non-Abelian group.</p>
-<section id="anyonic-statistics" class="level3">
-<h3>Anyonic Statistics</h3>
-<p><strong>NB: I’m thinking about moving this section to the overall intro, but it’s nice to be able to refer to specifics of the Kitaev model also so I’m not sure. It currently repeats a discussion of the ground state degeneracy from the projector section.</strong></p>
-<p>In dimensions greater than two, the quantum state of a system must pick up a factor of <span class="math inline">\(-1\)</span> or <span class="math inline">\(+1\)</span> if two identical particles are swapped. We call these Fermions and Bosons.</p>
-<p>This argument is predicated on the idea that performing two swaps is equivalent to doing nothing. Doing nothing should not change the quantum state at all. Therefore, doing one swap can at most multiply it by <span class="math inline">\(\pm 1\)</span>.</p>
-<p>However, there are many hidden parts to this argument. First, this argument does not present the whole story. For instance, if you want to know why Fermions have half integer spin, you have to go to field theory.</p>
-<p>Second, why does this argument only work in dimensions greater than two? When we say that two swaps do nothing, we in fact say that the world lines of two particles that have been swapped twice can be untangled without crossing. Why can’t they cross? Because if they cross, the particles can interact and the quantum state could change in an arbitrary way. We are implicitly using the locality of physics to argue that, if the worldlines stay well separated, the overall quantum state cannot change.</p>
-<p>In two dimensions, we cannot untangle the worldlines of two particles that have swapped places. They are braided together (see fig. <a href="#fig:braiding">1</a>).</p>
-<figure>
-<img src="/assets/thesis/amk_chapter/braiding.png" id="fig:braiding" data-short-caption="Braiding in Two Dimensions" style="width:71.0%" alt="Figure 1: Worldlines of particles in two dimensions can become tangled or braided with one another." />
-<figcaption aria-hidden="true">Figure 1: Worldlines of particles in two dimensions can become tangled or <em>braided</em> with one another.</figcaption>
-</figure>
-<p>From this fact flows a whole of behaviours. The quantum state can acquire a phase factor <span class="math inline">\(e^{i\phi}\)</span> upon exchange of two identical particles, which we now call Anyons.</p>
-<p>The Kitaev Model is a good demonstration of the connection between Anyons and topological degeneracy. In the Kitaev model, we can create a pair of vortices, move one around a non-contractable loop <span class="math inline">\(\mathcal{T}_{x/y}\)</span> and then annihilate them together. Without topology, this should leave the quantum state unchanged. Instead, we move towards another ground state in a topologically degenerate ground state subspace. Practically speaking, it flips a dual line of bonds <span class="math inline">\(u_{jk}\)</span> going around the loop which we cannot undo with any gauge transformation made from <span class="math inline">\(D_j\)</span> operators.</p>
-<p>If the ground state subspace is multidimensional, quasiparticle exchange can move us around in the space with an action corresponding to a matrix. In general, these matrices do not commute so these are known as non-Abelian anyons.</p>
-<p>From here, the situation becomes even more complex. The Kitaev model has a non-Abelian phase when exposed to a magnetic field. The amorphous Kitaev Model has a non-Abelian phase because of its broken chiral symmetry.</p>
-<p>By subdividing the Kitaev model into vortex sectors, we neatly separate between vortices and fermionic excitations. However, if we looked at the full many body picture, we would see that a vortex carries with it a cloud of bound Majorana states.</p>
-<p>Consider two processes</p>
-<ol type="1">
-<li><p>We transport one half of a vortex pair around either the x or y loops of the torus before annihilating back to the ground state vortex sector <span class="math inline">\(\mathcal{T}_{x,y}\)</span>.</p></li>
-<li><p>We flip a line of bond operators corresponding to measuring the flux through either the major or minor axes of the torus <span class="math inline">\(\mathcal{\Phi}_{x,y}\)</span></p></li>
-</ol>
-<p>The plaquette operators <span class="math inline">\(\phi_i\)</span> are associated with fluxes. Wilson loops that wind the torus are associated with the fluxes through its two diameters <span class="math inline">\(\mathcal{\Phi}_{x,y}\)</span>.</p>
-<p>In the Abelian phase, we can move a vortex along any path at will before bringing them back together. They will annihilate back to the vacuum, where we understand ‘the vacuum’ to refer to one of the ground states. However, this will not necessarily be the same ground state we started in. We can use this to get from the <span class="math inline">\((\Phi_x, \Phi_y) = (+1, +1)\)</span> ground state and construct the set <span class="math inline">\((+1, +1), (+1, -1), (-1, +1), (-1, -1)\)</span>.</p>
-<figure>
-<img src="/assets/thesis/amk_chapter/topological_fluxes.png" id="fig:topological_fluxes" data-short-caption="Topological Fluxes" style="width:57.0%" alt="Figure 2: Wilson loops that wind the major or minor diameters of the torus measure flux winding through the hole of the doughnut/torus or through the filling. If they made doughnuts that both had a jam filling and a hole, this analogy would be a lot easier to make  [1]." />
-<figcaption aria-hidden="true">Figure 2: Wilson loops that wind the major or minor diameters of the torus measure flux winding through the hole of the doughnut/torus or through the filling. If they made doughnuts that both had a jam filling and a hole, this analogy would be a lot easier to make <span class="citation" data-cites="parkerWhyDoesThis"> [<a href="#ref-parkerWhyDoesThis" role="doc-biblioref">1</a>]</span>.</figcaption>
-</figure>
-<p>However, in the non-Abelian phase we have to wrangle with monodromy <span class="citation" data-cites="chungExplicitMonodromyMoore2007 oshikawaTopologicalDegeneracyNonAbelian2007"> [<a href="#ref-chungExplicitMonodromyMoore2007" role="doc-biblioref">2</a>,<a href="#ref-oshikawaTopologicalDegeneracyNonAbelian2007" role="doc-biblioref">3</a>]</span>. Monodromy is the behaviour of objects as they move around a singularity. This manifests here in that the identity of a vortex and cloud of Majoranas can change as we wind them around the torus in such a way that, rather than annihilating to the vacuum, we annihilate them to create an excited state instead of a ground state. This means that we end up with only three degenerate ground states in the non-Abelian phase <span class="math inline">\((+1, +1), (+1, -1), (-1, +1)\)</span> <span class="citation" data-cites="Chung_Topological_quantum2010 yaoAlgebraicSpinLiquid2009"> [<a href="#ref-Chung_Topological_quantum2010" role="doc-biblioref">4</a>,<a href="#ref-yaoAlgebraicSpinLiquid2009" role="doc-biblioref">5</a>]</span>. Concretely, this is because the projector enforces both flux and fermion parity. When we wind a vortex around both non-contractible loops of the torus, it flips the flux parity. Therefore, we have to introduce a fermionic excitation to make the state physical. Hence, the process does not give a fourth ground state.</p>
-<p>Recently, the topology has notably gained interest because of proposals to use this ground state degeneracy to implement both passively fault tolerant and actively stabilised quantum computations <span class="citation" data-cites="kitaev_fault-tolerant_2003 poulinStabilizerFormalismOperator2005 hastingsDynamicallyGeneratedLogical2021"> [<a href="#ref-kitaev_fault-tolerant_2003" role="doc-biblioref">6</a>–<a href="#ref-hastingsDynamicallyGeneratedLogical2021" role="doc-biblioref">8</a>]</span>.</p>
-</section>
-<section id="what-is-so-great-about-two-dimensions" class="level2">
-<h2>What is so great about two dimensions?</h2>
-</section>
-<section id="topology-chirality-and-edge-modes" class="level2">
-<h2>Topology chirality and edge modes</h2>
-<p>Most thermodynamic and quantum phases studied can be characterised by a local order parameter. That is, a function or operator that only requires knowledge about some fixed sized patch of the system that does not scale with system size.</p>
-<p>However, there are quantum phases that cannot be characterised by such a local order parameter. These phases are instead said to possess ‘topological order’.</p>
-<p>One easily observable property of topological order is that the ground state degeneracy depends on the topology of the manifold that we put the system on to. This is referred to as topological degeneracy to distinguish it from standard symmetry breaking.</p>
-<p>The Kitaev model is a good example. We have already looked at it defined on a graph that is embedded either into the plane or onto the torus. The extension to surfaces like the torus but with more than one handle is relatively easy.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<p>Next Section: <a href="../2_Background/2.4_Disorder.html">Disorder and Localisation</a></p>
-</section>
-<section id="bibliography" class="level1 unnumbered">
-<h1 class="unnumbered">Bibliography</h1>
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-parkerWhyDoesThis" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline"><em><a href="https://www.youtube.com/watch?v=ymF1bp-qrjU">Why Does This Balloon Have -1 Holes?</a></em> (n.d.).</div>
-</div>
-<div id="ref-chungExplicitMonodromyMoore2007" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">S. B. Chung and M. Stone, <em><a href="https://doi.org/10.1088/1751-8113/40/19/001">Explicit Monodromy of Moore–Read Wavefunctions on a Torus</a></em>, J. Phys. A: Math. Theor. <strong>40</strong>, 4923 (2007).</div>
-</div>
-<div id="ref-oshikawaTopologicalDegeneracyNonAbelian2007" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">M. Oshikawa, Y. B. Kim, K. Shtengel, C. Nayak, and S. Tewari, <em><a href="https://doi.org/10.1016/j.aop.2006.08.001">Topological Degeneracy of Non-Abelian States for Dummies</a></em>, Annals of Physics <strong>322</strong>, 1477 (2007).</div>
-</div>
-<div id="ref-Chung_Topological_quantum2010" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">S. B. Chung, H. Yao, T. L. Hughes, and E.-A. Kim, <em><a href="https://doi.org/10.1103/PhysRevB.81.060403">Topological Quantum Phase Transition in an Exactly Solvable Model of a Chiral Spin Liquid at Finite Temperature</a></em>, Phys. Rev. B <strong>81</strong>, 060403 (2010).</div>
-</div>
-<div id="ref-yaoAlgebraicSpinLiquid2009" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">H. Yao, S.-C. Zhang, and S. A. Kivelson, <em><a href="https://doi.org/10.1103/PhysRevLett.102.217202">Algebraic Spin Liquid in an Exactly Solvable Spin Model</a></em>, Phys. Rev. Lett. <strong>102</strong>, 217202 (2009).</div>
-</div>
-<div id="ref-kitaev_fault-tolerant_2003" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[6] </div><div class="csl-right-inline">A. Yu. Kitaev, <em><a href="https://doi.org/10.1016/S0003-4916(02)00018-0">Fault-Tolerant Quantum Computation by Anyons</a></em>, Annals of Physics <strong>303</strong>, 2 (2003).</div>
-</div>
-<div id="ref-poulinStabilizerFormalismOperator2005" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[7] </div><div class="csl-right-inline">D. Poulin, <em><a href="https://doi.org/10.1103/PhysRevLett.95.230504">Stabilizer Formalism for Operator Quantum Error Correction</a></em>, Phys. Rev. Lett. <strong>95</strong>, 230504 (2005).</div>
-</div>
-<div id="ref-hastingsDynamicallyGeneratedLogical2021" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[8] </div><div class="csl-right-inline">M. B. Hastings and J. Haah, <em><a href="https://doi.org/10.22331/q-2021-10-19-564">Dynamically Generated Logical Qubits</a></em>, Quantum <strong>5</strong>, 564 (2021).</div>
-</div>
-</div>
-</section>
 
 
 </main>
