@@ -1,7 +1,7 @@
 ---
 title: "The one-dimensional Long-Range Falikov-Kimball Model: Thermal Phase Transition and Disorder-Free Localisation"
 collection: publications
-permalink: /publication/2021-03-22-the-long-range-falikov-kimball-model
+permalink: /publication/2021-03-22-the-long-range-falicov-kimball-model
 excerpt: 'Disorder or interactions can turn metals into insulators. One of the simplest settings to study this physics is given by the Falikov-Kimball model, which describes itinerant fermions interacting with a classical Ising background field.'
 date: 2021-03-22
 venue: 'Physics Review B'

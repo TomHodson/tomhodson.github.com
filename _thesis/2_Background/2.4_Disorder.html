@@ -29,10 +29,8 @@ image:
 <ul>
 <li><a href="#bg-disorder-and-localisation" id="toc-bg-disorder-and-localisation">Disorder and Localisation</a>
 <ul>
-<li><a href="#localisation-anderson-many-body-and-disorder-free" id="toc-localisation-anderson-many-body-and-disorder-free">Localisation: Anderson, Many Body and Disorder-Free</a></li>
 <li><a href="#disorder-and-spin-liquids" id="toc-disorder-and-spin-liquids">Disorder and Spin liquids</a></li>
 <li><a href="#amorphous-magnetism" id="toc-amorphous-magnetism">Amorphous Magnetism</a></li>
-<li><a href="#localisation" id="toc-localisation">Localisation</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -49,10 +47,8 @@ image:
 <ul>
 <li><a href="#bg-disorder-and-localisation" id="toc-bg-disorder-and-localisation">Disorder and Localisation</a>
 <ul>
-<li><a href="#localisation-anderson-many-body-and-disorder-free" id="toc-localisation-anderson-many-body-and-disorder-free">Localisation: Anderson, Many Body and Disorder-Free</a></li>
 <li><a href="#disorder-and-spin-liquids" id="toc-disorder-and-spin-liquids">Disorder and Spin liquids</a></li>
 <li><a href="#amorphous-magnetism" id="toc-amorphous-magnetism">Amorphous Magnetism</a></li>
-<li><a href="#localisation" id="toc-localisation">Localisation</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -66,73 +62,127 @@ image:
 </div>
 <section id="bg-disorder-and-localisation" class="level1">
 <h1>Disorder and Localisation</h1>
-<section id="localisation-anderson-many-body-and-disorder-free" class="level2">
-<h2>Localisation: Anderson, Many Body and Disorder-Free</h2>
-</section>
+<ul>
+<li><p>disorder starts with the very simple anderson model</p></li>
+<li><p>Quenched vs Annealed disorder</p></li>
+<li></li>
+</ul>
+<p>Disorder is a fact of life for the condensed matter physicist. No sample will ever be completely free of contamination or of structural defects. The classical Drude theory of electron conductivity envisages electrons as scattering off impurities. Hence we would expect the electrical conductivity to be proportional to the mean free path <span class="citation" data-cites="lagendijkFiftyYearsAnderson2009"> [<a href="#ref-lagendijkFiftyYearsAnderson2009" role="doc-biblioref">1</a>]</span>, decreasing smoothly as the number of defects increases. However, Anderson showed in 1958 <span class="citation" data-cites="andersonAbsenceDiffusionCertain1958"> [<a href="#ref-andersonAbsenceDiffusionCertain1958" role="doc-biblioref">2</a>]</span> that at some critical level of disorder <strong>all</strong> single particle eigenstates localise. What would later be known as Anderson localisation is characterised by exponentially localised eigenfunctions <span class="math inline">\(\psi(x) \sim e^{-x/\lambda}\)</span> which cannot contribute to transport processes. The localisation length <span class="math inline">\(\lambda\)</span> is the typical scale of localised state and can be extracted with transmission matrix methods <span class="citation" data-cites="pendrySymmetryTransportWaves1994"> [<a href="#ref-pendrySymmetryTransportWaves1994" role="doc-biblioref">3</a>]</span>. Anderson localisation provided a different kind of insulator to that of the band insulator.</p>
+<p>The Anderson model is about the simplest model of disorder one could imagine <span id="eq:bg-anderson-model"><span class="math display">\[
+H = -t\sum_{\langle jk \rangle} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j
+\qquad{(1)}\]</span></span></p>
+<p>It is one of non-interacting fermions subject to a disorder potential <span class="math inline">\(V_j\)</span> drawn uniformly from the interval <span class="math inline">\([-W,W]\)</span>. The discovery of localisation in quantum systems was surprising at the time given the seeming ubiquity of extended Bloch states. Within the Anderson model, all the states localise at the same disorder strength <span class="math inline">\(W\)</span> but later Mott showed that in other contexts extended Bloch states and localised states could coexist at the same disorder strength but different energies. The transition in energy between localised and extended states is known as a mobility edge <span class="citation" data-cites="mottMetalInsulatorTransitions1978"> [<a href="#ref-mottMetalInsulatorTransitions1978" role="doc-biblioref">4</a>]</span>.</p>
+<p>Localisation phenomena are strongly dimension dependent. In three dimensions the scaling theory of localisation <span class="citation" data-cites="edwardsNumericalStudiesLocalization1972 kramerLocalizationTheoryExperiment1993"> [<a href="#ref-edwardsNumericalStudiesLocalization1972" role="doc-biblioref">5</a>,<a href="#ref-kramerLocalizationTheoryExperiment1993" role="doc-biblioref">6</a>]</span> shows that Anderson localisation is a critical phenomenon with critical exponents both for how the conductivity vanishes with energy when approaching the mobility edge and for how the localisation length increases below it. By contrast, in one dimension disorder generally dominates. Even the weakest disorder exponentially localises <em>all</em> single particle eigenstates in the one dimensional Anderson model. Only long-range spatial correlations of the disorder potential can induce delocalisation <span class="citation" data-cites="aubryAnalyticityBreakingAnderson1980 dassarmaLocalizationMobilityEdges1990 dunlapAbsenceLocalizationRandomdimer1990 izrailevLocalizationMobilityEdge1999 croyAndersonLocalization1D2011 izrailevAnomalousLocalizationLowDimensional2012"> [<a href="#ref-aubryAnalyticityBreakingAnderson1980" role="doc-biblioref">7</a>–<a href="#ref-izrailevAnomalousLocalizationLowDimensional2012" role="doc-biblioref">12</a>]</span>.</p>
+<p>Later localisation was found in disordered interacting many-body systems:</p>
+<p><span class="math display">\[
+H = -t\sum_{\langle jk \rangle} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j + U\sum_{jk} n_j n_k
+\]</span> Here, in contrast to the Anderson model, localisation phenomena are robust to weak perturbations of the Hamiltonian. This is called many-body localisation (MBL) <span class="citation" data-cites="imbrieManyBodyLocalizationQuantum2016"> [<a href="#ref-imbrieManyBodyLocalizationQuantum2016" role="doc-biblioref">13</a>]</span>.</p>
+<p>Both MBL and Anderson localisation depend crucially on the presence of <em>quenched</em> disorder. Quenched disorder takes the form a static background field drawn from an arbitrary probability distribution to which the model is coupled. Disorder may also be introduced into the initial state of the system rather than the Hamiltonian. This has led to ongoing interest in the possibility of disorder-free localisation where the disorder is instead <em>annealed</em>. In this scenario the disorder necessary to generate localisation is generated entirely from the thermal fluctuations of the model.</p>
+<p>The concept of disorder-free localisation was first proposed in the context of Helium mixtures <span class="citation" data-cites="kagan1984localization"> [<a href="#ref-kagan1984localization" role="doc-biblioref">14</a>]</span> and then extended to heavy-light mixtures in which multiple species with large mass ratios interact. The idea is that the heavier particles act as an effective disorder potential for the lighter ones, inducing localisation. Two such models <span class="citation" data-cites="yaoQuasiManyBodyLocalizationTranslationInvariant2016 schiulazDynamicsManybodyLocalized2015"> [<a href="#ref-yaoQuasiManyBodyLocalizationTranslationInvariant2016" role="doc-biblioref">15</a>,<a href="#ref-schiulazDynamicsManybodyLocalized2015" role="doc-biblioref">16</a>]</span> instead find that the models thermalise exponentially slowly in system size, which Ref. <span class="citation" data-cites="yaoQuasiManyBodyLocalizationTranslationInvariant2016"> [<a href="#ref-yaoQuasiManyBodyLocalizationTranslationInvariant2016" role="doc-biblioref">15</a>]</span> dubs Quasi-MBL.</p>
+<p>True disorder-free localisation does occur in exactly solvable models with extensively many conserved quantities <span class="citation" data-cites="smithDisorderFreeLocalization2017"> [<a href="#ref-smithDisorderFreeLocalization2017" role="doc-biblioref">17</a>]</span>. As conserved quantities have no time dynamics this can be thought of as taking the separation of timescales to the infinite limit. The localisation phenomena present in the Falikov-Kimball model are instead the result of annealed disorder. A strong separation of timescales means that the heavy species is approximated as immobile with respect to the lighter itinerant species. At finite temperature the heavy species acts as a disorder potential for the lighter one. However, in contract to quenched disorder, the probability distribution of annealed disorder is entirely determined by the thermodynamics of the Hamiltonian. In the two dimensional FK model this leads to multiple phases where localisation effects are relevant. At low temperatures the heavy species orders leading to a traditional band gap insulator. At higher temperatures however thermal disorder causes the light species to localise. At weak coupling, the localisation length can be very large, so finite sized systems may still conduct, an effect known as weak localisation <span class="citation" data-cites="antipovInteractionTunedAndersonMott2016"> [<a href="#ref-antipovInteractionTunedAndersonMott2016" role="doc-biblioref">18</a>]</span>.</p>
+<p>In Chapter 3 we will consider a generalised FK model in one dimension and how the disorder generated near a one dimensional thermodynamic phase transition interacts with localisation physics.</p>
+<p>So far we have considered disorder as a static or dynamic field coupled to a model defined on a translation invariant lattice. Another kind of disordered system that worthy of study are amorphous systems.</p>
+<p>Amorphous systems have disordered bond connectivity, so called <em>topological disorder</em>. As discussed in the introduction these include amorphous semiconductors such as amorphous Germanium and Silicon  <span class="citation" data-cites="Yonezawa1983 zallen2008physics Weaire1971 betteridge1973possible"> [<a href="#ref-Yonezawa1983" role="doc-biblioref">19</a>–<a href="#ref-betteridge1973possible" role="doc-biblioref">22</a>]</span>. While materials do not have long range lattice structure they can enforce local constraints such as the approximate coordination number <span class="math inline">\(z = 4\)</span> of silicon.</p>
+<p>Topological disorder can be qualitatively different from other disordered systems. Disordered graphs are constrained by fixed coordination number and the Euler equation. The Harris <span class="citation" data-cites="harrisEffectRandomDefects1974"> [<a href="#ref-harrisEffectRandomDefects1974" role="doc-biblioref">23</a>]</span> and the Imry-Mar <span class="citation" data-cites="imryRandomFieldInstabilityOrdered1975"> [<a href="#ref-imryRandomFieldInstabilityOrdered1975" role="doc-biblioref">24</a>]</span> criteria are key results on the effect of disorder on thermodynamic phase transitions. The Harris criterion signals when disorder will affect the universal of a thermodynamic critical point. It states that for a critical point in a <span class="math inline">\(d\)</span>-dimensional system with correlation length scaling exponent, disorder will be relevant if <span class="math inline">\(\nu\)</span> if <span class="math inline">\(d\nu &lt; 2\)</span>. The Imry-Ma criterion simply forbids the formation of long range ordered states in <span class="math inline">\(d \leq 2\)</span> dimensions in the presence of disorder. The latter criteria is violated in the presence of correlated disorder <span class="citation" data-cites="changlaniChargeDensityWaves2016"> [<a href="#ref-changlaniChargeDensityWaves2016" role="doc-biblioref">25</a>]</span> and both are modified for topological disorder. In chapter 4 we will put the Kitaev model onto two dimensional Voronoi lattices. These lattices are have fixed coordination number <span class="math inline">\(z=3\)</span> and must satisfy the Euler equation for the plane, this leads to strong anticorrelations which mean that topological disorder is effectively weaker than standard disorder here <span class="citation" data-cites="barghathiPhaseTransitionsRandom2014 schrauthViolationHarrisBarghathiVojtaCriterion2018"> [<a href="#ref-barghathiPhaseTransitionsRandom2014" role="doc-biblioref">26</a>,<a href="#ref-schrauthViolationHarrisBarghathiVojtaCriterion2018" role="doc-biblioref">27</a>]</span>]. This does not apply to the three dimensional Voronoi lattices where the Euler equation is a weaker constraint.</p>
+<p>Lastly it is worth exploring how quantum spin liquids and disorder interact. The KH model has been studied subject to both bond and site disorder <strong>cite</strong>. In some instances it seems that disorder can even promote the formation of a QSL ground state <span class="citation" data-cites="wenDisorderedRouteCoulomb2017"> [<a href="#ref-wenDisorderedRouteCoulomb2017" role="doc-biblioref">28</a>]</span>.</p>
+<ul>
+<li>localisation length and IPR scaling</li>
+<li>multifractality</li>
+</ul>
 <section id="disorder-and-spin-liquids" class="level2">
 <h2>Disorder and Spin liquids</h2>
 </section>
 <section id="amorphous-magnetism" class="level2">
 <h2>Amorphous Magnetism</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-</section>
-<section id="localisation" class="level2">
-<h2>Localisation</h2>
-<p>The discovery of localisation in quantum systems surprising at the time given the seeming ubiquity of extended Bloch states. Later, when thermalisation in quantum systems gained interest, localisation phenomena again stood out as counterexamples to the eigenstate thermalisation hypothesis <span class="citation" data-cites="abaninRecentProgressManybody2017 srednickiChaosQuantumThermalization1994"> [<a href="#ref-abaninRecentProgressManybody2017" role="doc-biblioref">1</a>,<a href="#ref-srednickiChaosQuantumThermalization1994" role="doc-biblioref">2</a>]</span>, allowing quantum systems to avoid to retain memory of their initial conditions in the face of thermal noise.</p>
-<p>The simplest and first discovered kind is Anderson localisation, first studied in 1958 <span class="citation" data-cites="andersonAbsenceDiffusionCertain1958"> [<a href="#ref-andersonAbsenceDiffusionCertain1958" role="doc-biblioref">3</a>]</span> in the context of non-interacting fermions subject to a static or quenched disorder potential <span class="math inline">\(V_j\)</span> drawn uniformly from the interval <span class="math inline">\([-W,W]\)</span></p>
-<p><span class="math display">\[
-H = -t\sum_{\langle jk \rangle} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j
-\]</span></p>
-<p>this model exhibits exponentially localised eigenfunctions <span class="math inline">\(\psi(x) = f(x) e^{-x/\lambda}\)</span> which cannot contribute to transport processes. Initially it was thought that in one dimensional disordered models, all states would be localised, however it was later shown that in the presence of correlated disorder, bands of extended states can exist <span class="citation" data-cites="izrailevLocalizationMobilityEdge1999 croyAndersonLocalization1D2011 izrailevAnomalousLocalizationLowDimensional2012"> [<a href="#ref-izrailevLocalizationMobilityEdge1999" role="doc-biblioref">4</a>–<a href="#ref-izrailevAnomalousLocalizationLowDimensional2012" role="doc-biblioref">6</a>]</span>.</p>
-<p>Later localisation was found in interacting many-body systems with quenched disorder:</p>
-<p><span class="math display">\[
-H = -t\sum_{\langle jk \rangle} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j + U\sum_{jk} n_j n_k
-\]</span></p>
-<p>where the number operators <span class="math inline">\(n_j = c^\dagger_j c_j\)</span>. Here, in contrast to the Anderson model, localisation phenomena can be proven robust to weak perturbations of the Hamiltonian. This is called many-body localisation (MBL) <span class="citation" data-cites="imbrieManyBodyLocalizationQuantum2016"> [<a href="#ref-imbrieManyBodyLocalizationQuantum2016" role="doc-biblioref">7</a>]</span>.</p>
-<p>Both MBL and Anderson localisation depend crucially on the presence of quenched disorder. This has led to ongoing interest in the possibility of disorder-free localisation, in which the disorder necessary to generate localisation is generated entirely from the dynamics of the model. This contracts with typical models of disordered systems in which disorder is explicitly introduced into the Hamilton or the initial state.</p>
-<p>The concept of disorder-free localisation was first proposed in the context of Helium mixtures <span class="citation" data-cites="kagan1984localization"> [<a href="#ref-kagan1984localization" role="doc-biblioref">8</a>]</span> and then extended to heavy-light mixtures in which multiple species with large mass ratios interact. The idea is that the heavier particles act as an effective disorder potential for the lighter ones, inducing localisation. Two such models <span class="citation" data-cites="yaoQuasiManyBodyLocalizationTranslationInvariant2016 schiulazDynamicsManybodyLocalized2015"> [<a href="#ref-yaoQuasiManyBodyLocalizationTranslationInvariant2016" role="doc-biblioref">9</a>,<a href="#ref-schiulazDynamicsManybodyLocalized2015" role="doc-biblioref">10</a>]</span> instead find that the models thermalise exponentially slowly in system size, which Ref. <span class="citation" data-cites="yaoQuasiManyBodyLocalizationTranslationInvariant2016"> [<a href="#ref-yaoQuasiManyBodyLocalizationTranslationInvariant2016" role="doc-biblioref">9</a>]</span> dubs Quasi-MBL.</p>
-<p>True disorder-free localisation does occur in exactly solvable models with extensively many conserved quantities <span class="citation" data-cites="smithDisorderFreeLocalization2017"> [<a href="#ref-smithDisorderFreeLocalization2017" role="doc-biblioref">11</a>]</span>. As conserved quantities have no time dynamics this can be thought of as taking the separation of timescales to the infinite limit.</p>
-<p>-link to the FK model</p>
-<p>-link to the Kitaev Model</p>
-<p>-link to the physics of amorphous systems</p>
 <p>Next Chapter: <a href="../3_Long_Range_Falikov_Kimball/3.1_LRFK_Model.html">3 The Long Range Falikov-Kimball Model</a></p>
 </section>
 </section>
 <section id="bibliography" class="level1 unnumbered">
 <h1 class="unnumbered">Bibliography</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-abaninRecentProgressManybody2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">D. A. Abanin and Z. Papić, <em><a href="https://doi.org/10.1002/andp.201700169">Recent Progress in Many-Body Localization</a></em>, ANNALEN DER PHYSIK <strong>529</strong>, 1700169 (2017).</div>
-</div>
-<div id="ref-srednickiChaosQuantumThermalization1994" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">M. Srednicki, <em><a href="https://doi.org/10.1103/PhysRevE.50.888">Chaos and Quantum Thermalization</a></em>, Phys. Rev. E <strong>50</strong>, 888 (1994).</div>
+<div id="ref-lagendijkFiftyYearsAnderson2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">A. Lagendijk, B. van Tiggelen, and D. S. Wiersma, <em><a href="https://doi.org/10.1063/1.3206091">Fifty Years of Anderson Localization</a></em>, Physics Today <strong>62</strong>, 24 (2009).</div>
 </div>
 <div id="ref-andersonAbsenceDiffusionCertain1958" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">P. W. Anderson, <em><a href="https://doi.org/10.1103/PhysRev.109.1492">Absence of Diffusion in Certain Random Lattices</a></em>, Phys. Rev. <strong>109</strong>, 1492 (1958).</div>
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">P. W. Anderson, <em><a href="https://doi.org/10.1103/PhysRev.109.1492">Absence of Diffusion in Certain Random Lattices</a></em>, Phys. Rev. <strong>109</strong>, 1492 (1958).</div>
+</div>
+<div id="ref-pendrySymmetryTransportWaves1994" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">J. B. Pendry, <em><a href="https://doi.org/10.1080/00018739400101515">Symmetry and Transport of Waves in One-Dimensional Disordered Systems</a></em>, Advances in Physics <strong>43</strong>, 461 (1994).</div>
+</div>
+<div id="ref-mottMetalInsulatorTransitions1978" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">S. N. Mott, <em><a href="https://doi.org/10.1063/1.2994815">Metal–Insulator Transitions</a></em>, Physics Today <strong>31</strong>, 42 (1978).</div>
+</div>
+<div id="ref-edwardsNumericalStudiesLocalization1972" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">J. T. Edwards and D. J. Thouless, <em><a href="https://doi.org/10.1088/0022-3719/5/8/007">Numerical Studies of Localization in Disordered Systems</a></em>, J. Phys. C: Solid State Phys. <strong>5</strong>, 807 (1972).</div>
+</div>
+<div id="ref-kramerLocalizationTheoryExperiment1993" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">B. Kramer and A. MacKinnon, <em><a href="https://doi.org/10.1088/0034-4885/56/12/001">Localization: Theory and Experiment</a></em>, Rep. Prog. Phys. <strong>56</strong>, 1469 (1993).</div>
+</div>
+<div id="ref-aubryAnalyticityBreakingAnderson1980" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">S. Aubry and G. André, <em>Analyticity Breaking and Anderson Localization in Incommensurate Lattices</em>, Proceedings, VIII International Colloquium on Group-Theoretical Methods in Physics <strong>3</strong>, 18 (1980).</div>
+</div>
+<div id="ref-dassarmaLocalizationMobilityEdges1990" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">S. Das Sarma, S. He, and X. C. Xie, <em><a href="https://doi.org/10.1103/PhysRevB.41.5544">Localization, Mobility Edges, and Metal-Insulator Transition in a Class of One-Dimensional Slowly Varying Deterministic Potentials</a></em>, Phys. Rev. B <strong>41</strong>, 5544 (1990).</div>
+</div>
+<div id="ref-dunlapAbsenceLocalizationRandomdimer1990" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">D. H. Dunlap, H.-L. Wu, and P. W. Phillips, <em><a href="https://doi.org/10.1103/PhysRevLett.65.88">Absence of Localization in a Random-Dimer Model</a></em>, Phys. Rev. Lett. <strong>65</strong>, 88 (1990).</div>
 </div>
 <div id="ref-izrailevLocalizationMobilityEdge1999" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">F. M. Izrailev and A. A. Krokhin, <em><a href="https://doi.org/10.1103/PhysRevLett.82.4062">Localization and the Mobility Edge in One-Dimensional Potentials with Correlated Disorder</a></em>, Phys. Rev. Lett. <strong>82</strong>, 4062 (1999).</div>
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">F. M. Izrailev and A. A. Krokhin, <em><a href="https://doi.org/10.1103/PhysRevLett.82.4062">Localization and the Mobility Edge in One-Dimensional Potentials with Correlated Disorder</a></em>, Phys. Rev. Lett. <strong>82</strong>, 4062 (1999).</div>
 </div>
 <div id="ref-croyAndersonLocalization1D2011" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">A. Croy, P. Cain, and M. Schreiber, <em><a href="https://doi.org/10.1140/epjb/e2011-20212-1">Anderson Localization in 1d Systems with Correlated Disorder</a></em>, Eur. Phys. J. B <strong>82</strong>, 107 (2011).</div>
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">A. Croy, P. Cain, and M. Schreiber, <em><a href="https://doi.org/10.1140/epjb/e2011-20212-1">Anderson Localization in 1d Systems with Correlated Disorder</a></em>, Eur. Phys. J. B <strong>82</strong>, 107 (2011).</div>
 </div>
 <div id="ref-izrailevAnomalousLocalizationLowDimensional2012" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[6] </div><div class="csl-right-inline">F. M. Izrailev, A. A. Krokhin, and N. M. Makarov, <em><a href="https://doi.org/10.1016/j.physrep.2011.11.002">Anomalous Localization in Low-Dimensional Systems with Correlated Disorder</a></em>, Physics Reports <strong>512</strong>, 125 (2012).</div>
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">F. M. Izrailev, A. A. Krokhin, and N. M. Makarov, <em><a href="https://doi.org/10.1016/j.physrep.2011.11.002">Anomalous Localization in Low-Dimensional Systems with Correlated Disorder</a></em>, Physics Reports <strong>512</strong>, 125 (2012).</div>
 </div>
 <div id="ref-imbrieManyBodyLocalizationQuantum2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[7] </div><div class="csl-right-inline">J. Z. Imbrie, <em><a href="https://doi.org/10.1007/s10955-016-1508-x">On Many-Body Localization for Quantum Spin Chains</a></em>, J Stat Phys <strong>163</strong>, 998 (2016).</div>
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">J. Z. Imbrie, <em><a href="https://doi.org/10.1007/s10955-016-1508-x">On Many-Body Localization for Quantum Spin Chains</a></em>, J Stat Phys <strong>163</strong>, 998 (2016).</div>
 </div>
 <div id="ref-kagan1984localization" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[8] </div><div class="csl-right-inline">Y. Kagan and L. Maksimov, <em>Localization in a System of Interacting Particles Diffusing in a Regular Crystal</em>, Zhurnal Eksperimental’noi i Teoreticheskoi Fiziki <strong>87</strong>, 348 (1984).</div>
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">Y. Kagan and L. Maksimov, <em>Localization in a System of Interacting Particles Diffusing in a Regular Crystal</em>, Zhurnal Eksperimental’noi i Teoreticheskoi Fiziki <strong>87</strong>, 348 (1984).</div>
 </div>
 <div id="ref-yaoQuasiManyBodyLocalizationTranslationInvariant2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[9] </div><div class="csl-right-inline">N.  Y. Yao, C.  R. Laumann, J.  I. Cirac, M.  D. Lukin, and J.  E. Moore, <em><a href="https://doi.org/10.1103/PhysRevLett.117.240601">Quasi-Many-Body Localization in Translation-Invariant Systems</a></em>, Phys. Rev. Lett. <strong>117</strong>, 240601 (2016).</div>
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">N.  Y. Yao, C.  R. Laumann, J.  I. Cirac, M.  D. Lukin, and J.  E. Moore, <em><a href="https://doi.org/10.1103/PhysRevLett.117.240601">Quasi-Many-Body Localization in Translation-Invariant Systems</a></em>, Phys. Rev. Lett. <strong>117</strong>, 240601 (2016).</div>
 </div>
 <div id="ref-schiulazDynamicsManybodyLocalized2015" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[10] </div><div class="csl-right-inline">M. Schiulaz, A. Silva, and M. Müller, <em><a href="https://doi.org/10.1103/PhysRevB.91.184202">Dynamics in Many-Body Localized Quantum Systems Without Disorder</a></em>, Phys. Rev. B <strong>91</strong>, 184202 (2015).</div>
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">M. Schiulaz, A. Silva, and M. Müller, <em><a href="https://doi.org/10.1103/PhysRevB.91.184202">Dynamics in Many-Body Localized Quantum Systems Without Disorder</a></em>, Phys. Rev. B <strong>91</strong>, 184202 (2015).</div>
 </div>
 <div id="ref-smithDisorderFreeLocalization2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[11] </div><div class="csl-right-inline">A. Smith, J. Knolle, D.  L. Kovrizhin, and R. Moessner, <em><a href="https://doi.org/10.1103/PhysRevLett.118.266601">Disorder-Free Localization</a></em>, Phys. Rev. Lett. <strong>118</strong>, 266601 (2017).</div>
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">A. Smith, J. Knolle, D.  L. Kovrizhin, and R. Moessner, <em><a href="https://doi.org/10.1103/PhysRevLett.118.266601">Disorder-Free Localization</a></em>, Phys. Rev. Lett. <strong>118</strong>, 266601 (2017).</div>
+</div>
+<div id="ref-antipovInteractionTunedAndersonMott2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">A. E. Antipov, Y. Javanmard, P. Ribeiro, and S. Kirchner, <em><a href="https://doi.org/10.1103/PhysRevLett.117.146601">Interaction-Tuned Anderson Versus Mott Localization</a></em>, Phys. Rev. Lett. <strong>117</strong>, 146601 (2016).</div>
+</div>
+<div id="ref-Yonezawa1983" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[19] </div><div class="csl-right-inline">F. Yonezawa and T. Ninomiya, editors, <em>Topological Disorder in Condensed Matter</em>, Vol. 46 (Springer-Verlag, Berlin Heidelberg, 1983).</div>
+</div>
+<div id="ref-zallen2008physics" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[20] </div><div class="csl-right-inline">R. Zallen, <em>The Physics of Amorphous Solids</em> (John Wiley &amp; Sons, 2008).</div>
+</div>
+<div id="ref-Weaire1971" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[21] </div><div class="csl-right-inline">D. Weaire and M. F. Thorpe, <em><a href="https://doi.org/10.1103/PhysRevB.4.2508">Electronic Properties of an Amorphous Solid. I. A Simple Tight-Binding Theory</a></em>, Phys. Rev. B <strong>4</strong>, 2508 (1971).</div>
+</div>
+<div id="ref-betteridge1973possible" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[22] </div><div class="csl-right-inline">G. Betteridge, <em>A Possible Model of Amorphous Silicon and Germanium</em>, Journal of Physics C: Solid State Physics <strong>6</strong>, L427 (1973).</div>
+</div>
+<div id="ref-harrisEffectRandomDefects1974" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[23] </div><div class="csl-right-inline">A. B. Harris, <em><a href="https://doi.org/10.1088/0022-3719/7/9/009">Effect of Random Defects on the Critical Behaviour of Ising Models</a></em>, J. Phys. C: Solid State Phys. <strong>7</strong>, 1671 (1974).</div>
+</div>
+<div id="ref-imryRandomFieldInstabilityOrdered1975" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[24] </div><div class="csl-right-inline">Y. Imry and S. Ma, <em><a href="https://doi.org/10.1103/PhysRevLett.35.1399">Random-Field Instability of the Ordered State of Continuous Symmetry</a></em>, Phys. Rev. Lett. <strong>35</strong>, 1399 (1975).</div>
+</div>
+<div id="ref-changlaniChargeDensityWaves2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[25] </div><div class="csl-right-inline">H. J. Changlani, N. M. Tubman, and T. L. Hughes, <em><a href="https://doi.org/10.1038/srep31897">Charge Density Waves in Disordered Media Circumventing the Imry-Ma Argument</a></em>, Sci Rep <strong>6</strong>, 1 (2016).</div>
+</div>
+<div id="ref-barghathiPhaseTransitionsRandom2014" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[26] </div><div class="csl-right-inline">H. Barghathi and T. Vojta, <em><a href="https://doi.org/10.1103/PhysRevLett.113.120602">Phase Transitions on Random Lattices: How Random Is Topological Disorder?</a></em>, Phys. Rev. Lett. <strong>113</strong>, 120602 (2014).</div>
+</div>
+<div id="ref-schrauthViolationHarrisBarghathiVojtaCriterion2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[27] </div><div class="csl-right-inline">M. Schrauth, J. Portela, and F. Goth, <em><a href="https://doi.org/10.1103/PhysRevLett.121.100601">Violation of the Harris-Barghathi-Vojta Criterion</a></em>, Physical Review Letters <strong>121</strong>, (2018).</div>
+</div>
+<div id="ref-wenDisorderedRouteCoulomb2017" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[28] </div><div class="csl-right-inline">J.-J. Wen et al., <em><a href="https://doi.org/10.1103/PhysRevLett.118.107206">Disordered Route to the Coulomb Quantum Spin Liquid: Random Transverse Fields on Spin Ice in ${\Mathrm{Pr}}_{2}{\mathrm{Zr}}_{2}{\mathrm{O}}_{7}$</a></em>, Phys. Rev. Lett. <strong>118</strong>, 107206 (2017).</div>
 </div>
 </div>
 </section>
