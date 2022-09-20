@@ -35,10 +35,6 @@ image:
 <li><a href="#two-step-trick" id="toc-two-step-trick">Two Step Trick</a></li>
 <li><a href="#scaling" id="toc-scaling">Scaling</a></li>
 <li><a href="#binder-cumulants" id="toc-binder-cumulants">Binder Cumulants</a></li>
-<li><a href="#diagnostics-of-localisation" id="toc-diagnostics-of-localisation">Diagnostics of Localisation</a>
-<ul>
-<li><a href="#inverse-participation-ratio" id="toc-inverse-participation-ratio">Inverse Participation Ratio</a></li>
-</ul></li>
 <li><a href="#convergence-time" id="toc-convergence-time">Convergence Time</a></li>
 <li><a href="#auto-correlation-time" id="toc-auto-correlation-time">Auto-correlation Time</a></li>
 </ul></li>
@@ -63,10 +59,6 @@ image:
 <li><a href="#two-step-trick" id="toc-two-step-trick">Two Step Trick</a></li>
 <li><a href="#scaling" id="toc-scaling">Scaling</a></li>
 <li><a href="#binder-cumulants" id="toc-binder-cumulants">Binder Cumulants</a></li>
-<li><a href="#diagnostics-of-localisation" id="toc-diagnostics-of-localisation">Diagnostics of Localisation</a>
-<ul>
-<li><a href="#inverse-participation-ratio" id="toc-inverse-participation-ratio">Inverse Participation Ratio</a></li>
-</ul></li>
 <li><a href="#convergence-time" id="toc-convergence-time">Convergence Time</a></li>
 <li><a href="#auto-correlation-time" id="toc-auto-correlation-time">Auto-correlation Time</a></li>
 </ul></li>
@@ -136,27 +128,20 @@ H_c&amp; = \sum_i U S_i c^\dagger_{i}c_{i} -t(c^\dagger_{i}c_{i+1} + c^\dagger_{
 <p>In order to reduce the effects of the boundary conditions and the finite size of the system we redefine and normalise the coupling matrix to have 0 derivative at its furthest extent rather than cutting off abruptly.</p>
 <p><span class="math display">\[
 \begin{aligned}
-J&#39;(x) &amp;= \abs{\frac{L}{\pi}\sin \frac{\pi x}{L}}^{-\alpha} \\
+J&#39;(x) &amp;= \frac{L}{\pi}\left|\;\sin \frac{\pi x}{L}\;\right|^{-\alpha} \\
 J(x) &amp;= \frac{J_0 J&#39;(x)}{\sum_y J&#39;(y)}
-\end{aligned}\]</span> % The scaling ensures that, in the ordered phase, the overall potential felt by each site due to the rest of the system is independent of system size.</p>
+\end{aligned}
+\]</span></p>
+<p>The scaling ensures that, in the ordered phase, the overall potential felt by each site due to the rest of the system is independent of system size.</p>
 </section>
 <section id="binder-cumulants" class="level2">
 <h2>Binder Cumulants</h2>
-<p>The Binder cumulant is defined as: <span class="math display">\[U_B = 1 - \frac{\tex{\mu_4}}{3\tex{\mu_2}^2}\]</span> % where <span class="math display">\[\mu_n = \tex{(m - \tex{m})^n}\]</span> % are the central moments of the order parameter m: <span class="math display">\[m = \sum_i (-1)^i (2n_i - 1) / N\]</span> % The Binder cumulant evaluated against temperature can be used as a diagnostic for the existence of a phase transition. If multiple such curves are plotted for different system sizes, a crossing indicates the location of a critical point <span class="citation" data-cites="binderFiniteSizeScaling1981 musialMonteCarloSimulations2002"> [<a href="#ref-binderFiniteSizeScaling1981" role="doc-biblioref">9</a>,<a href="#ref-musialMonteCarloSimulations2002" role="doc-biblioref">10</a>]</span>.</p>
-</section>
-<section id="diagnostics-of-localisation" class="level2">
-<h2>Diagnostics of Localisation</h2>
-<section id="inverse-participation-ratio" class="level3">
-<h3>Inverse Participation Ratio</h3>
-<p>The inverse participation ratio is defined for a normalised wave function <span class="math inline">\(\psi_i = \psi(x_i), \sum_i \abs{\psi_i}^2 = 1\)</span> as its fourth moment <span class="citation" data-cites="kramerLocalizationTheoryExperiment1993"> [<a href="#ref-kramerLocalizationTheoryExperiment1993" role="doc-biblioref">11</a>]</span>: <span class="math display">\[
-P^{-1} = \sum_i \abs{\psi_i}^4
-\]</span> % It acts as a measure of the portion of space occupied by the wave function. For localised states it will be independent of system size while for plane wave states in d dimensions $P = L^d $. States may also be intermediate between localised and extended, described by their fractal dimensionality <span class="math inline">\(d &gt; d* &gt; 0\)</span>: <span class="math display">\[
-P(L) \goeslike L^{d*}
-\]</span> % For extended states <span class="math inline">\(d* = 0\)</span> while for localised ones <span class="math inline">\(d* = 0\)</span>. In this work we take use an energy resolved IPR <span class="citation" data-cites="andersonAbsenceDiffusionCertain1958"> [<a href="#ref-andersonAbsenceDiffusionCertain1958" role="doc-biblioref">12</a>]</span>: <span class="math display">\[
-DOS(\omega) = \sum_n \delta(\omega - \epsilon_n)
-IPR(\omega) = DOS(\omega)^{-1} \sum_{n,i} \delta(\omega - \epsilon_n) \abs{\psi_{n,i}}^4
-\]</span> Where <span class="math inline">\(\psi_{n,i}\)</span> is the wavefunction corresponding to the energy <span class="math inline">\(\epsilon_n\)</span> at the ith site. In practice we bin the energies and IPRs into a fine energy grid and use Lorentzian smoothing if necessary.</p>
-<!-- ![An MCMC walk starting from the staggered charge density wave ground state for a system with $N = 100$ sites and 10,000 MCMC steps. In this simulation only a single spin can be flipped per step according to the Metropolis-Hastings Algorithm. The staggered magnetisation $m = N^{-1} \sum_i (-1)^i \; S_i$ order parameter is plotted below. At this temperature the thermal average of m is zero, while the initial state has m = 1. We see that it takes about 1000 steps for the system to converge, after which it moves about the m = 0 average with a finite auto-correlation time. $t = 1, \alpha = 1.25, T = 3, J = U = 5$ [\[fig:raw\]]{#fig:raw label="fig:raw"}](figs/lsr/raw_steps_single_flip.pdf){#fig:raw width="\\columnwidth"} -->
+<p>The Binder cumulant is defined as:</p>
+<p><span class="math display">\[
+U_B = 1 - \frac{\langle\mu_4\rangle}{3\langle\mu_2\rangle^2}
+\]</span></p>
+<p>where <span class="math inline">\(\mu_n = \langle(m - \langle m\rangle)^n\rangle\)</span> are the central moments of the order parameter <span class="math inline">\(m = \sum_i (-1)^i (2n_i - 1) / N\)</span>. The Binder cumulant evaluated against temperature is a diagnostic for the existence of a phase transition. If multiple such curves are plotted for different system sizes, a crossing indicates the location of a critical point while the lines do not cross for systems that don’t have a phase transition in the thermodynamic limit <span class="citation" data-cites="binderFiniteSizeScaling1981 musialMonteCarloSimulations2002"> [<a href="#ref-binderFiniteSizeScaling1981" role="doc-biblioref">9</a>,<a href="#ref-musialMonteCarloSimulations2002" role="doc-biblioref">10</a>]</span>.</p>
+<p><img src="/assets/thesis/fk_chapter/binder_cumulants/binder_cumulants.svg" id="fig:binder_cumulants" data-short-caption="Binder Cumulants" style="width:100.0%" alt="(Left) The order parameters, \langle m^2 \rangle(solid) and 1 - f (dashed) describing the onset of the charge density wave phase of the long-range 1D Falicov model at low temperature with staggered magnetisation m = N^{-1} \sum_i (-1)^i S_i and fermionic order parameter f = 2 N^{-1}|\sum_i (-1)^i \; \langle c^\dagger_{i}c_{i}| \rangle . (Right) The crossing of the Binder cumulant, B = \langle m^4 \rangle / \langle m^2 \rangle^2, with system size provides a diagnostic that the phase transition is not a finite size effect, it’s used to estimate the critical lines shown in the phase diagram fig. ¿fig:phase_diagram? . All plots use system sizes N = [10,20,30,50,70,110,160,250] and lines are coloured from N = 10 in dark blue to N = 250 in yellow. The parameter values U = 5,\;J = 5,\;\alpha = 1.25 except where explicitly mentioned." /> <!-- ![An MCMC walk starting from the staggered charge density wave ground state for a system with $N = 100$ sites and 10,000 MCMC steps. In this simulation only a single spin can be flipped per step according to the Metropolis-Hastings Algorithm. The staggered magnetisation $m = N^{-1} \sum_i (-1)^i \; S_i$ order parameter is plotted below. At this temperature the thermal average of m is zero, while the initial state has m = 1. We see that it takes about 1000 steps for the system to converge, after which it moves about the m = 0 average with a finite auto-correlation time. $t = 1, \alpha = 1.25, T = 3, J = U = 5$ [\[fig:raw\]]{#fig:raw label="fig:raw"}](figs/lsr/raw_steps_single_flip.pdf){#fig:raw width="\\columnwidth"} --></p>
 <p><span data-acronym-label="MCMC" data-acronym-form="singular+short">MCMC</span> sidesteps these issues by defining a random walk that focuses on the states with the greatest Boltzmann weight. At low temperatures this means we need only visit a few low energy states to make good estimates while at high temperatures the weights become uniform so a small number of samples distributed across the state space suffice. However we will see that the method is not without difficulties of its own.</p>
 <!-- ![Two MCMC chains starting from the same initial state for a system with $N = 90$ sites and 1000 MCMC steps. In this simulation the MCMC step is defined differently: an attempt is made to flip n spins, where n is drawn from Uniform(1,N). This is repeated $N^2/100$ times for each step. This trades off computation time for storage space, as it makes the samples less correlated, giving smaller statistical error for a given number of stored samples. These simulations therefore have the potential to necessitate $N^2/100$ matrix diagonalisations for every MCMC sample, though this can be cut down with caching and other tricks. $t = 1, \alpha = 1.25, T = 2.2, J = U = 5$ [\[fig:single\]]{#fig:single label="fig:single"}](figs/lsr/single.pdf){#fig:single width="\\columnwidth"} -->
 <p>In implementation <span data-acronym-label="MCMC" data-acronym-form="singular+short">MCMC</span> can be boiled down to choosing a transition function <span class="math inline">\(\mathcal{T}(\s_{t} \rightarrow \s_t+1)\)</span> where <span class="math inline">\(\s\)</span> are vectors representing classical spin configurations. We start in some initial state <span class="math inline">\(\s_0\)</span> and then repeatedly jump to new states according to the probabilities given by <span class="math inline">\(\mathcal{T}\)</span>. This defines a set of random walks <span class="math inline">\(\{\s_0\ldots \s_i\ldots \s_N\}\)</span>. Fig. <a href="#fig:single" data-reference-type="ref" data-reference="fig:single">2</a> shows this in practice: we have a (rather small) ensemble of <span class="math inline">\(M = 2\)</span> walkers starting at the same point in state space and then spreading outwards by flipping spins along the way.</p>
@@ -165,7 +150,6 @@ IPR(\omega) = DOS(\omega)^{-1} \sum_{n,i} \delta(\omega - \epsilon_n) \abs{\psi_
 <p>for i in range(N_steps): new_state = sample_T(current_state) states[i] = current_state ```</p>
 <p>Where the <code>sample_T</code> function here produces a state with probability determined by the <code>current_state</code> and the transition function <span class="math inline">\(\mathcal{T}\)</span>.</p>
 <p>If we ran many such walkers in parallel we could then approximate the distribution <span class="math inline">\(p_t(\s; \s_0)\)</span> which tells us where the walkers are likely to be after they’ve evolved for <span class="math inline">\(t\)</span> steps from an initial state <span class="math inline">\(\s_0\)</span>. We need to carefully choose <span class="math inline">\(\mathcal{T}\)</span> such that after a large number of steps <span class="math inline">\(k\)</span> (the convergence time) the probability <span class="math inline">\(p_t(\s;\s_0)\)</span> approaches the thermal distribution <span class="math inline">\(P(\s; \beta) = \mathcal{Z}^{-1} e^{-\beta F(\s)}\)</span>. This turns out to be quite easy to achieve using the Metropolis-Hasting algorithm.</p>
-</section>
 </section>
 <section id="convergence-time" class="level2">
 <h2>Convergence Time</h2>
@@ -213,12 +197,6 @@ IPR(\omega) = DOS(\omega)^{-1} \sum_{n,i} \delta(\omega - \epsilon_n) \abs{\psi_
 </div>
 <div id="ref-musialMonteCarloSimulations2002" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[10] </div><div class="csl-right-inline">G. Musiał, L. Dȩbski, and G. Kamieniarz, <em><a href="https://doi.org/10.1103/PhysRevB.66.012407">Monte Carlo Simulations of Ising-Like Phase Transitions in the Three-Dimensional Ashkin-Teller Model</a></em>, Phys. Rev. B <strong>66</strong>, 012407 (2002).</div>
-</div>
-<div id="ref-kramerLocalizationTheoryExperiment1993" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[11] </div><div class="csl-right-inline">B. Kramer and A. MacKinnon, <em><a href="https://doi.org/10.1088/0034-4885/56/12/001">Localization: Theory and Experiment</a></em>, Rep. Prog. Phys. <strong>56</strong>, 1469 (1993).</div>
-</div>
-<div id="ref-andersonAbsenceDiffusionCertain1958" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[12] </div><div class="csl-right-inline">P. W. Anderson, <em><a href="https://doi.org/10.1103/PhysRev.109.1492">Absence of Diffusion in Certain Random Lattices</a></em>, Phys. Rev. <strong>109</strong>, 1492 (1958).</div>
 </div>
 </div>
 </section>

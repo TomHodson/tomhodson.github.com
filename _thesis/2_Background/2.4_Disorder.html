@@ -29,8 +29,7 @@ image:
 <ul>
 <li><a href="#bg-disorder-and-localisation" id="toc-bg-disorder-and-localisation">Disorder and Localisation</a>
 <ul>
-<li><a href="#disorder-and-spin-liquids" id="toc-disorder-and-spin-liquids">Disorder and Spin liquids</a></li>
-<li><a href="#amorphous-magnetism" id="toc-amorphous-magnetism">Amorphous Magnetism</a></li>
+<li><a href="#diagnosing-localisation-in-practice" id="toc-diagnosing-localisation-in-practice">Diagnosing Localisation in practice</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -47,8 +46,7 @@ image:
 <ul>
 <li><a href="#bg-disorder-and-localisation" id="toc-bg-disorder-and-localisation">Disorder and Localisation</a>
 <ul>
-<li><a href="#disorder-and-spin-liquids" id="toc-disorder-and-spin-liquids">Disorder and Spin liquids</a></li>
-<li><a href="#amorphous-magnetism" id="toc-amorphous-magnetism">Amorphous Magnetism</a></li>
+<li><a href="#diagnosing-localisation-in-practice" id="toc-diagnosing-localisation-in-practice">Diagnosing Localisation in practice</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -62,11 +60,6 @@ image:
 </div>
 <section id="bg-disorder-and-localisation" class="level1">
 <h1>Disorder and Localisation</h1>
-<ul>
-<li><p>disorder starts with the very simple anderson model</p></li>
-<li><p>Quenched vs Annealed disorder</p></li>
-<li></li>
-</ul>
 <p>Disorder is a fact of life for the condensed matter physicist. No sample will ever be completely free of contamination or of structural defects. The classical Drude theory of electron conductivity envisages electrons as scattering off impurities. Hence we would expect the electrical conductivity to be proportional to the mean free path <span class="citation" data-cites="lagendijkFiftyYearsAnderson2009"> [<a href="#ref-lagendijkFiftyYearsAnderson2009" role="doc-biblioref">1</a>]</span>, decreasing smoothly as the number of defects increases. However, Anderson showed in 1958 <span class="citation" data-cites="andersonAbsenceDiffusionCertain1958"> [<a href="#ref-andersonAbsenceDiffusionCertain1958" role="doc-biblioref">2</a>]</span> that at some critical level of disorder <strong>all</strong> single particle eigenstates localise. What would later be known as Anderson localisation is characterised by exponentially localised eigenfunctions <span class="math inline">\(\psi(x) \sim e^{-x/\lambda}\)</span> which cannot contribute to transport processes. The localisation length <span class="math inline">\(\lambda\)</span> is the typical scale of localised state and can be extracted with transmission matrix methods <span class="citation" data-cites="pendrySymmetryTransportWaves1994"> [<a href="#ref-pendrySymmetryTransportWaves1994" role="doc-biblioref">3</a>]</span>. Anderson localisation provided a different kind of insulator to that of the band insulator.</p>
 <p>The Anderson model is about the simplest model of disorder one could imagine <span id="eq:bg-anderson-model"><span class="math display">\[
 H = -t\sum_{\langle jk \rangle} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j
@@ -83,17 +76,31 @@ H = -t\sum_{\langle jk \rangle} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j + U
 <p>In Chapter 3 we will consider a generalised FK model in one dimension and how the disorder generated near a one dimensional thermodynamic phase transition interacts with localisation physics.</p>
 <p>So far we have considered disorder as a static or dynamic field coupled to a model defined on a translation invariant lattice. Another kind of disordered system that worthy of study are amorphous systems.</p>
 <p>Amorphous systems have disordered bond connectivity, so called <em>topological disorder</em>. As discussed in the introduction these include amorphous semiconductors such as amorphous Germanium and Silicon  <span class="citation" data-cites="Yonezawa1983 zallen2008physics Weaire1971 betteridge1973possible"> [<a href="#ref-Yonezawa1983" role="doc-biblioref">19</a>–<a href="#ref-betteridge1973possible" role="doc-biblioref">22</a>]</span>. While materials do not have long range lattice structure they can enforce local constraints such as the approximate coordination number <span class="math inline">\(z = 4\)</span> of silicon.</p>
-<p>Topological disorder can be qualitatively different from other disordered systems. Disordered graphs are constrained by fixed coordination number and the Euler equation. The Harris <span class="citation" data-cites="harrisEffectRandomDefects1974"> [<a href="#ref-harrisEffectRandomDefects1974" role="doc-biblioref">23</a>]</span> and the Imry-Mar <span class="citation" data-cites="imryRandomFieldInstabilityOrdered1975"> [<a href="#ref-imryRandomFieldInstabilityOrdered1975" role="doc-biblioref">24</a>]</span> criteria are key results on the effect of disorder on thermodynamic phase transitions. The Harris criterion signals when disorder will affect the universal of a thermodynamic critical point. It states that for a critical point in a <span class="math inline">\(d\)</span>-dimensional system with correlation length scaling exponent, disorder will be relevant if <span class="math inline">\(\nu\)</span> if <span class="math inline">\(d\nu &lt; 2\)</span>. The Imry-Ma criterion simply forbids the formation of long range ordered states in <span class="math inline">\(d \leq 2\)</span> dimensions in the presence of disorder. The latter criteria is violated in the presence of correlated disorder <span class="citation" data-cites="changlaniChargeDensityWaves2016"> [<a href="#ref-changlaniChargeDensityWaves2016" role="doc-biblioref">25</a>]</span> and both are modified for topological disorder. In chapter 4 we will put the Kitaev model onto two dimensional Voronoi lattices. These lattices are have fixed coordination number <span class="math inline">\(z=3\)</span> and must satisfy the Euler equation for the plane, this leads to strong anticorrelations which mean that topological disorder is effectively weaker than standard disorder here <span class="citation" data-cites="barghathiPhaseTransitionsRandom2014 schrauthViolationHarrisBarghathiVojtaCriterion2018"> [<a href="#ref-barghathiPhaseTransitionsRandom2014" role="doc-biblioref">26</a>,<a href="#ref-schrauthViolationHarrisBarghathiVojtaCriterion2018" role="doc-biblioref">27</a>]</span>]. This does not apply to the three dimensional Voronoi lattices where the Euler equation is a weaker constraint.</p>
-<p>Lastly it is worth exploring how quantum spin liquids and disorder interact. The KH model has been studied subject to both bond and site disorder <strong>cite</strong>. In some instances it seems that disorder can even promote the formation of a QSL ground state <span class="citation" data-cites="wenDisorderedRouteCoulomb2017"> [<a href="#ref-wenDisorderedRouteCoulomb2017" role="doc-biblioref">28</a>]</span>.</p>
-<ul>
-<li>localisation length and IPR scaling</li>
-<li>multifractality</li>
-</ul>
-<section id="disorder-and-spin-liquids" class="level2">
-<h2>Disorder and Spin liquids</h2>
-</section>
-<section id="amorphous-magnetism" class="level2">
-<h2>Amorphous Magnetism</h2>
+<p>Topological disorder can be qualitatively different from other disordered systems. Disordered graphs are constrained by fixed coordination number and the Euler equation. The Harris <span class="citation" data-cites="harrisEffectRandomDefects1974"> [<a href="#ref-harrisEffectRandomDefects1974" role="doc-biblioref">23</a>]</span> and the Imry-Mar <span class="citation" data-cites="imryRandomFieldInstabilityOrdered1975"> [<a href="#ref-imryRandomFieldInstabilityOrdered1975" role="doc-biblioref">24</a>]</span> criteria are key results on the effect of disorder on thermodynamic phase transitions. The Harris criterion signals when disorder will affect the universal of a thermodynamic critical point. It states that for a critical point in a <span class="math inline">\(d\)</span>-dimensional system with correlation length scaling exponent, disorder will be relevant if <span class="math inline">\(\nu\)</span> if <span class="math inline">\(d\nu &lt; 2\)</span>. The Imry-Ma criterion simply forbids the formation of long range ordered states in <span class="math inline">\(d \leq 2\)</span> dimensions in the presence of disorder. The latter criteria is violated in the presence of correlated disorder <span class="citation" data-cites="changlaniChargeDensityWaves2016"> [<a href="#ref-changlaniChargeDensityWaves2016" role="doc-biblioref">25</a>]</span> and both are modified for topological disorder. In chapter 4 we will put the Kitaev model onto two dimensional Voronoi lattices. These lattices are have fixed coordination number <span class="math inline">\(z=3\)</span> and must satisfy the Euler equation for the plane, this leads to strong anti-correlations which mean that topological disorder is effectively weaker than standard disorder here <span class="citation" data-cites="barghathiPhaseTransitionsRandom2014 schrauthViolationHarrisBarghathiVojtaCriterion2018"> [<a href="#ref-barghathiPhaseTransitionsRandom2014" role="doc-biblioref">26</a>,<a href="#ref-schrauthViolationHarrisBarghathiVojtaCriterion2018" role="doc-biblioref">27</a>]</span>]. This does not apply to the three dimensional Voronoi lattices where the Euler equation is a weaker constraint.</p>
+<p>Lastly it is worth exploring how quantum spin liquids and disorder interact. The KH model has been studied subject to both flux <span class="citation" data-cites="Nasu_Thermal_2015"> [<a href="#ref-Nasu_Thermal_2015" role="doc-biblioref">28</a>]</span> and bond <span class="citation" data-cites="knolle_dynamics_2016"> [<a href="#ref-knolle_dynamics_2016" role="doc-biblioref">29</a>]</span> disorder. In some instances it seems that disorder can even promote the formation of a QSL ground state <span class="citation" data-cites="wenDisorderedRouteCoulomb2017"> [<a href="#ref-wenDisorderedRouteCoulomb2017" role="doc-biblioref">30</a>]</span>. I will look at how adding lattice disorder to the mix affects the picture. It has also been shown that the KH model exhibits disorder free localisation after a quantum quench <span class="citation" data-cites="zhuSubdiffusiveDynamicsCritical2021"> [<a href="#ref-zhuSubdiffusiveDynamicsCritical2021" role="doc-biblioref">31</a>]</span>.</p>
+<section id="diagnosing-localisation-in-practice" class="level2">
+<h2>Diagnosing Localisation in practice</h2>
+<figure>
+<img src="/assets/thesis/background_chapter/localisation_radius_vs_length.svg" id="fig:localisation_radius_vs_length" data-short-caption="Localisation length vs diameter" style="width:100.0%" alt="Figure 1: A localised state \psi in an potential well that has formed from random fluctuations in the disorder potential V(x). The localisation length \lambda governs how quickly the state decays away from the well while the diameter R of the state is controlled by the size of the well. Reproduced from  [6]." />
+<figcaption aria-hidden="true">Figure 1: A localised state <span class="math inline">\(\psi\)</span> in an potential well that has formed from random fluctuations in the disorder potential <span class="math inline">\(V(x)\)</span>. The localisation length <span class="math inline">\(\lambda\)</span> governs how quickly the state decays away from the well while the diameter <span class="math inline">\(R\)</span> of the state is controlled by the size of the well. Reproduced from <span class="citation" data-cites="kramerLocalizationTheoryExperiment1993"> [<a href="#ref-kramerLocalizationTheoryExperiment1993" role="doc-biblioref">6</a>]</span>.</figcaption>
+</figure>
+<p>Looking at practical tools for diagnosing localisation, there are a few standard methods <span class="citation" data-cites="kramerLocalizationTheoryExperiment1993"> [<a href="#ref-kramerLocalizationTheoryExperiment1993" role="doc-biblioref">6</a>]</span>.</p>
+<p>The most direct method would be to fit a function of the form <span class="math inline">\(\psi(x) = f(x) e^{-|x-x_0|/\lambda}\)</span> to each single particle wavefunction to extract the localisation length <span class="math inline">\(\lambda\)</span>. This method is little used in practice since it requires storing and processing full wavefunctions which quickly becomes expensive for large systems.</p>
+<p>For low dimensional systems with quenched disorder, transmission matrix methods can be used to directly extract the localisation length. These work by turning the time independent Schrödinger equation <span class="math inline">\(\hat{H}|\psi\rangle = E|\psi\rangle\)</span> into a matrix equation linking the amplitude of <span class="math inline">\(\psi\)</span> on each <span class="math inline">\(d-1\)</span> dimensional slice of the system to the next and looking at average properties of this transmission matrix. This method is less useful for systems like the FK model where the disorder as a whole must be sampled from the thermodynamic ensemble. It is also problematic for the Kitaev Model on an amorphous lattice as the slicing procedure is complex to define in the absence of a regular lattice.</p>
+<p>A more versatile method is based on the inverse participation ratio. The inverse participation ratio is defined for a normalised wave function <span class="math inline">\(\psi_i = \psi(x_i), \sum_i |\psi_i|^2 = 1\)</span> as its fourth moment <span class="citation" data-cites="kramerLocalizationTheoryExperiment1993"> [<a href="#ref-kramerLocalizationTheoryExperiment1993" role="doc-biblioref">6</a>]</span>:</p>
+<p><span class="math display">\[
+P^{-1} = \sum_i |\psi_i|^4
+\]</span></p>
+<p>The name derive from the fact that this operator acts as a measure of the volume where the wavefunction is significantly different from zero. They can alternatively be thougt of as providing a measure of the average diameter <span class="math inline">\(R\)</span> from <span class="math inline">\(R = P^{1/d}\)</span>, see fig. <a href="#fig:localisation_radius_vs_length">1</a> for the distinction between <span class="math inline">\(R\)</span> and <span class="math inline">\(\lambda\)</span>.</p>
+<p>For localised states, the <em>inverse</em> participation ratio <span class="math inline">\(P^{-1}\)</span> is independent of system size while for plane wave states in <span class="math inline">\(d\)</span> dimensions <span class="math inline">\(P^{-1} = L^{-d}\)</span>. States may also be intermediate between localised and extended, described by their fractal dimensionality <span class="math inline">\(d &gt; d* &gt; 0\)</span>:</p>
+<p><span class="math display">\[
+P(L)^{-1} \sim L^{-d*}
+\]</span></p>
+<p>For finite size systems, these relations only hold once the system size <span class="math inline">\(L\)</span> is much greater than the localisation length. When the localisation length is comparable to the system size the states contribute to transport. This is called weak localisation <span class="citation" data-cites="altshulerMagnetoresistanceHallEffect1980 dattaElectronicTransportMesoscopic1995"> [<a href="#ref-altshulerMagnetoresistanceHallEffect1980" role="doc-biblioref">32</a>,<a href="#ref-dattaElectronicTransportMesoscopic1995" role="doc-biblioref">33</a>]</span>.</p>
+<p>For extended states <span class="math inline">\(d* = 0\)</span> while for localised ones <span class="math inline">\(d* = 0\)</span>. In both chapters I will use an energy resolved IPR <span class="math display">\[
+DOS(\omega) = \sum_n \delta(\omega - \epsilon_n)\\
+IPR(\omega) = DOS(\omega)^{-1} \sum_{n,i} \delta(\omega - \epsilon_n) |\psi_{n,i}|^4
+\]</span> Where <span class="math inline">\(\psi_{n,i}\)</span> is the wavefunction corresponding to the energy <span class="math inline">\(\epsilon_n\)</span> at the ith site. In practice I bin the energies and IPRs into a fine energy grid and use the mean within each bin.</p>
 <p>Next Chapter: <a href="../3_Long_Range_Falikov_Kimball/3.1_LRFK_Model.html">3 The Long Range Falikov-Kimball Model</a></p>
 </section>
 </section>
@@ -181,8 +188,23 @@ H = -t\sum_{\langle jk \rangle} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j + U
 <div id="ref-schrauthViolationHarrisBarghathiVojtaCriterion2018" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[27] </div><div class="csl-right-inline">M. Schrauth, J. Portela, and F. Goth, <em><a href="https://doi.org/10.1103/PhysRevLett.121.100601">Violation of the Harris-Barghathi-Vojta Criterion</a></em>, Physical Review Letters <strong>121</strong>, (2018).</div>
 </div>
+<div id="ref-Nasu_Thermal_2015" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[28] </div><div class="csl-right-inline">J. Nasu, M. Udagawa, and Y. Motome, <em><a href="https://doi.org/10.1103/PhysRevB.92.115122">Thermal Fractionalization of Quantum Spins in a Kitaev Model: Temperature-Linear Specific Heat and Coherent Transport of Majorana Fermions</a></em>, Phys. Rev. B <strong>92</strong>, 115122 (2015).</div>
+</div>
+<div id="ref-knolle_dynamics_2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[29] </div><div class="csl-right-inline">J. Knolle, Dynamics of a Quantum Spin Liquid, Max Planck Institute for the Physics of Complex Systems, Dresden, 2016.</div>
+</div>
 <div id="ref-wenDisorderedRouteCoulomb2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[28] </div><div class="csl-right-inline">J.-J. Wen et al., <em><a href="https://doi.org/10.1103/PhysRevLett.118.107206">Disordered Route to the Coulomb Quantum Spin Liquid: Random Transverse Fields on Spin Ice in ${\Mathrm{Pr}}_{2}{\mathrm{Zr}}_{2}{\mathrm{O}}_{7}$</a></em>, Phys. Rev. Lett. <strong>118</strong>, 107206 (2017).</div>
+<div class="csl-left-margin">[30] </div><div class="csl-right-inline">J.-J. Wen et al., <em><a href="https://doi.org/10.1103/PhysRevLett.118.107206">Disordered Route to the Coulomb Quantum Spin Liquid: Random Transverse Fields on Spin Ice in ${\Mathrm{Pr}}_{2}{\mathrm{Zr}}_{2}{\mathrm{O}}_{7}$</a></em>, Phys. Rev. Lett. <strong>118</strong>, 107206 (2017).</div>
+</div>
+<div id="ref-zhuSubdiffusiveDynamicsCritical2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[31] </div><div class="csl-right-inline">G.-Y. Zhu and M. Heyl, <em><a href="https://doi.org/10.1103/PhysRevResearch.3.L032069">Subdiffusive Dynamics and Critical Quantum Correlations in a Disorder-Free Localized Kitaev Honeycomb Model Out of Equilibrium</a></em>, Phys. Rev. Research <strong>3</strong>, L032069 (2021).</div>
+</div>
+<div id="ref-altshulerMagnetoresistanceHallEffect1980" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[32] </div><div class="csl-right-inline">B. L. Altshuler, D. Khmel’nitzkii, A. I. Larkin, and P. A. Lee, <em><a href="https://doi.org/10.1103/PhysRevB.22.5142">Magnetoresistance and Hall Effect in a Disordered Two-Dimensional Electron Gas</a></em>, Phys. Rev. B <strong>22</strong>, 5142 (1980).</div>
+</div>
+<div id="ref-dattaElectronicTransportMesoscopic1995" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[33] </div><div class="csl-right-inline">S. Datta, <em><a href="https://doi.org/10.1017/CBO9780511805776">Electronic Transport in Mesoscopic Systems</a></em> (Cambridge University Press, Cambridge, 1995).</div>
 </div>
 </div>
 </section>
