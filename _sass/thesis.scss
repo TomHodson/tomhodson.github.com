@@ -4,6 +4,14 @@ figure {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-inline-start: 0em;
+    margin-inline-end: 0em;
+
+    border-bottom: solid #222 1px;
+    padding-bottom: 1em;
+
+    // border-top: solid #222 1px;
+    // padding-top: 1em;
 }
 figure img {
     max-width: 900px;
