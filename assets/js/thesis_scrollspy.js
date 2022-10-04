@@ -31,6 +31,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	const svgs = document.querySelectorAll('figure > img[src$="svg"]');
 
+	// svgs.forEach(svg_img_tag => {
+	// 	d3.xml(svg_img_tag.getAttribute('src'))
+	// 		.then(data => {
+	// 			const svg = data.documentElement;
+	// 			svg.setAttribute('width', '100%');
+	// 			svg.setAttribute('height', 'auto');
+				
+	// 			d3.select(d3.select(svg_img_tag).node().replaceWith(svg));
+
+	// 			//crop the viewbox of the svgs
+	// 			const bbox = svg.getBBox();
+	// 			// const bbox = svg.getBoundingClientRect();
+	// 			// console.log(bbox, svg);
+	// 			const viewBox = [bbox.x, bbox.y, bbox.width + 10, bbox.height + 20].join(" ");
+	// 			svg.setAttribute("viewBox", viewBox);
+	// 		});
+	// });
 
 
 	// svgs.forEach((el) => {
@@ -56,7 +73,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	// });
 
-	const schematic = document.querySelector("img#fig-fk_schematic") || document.querySelector("img#fig-lrfk_schematic");
+
+	const schematic = document.querySelector("img#fig-fk_schematic") || document.querySelector("img#fig-lrfk_schematic") || document.querySelector("img#fig-ising_model_domain_wall");
 	
 	if(schematic !== null) {
 		d3.xml(schematic.getAttribute('src'))
@@ -66,6 +84,13 @@ window.addEventListener('DOMContentLoaded', () => {
 				svg.setAttribute('width', '100%');
 				svg.setAttribute('height', 'auto');
 				d3.select(d3.select(schematic).node().replaceWith(data.documentElement));
+				
+				//redo the bounding box to make it a bit bigger
+				const bbox = svg.getBBox();
+				const vbox = svg.viewBox.baseVal;;
+				// console.log(bbox, svg);
+				const viewBox = [bbox.x-10, vbox.y, bbox.width+10, vbox.height].join(" ");
+				svg.setAttribute("viewBox", viewBox);
 				
 				const fermions = d3.select(svg).selectAll(".fermion");
 				fermions.on("click", function() {

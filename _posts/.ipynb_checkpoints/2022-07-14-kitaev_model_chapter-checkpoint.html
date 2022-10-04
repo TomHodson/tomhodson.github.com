@@ -1,0 +1,320 @@
+---
+title: The Kitaev Honeycomb Model
+excerpt: A short introduction to the weird and wonderful world of exactly solvable quantum models. This is an excerpt from my thesis.
+layout: none
+image: 
+
+---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="A short introduction to the weird and wonderful world of exactly solvable quantum models. This is an excerpt from my thesis." />
+  <title>The Kitaev Honeycomb Model</title>
+  <!-- <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style> -->
+<!--   <script
+       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+       type="text/javascript"></script>
+ -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/index.js"></script>
+</head>
+<body>
+{% include header.html %}
+
+<main>
+<p>Here is a footnote reference,<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a> and another.<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a></p>
+<p>This paragraph won’t be part of the note, because it isn’t
+indented.</p>
+<h2 id="the-kitaev-honeycomb-model">The Kitaev Honeycomb Model</h2>
+<p>The Kitaev-Honeycomb model is remarkable because it was the first
+such model that combined three key properties.</p>
+<p>First, it is a plausible tight binding Hamiltonian. The form of the
+Hamiltonian could be realised by a real material. Indeed candidate
+materials such as were quickly found that are expected to behave
+according to the Kitaev with small corrections.</p>
+<p>Second, the Kitaev Honeycomb model is deeply interesting to modern
+condensed matter theory. Its ground state is almost the canonical
+example of the long sought after quantum spin liquid state. Its
+excitations are anyons, particles that can only exist in two dimensions
+that break the normal fermion/boson dichotomy. Anyons have been the
+subject of much attention because, among other reasons, there are
+proposals to braid them through space and time to achieve noise tolerant
+quantum computations .</p>
+<p>Third and perhaps most importantly, it a rare many body interacting
+quantum system that can be treated analytically. It is exactly solveable
+meaning that we can explicitly write down its many body ground states in
+terms of single particle states~. Its solubility comes about because the
+model has extensively many conserved degrees of freedom that mediate the
+interactions between quantum degrees of freedom.</p>
+<p>To get down to brass tacks, the Kitaev Honeycomb model is a model of
+interacting spin<span class="math inline">\(-1/2\)</span>s on the
+vertices of a honeycomb lattice. Each bond in the lattice is assigned a
+label <span class="math inline">\(\alpha \in \{ x, y, z\}\)</span> and
+that bond couples its two spin neighbours along the <span
+class="math inline">\(\alpha\)</span> axis.</p>
+<p>This gives us the Hamiltonian <span
+class="math display">\[\mathcal{H} =  - \sum_{\langle j,k\rangle_\alpha}
+J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\]</span> where <span
+class="math inline">\(\sigma^\alpha_j\)</span> is a Pauli matrix acting
+on site <span class="math inline">\(j\)</span>, (j,k_) is a pair of
+nearest-neighbour indices connected by an <span
+class="math inline">\(\alpha\)</span>-bond with exchange coupling <span
+class="math inline">\(J^\alpha\)</span>~.</p>
+<p>% plaquette operators and wilson loops This model has a set of
+conserved quantities that, in the spin language, take the form of Wilson
+loops <span class="math display">\[W_p = \prod
+\sigma_j^{\alpha}\sigma_k^{\alpha}\]</span> following any closed path of
+the lattice. In this product each pair of spins appears twice with two
+of the three bonds types, using the spin commutation relations we can
+replace each pair with the third. For a single hexagonal plaquette this
+looks like: <span class="math display">\[W_p = \sigma_1^{z}\sigma_2^{z}
+\sigma_2^{x}\sigma_3^{x} \sigma_3^{y}\sigma_4^{y}
+\sigma_4^{z}\sigma_5^{z} \sigma_5^{x}\sigma_6^{x}
+\sigma_6^{y}\sigma_1^{y}\]</span> $<span class="math inline">\(W_p =
+\sigma_1^{x}\sigma_2^{y} \sigma_3^{z} \sigma_4^{x}
+\sigma_5^{y}\sigma_6^{z}\)</span> In this latter form can be seen to
+commute with all the terms in the Hamiltonian because { why again?}</p>
+<p>The Hamiltonian commutes with the plaquette operators <span
+class="math inline">\(W_p\)</span>, products of the <span
+class="math inline">\(K\)</span>s around a plaquette. The Ks also
+commute with one another. <span class="math display">\[W_p =
+\prod_{&lt;ij&gt; \in P} K_{ij} = K_{12}K_{23}K_{34}K_{56} ...
+K_{N1}\]</span></p>
+<p>Expanding the bond operators <span class="math inline">\(K_{ij} =
+\sigma_i^{\alpha} \sigma_j^{\alpha}\)</span>, Pauli operators on each
+site appear in adjacent pairs so can be replaced via <span
+class="math inline">\(\sigma_i \sigma_j = \delta_{ij} + \epsilon_{ijk}
+\sigma_k\)</span> giving a product of Pauli matrices associated with the
+outward pointing bonds from the plaquette. In the general case: <span
+class="math display">\[W_p = \prod_{i \in P} i (-1)^{c_i}
+\sigma_i\]</span> where <span class="math inline">\(c_i = 0,1\)</span>
+measures the handedness of the edges around vertex i, see Fig <span
+class="math inline">\(\ref{fig:handedness}\)</span>. Plaquette operators
+for plaquettes with even numbers of edges square to 1 and hence have
+eigenvalues <span class="math inline">\(\pm 1\)</span>, while those
+around odd plaquettes have eigenvalues (i) breaking chiral symmetry. The
+values of the plaquette operators partition the Hilbert space of the
+Hamiltonian into a set of flux sectors.</p>
+<p>% relationship between wilson loops and topology Such paths can
+enclose a collection of faces or `plaquettes’ of the lattice. In the
+case of periodic boundary conditions, the system is torioidal and we
+also get Wilson loops that wind the whole system without enclosing a
+definite area. The loop operator associated with each such path has
+eigenvalues <span class="math inline">\(/pm 1\)</span> and can be
+interpreted as measuring the magnetic flux through that region. Without
+going into the details of counting them, the number of these conserved
+loop operators clearly scales with system size and it is this extensive
+number of classical degrees of freedom that ultimately allows us to
+decouple this interacting many body hamiltonian into a set of non
+interaction quadratic hamiltonians. { add a figure showing the different
+kinds of Wilson loops and of an example plaquette}</p>
+<div id="fig:honeycomb_zoom" class="fignos">
+<figure>
+<img
+src="/assets/thesis_figs/figure_code/amk_chapter/honeycomb_zoom/intro_figure_template.svg"
+style="width:100.0%"
+alt="Figure 1: (a) The standard Kitaev Model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solveable it is that each vertex is joined by exactly three bonds i.e the lattice is trivalent. One of three labels is assigned to each (b) We represent the antisymmetric gauge degree of freedom u_{jk} = \pm 1 with arrows that point in the direction u_{jk} = +1 (c) The majorana transformation can be visualised as breaking each spin into four majoranas which then pair along the bonds. The pairs of x,y and z majoranas become part of the classical \mathbb{Z}_2 gauge field u_{ij} leaving just a single majorana c_i per site." />
+<figcaption aria-hidden="true"><span>Figure 1:</span>
+<strong>(a)</strong> The standard Kitaev Model is defined on a honeycomb
+lattice. The special feature of the honeycomb lattice that makes the
+model solveable it is that each vertex is joined by exactly three bonds
+i.e the lattice is trivalent. One of three labels is assigned to each
+<strong>(b)</strong> We represent the antisymmetric gauge degree of
+freedom <span class="math inline">\(u_{jk} = \pm 1\)</span> with arrows
+that point in the direction <span class="math inline">\(u_{jk} =
++1\)</span> <strong>(c)</strong> The majorana transformation can be
+visualised as breaking each spin into four majoranas which then pair
+along the bonds. The pairs of x,y and z majoranas become part of the
+classical <span class="math inline">\(\mathbb{Z}_2\)</span> gauge field
+<span class="math inline">\(u_{ij}\)</span> leaving just a single
+majorana <span class="math inline">\(c_i\)</span> per site.</figcaption>
+</figure>
+</div>
+<p>In order to actually solve the model we need to figure out how to
+leverage these conserved quantities. The trick is not so much a trick as
+an almost perfect consequence of the structure of the model and perhaps
+this was in fact how Kitaev first came up with it. We know that a single
+spin<span class="math inline">\(-1/2\)</span> can be represented by
+fermionic creation and annihilation operators <span
+class="math inline">\(\sigma^{\pm} = 1/2(\sigma^x \pm \sigma^y)\)</span>
+through a Jordan-Wigner transformation~, this gives one fermion for each
+spin. In turn a fermion can be broken into two Majorana fermions <span
+class="math inline">\(c_1 = 1/\sqrt{1}(f + f^\dagger)\)</span> and <span
+class="math inline">\(c_2 = i/\sqrt{1}(f - f^\dagger)\)</span>. If we
+double up the Hilbert space we get four Majoranas per spin:</p>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Here is the footnote.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Here’s one with multiple blocks.</p>
+<p>Subsequent paragraphs are indented to show that they belong to the
+previous footnote.</p>
+<pre><code>{ some.code }</code></pre>
+<p>The whole paragraph can be indented, or just the first line. In this
+way, multi-paragraph footnotes work like multi-paragraph list items.<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

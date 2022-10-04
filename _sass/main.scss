@@ -10,6 +10,7 @@
     box-sizing: border-box;
     font-family: $font_stack;
     text-rendering: geometricPrecision;
+
 }
 
 html {
@@ -24,6 +25,7 @@ body {
     // constrain width and center
     max-width: 900px;
     margin: auto;
+    
 }
 
 // Padding to keep the keep the content to the right of the header
@@ -45,6 +47,11 @@ main {
         font-size: 2em;
     }
 }
+
+/* increase line-height for everything except headings */
+main :not(:is(h1,h2,h3,h4,h5,h6)) {
+    line-height: 1.3;
+    }
 
 a {
     text-decoration: underline;
@@ -88,4 +95,11 @@ img {
     
         article {
         margin-left: 0px; } 
+
+        h1 {font-size: 1.5em !important;}
+        .MathJax { 
+            font-size: 0.8em !important;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
 }

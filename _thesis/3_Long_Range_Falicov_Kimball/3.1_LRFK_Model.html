@@ -1,5 +1,5 @@
 ---
-title: The Long Range Falikov-Kimball Model - The Model
+title: The Long Range Falicov-Kimball Model - The Model
 excerpt: 
 layout: none
 image: 
@@ -11,10 +11,20 @@ image:
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>The Long Range Falikov-Kimball Model - The Model</title>
+  <title>The Long Range Falicov-Kimball Model - The Model</title>
 
 
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+    linebreaks: { automatic: true, width: "container" }          
+  }              
+  });
+  
+</script>
 <script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+
 <script src="/assets/js/thesis_scrollspy.js"></script>
 <script src="https://d3js.org/d3.v5.min.js" defer></script>
 
@@ -61,14 +71,14 @@ image:
 <p>This chapter expands on work presented in</p>
 <p> <span class="citation" data-cites="hodsonOnedimensionalLongrangeFalikovKimball2021"> [<a href="#ref-hodsonOnedimensionalLongrangeFalikovKimball2021" role="doc-biblioref">1</a>]</span> <a href="https://link.aps.org/doi/10.1103/PhysRevB.104.045116">One-dimensional long-range Falikov-Kimball model: Thermal phase transition and disorder-free localization</a>, Hodson, T. and Willsher, J. and Knolle, J., Phys. Rev. B, <strong>104</strong>, 4, 2021,</p>
 <p>The code is available online <span class="citation" data-cites="hodsonMCMCFKModel2021"> [<a href="#ref-hodsonMCMCFKModel2021" role="doc-biblioref">2</a>]</span>.</p>
-<p>Johannes had the initial idea to use a long range Ising term to stabilise order in a one dimension Falikov-Kimball model. Josef developed a proof of concept during a summer project at Imperial along with Alexander Belcik. I wrote the simulation code and performed all the analysis presented here.</p>
+<p>Johannes had the initial idea to use a long range Ising term to stabilise order in a one dimension Falicov-Kimball model. Josef developed a proof of concept during a summer project at Imperial along with Alexander Belcik. I wrote the simulation code and performed all the analysis presented here.</p>
 <p><strong>Chapter Summary</strong></p>
 <p>The paper is organised as follows. First, I will introduce the long range Falicov-Kimball (LRFK) model and motivate its definition. Second, I will present the <a href="../3_Long_Range_Falicov_Kimball/3.2_LRFK_Methods.html#sec:lrfk-methods">methods</a> used to solve it numerically, including Markov chain Monte Carlo and finite size scaling. I will then present and interpret the <a href="../3_Long_Range_Falicov_Kimball/3.3_LRFK_Results.html#sec:lrfk-results">results</a> obtained.</p>
 </section>
 <section id="sec:lrfk-model" class="level1">
 <h1>The Model</h1>
 <p>Dimensionality is crucial for the physics of both localisation and phase transitions. We have already seen that the one dimensional standard FK model cannot support an ordered phase at finite temperatures and therefore has no finite temperature phase transition (FTPT).</p>
-<p>On bipartite lattices in dimensions 2 and above the FK model exhibits a finite temperature phase transition to an ordered charge density wave (CDW) phase <span class="citation" data-cites="maskaThermodynamicsTwodimensionalFalicovKimball2006"> [<a href="#ref-maskaThermodynamicsTwodimensionalFalicovKimball2006" role="doc-biblioref">3</a>]</span>. In this phase, the spins order anti-ferromagnetically, breaking the <span class="math inline">\(\mathbb{Z}_2\)</span> symmetry. In 1D, however, Periel’s argument <span class="citation" data-cites="peierlsIsingModelFerromagnetism1936 kennedyItinerantElectronModel1986"> [<a href="#ref-peierlsIsingModelFerromagnetism1936" role="doc-biblioref">4</a>,<a href="#ref-kennedyItinerantElectronModel1986" role="doc-biblioref">5</a>]</span> states that domain walls only introduce a constant energy penalty into the free energy while bringing a entropic contribution logarithmic in system size. Hence the 1D model does not have a finite temperature phase transition. However 1D systems are much easier to study numerically and admit simpler realisations experimentally. We therefore introduce a long-range coupling between the ions in order to stabilise a CDW phase in 1D.</p>
+<p>On bipartite lattices in dimensions 2 and above the FK model exhibits a finite temperature phase transition to an ordered charge density wave (CDW) phase <span class="citation" data-cites="maskaThermodynamicsTwodimensionalFalicovKimball2006"> [<a href="#ref-maskaThermodynamicsTwodimensionalFalicovKimball2006" role="doc-biblioref">3</a>]</span>. In this phase, the spins order anti-ferromagnetically, breaking the <span class="math inline">\(\mathbb{Z}_2\)</span> symmetry. In 1D, however, Peierls’s argument <span class="citation" data-cites="peierlsIsingModelFerromagnetism1936 kennedyItinerantElectronModel1986"> [<a href="#ref-peierlsIsingModelFerromagnetism1936" role="doc-biblioref">4</a>,<a href="#ref-kennedyItinerantElectronModel1986" role="doc-biblioref">5</a>]</span> states that domain walls only introduce a constant energy penalty into the free energy while bringing a entropic contribution logarithmic in system size. Hence the 1D model does not have a finite temperature phase transition. However 1D systems are much easier to study numerically and admit simpler realisations experimentally. We therefore introduce a long-range coupling between the ions in order to stabilise a CDW phase in 1D.</p>
 <figure>
 <img src="/assets/thesis/intro_chapter/lrfk_schematic.svg" id="fig-lrfk_schematic" data-short-caption="Falicov-Kimball Model Diagram" style="width:100.0%" alt="Figure 1: The Long Range Falicov-Kimball (LRFK) Model is a model of classical spins S_i coupled to spinless fermions \hat{c}_i where the fermions are mobile with hopping t and the fermions are coupled to the spins by an Ising type interaction with strength U. The difference from the standard FK model is the presence of a long range interaction between the spins J_{ij}S_i S_j." />
 <figcaption aria-hidden="true">Figure 1: The Long Range Falicov-Kimball (LRFK) Model is a model of classical spins <span class="math inline">\(S_i\)</span> coupled to spinless fermions <span class="math inline">\(\hat{c}_i\)</span> where the fermions are mobile with hopping <span class="math inline">\(t\)</span> and the fermions are coupled to the spins by an Ising type interaction with strength <span class="math inline">\(U\)</span>. The difference from the standard FK model is the presence of a long range interaction between the spins <span class="math inline">\(J_{ij}S_i S_j\)</span>.</figcaption>

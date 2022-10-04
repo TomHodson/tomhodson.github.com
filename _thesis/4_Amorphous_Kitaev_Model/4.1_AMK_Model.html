@@ -15,7 +15,17 @@ image:
   <title>The Amorphous Kitaev Model - Introduction</title>
 
 
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+    linebreaks: { automatic: true, width: "container" }          
+  }              
+  });
+  
+</script>
 <script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+
 <script src="/assets/js/thesis_scrollspy.js"></script>
 <script src="https://d3js.org/d3.v5.min.js" defer></script>
 
@@ -29,12 +39,10 @@ image:
 <br>
 <nav aria-label="Table of Contents" class="page-table-of-contents">
 <ul>
+<li><a href="#chap:4-the-amorphous-kitaev-model" id="toc-chap:4-the-amorphous-kitaev-model">4 The Amorphous Kitaev Model</a></li>
 <li><a href="#amk-Model" id="toc-amk-Model">The Model</a>
 <ul>
-<li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous Systems</a>
-<ul>
-<li><a href="#open-boundary-conditions" id="toc-open-boundary-conditions">Open boundary conditions</a></li>
-</ul></li>
+<li><a href="#the-euler-equation" id="toc-the-euler-equation">The Euler Equation</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -49,12 +57,10 @@ image:
 <!-- Table of Contents -->
 <!-- <nav id="TOC" role="doc-toc">
 <ul>
+<li><a href="#chap:4-the-amorphous-kitaev-model" id="toc-chap:4-the-amorphous-kitaev-model">4 The Amorphous Kitaev Model</a></li>
 <li><a href="#amk-Model" id="toc-amk-Model">The Model</a>
 <ul>
-<li><a href="#amorphous-systems" id="toc-amorphous-systems">Amorphous Systems</a>
-<ul>
-<li><a href="#open-boundary-conditions" id="toc-open-boundary-conditions">Open boundary conditions</a></li>
-</ul></li>
+<li><a href="#the-euler-equation" id="toc-the-euler-equation">The Euler Equation</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -66,34 +72,61 @@ image:
 <p>4 The Amorphous Kitaev Model</p>
 <hr />
 </div>
+<section id="chap:4-the-amorphous-kitaev-model" class="level1">
+<h1>4 The Amorphous Kitaev Model</h1>
 <p><strong>Contributions</strong></p>
 <p>The material in this chapter expands on work presented in</p>
 <p> <span class="citation" data-cites="cassellaExactChiralAmorphous2022"> [<a href="#ref-cassellaExactChiralAmorphous2022" role="doc-biblioref">1</a>]</span> Cassella, G., D’Ornellas, P., Hodson, T., Natori, W. M., &amp; Knolle, J. (2022). An exact chiral amorphous spin liquid. <em>arXiv preprint arXiv:2208.08246.</em></p>
-<p>the code is available at <span class="citation" data-cites="hodsonKoalaKitaevAmorphous2022"> [<a href="#ref-hodsonKoalaKitaevAmorphous2022" role="doc-biblioref">2</a>]</span>.</p>
-<p>This was a joint project of Gino, Peru and myself with advice and guidance from Willian and Johannes. The project grew out of an interest the three of us had in studying amorphous systems, coupled with Johannes’ expertise on the Kitaev model. The idea to use voronoi partitions came from <span class="citation" data-cites="marsalTopologicalWeaireThorpe2020"> [<a href="#ref-marsalTopologicalWeaireThorpe2020" role="doc-biblioref">3</a>]</span> and Gino did the implementation of this. The idea and implementation of the edge colouring using SAT solvers, the mapping from flux sector to bond sector using A* search were both entirely my work. Peru found the ground state and implemented the local markers. Gino and I did much of the rest of the programming for Koala while pair programming and ’whiteboard’ing, this included the phase diagram, edge mode and finite temperature analyses as well as the derivation of the projector in the amorphous case.</p>
+<p>All the code is available online <span class="citation" data-cites="hodsonKoalaKitaevAmorphous2022"> [<a href="#ref-hodsonKoalaKitaevAmorphous2022" role="doc-biblioref">2</a>]</span>.</p>
+<p>This was a joint project of Gino, Peru and myself with advice and guidance from Willian and Johannes (all authors of the above). The project grew out of an interest the three of us had in studying amorphous systems, coupled with Johannes’ expertise on the Kitaev model. The idea to use Voronoi partitions came from <span class="citation" data-cites="marsalTopologicalWeaireThorpe2020"> [<a href="#ref-marsalTopologicalWeaireThorpe2020" role="doc-biblioref">3</a>]</span> and Gino did the implementation of this. The idea and implementation of the edge colouring using SAT solvers and the mapping from flux sector to bond sector using A* search were both entirely my work. Peru produced the numerical evidence for the ground state and implemented the local markers. Gino and I did much of the rest of the programming for Koala collaboratively, often pair programming, this included the phase diagram, edge mode and finite temperature analyses as well as the derivation of the projector in the amorphous case.</p>
+</section>
 <section id="amk-Model" class="level1">
 <h1>The Model</h1>
-<p><img src="/assets/thesis/amk_chapter/intro/amk_zoom/amk_zoom.svg" id="fig-amk_zoom" data-short-caption="The Kitaev Honeycomb Model" style="width:100.0%" alt="(a) The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e. the lattice is trivalent. One of three labels is assigned to each (b). We represent the antisymmetric gauge degree of freedom u_{jk} = \pm 1 with arrows that point in the direction u_{jk} = +1 (c). The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical \mathbb{Z}_2 gauge field u_{ij}. This leavies a single Majorana c_i per site." /> <img src="/assets/thesis/amk_chapter/intro/regular_plaquettes/regular_plaquettes.svg" id="fig-regular_plaquettes" data-short-caption="Plaquettes in the Kitaev Model" style="width:86.0%" alt="The eigenvalues of a loop or plaquette operators depend on the number of bonds in its enclosing path." /></p>
-<section id="amorphous-systems" class="level2">
-<h2>Amorphous Systems</h2>
-<p><strong>Insert discussion of why a generalisation to the amorphous case is interesting</strong></p>
-<p>This chapter details the physics of the Kitaev model on amorphous lattices.</p>
-<p>It starts by expanding on the physics of the Kitaev model. It will look at the gauge symmetries of the model as well as its solution via a transformation to a Majorana hamiltonian. This discussion shows that, for the the model to be solvable, it needs only be defined on a trivalent, tri-edge-colourable lattice <span class="citation" data-cites="Nussinov2009"> [<a href="#ref-Nussinov2009" role="doc-biblioref">4</a>]</span>.</p>
-<p>The methods section discusses how to generate such lattices and colour them. It also explain how to map back and forth between configurations of the gauge field and configurations of the gauge invariant quantities.</p>
-<p>The results section begins by looking at the zero temperature physics. It presents numerical evidence that the ground state of the Kitaev model is given by a simple rule depending only on the number of sides of each plaquette. It assesses the gapless, Abelian and non-Abelian, phases that are present, characterising them by the presence of a gap and using local Chern markers. Next it looks at spontaneous chiral symmetry breaking and topological edge states. It also compares the zero temperature phase diagram to that of the Kitaev Honeycomb Model. Finally, we introduce flux disorder and demonstrate that there is a phase transition to a thermal metal state.</p>
-<p>The discussion considers possible physical realisations of this model and the motivations for doing so. It also discusses how a well known quantum error correcting code defined on the Kitaev Honeycomb model could be generalised to the amorphous case.</p>
-<p>Lieb’s theorem is only valid for bipartite, translation invariant lattices like the honeycomb. Luckily, extensive numerical simulations have shown that the ground state flux sector is generally given by simple functions of the side length of the plaquettes. cite cite cite</p>
-<section id="open-boundary-conditions" class="level3">
-<h3>Open boundary conditions</h3>
-<p>Care must be taken when defining open boundary conditions. Simply removing bonds from the lattice leaves behind unpaired <span class="math inline">\(b^\alpha\)</span> operators that must be paired in some way to arrive at fermionic modes. To fix a pairing, we always start from a lattice defined on the torus and generate a lattice with open boundary conditions by defining the bond coupling <span class="math inline">\(J^{\alpha}_{ij} = 0\)</span> for sites joined by bonds <span class="math inline">\((i,j)\)</span> that we want to remove. This creates fermionic zero modes <span class="math inline">\(u_{ij}\)</span> associated with these cut bonds which we set to 1 when calculating the projector.</p>
-<p>Alternatively, since all the fermionic zero modes are degenerate anyway, an arbitrary pairing of the unpaired <span class="math inline">\(b^\alpha\)</span> operators could be performed.</p>
+<p>Already at its introduction it was known that Kitaev honeycomb model would remain solvable on any tri-coordinated graph. This has been used to generalise the model to many lattices <span class="citation" data-cites="eschmannThermodynamicClassificationThreedimensional2020 Yao2009 eschmann2019thermodynamics Peri2020"> [<a href="#ref-eschmannThermodynamicClassificationThreedimensional2020" role="doc-biblioref">4</a>–<a href="#ref-Peri2020" role="doc-biblioref">7</a>]</span> but so far none have fully broken the translation symmetry of the model by putting it onto a amorphous lattice.</p>
+<p>Amorphous lattices are characterised by local constraints but no long range order. These arise, for instance, in amorphous semiconductors like Silicon and Germanium <span class="citation" data-cites="Yonezawa1983 zallen2008physics"> [<a href="#ref-Yonezawa1983" role="doc-biblioref">8</a>,<a href="#ref-zallen2008physics" role="doc-biblioref">9</a>]</span>. Recent work has shown that topological insulating (TI) phases, characterized by protected edge states and topological bulk invariants, can exist in amorphous systems <span class="citation" data-cites="mitchellAmorphousTopologicalInsulators2018 agarwala2019topological marsalTopologicalWeaireThorpeModels2020 costa2019toward agarwala2020higher spring2021amorphous corbae2019evidence"> [<a href="#ref-mitchellAmorphousTopologicalInsulators2018" role="doc-biblioref">10</a>–<a href="#ref-corbae2019evidence" role="doc-biblioref">16</a>]</span>. TI phases, however, arise in non-interacting systems. In this context, we might ask whether QSL systems and the KH model in particular could be realised on amorphous lattices. The phases of the KH model have many similarities with TIs but differ in that the KH model is an interacting system. In general, research on amorphous electronic systems has been focused mainly on non-interacting systems with the exception of amorphous superconductivity <span class="citation" data-cites="buckel1954einfluss mcmillan1981electron meisel1981eliashberg bergmann1976amorphous mannaNoncrystallineTopologicalSuperconductors2022"> [<a href="#ref-buckel1954einfluss" role="doc-biblioref">17</a>–<a href="#ref-mannaNoncrystallineTopologicalSuperconductors2022" role="doc-biblioref">21</a>]</span> or very recent work looking to understand the effect of strong electron repulsion in TIs <span class="citation" data-cites="kim2022fractionalization"> [<a href="#ref-kim2022fractionalization" role="doc-biblioref">22</a>]</span>.</p>
+<p>Looking more towards the KH model, magnetism in amorphous systems has been investigated since the 1960s, mostly through the adaptation of theoretical tools developed for disordered systems <span class="citation" data-cites="aharony1975critical Petrakovski1981 kaneyoshi1992introduction Kaneyoshi2018"> [<a href="#ref-aharony1975critical" role="doc-biblioref">23</a>–<a href="#ref-Kaneyoshi2018" role="doc-biblioref">26</a>]</span>. We have already seen that the topological disorder of amorphous lattices can be qualitatively different from standard bond or site disorder, especially in two dimensions <span class="citation" data-cites="barghathiPhaseTransitionsRandom2014 schrauthViolationHarrisBarghathiVojtaCriterion2018"> [<a href="#ref-barghathiPhaseTransitionsRandom2014" role="doc-biblioref">27</a>,<a href="#ref-schrauthViolationHarrisBarghathiVojtaCriterion2018" role="doc-biblioref">28</a>]</span>. Research focused on classical Heisenberg and Ising models has accounted for the observed behaviour of ferromagnetism, disordered antiferromagnetism and widely observed spin glass behaviour <span class="citation" data-cites="coey1978amorphous"> [<a href="#ref-coey1978amorphous" role="doc-biblioref">29</a>]</span>. However, the role of the spin-anisotropic interactions and quantum effects that we see in the KH model has not been addressed in amorphous magnets. It is an open question whether frustrated magnetic interactions on amorphous lattices can give rise genuine quantum phases such as QSLs <span class="citation" data-cites="Anderson1973 Knolle2019 Savary2016 Lacroix2011"> [<a href="#ref-Anderson1973" role="doc-biblioref">30</a>–<a href="#ref-Lacroix2011" role="doc-biblioref">33</a>]</span>. This chapter will answer that question by demonstrating that the Kitaev model on amorphous lattices leads to a kind of QSL called a chiral spin liquid (CSL).</p>
+<p>In this section I will discuss how to generalise the Kitaev model to an amorphous lattice. The methods section discusses how to generate such lattices using Voronoi partitions of the plane <span class="citation" data-cites="mitchellAmorphousTopologicalInsulators2018 marsalTopologicalWeaireThorpeModels2020"> [<a href="#ref-mitchellAmorphousTopologicalInsulators2018" role="doc-biblioref">10</a>,<a href="#ref-marsalTopologicalWeaireThorpeModels2020" role="doc-biblioref">12</a>]</span>, colour them using a SAT solver and how to map back and forth between gauge field configurations and flux configurations. In the results section, I will show extensive numerical evidence that the model follows the simple generalisation to Lieb’s theorem <span class="citation" data-cites="lieb_flux_1994"> [<a href="#ref-lieb_flux_1994" role="doc-biblioref">34</a>]</span> found by other works <span class="citation" data-cites="eschmannThermodynamicClassificationThreedimensional2020 Yao2009 eschmann2019thermodynamics Peri2020"> [<a href="#ref-eschmannThermodynamicClassificationThreedimensional2020" role="doc-biblioref">4</a>–<a href="#ref-Peri2020" role="doc-biblioref">7</a>]</span>. I then map out the phase diagram of the model and show that the chiral phase around the symmetric point (<span class="math inline">\(J_x = J_y = J_z\)</span>) is gapped and non-Abelian as characterized by a quantized local Chern number <span class="math inline">\(\nu\)</span> <span class="citation" data-cites="peru_preprint mitchellAmorphousTopologicalInsulators2018"> [<a href="#ref-mitchellAmorphousTopologicalInsulators2018" role="doc-biblioref">10</a>,<a href="#ref-peru_preprint" role="doc-biblioref">35</a>]</span> as well as protected chiral Majorana edge modes. Finally, I look at the role of finite temperature fluctuations and show that the proliferation of flux excitations leads to an Anderson transition (similar to that of the FK model) to a thermal metal phase <span class="citation" data-cites="Laumann2012 lahtinenTopologicalLiquidNucleation2012 selfThermallyInducedMetallic2019"> [<a href="#ref-Laumann2012" role="doc-biblioref">36</a>–<a href="#ref-selfThermallyInducedMetallic2019" role="doc-biblioref">38</a>]</span>. Finally I consider possible physical realisations of the model and other generalisations.</p>
 <figure>
-<img src="/assets/thesis/amk_chapter/loops_and_dual_loops/loops_and_dual_loops.svg" id="fig-loops_and_dual_loops" data-short-caption="Topological Loops and Dual Loops" style="width:100.0%" alt="Figure 1: (Left) The two topological flux operators of the toroidal lattice. These do not correspond to any face of the lattice, but rather measure flux that threads through the major and minor axes of the torus. This shows a particular choice. Yet, any loop that crosses the boundary is gauge equivalent to one of or the sum of these two loop. (Right) The two ways to transport vortices around the diameters. These amount to creating a vortex pair, transporting one of them around the major or minor diameters of the torus and, then, annihilating them again." />
-<figcaption aria-hidden="true">Figure 1: (Left) The two topological flux operators of the toroidal lattice. These do not correspond to any face of the lattice, but rather measure flux that threads through the major and minor axes of the torus. This shows a particular choice. Yet, any loop that crosses the boundary is gauge equivalent to one of or the sum of these two loop. (Right) The two ways to transport vortices around the diameters. These amount to creating a vortex pair, transporting one of them around the major or minor diameters of the torus and, then, annihilating them again.</figcaption>
+<img src="/assets/thesis/amk_chapter/intro/amk_zoom/amk_zoom_by_hand.svg" id="fig-amk-zoom" data-short-caption="The Kitaev Honeycomb Model" style="width:100.0%" alt="Figure 1: (a) The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e. the lattice is trivalent. One of three labels is assigned to each (b). We represent the antisymmetric gauge degree of freedom u_{jk} = \pm 1 with arrows that point in the direction u_{jk} = +1 (c). The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical \mathbb{Z}_2 gauge field u_{ij}. This leaves a single Majorana c_i per site." />
+<figcaption aria-hidden="true">Figure 1: <strong>(a)</strong> The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e. the lattice is trivalent. One of three labels is assigned to each <strong>(b)</strong>. We represent the antisymmetric gauge degree of freedom <span class="math inline">\(u_{jk} = \pm 1\)</span> with arrows that point in the direction <span class="math inline">\(u_{jk} = +1\)</span> <strong>(c)</strong>. The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical <span class="math inline">\(\mathbb{Z}_2\)</span> gauge field <span class="math inline">\(u_{ij}\)</span>. This leaves a single Majorana <span class="math inline">\(c_i\)</span> per site.</figcaption>
 </figure>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<p>The KH model must remain solvable on any lattice which satisfies two properties. First the lattice must first be trivalent, every vertex must three edges attached to it <span class="citation" data-cites="kitaevAnyonsExactlySolved2006 Nussinov2009"> [<a href="#ref-kitaevAnyonsExactlySolved2006" role="doc-biblioref">39</a>,<a href="#ref-Nussinov2009" role="doc-biblioref">40</a>]</span>. A well studied class of amorphous trivalent lattices are the 2D Voronoi lattices <span class="citation" data-cites="mitchellAmorphousTopologicalInsulators2018 florescu_designer_2009 marsalTopologicalWeaireThorpeModels2020"> [<a href="#ref-mitchellAmorphousTopologicalInsulators2018" role="doc-biblioref">10</a>,<a href="#ref-marsalTopologicalWeaireThorpeModels2020" role="doc-biblioref">12</a>,<a href="#ref-florescu_designer_2009" role="doc-biblioref">41</a>]</span>. These arise from Voronoi partitions of the plane. Given a set of seed points, the Voronoi partition divides the plane into regions based on which seed point is closest by some metric, usually the euclidean metric. The ‘spheres of influence’ of each seed point form the plaquettes of the resulting lattices, while the boundaries become the edges. The Voronoi partition exists in arbitrary dimensions and produces lattices with coordination number <span class="math inline">\(d+1\)</span> except for degenerate cases with measure zero <span class="citation" data-cites="voronoiNouvellesApplicationsParamètres1908 watsonComputingNdimensionalDelaunay1981"> [<a href="#ref-voronoiNouvellesApplicationsParamètres1908" role="doc-biblioref">42</a>,<a href="#ref-watsonComputingNdimensionalDelaunay1981" role="doc-biblioref">43</a>]</span>. Hence Voronoi lattices in two dimensions lends themselves naturally to the Kitaev model.</p>
+<p>Other methods of lattice generation are possible, one can connect randomly placed sites based on proximity <span class="citation" data-cites="agarwala2019topological"> [<a href="#ref-agarwala2019topological" role="doc-biblioref">11</a>]</span> or create simplices from random sites <span class="citation" data-cites="christRandomLatticeField1982"> [<a href="#ref-christRandomLatticeField1982" role="doc-biblioref">44</a>]</span>. However these methods do not present a natural way to restrict the vertex degree to a constant. Perhaps ideally, we would sample uniformly from the space of possible trivalent graphs, there has been some work on how to do this using a Markov Chain Monte Carlo approach <span class="citation" data-cites="alyamiUniformSamplingDirected2016"> [<a href="#ref-alyamiUniformSamplingDirected2016" role="doc-biblioref">45</a>]</span>. However, it does not guarantee that the resulting graph is planar, which is necessary to be able to 3-edge-colour the lattice, our second constraint.</p>
+<p>The second constraint required for the Kitaev model to remain solvable is that we must be able to assign labels to each bond <span class="math inline">\(\{x,y,z\}\)</span> such that each no two edges of the same label meet at a vertex. Such an assignment is is known as a 3-edge-colouring. For translation invariant models we need only find a solution for the unit cell which is usually small enough that this can be done by hand. For amorphous lattices the difficulty is compounded by the fact that, to the best of my knowledge, the problem of edge-colouring is in NP. To find colourings in practice, we will employ a standard method from the computer science literature for finding solutions of NP problems called a SAT solver, this is discussed in more detail in the <a href="../4_Amorphous_Kitaev_Model/4.2_AMK_Methods.html#amk-methods">methods secton</a>.</p>
+<p>We find that for larger lattices there are many valid colourings. In the isotropic case <span class="math inline">\(J^\alpha = 1\)</span> the colouring has no physical significance. As the definition of the four Majoranas at a site is arbitrary, we can define a local operator that transforms the colouring of any particular site to another permutation and show that these operators commute with the Hamiltonian, see <a href="../6_Appendices/A.4_Lattice_Colouring.html#lattice-colouring">appendix A.4</a>. We cannot do this in the anisotropic case but we nevertheless expect the lattices to exhibit a self averaging behaviour in larger systems when the colouring is chosen arbitrarily.</p>
+<figure>
+<img src="/assets/thesis/amk_chapter/intro/state_decomposition_animated/state_decomposition_animated.gif" id="fig-state_decomposition_animated" data-short-caption="State Decomposition" style="width:100.0%" alt="Figure 2: (Bond Sector) A state in the bond sector is specified by assigning \pm 1 to each edge of the lattice. However, this description has a substantial gauge degeneracy. We can simplify things by decomposing each state into the product of three kinds of objects: (Vortex Sector) Only a small number of bonds need to be flipped (compared to some arbitrary reference) to reconstruct the vortex sector. Here, the edges are chosen from a spanning tree of the dual lattice, so there are no loops. (Gauge Field) The ‘loopiness’ of the bond sector can be factored out. This gives a network of loops that can always be written as a product of the gauge operators D_j. (Topological Sector) Finally, there are two loops that have no effect on the vortex sector, nor can they be constructed from gauge symmetries. These can be thought of as two fluxes \Phi_{x/y} that thread through the major and minor axes of the torus. Measuring \Phi_{x/y} amounts to constructing Wilson loops around the axes of the torus. We can flip the value of \Phi_{x} by transporting a vortex pair around the torus in the y direction, as shown here. In each of the three figures on the right, black bonds correspond to those that must be flipped. Composing the three together gives back the original bond sector on the left." />
+<figcaption aria-hidden="true">Figure 2: (Bond Sector) A state in the bond sector is specified by assigning <span class="math inline">\(\pm 1\)</span> to each edge of the lattice. However, this description has a substantial gauge degeneracy. We can simplify things by decomposing each state into the product of three kinds of objects: (Vortex Sector) Only a small number of bonds need to be flipped (compared to some arbitrary reference) to reconstruct the vortex sector. Here, the edges are chosen from a spanning tree of the dual lattice, so there are no loops. (Gauge Field) The ‘loopiness’ of the bond sector can be factored out. This gives a network of loops that can always be written as a product of the gauge operators <span class="math inline">\(D_j\)</span>. (Topological Sector) Finally, there are two loops that have no effect on the vortex sector, nor can they be constructed from gauge symmetries. These can be thought of as two fluxes <span class="math inline">\(\Phi_{x/y}\)</span> that thread through the major and minor axes of the torus. Measuring <span class="math inline">\(\Phi_{x/y}\)</span> amounts to constructing Wilson loops around the axes of the torus. We can flip the value of <span class="math inline">\(\Phi_{x}\)</span> by transporting a vortex pair around the torus in the <span class="math inline">\(y\)</span> direction, as shown here. In each of the three figures on the right, black bonds correspond to those that must be flipped. Composing the three together gives back the original bond sector on the left.</figcaption>
+</figure>
+<p>On a lattice with the above properties, the solution laid out in <a href="../2_Background/2.2_HKM_Model.html#bg-hkm-model">the kitaev model</a> remains applicable to our Amorphous Kitaev (AK) model. See fig. <a href="#fig:amk-zoom">1</a> for an example lattice generated by our method. The main differences are twofold. Firstly, the lattices are no longer bipartite in general and therefore contain plaquettes with an odd number of sides which have flux <span class="math inline">\(\pm i\)</span>. This leads the AK model to have a ground state with spontaneously broken chiral symmetry <span class="citation" data-cites="Chua2011 yaoExactChiralSpin2007 ChuaPRB2011 Fiete2012 Natori2016 Wu2009 Peri2020 WangHaoranPRB2021"> [<a href="#ref-Peri2020" role="doc-biblioref">7</a>,<a href="#ref-Chua2011" role="doc-biblioref">46</a>–<a href="#ref-WangHaoranPRB2021" role="doc-biblioref">52</a>]</span>. This is also similar to the behaviour of the original Kitaev model in response to a magnetic field. One ground state is related to the other by globally inverting the imaginary <span class="math inline">\(\phi_i\)</span> fluxes <span class="citation" data-cites="yaoExactChiralSpin2007"> [<a href="#ref-yaoExactChiralSpin2007" role="doc-biblioref">47</a>]</span>.</p>
+<p>Secondly, as the model is no longer translationally invariant, Lieb’s theorem for the ground state flux sector no longer applies. However as discussed in the background, a simple generalisation of Lieb’s theorem has been shown numerically to be applicable to many generalised Kitaev models <span class="citation" data-cites="eschmannThermodynamicClassificationThreedimensional2020 Yao2009 eschmann2019thermodynamics Peri2020"> [<a href="#ref-eschmannThermodynamicClassificationThreedimensional2020" role="doc-biblioref">4</a>–<a href="#ref-Peri2020" role="doc-biblioref">7</a>]</span>. This generalisation states that the ground state flux configuration depends on on the number of sides of each plaquette <span class="math inline">\(\phi = -(\pm i)^{n_{\mathrm{sides}}}\)</span> with a twofold global chiral degeneracy.</p>
+<p>The obvious approach would be to verify that this generalises to the AK model numerically via exhaustive checking of flux configurations. However this is problematic because the number of states to check scales exponentially with system size. We side step this by gluing together two methods, we first work with lattices small enough that we can fully enumerate their flux sectors but tile them to reduce finite size effects. We then show that the effect of tiling scales away with system size.</p>
+<figure>
+<img src="/assets/thesis/amk_chapter/majorana_bound_states/majorana_bound_states.svg" id="fig-majorana_bound_states" data-short-caption="Majorana Bound States" style="width:100.0%" alt="Figure 3: (Left) A large amorphous lattice in the ground state save for a single pair of vortices shown in red, separated by the string of bonds that we flipped to create them. (Right) The density of the lowest energy Majorana state in this vortex sector. These Majorana states are bound to the vortices. They ‘dress’ the vortices to create a composite object." />
+<figcaption aria-hidden="true">Figure 3: (Left) A large amorphous lattice in the ground state save for a single pair of vortices shown in red, separated by the string of bonds that we flipped to create them. (Right) The density of the lowest energy Majorana state in this vortex sector. These Majorana states are bound to the vortices. They ‘dress’ the vortices to create a composite object.</figcaption>
+</figure>
+<p>In order to evaluate the Chern marker later, we need a way to evaluate the model on open boundary conditions. Simply removing bonds from the lattice leaves behind unpaired <span class="math inline">\(b^\alpha\)</span> operators that must be paired in some way to arrive at fermionic modes. To fix a pairing, we always start from a lattice defined on the torus and generate a lattice with open boundary conditions by defining the bond coupling <span class="math inline">\(J^{\alpha}_{ij} = 0\)</span> for sites joined by bonds <span class="math inline">\((i,j)\)</span> that we want to remove. This creates fermionic zero modes <span class="math inline">\(u_{ij}\)</span> associated with these cut bonds which we set to 1 when calculating the projector. Alternatively, since all the fermionic zero modes are degenerate anyway, an arbitrary pairing of the unpaired <span class="math inline">\(b^\alpha\)</span> operators could be performed.</p>
+<!-- <figure>
+<img src="../../figure_code/amk_chapter/loops_and_dual_loops/loops_and_dual_loops.svg" style="max-width:700px;" title="Topological Loops and Dual Loops">
+<figcaption>
+(Left) The two topological flux operators of the toroidal lattice. These do not correspond to any face of the lattice, but rather measure flux that threads through the major and minor axes of the torus. This shows a particular choice. Yet, any loop that crosses the boundary is gauge equivalent to one of or the sum of these two loop. (Right) The two ways to transport vortices around the diameters. These amount to creating a vortex pair, transporting one of them around the major or minor diameters of the torus and, then, annihilating them again. 
+</figcaption>
+</figure> -->
+<!-- <figure>
+<img src="../../figure_code/amk_chapter/intro/flood_fill_amorphous/flood_fill_amorphous.gif" style="max-width:700px;" title="Gauge Operators on Amorphous Lattices">
+<figcaption>
+The same as @fig:flood_fill but for the amorphous lattice.
+</figcaption>
+</figure> -->
+<section id="the-euler-equation" class="level2">
+<h2>The Euler Equation</h2>
+<p>Euler’s equation provides a convenient way to understand how the states of the AK model factorise into flux sectors, gauge sectors and topological sectors. The Euler equation states if we embed a lattice with <span class="math inline">\(B\)</span> bonds, <span class="math inline">\(P\)</span> plaquettes and <span class="math inline">\(V\)</span> vertices onto a closed surface of genus <span class="math inline">\(g\)</span>, (<span class="math inline">\(0\)</span> for the sphere, <span class="math inline">\(1\)</span> for the torus) then</p>
+<p><span class="math display">\[B = P + V + 2 - 2g\]</span></p>
+<p>For the case of the torus where <span class="math inline">\(g = 1\)</span>, we can rearrange this and exponentiate it to read:</p>
+<p><span class="math display">\[2^B = 2^{P-1}\cdot 2^{V-1} \cdot 2^2\]</span></p>
+<p>There are <span class="math inline">\(2^B\)</span> configurations of the bond variables <span class="math inline">\(\{u_{ij}\}\)</span>. Each of these configurations can be uniquely decomposed into a flux sector, a gauge sector and a topological sector, see fig. <a href="#fig:state_decomposition_animated">2</a>. Each of the <span class="math inline">\(P\)</span> plaquette operators <span class="math inline">\(\phi_i\)</span> takes two values but vortices are created in pairs so there are <span class="math inline">\(2^{P-1}\)</span> vortex sectors in total. There are <span class="math inline">\(2^{V-1}\)</span> gauge symmetries formed from the <span class="math inline">\(V\)</span> symmetry operators <span class="math inline">\(D_i\)</span> because <span class="math inline">\(\prod_{j} D_j = \mathbb{I}\)</span> is enforced by the projector. Finally, the two topological fluxes <span class="math inline">\(\Phi_x\)</span> and <span class="math inline">\(\Phi_y\)</span> account for the last factor of <span class="math inline">\(2^2\)</span>.</p>
+<p>In addition, the fact that we only work with trivalent lattices implies that each vertex shares three bonds with other vertices so effectively comes with <span class="math inline">\(\tfrac{3}{2}\)</span> bonds. This is consistent with the fact that, in the Majorana representation on the torus, each vertex brings three <span class="math inline">\(b^\alpha\)</span> operators which then pair along bonds to give <span class="math inline">\(3/2\)</span> bonds per vertex. Substituting <span class="math inline">\(3V = 2B\)</span> into Euler’s equation tells us that any trivalent lattice on the torus with <span class="math inline">\(N\)</span> plaquettes has <span class="math inline">\(2N\)</span> vertices and <span class="math inline">\(3N\)</span> bonds. Since each bond is part of two plaquettes this implies that the mean number of sides of a plaquette is exactly six and that odd sides plaquettes must come in pairs.</p>
 <p>Next Section: <a href="../4_Amorphous_Kitaev_Model/4.2_AMK_Methods.html">Methods</a></p>
-</section>
 </section>
 </section>
 <section id="bibliography" class="level1 unnumbered">
@@ -108,8 +141,152 @@ image:
 <div id="ref-marsalTopologicalWeaireThorpe2020" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[3] </div><div class="csl-right-inline">Q. Marsal, D. Varjas, and A. G. Grushin, <em><a href="https://doi.org/10.1073/pnas.2007384117">Topological Weaire–Thorpe Models of Amorphous Matter</a></em>, Proceedings of the National Academy of Sciences <strong>117</strong>, 30260 (2020).</div>
 </div>
+<div id="ref-eschmannThermodynamicClassificationThreedimensional2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">T. Eschmann, P. A. Mishchenko, K. O’Brien, T. A. Bojesen, Y. Kato, M. Hermanns, Y. Motome, and S. Trebst, <em><a href="https://doi.org/10.1103/PhysRevB.102.075125">Thermodynamic Classification of Three-Dimensional Kitaev Spin Liquids</a></em>, Phys. Rev. B <strong>102</strong>, 075125 (2020).</div>
+</div>
+<div id="ref-Yao2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">H. Yao, S.-C. Zhang, and S. A. Kivelson, <em><a href="https://doi.org/10.1103/PhysRevLett.102.217202">Algebraic Spin Liquid in an Exactly Solvable Spin Model</a></em>, Phys. Rev. Lett. <strong>102</strong>, 217202 (2009).</div>
+</div>
+<div id="ref-eschmann2019thermodynamics" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">T. Eschmann, P. A. Mishchenko, T. A. Bojesen, Y. Kato, M. Hermanns, Y. Motome, and S. Trebst, <em>Thermodynamics of a Gauge-Frustrated Kitaev Spin Liquid</em>, Physical Review Research <strong>1</strong>, 032011(R) (2019).</div>
+</div>
+<div id="ref-Peri2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">V. Peri, S. Ok, S. S. Tsirkin, T. Neupert, G. Baskaran, M. Greiter, R. Moessner, and R. Thomale, <em><a href="https://doi.org/10.1103/PhysRevB.101.041114">Non-Abelian Chiral Spin Liquid on a Simple Non-Archimedean Lattice</a></em>, Phys. Rev. B <strong>101</strong>, 041114 (2020).</div>
+</div>
+<div id="ref-Yonezawa1983" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">F. Yonezawa and T. Ninomiya, editors, <em>Topological Disorder in Condensed Matter</em>, Vol. 46 (Springer-Verlag, Berlin Heidelberg, 1983).</div>
+</div>
+<div id="ref-zallen2008physics" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">R. Zallen, <em>The Physics of Amorphous Solids</em> (John Wiley &amp; Sons, 2008).</div>
+</div>
+<div id="ref-mitchellAmorphousTopologicalInsulators2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">N. P. Mitchell, L. M. Nash, D. Hexner, A. M. Turner, and W. T. M. Irvine, <em><a href="https://doi.org/10.1038/s41567-017-0024-5">Amorphous topological insulators constructed from random point sets</a></em>, Nature Phys <strong>14</strong>, 380 (2018).</div>
+</div>
+<div id="ref-agarwala2019topological" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">A. Agarwala, <em>Topological Insulators in Amorphous Systems</em>, in <em>Excursions in Ill-Condensed Quantum Matter</em> (Springer, 2019), pp. 61–79.</div>
+</div>
+<div id="ref-marsalTopologicalWeaireThorpeModels2020" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">Q. Marsal, D. Varjas, and A. G. Grushin, <em><a href="https://doi.org/10.1073/pnas.2007384117">Topological Weaire-Thorpe Models of Amorphous Matter</a></em>, Proc. Natl. Acad. Sci. U.S.A. <strong>117</strong>, 30260 (2020).</div>
+</div>
+<div id="ref-costa2019toward" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">M. Costa, G. R. Schleder, M. Buongiorno Nardelli, C. Lewenkopf, and A. Fazzio, <em>Toward Realistic Amorphous Topological Insulators</em>, Nano Letters <strong>19</strong>, 8941 (2019).</div>
+</div>
+<div id="ref-agarwala2020higher" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">A. Agarwala, V. Juričić, and B. Roy, <em>Higher-Order Topological Insulators in Amorphous Solids</em>, Physical Review Research <strong>2</strong>, 012067 (2020).</div>
+</div>
+<div id="ref-spring2021amorphous" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">H. Spring, A. Akhmerov, and D. Varjas, <em>Amorphous Topological Phases Protected by Continuous Rotation Symmetry</em>, SciPost Physics <strong>11</strong>, 022 (2021).</div>
+</div>
+<div id="ref-corbae2019evidence" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">P. Corbae et al., <em>Evidence for Topological Surface States in Amorphous Bi _ {2} Se _ {3}</em>, arXiv Preprint arXiv:1910.13412 (2019).</div>
+</div>
+<div id="ref-buckel1954einfluss" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">W. Buckel and R. Hilsch, <em>Einfluß Der Kondensation Bei Tiefen Temperaturen Auf Den Elektrischen Widerstand Und Die Supraleitung Für Verschiedene Metalle</em>, Zeitschrift Für Physik <strong>138</strong>, 109 (1954).</div>
+</div>
+<div id="ref-mcmillan1981electron" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">W. McMillan and J. Mochel, <em>Electron Tunneling Experiments on Amorphous Ge 1- x Au x</em>, Physical Review Letters <strong>46</strong>, 556 (1981).</div>
+</div>
+<div id="ref-meisel1981eliashberg" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[19] </div><div class="csl-right-inline">L. V. Meisel and P. J. Cote, <em><a href="https://doi.org/10.1103/PhysRevB.23.5834">Eliashberg Function in Amorphous Metals</a></em>, Phys. Rev. B <strong>23</strong>, 5834 (1981).</div>
+</div>
+<div id="ref-bergmann1976amorphous" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[20] </div><div class="csl-right-inline">G. Bergmann, <em>Amorphous Metals and Their Superconductivity</em>, Physics Reports <strong>27</strong>, 159 (1976).</div>
+</div>
+<div id="ref-mannaNoncrystallineTopologicalSuperconductors2022" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[21] </div><div class="csl-right-inline">S. Manna, S. K. Das, and B. Roy, <em><a href="http://arxiv.org/abs/2207.02203">Noncrystalline Topological Superconductors</a></em>, arXiv:2207.02203.</div>
+</div>
+<div id="ref-kim2022fractionalization" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[22] </div><div class="csl-right-inline">S. Kim, A. Agarwala, and D. Chowdhury, <em>Fractionalization and Topology in Amorphous Electronic Solids</em>, arXiv Preprint arXiv:2205.11523 (2022).</div>
+</div>
+<div id="ref-aharony1975critical" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[23] </div><div class="csl-right-inline">A. Aharony, <em>Critical Behavior of Amorphous Magnets</em>, Physical Review B <strong>12</strong>, 1038 (1975).</div>
+</div>
+<div id="ref-Petrakovski1981" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[24] </div><div class="csl-right-inline">G. A. Petrakovskii, <em><a href="https://doi.org/10.1070/pu1981v024n06abeh004850">Amorphous Magnetic Materials</a></em>, Soviet Physics Uspekhi <strong>24</strong>, 511 (1981).</div>
+</div>
+<div id="ref-kaneyoshi1992introduction" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[25] </div><div class="csl-right-inline">T. Kaneyoshi, <em>Introduction to Amorphous Magnets</em> (World Scientific Publishing Company, 1992).</div>
+</div>
+<div id="ref-Kaneyoshi2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[26] </div><div class="csl-right-inline">T. Kaneyoshi, editor, <em>Amorphous Magnetism</em> (CRC Press, Boca Raton, 2018).</div>
+</div>
+<div id="ref-barghathiPhaseTransitionsRandom2014" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[27] </div><div class="csl-right-inline">H. Barghathi and T. Vojta, <em><a href="https://doi.org/10.1103/PhysRevLett.113.120602">Phase Transitions on Random Lattices: How Random Is Topological Disorder?</a></em>, Phys. Rev. Lett. <strong>113</strong>, 120602 (2014).</div>
+</div>
+<div id="ref-schrauthViolationHarrisBarghathiVojtaCriterion2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[28] </div><div class="csl-right-inline">M. Schrauth, J. Portela, and F. Goth, <em><a href="https://doi.org/10.1103/PhysRevLett.121.100601">Violation of the Harris-Barghathi-Vojta Criterion</a></em>, Physical Review Letters <strong>121</strong>, (2018).</div>
+</div>
+<div id="ref-coey1978amorphous" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[29] </div><div class="csl-right-inline">J. Coey, <em>Amorphous Magnetic Order</em>, Journal of Applied Physics <strong>49</strong>, 1646 (1978).</div>
+</div>
+<div id="ref-Anderson1973" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[30] </div><div class="csl-right-inline">P. W. Anderson, <em>Resonating Valence Bonds: A New Kind of Insulator?</em>, Mater. Res. Bull. <strong>8</strong>, 153 (1973).</div>
+</div>
+<div id="ref-Knolle2019" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[31] </div><div class="csl-right-inline">J. Knolle and R. Moessner, <em><a href="https://doi.org/10.1146/annurev-conmatphys-031218-013401">A Field Guide to Spin Liquids</a></em>, Annual Review of Condensed Matter Physics <strong>10</strong>, 451 (2019).</div>
+</div>
+<div id="ref-Savary2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[32] </div><div class="csl-right-inline">L. Savary and L. Balents, <em>Quantum Spin Liquids: A Review</em>, Reports on Progress in Physics <strong>80</strong>, 016502 (2017).</div>
+</div>
+<div id="ref-Lacroix2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[33] </div><div class="csl-right-inline">C. Lacroix, P. Mendels, and F. Mila, editors, <em>Introduction to Frustrated Magnetism</em>, Vol. 164 (Springer-Verlag, Berlin Heidelberg, 2011).</div>
+</div>
+<div id="ref-lieb_flux_1994" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[34] </div><div class="csl-right-inline">E. H. Lieb, <em><a href="https://doi.org/10.1103/PhysRevLett.73.2158">Flux Phase of the Half-Filled Band</a></em>, Physical Review Letters <strong>73</strong>, 2158 (1994).</div>
+</div>
+<div id="ref-peru_preprint" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[35] </div><div class="csl-right-inline">P. d’Ornellas, R. Barnett, and D. K. K. Lee, <em><a href="https://doi.org/10.48550/ARXIV.2207.01389">Quantised Bulk Conductivity as a Local Chern Marker</a></em>, arXiv Preprint (2022).</div>
+</div>
+<div id="ref-Laumann2012" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[36] </div><div class="csl-right-inline">C. R. Laumann, A. W. W. Ludwig, D. A. Huse, and S. Trebst, <em><a href="https://doi.org/10.1103/PhysRevB.85.161301">Disorder-Induced Majorana Metal in Interacting Non-Abelian Anyon Systems</a></em>, Phys. Rev. B <strong>85</strong>, 161301 (2012).</div>
+</div>
+<div id="ref-lahtinenTopologicalLiquidNucleation2012" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[37] </div><div class="csl-right-inline">V. Lahtinen, A. W. W. Ludwig, J. K. Pachos, and S. Trebst, <em><a href="https://doi.org/10.1103/PhysRevB.86.075115">Topological Liquid Nucleation Induced by Vortex-Vortex Interactions in Kitaev’s Honeycomb Model</a></em>, Phys. Rev. B <strong>86</strong>, 075115 (2012).</div>
+</div>
+<div id="ref-selfThermallyInducedMetallic2019" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[38] </div><div class="csl-right-inline">C. N. Self, J. Knolle, S. Iblisdir, and J. K. Pachos, <em><a href="https://doi.org/10.1103/PhysRevB.99.045142">Thermally Induced Metallic Phase in a Gapped Quantum Spin Liquid - a Monte Carlo Study of the Kitaev Model with Parity Projection</a></em>, Phys. Rev. B <strong>99</strong>, 045142 (2019).</div>
+</div>
+<div id="ref-kitaevAnyonsExactlySolved2006" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[39] </div><div class="csl-right-inline">A. Kitaev, <em><a href="https://doi.org/10.1016/j.aop.2005.10.005">Anyons in an Exactly Solved Model and Beyond</a></em>, Annals of Physics <strong>321</strong>, 2 (2006).</div>
+</div>
 <div id="ref-Nussinov2009" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">Z. Nussinov and G. Ortiz, <em><a href="https://doi.org/10.1103/PhysRevB.79.214440">Bond Algebras and Exact Solvability of Hamiltonians: Spin S=½ Multilayer Systems</a></em>, Physical Review B <strong>79</strong>, 214440 (2009).</div>
+<div class="csl-left-margin">[40] </div><div class="csl-right-inline">Z. Nussinov and G. Ortiz, <em><a href="https://doi.org/10.1103/PhysRevB.79.214440">Bond Algebras and Exact Solvability of Hamiltonians: Spin S=½ Multilayer Systems</a></em>, Physical Review B <strong>79</strong>, 214440 (2009).</div>
+</div>
+<div id="ref-florescu_designer_2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[41] </div><div class="csl-right-inline">M. Florescu, S. Torquato, and P. J. Steinhardt, <em><a href="https://doi.org/10.1073/pnas.0907744106">Designer Disordered Materials with Large, Complete Photonic Band Gaps</a></em>, Proceedings of the National Academy of Sciences <strong>106</strong>, 20658 (2009).</div>
+</div>
+<div id="ref-voronoiNouvellesApplicationsParamètres1908" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[42] </div><div class="csl-right-inline">G. Voronoi, <em><a href="https://doi.org/10.1515/crll.1908.133.97">Nouvelles applications des paramètres continus à la théorie des formes quadratiques. Premier mémoire. Sur quelques propriétés des formes quadratiques positives parfaites.</a></em>, Journal für die reine und angewandte Mathematik (Crelles Journal) <strong>1908</strong>, 97 (1908).</div>
+</div>
+<div id="ref-watsonComputingNdimensionalDelaunay1981" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[43] </div><div class="csl-right-inline">D. F. Watson, <em><a href="https://doi.org/10.1093/comjnl/24.2.167">Computing the n-Dimensional Delaunay Tessellation with Application to Voronoi Polytopes*</a></em>, The Computer Journal <strong>24</strong>, 167 (1981).</div>
+</div>
+<div id="ref-christRandomLatticeField1982" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[44] </div><div class="csl-right-inline">N. H. Christ, R. Friedberg, and T. D. Lee, <em><a href="https://doi.org/10.1016/0550-3213(82)90222-X">Random Lattice Field Theory: General Formulation</a></em>, Nuclear Physics B <strong>202</strong>, 89 (1982).</div>
+</div>
+<div id="ref-alyamiUniformSamplingDirected2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[45] </div><div class="csl-right-inline">S. A. Alyami, A. K. M. Azad, and J. M. Keith, <em><a href="https://doi.org/10.1016/j.endm.2016.05.005">Uniform Sampling of Directed and Undirected Graphs Conditional on Vertex Connectivity</a></em>, Electronic Notes in Discrete Mathematics <strong>53</strong>, 43 (2016).</div>
+</div>
+<div id="ref-Chua2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[46] </div><div class="csl-right-inline">V. Chua, H. Yao, and G. A. Fiete, <em><a href="https://doi.org/10.1103/PhysRevB.83.180412">Exact Chiral Spin Liquid with Stable Spin Fermi Surface on the Kagome Lattice</a></em>, Phys. Rev. B <strong>83</strong>, 180412 (2011).</div>
+</div>
+<div id="ref-yaoExactChiralSpin2007" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[47] </div><div class="csl-right-inline">H. Yao and S. A. Kivelson, <em><a href="https://doi.org/10.1103/PhysRevLett.99.247203">An Exact Chiral Spin Liquid with Non-Abelian Anyons</a></em>, Phys. Rev. Lett. <strong>99</strong>, 247203 (2007).</div>
+</div>
+<div id="ref-ChuaPRB2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[48] </div><div class="csl-right-inline">V. Chua and G. A. Fiete, <em><a href="https://doi.org/10.1103/PhysRevB.84.195129">Exactly Solvable Topological Chiral Spin Liquid with Random Exchange</a></em>, Phys. Rev. B <strong>84</strong>, 195129 (2011).</div>
+</div>
+<div id="ref-Fiete2012" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[49] </div><div class="csl-right-inline">G. A. Fiete, V. Chua, M. Kargarian, R. Lundgren, A. Rüegg, J. Wen, and V. Zyuzin, <em><a href="https://doi.org/10.1016/j.physe.2011.11.011">Topological Insulators and Quantum Spin Liquids</a></em>, Physica E: Low-Dimensional Systems and Nanostructures <strong>44</strong>, 845 (2012).</div>
+</div>
+<div id="ref-Natori2016" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[50] </div><div class="csl-right-inline">W. M. H. Natori, E. C. Andrade, E. Miranda, and R. G. Pereira, <em><a href="https://link.aps.org/doi/10.1103/PhysRevLett.117.017204">Chiral Spin-Orbital Liquids with Nodal Lines</a></em>, Phys. Rev. Lett. <strong>117</strong>, 017204 (2016).</div>
+</div>
+<div id="ref-Wu2009" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[51] </div><div class="csl-right-inline">C. Wu, D. Arovas, and H.-H. Hung, <em>Γ-Matrix Generalization of the Kitaev Model</em>, Physical Review B <strong>79</strong>, 134427 (2009).</div>
+</div>
+<div id="ref-WangHaoranPRB2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[52] </div><div class="csl-right-inline">H. Wang and A. Principi, <em><a href="https://doi.org/10.1103/PhysRevB.104.214422">Majorana Edge and Corner States in Square and Kagome Quantum Spin-3/2 Liquids</a></em>, Phys. Rev. B <strong>104</strong>, 214422 (2021).</div>
 </div>
 </div>
 </section>
