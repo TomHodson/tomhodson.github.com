@@ -1,0 +1,81 @@
+---
+title: Declarations
+excerpt: 
+layout: none
+image: 
+
+---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Declarations</title>
+
+
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+    linebreaks: { automatic: true, width: "container" }          
+  }              
+  });
+  
+</script>
+<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+
+<script src="/assets/js/thesis_scrollspy.js"></script>
+<script src="https://d3js.org/d3.v5.min.js" defer></script>
+
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/index.js"></script>
+</head>
+<body>
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+<nav aria-label="Table of Contents" class="page-table-of-contents">
+<ul>
+<li><a href="#versions-of-this-document" id="toc-versions-of-this-document">Versions of this document</a></li>
+<li><a href="#statement-of-originality" id="toc-statement-of-originality">Statement of Originality</a></li>
+<li><a href="#copyright-declaration" id="toc-copyright-declaration">Copyright Declaration</a></li>
+</ul>
+</nav>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable so it can be put into the sidebar-->
+{% include header.html extra=tableOfContents %}
+
+<main>
+
+<!-- Table of Contents -->
+<!-- <nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#versions-of-this-document" id="toc-versions-of-this-document">Versions of this document</a></li>
+<li><a href="#statement-of-originality" id="toc-statement-of-originality">Statement of Originality</a></li>
+<li><a href="#copyright-declaration" id="toc-copyright-declaration">Copyright Declaration</a></li>
+</ul>
+</nav>
+ -->
+
+<!-- Main Page Body -->
+<section id="versions-of-this-document" class="level3">
+<h3>Versions of this document</h3>
+<p>A PDF version of document is available online with either <a href="https://github.com/TomHodson/Thesis/raw/main/thesis.pdf">normal</a> or <a href="https://github.com/TomHodson/Thesis/raw/main/double_line_spaced.pdf">double</a> line spacing. An <a href="http://thomashodson.com/thesis/">HTML version</a> is also available with some figures animated.</p>
+<p>https://doi.org/10.5281/zenodo.7143205</p>
+</section>
+<section id="statement-of-originality" class="level3">
+<h3>Statement of Originality</h3>
+<p>I declare that the following work is entirely my own except where stated otherwise. Contributions from collaborators and others have been acknowledged by standard referencing practices. I have permissions to reproduce any third party copyrighted material which are included at the end of this thesis.</p>
+</section>
+<section id="copyright-declaration" class="level3">
+<h3>Copyright Declaration</h3>
+<p>The copyright of this thesis rests with the author. Unless otherwise indicated, its contents are licensed under a Creative Commons Attribution-Non Commercial 4.0 International Licence (CC BY-NC). Under this licence, you may copy and redistribute the material in any medium or format. You may also create and distribute modified versions of the work. This is on the condition that: you credit the author and do not use it, or any derivative works, for a commercial purpose. When reusing or sharing this work, ensure you make the licence terms clear to others by naming the licence and linking to the licence text. Where a work has been adapted, you should indicate that the work has been changed and describe those changes. Please seek permission from the copyright holder for uses of this work that are not included in this licence or permitted under UK Copyright Law.</p>
+</section>
+
+
+</main>
+</body>
+</html>

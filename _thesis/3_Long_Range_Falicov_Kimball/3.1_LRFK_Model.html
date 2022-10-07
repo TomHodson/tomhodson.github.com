@@ -1,5 +1,5 @@
 ---
-title: The Long Range Falicov-Kimball Model - The Model
+title: The Long-Range Falicov-Kimball Model - The Model
 excerpt: 
 layout: none
 image: 
@@ -11,7 +11,7 @@ image:
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>The Long Range Falicov-Kimball Model - The Model</title>
+  <title>The Long-Range Falicov-Kimball Model - The Model</title>
 
 
 <script type="text/x-mathjax-config">
@@ -38,7 +38,11 @@ image:
 <br>
 <nav aria-label="Table of Contents" class="page-table-of-contents">
 <ul>
-<li><a href="#chap:3-the-long-range-falicov-kimball-model" id="toc-chap:3-the-long-range-falicov-kimball-model">3 The Long Range Falicov-Kimball Model</a></li>
+<li><a href="#chap:3-the-long-range-falicov-kimball-model" id="toc-chap:3-the-long-range-falicov-kimball-model">3 The Long Range Falicov-Kimball Model</a>
+<ul>
+<li><a href="#lrfk-contributions" id="toc-lrfk-contributions">Contributions</a></li>
+<li><a href="#lrfk-chapter-summary" id="toc-lrfk-chapter-summary">Chapter Summary</a></li>
+</ul></li>
 <li><a href="#sec:lrfk-model" id="toc-sec:lrfk-model">The Model</a></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -53,7 +57,11 @@ image:
 <!-- Table of Contents -->
 <!-- <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#chap:3-the-long-range-falicov-kimball-model" id="toc-chap:3-the-long-range-falicov-kimball-model">3 The Long Range Falicov-Kimball Model</a></li>
+<li><a href="#chap:3-the-long-range-falicov-kimball-model" id="toc-chap:3-the-long-range-falicov-kimball-model">3 The Long Range Falicov-Kimball Model</a>
+<ul>
+<li><a href="#lrfk-contributions" id="toc-lrfk-contributions">Contributions</a></li>
+<li><a href="#lrfk-chapter-summary" id="toc-lrfk-chapter-summary">Chapter Summary</a></li>
+</ul></li>
 <li><a href="#sec:lrfk-model" id="toc-sec:lrfk-model">The Model</a></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
@@ -67,33 +75,37 @@ image:
 </div>
 <section id="chap:3-the-long-range-falicov-kimball-model" class="level1">
 <h1>3 The Long Range Falicov-Kimball Model</h1>
-<p><strong>Contributions</strong></p>
+<section id="lrfk-contributions" class="level3">
+<h3>Contributions</h3>
 <p>This chapter expands on work presented in</p>
-<p> <span class="citation" data-cites="hodsonOnedimensionalLongrangeFalikovKimball2021"> [<a href="#ref-hodsonOnedimensionalLongrangeFalikovKimball2021" role="doc-biblioref">1</a>]</span> <a href="https://link.aps.org/doi/10.1103/PhysRevB.104.045116">One-dimensional long-range Falikov-Kimball model: Thermal phase transition and disorder-free localization</a>, Hodson, T. and Willsher, J. and Knolle, J., Phys. Rev. B, <strong>104</strong>, 4, 2021,</p>
+<p> <span class="citation" data-cites="hodsonOnedimensionalLongrangeFalikovKimball2021"> [<a href="#ref-hodsonOnedimensionalLongrangeFalikovKimball2021" role="doc-biblioref">1</a>]</span> <a href="https://link.aps.org/doi/10.1103/PhysRevB.104.045116">One-dimensional long-range Falicov-Kimball model: Thermal phase transition and disorder-free localization</a>, Hodson, T. and Willsher, J. and Knolle, J., Phys. Rev. B, <strong>104</strong>, 4, 2021,</p>
 <p>The code is available online <span class="citation" data-cites="hodsonMCMCFKModel2021"> [<a href="#ref-hodsonMCMCFKModel2021" role="doc-biblioref">2</a>]</span>.</p>
-<p>Johannes had the initial idea to use a long range Ising term to stabilise order in a one dimension Falicov-Kimball model. Josef developed a proof of concept during a summer project at Imperial along with Alexander Belcik. I wrote the simulation code and performed all the analysis presented here.</p>
-<p><strong>Chapter Summary</strong></p>
-<p>The paper is organised as follows. First, I will introduce the long range Falicov-Kimball (LRFK) model and motivate its definition. Second, I will present the <a href="../3_Long_Range_Falicov_Kimball/3.2_LRFK_Methods.html#sec:lrfk-methods">methods</a> used to solve it numerically, including Markov chain Monte Carlo and finite size scaling. I will then present and interpret the <a href="../3_Long_Range_Falicov_Kimball/3.3_LRFK_Results.html#sec:lrfk-results">results</a> obtained.</p>
+<p>Johannes had the initial idea to use a long-range Ising term to stabilise order in a 1D Falicov-Kimball model. Josef developed a proof of concept during a summer project at Imperial along with Alexander Belcik. I wrote the simulation code and performed all the analysis presented here.</p>
+</section>
+<section id="lrfk-chapter-summary" class="level3">
+<h3>Chapter Summary</h3>
+<p>The paper is organised as follows. First, I will introduce the Long-Range Falicov-Kimball (LRFK) model and motivate its definition. Second, I will present the <a href="../3_Long_Range_Falicov_Kimball/3.2_LRFK_Methods.html#sec:lrfk-methods">methods</a> used to solve it numerically, including Markov chain Monte Carlo and finite size scaling. I will then present and interpret the <a href="../3_Long_Range_Falicov_Kimball/3.3_LRFK_Results.html#sec:lrfk-results">results</a> obtained.</p>
+</section>
 </section>
 <section id="sec:lrfk-model" class="level1">
 <h1>The Model</h1>
-<p>Dimensionality is crucial for the physics of both localisation and phase transitions. We have already seen that the one dimensional standard FK model cannot support an ordered phase at finite temperatures and therefore has no finite temperature phase transition (FTPT).</p>
-<p>On bipartite lattices in dimensions 2 and above the FK model exhibits a finite temperature phase transition to an ordered charge density wave (CDW) phase <span class="citation" data-cites="maskaThermodynamicsTwodimensionalFalicovKimball2006"> [<a href="#ref-maskaThermodynamicsTwodimensionalFalicovKimball2006" role="doc-biblioref">3</a>]</span>. In this phase, the spins order anti-ferromagnetically, breaking the <span class="math inline">\(\mathbb{Z}_2\)</span> symmetry. In 1D, however, Peierls’s argument <span class="citation" data-cites="peierlsIsingModelFerromagnetism1936 kennedyItinerantElectronModel1986"> [<a href="#ref-peierlsIsingModelFerromagnetism1936" role="doc-biblioref">4</a>,<a href="#ref-kennedyItinerantElectronModel1986" role="doc-biblioref">5</a>]</span> states that domain walls only introduce a constant energy penalty into the free energy while bringing a entropic contribution logarithmic in system size. Hence the 1D model does not have a finite temperature phase transition. However 1D systems are much easier to study numerically and admit simpler realisations experimentally. We therefore introduce a long-range coupling between the ions in order to stabilise a CDW phase in 1D.</p>
+<p>Dimensionality is crucial for the physics of both localisation and phase transitions. We have already seen that the 1D standard Falicov-Kimball (FK) model cannot support an ordered phase at finite temperatures and therefore has no Finite-Temperature Phase Transition (FTPT).</p>
+<p>On bipartite lattices in dimensions 2 and above the FK model exhibits a finite temperature phase transition to an ordered Charge Density Wave (CDW) phase <span class="citation" data-cites="maskaThermodynamicsTwodimensionalFalicovKimball2006"> [<a href="#ref-maskaThermodynamicsTwodimensionalFalicovKimball2006" role="doc-biblioref">3</a>]</span>. In this phase, the spins order anti-ferromagnetically, breaking the <span class="math inline">\(\mathbb{Z}_2\)</span> symmetry. In 1D, however, Peierls’s argument <span class="citation" data-cites="peierlsIsingModelFerromagnetism1936 kennedyItinerantElectronModel1986"> [<a href="#ref-peierlsIsingModelFerromagnetism1936" role="doc-biblioref">4</a>,<a href="#ref-kennedyItinerantElectronModel1986" role="doc-biblioref">5</a>]</span> states that domain walls only introduce a constant energy penalty into the free energy while bringing a entropic contribution logarithmic in system size. Hence the 1D model does not have a finite temperature phase transition. However 1D systems are much easier to study numerically and admit simpler realisations experimentally. We therefore introduce a long-range coupling between the ions in order to stabilise a CDW phase in 1D.</p>
 <figure>
-<img src="/assets/thesis/intro_chapter/lrfk_schematic.svg" id="fig-lrfk_schematic" data-short-caption="Falicov-Kimball Model Diagram" style="width:100.0%" alt="Figure 1: The Long Range Falicov-Kimball (LRFK) Model is a model of classical spins S_i coupled to spinless fermions \hat{c}_i where the fermions are mobile with hopping t and the fermions are coupled to the spins by an Ising type interaction with strength U. The difference from the standard FK model is the presence of a long range interaction between the spins J_{ij}S_i S_j." />
-<figcaption aria-hidden="true">Figure 1: The Long Range Falicov-Kimball (LRFK) Model is a model of classical spins <span class="math inline">\(S_i\)</span> coupled to spinless fermions <span class="math inline">\(\hat{c}_i\)</span> where the fermions are mobile with hopping <span class="math inline">\(t\)</span> and the fermions are coupled to the spins by an Ising type interaction with strength <span class="math inline">\(U\)</span>. The difference from the standard FK model is the presence of a long range interaction between the spins <span class="math inline">\(J_{ij}S_i S_j\)</span>.</figcaption>
+<img src="/assets/thesis/intro_chapter/lrfk_schematic.svg" id="fig-lrfk_schematic" data-short-caption="Falicov-Kimball Model Diagram" style="width:100.0%" alt="Figure 1: The Long-Range Falicov-Kimball (LRFK) Model is a model of classical spins S_i coupled to spinless fermions \hat{c}_i where the fermions are mobile with hopping t and the fermions are coupled to the spins by an Ising type interaction with strength U. The difference from the standard FK model is the presence of a long-range interaction between the spins J_{ij}S_i S_j." />
+<figcaption aria-hidden="true">Figure 1: The Long-Range Falicov-Kimball (LRFK) Model is a model of classical spins <span class="math inline">\(S_i\)</span> coupled to spinless fermions <span class="math inline">\(\hat{c}_i\)</span> where the fermions are mobile with hopping <span class="math inline">\(t\)</span> and the fermions are coupled to the spins by an Ising type interaction with strength <span class="math inline">\(U\)</span>. The difference from the standard FK model is the presence of a long-range interaction between the spins <span class="math inline">\(J_{ij}S_i S_j\)</span>.</figcaption>
 </figure>
 <p>We interpret the FK model as a model of spinless fermions, <span class="math inline">\(c^\dagger_{i}\)</span>, hopping on a 1D lattice against a classical Ising spin background, <span class="math inline">\(S_i \in {\pm \frac{1}{2}}\)</span>. The fermions couple to the spins via an onsite interaction with strength <span class="math inline">\(U\)</span> which we supplement by a long-range interaction, <span class="math display">\[
 J_{ij} = 4\kappa J\; (-1)^{|i-j|} |i-j|^{-\alpha},
 \]</span></p>
-<p>between the spins. The additional coupling is very similar to that of the long range Ising model, it stabilises the Antiferromagnetic (AFM) order of the Ising spins which promotes the finite temperature CDW phase of the fermionic sector.</p>
+<p>between the spins. The additional coupling is very similar to that of the long-range Ising (LRI) model, it stabilises the Antiferromagnetic (AFM) order of the Ising spins which promotes the finite temperature CDW phase of the fermionic sector.</p>
 <p>The hopping strength of the electrons, <span class="math inline">\(t = 1\)</span>, sets the overall energy scale and we concentrate throughout on the particle-hole symmetric point at zero chemical potential and half filling <span class="citation" data-cites="gruberFalicovKimballModelReview1996"> [<a href="#ref-gruberFalicovKimballModelReview1996" role="doc-biblioref">6</a>]</span>.</p>
 <p><span class="math display">\[\begin{aligned}
 H_{\mathrm{FK}} = &amp; \;U \sum_{i} S_i\;(c^\dagger_{i}c_{i} - \tfrac{1}{2}) -\;t \sum_{i} (c^\dagger_{i}c_{i+1} + \textit{h.c.)}\\
 &amp;  + \sum_{i, j}^{N} J_{ij}  S_i S_j
 \label{eq:HFK}\end{aligned}\]</span></p>
-<p>Without proper normalisation, the long range coupling would render the critical temperature strongly system size dependent for small system sizes. Within a mean field approximation the critical temperature scales with the effective coupling to all the neighbours of each site, which for a system with <span class="math inline">\(N\)</span> sites is <span class="math inline">\(\sum_{i=1}^{N} i^{-\alpha}\)</span>. Hence, the normalisation <span class="math inline">\(\kappa^{-1} = \sum_{i=1}^{N} i^{-\alpha}\)</span>, renders the critical temperature independent of system size in the mean field approximation. This greatly improves the finite size behaviour of the model.</p>
-<p>Taking the limit <span class="math inline">\(U = 0\)</span> decouples the spins from the fermions, which gives a spin sector governed by a classical LRI model. Note, the transformation of the spins <span class="math inline">\(S_i \to (-1)^{i} S_i\)</span> maps the AFM model to the FM one. As discussed in the background section, Peierls’ classic argument can be extended to long range couplings to show that, for the 1D LRI model, a power law decay of <span class="math inline">\(\alpha &lt; 2\)</span> is required for a FTPT as the energy of defect domain then scales with the system size and can overcome the entropic contribution. A renormalisation group analysis supports this finding and shows that the critical exponents are only universal for <span class="math inline">\(\alpha \leq 3/2\)</span> <span class="citation" data-cites="ruelleStatisticalMechanicsOnedimensional1968 thoulessLongRangeOrderOneDimensional1969 angeliniRelationsShortrangeLongrange2014"> [<a href="#ref-ruelleStatisticalMechanicsOnedimensional1968" role="doc-biblioref">7</a>–<a href="#ref-angeliniRelationsShortrangeLongrange2014" role="doc-biblioref">9</a>]</span>. In the following, we choose <span class="math inline">\(\alpha = 5/4\)</span> to avoid the additional complexity of non-universal critical points.</p>
+<p>Without proper normalisation, the long-range coupling would render the critical temperature strongly system size dependent for small system sizes. Within a mean field approximation the critical temperature scales with the effective coupling to all the neighbours of each site, which for a system with <span class="math inline">\(N\)</span> sites is <span class="math inline">\(\sum_{i=1}^{N} i^{-\alpha}\)</span>. Hence, the normalisation <span class="math inline">\(\kappa^{-1} = \sum_{i=1}^{N} i^{-\alpha}\)</span>, renders the critical temperature independent of system size in the mean field approximation. This greatly improves the finite size behaviour of the model.</p>
+<p>Taking the limit <span class="math inline">\(U = 0\)</span> decouples the spins from the fermions, which gives a spin sector governed by a classical long-range Ising model. Note, the transformation of the spins <span class="math inline">\(S_i \to (-1)^{i} S_i\)</span> maps the AFM model to the FM one. As discussed in the background section, Peierls’ classic argument can be extended to long-range couplings to show that, for the 1D LRI model, a power law decay of <span class="math inline">\(\alpha &lt; 2\)</span> is required for a FTPT as the energy of defect domain then scales with the system size and can overcome the entropic contribution. A renormalisation group analysis supports this finding and shows that the critical exponents are only universal for <span class="math inline">\(\alpha \leq 3/2\)</span> <span class="citation" data-cites="ruelleStatisticalMechanicsOnedimensional1968 thoulessLongRangeOrderOneDimensional1969 angeliniRelationsShortrangeLongrange2014"> [<a href="#ref-ruelleStatisticalMechanicsOnedimensional1968" role="doc-biblioref">7</a>–<a href="#ref-angeliniRelationsShortrangeLongrange2014" role="doc-biblioref">9</a>]</span>. In the following, we choose <span class="math inline">\(\alpha = 5/4\)</span> to avoid the additional complexity of non-universal critical points.</p>
 <p>Next Section: <a href="../3_Long_Range_Falicov_Kimball/3.2_LRFK_Methods.html">Methods</a></p>
 </section>
 <section id="bibliography" class="level1 unnumbered">
