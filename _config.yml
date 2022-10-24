@@ -12,6 +12,9 @@ collections:
     output: true
   thesis:
     output: true
+  talks:
+      output: true
+
 
 plugins:
   - jekyll-feed
