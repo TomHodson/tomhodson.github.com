@@ -1,1 +1,40 @@
-<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>RSS</title><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   role="img"
+   viewBox="0 0 24 24"
+   version="1.1"
+   id="svg1094"
+   sodipodi:docname="rss.svg"
+   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1098" />
+  <sodipodi:namedview
+     id="namedview1096"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="10.474576"
+     inkscape:cy="12"
+     inkscape:window-width="1309"
+     inkscape:window-height="456"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1094" />
+  <title
+     id="title1090">RSS</title>
+  <path
+     d="M 19.199,24 C 19.199,13.467 10.533,4.8 0,4.8 V 0 C 13.165,0 24,10.835 24,24 Z M 3.291,17.415 c 1.814,0 3.293,1.479 3.293,3.295 C 6.584,22.523 5.099,24 3.283,24 1.47,24 0,22.526 0,20.71 0,18.894 1.475,17.416 3.291,17.415 Z M 15.909,24 H 11.244 C 11.244,17.831 6.169,12.755 0,12.755 V 8.09 c 8.727,0 15.909,7.184 15.909,15.91 z"
+     id="path1092"
+     transform="matrix(0.75,0,0,0.75,3,3)" />
+</svg>
