@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   sodipodi:docname="event_card_2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.99607843"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.5"
+     inkscape:cx="232"
+     inkscape:cy="449"
+     inkscape:window-width="1440"
+     inkscape:window-height="689"
+     inkscape:window-x="2560"
+     inkscape:window-y="80"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-family:STIXGeneral;-inkscape-font-specification:'STIXGeneral, Normal';text-align:center;text-anchor:middle;white-space:pre;inline-size:234.893;display:inline;opacity:0.851638;fill:#000000;fill-opacity:1;stroke:#f09000;stroke-width:1.5;stroke-linejoin:round"
+       x="321.05966"
+       y="97.507004"
+       id="text1516"
+       transform="matrix(0.26458333,0,0,0.26458333,-43.60392,-18.019987)"><tspan
+         x="321.05966"
+         y="97.507004"
+         id="tspan119887"><tspan
+   style="font-size:26.6667px;stroke:none"
+   id="tspan119885">Interacting Quantum</tspan><tspan
+   y="97.507004"
+   id="tspan119889"> </tspan></tspan><tspan
+         x="321.05966"
+         y="130.84037"
+         id="tspan119893"><tspan
+   style="font-size:26.6667px;stroke:none"
+   id="tspan119891">Many-body Systems</tspan><tspan
+   y="130.84037"
+   id="tspan119895"> </tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-family:STIXGeneral;-inkscape-font-specification:'STIXGeneral, Normal';text-align:start;text-anchor:start;opacity:0.851638;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.5;stroke-linejoin:round"
+       x="245.32875"
+       y="151.31422"
+       id="text2710"
+       transform="matrix(0.26458333,0,0,0.26458333,-59.032085,37.408799)"><tspan
+         sodipodi:role="line"
+         x="245.32875"
+         y="151.31422"
+         id="tspan4166"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:STIXGeneral;-inkscape-font-specification:'STIXGeneral, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1">December 2nd</tspan><tspan
+         sodipodi:role="line"
+         x="245.32875"
+         y="171.31422"
+         id="tspan4172"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:STIXGeneral;-inkscape-font-specification:'STIXGeneral, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1">13:30 - 14:30</tspan><tspan
+         sodipodi:role="line"
+         x="245.32875"
+         y="191.31422"
+         id="tspan3438"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:STIXGeneral;-inkscape-font-specification:'STIXGeneral, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1">Huxley 711c</tspan><tspan
+         sodipodi:role="line"
+         x="245.32875"
+         y="211.31422"
+         id="tspan6408"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:STIXGeneral;-inkscape-font-specification:'STIXGeneral, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1">Imperial College London</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:STIXGeneral;-inkscape-font-specification:'STIXGeneral, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;opacity:0.851638;fill:#000000;fill-opacity:0.947826;stroke:none;stroke-width:1.5;stroke-linejoin:round"
+       x="284.19974"
+       y="85.76442"
+       id="text6412"
+       transform="scale(0.26458333)"><tspan
+         sodipodi:role="line"
+         id="tspan6410"
+         x="284.19974"
+         y="85.76442" /></text>
+  </g>
+</svg>
