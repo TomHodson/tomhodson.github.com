@@ -6,6 +6,12 @@
 @import "cv";
 @import "thesis";
 
+// The syntax highlighting css
+// generated with rougify style bw > code_style_bw.scss
+// @import "code_style_bw";  
+@import "code_style_github";  
+
+
 * {
     box-sizing: border-box;
     font-family: $font_stack;
