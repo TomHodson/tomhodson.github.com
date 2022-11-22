@@ -1233,25 +1233,25 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  5255176: () => { return Module['suspended']; },  
- 5255208: ($0) => { Module['suspended'] = $0; },  
- 5255238: ($0) => { const year = 2020 + (($0 >> 26) & 0x3f); const month = ($0 >> 22) & 0xf; const day = ($0 >> 17) & 0x1f; const hour = ($0 >> 12) & 0x1f; const minute = ($0 >> 6) & 0x3f; const second = $0 & 0x3f; const date = new Date(year, month - 1, day, hour, minute, second); return date - Date.now(); },  
- 5255530: ($0) => { const date = new Date(Date.now() + $0); return date.getSeconds() | (date.getMinutes() << 6) | (date.getHours() << 12) | (date.getDate() << 17) | ((date.getMonth() + 1) << 22) | ((date.getFullYear() - 2020) << 26); },  
- 5255748: ($0, $1, $2) => { const now = Date.now(); const date = new Date(now + $0); const hour = ($1 >> 12) & 0x1f; const minute = ($1 >> 6) & 0x3f; const second = $1 & 0x3f; if ($2 == 1) { if (second < date.getSeconds()) date.setMinutes(date.getMinutes() + 1); date.setSeconds(second); } else if ($2 == 2) { if (second < date.getSeconds()) date.setMinutes(date.getMinutes() + 1); if (minute < date.getMinutes()) date.setHours(date.getHours() + 1); date.setMinutes(minute, second); } else if ($2 == 3) { if (second < date.getSeconds()) date.setMinutes(date.getMinutes() + 1); if (minute < date.getMinutes()) date.setHours(date.getHours() + 1); if (hour < date.getHours()) date.setDate(date.getDate() + 1); date.setHours(hour, minute, second); } else { throw 'Invalid alarm match mask'; } return date - now; },  
- 5256532: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 1); },  
- 5256650: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 0); },  
- 5256768: () => { document.querySelectorAll("[data-com][data-seg]") .forEach((e) => e.style.opacity = 0); },  
- 5256860: ($0, $1) => { const classList = document.querySelector('#btn' + $0).classList; const highlight = 'highlight'; $1 ? classList.add(highlight) : classList.remove(highlight); },  
- 5257021: ($0, $1) => { document.getElementById('light').style.opacity = $1 / 255; },  
- 5257084: () => { Module['audioContext'] = new (window.AudioContext || window.webkitAudioContext)(); },  
- 5257171: () => { if (Module['audioContext']) { Module['audioContext'].close(); Module['audioContext'] = null; } },  
- 5257270: ($0) => { const audioContext = Module['audioContext']; if (!audioContext) return; if (!(audioContext._oscillator && audioContext._gain)) { const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain(); oscillator.type = 'triangle'; oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(0); audioContext._oscillator = oscillator; audioContext._gain = gain; } audioContext._oscillator.frequency.value = 1e6/$0; audioContext._gain.gain.value = 1; },  
- 5257766: () => { const audioContext = Module['audioContext']; if (audioContext && audioContext._gain) { audioContext._gain.gain.value = 0; } },  
- 5257894: () => { return -new Date().getTimezoneOffset(); },  
- 5257938: () => { var len = lengthBytesUTF8(tx) + 1; var s = _malloc(len); stringToUTF8(tx, s, len); return s; },  
- 5258035: () => { tx = ""; },  
- 5258048: () => { return lat; },  
- 5258064: () => { return lon; }
+  5255224: () => { return Module['suspended']; },  
+ 5255256: ($0) => { Module['suspended'] = $0; },  
+ 5255286: ($0) => { const year = 2020 + (($0 >> 26) & 0x3f); const month = ($0 >> 22) & 0xf; const day = ($0 >> 17) & 0x1f; const hour = ($0 >> 12) & 0x1f; const minute = ($0 >> 6) & 0x3f; const second = $0 & 0x3f; const date = new Date(year, month - 1, day, hour, minute, second); return date - Date.now(); },  
+ 5255578: ($0) => { const date = new Date(Date.now() + $0); return date.getSeconds() | (date.getMinutes() << 6) | (date.getHours() << 12) | (date.getDate() << 17) | ((date.getMonth() + 1) << 22) | ((date.getFullYear() - 2020) << 26); },  
+ 5255796: ($0, $1, $2) => { const now = Date.now(); const date = new Date(now + $0); const hour = ($1 >> 12) & 0x1f; const minute = ($1 >> 6) & 0x3f; const second = $1 & 0x3f; if ($2 == 1) { if (second < date.getSeconds()) date.setMinutes(date.getMinutes() + 1); date.setSeconds(second); } else if ($2 == 2) { if (second < date.getSeconds()) date.setMinutes(date.getMinutes() + 1); if (minute < date.getMinutes()) date.setHours(date.getHours() + 1); date.setMinutes(minute, second); } else if ($2 == 3) { if (second < date.getSeconds()) date.setMinutes(date.getMinutes() + 1); if (minute < date.getMinutes()) date.setHours(date.getHours() + 1); if (hour < date.getHours()) date.setDate(date.getDate() + 1); date.setHours(hour, minute, second); } else { throw 'Invalid alarm match mask'; } return date - now; },  
+ 5256580: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 1); },  
+ 5256698: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 0); },  
+ 5256816: () => { document.querySelectorAll("[data-com][data-seg]") .forEach((e) => e.style.opacity = 0); },  
+ 5256908: ($0, $1) => { const classList = document.querySelector('#btn' + $0).classList; const highlight = 'highlight'; $1 ? classList.add(highlight) : classList.remove(highlight); },  
+ 5257069: ($0, $1) => { let filter = document.getElementById("ledcolor"); let color_matrix = filter.children[0].values.baseVal; color_matrix[1].value = $0 / 255; color_matrix[6].value = $1 / 255; document.getElementById('light').style.opacity = Math.min(255, $0 + $1) / 255; },  
+ 5257324: () => { Module['audioContext'] = new (window.AudioContext || window.webkitAudioContext)(); },  
+ 5257411: () => { if (Module['audioContext']) { Module['audioContext'].close(); Module['audioContext'] = null; } },  
+ 5257510: ($0) => { const audioContext = Module['audioContext']; if (!audioContext) return; if (!(audioContext._oscillator && audioContext._gain)) { const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain(); oscillator.type = 'triangle'; oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(0); audioContext._oscillator = oscillator; audioContext._gain = gain; } audioContext._oscillator.frequency.value = 1e6/$0; audioContext._gain.gain.value = 1; },  
+ 5258006: () => { const audioContext = Module['audioContext']; if (audioContext && audioContext._gain) { audioContext._gain.gain.value = 0; } },  
+ 5258134: () => { return -new Date().getTimezoneOffset(); },  
+ 5258178: () => { var len = lengthBytesUTF8(tx) + 1; var s = _malloc(len); stringToUTF8(tx, s, len); return s; },  
+ 5258275: () => { tx = ""; },  
+ 5258288: () => { return lat; },  
+ 5258304: () => { return lon; }
 };
 
 

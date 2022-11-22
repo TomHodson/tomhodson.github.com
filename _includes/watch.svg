@@ -69,6 +69,15 @@
          stop-opacity="0"
          id="stop1412" />
     </radialGradient>
+
+   <filter id="ledcolor">
+   <feColorMatrix in="SourceGraphic" type="matrix"
+                  values=" 0      0      0      0 0
+                           0      1      0      0 0 
+                           0      0      0      0 0 
+                           0      0      0      1 0  "/>
+
+   </filter>
   </defs>
   <g
      id="Calque"
@@ -152,6 +161,7 @@
            height="334"
            rx="34.68"
            style="fill:url(#D%C3%A9grad%C3%A9_sans_nom_3)"
+           filter="url(#ledcolor)"
            id="rect1433" />
       </g>
     </g>

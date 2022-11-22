@@ -58,7 +58,7 @@ Which I can update by re-running emmake and copying over watch.js and watch.wasm
 <!-- change display from none to inline to see the debug output -->
 <textarea id="output" rows="8" style="width: 100%; display: none;"></textarea>
 <figcaption>
-Click the buttons to interact with my watch firmware!
+Click the buttons to interact with my custom watch firmware! The mode button (bottom left) cycles though different watch faces, the right button is the primary mode of interaction but the light button can also provide additional options. 
 </figcaption>
 </figure>
 <script async type="text/javascript" src="/assets/blog/SensorWatch/emulator.js"></script>
@@ -71,10 +71,10 @@ Click the buttons to interact with my watch firmware!
 <br> -->
 
 # Customising the firmware
-TODO 
+I noticed that there wasn't support for simulating the bicolor red/green led on the sensorwatch board so I made a [quick PR](https://github.com/joeycastillo/Sensor-Watch/pull/141) to fix that. Next I want to try adding my own new watch face.
 
 # Doing the board swap
-TODO  
+I have yet to do this!  
 
 
 
