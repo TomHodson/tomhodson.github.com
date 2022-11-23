@@ -1,5 +1,5 @@
 ---
-title: How to animate Inkscape SVGs with d3
+title: How to Animate Inkscape SVGs with d3
 excerpt: In which a simple thing turns out to be surprisingly in-depth!
 layout: post
 image: /assets/extracted_from_ipynb/452af1f7-a8e3-4b32-b6d2-720c31f27af3.png

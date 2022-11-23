@@ -9,4 +9,4 @@ You probably want to run ruby from a version manager like `chruby`, see [here](h
   - figure out how to integrate a jupyter notebook
 
 ## Notes
-Use `bundle exec jekyll serve` to do local development of this site
+Use `bundle exec jekyll serve --draft --future` to do local development of this site
