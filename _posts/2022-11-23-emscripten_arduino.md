@@ -8,7 +8,7 @@ In [another post](/2022/11/22/sensor_watch.html) I talked about the [Sensor Watc
 
 In the end we'll end up with this:
 <figure>
-{% flexible_include assets/blog/emscripten_arduino/arduino.svg do_not_escape %}
+{% include arduino.svg %}
 Serial Console
 <textarea class="emscripten" id="output" rows="8" style="width: 80%; display: block; margin: 1em;"></textarea>
 <figcaption>
