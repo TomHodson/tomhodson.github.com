@@ -19,10 +19,12 @@ collections:
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
+  - flexible_include
 
 whitelist:
   - jekyll-feed
   - jekyll-redirect-from
+  - flexible_include
 
 feed:
   posts_limit: 20

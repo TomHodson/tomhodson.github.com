@@ -13,11 +13,12 @@ figure {
     // border-top: solid #222 1px;
     // padding-top: 1em;
 }
-figure img {
+figure img,svg {
     max-width: 900px;
-    width: 100%;
+    width: 80%;
     margin-bottom: 2em;
 }
+
 figcaption {
     aria-hidden: true;
     max-width: 700px;
