@@ -76,6 +76,10 @@ a:hover {
     text-decoration: underline;
 }
 
+div.highlight {
+    max-width: 100%;
+    overflow: auto;
+}
 
 .figure {
     max-width: 400px;
