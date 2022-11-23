@@ -4,9 +4,22 @@ layout: post
 image: /assets/blog/emscripten_arduino/arduino.svg
 ---
 
-In [another post](/2022/11/22/sensor_watch.html) I talked about the [Sensor Watch](https://www.oddlyspecificobjects.com/products/sensorwatch/) project which has this nifty JS simulation for testing the firmware. This saves you having to dissasemble the watch every time you want to test a change to the firmware so makes the develop/test loop much faster. Here I'll go through a toy example of how that works.
+In [another post](/2022/11/22/sensor_watch.html) I talked about the [Sensor Watch](https://www.oddlyspecificobjects.com/products/sensorwatch/) project which has this nifty JS simulation for testing the firmware. This saves you having to dissasemble the watch every time you want to test a change to the firmware so makes the develop/test loop much faster. Here I'll go through a toy example of how that works. 
 
-If you're working on a project where much of the work consists of configuring the hardware correctly then the effort of making a simulation like this is probably not worth it. For projects like the sensor watch, however, where the inputs and outputs are pretty much fixed while lots of people will want to modify the software it makes a lot of sense.
+In the end we'll end up with this:
+<figure>
+{% flexible_include assets/blog/emscripten_arduino/arduino.svg do_not_escape %}
+Serial Console
+<textarea class="emscripten" id="output" rows="8" style="width: 80%; display: block; margin: 1em;"></textarea>
+<figcaption>
+The finished arduino simulation.
+</figcaption>
+</figure>
+
+<script async type="text/javascript" src="/assets/blog/emscripten_arduino/loader.js"></script>
+<script async type="text/javascript" src="/assets/blog/emscripten_arduino/main.js"></script>
+
+We could easily add buttons, extra inputs and outputs etc. If you're working on a project where much of the work consists of configuring the hardware correctly then the effort of making a simulation like this is probably not worth it. For projects like the sensor watch, however, where the inputs and outputs are pretty much fixed while lots of people will want to modify the software it makes a lot of sense.
 
 The sensor watch project has a firmware with a clearly defined interface and the trick is that you swap out the implementation of this interface between the real hardware and the simulation. I wanted to get a better understanding of this so I thought I'd so a super simple version myself, let's do that classic arduino project... blinky! 
 
@@ -122,20 +135,7 @@ The finished arduino simulation.
 <script async type="text/javascript" src="main.js"></script>
 ```
 
-And that gives us the final result:
-<figure>
-{% flexible_include assets/blog/emscripten_arduino/arduino.svg do_not_escape %}
-Serial Console
-<textarea class="emscripten" id="output" rows="8" style="width: 80%; display: block; margin: 1em;"></textarea>
-<figcaption>
-The finished arduino simulation.
-</figcaption>
-</figure>
-
-<script async type="text/javascript" src="/assets/blog/emscripten_arduino/loader.js"></script>
-<script async type="text/javascript" src="/assets/blog/emscripten_arduino/main.js"></script>
-
-
+And that gives us the final result. I've put all the files in [this repository](https://github.com/TomHodson/arduino-emscripten).
 
 [^1]: For a real project it'd be nice to integrate emscripten with a makefile that can compile for real hardware [this one](https://github.com/sudar/Arduino-Makefile)
 
