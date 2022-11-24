@@ -1242,16 +1242,16 @@ var ASM_CONSTS = {
  5256698: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 0); },  
  5256816: () => { document.querySelectorAll("[data-com][data-seg]") .forEach((e) => e.style.opacity = 0); },  
  5256908: ($0, $1) => { const classList = document.querySelector('#btn' + $0).classList; const highlight = 'highlight'; $1 ? classList.add(highlight) : classList.remove(highlight); },  
- 5257069: ($0, $1) => { let filter = document.getElementById("ledcolor"); let color_matrix = filter.children[0].values.baseVal; color_matrix[1].value = $0 / 255; color_matrix[6].value = $1 / 255; document.getElementById('light').style.opacity = Math.min(255, $0 + $1) / 255; },  
- 5257324: () => { Module['audioContext'] = new (window.AudioContext || window.webkitAudioContext)(); },  
- 5257411: () => { if (Module['audioContext']) { Module['audioContext'].close(); Module['audioContext'] = null; } },  
- 5257510: ($0) => { const audioContext = Module['audioContext']; if (!audioContext) return; if (!(audioContext._oscillator && audioContext._gain)) { const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain(); oscillator.type = 'triangle'; oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(0); audioContext._oscillator = oscillator; audioContext._gain = gain; } audioContext._oscillator.frequency.value = 1e6/$0; audioContext._gain.gain.value = 1; },  
- 5258006: () => { const audioContext = Module['audioContext']; if (audioContext && audioContext._gain) { audioContext._gain.gain.value = 0; } },  
- 5258134: () => { return -new Date().getTimezoneOffset(); },  
- 5258178: () => { var len = lengthBytesUTF8(tx) + 1; var s = _malloc(len); stringToUTF8(tx, s, len); return s; },  
- 5258275: () => { tx = ""; },  
- 5258288: () => { return lat; },  
- 5258304: () => { return lon; }
+ 5257069: ($0, $1) => { document.getElementById('red_light').style.opacity = $0 / 255; document.getElementById('green_light').style.opacity = $1 / 255; document.getElementById('blue_light').style.opacity = 0 / 255; },  
+ 5257264: () => { Module['audioContext'] = new (window.AudioContext || window.webkitAudioContext)(); },  
+ 5257351: () => { if (Module['audioContext']) { Module['audioContext'].close(); Module['audioContext'] = null; } },  
+ 5257450: ($0) => { const audioContext = Module['audioContext']; if (!audioContext) return; if (!(audioContext._oscillator && audioContext._gain)) { const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain(); oscillator.type = 'triangle'; oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(0); audioContext._oscillator = oscillator; audioContext._gain = gain; } audioContext._oscillator.frequency.value = 1e6/$0; audioContext._gain.gain.value = 1; },  
+ 5257946: () => { const audioContext = Module['audioContext']; if (audioContext && audioContext._gain) { audioContext._gain.gain.value = 0; } },  
+ 5258074: () => { return -new Date().getTimezoneOffset(); },  
+ 5258118: () => { var len = lengthBytesUTF8(tx) + 1; var s = _malloc(len); stringToUTF8(tx, s, len); return s; },  
+ 5258215: () => { tx = ""; },  
+ 5258228: () => { return lat; },  
+ 5258244: () => { return lon; }
 };
 
 

@@ -22,10 +22,10 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="0.78337147"
-     inkscape:cx="141.05696"
+     inkscape:cx="123.18549"
      inkscape:cy="-38.934275"
      inkscape:window-width="1390"
-     inkscape:window-height="1205"
+     inkscape:window-height="847"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
@@ -33,8 +33,8 @@
   <defs
      id="defs1415">
     <radialGradient
-       id="Dégradé_sans_nom_3"
-       data-name="Dégradé sans nom 3"
+       id="red_gradient"
+       data-name="red_gradient"
        cx="635"
        cy="687"
        fx="260.17514"
@@ -43,41 +43,116 @@
       <stop
          offset="0.28"
          stop-color="lime"
-         id="stop1402" />
+         id="stop1402"
+         style="stop-color:#ff0000;stop-opacity:1;" />
       <stop
-         offset="0.46"
+         offset="0.46000001"
          stop-color="#00b200"
          stop-opacity="0.7"
-         id="stop1404" />
+         id="stop1404"
+         style="stop-color:#b20000;stop-opacity:0.69999999;" />
       <stop
-         offset="0.65"
+         offset="0.64999998"
          stop-color="#006700"
          stop-opacity="0.4"
-         id="stop1406" />
+         id="stop1406"
+         style="stop-color:#660000;stop-opacity:0.40000001;" />
       <stop
-         offset="0.82"
+         offset="0.81999999"
          stop-color="#002f00"
          stop-opacity="0.19"
-         id="stop1408" />
+         id="stop1408"
+         style="stop-color:#2f0000;stop-opacity:0.18999998;" />
       <stop
          offset="0.94"
          stop-color="#000d00"
          stop-opacity="0.05"
-         id="stop1410" />
+         id="stop1410"
+         style="stop-color:#0d0000;stop-opacity:0.05;" />
       <stop
          offset="1"
          stop-opacity="0"
          id="stop1412" />
     </radialGradient>
-
-   <filter id="ledcolor">
-   <feColorMatrix in="SourceGraphic" type="matrix"
-                  values=" 0      0      0      0 0
-                           0      1      0      0 0 
-                           0      0      0      0 0 
-                           0      0      0      1 0  "/>
-
-   </filter>
+    <radialGradient
+       id="green_gradient"
+       data-name="green_gradient"
+       cx="635"
+       cy="687"
+       fx="260.17514"
+       r="374.82999"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0.28"
+         stop-color="lime"
+         id="stop1333" />
+      <stop
+         offset="0.46"
+         stop-color="#00b200"
+         stop-opacity="0.7"
+         id="stop1335" />
+      <stop
+         offset="0.65"
+         stop-color="#006700"
+         stop-opacity="0.4"
+         id="stop1337" />
+      <stop
+         offset="0.82"
+         stop-color="#002f00"
+         stop-opacity="0.19"
+         id="stop1339" />
+      <stop
+         offset="0.94"
+         stop-color="#000d00"
+         stop-opacity="0.05"
+         id="stop1341" />
+      <stop
+         offset="1"
+         stop-opacity="0"
+         id="stop1343" />
+    </radialGradient>
+    <radialGradient
+       id="blue_gradient"
+       data-name="blue_gradient"
+       cx="635"
+       cy="687"
+       fx="260.17514"
+       r="374.82999"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0.28"
+         stop-color="lime"
+         id="stop1346"
+         style="stop-color:#0000ff;stop-opacity:1;" />
+      <stop
+         offset="0.46000001"
+         stop-color="#00b200"
+         stop-opacity="0.7"
+         id="stop1348"
+         style="stop-color:#0000b2;stop-opacity:0.69999999;" />
+      <stop
+         offset="0.64999998"
+         stop-color="#006700"
+         stop-opacity="0.4"
+         id="stop1350"
+         style="stop-color:#000067;stop-opacity:0.40000001;" />
+      <stop
+         offset="0.81999999"
+         stop-color="#002f00"
+         stop-opacity="0.19"
+         id="stop1352"
+         style="stop-color:#00002f;stop-opacity:0.18999998;" />
+      <stop
+         offset="0.94"
+         stop-color="#000d00"
+         stop-opacity="0.05"
+         id="stop1354"
+         style="stop-color:#00000d;stop-opacity:0.05;" />
+      <stop
+         offset="1"
+         stop-opacity="0"
+         id="stop1356" />
+    </radialGradient>
   </defs>
   <g
      id="Calque"
@@ -152,7 +227,7 @@
            id="rect1430" />
       </g>
       <g
-         id="light"
+         id="red_light"
          style="opacity:0">
         <rect
            x="293.5"
@@ -160,9 +235,32 @@
            width="683"
            height="334"
            rx="34.68"
-           style="fill:url(#D%C3%A9grad%C3%A9_sans_nom_3)"
-           filter="url(#ledcolor)"
+           style="fill:url(#red_gradient)"
            id="rect1433" />
+      </g>
+      <g
+         id="green_light"
+         style="opacity:0">
+        <rect
+           x="293.5"
+           y="520"
+           width="683"
+           height="334"
+           rx="34.68"
+           style="fill:url(#green_gradient)"
+           id="rect1375" />
+      </g>
+      <g
+         id="blue_light"
+         style="opacity:0">
+        <rect
+           x="293.5"
+           y="520"
+           width="683"
+           height="334"
+           rx="34.68"
+           style="fill:url(#blue_gradient)"
+           id="rect1378" />
       </g>
     </g>
     <g
