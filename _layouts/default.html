@@ -8,6 +8,18 @@
     <meta name="description" content="Tom Hodson's personal site.">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <script src="/assets/js/index.js"></script>
+
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+      </script>
+    <script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
     
     <!-- RSS feed -->
     {% feed_meta %}
