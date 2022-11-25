@@ -6,3 +6,27 @@ nav {
 .current {
     color: darkslategray;
   }
+
+
+nav.page-table-of-contents {
+    white-space: nowrap;
+    li li {padding-right: 2em;}
+}
+
+
+@media 
+    only screen and (max-width: $horizontal_breakpoint),
+    only screen and (max-height: $vertical_breakpoint)
+    {  
+    nav.page-table-of-contents {
+        white-space: normal;
+        justify-content: left;
+        text-align: left;
+        ul {padding-left: 0em;}
+        li li {
+            padding-right: 0em;
+            padding-left: 2em;
+        }
+        
+    }
+}
