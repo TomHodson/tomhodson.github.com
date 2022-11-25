@@ -3,6 +3,7 @@ title:  Rendering General Relativity
 layout: post
 image: /assets/images/spinning_earth.gif
 alt: A spinning image of the earth but distorted as if it were a black hole.
+permalink: /blog/rendering_general_relativity
 ---
 I wrote this jupyter notebook for a python course at Imperial, it's based on <https://rantonels.github.io/starless/>
 
