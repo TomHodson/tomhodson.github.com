@@ -19,6 +19,17 @@ Then you can use `identify` to check that the metadata of the output is indeed 1
 identify LOGOIN.BMP
 ```
 
-![Designing my custom bootscreen in an Ipad app](/assets/blog/TS100/pixels.jpeg)
+<figure>
+<img src = "/assets/blog/TS100/pixels.jpeg">
+<figcaption>
+Designing my custom bootscreen in an Ipad app
+</figcaption>
+</figure>
 
-![What it looks like on the iron](/assets/blog/TS100/real.jpeg)
+
+<figure>
+<img src = "/assets/blog/TS100/real.jpeg">
+<figcaption>
+What it looks like on the iron.
+</figcaption>
+</figure>
