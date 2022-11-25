@@ -52,6 +52,14 @@ main {
     h1 {
         font-size: 2em;
     }
+    p > img {
+        width: 90%;
+
+        //hack to center images in p tags
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* increase line-height for everything except headings */
