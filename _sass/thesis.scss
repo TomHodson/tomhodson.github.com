@@ -6,6 +6,8 @@ figure {
     align-items: center;
     margin-inline-start: 0em;
     margin-inline-end: 0em;
+    
+    max-width: 900px;
 
     // border-bottom: solid #222 1px;
     padding-bottom: 1em;
@@ -14,7 +16,6 @@ figure {
     // padding-top: 1em;
 }
 figure > img, figure > svg {
-    max-width: 900px;
     width: 90% !important;
     margin-bottom: 2em;
 }
@@ -22,9 +23,7 @@ figure > img, figure > svg {
 figcaption {
     // font-style: italic;
     // font-size: 0.9em;
-    aria-hidden: true;
-    max-width: 700px;
-    width: 90%;
+    max-width: 90%;
 }
 
 // For the table of contents, should probably put this in a container
@@ -117,7 +116,7 @@ div#page-header {
 
     //make the figures go to 100% and use italics to denote the figure captions
     figure > img, figure > svg {
-        width: 100%;
+        width: 100% !important;
     }
     
     figcaption {
