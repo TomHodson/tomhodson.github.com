@@ -1,10 +1,12 @@
 @import "vars";
+@import "normalise"; // normalise CSS across browsers
 
-@import "nav";
-@import "header";
-@import "article";
-@import "cv";
-@import "thesis";
+@import "nav"; //the side navbar
+@import "header"; // the header
+@import "article"; // individual blog articles
+@import "cv"; // the CV page
+@import "thesis"; // the thesis content
+@import "blogroll"; // the summaries of the blogposts
 
 // The syntax highlighting css
 // generated with rougify style bw > code_style_bw.scss
