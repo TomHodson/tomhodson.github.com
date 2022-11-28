@@ -4,9 +4,8 @@ Generates my personal website. I copied (rather than forked to preserve previous
 You probably want to run ruby from a version manager like `chruby`, see [here](https://jekyllrb.com/docs/installation/macos/).
 
 ## Todo
-  - add CMTH talks
+  - add humans.txt https://humanstxt.org/
   - fix the OG tags so that https://cards-dev.twitter.com/validator works
-  - figure out how to integrate a jupyter notebook
 
 ## Notes
 Use `bundle exec jekyll serve --draft --future` to do local development of this site

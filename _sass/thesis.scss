@@ -122,7 +122,7 @@ div#page-header {
 
     //make the figures go to 100% and use italics to denote the figure captions
     figure > img, figure > svg {
-        width: 100% !important;
+        max-width: 100% !important;
     }
     
     figcaption {
