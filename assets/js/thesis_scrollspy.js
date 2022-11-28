@@ -79,7 +79,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	if(schematic !== null) {
 		d3.xml(schematic.getAttribute('src'))
 			.then(data => {
-				console.log("got data");
 				const svg = data.documentElement;
 				svg.setAttribute('width', '100%');
 				svg.setAttribute('height', 'auto');
