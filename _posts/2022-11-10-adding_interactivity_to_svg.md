@@ -5,30 +5,34 @@ layout: post
 image: /assets/extracted_from_ipynb/452af1f7-a8e3-4b32-b6d2-720c31f27af3.png
 ---
 
-So I'm writing my thesis and I want it to have a nice HTML version in addition to the mandatory-in-my-field latex PDF version. I've done some of the diagrams in SVG using Inkscape which is a nice tool for this kind of thing.
+I wanted my thesis to have a nice HTML version in addition to the mandatory-in-my-field latex/PDF version. Having a HTML version also means I can experiment with a bit of interactivity. I've done some of the diagrams in SVG using Inkscape which is a nice tool for this kind of thing. I wanted to add some interactivity as an easter egg to the SVGs in the HTML version.
 
-So how hard can it be? Turns out quite hard...
+How hard could that be? It turns out harder than I expected!
 
 ## On changing web standards
 
-**Disclaimer:** The web is an evolving thing, depending on when you read this some of what I saw here may already be out of date, or be partially fixed on some browsers some of the. This is your reminder to check the date of this post before trying to copy anything in here.
+**Disclaimer:** The web is an evolving thing. Depending on when you read this some of what I saw here may already be out of date, or the workarounds needed might be fixed on some browsers. This is your reminder to check the date of this post before trying to copy anything in here, something I forget to do often.
 
-The first hurdle is how you embed your SVG files in your HTML. For thesis I have been using `img` tags inside `figure` tags like this
+The first hurdle is how you embed your SVG files in your HTML. For HTML version of the thesis I've been using `img` tags inside `figure` tags like this
 
 ```html
 <figure>
-<img src="/path/to/image.svg" />
-<figcaption aria-hidden="true">
+<img src="/path/to/image.svg"/>
+<figcaption>
 Figure 3: Caption goes here!
 </figcaption>
 </figure>
 ```
 
-Sadly it turns out that, while this works, it won't work for interactivity with js. This is because when the browser see an svg inside essentially the browser renders the svg as a static image and displays it. This also means you can't select the text or other elements in the svg even though you should be able to!
+I like this setup. It uses semantic HTML tags which give useful hints to screen readers about how to interpret this content non-visually. The problem here is the `img` tag. Embedding SVGs this way will display them nicely but the SVG elements won't be available to an JS running on the page. This is because when the browser sees an SVG loaded through an `img` and renders it as a static image. This also means you can't select the text or other elements in the SVG!
 
-So what's the alternative? Well if you google how to embed svgs you'll see that you have a few options: `object` tags, `svg` tags, `iframe` tags etc. I had a play around with a few of these options but because I am generating my HTML from markdown via pandoc, it's a little tricky to use entirely custom HTML.
+So what's the alternative? Well if you google how to embed svgs you'll see that you have a few options: `object` tags, `svg` tags, `iframe` tags etc. I had a play around with a few of these options but because I am generating my HTML from markdown via pandoc, it's a little tricky to use entirely custom HTML. The best option for interactivity seems to be embedd the svg directly into the HTML in an `svg` tag. I don't like this so much because it fills my nice HTML files up with hundreds of lines of SVG and means it's not so easy to edit them in inkscape with a tedious copy paste step. 
 
-So I instead chose to stick with the `img` tags but use some js to dynamically replace them with `svg` tags when I wanted to add interactivity. So I use query for the image I want, use `d3.xml` to download the content of the `src` attribute, and then replace the `img` with the constructed `svg` tag.
+In other pages on this blog I solved this using Jekyll. Jekyll is a static site generator and it's easy to tell it to take the contents of a file like `myimage.svg` and dump the contents into the HTML at compile time.
+
+For the thesis however I'm using pandoc and targeting both HTML and latex. In principle I could have written a pandoc filter to replace `img` tags that link to `.svg` files with raw SVG but I didn't want to add any more complexity to that build system just for a small easter egg. I didn't even need to do this for all teh SVGs, just the ones I wanted to add interactivity too.
+
+Instead I chose to stick with the `img` tags but use some JS to dynamically replace them with `svg` tags when I wanted to add interactivity. I query for the image I want, use `d3.xml` to download the content of the `src` attribute, and then replace the `img` with the constructed `svg` tag.
 
 ``` js
 //grab the img tag containing our target svg
@@ -46,15 +50,13 @@ if(img !== null) {
 }
 ```
 
-it would probably be better if I could just make pandoc replace the `img` tags with `svg` tags statically, but reader, I couldn't make it work.
-
 My target image looks like this ![image.png](/assets/extracted_from_ipynb/452af1f7-a8e3-4b32-b6d2-720c31f27af3.png)
 
 This diagram represents a model of a quantum system of *spins* and *fermions*. The spins are the little arrows which can either be up or down and the fermions are the little circles which can either be filled or unfilled. I want to make both of them switch states when you click them.
 
 ## Fermions
 
-First we need a way to select the fermions with d3, this is where the xml editor in inkscape comes in. With Edit \> XML Editor you can add attributes to any svg element using the little "+" icon. I used this to add "class : fermion" to each of the fermion circles.
+First we need a way to select the fermions with d3, this is where the xml editor in inkscape comes in. With `Edit \> XML Editor` you can add attributes to any SVG element using the little "+" icon. I used this to add "class : fermion" to each of the fermion circles.
 
 ![image.png](/assets/extracted_from_ipynb/aa48390c-ea11-4066-a9b8-67081acdbeac.png)
 
@@ -74,9 +76,9 @@ The trick here is that in d3 you can set attributes with a function and use `d3.
 
 # Spins
 
-Same deal for this spins, add a "class: spin" to them all using the XML editor.
+Same deal for the spins, add a `class: spin` to them all using the XML editor.
 
-I had originally wanted them to rotate, but as far as I can tell this would require finding the geometric centre of each spin to rotate and that seems more trouble than it's worth. I had a go with "transform-origin: centre" but didn't get it to work.
+I had originally wanted them to animate a nice rotation, but I couldn't find an eay way to compute the geometric centre of each spin to rotate about. I had a go with `transform-origin: centre` but couldn't get it to work.
 
 So I use a different hack, I switched when end of the line the arrow head is on:
 
@@ -97,6 +99,16 @@ spins.on("click", function() {
 }, true)
 ```
 
-After this, I could make the spins flip but only if I clicked in a very tiny area near each spin, turns out the default was svg elements determine if you've clicked on them is a bit conservative, `spins.attr("pointer-events", "all");` fixes this.
+After this, I could make the spins flip but only if I clicked in a very tiny area near each spin. It turns out that this is because the default way for SVG elements to determine if you've clicked on them is a bit conservative. Adding `spins.attr("pointer-events", "all");` fixes this. 
 
-And there we have it! Check out [the introduction of my thesis](/thesis/1_Introduction/1_Intro.html) to try it out.
+Finally we end up with this:
+
+<script src="/assets/js/thesis_scrollspy.js" defer></script>
+<script src="https://d3js.org/d3.v5.min.js" defer></script>
+
+<figure>
+<img src="/assets/thesis/intro_chapter/fk_schematic.svg" id="fig-fk_schematic" data-short-caption="Falicov-Kimball Model Diagram" style="width:100.0%" alt="Figure 3: The Falicov-Kimball model can be viewed as a model of classical spins S_i coupled to spinless fermions \hat{c}_i where the fermions are mobile with hopping t and the fermions are coupled to the spins by an Ising type interaction with strength U." />
+<figcaption aria-hidden="true">Figure 3: The Falicov-Kimball model can be viewed as a model of classical spins <span class="math inline">\(S_i\)</span> coupled to spinless fermions <span class="math inline">\(\hat{c}_i\)</span> where the fermions are mobile with hopping <span class="math inline">\(t\)</span> and the fermions are coupled to the spins by an Ising type interaction with strength <span class="math inline">\(U\)</span>.</figcaption>
+</figure>
+
+You can also see it in context in [the introduction to my thesis](/thesis/1_Introduction/1_Intro.html).
