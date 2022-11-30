@@ -1,12 +1,15 @@
 ---
 layout: default
 title: "Interacting Quantum Many-Body Systems I have known and Loved"
+excerpt: This is a short talk I'll give just ahead of my viva to mark the end of my PhD. It will be hybrid in-person/online.
 collection: talks
 type: "Talk"
 permalink: /talks/viva
 venue: "Imperial College London"
 date: 2022-01-02
 location: "Huxley 711c"
+image: /assets/images/event_card_3.png
+alt: An image showing the event information but with graphical flourishes
 ---
 
 # Interacting Quantum Many-Body Systems I have known and Loved
