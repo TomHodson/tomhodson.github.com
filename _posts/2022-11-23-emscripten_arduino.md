@@ -2,6 +2,7 @@
 title:  Using emscripten to simulate an arduino project
 layout: post
 image: /assets/blog/emscripten_arduino/arduino.svg
+alt: A rendered image of a breadboard with an LED and resistor wired up in series to an arduino.
 ---
 
 In [another post](/2022/11/22/sensor_watch.html) I talked about the [Sensor Watch](https://www.oddlyspecificobjects.com/products/sensorwatch/) project which has this nifty JS simulation for testing the firmware. This saves you having to dissasemble the watch every time you want to test a change to the firmware so makes the develop/test loop much faster. Here I'll go through a toy example of how that works. 

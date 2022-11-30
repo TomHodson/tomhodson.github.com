@@ -1,8 +1,8 @@
 ---
 title:  Making a custom bootscreen for your TS100 Soldering Iron
-date: 2022-02-02
 layout: post
 image: /assets/blog/TS100/real.jpeg
+alt: An image of a TS100 soldering iron showing a custom bootscreen that says 'solder boy'.
 ---
 
 

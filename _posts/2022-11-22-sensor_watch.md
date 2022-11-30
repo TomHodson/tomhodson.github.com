@@ -2,6 +2,7 @@
 title:  Sensor Watch
 layout: post
 image: /assets/blog/SensorWatch/watch.svg
+alt: A simple vector image of a classic casio watch.
 ---
 
 A while ago I backed a crowdsupply project called [Sensor Watch](https://www.oddlyspecificobjects.com/products/sensorwatch/). It's a replacement logic board for those classic Casio watches that you probably don't know the name of but have certainly seen around. This post goes through the process of getting the board swapped out and programming custom firmware on it. I also went opted for the [temperature sensor addon board](https://www.sensorwatch.net/docs/sensorboards/).
