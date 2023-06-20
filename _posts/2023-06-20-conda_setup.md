@@ -1,6 +1,6 @@
 ---
-title:  My Jupyter and Conda setup
-date: 2022-02-02
+title:  Jupyter and Conda setup
+date: 2023-06-20
 layout: post
 image:
 ---
