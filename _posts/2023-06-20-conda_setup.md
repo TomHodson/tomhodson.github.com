@@ -5,25 +5,27 @@ layout: post
 image:
 ---
 
-These are my notes to myseld about how to setup my jupyter environments because I always forget
+These are my notes to myself about how to setup jupyter+conda/mamba environments.
 
 ### Use micromamba instead of conda
 Mamba is hugely faster than conda. Use minimamba installed with brew.
 
-Put this in the `~/.condarc` (which mamba obeys):
+Put this in the `~/.condarc` (which mamba obeys too):
 ```yaml
 channel_priority: strict
 channels:
   - conda-forge
 ```
 
-### Jupyter environmnet
-Create a `jupyter_env.yaml` file (so that you can tear it down and rebuild it when everything explodes)
-
-
-Create env from file: `mamba env create -f file.yaml`
+### Useful commands I always forget
+Note I've added `-y` to these commands to skip the confirmation dialog.
+Create env on command line: `mamba create -c conda-forge -n envname python=3.11 other_package ...`
+Create env from file: `mamba env create -y -f file.yaml`
 Remove env by name: `mamba env remove -y -n envname`
 Export only manually installed packages to file: `mamba env export --from-history`
+
+### Jupyter environmnet
+Create a `jupyter_env.yaml` file (so that you can tear it down and rebuild it when everything explodes). Install that.
 
 ```yaml
 name: jupyter
