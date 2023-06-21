@@ -2,7 +2,7 @@
 title:  Jupyter and Conda setup
 date: 2023-06-20
 layout: post
-image:
+image: /assets/blog/mamba/logos.svg
 ---
 
 These are my notes to myself about how to setup jupyter+conda/mamba environments.

@@ -8,4 +8,7 @@ You probably want to run ruby from a version manager like `chruby`, see [here](h
   - fix the OG tags so that https://cards-dev.twitter.com/validator works
 
 ## Notes
+[Installation](https://jekyllrb.com/docs/installation/macos/)
+`bundle install`
+Then
 Use `bundle exec jekyll serve --draft --future` to do local development of this site
