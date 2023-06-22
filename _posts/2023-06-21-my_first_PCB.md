@@ -24,4 +24,16 @@ The 3D render!
 </figcaption>
 </figure>
 
-The boards haven't arrived yet so no photos of the final result.
+<figure>
+<img src="/assets/blog/PCB/real.jpeg"/>
+<figcaption>
+They arrived!
+</figcaption>
+</figure>
+
+<figure>
+<img src="/assets/blog/PCB/breadboard.jpeg"/>
+<figcaption>
+And this is what they're actually for!
+</figcaption>
+</figure>
