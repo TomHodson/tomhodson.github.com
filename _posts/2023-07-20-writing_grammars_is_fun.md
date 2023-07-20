@@ -3,7 +3,7 @@ title: Parsing is fun!
 excerpt: I came across something I wanted to quickly parse that was too niche to find a ready made parser for. Join me on a quick whip tour of writing a grammar for a PEG parser.
 layout: post
 image: /assets/blog/parsing/snippet.png
-alt: 
+alt: A purely illustrative screenshot of a snippet of python code with a little bit of a PEG grammar definition visible.
 ---
 
 Usually when I want to parse something so that I can manipulate it in code, be it JSON, YAML, HTML, XML, whatever, there is a nice existing library to do that for me. The solution is a simple `import json` away. However if the language is a bit more niche, there maybe won't be a good parser for it available or that parser might be missing features. 

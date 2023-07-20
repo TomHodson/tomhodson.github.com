@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    {% include default_head_tags.html%}
+
+    <!-- For styling the interactive code snippets -->
+    <link rel="stylesheet" type="text/css" href="/assets/klipse/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="/assets/klipse/neo.css">
+
+
+    <script>
+      window.klipse_settings = {
+        selector_pyodide: '.language-klipse-python', // css selector for the html elements to be klipsified
+        codemirror_options_in: {
+            theme: "neo",
+    },
+      };
+    </script>
+  </head>
+  <body>
+    {% include header.html %}
+    <main>
+        <h1>{{ page.title }}</h1>
+        <time>{{ page.date | date_to_string }}</time>
+        {{ content }}
+    </main>
+    <script src="/assets/klipse/klipse_plugin.min.js"></script>
+  </body>
+</html>
