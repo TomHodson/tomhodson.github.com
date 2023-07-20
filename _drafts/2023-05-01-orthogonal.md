@@ -1,5 +1,5 @@
 ---
-title: How imaginary universes can help to understand the real one
+title: How Imaginary Universes Can Help us to Understand the Real One
 excerpt: 
 layout: post
 image:
