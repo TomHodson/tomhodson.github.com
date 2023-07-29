@@ -1,7 +1,12 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
-<time>{{ page.date | date_to_string }}</time>
-{{ content }}
+<article class="h-entry">
+    <h1 class = "p-name">{{ page.title }}</h1>
+    <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+    <summary style="display:none" class="p-summary">{{ page.excerpt }}</summary>
+    <div class="e-content">
+    {{ content }}
+    </div>
+</article>
 

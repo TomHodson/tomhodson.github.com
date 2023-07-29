@@ -5,7 +5,6 @@
 
     <!-- For styling the interactive code snippets -->
     <link rel="stylesheet" type="text/css" href="/assets/klipse/codemirror.css">
-    <link rel="stylesheet" type="text/css" href="/assets/klipse/neo.css">
 
 
     <script>
@@ -20,9 +19,14 @@
   <body>
     {% include header.html %}
     <main>
-        <h1>{{ page.title }}</h1>
-        <time>{{ page.date | date_to_string }}</time>
+      <article class="h-entry">
+        <h1 class = "p-name">{{ page.title }}</h1>
+        <time class="dt-published">{{ page.date | date_to_string }}</time>
+        <summary style="display:none" class="p-summary">{{ page.excerpt }}</summary>
+        <div class="e-content">
         {{ content }}
+        </div>
+    </article>
     </main>
     <script src="/assets/klipse/klipse_plugin.min.js"></script>
   </body>
