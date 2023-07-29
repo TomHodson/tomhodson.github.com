@@ -1,15 +1,15 @@
-<header>
-<div class = "h-card profile-pic-name">
-<!-- See https://microformats.org/wiki/h-card for meaning of h-card, u-photo etc -->
+<!-- See https://microformats.org/wiki/h-card for meaning of h-card, u-photo etc classes -->
+<header class = "h-card">
+<div class = "profile-pic-name">
 <img src="/assets/images/avatar.jpeg" class = "u-photo avatar" alt = "A picture of me.">
-<a class="p-name u-url" href="thomashodson.com"><h1> Tom Hodson </h1></a>
+<a class="p-name u-url u-uid" href="https://thomashodson.com"><h1>Tom Hodson</h1></a>
 </div>
-<p>Physicist, Programmer, Maker and Baker
+<p class="p-note">Physicist, Programmer, Maker and Baker
 <p class="professional-links">
-  <a href="https://github.com/TomHodson"><img class="icon" src="/assets/icons/github.svg">GitHub</a>
-  <a href="https://twitter.com/T_Hodson"><img class="icon" src="/assets/icons/twitter.svg"><s>Twitter</s></a>
+  <a class="u-url" rel="me" href="https://github.com/TomHodson"><img class="icon" src="/assets/icons/github.svg">GitHub</a>
+  <a class="u-url" rel="me" href="https://twitter.com/T_Hodson"><img class="icon" src="/assets/icons/twitter.svg"><s>Twitter</s></a>
   <a href="/feed.xml"><img class="icon" src="/assets/icons/rss.svg">RSS</a>
-  <a rel="me" href="https://tech.lgbt/@Tomhodson"><img class="icon" src="/assets/icons/mastodon.svg">Mastodon</a>
+  <a class="u-url" rel="me" href="https://tech.lgbt/@Tomhodson"><img class="icon" src="/assets/icons/mastodon.svg">Mastodon</a>
 </p>
 {% include sidebar.html%}
 
