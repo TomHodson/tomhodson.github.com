@@ -4,6 +4,7 @@ excerpt: I came across something I wanted to quickly parse that was too niche to
 layout: post
 image: /assets/blog/parsing/snippet.png
 alt: A purely illustrative screenshot of a snippet of python code with a little bit of a PEG grammar definition visible.
+commentid: 110746239432993930
 ---
 
 Usually when I want to parse something so that I can manipulate it in code, be it JSON, YAML, HTML, XML, whatever, there is a nice existing library to do that for me. The solution is a simple `import json` away. However if the language is a bit more niche, there maybe won't be a good parser for it available or that parser might be missing features. 
