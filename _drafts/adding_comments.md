@@ -1,0 +1,1 @@
+https://carlschwan.eu/2020/12/29/adding-comments-to-your-static-blog-with-mastodon/

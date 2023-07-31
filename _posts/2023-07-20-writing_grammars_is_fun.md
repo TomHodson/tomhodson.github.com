@@ -1,9 +1,22 @@
 ---
 title: Parsing is fun!
-excerpt: I came across something I wanted to quickly parse that was too niche to find a ready made parser for. Join me on a quick whip tour of writing a grammar for a PEG parser.
+excerpt: |
+    I came across something I wanted to quickly parse that was too niche to find a ready made parser for. Join me on a quick whip tour of writing a grammar for a PEG parser.
+    ```python
+    import pe
+
+    parser = pe.compile(
+        r'''
+        List    <- "[" String ("," Spacing String)* "]"
+        String  <- ~[a-zA-Z]+
+        Spacing <- [\t\n\f\r ]*
+        ''',
+    )
+    parser.match("[a, b, c]").groups()
+
+    >>> ('a', 'b', 'c')
+    ```
 layout: post
-image: /assets/blog/parsing/snippet.png
-alt: A purely illustrative screenshot of a snippet of python code with a little bit of a PEG grammar definition visible.
 commentid: 110746239432993930
 ---
 
