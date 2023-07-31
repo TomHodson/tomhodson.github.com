@@ -137,6 +137,32 @@
 .cm-s-default .cm-error {color: #f00;}
 .cm-invalidchar {color: #f00;}
 
+/* Jupyter theme for codemirror */
+.cm-s-jupyter .cm-keyword {color: #008000;}
+.cm-s-jupyter .cm-atom {color: #88f;}
+.cm-s-jupyter .cm-number {color: #080;}
+.cm-s-jupyter .cm-def {color: #00f;}
+.cm-s-jupyter .cm-variable {color: var(--md-grey-900);}
+.cm-s-jupyter .cm-variable-2 {color: rgb(0, 54, 109);}
+.cm-s-jupyter .cm-variable-3 {color: #085;}
+.cm-s-jupyter .cm-punctuation {color: #05a;}
+.cm-s-jupyter .cm-property {color: #05a;}
+.cm-s-jupyter .cm-operator {color: #a2f;}
+.cm-s-jupyter .cm-comment {color: #408080;}
+.cm-s-jupyter .cm-string {color: #ba2121;}
+.cm-s-jupyter .cm-string-2 {color: #708;}
+.cm-s-jupyter .cm-meta {color: #a2f;}
+.cm-s-jupyter .cm-qualifier {color: #555;}
+.cm-s-jupyter .cm-builtin {color: #008000;}
+.cm-s-jupyter .cm-bracket {color: #997;}
+.cm-s-jupyter .cm-tag {color: #170;}
+.cm-s-jupyter .cm-attribute {color: #00c;}
+.cm-s-jupyter .cm-header {color: blue;}
+.cm-s-jupyter .cm-quote {color: #090;}
+.cm-s-jupyter .cm-link {color: #00c;}
+.cm-s-jupyter .cm-error {color: #f00;}
+.cm-s-jupyter .cm-hr {color: #999;}
+
 /* neo theme for codemirror */
 
 /* Color scheme */
