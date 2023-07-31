@@ -6,6 +6,7 @@
 <title>Tom Hodson - {{ page.title }}</title>
 <meta property="og:title" content="Tom Hodson - {{ page.title }}">
 <meta name="twitter:title" content="Tom Hodson - {{ page.title }}">
+<meta name="theme-color" content="#FFC300">
 
 <meta name="description" content="{{page.excerpt | strip_html | strip}}">
 <meta property="og:description" content="{{page.excerpt | strip_html | strip}}">
@@ -14,15 +15,21 @@
 <meta property="og:url" content="{{site.url}}{{page.url}}">
 <meta property="twitter:domain" content="thomashodson.com">
 <meta property="twitter:url" content="{{site.url}}{{page.url}}">
+<meta name="twitter:site" content="@T_Hodson">
 
 <meta property="og:type" content="website">
 
 {% if page.image %}
-<meta name="twitter:card" content="{{site.url}}{{page.image}}">
+<!--  This tag enables pages to be featured in Google Discover as large previews
+See: https://developers.google.com/search/docs/advanced/mobile/google-discover?hl=en&visit_id=637424198370039526-3805703503&rd=1 -->
+<meta name="robots" content="max-image-preview:large">
+
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{site.url}}{{page.image}}">
 <meta property="og:image" content="{{site.url}}{{page.image}}">
 {% if page.alt %} <!-- Note og:image:alt must immediately follow og:image tag -->
 <meta property="og:image:alt" content="{{page.alt | strip}}">
+<meta property="twitter:image:alt" content="{{page.alt | strip}}">
 {% endif %}
 {% endif %}
 
