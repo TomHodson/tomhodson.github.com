@@ -1,14 +1,14 @@
 ---
 title: My first PCB!
 excerpt: |
-    I've had a longstanding ambition to get a PCB manufactured but I've always put it off. Lately I had a need for a little adapter board to break out these 1.27mm spaced pins to 2.54mm pins that would fit into a breadboard. Feeling like it was a simple enough board I finally decided to fire up KiCad and give it a go.   <model-viewer alt="An interactive 3D render of a PCB with 2.54mm headers on one side to fit a breadboard and 1.27 inch headers on the other." src="/assets/blog/PCB/model/pcb.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="/assets/blog/PCB/model/poster.webp" interaction-prompt="none" shadow-intensity="1" shadow-softness="1" exposure="0.5" camera-orbit="196.6deg 59.73deg 0.1m" field-of-view="30deg" auto-rotate> </model-viewer>
+    I've had a longstanding ambition to get a PCB manufactured but I've always put it off. Lately I had a need for a little adapter board to break out these 1.27mm spaced pins to 2.54mm pins that would fit into a breadboard. Feeling like it was a simple enough board I finally decided to fire up KiCad and give it a go.   <model-viewer alt="An interactive 3D render of a PCB with 2.54mm headers on one side to fit a breadboard and 1.27 inch headers on the other." src="/assets/blog/PCB/model/pcb.glb" ar camera-controls poster="/assets/blog/PCB/model/poster.webp" interaction-prompt="none" shadow-intensity="1" shadow-softness="1" exposure="0.5" camera-orbit="196.6deg 59.73deg 0.1m" field-of-view="30deg" auto-rotate> </model-viewer>
 layout: post
 commentid: 110810437631337327
 ---
 I made my first PCB!
 
 <figure>
-<model-viewer alt="An interactive 3D render of a PCB with 2.54mm headers on one side to fit a breadboard and 1.27 inch headers on the other." src="/assets/blog/PCB/model/pcb.glb" ar ar-modes="webxr scene-viewer quick-look" interaction-prompt="none" camera-controls poster="/assets/blog/PCB/model/poster.webp" shadow-intensity="1" shadow-softness="1" exposure="0.5" camera-orbit="196.6deg 59.73deg 0.1m" field-of-view="30deg" auto-rotate> </model-viewer>
+<model-viewer alt="An interactive 3D render of a PCB with 2.54mm headers on one side to fit a breadboard and 1.27 inch headers on the other." src="/assets/blog/PCB/model/pcb.glb" ar interaction-prompt="none" camera-controls poster="/assets/blog/PCB/model/poster.webp" shadow-intensity="1" shadow-softness="1" exposure="0.5" camera-orbit="196.6deg 59.73deg 0.1m" field-of-view="30deg" auto-rotate> </model-viewer>
 <figcaption>
 A little interactive model that you can spin around. You can make these nice 3D renders by exporting from KiCAD as WRL, importing into blender and then exporting as glb.
 </figcaption>
