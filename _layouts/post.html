@@ -1,7 +1,42 @@
----
-layout: default
----
-<h1>{{ page.title }}</h1>
-<time>{{ page.date | date_to_string }}</time>
-{{ content }}
+<!doctype html>
+<html>
+  <head>
+    {% include default_head_tags.html%}
+
+    {% if page.klipse %}
+        {% include klipse_scripts.html %}
+    {% endif %} 
+
+    {% if page.commentid %}
+    <script src="/assets/js/jquery-3.7.0.min.js"></script>
+    <script src="/assets/js/mastodon.js"></script>
+    <script defer>getComments("{{page.commentid}}");</script>
+    {% endif %}
+
+  </head>
+  <body>
+    {% include header.html %}
+    <main>
+        <article class="h-entry">
+            <h1 class = "p-name">{{ page.title }}</h1>
+            <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+            <summary style="display:none" class="p-summary">{{ page.excerpt }}</summary>
+            <div class="e-content">
+            {{ content }}
+            </div>
+        </article>
+        <div id="comments" class="comments">
+            <h2>Comments</h2>
+            {% unless page.commentid %}  
+                <div class="reference">
+                        Comments are handled by my <a href='https://tech.lgbt/@Tomhodson'>Mastodon account</a>.
+                </div>
+            {% endunless %}
+        </div>
+    </main>
+  </body>
+</html>
+
+
+
 

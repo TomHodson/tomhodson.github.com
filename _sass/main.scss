@@ -7,6 +7,7 @@
 @import "cv"; // the CV page
 @import "thesis"; // the thesis content
 @import "blogroll"; // the summaries of the blogposts
+@import "comments";  //the mastodon comments
 
 // The syntax highlighting css
 // generated with rougify style bw > code_style_bw.scss
@@ -67,6 +68,11 @@ main {
 /* increase line-height for everything except headings */
 main :not(:is(h1,h2,h3,h4,h5,h6)) {
     line-height: 1.3;
+    }
+
+/* increase line-height for everything except headings */
+main :is(p,h1,h2,h3,h4,h5,h6) {
+    margin-block-end: 0.0em;
     }
 
 a {

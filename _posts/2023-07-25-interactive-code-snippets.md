@@ -1,8 +1,9 @@
 ---
 title: A little REPL in every blog post
-layout: post_klipse
+layout: post
 image:
 alt: 
+klipse: True
 ---
 
 On someone else's [excellent personal](http://lambdafunk.com/) site I saw [Klipse](https://github.com/viebel/klipse), a little js library that lets you modify and execute code snippets in blogs. How cute!
