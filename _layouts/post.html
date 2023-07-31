@@ -25,13 +25,10 @@
             {{ content }}
             </div>
         </article>
+        {% if page.commentid %}  
         <div id="comments" class="comments">
             <h2>Comments</h2>
-            {% unless page.commentid %}  
-                <div class="reference">
-                        Comments are handled by my <a href='https://tech.lgbt/@Tomhodson'>Mastodon account</a>.
-                </div>
-            {% endunless %}
+        {% endif %}
         </div>
     </main>
   </body>
