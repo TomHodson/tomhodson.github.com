@@ -5,7 +5,7 @@ excerpt: |
 layout: post
 commentid: 110810437631337327
 hide_image: true # Only use this image for static previews
-image: /assets/blog/PCB/horizontal.png
+social_image: /assets/social/pcb_1.png
 alt: A 3D render of a simple PCB.
 ---
 I made my first PCB!

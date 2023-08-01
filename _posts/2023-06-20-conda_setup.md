@@ -3,6 +3,8 @@ title:  Jupyter and Conda setup
 date: 2023-06-20
 layout: post
 image: /assets/blog/mamba/logos.svg
+social_image: /assets/social/jupyter.png
+alt: The orange, abstract, Jupyter logo and the Mamba logo which is a cute black snake.
 ---
 
 These are my notes to myself about how to setup jupyter+conda/mamba environments.

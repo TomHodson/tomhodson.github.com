@@ -2,6 +2,7 @@
 title:  Sensor Watch
 layout: post
 image: /assets/blog/SensorWatch/watch.svg
+social_image: /assets/social/sensor_watch.svg
 alt: A simple vector image of a classic casio watch.
 ---
 

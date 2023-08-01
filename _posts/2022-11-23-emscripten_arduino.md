@@ -2,6 +2,7 @@
 title:  Using emscripten to simulate an arduino project
 layout: post
 image: /assets/blog/emscripten_arduino/arduino.svg
+social_image: /assets/social/arduino.png
 alt: A rendered image of a breadboard with an LED and resistor wired up in series to an arduino.
 ---
 

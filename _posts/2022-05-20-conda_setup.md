@@ -2,7 +2,6 @@
 title:  My Jupyter and Conda setup
 date: 2022-02-02
 layout: post
-image:
 ---
 
 I really like working in Jupyterlab but getting it to work nicely is always a bit challenging, these are my notes for roughly how I have it set up.
