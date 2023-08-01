@@ -1,0 +1,4 @@
+- setting up docker, docker compose and portainer on a pi
+- writing some docker compose yml files
+- using caddy to proxy it (bit annoying)
+- setting up wireguard so it's accessible externally 
