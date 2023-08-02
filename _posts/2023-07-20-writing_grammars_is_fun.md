@@ -16,6 +16,8 @@ excerpt: |
 
     >>> ('a', 'b', 'c')
     ```
+social_image: /assets/social/parsing.png
+alt: A screenshot of some python code showing a PEG grammar definition.
 layout: post
 commentid: 110746239432993930
 ---
