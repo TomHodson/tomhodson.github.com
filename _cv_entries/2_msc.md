@@ -22,7 +22,9 @@ The project centered around the use of a Nitrogen-Vancancy defect in a nanoscale
 Check out a little interactive model of the magnetometer below. The device has three pairs of copper Helmholtz coils that generate controlled, linear, magnetic fields in all three directions.
 
 <figure>
-<model-viewer id="vector-magnet-whole-2" style="height:500px;" src="{{ page.assets }}/vector_magnet.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="{{ page.assets }}/vector_magnet.png" shadow-intensity="1" environment-image="{{ page.assets }}/aircraft_workshop_01_1k.hdr" interaction-prompt="none" interpolation-decay="300" auto-rotate> 
+<model-viewer style="height:500px;" src="{{ page.assets }}/vector_magnet.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="{{ page.assets }}/vector_magnet.png" shadow-intensity="1" environment-image="{{ page.assets }}/aircraft_workshop_01_1k.hdr" camera-orbit="-169.8deg 78.57deg 0.8881m" field-of-view="32.55deg" interaction-prompt="none" auto-rotate> </model-viewer>
+
+<!-- <model-viewer id="vector-magnet-whole-2" style="height:500px;" src="{{ page.assets }}/vector_magnet.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="{{ page.assets }}/vector_magnet.png" shadow-intensity="1" environment-image="{{ page.assets }}/aircraft_workshop_01_1k.hdr" interaction-prompt="none" interpolation-decay="300" auto-rotate> 
 
 <button class="Hotspot" style="disaplay:none;" slot="hotspot-1" data-position="0.3140708429455987m 0.2809109652738389m -0.32504316945989636m" data-normal="-3.85185900533595e-30m -1.343588384327496e-7m 0.9999999999999911m" data-visibility-attribute="visible"><div class="left HotspotAnnotation">AFM Tip</div></button>
 
@@ -31,7 +33,7 @@ Check out a little interactive model of the magnetometer below. The device has t
 <button class="Hotspot" style="disaplay:none;" slot="hotspot-4" data-position="0.3186977335100803m 0.2788147714959883m -0.3250432252613787m" data-normal=" 1.5099584039393812e-7m -1.34358838432748e-7m 0.9999999999999796m" data-visibility-attribute="visible"><div class="HotspotAnnotation">PCB Excitation Coil</div></button>
 <button class="section" onclick="toggleSection(this)">Show Section View</button>
 
-</model-viewer>
+</model-viewer> -->
 <figcaption>
 </figcaption>
 </figure>
@@ -65,8 +67,7 @@ Once we know the axis direction this AFM tip could then be transferred back to t
 
 TODO: Explain this in a bit more detail.
 
-
-<script type="module">
+<!-- <script type="module">
   const modelViewer = document.querySelector("model-viewer#vector-magnet-whole-2");
   modelViewer.in_section_view = false;
 
@@ -104,4 +105,4 @@ TODO: Explain this in a bit more detail.
     
   };
 
-</script>
+</script> -->
