@@ -2,6 +2,8 @@
 title: Selfhosting: Miniflux and RSSHub
 excerpt: |
     Some notes on selfhosting and RSS reader
+image:
+alt: 
 ---
 
 Like many nerdy, computery types, I like to subscribe to blogs and other content through RSS. RSS is crazy simple, you host a url on a website with a list of posts with titles/URLs/content encoded in XML (I know I know but it only have like 5 tags and is only nested one level deep.) An RSS reader just checks a big list of those URLs every now and then and presents you the latest thing to show up. 
@@ -31,6 +33,8 @@ Playing around a bit more, adding in useragents, accepting cookies and following
 Ok so to fix this I came upon [RSSHub](https://docs.rsshub.app/en/) which is a kind of RSS proxy, it parses sites that don't have RSS feeds and generates them for you. I saw that this has pupeteer support so I'm hopping that I can use it to bypass the anti-crawler tactics science.org is using.
 
 Anyway, for how here is a docker-compose.yml for both miniflux and RSSHub. What took me a while to figure out is that docker containers live in their own special network. So to subscribe to a selfhosted RSSHub feed you need to put something like "http://rsshub:1200/" where rsshub is the key to the image in the yaml file below.
+
+EDIT: I got it to work using puppeteer! For now the code is in a [branch](https://github.com/TomHodson/RSSHub/tree/science_blogs) for which I'll do a proper PR soon.
 
 ```
 version: '3'
