@@ -1,9 +1,7 @@
 ---
-title: Selfhosting: Miniflux and RSSHub
-excerpt: |
-    Some notes on selfhosting and RSS reader
-image:
-alt: 
+title: "Selfhosting: Miniflux and RSSHub"
+layout: post
+excerpt: Some notes on selfhosting an RSS reader.
 ---
 
 Like many nerdy, computery types, I like to subscribe to blogs and other content through RSS. RSS is crazy simple, you host a url on a website with a list of posts with titles/URLs/content encoded in XML (I know I know but it only have like 5 tags and is only nested one level deep.) An RSS reader just checks a big list of those URLs every now and then and presents you the latest thing to show up. 
