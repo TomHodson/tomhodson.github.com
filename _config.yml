@@ -27,4 +27,4 @@ whitelist:
   - flexible_include
 
 feed:
-  posts_limit: 20
+  posts_limit: 100

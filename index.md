@@ -1,7 +1,9 @@
 ---
-layout: default
 title: Blog
-permalink: /blog/
+layout: default
+permalink: /
+redirect_from:
+  - /blog/
 ---
 {% for post in site.posts %}
 <article class="h-entry">
