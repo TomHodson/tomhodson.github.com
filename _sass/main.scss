@@ -135,3 +135,16 @@ model-viewer {
   }
 
   
+  @media (prefers-color-scheme: dark) {
+    body, a{
+        background: #222;
+        color: #fcfcfc;
+    }
+    img {
+        opacity: .75;
+        transition: opacity .5s ease-in-out;
+    }
+    img.icon {
+        filter: invert(1);
+    }
+  }
