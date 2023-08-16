@@ -10,6 +10,10 @@ redirect_from:
     <h2 class="p-name blogroll-title"><a class="u-uid u-url" href="{{ post.url }}">{{ post.title }}</a></h2>
     <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
     <summary class="p-summary">{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}</summary>
-    <figure {% if post.hide_image %} style="display:none;" {% endif %} class="blogroll"><img class="u-photo" src = "{{post.image}}"></figure>
+    {% unless post.hide_image %}
+    <figure class="blogroll">
+    <img class="u-photo" src = "{{post.image}}" alt="{{post.alt}}">
+    </figure>
+    {% endunless %}
 </article>
 {% endfor %}
