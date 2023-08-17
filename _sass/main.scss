@@ -40,6 +40,8 @@ body {
 
 // Padding to keep the keep the content to the right of the header
 main {
+    container: main / inline-size;
+
     margin-left: 240px;
     padding-left: 30px;
     padding-right: 30px;
