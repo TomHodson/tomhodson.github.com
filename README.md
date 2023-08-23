@@ -9,6 +9,9 @@ You probably want to run ruby from a version manager like `chruby`, see [here](h
   - consider switching to using pandoc as a markdown renderer
   - setup webmentions https://aarongustafson.github.io/jekyll-webmention_io/
 
+## Validators
+  - [blacklight](https://themarkup.org/blacklight)
+
 ## Notes
 [Installation](https://jekyllrb.com/docs/installation/macos/)
 `bundle install`
