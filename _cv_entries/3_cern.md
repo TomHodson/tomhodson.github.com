@@ -3,6 +3,7 @@ type: education
 title: "CERN Summmer Studentship"
 period: 2018
 location: Trinity College, Cambridge
+permalink: /CV/CERN
 
 image: /assets/images/CERN_probes.png
 alt: "Some electrical probes on a silicon wafer."

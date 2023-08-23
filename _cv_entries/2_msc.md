@@ -4,6 +4,7 @@ title: M.Sc Thesis, Natural Sciences
 period: 2018
 location: Trinity College, Cambridge
 subtitle: "Imaging Magnetic Phenomena with Scanning Diamond Magnetometry"
+permalink: /CV/MSc
 
 image: /assets/images/vector_magnet_angle_view.png
 alt: "A render of vector magnet that I designed in a CAD program."

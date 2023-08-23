@@ -1,8 +1,8 @@
+- name: Work
+  id: work
+
 - name: Education
   id: education
-
-- name: Work Experience
-  id: work
 
 - name: Side Projects
   id: side_project
