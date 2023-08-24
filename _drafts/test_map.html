@@ -1,0 +1,119 @@
+---
+title: Test Map
+excerpt: 
+---
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+ crossorigin=""></script>
+ <script src="https://unpkg.com/leaflet-simple-map-screenshoter"></script>
+ <script src="https://unpkg.com/file-saver/dist/FileSaver.js"></script>
+ <script src="/assets/js/domtoimage.min.js"></script>
+
+
+ <style>
+    #map { 
+        height: 1600px; 
+        width: 1600px;
+    }
+ </style>
+    
+    </head>
+    
+    <body>
+        <div id="map"></div>
+
+        <script>
+    let Stamen_TonerBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
+    subdomains: 'abcd',
+    minZoom: 0,
+    maxZoom: 16,
+    ext: 'png'
+    });
+    let Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.{ext}', {
+    subdomains: 'abcd',
+    minZoom: 0,
+    maxZoom: 16,
+    ext: 'png'
+    });
+    const key = 'paglUJQl74h39APJmOFJ';
+    let os_maps = L.tileLayer(`https://api.maptiler.com/tiles/uk-osgb10k1888/{z}/{x}/{y}.jpg?key=paglUJQl74h39APJmOFJ`,{ //style URL
+    tileSize: 512,
+    zoomOffset: -1,
+    minZoom: 1,
+    crossOrigin: true
+    });
+    let os_multi_scale = L.tileLayer(`https://api.maptiler.com/tiles/uk-osgb1888/{z}/{x}/{y}?key=paglUJQl74h39APJmOFJ`,{ //style URL
+    tileSize: 512,
+    zoomOffset: -1,
+    minZoom: 1,
+    crossOrigin: true
+    });
+    let os_maps_2 = L.tileLayer("https://api.maptiler.com/tiles/uk-osgb1888/{z}/{x}/{y}?key=paglUJQl74h39APJmOFJ",{ //style URL
+    tileSize: 512,
+    zoomOffset: -1,
+    minZoom: 1,
+    crossOrigin: true
+    });
+    let hills = L.tileLayer("https://api.maptiler.com/tiles/uk-osgb10k1888/{z}/{x}/{y}.jpg?key=paglUJQl74h39APJmOFJ",{ //style URL
+    tileSize: 512,
+    zoomOffset: -1,
+    minZoom: 1,
+    crossOrigin: true
+    });
+
+    let os_london = L.tileLayer("https://api.maptiler.com/tiles/uk-oslondon1k1893/{z}/{x}/{y}.jpg?key=paglUJQl74h39APJmOFJ",{ //style URL
+    tileSize: 512,
+    zoomOffset: -1,
+    minZoom: 1,
+    crossOrigin: true
+    });
+
+    
+
+    var baseMaps = {
+    "Stamen Toner": Stamen_TonerBackground,
+    "Stamen Toner Labelled" : Stamen_Toner,
+    "OS Maps Multi Scale" : os_multi_scale,
+    "OS Maps": os_maps,
+    "OS Maps Hills": os_maps_2,
+    "Hills" : hills,
+    "OS Maps London" : os_london,
+    };
+
+
+    let pluginOptions = {
+        cropImageByInnerWH: true, // crop blank opacity from image borders
+        hidden: false, // hide screen icon
+        preventDownload: false, // prevent download on button click
+        domtoimageOptions: {}, // see options for dom-to-image
+        position: 'topleft', // position of take screen icon
+        screenName: 'screen', // string or function
+        // iconUrl: ICON_SVG_BASE64, // screen btn icon base64 or url
+        hideElementsWithSelectors: ['.leaflet-control-container'], // by default hide map controls All els must be child of _map._container
+        mimeType: 'image/svg', // used if format == image,
+        caption: null, // string or function, added caption to bottom of screen
+        captionFontSize: 15,
+        captionFont: 'Arial',
+        captionColor: 'black',
+        captionBgColor: 'white',
+        captionOffset: 5,
+    }
+
+    home = [51.55575624506862, -0.08058359767120651];
+    center = {lat: 51.54540094923517, lng: -0.08419990539550783};
+    let map = L.map('map').setView(home, 15);
+    map.addLayer(Stamen_Toner);
+
+    let simpleMapScreenshoter = L.simpleMapScreenshoter(pluginOptions).addTo(map);
+    let layerControl = L.control.layers(baseMaps).addTo(map);
+    
+             </script>
+        
+    </body>
+</html>
+
