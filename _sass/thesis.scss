@@ -16,11 +16,6 @@ figure {
     // padding-top: 1em;
 }
 
-//clamp the size of the images on the blog roll
-figure.blogroll > img, figure.blogroll > svg {
-    max-height: 300px;
-}
-
 figure > img, figure > svg {
     max-width: 90% !important;
     margin-bottom: 2em;

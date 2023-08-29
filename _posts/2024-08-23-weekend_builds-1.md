@@ -1,10 +1,10 @@
 ---
-title: "WIP: Maps Maps Maps"
+title: "Weekend builds: Lasercut stool + Shelf."
 layout: post
 excerpt: |
-    I want to make some really big laser etched maps.
+    It's nice when a project can be done in just a few days.
 
-image: /assets/blog/maps/tests.jpeg
+image: /assets/blog/weekend_builds_1/stool.jpeg
 ---
 
 There's something fascinating about maps. I particularly love how they have this kind of fractal level of detail as you zoom in and out. Look at this one, I really like the minimalist black and white design.
