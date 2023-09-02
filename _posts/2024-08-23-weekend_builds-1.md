@@ -1,149 +1,26 @@
 ---
-title: "Weekend builds: Lasercut stool + Shelf."
+title: "Weekend builds: Lasercut stool"
 layout: post
 excerpt: |
-    It's nice when a project can be done in just a few days.
+    It's nice when a project can be done in just a few days. This is gonna be a little plant pot stand.
 
 image: /assets/blog/weekend_builds_1/stool.jpeg
+assets: /assets/blog/weekend_builds_1/
 ---
 
-There's something fascinating about maps. I particularly love how they have this kind of fractal level of detail as you zoom in and out. Look at this one, I really like the minimalist black and white design.
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-crossorigin=""></script>
-
-<style>
-    .os_maps {
-    filter: grayscale(1) contrast(1.1);
-    }
-    .os_maps_london {
-    filter: grayscale(1) brightness(0.8) contrast(2);
-    }
-</style>
-
-<figure class="blogroll">
-<div id="map" style="height:90cqw; width:90cqw"></div>
-<figcaption>
-<br>
-The black and white map tiles are from <a href="https://stamen.com/">Stamen design</a>, essentially a really nice style sheet on top of &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributor data. The rest are OS Maps from the <a href="http://maps.nls.uk/projects/subscription-api/">National Library of Scotland</a>. The viewer is <a href="https://leafletjs.com/">leaflet.js</a>. I used CSS container queries to make this a nice square shape.
-</figcaption>
-</figure>
-
-<script>
-    let Stamen_TonerBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
-    subdomains: 'abcd',
-    minZoom: 0,
-    maxZoom: 16,
-    ext: 'png'
-    });
-    let Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.{ext}', {
-    subdomains: 'abcd',
-    minZoom: 0,
-    maxZoom: 16,
-    ext: 'png'
-    });
-    const key = 'paglUJQl74h39APJmOFJ';
-    let os_maps = L.tileLayer(`https://api.maptiler.com/tiles/uk-osgb10k1888/{z}/{x}/{y}.jpg?key=paglUJQl74h39APJmOFJ`,{ //style URL
-    tileSize: 512,
-    zoomOffset: -1,
-    minZoom: 1,
-    crossOrigin: true,
-    className: 'os_maps'
-    });
-    let os_multi_scale = L.tileLayer(`https://api.maptiler.com/tiles/uk-osgb1888/{z}/{x}/{y}?key=paglUJQl74h39APJmOFJ`,{ //style URL
-    tileSize: 512,
-    zoomOffset: -1,
-    minZoom: 1,
-    crossOrigin: true,
-    className: 'os_maps'
-    });
-    let os_maps_2 = L.tileLayer("https://api.maptiler.com/tiles/uk-osgb1888/{z}/{x}/{y}?key=paglUJQl74h39APJmOFJ",{ //style URL
-    tileSize: 512,
-    zoomOffset: -1,
-    minZoom: 1,
-    crossOrigin: true,
-    className: 'os_maps'
-    });
-    let hills = L.tileLayer("https://api.maptiler.com/tiles/uk-osgb10k1888/{z}/{x}/{y}.jpg?key=paglUJQl74h39APJmOFJ",{ //style URL
-    tileSize: 512,
-    zoomOffset: -1,
-    minZoom: 1,
-    crossOrigin: true,
-    className: 'os_maps'
-    });
-
-    let os_london = L.tileLayer("https://api.maptiler.com/tiles/uk-oslondon1k1893/{z}/{x}/{y}.jpg?key=paglUJQl74h39APJmOFJ",{ //style URL
-    tileSize: 512,
-    zoomOffset: -1,
-    minZoom: 1,
-    crossOrigin: true,
-    className: 'os_maps_london'
-    });
-
-    
-
-    var baseMaps = {
-    "Stamen Toner": Stamen_TonerBackground,
-    "Stamen Toner Labelled" : Stamen_Toner,
-    "OS Maps Multi Scale" : os_multi_scale,
-    "OS Maps": os_maps,
-    "OS Maps Hills": os_maps_2,
-    "Hills" : hills,
-    "OS Maps London" : os_london,
-    };
-
-    let map = L.map('map', {attributionControl: false, zoomControl: false}).setView({'lat': 51.555514883267996, 'lng': -0.07930755615234376}, 15);
-    
-    map.addLayer(Stamen_TonerBackground);   
-    let layerControl = L.control.layers(baseMaps).addTo(map);
-     
-    //map.addLayer(os_maps);  
-</script>
-
-
-In related news, my excellent [co-working space / carpentry workshop / pottery studio](https://www.r-a-r-a.com/) currently has a massive laser cutter which we may or may not keep for the long term. 
+Here's a quick one, using the aforementioned massive lasercutter at my makerspace, I made this little pot stand out of lasercut ply. 
 
 <figure>
-<img src="/assets/blog/maps/tests.jpeg">
+<model-viewer src="{{page.assets}}/pot.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="2" shadow-softness="1" camera-orbit="63.08deg 66.62deg 1.102m" field-of-view="30deg" interaction-prompt="none" auto-rotate alt="An interactive 3D model of the plant pot stand. It's made of laser cut plywood joined together by intricate finger joints cut with the laser cutter."> </model-viewer>
 <figcaption>
-The laser cutter can do either a raster or vector. Here is a raster into some birch plywood. They're 10cm square with slightly different settings.
 </figcaption>
 </figure>
 
-Given the laser cutter is so massive I thought it might be fun to try to produce a huge map. There's a spot at the top of the stairs in our flat that I think could be nice for it. My partner and I have always always lived somewhere in this vertical strip of london so the tall thin shape has some significance.
-
+And here's a quick fit test. When doing joints like this you need to compensate for the kerf of the laser (maybe kerf isn't the right word but you know what I mean). I found about 0.1mm kerf compensation worked well for this laser with 6mm ply.
 <figure>
-<img src="/assets/blog/maps/render.png">
+<img src="{{page.assets}}/stool.jpeg"/>
 <figcaption>
-A blender render of what it might look like based on a 3D scan of my flat. This took all my very rudimentary new blender skills to put together.
+I still need to sand it and glue it together but it's looking pretty cool! I might try to find a clear lacquer to preserve that lovely blackened edge. 
 </figcaption>
 </figure>
 
-<figure>
-<model-viewer src="/assets/blog/maps/bigmap.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls shadow-intensity="1" exposure="1.08" camera-orbit="30.45deg 63.68deg 27.8m" field-of-view="22.88deg" auto-rotate>
-</model-viewer>
-<figcaption>
-Here's a 3D version. I got the scan with the lidar scanner on an ipad.
-</figcaption>
-</figure>
-
-Given how long those took to cut, I'm thinking that I'll split the design into multiple panels so I don't have to babysit the laser cutter for 24 hours. 
-
-<!-- Ideas:
-https://github.com/grinat/leaflet-simple-map-screenshoter  Can only get raster data this way
-
-Insp: https://blog.usedbytes.com/2022/06/3d-printed-terrain-models-using-os-open-data/
-
-
-https://gis.stackexchange.com/questions/186808/how-to-create-high-quality-map-with-qgis-and-stamen-tiles
-https://anitagraser.com/2014/05/31/a-guide-to-googlemaps-like-maps-with-osm-in-qgis/
-https://github.com/anitagraser/QGIS-resources/tree/master/qgis2/osm_spatialite
-
-Map tile layers:
-https://maps.nls.uk/projects/api/#layers
--->
