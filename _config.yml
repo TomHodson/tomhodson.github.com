@@ -13,7 +13,9 @@ collections:
   thesis:
     output: true
   talks:
-      output: true
+    output: true
+  projects:
+    output: true
 
 
 plugins:
