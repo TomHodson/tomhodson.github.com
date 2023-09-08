@@ -7,6 +7,7 @@ commentid: 110810437631337327
 hide_image: true # Only use this image for static previews
 social_image: /assets/social/pcb_1.png
 alt: A 3D render of a simple PCB.
+head: <script type="module" src="/assets/js/model-viewer.js"></script>
 ---
 I made my first PCB!
 

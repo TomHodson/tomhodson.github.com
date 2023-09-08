@@ -4,6 +4,7 @@ layout: default
 permalink: /
 redirect_from:
   - /blog/
+head: <script type="module" src="/assets/js/model-viewer.js"></script>
 ---
 {% for post in site.posts %}
 <article class="h-entry">

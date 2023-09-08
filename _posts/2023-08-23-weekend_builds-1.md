@@ -6,6 +6,7 @@ excerpt: |
 
 image: /assets/blog/weekend_builds_1/stool.jpeg
 assets: /assets/blog/weekend_builds_1/
+head: <script type="module" src="/assets/js/model-viewer.js"></script>
 ---
 
 Here's a quick one, using the aforementioned massive lasercutter at my makerspace, I made this little pot stand out of lasercut ply. 

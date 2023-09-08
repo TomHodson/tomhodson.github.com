@@ -6,6 +6,7 @@ layout: post
 hide_image: true # Only use this image for static previews
 image: /assets/blog/toothbrush_shelf/spin.gif
 alt: A render of a 3D printed shelf sitting above a shaver outlet, it spins slowly. 
+head: <script type="module" src="/assets/js/model-viewer.js"></script>
 ---
 
 It can be hard to find genuine everyday uses of 3D printing, but after a while you do find some! I made this little shelf to tidy up the wires to our devices in the bathroom. The wires are now hidden, coiled up, inside the shelf.
