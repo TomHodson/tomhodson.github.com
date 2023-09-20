@@ -80,6 +80,8 @@ main :is(p,h1,h2,h3,h4,h5,h6) {
 
 a {
     text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 0.5px;
     color: #222;
 }
 
