@@ -7,13 +7,6 @@ nav {
     color: darkslategray;
   }
 
-
-nav.page-table-of-contents {
-    white-space: nowrap;
-    li li {padding-right: 2em;}
-}
-
-
 @media 
     only screen and (max-width: $horizontal_breakpoint),
     only screen and (max-height: $vertical_breakpoint)

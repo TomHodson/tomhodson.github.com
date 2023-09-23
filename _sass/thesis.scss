@@ -7,7 +7,7 @@ figure {
     margin-inline-start: 0em;
     margin-inline-end: 0em;
     
-    max-width: 900px;
+    max-width: 900px !important;
 
     // border-bottom: solid #222 1px;
     padding-bottom: 1em;
@@ -27,19 +27,29 @@ figcaption {
     max-width: 90%;
 }
 
-// For the table of contents, should probably put this in a container
-
-//For the animation that plays in the nav as you scroll
-nav.page-table-of-contents a {
-    transition: all 200ms ease-in-out;
-    color: #000;
-    font-weight:normal;
+nav.page-table-of-contents > ul > li:first-child {
+    display: none;
 }
 
-nav.page-table-of-contents li.active > a {
-    color: #000!important;
-    font-weight:bold;
-  }
+//For the animation that plays in the nav as you scroll
+nav.page-table-of-contents {
+    li li {font-size: 0.9em}
+
+    ul {
+        padding-inline-start: 6px;
+    }
+
+    a {
+        transition: all 200ms ease-in-out;
+        color: #000;
+        font-weight:normal;
+    }
+
+    li.active > a {
+        color: #000!important;
+        font-weight:bold;
+    }
+}
 
 // modify the spacing of the various levels
 li {

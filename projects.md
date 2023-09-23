@@ -7,9 +7,7 @@ redirect_from:
 {% for post in site.projects %}
 <article class="h-entry project">
     {% unless post.hide_image %}
-    <figure class="blogroll">
     <img class="u-photo" src = "{{post.image}}" alt="{{post.alt}}">
-    </figure>
     {% endunless %}
 
     <section>

@@ -4,10 +4,8 @@ h2.blogroll-title {
     }
 
 }
-
-//clamp the size of the images on the blog roll
-figure.blogroll > img, figure.blogroll > svg {
-    max-width: 100% !important;
-    margin-bottom: 0;
-    border-radius: 1em;
+figure.blogroll {
+    img, svg {
+        margin-bottom: 0;
+    }
 }
