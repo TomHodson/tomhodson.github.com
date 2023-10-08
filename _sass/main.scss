@@ -42,9 +42,10 @@ body {
 main {
     container: main / inline-size;
 
+    max-width: 560px;
     margin-left: 240px;
     padding-left: 30px;
-    padding-right: 30px;
+    
     
     padding-top: 10vh;
     padding-bottom: 10vh;
@@ -102,7 +103,6 @@ p {
 
 figure {
     container: fig / inline-size;
-    max-width: 450px !important;
     width: 100%;
     padding-bottom: 1em;
     margin-left: auto;
