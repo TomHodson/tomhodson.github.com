@@ -9,3 +9,52 @@ figure.blogroll {
         margin-bottom: 0;
     }
 }
+
+article.blogroll {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+    h2 {margin-top: 0;}
+
+    // img {
+    //     object-fit: cover;
+    //     width: 7em;
+    //     height: 7em;
+    //     margin-right: 1em;
+    //     border-radius: 0.5em;
+    // }
+    // div.image-container {
+    //     width: 7em;
+    //     height: 7em;
+    //     overflow:hidden;
+    // }
+
+    div.image-container {
+        margin-right: 1em;
+        flex-shrink: 0;
+        width: 7em;
+        height: 7em;
+        position: relative;
+        
+        ::after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+          }
+
+        img {
+            position: absolute;
+            width: auto; 
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 0.5em;
+          }
+      }
+      
+
+      
+
+}
