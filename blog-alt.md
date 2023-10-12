@@ -1,9 +1,7 @@
 ---
 title: Blog
 layout: default
-permalink: /
-redirect_from:
-  - /blog/
+permalink: /blog-alt/
 head: <script type="module" src="/assets/js/model-viewer.js"></script>
 ---
 {% for post in site.posts %}

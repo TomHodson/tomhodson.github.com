@@ -4,8 +4,7 @@ excerpt: |
     I've had a longstanding ambition to get a PCB manufactured but I've always put it off. Lately I had a need for a little adapter board to break out these 1.27mm spaced pins to 2.54mm pins that would fit into a breadboard. Feeling like it was a simple enough board I finally decided to fire up KiCad and give it a go.
 layout: post
 commentid: 110810437631337327
-hide_image: true # Only use this image for static previews
-social_image: /assets/social/pcb_1.png
+image: /assets/blog/PCB/render.png
 thumbnail: /assets/social/pcb_1.png
 alt: A 3D render of a simple PCB.
 head: <script type="module" src="/assets/js/model-viewer.js"></script>
