@@ -106,3 +106,16 @@ volumes:
   miniflux-db:
   redis-data:
 ```
+
+## Backup RSS feed list
+I put a small script in the repo to backup.
+```
+python -m env ~/miniflux_python_env
+source ~/miniflux_python_env/bin/activate
+pip install pyyaml
+```
+
+I've collected the code for the docker containers and config together into this [repo](https://github.com/TomHodson/selfhost).
+
+## Backup everything to google drive
+Use [rclone](https://rclone.org/drive/)
