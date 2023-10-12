@@ -2,7 +2,6 @@
 title: Command Line Slides
 excerpt: |
   I made a set of interactive slides for a course on the command line, complete with command line playback!
-  <script async id="asciicast-498583" src="https://asciinema.org/a/498583.js" data-autoplay="true"></script>
 layout: post
 hide_image: true # Only use this image for static previews
 image: /assets/images/command_line_slides.png

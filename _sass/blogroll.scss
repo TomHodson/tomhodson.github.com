@@ -1,3 +1,6 @@
+$image_size: 8em;
+$left_pad: 9em;
+
 h2.blogroll-title {
     a {
         text-decoration: none;
@@ -8,4 +11,37 @@ figure.blogroll {
     img, svg {
         margin-bottom: 0;
     }
+}
+
+article.blogroll {
+
+    h2 {margin-top: 0;}
+
+    section.title {
+        padding-left: $left_pad;
+    }
+
+    summary {padding-left: $left_pad;}
+
+    img {
+        float:left;
+        margin-right: 1em;
+        max-width: $image_size;
+        max-height: $image_size;
+        border-radius: 0.5em;
+        }
+}
+
+@media 
+    only screen and (max-width: 500px)
+    {  
+    article.blogroll {
+        summary {
+            padding-left: 0;
+        }
+        h2 {
+            font-size: 1.2em;
+        }
+    }
+
 }

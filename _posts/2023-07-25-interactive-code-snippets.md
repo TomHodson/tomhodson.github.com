@@ -1,7 +1,8 @@
 ---
 title: A little REPL in every blog post
 layout: post
-image: /assets/blog/repl.png
+image: /assets/blog/REPL/repl.png
+thumbnail: /assets/blog/REPL/thumbnail.png
 alt: A screenshot of a small javascript widget that lets you evaluate python code. It's showing some numpy code and its evaluated output.
 klipse: True
 ---

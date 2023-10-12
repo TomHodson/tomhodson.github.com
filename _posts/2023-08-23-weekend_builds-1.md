@@ -5,6 +5,7 @@ excerpt: |
     It's nice when a project can be done in just a few days. This is gonna be a little plant pot stand.
 
 image: /assets/blog/weekend_builds_1/stool.jpeg
+thumbnail: /assets/blog/weekend_builds_1/stool_thumbnail.jpeg
 assets: /assets/blog/weekend_builds_1/
 head: <script type="module" src="/assets/js/model-viewer.js"></script>
 ---

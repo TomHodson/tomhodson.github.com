@@ -3,6 +3,7 @@ title: Progress bars and log output in Jupyter notebooks
 excerpt: 
 layout: post
 image: /assets/blog/progress_bars/bar.png
+thumbnail: /assets/blog/progress_bars/thumbnail.png
 alt: An image of a nice animated progress bar in a jupyter notebook output cell.
 ---
 I wanted to have just one updateable line of output that would play nicely with a tqdm progress bar. After playing around with `print(s, end="\r")` I settled on using `Ipython.display` with a handle. The problem with the print approach is that it doesn't work when the output is shorter than the previous line.
