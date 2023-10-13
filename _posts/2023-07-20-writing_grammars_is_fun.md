@@ -1,13 +1,14 @@
 ---
 title: Parsing is fun!
+layout: post
 excerpt: |
     I came across something I wanted to quickly parse that was too niche to find a ready made parser for. Join me on a quick whip tour of writing a grammar for a PEG parser.
 
 social_image: /assets/social/parsing.png
 image: /assets/social/parsing.png
 thumbnail: /assets/blog/parsing/thumbnail.png
+image_class: invertable
 alt: A screenshot of some python code showing a PEG grammar definition.
-layout: post
 commentid: 110746239432993930
 ---
 

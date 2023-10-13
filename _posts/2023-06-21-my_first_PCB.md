@@ -1,7 +1,7 @@
 ---
 title: My first PCB!
 excerpt: |
-    I've had a longstanding ambition to get a PCB manufactured but I've always put it off. Lately I had a need for a little adapter board to break out these 1.27mm spaced pins to 2.54mm pins that would fit into a breadboard. Feeling like it was a simple enough board I finally decided to fire up KiCad and give it a go.
+    I've always wanted to get a PCB manufactured but only recently found a something that I actually needed and was simple enough for a first attempt.
 layout: post
 commentid: 110810437631337327
 image: /assets/blog/PCB/render.png

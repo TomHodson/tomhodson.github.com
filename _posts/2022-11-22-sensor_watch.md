@@ -1,6 +1,9 @@
 ---
 title:  Sensor Watch
 layout: post
+excerpt: | 
+    I finally got my [Sensor Watch](https://www.oddlyspecificobjects.com/products/sensorwatch/)! It's a replacement logic board for those classic Casio watches you see everywhere.
+
 image: /assets/blog/SensorWatch/watch.svg
 social_image: /assets/social/sensor_watch.svg
 alt: A simple vector image of a classic casio watch.

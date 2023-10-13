@@ -2,7 +2,7 @@
 title: "Weekend builds: Lasercut stool"
 layout: post
 excerpt: |
-    It's nice when a project can be done in just a few days. This is gonna be a little plant pot stand.
+    This little plant pot stand was a nice weekend project.
 
 image: /assets/blog/weekend_builds_1/stool.jpeg
 thumbnail: /assets/blog/weekend_builds_1/stool_thumbnail.jpeg

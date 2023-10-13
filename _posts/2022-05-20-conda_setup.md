@@ -1,5 +1,6 @@
 ---
-title:  My Jupyter and Conda setup
+title:  My Jupyter and <s>Conda</s> Mamba setup
+thumbnail: /assets/blog/mamba/logos.png
 date: 2022-02-02
 layout: post
 ---

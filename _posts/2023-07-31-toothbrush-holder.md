@@ -5,6 +5,7 @@ excerpt: |
 layout: post
 hide_image: false # Only use this image for static previews
 image: /assets/blog/toothbrush_shelf/spin.gif
+thumbnail: /assets/blog/toothbrush_shelf/thumbnail.gif
 alt: A render of a 3D printed shelf sitting above a shaver outlet, it spins slowly. 
 head: <script type="module" src="/assets/js/model-viewer.js"></script>
 media: |

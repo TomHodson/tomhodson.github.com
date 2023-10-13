@@ -46,6 +46,7 @@ See: https://developers.google.com/search/docs/advanced/mobile/google-discover?h
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script src="/assets/js/index.js"></script>
 
+{% if page.mathjax %}
 <script>
   MathJax = {
     tex: {
@@ -57,6 +58,7 @@ See: https://developers.google.com/search/docs/advanced/mobile/google-discover?h
   };
   </script>
 <script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+{% endif %} 
 
 <!-- RSS feed -->
 {% feed_meta %}

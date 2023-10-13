@@ -3,8 +3,11 @@ title: How to Animate Inkscape SVGs with d3
 excerpt: In which a simple thing turns out to be surprisingly in-depth!
 layout: post
 image: /assets/thesis/intro_chapter/fk_schematic.svg
-social_image: /assets/social/fk_diagram.png
+thumbnail: /assets/blog/interactive_svgs/thumbnail.png
+social_image: /assets/blog/interactive_svgs/fk_diagram.png
+image_class: invertable
 alt: A diagram showing showing circles with arrows in them linked by lines that represents a simple physical model of electron spins interacting.
+mathjax: true
 ---
 
 I wanted my thesis to have a nice HTML version in addition to the mandatory-in-my-field latex/PDF version. Having a HTML version also means I can experiment with a bit of interactivity. I've done some of the diagrams in SVG using Inkscape which is a nice tool for this kind of thing. I wanted to add some interactivity as an easter egg to the SVGs in the HTML version.
