@@ -5,9 +5,6 @@ period: 2014 – 2017
 location: Trinity College, Cambridge
 subtitle: My Undergraduate Degree
 permalink: /CV/Undergrad
-
-image:
-alt: 
 layout: cv_entry
 read_more: false
 ---

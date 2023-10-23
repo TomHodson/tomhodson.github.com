@@ -6,8 +6,10 @@ location: Trinity College, Cambridge
 subtitle: "Imaging Magnetic Phenomena with Scanning Diamond Magnetometry"
 permalink: /CV/MSc
 
-image: /assets/images/vector_magnet_angle_view.png
-alt: "A render of vector magnet that I designed in a CAD program."
+img:
+    src: /assets/projects/vector_magnet/vector_magnet.svg
+    alt: A line drawn CAD model of vector magnet.
+    class: invertable
 
 # image_markup: <model-viewer style="height:250px;" src="/assets/blog/vector_magnet/vector_magnet.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="/assets/blog/vector_magnet/vector_magnet.png" shadow-intensity="1" environment-image="/assets/blog/vector_magnet/aircraft_workshop_01_1k.hdr" camera-orbit="-169.8deg 78.57deg 0.8881m" field-of-view="32.55deg" interaction-prompt="none" auto-rotate> </model-viewer>
 

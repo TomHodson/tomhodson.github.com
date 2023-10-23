@@ -5,8 +5,9 @@ period: 2021
 location: Imperial College London
 subtitle:
 
-image: /assets/images/datathon.jpeg
-alt: The gather.town room where the competition was held.
+img:
+    src: /assets/images/datathon.jpeg
+    alt: The gather.town room where the competition was held.
 
 layout: cv_entry
 ---

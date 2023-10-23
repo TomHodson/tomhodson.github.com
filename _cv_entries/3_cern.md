@@ -5,8 +5,9 @@ period: 2018
 location: Trinity College, Cambridge
 permalink: /CV/CERN
 
-image: /assets/images/CERN_probes.png
-alt: "Some electrical probes on a silicon wafer."
+img: 
+    src: /assets/cv/CERN_probes_small.png
+    alt: Some electrical probes on a silicon wafer.
 
 layout: cv_entry
 read_more: true

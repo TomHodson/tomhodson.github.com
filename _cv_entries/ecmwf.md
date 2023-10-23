@@ -6,8 +6,9 @@ location: Reading, UK
 subtitle: Research Software Engineer for IoT Observations
 permalink: /CV/ECMWF
 
-image: /assets/images/ecmwf_just_logo.svg
-alt: "ECMWF's logo, it looks like a stylised O joined to a C... or maybe a G joined to a C."
+img: 
+    src: /assets/images/ecmwf_just_logo.svg
+    alt: ECMWF's logo, it looks like a stylised O joined to a C... or maybe a G joined to a C.
 
 layout: cv_entry
 read_more: false

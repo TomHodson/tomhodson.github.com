@@ -3,10 +3,10 @@ type: side_project
 title: FizzPOP Makerspace Director
 period: 2012 – 2014
 location: Birmingham
-subtitle:
 
-image: /assets/images/fizzpop_logo.gif
-alt: The animated logo of fizzpop with a little spinner attached to the f
+img:
+    src: /assets/images/fizzpop_logo.gif
+    alt: The animated logo of fizzpop with a little spinner attached to the letter f
 
 layout: cv_entry
 ---

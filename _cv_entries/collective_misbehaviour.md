@@ -5,8 +5,9 @@ period: 2018 - 2021
 location: Imperial College London
 subtitle: An interactive web based poetry collaboration.
 
-image: /assets/images/collective_logo.png
-alt: A logo for the project composed of overlapping circles. 
+img: 
+    src: /assets/images/collective_logo.png
+    alt: A logo for the project composed of overlapping circles. 
 
 layout: cv_entry
 ---

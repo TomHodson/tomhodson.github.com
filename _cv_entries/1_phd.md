@@ -6,8 +6,10 @@ location: Imperial College London
 subtitle: "The one-dimensional Long-Range Falikov-Kimball Model"
 permalink: /CV/PhD
 
-image: /assets/images/koala_logo.svg
-alt: "A colourful scientific figure from my work."
+img:
+    src: /assets/images/koala_logo.svg
+    alt: "A colourful scientific figure from my work."
+    class: invertable
 
 layout: cv_entry
 read_more: true

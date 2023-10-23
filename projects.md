@@ -1,14 +1,13 @@
 ---
 title: Projects
 layout: default
-redirect_from:
-  - /projects/
+permalink: /projects/
 ---
 {% for post in site.projects %}
 <article class="h-entry project">
-    {% unless post.hide_image %}
+    <a class="u-uid u-url" href="{{ post.url }}">
     <img class="u-photo {{post.img.class}}" src = "{{post.img.src}}" alt="{{post.img.alt}}">
-    {% endunless %}
+    </a>
 
     <section>
     <h2 class="p-name blogroll-title"><a class="u-uid u-url" href="{{ post.url }}">{{ post.title }}</a></h2>

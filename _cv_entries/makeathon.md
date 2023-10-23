@@ -3,10 +3,10 @@ type: competition
 title: MSF Makeathon
 period: 2021
 location: Imperial College Friends of Médecins Sans Frontières
-subtitle:
 
-image: /assets/images/makeathon/test_piece.jpg
-alt: The gather.town room where the competition was held.
+img:
+    src: /assets/images/makeathon/test_piece.jpg
+    alt: The gather.town room where the competition was held.
 
 layout: cv_entry
 read_more: true

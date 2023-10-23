@@ -9,12 +9,14 @@ mathjax: false
 {% for post in site.posts %}
 <article class="h-entry blogroll">
 
+<a class="u-uid u-url" href="{{ post.url }}">
 <figure>
 <img class="u-photo" 
     src = "{{ post.thumbnail | default: post.image }}"
     class = "{{ post.image_class }}"
     alt="{{post.alt}}">
 </figure>
+</a>
 
 <section>
   <h2 class="p-name blogroll-title"><a class="u-uid u-url" href="{{ post.url }}">{{ post.title }}</a></h2>

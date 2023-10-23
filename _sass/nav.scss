@@ -7,6 +7,12 @@ nav {
     color: darkslategray;
   }
 
+@media (prefers-color-scheme: dark) {
+    .current {
+        color: lightslategray;
+    }
+}
+
 @media 
     only screen and (max-width: $horizontal_breakpoint),
     only screen and (max-height: $vertical_breakpoint)
