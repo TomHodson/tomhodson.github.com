@@ -5,7 +5,7 @@ excerpt: Adapters to use common components with lego technic.
 permalink: /projects/lego_adapters
 
 img:
-    src: /assets/projects/lego_adapters/bw_thumbnail.svg
+    src: /assets/projects/lego_adapters/thumbnail.svg
     alt: 
     class: invertable
 ---

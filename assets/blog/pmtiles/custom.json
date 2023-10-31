@@ -1,0 +1,166 @@
+[
+  {
+    "id": "water",
+    "type": "fill",
+    "source": "static_hackney",
+    "source-layer": "water",
+    "filter": ["all"],
+    "layout": {"visibility": "visible"}
+  },
+  {
+    "id": "roads_major",
+    "type": "line",
+    "source": "static_hackney",
+    "source-layer": "roads",
+    "filter": [
+      "all",
+      [
+        "==",
+        "pmap:level",
+        0
+      ],
+      [
+        "==",
+        "pmap:kind",
+        "major_road"
+      ]
+    ],
+    "paint": {
+      "line-color": "black",
+      "line-width": 1.6
+    }
+  },
+  {
+    "id": "roads_medium",
+    "type": "line",
+    "source": "static_hackney",
+    "source-layer": "roads",
+    "minzoom": 0, 
+    "filter": [
+      "all",
+      [
+        "==",
+        "pmap:level",
+        0
+      ],
+      [
+        "==",
+        "pmap:kind",
+        "medium_road"
+      ]
+    ],
+    "paint": {
+      "line-color": "black",
+      "line-width": 1
+    }
+  },
+  {
+    "id": "roads_minor",
+    "type": "line",
+    "source": "static_hackney",
+    "source-layer": "roads",
+    "minzoom": 0, 
+    "filter": [
+      "all",
+      [
+        "==",
+        "pmap:level",
+        0
+      ],
+      [
+        "==",
+        "pmap:kind",
+        "minor_road"
+      ]
+    ],
+    "paint": {
+      "line-color": "black",
+      "line-width": 1
+    }
+  },
+  {
+    "id": "roads_labels_minor",
+    "type": "symbol",
+    "source": "static_hackney",
+    "source-layer": "roads",
+    "minzoom": 15,
+    "filter": [
+      "any",
+      [
+        "in",
+        "pmap:kind",
+        "minor_road",
+        "other",
+        "path"
+      ]
+    ],
+    "layout": {
+      "symbol-sort-key": [
+        "get",
+        "pmap:min_zoom"
+      ],
+      "symbol-placement": "line",
+      "text-font": [
+        "Roboto Regular"
+      ],
+      "text-field": [
+        "get",
+        "name"
+      ],
+      "text-size": 12
+    },
+    "paint": {
+      "text-color": "#000000",
+      "text-halo-color": "#ffffff",
+      "text-halo-width": 2
+    }
+  },
+  {
+    "id": "landuse_park",
+    "type": "fill",
+    "source": "static_hackney",
+    "source-layer": "landuse",
+    "filter": [
+      "any",
+      [
+        "in",
+        "pmap:kind",
+        "national_park",
+        "park",
+        "cemetery",
+        "protected_area",
+        "nature_reserve",
+        "forest",
+        "golf_course",
+        "hospital",
+        "industrial",
+        "school",
+        "university",
+        "college"
+      ]
+    ],
+    "paint": {
+      "fill-color": "black",
+      "fill-opacity": 0.1
+    }
+  },
+  {
+    "id": "natural_wood",
+    "type": "fill",
+    "source": "static_hackney",
+    "source-layer": "natural",
+    "filter": [
+      "any",
+      [
+        "in",
+        "pmap:kind",
+        "wood",
+        "nature_reserve",
+        "forest"
+      ]
+    ],
+    "paint": {
+      "fill-color": "black"
+    }
+  }
+]
