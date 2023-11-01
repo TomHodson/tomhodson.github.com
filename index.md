@@ -5,6 +5,9 @@ permalink: /
 redirect_from:
   - /blog/
 mathjax: false
+img:
+    src: /assets/images/avatar.jpeg
+    alt: A picture of me.
 ---
 {% for post in site.posts %}
 <article class="h-entry blogroll">

@@ -23,7 +23,18 @@
 {% assign image = page.social_image %}
 {% elsif page.image %}
 {% assign image = page.image %}
+{% elsif page.img %}
+{% assign image = page.img.src %}
+{% elsif page.thumbnail %}
+{% assign image = page.thumbnail %}
 {% else image = false %}
+{% endif %}
+
+{% if page.img %}
+{% assign alt = page.img.alt %}
+{% elsif page.alt %}
+{% assign alt = page.alt %}
+{% else alt = False %}
 {% endif %}
 
 {% if image %}
@@ -32,11 +43,11 @@ See: https://developers.google.com/search/docs/advanced/mobile/google-discover?h
 <meta name="robots" content="max-image-preview:large">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{{site.url}}{{page.image}}">
-<meta property="og:image" content="{{site.url}}{{page.image}}">
-{% if page.alt %} <!-- Note og:image:alt must immediately follow og:image tag -->
-<meta property="og:image:alt" content="{{page.alt | strip}}">
-<meta property="twitter:image:alt" content="{{page.alt | strip}}">
+<meta name="twitter:image" content="{{image | absolute_url}}">
+<meta property="og:image" content="{{image | absolute_url}}">
+{% if alt %} <!-- Note og:image:alt must immediately follow og:image tag -->
+<meta property="og:image:alt" content="{{alt | strip}}">
+<meta property="twitter:image:alt" content="{{alt | strip}}">
 {% endif %}
 {% endif %}
 

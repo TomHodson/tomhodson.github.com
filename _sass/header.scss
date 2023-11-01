@@ -17,51 +17,50 @@ header {
     align-items: flex-end;
     text-align: right;
     top: 0px;
-}
 
-//a horizontal dividing line to swap in when we switch to mobile layout
-header hr {
-    border:0px solid #eee;
-    width: 100%;
-    margin-top: 1em;
-}
+    //a horizontal dividing line to swap in when we switch to mobile layout
+    hr {
+        border:0px solid #eee;
+        width: 100%;
+        margin-top: 1em;
+    }
 
-header .profile-pic-name {
-    text-align: center;
-}
+    .profile-pic-name {
+        text-align: center;
+    }
 
-header .avatar {
-    max-width: 175px;
-    border-radius: 50%;
-    padding: 5px;
-    border: 1px solid #f2f3f3;
-}
+    .avatar {
+        max-width: 175px;
+        border-radius: 50%;
+        padding: 5px;
+        border: 1px solid #f2f3f3;
+    }
 
-header h1 {
-    font-size: 2em;
-}
+    h1 {
+        font-size: 2em;
+    }
 
-header h1, header h2 {
-    font-family: $title_font_stack;
-}
+    h1, h2 {
+        font-family: $title_font_stack;
+    }
 
-header img.icon {
-    height: 1em;
-    width: 1em;
-    margin-right: 0.5em;
-    margin-left: 0.5em;
-    flex: 0 0 auto;
-}
+    p.professional-links {
+        display: flex;
+        flex-direction: column;
 
-header p.professional-links {
-    display: flex;
-    flex-direction: column;
-}
+        svg {
+            height: 1em;
+            width: 1em;
+            margin-left: 0.5em;
+            flex: 0 0 auto;
+        }
 
-header p.professional-links a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+        a {
+            display: flex; //
+            align-items: center; // Get the icons centered vertically
+            justify-content: right; //Align right
+        }
+    }
 }
 
 @media 

@@ -8,6 +8,8 @@ You probably want to run ruby from a version manager like `chruby`, see [here](h
   - fix the OG tags so that https://cards-dev.twitter.com/validator works
   - consider switching to using pandoc as a markdown renderer
   - setup webmentions https://aarongustafson.github.io/jekyll-webmention_io/
+  - add a theme toggle button: https://whitep4nth3r.com/blog/best-light-dark-mode-theme-toggle-javascript/
+  - make sure the above works with the thesis section, will probably require stripping the html tag.
 
 ## Validators
   - [blacklight](https://themarkup.org/blacklight)
