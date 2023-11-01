@@ -8,4 +8,6 @@ img:
     src: /assets/projects/lamps/lamps.svg
     alt: A CAD model of a 3D printable mount for a common LED light onto a helmet.
     class: invertable
+
+social_image: /assets/projects/lamps/lamps.png
 ---
