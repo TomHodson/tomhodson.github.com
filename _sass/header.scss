@@ -107,10 +107,21 @@ header {
         border-width:1px;
     }
 
-    header p.professional-links a {
-        margin-left: 1em;
-        margin-right: 1em;
-        flex-wrap: nowrap;
-        justify-content: center;
+    header p.professional-links {
+        a {
+            margin-left: 1em;
+            margin-right: 1em;
+            flex-wrap: nowrap;
+            justify-content: center;
+
+            // In the main view, the github/mastodon/rss icons are on the right
+            // for the smaller view switch the to the left 
+            flex-direction: row-reverse;
+        }
+        svg {
+            // Switch the padding side having switched the order
+            margin-right: 0.5em;
+            margin-left: 0;
+        }
     }
 }

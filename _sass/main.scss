@@ -154,7 +154,7 @@ model-viewer {
         opacity: .75;
         transition: opacity .5s ease-in-out;
     }
-    img.icon, img.invertable{
+    svg.invertable, img.invertable{
         opacity: 1;
         filter: invert(1);
     }
