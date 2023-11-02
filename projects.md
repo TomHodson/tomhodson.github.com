@@ -8,6 +8,8 @@ img:
     src: /assets/projects/lego_adapters/thumbnail.svg
     alt: 
     class: invertable
+    
+social_image: /assets/projects/lego_adapters/thumbnail.png
 ---
 {% for post in site.projects %}
 <article class="h-entry project">
