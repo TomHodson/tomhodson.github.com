@@ -8,4 +8,6 @@ env/
 node_modules/
 package-lock.json
 .ipynb_checkpoints/
-*.blend
+*.blend*
+*.pdf
+*.fbx
