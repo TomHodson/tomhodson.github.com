@@ -60,17 +60,17 @@
      bordercolor="#000000"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="1"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="0.91478612"
-     inkscape:cx="-31.701399"
-     inkscape:cy="308.81535"
+     inkscape:cx="-183.64949"
+     inkscape:cy="309.90851"
      inkscape:window-width="1352"
      inkscape:window-height="815"
-     inkscape:window-x="0"
-     inkscape:window-y="35"
+     inkscape:window-x="229"
+     inkscape:window-y="101"
      inkscape:window-maximized="0"
      inkscape:current-layer="g140">
     <inkscape:page
@@ -78,7 +78,10 @@
        y="0"
        id="page138"
        width="500"
-       height="499.99997" />
+       height="499.99997"
+       inkscape:export-filename="thumbnail.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </sodipodi:namedview>
   <g
      id="g140"

@@ -7,7 +7,7 @@
    width="500"
    height="500"
    viewBox="0 0 500 499.99998"
-   sodipodi:docname="bw_thumbnail.svg"
+   sodipodi:docname="thumbnail.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -94,17 +94,17 @@
      bordercolor="#000000"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="1"
      inkscape:pagecheckerboard="false"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="0.23972819"
-     inkscape:cx="-68.827952"
-     inkscape:cy="387.93936"
+     inkscape:cx="-650.73699"
+     inkscape:cy="392.11075"
      inkscape:window-width="1352"
      inkscape:window-height="456"
      inkscape:window-x="0"
-     inkscape:window-y="35"
+     inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:current-layer="g140">
     <inkscape:page
@@ -112,7 +112,10 @@
        y="0"
        id="page138"
        width="500"
-       height="499.99997" />
+       height="499.99997"
+       inkscape:export-filename="thumbnail.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </sodipodi:namedview>
   <g
      id="g140"
