@@ -11,10 +11,22 @@ img:
 
 social_image: /assets/projects/bike_lights/thumbnail.png
 model: /assets/projects/bike_lights/model
+
+head: |
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+    {
+        "imports": {
+        "three": "https://unpkg.com/three@0.156.1/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.156.1/examples/jsm/"
+        }
+    }
+    </script>
+    <script src="/assets/js/three/index.js" type="module"></script>
 ---
 
-<model-viewer src="{{page.model}}/untitled.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="{{page.model}}/poster.webp" shadow-intensity="1" camera-orbit="-147.8deg 54.77deg 0.1713m" field-of-view="30deg"></model-viewer>
-
-<script type="module" src="/assets/js/model-viewer.js"></script>
+<outline-model-viewer model = "/assets/projects/bike_lights/models/bigger.glb"></outline-model-viewer>
 
 <img src = "/assets/projects/bike_lights/bike_light.jpg">
+
