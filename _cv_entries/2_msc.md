@@ -7,7 +7,7 @@ subtitle: "Imaging Magnetic Phenomena with Scanning Diamond Magnetometry"
 permalink: /CV/MSc
 
 img:
-    src: /assets/projects/vector_magnet/vector_magnet.svg
+    src: /assets/projects/vector_magnet/thumbnail.svg
     alt: A line drawn CAD model of vector magnet.
     class: invertable
 
