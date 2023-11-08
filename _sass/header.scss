@@ -44,6 +44,10 @@ header {
         font-family: $title_font_stack;
     }
 
+    a {
+        margin-bottom: 2px;
+    }
+
     p.professional-links {
         display: flex;
         flex-direction: column;
@@ -60,6 +64,10 @@ header {
             align-items: center; // Get the icons centered vertically
             justify-content: right; //Align right
         }
+    }
+
+    .page-src-link {
+        font-size: 0.8em;
     }
 }
 
