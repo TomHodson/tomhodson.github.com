@@ -115,6 +115,27 @@ figure > img, figure > svg, figure > canvas {
     border-radius: 10px;
 }
 
+// For fallback images inside custom outline-model-viewer elements
+outline-model-viewer, .outline-model-poster {
+    width: 100%;
+    height: 300px;
+}
+
+outline-model-viewer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// If the browser doesn't support web components, hide anything with has-wc class
+body.has-wc .no-wc {
+    display: none;
+}
+// If the browser does support web components, hide anything with no-wc class
+body:not(.has-wc) .has-wc {
+    display: none;
+}
+
 @media 
     only screen and (max-width: $horizontal_breakpoint),
     only screen and (max-height: $vertical_breakpoint)
