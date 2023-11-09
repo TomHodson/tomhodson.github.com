@@ -3,6 +3,7 @@
 
 @import "nav"; //the side navbar
 @import "header"; // the header
+@import "footer"; // the footer
 @import "article"; // individual blog articles
 @import "projects"; //Styles for the projects page
 @import "cv"; // the CV page
@@ -45,11 +46,7 @@ main {
     max-width: 560px;
     margin-left: 240px;
     padding-left: 30px;
-    
-    
     padding-top: 10vh;
-    padding-bottom: 10vh;
-
     min-height: 100vh;
 
     display: flex;
