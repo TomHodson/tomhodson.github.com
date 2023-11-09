@@ -13,18 +13,17 @@ social_image: /assets/projects/bike_lights/thumbnail.png
 model: /assets/projects/bike_lights/model
 
 head: |
-    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
-
+    <script async src="/assets/js/es-module-shims/dist/es-module-shims.js"></script>
     <script type="importmap">
     {
         "imports": {
-        "three": "https://unpkg.com/three@0.156.1/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.156.1/examples/jsm/",
+        "three": "/assets/js/three/build/three.module.min.js",
+        "three/addons/": "/assets/js/three/examples/jsm/",
         "dat.gui": "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
         }
     }
     </script>
-    <script src="/assets/js/three/index.js" type="module"></script>
+    <script src="/assets/js/outline-model-viewer/index.js" type="module"></script>
 ---
 
 <outline-model-viewer model = "/assets/projects/bike_lights/models/bigger.glb">
@@ -33,4 +32,3 @@ head: |
 </outline-model-viewer>
 
 <img src = "/assets/projects/bike_lights/bike_light.jpg">
-

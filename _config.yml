@@ -17,6 +17,17 @@ collections:
   projects:
     output: true
 
+node_modules:
+  modules_dir: node_modules
+  assets:
+    js: assets/js
+    css: assets/css
+  copy:
+  - source: three/
+    target: assets/js/three/
+  - source: es-module-shims/
+    target: assets/js/es-module-shims/
+
 
 plugins:
   - jekyll-feed
