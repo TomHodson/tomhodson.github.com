@@ -1,5 +1,5 @@
 ---
-title: Vase Generator
+title: THREE.js
 excerpt: |
     
 
@@ -42,6 +42,7 @@ want to port code from https://github.com/TomHodson/VaseExtruder
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(background_color);
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+    camera.position.z = 100;
 
     const canvas = document.getElementById("threejs");
     const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true, powerPreference: "low-power"});
@@ -57,16 +58,60 @@ want to port code from https://github.com/TomHodson/VaseExtruder
     const dracoLoader = new DRACOLoader();
     dracoLoader.setDecoderPath( 'jsm/libs/draco/gltf/' );
 
+    const onWindowResize = () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
     const loader = new GLTFLoader();
     loader.setDRACOLoader( dracoLoader );
-    loader.load( '/assets/blog/shelves/model/shelves.glb', function ( gltf ) {
-
+    loader.load( '/assets/projects/bike_lights/model/untitled.glb', function ( gltf ) {
         const model = gltf.scene;
+        console.log(model);
+
+        // traverse the scene and make modifications if necessary
+        model.traverse((o) => {
+            if (o.isMesh) {
+                const flat_material = new THREE.MeshBasicMaterial( {
+                    color: 0xffffff,
+                    polygonOffset: true,
+                    polygonOffsetFactor: 1, // positive value pushes polygon further away
+                    polygonOffsetUnits: 1
+                } );
+
+                o.material = flat_material;
+                scene.add(o);
+
+                // const flat_model = new THREE.LineSegments( o.geometry, flat_material);
+                // scene.add(flat_model);
+
+                const thresholdAngle = 10;
+                const wireframe_geometry = new THREE.EdgesGeometry(o.geometry, thresholdAngle);
+                
+                const line = new THREE.LineSegments(wireframe_geometry);
+                line.material.color.setHex(0x000000);
+                line.scale.set(10,10,10)
+                scene.add(line);
+
+                // const line_material = new THREE.LineBasicMaterial( { color: 0x000000 } );
+                // const wireframe_model = new THREE.LineSegments( wireframe_geometry, line_material);
+                // wireframe_model.scale.set(10,10,10);
+                // scene.add(wireframe_model);
+
+            }
+        });
+
+
+        
         // model.position.set( 1, 1, 0 );
-        model.scale.set( 1, 1, 1 );
-        scene.add( model );
+        // model.scale.set( 1, 1, 1 );
+        // scene.add( model );
 
         animate();
+
+        // Add listener for window resize.
+        window.addEventListener('resize', onWindowResize, false);
 
     }, undefined, function ( e ) {
 
@@ -78,8 +123,6 @@ want to port code from https://github.com/TomHodson/VaseExtruder
     // const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     // const cube = new THREE.Mesh( geometry, material );
     // scene.add( cube );
-
-    camera.position.z = 5;
 
     function animate() {
         requestAnimationFrame( animate );
