@@ -29,16 +29,17 @@ node_modules:
     target: assets/js/es-module-shims/
 
 
-plugins:
-  - jekyll-feed
-  - jekyll-redirect-from
-  - flexible_include
-  - jekyll-node-module
+# plugins:
+#   - jekyll-feed
+#   - jekyll-redirect-from
+#   - flexible_include
+#   - jekyll-node-module
 
-whitelist:
-  - jekyll-feed
-  - jekyll-redirect-from
-  - flexible_include
+# whitelist:
+#   - jekyll-feed
+#   - jekyll-redirect-from
+#   - flexible_include
+#   - jekyll-node-module
 
 
 feed:
