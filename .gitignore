@@ -2,6 +2,7 @@ _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
+Gemfile.lock
 vendor
 env/
 .DS_Store
