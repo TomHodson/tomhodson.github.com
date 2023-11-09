@@ -118,6 +118,7 @@ class CustomOutlinePass extends Pass {
 			uniform vec4 screenSize;
 			uniform vec3 outlineColor;
 			uniform vec2 multiplierParameters;
+      uniform int debugVisualize;
 
 			varying vec2 vUv;
 
@@ -196,6 +197,22 @@ class CustomOutlinePass extends Pass {
 				// Combine outline with scene color.
 				vec4 outlineColor = vec4(outlineColor, 1.0);
 				gl_FragColor = vec4(mix(sceneColor, outlineColor, outline));
+
+        //// For debug visualization of the different inputs to this shader.
+				if (debugVisualize == 2) {
+					gl_FragColor = sceneColor;
+				}
+				if (debugVisualize == 3) {
+					gl_FragColor = vec4(vec3(depth), 1.0);
+				}
+				if (debugVisualize == 4) {
+					// 4 visualizes the surfaceID buffer 
+					gl_FragColor = vec4(surfaceValue, 1.0);
+				}
+				if (debugVisualize == 5) {
+					// Outlines only
+					gl_FragColor = mix(vec4(0,0,0,0), outlineColor, outline);
+				}
 			}
 			`;
   }
@@ -203,6 +220,7 @@ class CustomOutlinePass extends Pass {
   createOutlinePostProcessMaterial() {
     return new THREE.ShaderMaterial({
       uniforms: {
+        debugVisualize: { value: 0 },
         sceneColorBuffer: {},
         depthBuffer: {},
         surfaceBuffer: {},
