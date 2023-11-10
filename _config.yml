@@ -33,7 +33,13 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - flexible_include
-#   - jekyll-node-module
+  - jekyll-node-module
+
+whitelist:
+  - jekyll-feed
+  - jekyll-redirect-from
+  - flexible_include
+  - jekyll-node-module
 
 
 feed:
