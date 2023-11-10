@@ -13,12 +13,12 @@ social_image: /assets/projects/bike_lights/thumbnail.png
 model: /assets/projects/bike_lights/model
 
 head: |
-    <script async src="/assets/js/es-module-shims/dist/es-module-shims.js"></script>
+    <script async src="/node_modules/es-module-shims/dist/es-module-shims.js"></script>
     <script type="importmap">
     {
         "imports": {
-        "three": "/assets/js/three/build/three.module.min.js",
-        "three/addons/": "/assets/js/three/examples/jsm/",
+        "three": "/node_modules/three/build/three.module.min.js",
+        "three/addons/": "/node_modules//three/examples/jsm/",
         "dat.gui": "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
         }
     }

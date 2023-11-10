@@ -143,6 +143,7 @@ class OutlineModelViewer extends HTMLElement {
     const canvas = this.shadow.querySelector("canvas");
 
     let canvas_rect = canvas.getBoundingClientRect();
+    console.log(canvas_rect);
 
     const body = document.getElementsByTagName("body")[0];
     const style = window.getComputedStyle(body);
@@ -284,14 +285,21 @@ class OutlineModelViewer extends HTMLElement {
     this.shadow.innerHTML = `
       <div id="container">
       <canvas class = "object-viewer"></canvas>
-      <summary>
-      Debug
-      <details>Details</details>
-      </summary>
+      <details>
+      <summary>Debug</summary>
+      <input id="outline" type="range" min="0.5" max="4" step="0.1" value="2" />
+      </details>
       </div>
 
       <style>
-        .object-viewer {
+        #container {
+          width: 90%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+
+        canvas {
           width: 100%;
           height: 100%;
           border-radius: 0.25rem;
