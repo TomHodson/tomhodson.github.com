@@ -26,7 +26,7 @@ head: |
     <script src="/assets/js/outline-model-viewer/index.js" type="module"></script>
 ---
 
-<outline-model-viewer model = "/assets/projects/bike_lights/models/bigger.glb">
+<outline-model-viewer model = "/assets/projects/bike_lights/models/bigger.glb" zoom=37>
     <img class="outline-model-poster no-wc" src = "/assets/projects/bike_lights/thumbnail.svg">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>

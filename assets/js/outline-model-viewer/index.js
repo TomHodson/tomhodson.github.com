@@ -153,13 +153,16 @@ class OutlineModelViewer extends HTMLElement {
     const outline_color = isDark ? 0xffffff : 0x000000;
     const model_color = background_color;
 
-    // Init scene
-    const camera = new THREE.PerspectiveCamera(
-      70,
-      canvas_rect.width / canvas_rect.height,
-      0.1,
-      100
-    );
+    // // Init scene
+    // const camera = new THREE.PerspectiveCamera(
+    //   70,
+    //   canvas_rect.width / canvas_rect.height,
+    //   0.1,
+    //   100
+    // );
+    const camera = new THREE.OrthographicCamera( canvas_rect.width / - 2, canvas_rect.width / 2, canvas_rect.height / 2, canvas_rect.height / - 2, 1, 1000 );
+    camera.zoom = parseFloat(this.getAttribute("zoom") || "1")
+    console.log(camera.zoom)
     camera.position.set(10, 2.5, 4);
 
     // create the scene and the camera
@@ -256,7 +259,7 @@ class OutlineModelViewer extends HTMLElement {
     // Render loop
     function update() {
       requestAnimationFrame(update);
-      // controls.update();
+      controls.update();
       composer.render();
     }
     update();
@@ -279,6 +282,13 @@ class OutlineModelViewer extends HTMLElement {
     window.addEventListener("resize", onWindowResize, false);
     if(this.getAttribute("debug")) setupDebug();
 
+    document.addEventListener("keydown", onDocumentKeyDown, false);
+  function onDocumentKeyDown(event) { 
+    if (event.key == " ") {
+        console.log(camera.toJSON());
+    }
+  }
+
   }
 
   render() {
@@ -292,6 +302,10 @@ class OutlineModelViewer extends HTMLElement {
       </div>
 
       <style>
+        details {
+          display: none;
+        }
+
         #container {
           width: 90%;
           height: 100%;

@@ -26,7 +26,7 @@ head: |
     <script src="/assets/js/outline-model-viewer/index.js" type="module"></script>
 ---
 
-<outline-model-viewer model = "{{page.models}}/model.glb">
+<outline-model-viewer model = "{{page.models}}/model.glb" zoom=60>
     <img class="outline-model-poster no-wc" src = "{{page.img.src}}">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>
