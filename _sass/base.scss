@@ -21,7 +21,6 @@
     box-sizing: border-box;
     font-family: $font_stack;
     text-rendering: geometricPrecision;
-
 }
 
 html {
@@ -30,13 +29,18 @@ html {
 }
 
 body {
-    background: #fcfcfc;
-    color: #222;
+    --theme-text-color: #222;
+    --theme-bg-color: #fcfcfc;
+    --theme-model-line-color: #222;
+    --theme-model-bg-color: #fcfcfc;
+    --theme-subtle-outline: oklch(90% 0.0 50);
+
+    background: var(--theme-bg-color);
+    color: var(--theme-text-color);
 
     // constrain width and center
     max-width: 900px;
     margin: auto;
-    
 }
 
 // Padding to keep the keep the content to the right of the header
@@ -56,7 +60,11 @@ main {
     h1 {
         font-size: 2em;
     }
+
+    // img that are direct children of p are usually img tags in markdown
     p > img {
+        margin-top: 2em;
+        margin-bottom: 1em;
         width: 90%;
 
         //hack to center images in p tags
@@ -79,7 +87,7 @@ a {
     text-decoration: underline;
     text-underline-offset: 2px;
     text-decoration-thickness: 0.5px;
-    color: #222;
+    color: var(--theme-text-color);
 }
 
 header a, nav a {
@@ -113,7 +121,7 @@ figure > img, figure > svg, figure > canvas {
 }
 
 // For fallback images inside custom outline-model-viewer elements
-outline-model-viewer, .outline-model-poster {
+.outline-model-poster {
     width: 100%;
     height: 300px;
 }
@@ -122,6 +130,11 @@ outline-model-viewer {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    border: var(--theme-subtle-outline) 1px solid;
+    border-radius: 10px;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 // If the browser doesn't support web components, hide anything with has-wc class
@@ -164,9 +177,10 @@ model-viewer {
 
   
   @media (prefers-color-scheme: dark) {
-    body, a{
-        background: #222;
-        color: #fcfcfc;
+    body {
+        --theme-text-color: #fcfcfc;
+        --theme-bg-color: #222;
+        --theme-subtle-outline: oklch(50% 0.0 50);
     }
     img {
         opacity: .75;

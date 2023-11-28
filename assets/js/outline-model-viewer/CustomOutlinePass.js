@@ -166,6 +166,18 @@ class CustomOutlinePass extends Pass {
 				return surfaceIdDiff;
 			}
 
+
+      const uint k = 1103515245U;  // GLIB C
+      vec3 hash( vec3 f )
+      { 
+          uvec3 x = floatBitsToUint(f);
+          x = ((x>>8U)^x.yzx)*k;
+          x = ((x>>8U)^x.yzx)*k;
+          x = ((x>>8U)^x.yzx)*k;
+          return vec3(x)/float(0xffffffffU);
+      }
+      
+
 			void main() {
 				vec4 sceneColor = texture2D(sceneColorBuffer, vUv);
 				float depth = getPixelDepth(0, 0);
@@ -207,7 +219,7 @@ class CustomOutlinePass extends Pass {
 				}
 				if (debugVisualize == 4) {
 					// 4 visualizes the surfaceID buffer 
-					gl_FragColor = vec4(surfaceValue, 1.0);
+					gl_FragColor = vec4(hash(surfaceValue), 1.0);
 				}
 				if (debugVisualize == 5) {
 					// Outlines only
