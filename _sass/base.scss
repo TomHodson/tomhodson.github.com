@@ -123,14 +123,15 @@ figure > img, figure > svg, figure > canvas {
 // For fallback images inside custom outline-model-viewer elements
 .outline-model-poster {
     width: 100%;
-    height: 300px;
+    height: 100%;
 }
 
 outline-model-viewer {
+    width: 100%;
+    min-height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     border: var(--theme-subtle-outline) 1px solid;
     border-radius: 10px;
     margin-top: 1em;

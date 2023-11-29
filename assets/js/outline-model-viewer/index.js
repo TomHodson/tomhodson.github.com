@@ -84,14 +84,16 @@ class OutlineModelViewer extends HTMLElement {
   constructor() {
     super();
 
+    let component_rect = this.getBoundingClientRect();
+    console.log("component_rect", component_rect);
+
     this.shadow = this.attachShadow({ mode: "open" });
-    this.render();
+    this.render(component_rect.height);
 
     const model_path = this.getAttribute("model") ||  "/assets/projects/bike_lights/models/bigger.glb";
     const spin = (this.getAttribute("spin") || 'true') === 'true'
 
     const container = this.shadow.querySelector("div#container");
-    console.log(container);
     const canvas = this.shadow.querySelector("canvas");
 
     let canvas_rect = canvas.getBoundingClientRect();
@@ -231,7 +233,7 @@ class OutlineModelViewer extends HTMLElement {
 
   }
 
-  render() {
+  render(height) {
     this.shadow.innerHTML = `
       <div id="container">
       <canvas class = "object-viewer"></canvas>
@@ -240,17 +242,21 @@ class OutlineModelViewer extends HTMLElement {
       <style>
 
         #container {
+          position: relative;
           width: 100%;
-          height: 100%;
           display: flex;
           flex-direction: column;
+          border-radius: inherit;
         }
 
+        .lil-gui .title {height: 2em;}
         .lil-gui.root {
+          margin-top: calc(${height}px - 2em);
           width: 100%;
-          --background-color: var(--theme-bg-color);
+          z-index: 1;
+          --background-color: none;
           --text-color: var(--theme-text-color);
-          --title-background-color: var(--theme-bg-color);
+          --title-background-color: none;
           --title-text-color: var(--theme-text-color);
           --widget-color: var(--theme-subtle-outline);
           --hover-color: lightgrey;
@@ -263,21 +269,11 @@ class OutlineModelViewer extends HTMLElement {
         border: var(--theme-subtle-outline) 1px solid;
       }
 
-        summary#settings {
-          border: none;
-          background: var(--theme-background);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 1em;
-          padding-bottom: 0.5em;
-          cursor: context-menu;
-        }
-
         canvas {
+          position: absolute;
           width: 100%;
-          height: 100%;
-          border-radius: 0.25rem;
+          height: ${height}px;
+          border-radius: inherit;
         }
       </style>
     `;
