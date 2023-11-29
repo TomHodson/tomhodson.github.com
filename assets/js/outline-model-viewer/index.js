@@ -33,53 +33,6 @@ const serialiseCamera = (camera, controls) => {
     });
 };
 
-const setupDebug = (container, customOutline, camera, controls) => {
-  const gui = new GUI({
-    title: "Settings",
-    container: container,
-    injectStyles: false,
-    closeFolders: true,
-  });
-  gui.close();
-
-  const uniforms = customOutline.fsQuad.material.uniforms;
-  const params = {
-    mode: { Mode: 0 },
-    depthBias: uniforms.multiplierParameters.value.x,
-    depthMult: uniforms.multiplierParameters.value.y,
-    normalBias: uniforms.multiplierParameters.value.z,
-    normalMult: uniforms.multiplierParameters.value.w,
-    printCamera: () => console.log(serialiseCamera(camera, controls)),
-  };
-
-  gui.add(params, 'printCamera' );
-
-  gui
-    .add(params.mode, "Mode", {
-      "Outlines + Shaded (default)": 0,
-      "Shaded": 2,
-      "Depth buffer": 3,
-      "SurfaceID buffer": 4,
-      "Outlines": 5,
-    })
-    .onChange(function (value) {
-      uniforms.debugVisualize.value = value;
-    });
-  
-    gui.add(params, "depthBias", 0.0, 5).onChange(function (value) {
-      uniforms.multiplierParameters.value.x = value;
-    });
-    gui.add(params, "depthMult", 0.0, 20).onChange(function (value) {
-      uniforms.multiplierParameters.value.y = value;
-    });
-    // gui.add(params, "normalBias", 0.0, 20).onChange(function (value) {
-    //   uniforms.multiplierParameters.value.z = value;
-    // });
-    // gui.add(params, "normalMult", 0.0, 10).onChange(function (value) {
-    //   uniforms.multiplierParameters.value.w = value;
-    // });
-}
-
 class OutlineModelViewer extends HTMLElement {
   constructor() {
     super();
@@ -225,11 +178,49 @@ class OutlineModelViewer extends HTMLElement {
     window.addEventListener("resize", onWindowResize, false);
 
 
-    setupDebug(
-        this.shadow.querySelector("div#container"),
-        customOutline,
-        camera,
-        controls);
+    const gui = new GUI({
+      title: "Settings",
+      container: container,
+      injectStyles: false,
+      closeFolders: true,
+    });
+    gui.close();
+  
+    const uniforms = customOutline.fsQuad.material.uniforms;
+    const params = {
+      mode: { Mode: 0 },
+      depthBias: uniforms.multiplierParameters.value.x,
+      depthMult: uniforms.multiplierParameters.value.y,
+      FXAA_resolution: 0.5,
+      printCamera: () => console.log(serialiseCamera(camera, controls)),
+    };
+  
+    gui.add(params, 'printCamera' );
+  
+    gui
+      .add(params.mode, "Mode", {
+        "Outlines + Shaded (default)": 0,
+        "Shaded": 2,
+        "Depth buffer": 3,
+        "SurfaceID buffer": 4,
+        "Outlines": 5,
+      })
+      .onChange(function (value) {
+        uniforms.debugVisualize.value = value;
+      });
+    
+      gui.add(params, "depthBias", 0.0, 5).onChange(function (value) {
+        uniforms.multiplierParameters.value.x = value;
+      });
+      gui.add(params, "depthMult", 0.0, 20).onChange(function (value) {
+        uniforms.multiplierParameters.value.y = value;
+      });
+  
+      gui.add(params, "FXAA_resolution", 0.0, 2).onChange(value => {
+        effectFXAA.uniforms["resolution"].value.set(
+        value / canvas_rect.width,
+        value / canvas_rect.height
+      );})
 
   }
 
