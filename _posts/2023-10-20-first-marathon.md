@@ -10,3 +10,5 @@ alt: A scatter graph of run time vs run distance for all my runs on strava. Ther
 ---
 
 I ran the Amsterdam marathon! My first official race and the longest distance I've run in one go!
+
+<img src="/assets/blog/running/marathon.jpeg" alt="Me, running, with a face that says 'this is too far long to run', but both my feet are actually off the ground. (If that proves anything.)">

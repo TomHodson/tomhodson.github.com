@@ -1,16 +1,16 @@
 ---
-title:  Toothbrush Shelf
+title:  Lasercut Stool
 layout: post
-excerpt: A shelf to put your toothbrush charger on.
-permalink: /projects/toothbrush_shelf
+excerpt: A lasercut hexagonal wooden stool.
+permalink: /projects/lasercut_stool
 
 img:
-    src: /assets/projects/toothbrush_shelf/thumbnail.svg
-    alt: A CAD model of a small shelf to put a toothbrush right above the charging socket so that the cabling can be hidden inside the shelf.
+    src: 
+    alt: A CAD model 
     class: invertable
 
-social_image: /assets/projects/toothbrush_shelf/thumbnail.png
-model: /assets/blog/toothbrush_shelf/model/toothbrush_shelf.glb
+social_image: /assets/projects/
+model: /assets/blog/weekend_builds_1/pot.glb
 
 head: |
     <script async src="/node_modules/es-module-shims/dist/es-module-shims.js"></script>
@@ -25,7 +25,7 @@ head: |
     </script>
     <script src="/assets/js/outline-model-viewer/index.js" type="module"></script>
 ---
-<outline-model-viewer model = "{{page.model}}" camera='{"position":[5.148,4.038,8.952],"rotation":[-0.4169,0.4809,0.2021],"zoom":1248.587161014231,"target":[0.03319,0.06938,-0.01135]}'>
+<outline-model-viewer model = "{{page.model}}" camera='{"position":[2.11,4.722,9.765],"rotation":[-0.4425,0.1813,0.08522],"zoom":471.1588632880538,"target":[0.1159,0.06564,-0.06329]}'>
     <img class="outline-model-poster no-wc" src = "{{page.img.src}}">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>

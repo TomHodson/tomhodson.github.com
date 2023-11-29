@@ -35,9 +35,12 @@ const serialiseCamera = (camera, controls) => {
 
 const setupDebug = (container, customOutline, camera, controls) => {
   const gui = new GUI({
+    title: "Settings",
     container: container,
-    width: "100%",
+    injectStyles: false,
+    closeFolders: true,
   });
+  gui.close();
 
   const uniforms = customOutline.fsQuad.material.uniforms;
   const params = {
@@ -53,11 +56,11 @@ const setupDebug = (container, customOutline, camera, controls) => {
 
   gui
     .add(params.mode, "Mode", {
-      "Outlines": 0,
-      "Original scene": 2,
+      "Outlines + Shaded (default)": 0,
+      "Shaded": 2,
       "Depth buffer": 3,
-      "SurfaceID debug buffer": 4,
-      "Outlines only": 5,
+      "SurfaceID buffer": 4,
+      "Outlines": 5,
     })
     .onChange(function (value) {
       uniforms.debugVisualize.value = value;
@@ -81,7 +84,7 @@ class OutlineModelViewer extends HTMLElement {
   constructor() {
     super();
 
-    this.shadow = this.attachShadow({ mode: "closed" });
+    this.shadow = this.attachShadow({ mode: "open" });
     this.render();
 
     const model_path = this.getAttribute("model") ||  "/assets/projects/bike_lights/models/bigger.glb";
@@ -219,13 +222,12 @@ class OutlineModelViewer extends HTMLElement {
     }
     window.addEventListener("resize", onWindowResize, false);
 
-    if(this.hasAttribute("debug")) {
-      setupDebug(
-         this.shadow.querySelector("div#container"),
-         customOutline,
-         camera,
-         controls);
-    }
+
+    setupDebug(
+        this.shadow.querySelector("div#container"),
+        customOutline,
+        camera,
+        controls);
 
   }
 
@@ -234,11 +236,8 @@ class OutlineModelViewer extends HTMLElement {
       <div id="container">
       <canvas class = "object-viewer"></canvas>
       </div>
-
+      <link rel="stylesheet" href="/node_modules/lil-gui/dist/lil-gui.min.css">
       <style>
-        details {
-          display: none;
-        }
 
         #container {
           width: 100%;
@@ -247,13 +246,40 @@ class OutlineModelViewer extends HTMLElement {
           flex-direction: column;
         }
 
+        .lil-gui.root {
+          width: 100%;
+          --background-color: var(--theme-bg-color);
+          --text-color: var(--theme-text-color);
+          --title-background-color: var(--theme-bg-color);
+          --title-text-color: var(--theme-text-color);
+          --widget-color: var(--theme-subtle-outline);
+          --hover-color: lightgrey;
+          --focus-color: lightgrey;
+          --number-color: #2cc9ff;
+          --string-color: #a2db3c;
+      }
+
+      .lil-gui button {
+        border: var(--theme-subtle-outline) 1px solid;
+      }
+
+        summary#settings {
+          border: none;
+          background: var(--theme-background);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 1em;
+          padding-bottom: 0.5em;
+          cursor: context-menu;
+        }
+
         canvas {
           width: 100%;
           height: 100%;
           border-radius: 0.25rem;
         }
       </style>
-      <link rel="stylesheet" href="/node_modules/lil-gui/dist/lil-gui.min.css">
     `;
   }
 }
