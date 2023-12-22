@@ -5,11 +5,11 @@ excerpt: A lasercut hexagonal wooden stool.
 permalink: /projects/lasercut_stool
 
 img:
-    src: 
-    alt: A CAD model 
+    src: /assets/projects/lasercut_stool/thumbnail.svg
+    alt: A CAD model of the this hexagonal lasercut stool.
     class: invertable
 
-social_image: /assets/projects/
+# social_image: /assets/projects/
 model: /assets/blog/weekend_builds_1/pot.glb
 
 head: |
