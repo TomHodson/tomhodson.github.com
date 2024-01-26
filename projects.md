@@ -13,7 +13,7 @@ social_image: /assets/projects/lego_adapters/thumbnail.png
 ---
 {% for post in site.projects %}
 <article class="h-entry project">
-    <a class="u-uid u-url" href="{{ post.url }}">
+    <a class="u-uid u-url photo" href="{{ post.url }}">
     <img class="u-photo {{post.img.class}}" src = "{{post.img.src}}" alt="{{post.img.alt}}">
     </a>
 

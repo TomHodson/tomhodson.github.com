@@ -3,6 +3,7 @@ import * as THREE from "three";
 // import * as dat from 'dat.gui';
 
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
@@ -119,6 +120,11 @@ class OutlineModelViewer extends HTMLElement {
     const surfaceFinder = new FindSurfaces();
     // Load model
     const loader = new GLTFLoader();
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderConfig({ type: 'js' });
+    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
+    loader.setDRACOLoader( dracoLoader );
+
     loader.load(model_path, (gltf) => {
       scene.add(gltf.scene);
       surfaceFinder.surfaceId = 0;

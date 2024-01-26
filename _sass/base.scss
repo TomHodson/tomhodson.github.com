@@ -120,6 +120,11 @@ figure > img, figure > svg, figure > canvas {
     border-radius: 10px;
 }
 
+figure.centered {
+    display: flex;
+    justify-content: center;
+}
+
 // For fallback images inside custom outline-model-viewer elements
 .outline-model-poster {
     width: 100%;
