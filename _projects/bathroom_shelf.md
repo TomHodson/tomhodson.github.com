@@ -5,12 +5,12 @@ excerpt: A little modification to an IKEA thingy.
 permalink: /projects/bathroom_shelf
 
 img:
-    src: 
-    alt: 
+    src: /assets/projects/bathroom_shelf/thumbnail.svg
+    alt: A small bathroom shelf.
     class: invertable
 
-social_image: 
-model: 
+social_image: /assets/projects/bathroom_shelf/thumbnail.png
+model: /assets/projects/bathroom_shelf/models/ikea.glb
 
 head: |
     <script async src="/node_modules/es-module-shims/dist/es-module-shims.js"></script>
