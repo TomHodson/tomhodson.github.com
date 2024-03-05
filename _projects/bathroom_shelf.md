@@ -31,3 +31,5 @@ head: |
 </outline-model-viewer>
 
 {% include mastodon_post.html post_id = "111822564173512216" %}
+
+<img src="/assets/projects/bathroom_shelf/test.jpeg" alt="test">
