@@ -1,0 +1,32 @@
+---
+title: "Weekend builds: Bookshelf"
+layout: post
+excerpt: |
+
+image: 
+thumbnail: 
+assets: /assets/blog/bookshelf/
+head: <script type="module" src="/assets/js/model-viewer.js"></script>
+---
+Here's a little weekend project. We have this mezzanine bed with windows and window shelves around it. I'd like to put books there but sometimes condensation pools so I need something to raise the books a little above the level of the shelf.
+
+<figure>
+<model-viewer src="{{page.assets}}/scan.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="2" shadow-softness="1" camera-orbit="63.08deg 66.62deg 1.102m" field-of-view="30deg" interaction-prompt="none" auto-rotate alt="A scan of some books piled against a yellow pillar."> </model-viewer>
+<figcaption>
+Because I can't resist, here's a scan of the relevant area. This one was done with <a href="https://poly.cam/">Polycam</a>  
+</figcaption>
+</figure>
+
+
+
+<figure>
+<section class="image-grid-4x4">
+<img src = "{{page.assets}}/img/all_curves.png">
+<img src = "{{page.assets}}/img/lower_curves.png">
+<img src = "{{page.assets}}/img/lower_curves_feet.png">
+<img src = "{{page.assets}}/img/no_curves.png">
+</section>
+<figcaption>
+Playing around with different designs, I went for the middle ground of having some curves at the base but not the top. I wanted them to be catenary curves but couldn't figure out how to do that in fusion so went with arcs instead. 
+</figcaption>
+</figure>

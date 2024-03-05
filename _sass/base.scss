@@ -74,6 +74,10 @@ main {
     }
 }
 
+:is(h1, h2, h3, h4, .text-balance) {
+    text-wrap: balance;
+}
+
 p, figcaption {
     font-size: 1em;
     line-height: 1.3em;
@@ -85,7 +89,7 @@ main :is(p,h1,h2,h3,h4,h5,h6) {
 
 a {
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-underline-offset: 0.25em;
     text-decoration-thickness: 0.5px;
     color: var(--theme-text-color);
 }
@@ -112,6 +116,10 @@ figure {
     padding-bottom: 1em;
     margin-left: auto;
     margin-right: auto;
+
+    figcaption {
+        margin-top: 1em;
+    }
 }
 
 figure > img, figure > svg, figure > canvas {
@@ -123,6 +131,21 @@ figure > img, figure > svg, figure > canvas {
 figure.centered {
     display: flex;
     justify-content: center;
+}
+
+section.image-grid-4x4 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    gap: 0 0;
+    border: solid 1px var(--theme-subtle-outline);
+    margin-bottom: 1em;
+    place-items: stretch stretch;
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 // For fallback images inside custom outline-model-viewer elements
