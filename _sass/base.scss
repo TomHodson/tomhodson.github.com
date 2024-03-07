@@ -134,6 +134,7 @@ figure.centered {
 }
 
 section.image-grid-4x4 {
+    aspect-ratio: 1 / 1;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
@@ -142,9 +143,12 @@ section.image-grid-4x4 {
     margin-bottom: 1em;
     place-items: stretch stretch;
 
+
     * {
         margin: 0;
         padding: 0;
+        width: 100%;
+        aspect-ratio: auto;
     }
 }
 
