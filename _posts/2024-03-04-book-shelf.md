@@ -3,9 +3,10 @@ title: "Weekend builds: Bookshelf"
 layout: post
 excerpt: |
 
-image: 
-thumbnail: 
+image:
+thumbnail: /assets/blog/bookshelf/thumbnail.jpg
 assets: /assets/blog/bookshelf/
+alt: 
 head: <script type="module" src="/assets/js/model-viewer.js"></script>
 ---
 Here's a little weekend project. We have this mezzanine bed with windows and window shelves around it. I'd like to put books there but sometimes condensation pools so I need something to raise the books a little above the level of the shelf.
