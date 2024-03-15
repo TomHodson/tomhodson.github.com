@@ -37,7 +37,8 @@ Playing around with different designs, I went for the middle ground of having so
 <section class="image-grid-4x4">
 <img src = "{{page.assets}}/img/laser_cutting.jpeg">
 <img src = "{{page.assets}}/img/hot_off_the_press.jpeg">
-<img src = "{{page.assets}}/img/in_place.jpeg">
+<img src = "{{page.assets}}/img/in_place.jpeg" style=" grid-column: 1 / 3;
+  grid-row: 2;">
 </section>
 <figcaption>
 The final product, I'm not fully happy with the proportions, it's a little too big relative to the books in real life. I created the books from that polycam scan so I must have gotten the scale wrong somehow.

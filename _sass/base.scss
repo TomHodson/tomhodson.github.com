@@ -136,10 +136,9 @@ figure.centered {
 section.image-grid-4x4 {
     aspect-ratio: 1 / 1;
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
-    gap: 0 0;
-    border: solid 1px var(--theme-subtle-outline);
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 2px;
     margin-bottom: 1em;
     place-items: stretch stretch;
 
@@ -150,24 +149,6 @@ section.image-grid-4x4 {
         width: 100%;
         aspect-ratio: auto;
     }
-}
-
-// For fallback images inside custom outline-model-viewer elements
-.outline-model-poster {
-    width: 100%;
-    height: 100%;
-}
-
-outline-model-viewer {
-    width: 100%;
-    min-height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: var(--theme-subtle-outline) 1px solid;
-    border-radius: 10px;
-    margin-top: 1em;
-    margin-bottom: 1em;
 }
 
 // If the browser doesn't support web components, hide anything with has-wc class
