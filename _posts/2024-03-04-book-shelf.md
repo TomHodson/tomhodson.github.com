@@ -1,7 +1,8 @@
 ---
 title: "Weekend builds: Bookshelf"
 layout: post
-excerpt: |
+excerpt: | 
+    We needed something to lift our books a little off the surface of the windowsill...
 
 image:
 thumbnail: /assets/blog/bookshelf/thumbnail.jpg
@@ -29,5 +30,16 @@ Because I can't resist, here's a scan of the relevant area. This one was done wi
 </section>
 <figcaption>
 Playing around with different designs, I went for the middle ground of having some curves at the base but not the top. I wanted them to be catenary curves but couldn't figure out how to do that in fusion so went with arcs instead. 
+</figcaption>
+</figure>
+
+<figure>
+<section class="image-grid-4x4">
+<img src = "{{page.assets}}/img/laser_cutting.jpeg">
+<img src = "{{page.assets}}/img/hot_off_the_press.jpeg">
+<img src = "{{page.assets}}/img/in_place.jpeg">
+</section>
+<figcaption>
+The final product, I'm not fully happy with the proportions, it's a little too big relative to the books in real life. I created the books from that polycam scan so I must have gotten the scale wrong somehow.
 </figcaption>
 </figure>

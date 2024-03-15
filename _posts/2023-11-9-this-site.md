@@ -1,6 +1,7 @@
 ---
 title: Notes on building this site
 layout: post
+thumbnail: /favicon/android-chrome-512x512.png
 excerpt: |
     Mostly a note to self so that I can check this when I forget late how it works.
 
