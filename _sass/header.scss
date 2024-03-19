@@ -80,38 +80,37 @@ header {
       height: auto;
       padding-left: 20px;
       padding-right: 20px;
-    }
-
-    // To squish the text together a bit in the mobile view.
-    header p {
-        margin-block: 0.25em;
-    }
-
-    header .avatar {
-        margin: auto;
-    } 
-
-    nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    nav a {
-        margin-left: 1em;
-    }
-
-    header p.professional-links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    header hr {
+    
+    hr {
         border-width:1px;
     }
 
-    header p.professional-links {
+    .bio {
+        span {
+            display: inline;
+        }
+        span:after {
+            content: ', ';
+        }
+        span:last-of-type:after {
+            content: '';
+        }
+    }
+
+    // To squish the text together a bit in the mobile view.
+    p {
+        margin-block: 0.25em;
+    }
+
+    .avatar {
+        margin: auto;
+    } 
+    
+    p.professional-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+
         a {
             margin-left: 1em;
             margin-right: 1em;
@@ -127,5 +126,17 @@ header {
             margin-right: 0.5em;
             margin-left: 0;
         }
+    }
+    
+    } 
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav a {
+        margin-left: 1em;
     }
 }
