@@ -4,8 +4,8 @@ layout: post
 excerpt: A small earth renderer made using ThreeJS
 
 image:
-thumbnail:
-assets: 
+thumbnail: /assets/blog/sphere_geodesics/thumbnail.png
+assets: /assets/blog/sphere_geodesics/
 alt: 
 
 head: |
