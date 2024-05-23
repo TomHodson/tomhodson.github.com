@@ -165,6 +165,15 @@ class SphereViewer extends HTMLElement {
       }
     loop();
 
+    window.addEventListener("resize", onWindowResize());
+    function onWindowResize() {
+        let canvas_rect = canvas.getBoundingClientRect();
+        console.log(canvas_rect);
+        camera.aspect = canvas_rect.width / canvas_rect.height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(canvas_rect.width, canvas_rect.height, false);
+    }
+
     const gui = new GUI({
         title: "Settings",
         container: container,
