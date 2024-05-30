@@ -16,6 +16,8 @@
 // @import "code_style_bw";  
 @import "code_style_github";  
 
+@import "d2";
+
 
 * {
     box-sizing: border-box;
@@ -34,6 +36,7 @@ body {
     --theme-model-line-color: #222;
     --theme-model-bg-color: #fcfcfc;
     --theme-subtle-outline: oklch(90% 0.0 50);
+    --theme-highlight-color: hsl(338, 75%, 60%);
 
     background: var(--theme-bg-color);
     color: var(--theme-text-color);
@@ -88,14 +91,15 @@ main :is(p,h1,h2,h3,h4,h5,h6) {
     }
 
 a {
-    text-decoration: underline;
+    text-decoration: none;
     text-underline-offset: 0.25em;
     text-decoration-thickness: 0.5px;
-    color: var(--theme-text-color);
+    color: var(--theme-highlight-color);
 }
 
 header a, nav a {
     text-decoration: none;
+    color: var(--theme-text-color);
 }
 
 div.highlight {
@@ -119,6 +123,7 @@ figure {
 
     figcaption {
         margin-top: 1em;
+        text-align: center;
     }
 }
 
