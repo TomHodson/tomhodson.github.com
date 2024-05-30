@@ -37,6 +37,7 @@ body {
     --theme-model-bg-color: #fcfcfc;
     --theme-subtle-outline: oklch(90% 0.0 50);
     --theme-highlight-color: hsl(338, 75%, 60%);
+    --theme-highlight-color-transparent: hsla(338, 75%, 60%, 33%);
 
     background: var(--theme-bg-color);
     color: var(--theme-text-color);
@@ -154,6 +155,17 @@ section.image-grid-4x4 {
         width: 100%;
         aspect-ratio: auto;
     }
+}
+
+section.note {
+    a {color: purple;}
+    p {margin: 0;}
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: var(--theme-highlight-color-transparent);
+    border-radius: 10px;
+    color: black;
 }
 
 // If the browser doesn't support web components, hide anything with has-wc class
