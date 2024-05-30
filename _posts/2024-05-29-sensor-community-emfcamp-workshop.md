@@ -10,7 +10,7 @@ alt:
 
 redirect_from: /emf2024
 ---
-Welcome to the guide for the workshop [Build your own sensor.community air quality monitoring station!](https://www.emfcamp.org/schedule/2024/212-build-your-own-sensor-community-air-quality-monitoring)
+Welcome to the guide for the workshop [Build your own Sensor.Community air quality monitoring station!](https://www.emfcamp.org/schedule/2024/212-build-your-own-sensor-community-air-quality-monitoring)
 
 See an issue on this page? [Open a PR!](https://github.com/TomHodson/tomhodson.github.com/edit/main/_posts/2024-05-29-sensor-community-emfcamp-workshop.md)
 
@@ -36,9 +36,9 @@ The base kit (£15) contains:
 * A 2m micro USB cable
 * A long F-F header cable (dupont) with 4 wires
 * A USB power supply **is not** included, let's try to prevent some e-waste by reusing an old one! 
-* There will be a pack of zipties lying around somewhere that you can grab from.
+* There will be a pack of zip ties lying around somewhere that you can grab from
 
-<figure style="width:250px;">
+<figure style="width:max(300px, 33%);">
 <img src="{{page.assets}}/base_kit.png"/>
 <figcaption>
 The base kit
@@ -47,10 +47,10 @@ The base kit
 
 The base+addon kit (£40) also contains:
 * An SDS011 particulate matter sensor (PM2.5-10)
-* A length of black plastic tube to separate the intake of the sensor a bit from the exhaust.
-* A short header cable with 4 pairs.
+* A length of black plastic tube to separate the intake of the sensor a bit from the exhaust
+* A short header cable with 4 pairs
 
-<figure style="width:33%;">
+<figure style="width:max(300px, 33%);">
 <img src="{{page.assets}}/addon_kit.png"/>
 <figcaption>
 The addon kit: an SDS011, a length of black tube and, not shown, a short length of f-f header cable with 4 conductors.
@@ -74,7 +74,7 @@ Each ESP8266 has a unique chipID, similar to a MAC address. When I flashed the f
 </section>
 
 Connect the headers up using the wiring diagram below, use the longer headers for the BME280 and the shorter ones for the SDS011. 
-<figure style="width:33%;">
+<figure style="width:max(300px, 33%);">
 <img src="{{page.assets}}/hookup_guide.jpeg"/>
 <figcaption>
 Wiring Diagram
@@ -108,7 +108,7 @@ Password: emf
 ```
 If that doesn't work the open network with SSID emf2024-open.
 
-In the More settings tab you can change the interval at which measurements are taken. For radio spectrum politness at EMF it would also be good to shorten the "Duration router mode", this reduces how long the sensor broadcasts a hotpot for.
+In the More settings tab you can change the interval at which measurements are taken. For radio spectrum politeness at EMF it would also be good to shorten the "Duration router mode", this reduces how long the sensor broadcasts a hotpot for.
 
 In "sensors" you can configure which sensors are connected, which for this workshop will be some subset of SDS011 and BME280.
 
@@ -135,21 +135,28 @@ User: leave blank
 Password: leave blank
 ```
 
-You're now pushing data to a tiny hyper local air quality monitoring network. I will put an endpoint (TBD) where you can pull the sensor readings and their associated gps coordinates so hopefully we can make a nice realtime map of air pollution on the EMF site!
+You're now pushing data to a tiny hyper local air quality monitoring network. I will put an endpoint (TBD) where you can pull the sensor readings and their associated gps coordinates so hopefully we can make a nice real time map of air pollution on the EMF site!
+
+<figure style="width:max(300px, 33%);">
+<img src="{{page.assets}}/map.png"/>
+<figcaption>
+I'd like to overlay our real time air quality data onto the map!
+</figcaption>
+</figure>
 
 ## After the workshop
 
 Find a permanent location for the sensor. You'll need some weather proofing and a 5V power source. It's recommended to place the sensor 1-3m above ground level in a well ventilated outdoor area. Basically you're trying to measure the same air we're all breathing. 
 
 Options for weather proofing:
-* Use a U bend piece of drain pipe as recommended by the project.
-* Browse some of the [many](https://www.yeggi.com/q/airrohr/) 3D printed case designs [online](https://www.yeggi.com/q/sensor+community/).
+* Use a U bend piece of drain pipe as recommended by the project
+* Browse some of the [many](https://www.yeggi.com/q/airrohr/) 3D printed case designs [online](https://www.yeggi.com/q/sensor+community/)
 
 ### Registering with Sensor.Community
-Once you've installed the sensor in a permanent location, you can formally register your sensor with the sensor.community project and get your data on [the map!](https://maps.sensor.community)
+Once you've installed the sensor in a permanent location, you can formally register your sensor with the Sensor.Community project and get your data on [the map!](https://maps.sensor.community)
 
 <section class="note" markdown=1>
-It makes most sense to do this part after you take the sensor home and install it somewhere permanent because the registration process will ask for information about the location of the sensor among other things. The sensor will still work without registration it just won't contribute data to the sensor.community database.
+It makes most sense to do this part after you take the sensor home and install it somewhere permanent because the registration process will ask for information about the location of the sensor among other things. The sensor will still work without registration it just won't contribute data to the Sensor.Community database.
 </section>
 
 Go to [devices.sensor.community](https://devices.sensor.community/) and start by making an account. Once you receive the email you can go ahead with registering the sensor.
