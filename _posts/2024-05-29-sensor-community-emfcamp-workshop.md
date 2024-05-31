@@ -108,11 +108,19 @@ Password: emf
 ```
 If that doesn't work the open network with SSID emf2024-open.
 
-In the More settings tab you can change the interval at which measurements are taken. For radio spectrum politeness at EMF it would also be good to shorten the "Duration router mode", this reduces how long the sensor broadcasts a hotpot for.
+In the More settings tab you can change the interval at which measurements are taken. For radio spectrum politeness at EMF it would also be good to shorten the "Duration router mode", this reduces how long the sensor broadcasts a hotpot for if it can't find a network.
 
-In "sensors" you can configure which sensors are connected, which for this workshop will be some subset of SDS011 and BME280.
+In "sensors" you can configure which sensors are connected, which for this workshop will be one of SDS011 and BME280 or both.
 
-### Optional: EMF collective project 
+### Registering with Sensor.Community
+
+Whether you intend to run the sensor out of your tent or village at the EMF (which I encourage!) or wait until you get home to install it in a more permanent location, the next step is registration. You'll need to provide some details about the location of the sensor so wait until you've installed it in somewhere, at least semi-permanently.
+
+Go to [devices.sensor.community](https://devices.sensor.community/) and start by making an account. Once you receive the email you confirm your account and can go ahead with registering the sensor.
+
+Once you've registerd the sensor, its the data will start appearing on [the map!](https://maps.sensor.community).
+
+<!-- ### Optional: EMF collective project 
 
 I think it would be really cool to set up a micro monitoring network just for EMF. Hopefully by the time you read this I will have set up a raspberry pi on the emf network to act as a local hub. If you'd like to participate here's what you can do:
 
@@ -142,25 +150,19 @@ You're now pushing data to a tiny hyper local air quality monitoring network. I 
 <figcaption>
 I'd like to overlay our real time air quality data onto the map!
 </figcaption>
-</figure>
+</figure> -->
 
 ## After the workshop
 
-Find a permanent location for the sensor. You'll need some weather proofing and a 5V power source. It's recommended to place the sensor 1-3m above ground level in a well ventilated outdoor area. Basically you're trying to measure the same air we're all breathing. 
+Find a proper location for the sensor. This could be your home but you can also get creative and ask local schools or the like if they would like a sensor installed. 
+
+Practically, you'll need some weather proofing and a 5V power source. It's recommended to place the sensor 1-3m above ground level in a well ventilated outdoor area. Basically you're trying to measure the same air we're all breathing. 
 
 Options for weather proofing:
 * Use a U bend piece of drain pipe as recommended by the project
 * Browse some of the [many](https://www.yeggi.com/q/airrohr/) 3D printed case designs [online](https://www.yeggi.com/q/sensor+community/)
 
-### Registering with Sensor.Community
-Once you've installed the sensor in a permanent location, you can formally register your sensor with the Sensor.Community project and get your data on [the map!](https://maps.sensor.community)
-
-<section class="note" markdown=1>
-It makes most sense to do this part after you take the sensor home and install it somewhere permanent because the registration process will ask for information about the location of the sensor among other things. The sensor will still work without registration it just won't contribute data to the Sensor.Community database.
-</section>
-
-Go to [devices.sensor.community](https://devices.sensor.community/) and start by making an account. Once you receive the email you can go ahead with registering the sensor.
-
 Congratulations! You're now a part of a global network contributing to fighting air pollution!
+
 
 
