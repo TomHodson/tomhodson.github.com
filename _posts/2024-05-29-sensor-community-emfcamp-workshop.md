@@ -102,6 +102,13 @@ Connect to this network on a device, it will likely open the config page in a ca
 
 While you're at EMF, let's connect the sensor to the [emfcamp wifi](https://www.emfcamp.org/about/internet) SSID: emf2024-open.
 
+<figure style="width:max(300px, 50%);">
+<img src="{{page.assets}}/emf_sensor.png"/>
+<figcaption>
+There's currently one sensor running at EMF2024 (mine), let's get a few more up!
+</figcaption>
+</figure>
+
 In the More settings tab you can change the interval at which measurements are taken. For radio spectrum politeness at EMF it would also be good to shorten the "Duration router mode", this reduces how long the sensor broadcasts a hotpot for if it can't find a network.
 
 In "sensors" you can configure which sensors are connected, which for this workshop will be one of SDS011 and BME280 or both.
