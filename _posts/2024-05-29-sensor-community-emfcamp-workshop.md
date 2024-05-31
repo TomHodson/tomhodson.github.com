@@ -127,7 +127,7 @@ For installation at EMF you can use the [offical map](https://map.emfcamp.org/) 
 
 Change the sensors to "SDS011" and "BME280".
 
-Once you've registerd the sensor, its the data will start appearing on [the map!](https://maps.sensor.community).
+Once you've registerd the sensor, its the data will start appearing on [the map!](https://maps.sensor.community). From your devices dashboard there's a data link, for the sensor I set up this morning it looks [like this.](https://maps.sensor.community/#16/52.0419/-2.3741)
 
 <!-- ### Optional: EMF collective project 
 
