@@ -100,23 +100,32 @@ Once you see the "airRohr-{Your ChipID} network you're done and can move onto th
 
 Connect to this network on a device, it will likely open the config page in a captive portal for you but if it doesn't (depends on the device) go to [192.168.4.1](http://192.168.4.1/).
 
-While you're at EMF, let's connect the sensor to the [emfcamp wifi](https://www.emfcamp.org/about/internet)
-```
-SSID: emf2024
-Username: emf
-Password: emf
-```
-If that doesn't work the open network with SSID emf2024-open.
+While you're at EMF, let's connect the sensor to the [emfcamp wifi](https://www.emfcamp.org/about/internet) SSID: emf2024-open.
 
 In the More settings tab you can change the interval at which measurements are taken. For radio spectrum politeness at EMF it would also be good to shorten the "Duration router mode", this reduces how long the sensor broadcasts a hotpot for if it can't find a network.
 
 In "sensors" you can configure which sensors are connected, which for this workshop will be one of SDS011 and BME280 or both.
+
+### Troubleshooting
+Come find me or one of the helpers!
+
+You can get useful debug outputs from the sensor by connecting to your laptop and opening the serial terminal. You can increase the debug level in the settings to get extra output.
+
+I had an issue today with the board not connecting to the emf network that was solved by reflashing the board, so try that or come to me to do it for you.
 
 ### Registering with Sensor.Community
 
 Whether you intend to run the sensor out of your tent or village at the EMF (which I encourage!) or wait until you get home to install it in a more permanent location, the next step is registration. You'll need to provide some details about the location of the sensor so wait until you've installed it in somewhere, at least semi-permanently.
 
 Go to [devices.sensor.community](https://devices.sensor.community/) and start by making an account. Once you receive the email you confirm your account and can go ahead with registering the sensor.
+
+Where it asks for "Sensor ID" that's your board's chipId, in the end your device will be identified by a string like "esp8266-{chipId}".
+
+While you're at EMF it might be nice to tick "Publish exact location" so that the sensor data is high resolution enough that we can map the site. However when you install it at home you may consider turning this off again.
+
+For installation at EMF you can use the [offical map](https://map.emfcamp.org/) to get accurate (lat,lon) coordinates for the sensor by right clicking.
+
+Change the sensors to "SDS011" and "BME280".
 
 Once you've registerd the sensor, its the data will start appearing on [the map!](https://maps.sensor.community).
 
