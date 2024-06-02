@@ -24,14 +24,14 @@ To get the best picture possible we need more sensors which is where citizen lea
 Sensor.Community started life as "Luftdaten" in Stuttgart, Germany. It rebranded but you will occasionally see references to "luftdaten" and "airrhor" in the docs and firmware. These are also useful alternate keywords to try when searching for information on the project.
 </section>
 
-In this workshop you’ll put together an air quality monitor made from an ESP8266 and a few sensors, load up the Sensor.Community firmware and connect it to their network so that other people, scientists and policy makers can see where the problems are and hopefully change something. It will also contribute to this cool [interactive map](https://maps.sensor.community). We’ll discuss options for weather proofing, where to place the sensor and how to hook it into your own smart home setup if you have one. 
+In this workshop you’ll put together an air quality monitor made from an esp8266 and a few sensors, load up the Sensor.Community firmware and connect it to their network so that other people, scientists and policy makers can see where the problems are and hopefully change something. It will also contribute to this cool [interactive map](https://maps.sensor.community). We’ll discuss options for weather proofing, where to place the sensor and how to hook it into your own smart home setup if you have one. 
 
 
 ## The Kits
 
 The base kit (£15) contains:
 
-* An ESP8266 Dev board pre-flashed with the [firmware](https://github.com/opendata-stuttgart/sensors-software/tree/master/airrohr-firmware)
+* An esp8266 Dev board pre-flashed with the [firmware](https://github.com/opendata-stuttgart/sensors-software/tree/master/airrohr-firmware)
 * A BME280 Pressure/Temperature/Humidity sensor
 * A 2m micro USB cable
 * A long F-F header cable (dupont) with 4 wires
@@ -70,7 +70,7 @@ Attach the black plastic tube to the port on the SDS011.
 If your BME280 is unsoldered, solder the 4 pin header on now. If you can't find a soldering iron, you can always skip this step for now and do it later, the kit will still work with just the SDS011 or even no sensors attached.
 
 <section class="note" markdown=1>
-Each ESP8266 has a unique chipID, similar to a MAC address. When I flashed the firmware I noted down the chipID on a piece of tape on the back of each board, you need this id for a couple steps in a minute so don't lose it! If you do, you can use the firmware flasher to find it again. There are links to the firmware flasher binaries on the [official guide](https://sensor.community/en/sensors/airrohr/).
+Each esp8266 has a unique chipID, similar to a MAC address. When I flashed the firmware I noted down the chipID on a piece of tape on the back of each board, you need this id for a couple steps in a minute so don't lose it! If you do, you can use the firmware flasher to find it again. There are links to the firmware flasher binaries on the [official guide](https://sensor.community/en/sensors/airrohr/).
 </section>
 
 Connect the headers up using the wiring diagram below, use the longer headers for the BME280 and the shorter ones for the SDS011. 
@@ -80,6 +80,10 @@ Connect the headers up using the wiring diagram below, use the longer headers fo
 Wiring Diagram
 </figcaption>
 </figure>
+
+<section class="note" markdown=1>
+**WARNING** Be careful with the pin connections here! Accidentally swapping 5v/VIN and GND can destroy components. On the SDS011 one of the pins is labelled TXD, use this to orient yourself and double check all the wiring before plugging it in for the first time. If you smell a weird smell, unplug the power and triple check your wiring!
+</section>
 
 We want the input of the SDS011 tube to be close to the BME280, hence the different cables. Don't worry about this too much now, but try to do this when you install it into a permanent position.
 
@@ -100,7 +104,7 @@ Once you see the "airRohr-{Your ChipID} network you're done and can move onto th
 
 Connect to this network on a device, it will likely open the config page in a captive portal for you but if it doesn't (depends on the device) go to [192.168.4.1](http://192.168.4.1/).
 
-While you're at EMF, let's connect the sensor to the [emfcamp wifi](https://www.emfcamp.org/about/internet) SSID: emf2024-open.
+While you're at EMF, let's connect the sensor to the [emfcamp wifi](https://www.emfcamp.org/about/internet) SSID: emf2gc024-open.
 
 <figure style="width:max(300px, 50%);">
 <img src="{{page.assets}}/emf_sensor.png"/>
@@ -113,12 +117,7 @@ In the More settings tab you can change the interval at which measurements are t
 
 In "sensors" you can configure which sensors are connected, which for this workshop will be one of SDS011 and BME280 or both.
 
-### Troubleshooting
-Come find me or one of the helpers!
-
-You can get useful debug outputs from the sensor by connecting to your laptop and opening the serial terminal. You can increase the debug level in the settings to get extra output.
-
-I had an issue today with the board not connecting to the emf network that was solved by reflashing the board, so try that or come to me to do it for you.
+Next, you can check if sensor.community is receiving data from your board **even before it is registered**. Go to "https://api-rrd.madavi.de/grafana/d/GUaL5aZMz/pm-sensors?orgId=1&var-chipID=esp8266-{your ChipID}". You should see some wifi signal strength data if your board is successfully sending data to Sensor.Community, even if it's not registered. This may take a few minutes to happen. If you don't see any data, first wait a few minutes then double check your chipID is right. I have misread at least one in the past. You can use the firmware flasher to do this.
 
 ### Registering with Sensor.Community
 
@@ -168,6 +167,20 @@ I'd like to overlay our real time air quality data onto the map!
 </figcaption>
 </figure> -->
 
+### Recap
+
+So at this point you (and/or I) have:
+
+- Physically assembled the sensor
+- Flashed the firmware onto the esp8266<sup>*</sup>
+- Written down your **ChipId** for later
+- Logged onto the **airRohr-{Your ChipID}** hotspot and configured the sensor
+- Registered your sensor with the Sensor.Community project.
+
+<sup>*</sup> If you're in a workshop I likely did this step for you.
+
+If you have gotten stuck with any of these steps head to the troubleshooting section for some suggestions.
+
 ## After the workshop
 
 Find a proper location for the sensor. This could be your home but you can also get creative and ask local schools or the like if they would like a sensor installed. 
@@ -180,5 +193,43 @@ Options for weather proofing:
 
 Congratulations! You're now a part of a global network contributing to fighting air pollution!
 
+## Troubleshooting
+
+If you're in a workshop, come find me or one of the helpers!
+
+You can get useful debug output from the sensor by connecting to your laptop and opening the serial terminal with baudrate 9600. The arduino IDE is an easy way to do that but you can also use terminal commands like screen, minicom or cu. Sparkfun has a good [guide](https://learn.sparkfun.com/tutorials/terminal-basics/all) on this.
+
+### No Hotspot 
+If you can't see the **airRohr-{Your ChipID}** hotspot it means one of three things:
+1. Your esp8266 started a hotspot for 10 minutes after it got power but it's been on longer than that so it turned it off again.
+2. Your esp8266 successfully connected to your wifi network. 
+3. Your esp8266 is broken or has no firmware
+
+Eliminate 1 as a possibility by power cycling the board.
+
+You can check 2 either by opening "http://airRohr-{Your ChipID}.local" in your browser while connected to your home wifi or looking at the serial output.
+
+If you think the problem might be 3, try reflashing the esp8266 firmware. If that doesn't help, maybe your 5v power supply is a little weak or your micro usb cable has a high resistance, swap them both out to eliminate that as a possible issue. 
+
+Failing all of the above you might have have to replace the esp8266. Definitely check the serial output first if you can, that always helps to see what's going on.
 
 
+### Won't connect to the wifi 
+I.e the hotspot does not disappear after configuration.
+
+Try a different network if you can, the firmware doesn't support anything fancy like username/passwords or WPA3. Connecting to a phone hotspot is a good test to see if your other wifi might be the problem.
+
+I have had an issue with the board just stubbornly refusing to connect to a wifi network that it really should be compatible with. For reasons I don't understand a firmware reflash fixed this, so you can always try that too, it can't hurt.
+
+
+### Data not flowing after registration
+Your board connected to your wifi and you registered it but now the data doesn't seem to be showing up on the Sensor.community site.
+
+First, wait at least 5 minutes.
+
+Next, double check your chipID is right, in the workshop I had misread at least 1 of the 30 kits we set up. 
+
+If you realise your registered chipID if wrong, make a new device with the right chipID and email tech@sensor.community letting them know to release the *incorrect* chipID that your registered so that if anyone else has that id they won't get the dreaded "Sensor ID is already registered", it's not enough to just delete it in the interface.
+
+### Sensor ID is already registered
+See [here](https://forum.sensor.community/t/sensor-id-is-already-registered/2016/1).
