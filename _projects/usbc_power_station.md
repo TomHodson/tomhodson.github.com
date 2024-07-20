@@ -5,11 +5,11 @@ excerpt: One charging station to rule them all!
 permalink: /projects/usbc_charging_station
 
 img:
-    src: 
+    src: /assets/projects/usbc_power_supply/thumbnail.svg
     alt: 
     class: invertable
 
-social_image: 
+social_image: /assets/projects/usbc_power_supply/thumbnail.png
 model: 
 
 head: |

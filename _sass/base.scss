@@ -10,6 +10,7 @@
 @import "blogroll"; // the summaries of the blogposts
 @import "comments";  //the mastodon comments
 @import "model_viewer"; //Styles for the 3D model viewer
+@import "mastodon_timeline";
 
 // The syntax highlighting css
 // generated with rougify style bw > code_style_bw.scss
@@ -54,6 +55,7 @@ main {
     max-width: 560px;
     margin-left: 240px;
     padding-left: 30px;
+    padding-right: 30px;
     padding-top: 10vh;
     min-height: 100vh;
 
@@ -92,10 +94,10 @@ main :is(p,h1,h2,h3,h4,h5,h6) {
     }
 
 a {
-    text-decoration: none;
+    text-decoration: underline;
     text-underline-offset: 0.25em;
     text-decoration-thickness: 0.5px;
-    color: var(--theme-highlight-color);
+    color: var(--theme-text-color);
 }
 
 header a, nav a {

@@ -19,3 +19,7 @@ You probably want to run ruby from a version manager like `chruby`, see [here](h
 `bundle install`
 Then
 Use `./run.sh` to do local development of this site
+
+## Past and future inspirations 
+[Blog Microfeatures](https://danilafe.com/blog/blog_microfeatures/)
+[Nice code blocks](https://staniks.github.io/articles/serious-engine-networking-analysis#overview)

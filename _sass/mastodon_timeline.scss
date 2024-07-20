@@ -1,0 +1,26 @@
+#mt-container {
+    background-color: transparent;
+    padding: 0;
+
+    .mt-body {
+        padding: 0;
+    }
+    .mt-post {
+        padding-left: 0;
+        padding-right: 0;
+    };
+    .mt-post-avatar, .mt-post-header-user-name {
+        display: none;
+    }
+    .mt-post:hover {
+        cursor: unset;
+        background-color: transparent;
+    }
+    .mt-btn-dark {
+        background-color: var(--theme-bg-color);
+    }
+
+    a {
+        color: var(--theme-highlight-color);
+    }
+}

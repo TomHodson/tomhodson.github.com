@@ -1,25 +1,22 @@
----
-title: Blog
-layout: default
-excerpt: |
-  I'm Tom Hodson. Welcome to my little home on the web! There's a blog, a cv and some projects to look at.
-permalink: /
-redirect_from:
-  - /blog/
-mathjax: false
-img:
-    src: /assets/images/avatar.jpeg
-    alt: A picture of me.
----
-{% for post in site.posts %}
-<article class="h-entry blogroll">
+{% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
+{% capture posttime %}{{post.date | date: '%s'}}{% endcapture %}
+
+
+{% if post.path contains '_drafts' or posttime > nowunix %}
+{% assign is_draft = true %}
+{% else %}
+{% assign is_draft = false %}
+{% endif %}
+
+
+<article class="h-entry blogroll {% if is_draft %}draft{%endif%}">
 
 <a class="u-uid u-url" href="{{ post.url }}">
 <figure>
 <img class="u-photo" 
-    src = "{{ post.thumbnail | default: post.image }}"
+    src = "{{ post.thumbnail | default: post.image}}"
     class = "{{ post.image_class }}"
-    alt="{{post.alt}}">
+    alt="{{post.alt | smartify}}">
 </figure>
 </a>
 
@@ -32,5 +29,3 @@ img:
 {% unless forloop.last %}
   <hr class="blogroll">
 {% endunless %}
-
-{% endfor %}

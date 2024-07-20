@@ -15,6 +15,10 @@ hr.blogroll {
     margin-bottom: 1em;
 }
 
+article.draft {
+    opacity: 0.5;
+}
+
 article.blogroll {
     padding-bottom: 0px;
     display: flex;
