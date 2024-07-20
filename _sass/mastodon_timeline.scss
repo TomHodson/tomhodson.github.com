@@ -8,16 +8,24 @@
     .mt-post {
         padding-left: 0;
         padding-right: 0;
+        padding-bottom: 0;
     };
-    .mt-post-avatar, .mt-post-header-user-name {
-        display: none;
-    }
+    // .mt-post-avatar, .mt-post-header-user-name {
+    //     display: none;
+    // }
     .mt-post:hover {
         cursor: unset;
         background-color: transparent;
     }
     .mt-btn-dark {
         background-color: var(--theme-bg-color);
+    }
+
+    .mt-post-media-wrapper {
+        margin: 0;
+    }
+    .mt-post-media {
+        margin-bottom: 1rem;
     }
 
     a {
