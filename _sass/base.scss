@@ -170,6 +170,14 @@ section.note {
     color: black;
 }
 
+section.center {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+}
+
 // If the browser doesn't support web components, hide anything with has-wc class
 body.has-wc .no-wc {
     display: none;

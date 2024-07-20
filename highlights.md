@@ -20,7 +20,7 @@ head: |
 {% for post in site.posts limit:5 %}
 {% include post_summary.html %}
 {% endfor %}
-<a href = "/blog/" style="margin:auto;">More Posts</a>
+<section class="center"><a href = "/blog/">More Posts</a></section>
 
 ## Projects
 <br>
@@ -28,7 +28,8 @@ head: |
 {% include project_summary.html %}
 {% endfor %}
 
-<a href = "/projects/" style="margin:auto;">More Projects</a>
+
+<section class="center"><a href = "/projects/">More Projects</a></section>
 
 ## Toots
 <div id="mt-container" class="mt-container">
@@ -37,19 +38,22 @@ head: |
   </div>
 </div>
 
+<section class="center"><a href = "https://tech.lgbt/@Tomhodson">More Toots</a></section>
+
 <script type="module">
 const myTimeline = new MastodonTimeline.Init({
   instanceUrl: "https://tech.lgbt",
   timelineType: "profile",
   userId: "109290417826726461",
   profileName: "@TomHodson",
-  maxNbPostFetch: "50",
-  maxNbPostShow: "30",
+  maxNbPostFetch: "30",
+  maxNbPostShow: "5",
   hideReblog: true,
   hideReplies: true,
   hideCounterBar: true,
   disableCarousel: true,
   btnReload: "",
+  btnSeeMore: "",
 });
 
 </script>
