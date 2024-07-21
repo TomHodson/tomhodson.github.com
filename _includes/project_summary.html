@@ -1,6 +1,8 @@
 <article class="h-entry project">
     <a class="u-uid u-url photo" href="{{ post.url }}">
-    <img class="u-photo {{post.img.class}}" src = "{{post.img.src}}" alt="{{post.img.alt}}">
+    <img class="u-photo {{post.img.class}}"
+        src = "{{post.img.src}}" 
+        alt="{{post.img.alt | smartify}}">
     </a>
 
     <section>

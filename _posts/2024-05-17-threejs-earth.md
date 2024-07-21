@@ -22,5 +22,5 @@ head: |
     </script>
     <script src="/assets/blog/sphere_geodesics/index.js" type="module"></script>
 ---
-A small earth renderer made using ThreeJS.
+A small earth renderer made using ThreeJS. The most fun thing here is to max out the dislacement scale to see how big the Himalayas are! <a href = "https://github.com/TomHodson/tomhodson.github.com/tree/main/assets/blog/sphere_geodesics">Code here.</a>
 <sphere-viewer style="height: 500px; display: block;"></sphere-viewer>

@@ -8,16 +8,15 @@ article.project {
     h2 {margin-top: 0;}
 
     a.photo {
-        width: 7em;
-        height: 7em;
+        width: $thumbnail_image_size;
+        height: $thumbnail_image_size;
         margin-right: 1em;
     }
     
     img {
-        max-height: 7em;
+        max-height: $thumbnail_image_size;
         width: unset;
         aspect-ratio: 1 / 1;
-        margin-right: 1em;
     }
     figure {
         padding: 0;

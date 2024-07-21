@@ -3,3 +3,7 @@ $title_font_stack: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "
 
 $horizontal_breakpoint: 700px;
 $vertical_breakpoint: 500px;
+
+// For the images on the blogroll, projects and highlights pages
+$thumbnail_image_size: clamp(5rem, 25vw, 8rem);
+$left_pad: calc(clamp(5rem, 25vw, 8rem) + 1rem);
