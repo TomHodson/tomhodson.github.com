@@ -1,6 +1,7 @@
 import asyncio
 import gc
 import struct
+import sys
 from array import array
 
 import console
@@ -58,7 +59,8 @@ def print_buf(
 
 
 print(
-    "This is μPython saying hello from the on page console!"
+    "This is μPython saying hello from the on page console!\n"
+    f"Version {sys.version}"
 )
 console.log(
     "This is μPython saying hello from the JS console!"
