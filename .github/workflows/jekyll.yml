@@ -61,7 +61,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: "${{ github.ref_name == github.event.repository.default_branch && steps.pages.outputs.base_path || github.ref_name}}"
     runs-on: ubuntu-latest
     needs: build
     steps:
