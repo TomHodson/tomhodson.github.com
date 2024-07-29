@@ -1,6 +1,6 @@
+import asyncio
 import gc
 import struct
-import time
 from array import array
 
 import console
@@ -102,7 +102,10 @@ while True:
     )
 
     display.draw(buf)
-    # The 'await' is necessary here to yield back to the JS event loop
-    # I tried to figure out how to hide this inside the JS implementation of sleep but
-    # couldn't make it work.
-    await time.sleep(0.2)
+
+    # Note: Because of the way the webassembly port works, this code is actually running like an asyncio thread
+    # This call to asyncio.sleep yeilds back to the JS event loop and gives the browser a chance to update the display.
+    #  This is not needed on a real device.
+    # There is way to make it so that a bare time.sleep() will work but it requires emcripten's ASYNCIFY feature
+    # Which apparently kills performance. See https://github.com/tomhodson/micropython/commit/2fa6373d226b65f977486ecda32b8786cd1dceed
+    await asyncio.sleep(0.2)

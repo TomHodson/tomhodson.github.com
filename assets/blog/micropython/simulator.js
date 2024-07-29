@@ -6,9 +6,6 @@ class USBCPowerSupplySimulator extends HTMLElement {
     });
 
     mp.registerJsModule("console", { log: (s) => console.log(s) });
-    mp.registerJsModule("time", {
-      sleep: async (s) => await new Promise((r) => setTimeout(r, s * 1000)),
-    });
     mp.registerJsModule("display", {
       draw: (buf) => {
         let bytes = [...buf].flatMap((x) => [x, x, x, 255]);
@@ -45,10 +42,7 @@ class USBCPowerSupplySimulator extends HTMLElement {
       mp_console.scrollTo(0, mp_console.scrollHeight);
     };
 
-    const [mp, view] = await Promise.all([
-      this.init_mp(ctx, stdoutWriter),
-      this.init_editor(),
-    ]);
+    const view = await this.init_editor();
 
     const runPython = async () => {
       mp_console.innerText = "";

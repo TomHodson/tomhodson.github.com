@@ -79,13 +79,6 @@ mp.runPython("import fonts; print(fonts.gunship30)")
 
 Note that I've got access to my compiled in code here. 
 
-<section class = "micropython-simulator">
-<div id="editor"></div>
-<button id=run title="Run code (Ctrl-Enter)" aria-title="Run code (Ctrl-Enter)">Run</button>
-<canvas height="240" width="240" class = screen></canvas>
-<pre id="micropython-stdout"></pre>
-</section>
-
 <script src="{{page.assets}}/cm6.bundle.min.js"></script>
 <script src="{{page.assets}}/simulator.js" type = "module"></script>
 
