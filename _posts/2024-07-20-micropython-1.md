@@ -13,7 +13,7 @@ head: |
 ---
 
 <figure style="width:max(300px, 100%);">
-<img src="{{page.assets}}/xkcd.png"/>
+<img src="{{page.assets}}/xkcd.png" alt="The classic xkcd 353 about how python makes programming fun again."/>
 <figcaption>
 <small><a href = "https://xkcd.com/353/">Original</a></small>
 </figcaption>
@@ -39,7 +39,7 @@ So anyway, here is a compendium of things I've being doing with [micropython][mi
 ## Get yourself a dev board
 
 <figure style="width:max(300px, 100%);">
-<img src="{{page.assets}}/four_picos.jpg"/>
+<img src="{{page.assets}}/four_picos.jpg" alt="A photograph of 4 Raspberry Pi Pico Boards arranged in a row."/>
 </figure>
 
 The Raspberry Pi Pico is really nice, if you went to EMFcamp you can use [the badge][badge], and ESP32 boards work really well too! The easiest way to start is to flash a prebuilt firmware (for RP2040 boards that means putting the board in boot mode and then dragging and dropping a .uf2 file onto a virtual file system that appears.)

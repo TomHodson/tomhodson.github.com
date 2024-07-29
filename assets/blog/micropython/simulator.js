@@ -101,7 +101,7 @@ class USBCPowerSupplySimulator extends HTMLElement {
             }
         </style>
         <div id="editor"></div>
-        <button id=run title="Run code (Ctrl-Enter)" aria-title="Run code (Ctrl-Enter)">Run</button>
+        <button id=run title="Run code (Ctrl-Enter)" aria-label="Run code (Ctrl-Enter)">Run</button>
         <canvas height="240" width="240" class = screen></canvas>
         <pre id="micropython-stdout"></pre>
         `;
