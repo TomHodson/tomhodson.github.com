@@ -29,7 +29,6 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - flexible_include
-  - jekyll-d2
   - kramdown-syntax-coderay
 
 
