@@ -8,6 +8,7 @@ A list of things to check once in a while to make sure I haven't broken them ina
 - Mobile and web layouts looks ok.
 - Dark mode and light mode both look ok.
 - OG tags render nicely, use https://www.opengraph.xyz/
+- Check the rss feed https://validator.w3.org/feed/check.cgi?url=https%3A%2F%2Fthomashodson.com%2Ffeed.xml
 
 ## Todo
   - change the OG image used for the landing page so it's not just my face.

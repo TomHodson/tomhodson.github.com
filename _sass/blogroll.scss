@@ -16,13 +16,22 @@ article.draft {
     opacity: 0.5;
 }
 
+section.highlights {
+    margin-bottom: 2rem;
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+}
+
 a.highlights-more {
     margin-left: $left_pad;
 }
 
-main > h2 {
+h1.highlights {
     font-size: 1.75rem;
-    margin-left: $left_pad
+    margin-left: $left_pad;
+    margin-bottom: 1em;
 }
 
 article.blogroll {
@@ -64,6 +73,9 @@ article.blogroll {
         h2 {
             font-size: 1.2em;
         }
+    }
+    a.highlights-more {
+        font-size: 1.25rem;
     }
 
 }

@@ -3,141 +3,139 @@
 // The header with info about me
 // gets displayed on the left in a wide layout and on the top in a narrow layout
 header {
-    border-right: 2px solid #eee; //make a nice dividing line
-    position: fixed;
-    width: 240px;
-    height: 100vh;
-    padding-right: 30px;
-    padding-left: 30px;
-    
-    flex: 0 0 240px;
+  border-right: 2px solid #eee; //make a nice dividing line
+  position: fixed;
+  width: 240px;
+  height: 100vh;
+  padding-right: 30px;
+  padding-left: 30px;
+
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+  top: 0px;
+
+  //a horizontal dividing line to swap in when we switch to mobile layout
+  hr {
+    border: 0px solid #eee;
+    width: 100%;
+    margin-top: 1em;
+  }
+
+  .profile-pic-name {
+    text-align: center;
+  }
+
+  .avatar {
+    max-width: 175px;
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid var(--theme-text-color);
+  }
+
+  h1 {
+    color: var(--theme-highlight-color);
+    font-size: 2em;
+  }
+
+  h1,
+  h2 {
+    font-family: $title_font_stack;
+  }
+
+  a {
+    margin-bottom: 2px;
+  }
+
+  p.professional-links {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    text-align: right;
-    top: 0px;
 
-    //a horizontal dividing line to swap in when we switch to mobile layout
-    hr {
-        border:0px solid #eee;
-        width: 100%;
-        margin-top: 1em;
-    }
-
-    .profile-pic-name {
-        text-align: center;
-    }
-
-    .avatar {
-        max-width: 175px;
-        border-radius: 50%;
-        padding: 5px;
-        border: 1px solid #f2f3f3;
-    }
-
-    h1 {
-        color: var(--theme-highlight-color);
-        font-size: 2em;
-    }
-
-    h1, h2 {
-        font-family: $title_font_stack;
+    svg {
+      height: 1em;
+      width: 1em;
+      margin-left: 0.5em;
+      flex: 0 0 auto;
     }
 
     a {
-        margin-bottom: 2px;
+      display: flex; //
+      align-items: center; // Get the icons centered vertically
+      justify-content: right; //Align right
     }
-
-    p.professional-links {
-        display: flex;
-        flex-direction: column;
-
-        svg {
-            height: 1em;
-            width: 1em;
-            margin-left: 0.5em;
-            flex: 0 0 auto;
-        }
-
-        a {
-            display: flex; //
-            align-items: center; // Get the icons centered vertically
-            justify-content: right; //Align right
-        }
-    }
+  }
 }
 
-@media 
-    only screen and (max-width: $horizontal_breakpoint),
-    only screen and (max-height: $vertical_breakpoint)
-    {  
-    header {
-      position: relative;
-      width: 100%;
-      border: 0px;
-      text-align: center;
-      align-items: center;
-      height: auto;
-      padding-left: 20px;
-      padding-right: 20px;
-    
+@media only screen and (max-width: $horizontal_breakpoint),
+  only screen and (max-height: $vertical_breakpoint) {
+  header {
+    position: relative;
+    width: 100%;
+    border: 0px;
+    text-align: center;
+    align-items: center;
+    height: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+
     hr {
-        border-width:1px;
+      border-width: 1px;
     }
 
     .bio {
-        span {
-            display: inline;
-        }
-        span:after {
-            content: ', ';
-        }
-        span:last-of-type:after {
-            content: '';
-        }
+      span {
+        display: inline;
+      }
+      span:after {
+        content: ", ";
+      }
+      span:last-of-type:after {
+        content: "";
+      }
     }
 
     // To squish the text together a bit in the mobile view.
     p {
-        margin-block: 0.25em;
+      margin-block: 0.25em;
     }
 
     .avatar {
-        margin: auto;
-    } 
-    
+      margin: auto;
+    }
+
     p.professional-links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
 
-        a {
-            margin-left: 1em;
-            margin-right: 1em;
-            flex-wrap: nowrap;
-            justify-content: center;
-
-            // In the main view, the github/mastodon/rss icons are on the right
-            // for the smaller view switch the to the left 
-            flex-direction: row-reverse;
-        }
-        svg {
-            // Switch the padding side having switched the order
-            margin-right: 0.5em;
-            margin-left: 0;
-        }
-    }
-    
-    } 
-
-    nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    nav a {
+      a {
         margin-left: 1em;
+        margin-right: 1em;
+        flex-wrap: nowrap;
+        justify-content: center;
+
+        // In the main view, the github/mastodon/rss icons are on the right
+        // for the smaller view switch the to the left
+        flex-direction: row-reverse;
+      }
+      svg {
+        // Switch the padding side having switched the order
+        margin-right: 0.5em;
+        margin-left: 0;
+      }
     }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav a {
+    margin-left: 1em;
+  }
 }

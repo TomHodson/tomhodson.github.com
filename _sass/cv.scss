@@ -1,123 +1,130 @@
 summary.cv {
-    margin-bottom: 0.7em;
-    margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  margin-top: 0.7em;
 
-    padding-left: 2.2rem;
-    position: relative;
+  padding-left: 2.2rem;
+  position: relative;
 
-    display: flex;
-    cursor: pointer;
+  display: flex;
+  cursor: pointer;
 }
 
 details summary.cv::-webkit-details-marker {
-    display:none;
+  display: none;
 }
 
 details[open] > summary:before {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 //A little animation for the details opening
 details[open] summary ~ * {
-    animation: sweep .5s ease-in-out;
+  animation: sweep 0.5s ease-in-out;
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
   }
-  
-  @keyframes sweep {
-    0%    {opacity: 0; transform: translateX(-10px)}
-    100%  {opacity: 1; transform: translateX(0)}
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
+}
 
 summary.cv:before {
-    content: '';
-    border-width: .4rem;
-    border-style: solid;
-    border-color: transparent transparent transparent black;
-    position: absolute;
-    top: 0.2rem;
-    left: 1rem;
-    transform: rotate(0);
-    transform-origin: .2rem 50%;
-    transition: .25s transform ease;
+  content: "";
+  border-width: 0.4rem;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--theme-text-color);
+  position: absolute;
+  top: 0.2rem;
+  left: 1rem;
+  transform: rotate(0);
+  transform-origin: 0.2rem 50%;
+  transition: 0.25s transform ease;
 }
 
 summary li {
-    margin-bottom: 0em;
+  margin-bottom: 0em;
 }
 
 summary time {
-    width: 150px;
-    flex: 0 0 auto;
+  width: 150px;
+  flex: 0 0 auto;
 }
 
 div.details-img {
-    padding-right: 20px;
-    padding-bottom: 20px;
-    width: 150px;
-    flex: 0 0 auto;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  width: 150px;
+  flex: 0 0 auto;
 }
 div.details-text p {
-    margin-top: 0px;
-    flex: 0 0 auto;
+  margin-top: 0px;
+  flex: 0 0 auto;
 }
 
 div.details-img img {
-    border-radius: 10px;
-    max-width: 100%;
+  border-radius: 10px;
+  max-width: 100%;
 }
 
 summary h3 {
-    font-size: 1em;
-    margin: 0px;
-    flex: 0 1 auto;
+  font-size: 1em;
+  margin: 0px;
+  flex: 0 1 auto;
 }
 
 button {
-    height: 2em;
+  height: 2em;
 }
 
-div.details-container { 
-    display: flex;
-    margin-left: 2.2rem;
+div.details-container {
+  display: flex;
+  margin-left: 2.2rem;
 }
 
 .cv-title-container {
-    display: flex;
-    align-items:baseline;
+  display: flex;
+  align-items: baseline;
 }
 
 div.cv-title-container {
-    margin-bottom:1em;
-    margin-top:1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
-div.cv-title-container h2 {margin:0px;}
+div.cv-title-container h2 {
+  margin: 0px;
+}
 
 div.cv-title-container a {
-    cursor: pointer;
-    margin-left: 3em;
+  cursor: pointer;
+  margin-left: 3em;
 
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 1px;
-    border-color: transparent;
-    offset: None;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: transparent;
+  offset: None;
 
-    background-color: transparent;
-    font-size: 1em;
+  background-color: transparent;
+  font-size: 1em;
 }
 
 div.cv-title-container button:hover {
-    border-color:black;
+  border-color: black;
 }
 
-@media only screen and (max-width: 900px) {  
-    div.details-container {
-        margin-left:2.2rem;
-        flex-direction: column;
-        align-items: center;
-    }
+@media only screen and (max-width: 900px) {
+  div.details-container {
+    margin-left: 2.2rem;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    summary.cv {
-        flex-direction: column;
-    }
-
+  summary.cv {
+    flex-direction: column;
+  }
 }

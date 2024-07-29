@@ -1,48 +1,27 @@
 article.project {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    flex-direction: row;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-direction: row;
 
-    h2 {margin-top: 0;}
+  h2 {
+    margin-top: 0;
+  }
 
-    a.photo {
-        width: $thumbnail_image_size;
-        height: $thumbnail_image_size;
-        margin-right: 1em;
-    }
-    
-    img {
-        max-height: $thumbnail_image_size;
-        width: unset;
-        aspect-ratio: 1 / 1;
-    }
-    figure {
-        padding: 0;
-        justify-content: center;
-    }
+  a.photo {
+    width: $thumbnail_image_size;
+    height: $thumbnail_image_size;
+    margin-right: 1em;
+  }
+
+  img {
+    max-height: $thumbnail_image_size;
+    width: unset;
+    aspect-ratio: 1 / 1;
+  }
+  figure {
+    padding: 0;
+    justify-content: center;
+  }
 }
-
-// @media 
-//     only screen and (max-width: $horizontal_breakpoint),
-//     only screen and (max-height: $vertical_breakpoint)
-//     {  
-//         main {
-//         padding-top: 10px; 
-//         padding-left: 20px;
-//         padding-right: 20px;
-//         margin: 0px;
-//         }
-    
-//         article {
-//         margin-left: 0px; 
-//         } 
-
-//         h1 {font-size: 1.5em !important;}
-//         .MathJax { 
-//             font-size: 0.8em !important;
-//             overflow-x: auto;
-//             overflow-y: hidden;
-//         }
-// }

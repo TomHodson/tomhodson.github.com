@@ -1,31 +1,24 @@
 nav {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .current {
-    color: darkslategray;
-  }
-
-@media (prefers-color-scheme: dark) {
-    .current {
-        color: lightslategray;
-    }
+  color: var(--theme-highlight-color);
 }
 
-@media 
-    only screen and (max-width: $horizontal_breakpoint),
-    only screen and (max-height: $vertical_breakpoint)
-    {  
-    nav.page-table-of-contents {
-        white-space: normal;
-        justify-content: left;
-        text-align: left;
-        ul {padding-left: 0em;}
-        li li {
-            padding-right: 0em;
-            padding-left: 2em;
-        }
-        
+@media only screen and (max-width: $horizontal_breakpoint),
+  only screen and (max-height: $vertical_breakpoint) {
+  nav.page-table-of-contents {
+    white-space: normal;
+    justify-content: left;
+    text-align: left;
+    ul {
+      padding-left: 0em;
     }
+    li li {
+      padding-right: 0em;
+      padding-left: 2em;
+    }
+  }
 }
