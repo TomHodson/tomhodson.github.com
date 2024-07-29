@@ -22,6 +22,9 @@ kramdown:
   syntax_highlighter_opts:
     line_numbers: inline
 
+flexible_include:
+  die_on_flexible_include_error: false
+
 include:
   - node_modules
 
