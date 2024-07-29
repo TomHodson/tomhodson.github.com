@@ -22,4 +22,4 @@ I've been looking at using Lego as a way to quickly prototype ideas.
 ![The encoder and a custom lego motor mounted to a beam with a gear train linking them together and to a lego wheel.](/assets/projects/lego_adapters/encoder/wheel_motor_and_encoder.jpg)
 
 ## Servo Mount
-![An adapter for a 9g servo to lego. It has holes for studs to click into and I'm working on designing a lego compatible gear that can mount ](/assets/projects/lego_adapters/thumbnail.svg)
+<img class="invertable" src = "/assets/projects/lego_adapters/thumbnail.svg" alt="An adapter for a 9g servo to lego. It has holes for studs to click into and I'm working on designing a lego compatible gear that can mount">
