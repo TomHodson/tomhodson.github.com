@@ -4,6 +4,7 @@
     "es-module-shims": "^1.8.1",
     "lil-gui": "^0.19.1",
     "mathjax": "^3.2.2",
+    "svgo": "^3.3.2",
     "three": "^0.158.0"
   },
   "devDependencies": {

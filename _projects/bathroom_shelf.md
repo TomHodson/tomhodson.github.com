@@ -3,9 +3,9 @@ title:  Bathroom Shelf
 layout: post
 excerpt: A little modification to an IKEA thingy.
 permalink: /projects/bathroom_shelf
+assets: /assets/projects/bathroom_shelf
 
 img:
-    src: /assets/projects/bathroom_shelf/thumbnail.svg
     alt: A small bathroom shelf.
     class: invertable
 

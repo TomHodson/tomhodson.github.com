@@ -1,8 +1,10 @@
 <article class="h-entry project">
-    <a class="u-uid u-url photo" href="{{ post.url }}">
+    <a class="u-uid u-url photo" href="{{ post.url }}" aria-label="Project: {{ post.title }}">
+    {% assign default_thumbnail = post.assets | append: '/thumbnail.min.svg' %}
     <img class="u-photo {{post.img.class}}"
-        src = "{{post.img.src}}" 
-        alt="{{post.img.alt | smartify}}">
+        src = "{{post.img.src | default: default_thumbnail}}" 
+        alt="{{post.img.alt | smartify}}"
+        width=128 height=128>
     </a>
 
     <section>

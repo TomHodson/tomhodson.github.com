@@ -3,10 +3,10 @@ title:  USB-C Power Station
 layout: post
 excerpt: One charging station to rule them all!
 permalink: /projects/usbc_charging_station
+assets: /assets/projects/usbc_power_supply
 
 img:
-    src: /assets/projects/usbc_power_supply/thumbnail.svg
-    alt: 
+    alt: A line rendered CAD model of a laser-cut, book shaped device with exposed internal parts. It wouldn't be obvious without reading the description but it's a USB-C power supply.
     class: invertable
 
 social_image: /assets/projects/usbc_power_supply/thumbnail.png

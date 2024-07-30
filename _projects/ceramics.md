@@ -3,9 +3,9 @@ title:  Ceramics
 layout: post
 excerpt: Ongoing explorations in making pots!
 permalink: /projects/ceramics
+assets: /assets/projects/ceramics
 
 img:
-    src: /assets/projects/ceramics/thumbnail.svg
     alt: 
     class: invertable
 

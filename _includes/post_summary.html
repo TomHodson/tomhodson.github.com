@@ -11,12 +11,14 @@
 
 <article class="h-entry blogroll {% if is_draft %}draft{%endif%}">
 
-<a class="u-uid u-url" href="{{ post.url }}">
+<a class="u-uid u-url" href="{{ post.url }}" aria-label="Blog Post: {{ post.title }}">
 <figure>
 <img class="u-photo" 
     src = "{{ post.thumbnail | default: post.image}}"
     class = "{{ post.image_class }}"
-    alt="{{post.alt | smartify}}">
+    alt="{{post.alt | smartify}}"
+    width=128 height=128
+    >
 </figure>
 </a>
 

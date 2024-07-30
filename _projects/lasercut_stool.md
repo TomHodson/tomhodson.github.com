@@ -3,9 +3,9 @@ title:  Lasercut Stool
 layout: post
 excerpt: A lasercut hexagonal wooden stool.
 permalink: /projects/lasercut_stool
+assets: /assets/projects/lasercut_stool
 
 img:
-    src: /assets/projects/lasercut_stool/thumbnail.svg
     alt: A CAD model of the this hexagonal lasercut stool.
     class: invertable
 

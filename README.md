@@ -11,6 +11,8 @@ A list of things to check once in a while to make sure I haven't broken them ina
 - Check the rss feed https://validator.w3.org/feed/check.cgi?url=https%3A%2F%2Fthomashodson.com%2Ffeed.xml
 
 ## Todo
+  - add svgo https://github.com/svg/svgo 
+  - Figure out a JS bundling script so that I don't have to include node_modules in the deployed site 
   - change the OG image used for the landing page so it's not just my face.
   - add humans.txt https://humanstxt.org/
   - fix the OG tags so that https://cards-dev.twitter.com/validator works

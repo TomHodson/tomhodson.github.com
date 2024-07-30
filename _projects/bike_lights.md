@@ -3,9 +3,9 @@ title:  Bike Lights
 layout: post
 excerpt: Making a custom 3W dynamo light for a bike.
 permalink: /projects/bike_lights
+assets: /assets/projects/bike_lights
 
 img:
-    src: /assets/projects/bike_lights/thumbnail.svg
     alt: A CAD model of a 3D printable mount for a common LED light onto a bike handlebar.
     class: invertable
 
