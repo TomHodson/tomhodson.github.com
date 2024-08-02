@@ -33,6 +33,7 @@ plugins:
   - jekyll-redirect-from
   - flexible_include
   - kramdown-syntax-coderay
+  - jekyll-last-modified-at
 
 
 feed:

@@ -1,31 +1,27 @@
-
 // Padding to keep the keep the content to the right of the header
 footer {
-    max-width: 560px;
-    margin-left: 240px;
-    padding-left: 30px;
-    padding-bottom: 10vh;
+  max-width: 560px;
+  margin-left: 240px;
+  padding-left: 30px;
+  padding-bottom: 10vh;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5em;
 
-    a {
-        text-decoration: none;
-    }
-
+  a {
+    text-decoration: none;
+  }
 }
 
-@media 
-    only screen and (max-width: $horizontal_breakpoint),
-    only screen and (max-height: $vertical_breakpoint)
-    {  
-        footer {
-        padding-top: 10px; 
-        padding-left: 20px;
-        padding-right: 20px;
-        margin: auto;
-        justify-content: center;
-    }
+@media only screen and (max-width: $horizontal_breakpoint),
+  only screen and (max-height: $vertical_breakpoint) {
+  footer {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
+    justify-content: center;
+  }
 }
