@@ -20,6 +20,7 @@ A list of things to check once in a while to make sure I haven't broken them ina
   - setup webmentions https://aarongustafson.github.io/jekyll-webmention_io/
   - add a theme toggle button: https://whitep4nth3r.com/blog/best-light-dark-mode-theme-toggle-javascript/
   - make sure the above works with the thesis section, will probably require stripping the html tag.
+  - add json-ld metadata https://csvbase.com/blog/13
 
 ## Validators
   - [blacklight](https://themarkup.org/blacklight)
