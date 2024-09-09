@@ -24,7 +24,11 @@ head: |
     }
     </script>
     <script src="/assets/js/outline-model-viewer/index.js" type="module"></script>
+    <script type="module" src="/assets/js/kicanvas.js"></script>
+
 ---
 
 {% include mastodon_post.html post_id = "111813225328398667" %}
 {% include mastodon_post.html post_id = "111816310882560850" %}
+
+<kicanvas-embed src="https://raw.githubusercontent.com/TomHodson/pcbs/main/usb-c%20psu/usb-c%20psu.kicad_sch" controls="basic"> </kicanvas-embed>
