@@ -14,8 +14,16 @@
     {% include header.html %}
     <main>
         <article class="h-entry">
-            <h1 class = "p-name">{{ page.title }}</h1>
-            <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+            <section class="header">
+                <section class="title-date-container">
+                    <h1 class = "p-name highlights">{{ page.title }}</h1>
+                    <time class="dt-label dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+                </section>
+                <hr class="byline">
+                <section class="byline">
+                {{page.excerpt}}
+                </section>
+            </section>
             <summary style="display:none" class="p-summary">{{ page.excerpt }}</summary>
             <div class="e-content">
             {{ content }}

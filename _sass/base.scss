@@ -13,8 +13,7 @@
 @import "mastodon_timeline";
 @import "night_mode_toggle";
 @import "highlights";
-
-// The syntax highlighting css
+@import "tables"; // The syntax highlighting css
 // generated with rougify style bw > code_style_bw.scss
 // @import "code_style_bw";
 @import "code_style_github";
@@ -147,6 +146,15 @@ section.title-date-container {
   }
 }
 
+hr.byline {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+section.byline {
+  font-style: italic;
+  margin-bottom: 2em;
+}
+
 :is(h1, h2, h3, h4, .text-balance) {
   text-wrap: balance;
 }
@@ -217,6 +225,17 @@ figure > canvas {
 figure.centered {
   display: flex;
   justify-content: center;
+}
+
+figure.two-wide {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 1em;
+  img {
+    width: calc(50% - 0.5em);
+  }
 }
 
 section.image-grid-4x4 {
