@@ -1,18 +1,18 @@
 ---
 title: MicroPython Simulator
 layout: post
-excerpt: Embedded Programming is fun again!
+excerpt: A simulator for my USB C Power supply project using Micropython running in websassembly.
 
 image: /assets/blog/micropython/simulated_display.png
 thumbnail: /assets/blog/micropython/simulated_display.png
 assets: /assets/blog/micropython
-alt: A simulator for my USB C Power supply project using Micropython running in websassembly.
+alt: A 240x240 pixel (so low res) image of a slightly sci-fiesque looking circular display showing so linear and curved bars, 24.4 volts, in bigger font 213w and 8.7A.
 
 head: |
     <script src="/assets/blog/micropython/micropython.min.mjs" type="module"></script>
 ---
 
-This simulator lets me quickly try out micropython code drawing to a 240x240 pixel color lcd display. * 
+This simulator lets me quickly try out micropython code drawing to a 240x240 pixel color lcd display.
 
 This particular display uses 5, 6 and 5 bits for each channel, respectively. The raw pixel data gets passed from micropython to javascript where it gets converted to normal RGB before being blitted to the `<canvas>` tag. Under the hood it uses the fact that the micropython VM supports being compiled to WASM.
 
