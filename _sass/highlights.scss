@@ -1,3 +1,12 @@
+// Also affects blog and posts pages
+h1.highlights {
+  font-size: 1.75rem;
+  margin-bottom: -0.2em;
+  a {
+    text-decoration: none;
+  }
+}
+
 section.highlights {
   margin-bottom: 2rem;
 
@@ -7,27 +16,6 @@ section.highlights {
 
   a.highlights-more {
     margin-left: $left_pad;
-  }
-
-  h1.highlights {
-    font-size: 1.75rem;
-    //   margin-left: $left_pad;
-    margin-bottom: 0.75em;
-  }
-  a.heading {
-    text-decoration: none;
-
-    h1 {
-      margin-bottom: 0.5em;
-    }
-  }
-
-  hr.heading {
-    width: 100%;
-    margin-top: 0;
-    margin-bottom: 2em;
-    border: 1px solid rgba(128, 128, 128, 0.2);
-    height: 0;
   }
 
   hr.blogroll {

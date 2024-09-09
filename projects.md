@@ -11,6 +11,12 @@ img:
     
 social_image: /assets/projects/lego_adapters/thumbnail.png
 ---
+<section class="title-date-container">
+    <h1 class = "highlights">Projects</h1>
+    <span class="dt-label">Last Modified</span>
+</section>
+<hr class="heading">
+
 {% for post in site.projects %}
 {% include project_summary.html %}
 {% endfor %}

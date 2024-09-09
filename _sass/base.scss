@@ -116,16 +116,34 @@ main {
   }
 }
 
+hr.heading {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 2em;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  height: 0;
+}
+
 // Used for both blog and project summaries
+@mixin time-text {
+  font-size: 0.75em;
+  color: var(--theme-subtle-text-color);
+}
+
+span.dt-label {
+  display: block;
+  width: 100%;
+  text-align: right;
+  @include time-text;
+}
+
 section.title-date-container {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  // flex-wrap: wrap;
   time {
-    font-size: 0.75em;
     text-align: right;
-    color: var(--theme-subtle-text-color);
+    @include time-text;
   }
 }
 
@@ -148,6 +166,13 @@ a {
   text-underline-offset: 0.25em;
   text-decoration-thickness: 0.5px;
   color: var(--theme-text-color);
+}
+
+h1 > a,
+h2 > a,
+h3 > a,
+li > a {
+  text-decoration: None;
 }
 
 header a,

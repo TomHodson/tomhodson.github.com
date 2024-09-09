@@ -9,6 +9,11 @@ img:
     src: /assets/images/avatar.jpeg
     alt: A picture of me.
 ---
+<section class="title-date-container">
+    <h1 class = "highlights">Blog</h1>
+    <span class="dt-label">Date Posted</span>
+</section>
+<hr class="heading">
 {% for post in site.posts %}
 {% include post_summary.html %}
 {% endfor %}

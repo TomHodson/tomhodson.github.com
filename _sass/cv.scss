@@ -77,10 +77,6 @@ summary h3 {
   flex: 0 1 auto;
 }
 
-button {
-  height: 2em;
-}
-
 div.details-container {
   display: flex;
   margin-left: 2.2rem;
@@ -89,32 +85,20 @@ div.details-container {
 .cv-title-container {
   display: flex;
   align-items: baseline;
-}
-
-div.cv-title-container {
+  justify-content: space-between;
   margin-bottom: 1em;
   margin-top: 1em;
-}
-div.cv-title-container h2 {
-  margin: 0px;
-}
 
-div.cv-title-container a {
-  cursor: pointer;
-  margin-left: 3em;
-
-  border-style: solid;
-  border-radius: 5px;
-  border-width: 1px;
-  border-color: transparent;
-  offset: None;
-
-  background-color: transparent;
-  font-size: 1em;
-}
-
-div.cv-title-container button:hover {
-  border-color: black;
+  border-bottom: var(--theme-subtle-outline) 1px solid;
+  h2 {
+    margin: 0px;
+  }
+  a {
+    cursor: pointer;
+    text-decoration: None;
+    color: var(--theme-text-color);
+    font-size: 0.75em;
+  }
 }
 
 @media only screen and (max-width: 900px) {
