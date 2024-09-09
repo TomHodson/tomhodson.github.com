@@ -1,0 +1,43 @@
+section.highlights {
+  margin-bottom: 2rem;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  a.highlights-more {
+    margin-left: $left_pad;
+  }
+
+  h1.highlights {
+    font-size: 1.75rem;
+    //   margin-left: $left_pad;
+    margin-bottom: 0.75em;
+  }
+  a.heading {
+    text-decoration: none;
+
+    h1 {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  hr.heading {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 2em;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    height: 0;
+  }
+
+  hr.blogroll {
+    border-width: 0 !important;
+  }
+}
+
+@media only screen and (max-width: $horizontal_breakpoint),
+  only screen and (max-height: $vertical_breakpoint) {
+  a.highlights-more {
+    font-size: 1.25rem;
+  }
+}

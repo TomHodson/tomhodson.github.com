@@ -1,6 +1,7 @@
 ---
 title: Blog
 layout: default
+permalink: /blog/
 excerpt: |
   I'm Tom Hodson. Welcome to my little home on the web! There's a blog, a cv and some projects to look at.
 mathjax: false

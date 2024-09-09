@@ -1,81 +1,56 @@
 h2.blogroll-title {
-    a {
-        text-decoration: none;
-    }
-
+  a {
+    text-decoration: none;
+  }
 }
 
 hr.blogroll {
-    border: 0px solid rgba(128, 128, 128, 0.2);
-    width: 66%;
-    margin-top: 1em;
-    margin-bottom: 1em;
+  border: 0px solid rgba(128, 128, 128, 0.2);
+  width: 66%;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 article.draft {
-    opacity: 0.5;
-}
-
-section.highlights {
-    margin-bottom: 2rem;
-
-    h1 {
-        margin-bottom: 1rem;
-    }
-}
-
-a.highlights-more {
-    margin-left: $left_pad;
-}
-
-h1.highlights {
-    font-size: 1.75rem;
-    margin-left: $left_pad;
-    margin-bottom: 1em;
+  opacity: 0.5;
 }
 
 article.blogroll {
-    padding-bottom: 0px;
-    display: flex;
+  padding-bottom: 0px;
+  display: flex;
 
-    h2 {
-        margin-top: 0;
-        font-size: 1.3em;
-    }
-    time {
-        display: block;
-        margin-bottom: 0.2em;
-        font-size: 14px;
-    }
+  h2 {
+    margin-top: 0;
+    font-size: 1.3em;
+  }
 
-    figure {
-        margin-right: 1em;
-        width: $thumbnail_image_size;
-        height: 100%;
-        flex-shrink: 0;
-        margin: 0 1em 0 0;
-        padding: 0;
-    }
-    img {
-        margin: 0;
-        max-width: $thumbnail_image_size;
-        max-height: $thumbnail_image_size;
-        border-radius: 0.5em;
-        }
+  figure {
+    margin-right: 1em;
+    width: $thumbnail_image_size;
+    height: 100%;
+    flex-shrink: 0;
+    margin: 0 1em 0 0;
+    padding: 0;
+  }
+  img {
+    margin: 0;
+    max-width: $thumbnail_image_size;
+    max-height: $thumbnail_image_size;
+    border-radius: 0.5em;
+  }
 }
 
-@media 
-    only screen and (max-width: $horizontal_breakpoint),
-    only screen and (max-height: $vertical_breakpoint)
-    {  
-    hr.blogroll {border-width: 1px}
-    article.blogroll {
-        h2 {
-            font-size: 1.2em;
-        }
+@media only screen and (max-width: $horizontal_breakpoint),
+  only screen and (max-height: $vertical_breakpoint) {
+  hr.blogroll {
+    border-width: 1px;
+  }
+  article.blogroll {
+    h2 {
+      font-size: 1.2em;
     }
-    a.highlights-more {
-        font-size: 1.25rem;
-    }
-
+  }
+  a.highlights-more {
+    font-size: 1.25rem;
+  }
 }

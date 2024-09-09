@@ -12,6 +12,7 @@
 @import "model_viewer"; //Styles for the 3D model viewer
 @import "mastodon_timeline";
 @import "night_mode_toggle";
+@import "highlights";
 
 // The syntax highlighting css
 // generated with rougify style bw > code_style_bw.scss
@@ -34,6 +35,7 @@
   --theme-subtle-outline: oklch(90% 0 50);
   --theme-highlight-color: hsl(338, 75%, 60%);
   --theme-highlight-color-transparent: hsla(338, 75%, 60%, 33%);
+  --theme-subtle-text-color: #606984;
 
   // constrain width and center
   --body-max-width: 900px;
@@ -111,6 +113,19 @@ main {
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+// Used for both blog and project summaries
+section.title-date-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  // flex-wrap: wrap;
+  time {
+    font-size: 0.75em;
+    text-align: right;
+    color: var(--theme-subtle-text-color);
   }
 }
 
@@ -263,9 +278,9 @@ body:not(.has-wc) .has-wc {
     margin-left: 0px;
   }
 
-  h1 {
-    font-size: 1.5em !important;
-  }
+  //   h1 {
+  //     font-size: 1.5em !important;
+  //   }
   .MathJax {
     font-size: 0.8em !important;
     overflow-x: auto;
