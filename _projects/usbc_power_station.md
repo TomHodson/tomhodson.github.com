@@ -11,7 +11,7 @@ img:
     class: invertable
 
 social_image: /assets/projects/usbc_power_supply/thumbnail.png
-model: 
+model: /assets/projects/usbc_power_supply/usb-c_psu.glb
 
 head: |
     <script async src="/node_modules/es-module-shims/dist/es-module-shims.js"></script>
@@ -111,9 +111,9 @@ TODO: Add some knobs to the simulator so you can test different conditions such 
 
 <usbc-power-supply-simulator disable-console disable-editor code="/assets/blog/micropython/demo.py"></usbc-power-supply-simulator>
 
-<!-- <outline-model-viewer model = "{{page.model}}" camera='{"position":[5.148,4.038,8.952],"rotation":[-0.4169,0.4809,0.2021],"zoom":1248.587161014231,"target":[0.03319,0.06938,-0.01135]}'>
+<outline-model-viewer model = "{{page.model}}" true-color=true spin=false camera='{"position":[-6.425,8.003,-3.751],"rotation":[-2.016,-0.6378,-2.246],"zoom":6784.844370099355,"target":[0.1581,-0.01497,0.07167]}'>
     <img class="outline-model-poster no-wc" src = "{{page.img.src}}">
     <p class="has-wc">Loading model...</p>
-</outline-model-viewer> -->
+</outline-model-viewer>
 
 <!-- <kicanvas-embed src="/assets/projects/usbc_power_supply/usb-c_psu.kicad_sch" controls="basic"> </kicanvas-embed> -->
