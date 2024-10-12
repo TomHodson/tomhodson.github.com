@@ -91,6 +91,8 @@ class OutlineModelViewer extends HTMLElement {
   }
 
   connectedCallback() {
+    const mul = 2;
+
     let component_rect = this.getBoundingClientRect();
 
     this.render(component_rect.height);
@@ -147,8 +149,8 @@ class OutlineModelViewer extends HTMLElement {
     // See: https://threejs.org/docs/index.html#api/en/renderers/WebGLRenderTarget.depthBuffer
     const depthTexture = new THREE.DepthTexture();
     const renderTarget = new THREE.WebGLRenderTarget(
-      2 * canvas_rect.width,
-      2 * canvas_rect.height,
+      mul * canvas_rect.width,
+      mul * canvas_rect.height,
       {
         depthTexture: depthTexture,
         depthBuffer: true,
@@ -162,7 +164,7 @@ class OutlineModelViewer extends HTMLElement {
 
     // Outline pass.
     const customOutline = new CustomOutlinePass(
-      new THREE.Vector2(2 * canvas_rect.width, 2 * canvas_rect.height),
+      new THREE.Vector2(mul * canvas_rect.width, mul * canvas_rect.height),
       scene,
       camera,
       outline_color
@@ -172,8 +174,8 @@ class OutlineModelViewer extends HTMLElement {
     // Antialias pass.
     const effectFXAA = new ShaderPass(FXAAShader);
     effectFXAA.uniforms["resolution"].value.set(
-      0.5 / canvas_rect.width,
-      0.5 / canvas_rect.height
+      1.0 / canvas_rect.width / mul,
+      1.0 / canvas_rect.height / mul
     );
     composer.addPass(effectFXAA);
 
@@ -293,7 +295,8 @@ class OutlineModelViewer extends HTMLElement {
           this.intersectedObject.material.emissive.set(currentColor);
 
           // Print the name of the intersected object
-          params.selectedObject = object.name || "(unnamed object)";
+          //   params.selectedObject = object.name || "(unnamed object)";
+          shadow.querySelector("#clicked-item").innerText = object.name;
         }
       } else if (this.intersectedObject) {
         // Reset the color if the mouse is no longer hovering over any object
@@ -341,16 +344,21 @@ class OutlineModelViewer extends HTMLElement {
       camera.aspect = canvas_rect.width / canvas_rect.height;
       camera.updateProjectionMatrix();
 
-      renderer.setSize(canvas_rect.width, canvas_rect.height, false);
-      composer.setSize(2 * canvas_rect.width, 2 * canvas_rect.height);
-      effectFXAA.setSize(2 * canvas_rect.width, 2 * canvas_rect.height);
-      customOutline.setSize(2 * canvas_rect.width, 2 * canvas_rect.height);
+      renderer.setSize(
+        mul * canvas_rect.width,
+        mul * canvas_rect.height,
+        false
+      );
+      composer.setSize(mul * canvas_rect.width, mul * canvas_rect.height);
+      effectFXAA.setSize(mul * canvas_rect.width, mul * canvas_rect.height);
+      customOutline.setSize(mul * canvas_rect.width, mul * canvas_rect.height);
       effectFXAA.uniforms["resolution"].value.set(
-        0.5 / canvas_rect.width,
-        0.5 / canvas_rect.height
+        1.0 / canvas_rect.width / mul,
+        1.0 / canvas_rect.height / mul
       );
     }
-    window.addEventListener("resize", onWindowResize, false);
+
+    onWindowResize();
 
     const gui = new GUI({
       title: "Settings",
@@ -365,9 +373,9 @@ class OutlineModelViewer extends HTMLElement {
       selectedObject: "None",
       spin: controls.autoRotate,
       mode: { Mode: 0 },
-      depthBias: uniforms.multiplierParameters.value.x,
-      depthMult: uniforms.multiplierParameters.value.y,
-      FXAA_resolution: 0.5,
+      //   depthBias: uniforms.multiplierParameters.value.x,
+      //   depthMult: uniforms.multiplierParameters.value.y,
+      //   FXAA_resolution: 0.5,
       printCamera: () => console.log(serialiseCamera(camera, controls)),
     };
 
@@ -389,24 +397,70 @@ class OutlineModelViewer extends HTMLElement {
         uniforms.debugVisualize.value = value;
       });
 
-    gui.add(params, "depthBias", 0.0, 5).onChange(function (value) {
-      uniforms.multiplierParameters.value.x = value;
-    });
-    gui.add(params, "depthMult", 0.0, 20).onChange(function (value) {
-      uniforms.multiplierParameters.value.y = value;
-    });
+    // gui.add(params, "depthBias", 0.0, 5).onChange(function (value) {
+    //   uniforms.multiplierParameters.value.x = value;
+    // });
+    // gui.add(params, "depthMult", 0.0, 20).onChange(function (value) {
+    //   uniforms.multiplierParameters.value.y = value;
+    // });
 
-    gui.add(params, "FXAA_resolution", 0.0, 2).onChange((value) => {
-      effectFXAA.uniforms["resolution"].value.set(
-        value / canvas_rect.width,
-        value / canvas_rect.height
-      );
-    });
+    // gui.add(params, "FXAA_resolution", 0.0, 2).onChange((value) => {
+    //   effectFXAA.uniforms["resolution"].value.set(
+    //     value / canvas_rect.width,
+    //     value / canvas_rect.height
+    //   );
+    // });
+
+    // Toggle fullscreen mode
+    const shadow = this.shadow;
+    const canvas_height = canvas.style.height;
+    const lil_gui = shadow.querySelector(".lil-gui.root");
+    const lil_gui_margin_top = lil_gui.style.marginTop;
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        if (container.requestFullscreen) {
+          container.requestFullscreen();
+        } else if (container.mozRequestFullScreen) {
+          // Firefox
+          container.mozRequestFullScreen();
+        } else if (container.webkitRequestFullscreen) {
+          // Chrome, Safari and Opera
+          container.webkitRequestFullscreen();
+        } else if (container.msRequestFullscreen) {
+          // IE/Edge
+          container.msRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    const fullScreenButton = this.shadow.querySelector("#fullscreen-btn");
+    fullScreenButton.addEventListener("click", () => toggleFullScreen());
+    window.addEventListener("resize", onWindowResize, false);
+
+    // Handle fullscreen change events triggerd through various means
+    function onFullScreenChange() {
+      if (document.fullscreenElement) {
+        canvas.style.height = "100%";
+        lil_gui.style.marginTop = "0";
+      } else {
+        canvas.style.height = canvas_height;
+        lil_gui.style.marginTop = lil_gui_margin_top;
+      }
+      onWindowResize();
+    }
+    document.addEventListener("fullscreenchange", onFullScreenChange);
   }
 
   render(height) {
     this.shadow.innerHTML = `
       <div id="container">
+      <span id = "clicked-item"></span>
+      <button id="fullscreen-btn">⛶</button>
       <canvas class = "object-viewer"></canvas>
       </div>
       <link rel="stylesheet" href="/node_modules/lil-gui/dist/lil-gui.min.css">
@@ -418,6 +472,34 @@ class OutlineModelViewer extends HTMLElement {
           display: flex;
           flex-direction: column;
           border-radius: inherit;
+        }
+
+        #clicked-item {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+            font-size: 0.7em;
+            background: none;
+            border: none;
+            color: var(--theme-text-color);
+            opacity: 50%;
+        }
+
+        #fullscreen-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          z-index: 10;
+          font-size: 24px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: var(--theme-text-color);
+        }
+
+        #fullscreen-btn:hover {
+          color: var(--theme-subtle-outline);
         }
 
         .lil-gui .title {height: 2em;}
