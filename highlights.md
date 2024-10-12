@@ -38,7 +38,8 @@ Welcome to my little home on the web! Below you'll find recent blog posts, proje
     <span class="dt-label">Last Modified</span>
 </section>
 <hr class="heading">
-{% for post in site.projects limit:5 %}
+{% assign projects = site.projects | sort_natural: "last_modified_at"%}
+{% for post in projects limit:5 %}
 {% include project_summary.html %}
 {% endfor %}
 <a href = "/projects/" class = "highlights-more">More</a>

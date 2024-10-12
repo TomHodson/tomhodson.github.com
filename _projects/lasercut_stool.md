@@ -25,7 +25,7 @@ head: |
     </script>
     <script src="/assets/js/outline-model-viewer/index.js" type="module"></script>
 ---
-<outline-model-viewer model = "{{page.model}}" camera='{"position":[2.11,4.722,9.765],"rotation":[-0.4425,0.1813,0.08522],"zoom":471.1588632880538,"target":[0.1159,0.06564,-0.06329]}'>
+<outline-model-viewer model = "{{page.model}}" camera='{"position":[7.699,4.641,6.436],"rotation":[-0.6243,0.7663,0.4633],"zoom":229.77238881409951,"target":[0,0,0]}'>
     <img class="outline-model-poster no-wc" src = "{{page.img.src}}">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>

@@ -24,7 +24,7 @@ head: |
     </script>
     <script src="/assets/js/outline-model-viewer/index.js" type="module"></script>
 ---
-<outline-model-viewer model = "/assets/blog/vector_magnet/vector_magnet.glb" zoom=500 camera='{"position":[-4.187,2.613,-9.927],"rotation":[-2.895,-0.3904,-3.046],"zoom":715.9863905262143,"target":[0.02078,0.1128,-0.01309]}'>
+<outline-model-viewer model = "/assets/blog/vector_magnet/vector_magnet.glb" zoom=500 camera='{"position":[3.118,3.203,10.1],"rotation":[-0.3104,0.2858,0.0902],"zoom":428.68750000000136,"target":[0,0,0]}'>
     <img class="outline-model-poster no-wc" src = "/assets/projects/bike_lights/thumbnail.svg">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>
@@ -35,7 +35,7 @@ Check out a little interactive model of the magnetometer below. The device has t
 
 Here's a cutaway view of the interior.
 
-<outline-model-viewer model = "/assets/blog/vector_magnet/vector_magnet_section.glb" zoom=500 spin=false camera='{"position":[-3.078,3.353,10.11],"rotation":[-0.309,-0.2822,-0.08866],"zoom":9794.920097823839,"target":[0.0006876,0.1232,-0.005368]}' true-color=true>
+<outline-model-viewer model = "/assets/blog/vector_magnet/vector_magnet_section.glb" spin=false camera='{"position":[-3.069,3.172,10.17],"rotation":[-0.3052,-0.2811,-0.08718],"zoom":2860.0091628398345,"target":[0.007077,-0.02863,0.01116]}' true-color=true>
     <img class="outline-model-poster no-wc" src = "/assets/projects/bike_lights/thumbnail.svg">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>

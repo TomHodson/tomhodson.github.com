@@ -12,7 +12,7 @@ class FindSurfaces {
   constructor() {
     // This identifier, must be globally unique for each surface
     // across all geometry rendered on screen
-    this.surfaceId = 0;
+    this.surfaceId = 10;
   }
 
   /*
@@ -21,7 +21,18 @@ class FindSurfaces {
   getSurfaceIdAttribute(mesh) {
     const bufferGeometry = mesh.geometry;
     const numVertices = bufferGeometry.attributes.position.count;
-    const vertexIdToSurfaceId = this._generateSurfaceIds(mesh);
+
+    // Check if "track" or "pad" is in the name of the mesh
+    let idOverride = null;
+    if (
+      mesh.name.includes("track") ||
+      mesh.name.includes("pad") ||
+      mesh.name.includes("zone")
+    ) {
+      idOverride = 1;
+    }
+
+    const vertexIdToSurfaceId = this._generateSurfaceIds(mesh, idOverride);
 
     const colors = [];
     for (let i = 0; i < numVertices; i++) {
@@ -39,7 +50,7 @@ class FindSurfaces {
    * Returns a `vertexIdToSurfaceId` map
    * given a vertex, returns the surfaceId
    */
-  _generateSurfaceIds(mesh) {
+  _generateSurfaceIds(mesh, idOverride = null) {
     const bufferGeometry = mesh.geometry;
     const numVertices = bufferGeometry.attributes.position.count;
     const numIndices = bufferGeometry.index.count;
@@ -78,7 +89,7 @@ class FindSurfaces {
       // Mark them as explored
       for (let v of surfaceVertices) {
         exploredNodes[v] = true;
-        vertexIdToSurfaceId[v] = this.surfaceId;
+        vertexIdToSurfaceId[v] = idOverride || this.surfaceId;
       }
 
       this.surfaceId += 1;

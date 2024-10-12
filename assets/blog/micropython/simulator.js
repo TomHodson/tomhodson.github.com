@@ -95,6 +95,24 @@ class USBCPowerSupplySimulator extends HTMLElement {
     run_button.onclick = runPython;
     if (editor_disabled) run_button.style.display = "none";
     runPython();
+
+    // Only start simulation when the element is visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log(
+            "Micropython simulator is visible. Starting execution..."
+          );
+          runPython();
+        } else {
+          console.log(
+            "Micropython simulator is not visible. Would pause if I could..."
+          );
+        }
+      });
+    });
+
+    observer.observe(this);
   }
 
   constructor() {

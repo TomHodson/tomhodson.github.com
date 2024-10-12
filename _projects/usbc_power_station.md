@@ -85,23 +85,25 @@ I've put a 240x240 pixel colour screen on the front to show metrics like total c
 
 ## Electronics 
 
-Because I am taking this way to far, I wanted to do per port enable/disable and current monitoring. To implement this I'm designing a PCB with 5 channels where each channel consists of this schematic.  
+Because I am taking this way too far, I wanted to do per port enable/disable and current monitoring. To implement this I'm designing a PCB with 5 channels where each channel consists of this schematic.  
 
 <figure style="max-width: 350px;">
 <img src="{{page.assets}}/channel_sch.png">
 </figure>
 
-There's an INA219 and a shunt resistor for current and voltage monitoring and a chunky MOSFET for enabling and disabling the channel.
-
-TODO: 
-Check the power dissipated in the MOSFET when the gate is driven at 3.3V
-
-Check the inrush current when the MOSFET switches on and off, could potentially limit this by using a larger gate resistor to turn the MOSFET on more slowly. 
+There's an INA219 and a shunt resistor for current and voltage monitoring and a chunky MOSFET for enabling and disabling the channel. 
 
 <figure class="two-wide">
 <img src="{{page.assets}}/channel_board.png">
 <img src="{{page.assets}}/channel_3d.png">
 </figure>
+
+For now I've broken the functionality for one channel out into a test board that I've sent off to JLCPB for manufacturing with and to be populated with SMT components. This ended up costing about 50 dollars for 5 boards. In future I want to have a go at doing the component placement and reflow myself. 
+
+<outline-model-viewer model = "{{page.assets}}/test_board.glb" true-color=true spin=true camera='{"position":[4.016,7.557,6.841],"rotation":[-0.8351,0.3753,0.3848],"zoom":241.86567243589988,"target":[0,0,0]}'>
+    <img class="outline-model-poster no-wc" src = "{{page.img.src}}">
+    <p class="has-wc">Loading model...</p>
+</outline-model-viewer>
 
 ## Software 
 
@@ -109,11 +111,13 @@ In other posts I've described how I made this simulator the test out possible GU
 
 TODO: Add some knobs to the simulator so you can test different conditions such as overcurrent, overtemp, sleep, nightmode etc.
 
-<usbc-power-supply-simulator disable-console disable-editor code="/assets/blog/micropython/demo.py"></usbc-power-supply-simulator>
+<!-- <usbc-power-supply-simulator disable-console disable-editor code="/assets/blog/micropython/demo.py"></usbc-power-supply-simulator>
+ -->
 
-<outline-model-viewer model = "{{page.model}}" true-color=true spin=false camera='{"position":[-6.425,8.003,-3.751],"rotation":[-2.016,-0.6378,-2.246],"zoom":6784.844370099355,"target":[0.1581,-0.01497,0.07167]}'>
+
+<!-- <outline-model-viewer model = "{{page.model}}" true-color=true spin=false camera='{"position":[-6.425,8.003,-3.751],"rotation":[-2.016,-0.6378,-2.246],"zoom":6784.844370099355,"target":[0.1581,-0.01497,0.07167]}'>
     <img class="outline-model-poster no-wc" src = "{{page.img.src}}">
     <p class="has-wc">Loading model...</p>
-</outline-model-viewer>
+</outline-model-viewer> -->
 
 <!-- <kicanvas-embed src="/assets/projects/usbc_power_supply/usb-c_psu.kicad_sch" controls="basic"> </kicanvas-embed> -->
