@@ -117,7 +117,14 @@ In the More settings tab you can change the interval at which measurements are t
 
 In "sensors" you can configure which sensors are connected, which for this workshop will be one of SDS011 and BME280 or both.
 
+
+<section class="note" markdown=1>
+*EDIT*: This section longer works as of October 2024, the grafana link now requires authentication.
+
 Next, you can check if sensor.community is receiving data from your board **even before it is registered**. Go to "https://api-rrd.madavi.de/grafana/d/GUaL5aZMz/pm-sensors?orgId=1&var-chipID=esp8266-{your ChipID}". You should see some wifi signal strength data if your board is successfully sending data to Sensor.Community, even if it's not registered. This may take a few minutes to happen. If you don't see any data, first wait a few minutes then double check your chipID is right. I have misread at least one in the past. You can use the firmware flasher to do this.
+</section>
+
+Another useful way to check if your board is working is to connect it to your laptop over usb and check the serial output, the baudrate is 9600. The easiest program to use is the serial monitor included in arduino but you can also use `screen` or `minicom`.
 
 ### Registering with Sensor.Community
 
@@ -167,7 +174,7 @@ I'd like to overlay our real time air quality data onto the map!
 </figcaption>
 </figure> -->
 
-### Recap
+### Recap
 
 So at this point you (and/or I) have:
 
