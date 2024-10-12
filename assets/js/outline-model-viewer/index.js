@@ -135,7 +135,7 @@ class OutlineModelViewer extends HTMLElement {
       alpha: true,
     });
 
-    // renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(canvas_rect.width, canvas_rect.height, false);
 
     const light = new THREE.DirectionalLight(0xffffff, 2);
