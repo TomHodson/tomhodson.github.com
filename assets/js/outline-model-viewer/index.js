@@ -71,7 +71,7 @@ const serialiseCamera = (camera, controls) => {
   });
 };
 
-class OutlineModelViewer extends HTMLElement {
+export class OutlineModelViewer extends HTMLElement {
   constructor() {
     super();
     this.isVisible = true; // Track visibility
@@ -210,15 +210,12 @@ class OutlineModelViewer extends HTMLElement {
       // Modify the materials to support surface coloring
       scene.traverse((node) => {
         if (node.type == "Mesh") {
+          // Add surface ID attribute to the geometry
           const colorsTypedArray = surfaceFinder.getSurfaceIdAttribute(node);
           node.geometry.setAttribute(
             "color",
             new THREE.BufferAttribute(colorsTypedArray, 4)
           );
-
-          let material_params = this.getAttribute("true-color")
-            ? { color: node.material.color }
-            : { emissive: model_color };
 
           if (node.name.includes("track") || node.name.includes("zone")) {
             //set to a copper colour
@@ -235,7 +232,20 @@ class OutlineModelViewer extends HTMLElement {
             node.position.y += 0.00002;
           }
           // override materials
-          node.material = new THREE.MeshStandardMaterial(material_params);
+          const material_mode = this.getAttribute("materials") || "outlines";
+          if (material_mode === "outlines") {
+            node.material = new THREE.MeshStandardMaterial({
+              emissive: model_color,
+            });
+          } else if (material_mode === "flat") {
+            node.material = new THREE.MeshStandardMaterial({
+              color: node.material.color,
+            });
+          } else if (material_mode === "keep") {
+            // Do nothing, leave the material as set in the GLTF file
+          } else {
+            throw new Error("Invalid material mode");
+          }
         }
       });
 
@@ -282,27 +292,10 @@ class OutlineModelViewer extends HTMLElement {
               this.intersectedObject.currentHex
             );
           }
-          // Store the current hex color and set highlight color
-          this.intersectedObject = object;
-          this.intersectedObject.currentHex =
-            this.intersectedObject.material.emissive.getHex();
 
-          // Adjust the emissive color based on current brightness
-          const currentColor = new THREE.Color(
-            this.intersectedObject.material.emissive.getHex()
-          );
-          adjustColor(currentColor, 0.2); // Lighten or darken based on brightness
-          this.intersectedObject.material.emissive.set(currentColor);
-
-          // Print the name of the intersected object
-          //   params.selectedObject = object.name || "(unnamed object)";
           shadow.querySelector("#clicked-item").innerText = object.name;
         }
       } else if (this.intersectedObject) {
-        // Reset the color if the mouse is no longer hovering over any object
-        this.intersectedObject.material.emissive.setHex(
-          this.intersectedObject.currentHex
-        );
         this.intersectedObject = null;
         params.selectedObject = "";
       }
@@ -369,13 +362,15 @@ class OutlineModelViewer extends HTMLElement {
     gui.close();
 
     const uniforms = customOutline.fsQuad.material.uniforms;
+    uniforms.debugVisualize.value =
+      this.getAttribute("outlines") === "false" ? 2 : 0;
+
     const params = {
       selectedObject: "None",
       spin: controls.autoRotate,
-      mode: { Mode: 0 },
+      mode: uniforms.debugVisualize.value,
       //   depthBias: uniforms.multiplierParameters.value.x,
       //   depthMult: uniforms.multiplierParameters.value.y,
-      //   FXAA_resolution: 0.5,
       printCamera: () => console.log(serialiseCamera(camera, controls)),
     };
 
@@ -402,13 +397,6 @@ class OutlineModelViewer extends HTMLElement {
     // });
     // gui.add(params, "depthMult", 0.0, 20).onChange(function (value) {
     //   uniforms.multiplierParameters.value.y = value;
-    // });
-
-    // gui.add(params, "FXAA_resolution", 0.0, 2).onChange((value) => {
-    //   effectFXAA.uniforms["resolution"].value.set(
-    //     value / canvas_rect.width,
-    //     value / canvas_rect.height
-    //   );
     // });
 
     // Toggle fullscreen mode
@@ -539,3 +527,5 @@ class OutlineModelViewer extends HTMLElement {
 }
 
 customElements.define("outline-model-viewer", OutlineModelViewer);
+
+export default OutlineModelViewer;

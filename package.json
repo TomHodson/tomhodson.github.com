@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "@idotj/mastodon-embed-timeline": "^4.4.2",
-    "es-module-shims": "^1.8.1",
-    "lil-gui": "^0.19.1",
+    "es-module-shims": "^1.10.0",
+    "lil-gui": "^0.19.2",
     "mathjax": "^3.2.2",
     "svgo": "^3.3.2",
-    "three": "^0.158.0"
+    "three": "^0.169.0"
   },
   "devDependencies": {
-    "@divriots/jampack": "^0.23.3"
+    "@divriots/jampack": "^0.30.0"
   }
 }

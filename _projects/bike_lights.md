@@ -1,6 +1,6 @@
 ---
 title:  Bike Lights
-layout: post
+layout: project
 excerpt: Making a custom 3W dynamo light for a bike.
 permalink: /projects/bike_lights
 assets: /assets/projects/bike_lights
@@ -12,18 +12,6 @@ img:
 social_image: /assets/projects/bike_lights/thumbnail.png
 model: /assets/projects/bike_lights/model
 
-head: |
-    <script async src="/node_modules/es-module-shims/dist/es-module-shims.js"></script>
-    <script type="importmap">
-    {
-        "imports": {
-        "three": "/node_modules/three/build/three.module.min.js",
-        "three/addons/": "/node_modules/three/examples/jsm/",
-        "lil-gui": "/node_modules/lil-gui/dist/lil-gui.esm.min.js"
-        }
-    }
-    </script>
-    <script src="/assets/js/outline-model-viewer/index.js" type="module"></script>
 ---
 <outline-model-viewer model = "/assets/projects/bike_lights/models/bigger.glb" camera='{"position":[-7.434,5.128,-6.379],"rotation":[-2.464,-0.7373,-2.646],"zoom":303.06369033128976,"target":[0,0,0]}'>
     <img class="outline-model-poster no-wc" src = "/assets/projects/bike_lights/thumbnail.svg">

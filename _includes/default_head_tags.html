@@ -95,6 +95,12 @@ Stay a while, poke around, there might be some easter eggs to be found.`,
 <!-- RSS feed -->
 {% feed_meta %}
 
+{% if layout.head %}
+{{ layout.head }}
+{% endif %} 
+
 {% if page.head %}
 {{ page.head }}
 {% endif %} 
+
+

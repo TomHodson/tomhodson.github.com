@@ -1,6 +1,6 @@
 ---
 title:  USB-C Power Book
-layout: post
+layout: project
 excerpt: An ongoing quest to fix a problem I don't have.
 permalink: /projects/usbc_charging_station
 assets: /assets/projects/usbc_power_supply
@@ -14,22 +14,9 @@ social_image: /assets/projects/usbc_power_supply/thumbnail.png
 model: /assets/projects/usbc_power_supply/usb-c_psu.glb
 
 head: |
-    <script async src="/node_modules/es-module-shims/dist/es-module-shims.js"></script>
-    <script type="importmap">
-    {
-        "imports": {
-        "three": "/node_modules/three/build/three.module.min.js",
-        "three/addons/": "/node_modules/three/examples/jsm/",
-        "lil-gui": "/node_modules/lil-gui/dist/lil-gui.esm.min.js"
-        }
-    }
-    </script>
-    <script src="/assets/js/outline-model-viewer/index.js" type="module"></script>
     <script type="module" src="/assets/js/kicanvas.js"></script>
-
-     <script src="/assets/blog/micropython/micropython.min.mjs" type="module"></script>
-
-     <script src="/assets/blog/micropython/cm6.bundle.min.js"></script>
+    <script src="/assets/blog/micropython/micropython.min.mjs" type="module"></script>
+    <script src="/assets/blog/micropython/cm6.bundle.min.js"></script>
     <script src="/assets/blog/micropython/simulator.js" type = "module"></script>
 
 ---

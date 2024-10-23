@@ -1,6 +1,6 @@
 ---
 title:  Projector Shelf Mount
-layout: post
+layout: project
 excerpt: A mount for a projector underneath a shelf with a tilt swivel joint.
 permalink: /projects/projector_mount
 assets: /assets/projects/projector_mount

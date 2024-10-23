@@ -1,6 +1,6 @@
 ---
 title:  Lamps
-layout: post
+layout: project
 excerpt: 3D Printed Lamp Shades
 permalink: /projects/lamps
 assets: /assets/projects/lamps

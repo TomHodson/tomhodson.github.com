@@ -1,6 +1,6 @@
 ---
 title:  Helmet Lights
-layout: post
+layout: project
 excerpt: A few different custom mounts to attach lights to bike helmets.
 permalink: /projects/helmet_lights
 assets: /assets/projects/helmet_lights
@@ -12,18 +12,6 @@ img:
 social_image: /assets/projects/helmet_lights/thumbnail.png
 models: /assets/projects/helmet_lights/models
 
-head: |
-    <script async src="/node_modules/es-module-shims/dist/es-module-shims.js"></script>
-    <script type="importmap">
-    {
-        "imports": {
-        "three": "/node_modules/three/build/three.module.min.js",
-        "three/addons/": "/node_modules//three/examples/jsm/",
-        "lil-gui": "/node_modules/lil-gui/dist/lil-gui.esm.min.js"
-        }
-    }
-    </script>
-    <script src="/assets/js/outline-model-viewer/index.js" type="module"></script>
 ---
 
 <outline-model-viewer model = "{{page.models}}/model.glb" camera='{"position":[6.039,6.456,-6.641],"rotation":[-2.37,0.5778,2.654],"zoom":309.7389923355519,"target":[0,0,0]}'>
