@@ -106,7 +106,6 @@ export class OutlineModelViewer extends HTMLElement {
     const canvas = this.shadow.querySelector("canvas");
 
     let canvas_rect = canvas.getBoundingClientRect();
-    console.log(canvas_rect);
 
     // determine the outline and bg colors
     const body = document.getElementsByTagName("body")[0];
@@ -138,11 +137,18 @@ export class OutlineModelViewer extends HTMLElement {
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(canvas_rect.width, canvas_rect.height, false);
 
-    const light = new THREE.DirectionalLight(0xffffff, 2);
-    scene.add(light);
-    light.position.set(1.7, 1, -1);
+    const directionalLight = new THREE.DirectionalLight(
+      0xffffff,
+      this.getAttribute("directional-light") || 2
+    );
+    scene.add(directionalLight);
+    directionalLight.position.set(1.7, 1, -1);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 5));
+    const ambientLight = new THREE.AmbientLight(
+      0xffffff,
+      this.getAttribute("ambient-light") || 0.5
+    );
+    scene.add(ambientLight);
 
     // Set up post processing
     // Create a render target that holds a depthTexture so we can use it in the outline pass
@@ -180,6 +186,7 @@ export class OutlineModelViewer extends HTMLElement {
     composer.addPass(effectFXAA);
 
     const surfaceFinder = new FindSurfaces();
+
     // Load model
     const loader = new GLTFLoader();
     const dracoLoader = new DRACOLoader();
@@ -189,7 +196,6 @@ export class OutlineModelViewer extends HTMLElement {
 
     loader.load(model_path, (gltf) => {
       scene.add(gltf.scene);
-      surfaceFinder.surfaceId = 0;
 
       // Compute bounding box
       let box = new THREE.Box3().setFromObject(gltf.scene);
@@ -212,6 +218,7 @@ export class OutlineModelViewer extends HTMLElement {
         if (node.type == "Mesh") {
           // Add surface ID attribute to the geometry
           const colorsTypedArray = surfaceFinder.getSurfaceIdAttribute(node);
+          node.surfaceId = colorsTypedArray;
           node.geometry.setAttribute(
             "color",
             new THREE.BufferAttribute(colorsTypedArray, 4)
@@ -293,7 +300,9 @@ export class OutlineModelViewer extends HTMLElement {
             );
           }
 
-          shadow.querySelector("#clicked-item").innerText = object.name;
+          shadow.querySelector(
+            "#clicked-item"
+          ).innerText = `${object.name} - ${object.type}`;
         }
       } else if (this.intersectedObject) {
         this.intersectedObject = null;
@@ -359,22 +368,23 @@ export class OutlineModelViewer extends HTMLElement {
       injectStyles: false,
       closeFolders: true,
     });
-    gui.close();
+
+    if ((this.getAttribute("model") || "closed") === "closed") gui.close();
 
     const uniforms = customOutline.fsQuad.material.uniforms;
-    uniforms.debugVisualize.value =
-      this.getAttribute("outlines") === "false" ? 2 : 0;
+    uniforms.debugVisualize.value = parseInt(this.getAttribute("mode")) || 0;
 
     const params = {
-      selectedObject: "None",
       spin: controls.autoRotate,
-      mode: uniforms.debugVisualize.value,
-      //   depthBias: uniforms.multiplierParameters.value.x,
-      //   depthMult: uniforms.multiplierParameters.value.y,
+      ambientLight: parseFloat(ambientLight.intensity),
+      directionalLight: parseFloat(directionalLight.intensity),
+      mode: { Mode: uniforms.debugVisualize.value },
+      depthBias: uniforms.multiplierParameters.value.x,
+      depthMult: uniforms.multiplierParameters.value.y,
+      lerp: uniforms.multiplierParameters.value.z,
       printCamera: () => console.log(serialiseCamera(camera, controls)),
     };
 
-    gui.add(params, "selectedObject").listen();
     gui.add(params, "spin").onChange((value) => {
       controls.autoRotate = value;
     });
@@ -383,21 +393,34 @@ export class OutlineModelViewer extends HTMLElement {
     gui
       .add(params.mode, "Mode", {
         "Outlines + Shaded (default)": 0,
+        "Only outer outlines + shading": 1,
         Shaded: 2,
         "Depth buffer": 3,
         "SurfaceID buffer": 4,
         Outlines: 5,
+        "Depth Difference": 6,
+        "SurfaceID Difference": 7,
       })
       .onChange(function (value) {
         uniforms.debugVisualize.value = value;
       });
 
-    // gui.add(params, "depthBias", 0.0, 5).onChange(function (value) {
-    //   uniforms.multiplierParameters.value.x = value;
-    // });
-    // gui.add(params, "depthMult", 0.0, 20).onChange(function (value) {
-    //   uniforms.multiplierParameters.value.y = value;
-    // });
+    gui.add(params, "ambientLight", 0.0, 10.0).onChange(function (value) {
+      ambientLight.intensity = value;
+    });
+    gui.add(params, "directionalLight", 0.0, 10.0).onChange(function (value) {
+      directionalLight.intensity = value;
+    });
+
+    gui.add(params, "depthBias", 0.0, 5).onChange(function (value) {
+      uniforms.multiplierParameters.value.x = value;
+    });
+    gui.add(params, "depthMult", 0.0, 40.0).onChange(function (value) {
+      uniforms.multiplierParameters.value.y = value;
+    });
+    gui.add(params, "lerp", 0.0, 1.0).onChange(function (value) {
+      uniforms.multiplierParameters.value.z = value;
+    });
 
     // Toggle fullscreen mode
     const shadow = this.shadow;

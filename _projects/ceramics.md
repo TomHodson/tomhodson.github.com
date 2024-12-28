@@ -17,7 +17,7 @@ model: /assets/projects/ceramics/scan.glb
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer> -->
 
-<outline-model-viewer model = "/assets/projects/ceramics/scan_2.glb" materials=keep outlines=false camera='{"position":[-5.155,2.5,-9.456],"rotation":[-2.883,-0.4851,-3.019],"zoom":268,"target":[0,0,0]}'>
+<outline-model-viewer model = "/assets/projects/ceramics/scan_2.glb" materials=keep mode=1 camera='{"position":[-5.155,2.5,-9.456],"rotation":[-2.883,-0.4851,-3.019],"zoom":268,"target":[0,0,0]}' ambient-light="6" directional-light="0.8">
     <img class="outline-model-poster no-wc" src = "{{page.img.src}}">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>

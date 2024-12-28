@@ -12,6 +12,7 @@ class FindSurfaces {
   constructor() {
     // This identifier, must be globally unique for each surface
     // across all geometry rendered on screen
+    // reserve 10 special ids for various purposes
     this.surfaceId = 10;
   }
 

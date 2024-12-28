@@ -1,9 +1,7 @@
 import * as THREE from "three";
 import { Pass } from "three/addons/postprocessing/Pass.js";
 import { FullScreenQuad } from "three/addons/postprocessing/Pass.js";
-import {
-  getSurfaceIdMaterial,
-} from "./FindSurfaces.js";
+import { getSurfaceIdMaterial } from "./FindSurfaces.js";
 
 // Follows the structure of
 // 		https://github.com/mrdoob/three.js/blob/master/examples/jsm/postprocessing/OutlinePass.js
@@ -19,8 +17,7 @@ class CustomOutlinePass extends Pass {
     this.fsQuad = new FullScreenQuad(null);
     this.fsQuad.material = this.createOutlinePostProcessMaterial();
 
-    // Create a buffer to store the normals of the scene onto
-    // or store the "surface IDs"
+    // Create a buffer to surface ids
     const surfaceBuffer = new THREE.WebGLRenderTarget(
       this.resolution.x,
       this.resolution.y
@@ -117,7 +114,7 @@ class CustomOutlinePass extends Pass {
 			uniform float cameraFar;
 			uniform vec4 screenSize;
 			uniform vec3 outlineColor;
-			uniform vec2 multiplierParameters;
+			uniform vec3 multiplierParameters;
       uniform int debugVisualize;
 
 			varying vec2 vUv;
@@ -152,19 +149,36 @@ class CustomOutlinePass extends Pass {
 				return clamp(num, 0.0, 1.0);
 			}
 
-			float getSufaceIdDiff(vec3 surfaceValue) {
-				float surfaceIdDiff = 0.0;
-				surfaceIdDiff += distance(surfaceValue, getSurfaceValue(1, 0));
-				surfaceIdDiff += distance(surfaceValue, getSurfaceValue(0, 1));
-				surfaceIdDiff += distance(surfaceValue, getSurfaceValue(0, 1));
-				surfaceIdDiff += distance(surfaceValue, getSurfaceValue(0, -1));
 
-				surfaceIdDiff += distance(surfaceValue, getSurfaceValue(1, 1));
-				surfaceIdDiff += distance(surfaceValue, getSurfaceValue(1, -1));
-				surfaceIdDiff += distance(surfaceValue, getSurfaceValue(-1, 1));
-				surfaceIdDiff += distance(surfaceValue, getSurfaceValue(-1, -1));
-				return surfaceIdDiff;
-			}
+            float getSurfaceIdDiff(vec3 surfaceValue) {
+                float surfaceIdDiff = 0.0;
+
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(1, 0))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(0, 1))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-1, 0))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(0, -1))) ? 1.0 : 0.0;
+
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(1, 1))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(1, -1))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-1, 1))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-1, -1))) ? 1.0 : 0.0;
+
+                return surfaceIdDiff;
+            }
+            
+            float getDepthDiff(float depth) {
+            	float depthDiff = 0.0;
+				depthDiff += abs(depth - getPixelDepth(1, 0));
+				depthDiff += abs(depth - getPixelDepth(-1, 0));
+				depthDiff += abs(depth - getPixelDepth(0, 1));
+				depthDiff += abs(depth - getPixelDepth(0, -1));
+
+                depthDiff += abs(depth - getPixelDepth(1, 1));
+                depthDiff += abs(depth - getPixelDepth(1, -1));
+                depthDiff += abs(depth - getPixelDepth(-1, 1));
+                depthDiff += abs(depth - getPixelDepth(-1, -1));
+                return depthDiff;
+            }
 
 
       const uint k = 1103515245U;  // GLIB C
@@ -184,34 +198,44 @@ class CustomOutlinePass extends Pass {
 				vec3 surfaceValue = getSurfaceValue(0, 0);
 
 				// Get the difference between depth of neighboring pixels and current.
-				float depthDiff = 0.0;
-				depthDiff += abs(depth - getPixelDepth(1, 0));
-				depthDiff += abs(depth - getPixelDepth(-1, 0));
-				depthDiff += abs(depth - getPixelDepth(0, 1));
-				depthDiff += abs(depth - getPixelDepth(0, -1));
+                float depthDiff = getDepthDiff(depth);
 
 				// Get the difference between surface values of neighboring pixels
 				// and current
-				float surfaceValueDiff = getSufaceIdDiff(surfaceValue);
+				float surfaceValueDiff = getSurfaceIdDiff(surfaceValue);
 				
 				// Apply multiplier & bias to each 
 				float depthBias = multiplierParameters.x;
 				float depthMultiplier = multiplierParameters.y;
+                float lerp =  multiplierParameters.z;
 
-				depthDiff = depthDiff * depthMultiplier;
-				depthDiff = saturateValue(depthDiff);
+				depthDiff = saturateValue(depthDiff * depthMultiplier);
 				depthDiff = pow(depthDiff, depthBias);
 
+                if (debugVisualize == 7) {
+                    // Surface ID difference
+                    gl_FragColor = vec4(vec3(surfaceValueDiff), 1.0);
+                }
+
 				if (surfaceValueDiff != 0.0) surfaceValueDiff = 1.0;
+            
+                float outline;
+                vec4 outlineColor = vec4(outlineColor, 1.0);;
 
-				float outline = saturateValue(surfaceValueDiff + depthDiff);
-			
-				// Combine outline with scene color.
-				vec4 outlineColor = vec4(outlineColor, 1.0);
-				gl_FragColor = vec4(mix(sceneColor, outlineColor, outline));
+                // Normal mode, use the surface ids to draw outlines and add the shaded scene in too
+                if (debugVisualize == 0) {
+                    outline = saturateValue(surfaceValueDiff);
+                    gl_FragColor = vec4(mix(sceneColor, outlineColor, outline));
+                } 
 
-        //// For debug visualization of the different inputs to this shader.
-				if (debugVisualize == 2) {
+                // Depth mode, use the depth to draw outlines only at the outside
+                if (debugVisualize == 1) {
+                    outline = saturateValue(depthDiff);
+                    gl_FragColor = vec4(mix(sceneColor, outlineColor, outline));
+                } 
+
+				//Scene color no outline
+                if (debugVisualize == 2) {
 					gl_FragColor = sceneColor;
 				}
 				if (debugVisualize == 3) {
@@ -223,8 +247,14 @@ class CustomOutlinePass extends Pass {
 				}
 				if (debugVisualize == 5) {
 					// Outlines only
+                    outline  = mix(surfaceValueDiff, depthDiff, lerp);
+                    outline = saturateValue(outline);
 					gl_FragColor = mix(vec4(0,0,0,0), outlineColor, outline);
 				}
+                if (debugVisualize == 6) {
+                    // Depth difference
+                    gl_FragColor = vec4(vec3(depthDiff), 1.0);
+                }
 			}
 			`;
   }
@@ -237,10 +267,8 @@ class CustomOutlinePass extends Pass {
         depthBuffer: {},
         surfaceBuffer: {},
         outlineColor: { value: new THREE.Color(this.outlineColor) },
-        //4 scalar values packed in one uniform:
-        //  depth multiplier, depth bias
         multiplierParameters: {
-          value: new THREE.Vector2(0.9, 20),
+          value: new THREE.Vector3(0.9, 20, 0.5),
         },
         cameraNear: { value: this.renderCamera.near },
         cameraFar: { value: this.renderCamera.far },

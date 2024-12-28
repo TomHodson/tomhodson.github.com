@@ -15,7 +15,7 @@ model: /assets/projects/bathroom_shelf/models/ikea.glb
 ---
 {% include mastodon_post.html post_id = "111822564173512216" %}
 
-<outline-model-viewer model = "/assets/projects/bathroom_shelf/models/ikea.glb">
+<outline-model-viewer model = "/assets/projects/bathroom_shelf/models/ikea.glb" camera='{"position":[-10.52,2.5,2.313],"rotation":[-0.8243,-1.258,-0.7995],"zoom":436.67440926643843,"target":[0,0,0]}'>
     <img class="outline-model-poster no-wc" src = "/assets/projects/bike_lights/thumbnail.svg">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>
