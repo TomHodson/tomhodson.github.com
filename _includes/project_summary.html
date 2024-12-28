@@ -1,4 +1,4 @@
-<article class="h-entry project">
+<article class="h-entry project" data-model="{{post.model}}">
     <a class="u-uid u-url photo" href="{{ post.url }}" aria-label="Project: {{ post.title }}">
     {% assign default_thumbnail = post.assets | append: '/thumbnail.min.svg' %}
     <img class="u-photo {{post.img.class}}"

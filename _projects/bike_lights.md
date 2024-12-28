@@ -32,7 +32,7 @@ I hope it's obvious that there are actually two mirrored pieces and I'm just exc
 
 The lenses come in different nominal spread angles from 90 to 5 degrees. So far 90 seems to work well, being wide enough that I'm still visible to others but concentrating the light enough that I can now see the canal towpath ahead of me pretty well in the pitch black.
 
-## Future 
+## Future 
 
 This project is one of those ones I've had far too many ideas for and haven't done enough implementation.
  - I'd like to add a battery pack for some energy storage

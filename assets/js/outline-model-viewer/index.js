@@ -369,7 +369,7 @@ export class OutlineModelViewer extends HTMLElement {
       closeFolders: true,
     });
 
-    if ((this.getAttribute("model") || "closed") === "closed") gui.close();
+    if ((this.getAttribute("debug") || "closed") !== "open") gui.close();
 
     const uniforms = customOutline.fsQuad.material.uniforms;
     uniforms.debugVisualize.value = parseInt(this.getAttribute("mode")) || 0;
@@ -449,9 +449,9 @@ export class OutlineModelViewer extends HTMLElement {
       }
     }
 
-    const fullScreenButton = this.shadow.querySelector("#fullscreen-btn");
-    fullScreenButton.addEventListener("click", () => toggleFullScreen());
-    window.addEventListener("resize", onWindowResize, false);
+    // const fullScreenButton = this.shadow.querySelector("#fullscreen-btn");
+    // fullScreenButton.addEventListener("click", () => toggleFullScreen());
+    // window.addEventListener("resize", onWindowResize, false);
 
     // Handle fullscreen change events triggerd through various means
     function onFullScreenChange() {
@@ -471,7 +471,7 @@ export class OutlineModelViewer extends HTMLElement {
     this.shadow.innerHTML = `
       <div id="container">
       <span id = "clicked-item"></span>
-      <button id="fullscreen-btn">⛶</button>
+      <!-- <button id="fullscreen-btn">⛶</button> --!>
       <canvas class = "object-viewer"></canvas>
       </div>
       <link rel="stylesheet" href="/node_modules/lil-gui/dist/lil-gui.min.css">
