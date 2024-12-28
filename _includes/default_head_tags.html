@@ -4,31 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- HTML Meta Tag Title -->
+<!-- HTML Meta Tags -->
 <title>Tom Hodson - {{ page.title }}</title>
 <meta property="og:title" content="Tom Hodson - {{ page.title }}">
-<meta name="twitter:title" content="Tom Hodson - {{ page.title }}">
+<meta property="og:url" content="{{page.url | absolute_url}}">
+<meta name="fediverse:creator" content="@Tomhodson@tech.lgbt">
+<meta property="og:type" content="website">
 
-<!-- HTML Meta Tag Theme Color -->
-<meta name="theme-color" content="#fcfcfc">
+<!-- Theme tags -->
+<meta name="theme-color" content="#e64c85">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
 
+<!-- Description tags -->
 {% if page.excerpt %}
 <!-- HTML Meta Tag Description -->
 <meta name="description" content="{{page.excerpt | strip_html | strip}}">
 <meta property="og:description" content="{{page.excerpt | strip_html | strip}}">
-<meta name="twitter:description" content="{{page.excerpt | strip_html | strip}}">
 {% endif %}
 
-<!-- HTML Meta Tag Url -->
-<meta property="og:url" content="{{page.url | absolute_url}}">
-<meta property="twitter:domain" content="thomashodson.com">
-<meta property="twitter:url" content="{{page.url | absolute_url}}">
-<meta name="twitter:site" content="@T_Hodson">
-<meta name="fediverse:creator" content="@Tomhodson@tech.lgbt">
-
-<!-- HTML Meta Tag Type -->
-<meta property="og:type" content="website">
-
+<!-- Image preview tags -->
 {% if page.social_image %}
 {% assign image = page.social_image %}
 {% elsif page.image %}
@@ -48,18 +43,10 @@
 {% endif %}
 
 {% if image %}
-<!-- HTML Meta Tag Image -->
 
-<!--  This tag enables pages to be featured in Google Discover as large previews
-See: https://developers.google.com/search/docs/advanced/mobile/google-discover?hl=en&visit_id=637424198370039526-3805703503&rd=1 -->
-<meta name="robots" content="max-image-preview:large">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{{image | absolute_url}}">
 <meta property="og:image" content="{{image | absolute_url}}">
   {% if alt %} <!-- Note og:image:alt must immediately follow og:image tag -->
   <meta property="og:image:alt" content="{{alt | strip}}">
-  <meta property="twitter:image:alt" content="{{alt | strip}}">
   {% endif %}
 {% endif %}
 
