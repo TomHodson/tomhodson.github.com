@@ -86,7 +86,7 @@ class FindSurfaces {
       if (exploredNodes[node]) continue;
 
       // Get all neighbors recursively
-      const surfaceVertices = getNeighborsNonRecursive(node);
+      const surfaceVertices = getNeighbors(node);
       // Mark them as explored
       for (let v of surfaceVertices) {
         exploredNodes[v] = true;
@@ -95,22 +95,8 @@ class FindSurfaces {
 
       this.surfaceId += 1;
     }
-    function getNeighbors(node, explored) {
-      const neighbors = vertexMap[node];
-      let result = [node];
-      explored[node] = true;
 
-      for (let n of neighbors) {
-        if (explored[n]) continue;
-        explored[n] = true;
-        const newNeighbors = getNeighbors(n, explored);
-        result = result.concat(newNeighbors);
-      }
-
-      return result;
-    }
-
-    function getNeighborsNonRecursive(node) {
+    function getNeighbors(node) {
       const frontier = [node];
       const explored = {};
       const result = [];
