@@ -29,7 +29,7 @@ model: /assets/projects/ceramics/pots/pots.glb
 This was a bit of an experiment to see if I could make a kind of press mould by 3D printing it in two halves. You can see one half of the mold in the model below. Along with the soap dispensers that I was making it for. 
 
 <figure>
-<outline-model-viewer model = "{{page.models}}/soap_dispenser_tray/tray_2.glb" materials=keep mode=0 ambient-light="3.4" directional-light="2.4" camera = '{"position":[-3.493,4.932,-9.259],"rotation":[-2.652,-0.3214,-2.975],"zoom":223.15174865581577,"target":[0,0,0]}'>
+<outline-model-viewer model = "{{page.models}}/soap_dispenser_tray/tray.glb" materials=keep mode=0 ambient-light="7" directional-light="7" camera = '{"position":[-3.493,4.932,-9.259],"rotation":[-2.652,-0.3214,-2.975],"zoom":223.15174865581577,"target":[0,0,0]}'>
     <img class="outline-model-poster no-wc" src = "{{page.models}}/soap_dispenser_tray/tray.png">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>
