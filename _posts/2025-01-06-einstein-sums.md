@@ -10,6 +10,7 @@ image: /assets/blog/einstein_sums/equation.svg
 thumbnail: /assets/blog/einstein_sums/equation.png
 assets: 
 alt: An image of an index the expression for $\epsilon_{ijk}\partial_j u_k$ which in words would be the curl of u
+image_class: invertable
 
 ---
 

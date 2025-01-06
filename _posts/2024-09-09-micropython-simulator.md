@@ -7,6 +7,7 @@ image: /assets/blog/micropython/simulated_display.png
 thumbnail: /assets/blog/micropython/simulated_display.png
 assets: /assets/blog/micropython
 alt: A 240x240 pixel (so low res) image of a slightly sci-fiesque looking circular display showing so linear and curved bars, 24.4 volts, in bigger font 213w and 8.7A.
+image_class: invertable
 
 head: |
     <script src="/assets/blog/micropython/micropython.min.mjs" type="module"></script>
