@@ -83,7 +83,7 @@ The final trick is that this insertion of the metric in the middle of tensor con
 
 \\[\delta^\mu \delta_\nu = \delta_\mu \eta_{\mu\nu} \delta_\nu \\]
 
-Now I've called these things hacks and tricks but they also connect to much deeper mathematical concepts such as [covariance and contravariance](https://en.wikipedia.org/wiki/Covariance_and_contravariance_of_vectors). This seems like it's usually the case with nice notation to be honest. It makes me things of the relationship between the derivative operator $\tfrac{d}{dt}$ and and the infinitesimal $dt$.
+Now I've called these things hacks and tricks but they also connect to much deeper mathematical concepts such as [covariance and contravariance](https://en.wikipedia.org/wiki/Covariance_and_contravariance_of_vectors). This seems like it's usually the case with nice notation. It makes me think things like the relationship between the derivative operator $\tfrac{d}{dt}$ and and the infinitesimal $dt$.
 
 
 
