@@ -6,10 +6,10 @@ mathjax: true
 
 images: /assets/images/2024
 
-image: 
-thumbnail: 
+image: /assets/blog/einstein_sums/equation.svg
+thumbnail: /assets/blog/einstein_sums/equation.svg
 assets: 
-alt: 
+alt: An image of an index the expression for $\epsilon_{ijk}\partial_j u_k$ which in words would be the curl of u
 
 ---
 
@@ -88,3 +88,5 @@ Now I've called these things hacks and tricks but they also connect to much deep
 
 [notes]: https://arxiv.org/abs/1604.03835
 [blogpost]: https://einsum.joelburget.com/
+
+I used [this](https://viereck.ch/latex-to-svg/) to generate the thumbnail for this post.
