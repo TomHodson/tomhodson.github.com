@@ -9,6 +9,7 @@ import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 import { FXAAShader } from "three/addons/shaders/FXAAShader.js";
+import { Timer } from "three/addons/Addons.js";
 
 import GUI from "lil-gui";
 import { CustomOutlinePass } from "./CustomOutlinePass.js";
@@ -97,9 +98,7 @@ export class OutlineModelViewer extends HTMLElement {
 
     this.render(component_rect.height);
 
-    const model_path =
-      this.getAttribute("model") ||
-      "/assets/projects/bike_lights/models/bigger.glb";
+    const model_path = this.getAttribute("model");
     const spin = (this.getAttribute("spin") || "true") === "true";
 
     const container = this.shadow.querySelector("div#container");
@@ -224,21 +223,39 @@ export class OutlineModelViewer extends HTMLElement {
             new THREE.BufferAttribute(colorsTypedArray, 4)
           );
 
+          // Hack specific to kicad models to make the tracks and zones look good
           if (node.name.includes("track") || node.name.includes("zone")) {
             //set to a copper colour
             // #c87533
-            material_params = {
+            node.material = new THREE.MeshStandardMaterial({
               color: new THREE.Color(0x558855),
-            };
+            });
             node.position.y += 0.00001;
           }
+
+          // Hack specific to kicad models to make the tracks and zones look good
           if (node.name.includes("pad")) {
-            material_params = {
+            node.material = new THREE.MeshStandardMaterial({
               color: new THREE.Color(0xaaaaaa),
-            };
+            });
             node.position.y += 0.00002;
           }
-          // override materials
+
+          if (node.name.includes("PCB")) {
+            node.material = new THREE.MeshStandardMaterial({
+              color: new THREE.Color(0x446644),
+            });
+          }
+
+          // override materials for different purposes
+          // materials = outlines
+          // sets the material to be emissive to the background colour of the page
+          // This makes for nice two colour rendering with no shading
+
+          // material = flat overides all the materials to just be flat with the base colour
+
+          // material = keep uses whatever material is defined in the gltf
+
           const material_mode = this.getAttribute("materials") || "outlines";
           if (material_mode === "outlines") {
             node.material = new THREE.MeshStandardMaterial({
@@ -251,7 +268,9 @@ export class OutlineModelViewer extends HTMLElement {
           } else if (material_mode === "keep") {
             // Do nothing, leave the material as set in the GLTF file
           } else {
-            throw new Error("Invalid material mode");
+            throw new Error(
+              "Invalid material mode, should be outlines, flat or keep."
+            );
           }
         }
       });
@@ -282,7 +301,7 @@ export class OutlineModelViewer extends HTMLElement {
 
     let intersects = [];
     const doRayCast = () => {
-      // Perform raycasting for hovering
+      // Perform raycasting for a click
       this.raycaster.setFromCamera(this.mouse, camera);
 
       intersects.length = 0;
@@ -300,20 +319,27 @@ export class OutlineModelViewer extends HTMLElement {
             );
           }
 
-          shadow.querySelector(
+          this.shadow.querySelector(
             "#clicked-item"
-          ).innerText = `${object.name} - ${object.type}`;
+          ).innerText = `${object.name}`;
         }
       } else if (this.intersectedObject) {
         this.intersectedObject = null;
-        params.selectedObject = "";
+      }
+      if (intersects.length === 0) {
+        this.shadow.querySelector("#clicked-item").innerText = "";
       }
     };
     window.addEventListener("click", doRayCast);
 
     // Render loop
+    const timer = new Timer();
     const update = () => {
       if (this.isVisible) {
+        timer.update();
+        const delta = timer.getDelta();
+        // this.shadow.querySelector("#clicked-item").innerText = `${1 / delta}`;
+
         requestAnimationFrame(update);
         controls.update();
         composer.render();
@@ -393,13 +419,13 @@ export class OutlineModelViewer extends HTMLElement {
     gui
       .add(params.mode, "Mode", {
         "Outlines + Shaded (default)": 0,
+        "Just Outlines": 5,
         "Only outer outlines + shading": 1,
-        Shaded: 2,
-        "Depth buffer": 3,
-        "SurfaceID buffer": 4,
-        Outlines: 5,
-        "Depth Difference": 6,
-        "SurfaceID Difference": 7,
+        "Only shading": 2,
+        "(Debug) SurfaceID buffer": 4,
+        "(Debug) Depth buffer": 3,
+        "(Debug) Depth Difference (external edges / outline)": 6,
+        "(Debug) SurfaceID Difference (internal edges)": 7,
       })
       .onChange(function (value) {
         uniforms.debugVisualize.value = value;

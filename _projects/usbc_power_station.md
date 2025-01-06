@@ -21,9 +21,6 @@ head: |
 
 ---
 
-<!-- {% include mastodon_post.html post_id = "111813225328398667" %}
-{% include mastodon_post.html post_id = "111816310882560850" %} -->
-
 I'm kinda fascinated by USB-C. It has it's issues but I can't help but love this magical omni-cable that holds the promise of hundreds of watts of power and gigagbits per second of bandwidth. It's reversible, you can negotiate the supply voltage (PD), send power in either direction, pipe PCIe or DisplayPort and talk to the cable itself. 
 
 
@@ -63,8 +60,9 @@ After initially thinking I would do some kind of charging tray type design I eve
 
 This is what I've come up with so far, it's lasercut from 3mm ply (but I need to switch to 4mm because 3mm is a bit flimsy)
 
-<figure style="max-width: 250px;">
+<figure class="two-wide">
 <img src="{{page.img.src}}">
+<img src="/assets/images/2024/usbc_psu/case_test.jpeg">
 </figure>
 
 I've put a 240x240 pixel colour screen on the front to show metrics like total charge power, temperature and maybe daily energy use.
@@ -87,20 +85,40 @@ There's an INA219 and a shunt resistor for current and voltage monitoring and a 
 
 For now I've broken the functionality for one channel out into a test board that I've sent off to JLCPB for manufacturing with and to be populated with SMT components. This ended up costing about 50 dollars for 5 boards. In future I want to have a go at doing the component placement and reflow myself. 
 
-<outline-model-viewer model = "{{page.assets}}/test_board.glb" true-color=true spin=true camera='{"position":[4.016,7.557,6.841],"rotation":[-0.8351,0.3753,0.3848],"zoom":241.86567243589988,"target":[0,0,0]}'>
+<outline-model-viewer model = "{{page.assets}}/test_board.glb" materials=flat spin=true camera='{"position":[4.016,7.557,6.841],"rotation":[-0.8351,0.3753,0.3848],"zoom":241.86567243589988,"target":[0,0,0]}' ambient-light="5" directional-light="5">
     <img class="outline-model-poster no-wc" src = "{{page.img.src}}">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>
 
+And here's the board as it arrived in the post.
+
+<figure class="two-wide">
+<img src="/assets/images/2024/usbc_psu/pcb_top.jpeg">
+<img src="/assets/images/2024/usbc_psu/pcb_bottom.jpeg">
+</figure>
+
+At this point I realised I had ordered 2.54mm connectors instead of 2mm pitch connectors which I had swapped in at the last minute to reclaim some board space.
+
+<figure>
+<img src="/assets/images/2024/usbc_psu/soldered_up.jpeg">
+</figure>
+
+When those eventually arrived I soldered it up and attached it to the downstream USB-C power board that it will be monitoring. 24V goes into the terminal block on the right. I2C for current monitoring and a logic level enable pin go into the 5 pin connector in the bottom right. 
+
+I haven't had a chance to properly test this yet. Particularly, I'm anxious to find out how much power the MOSFET dissipates when its gate is driven at 3.3V and the downstream load is pulling 5A. If it's too much I'll stick in a level shifter and hope that driving it to 5V will be enough!
+
 ## Software 
 
-In other posts I've described how I made this simulator the test out possible GUIs for this thing.
+In other posts I've described how I made this simulator the test out possible GUIs for this thing. This is the micropython code running in a slightly tweaked version of the micropython interpreter compiled to webassembly.
+
+<!-- <usbc-power-supply-simulator disable-console disable-editor code="/assets/blog/micropython/demo.py"></usbc-power-supply-simulator> -->
+
+<figure style="max-width: 250px;">
+<img src="/assets/images/2024/bike_display/simulation.png">
+<figcaption>I've replaced the live simulation with an image for now because it blocks the main JS thread, including the three JS animations, and I haven't found a fix for that yet.</figcaption>
+</figure>
 
 TODO: Add some knobs to the simulator so you can test different conditions such as overcurrent, overtemp, sleep, nightmode etc.
-
-<!-- <usbc-power-supply-simulator disable-console disable-editor code="/assets/blog/micropython/demo.py"></usbc-power-supply-simulator>
- -->
-
 
 <!-- <outline-model-viewer model = "{{page.model}}" true-color=true spin=false camera='{"position":[-6.425,8.003,-3.751],"rotation":[-2.016,-0.6378,-2.246],"zoom":6784.844370099355,"target":[0.1581,-0.01497,0.07167]}'>
     <img class="outline-model-poster no-wc" src = "{{page.img.src}}">

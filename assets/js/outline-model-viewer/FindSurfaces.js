@@ -143,7 +143,7 @@ function getVertexShader() {
 
   void main() {
      v_uv = uv;
-     vColor = color;
+     vColor = vec4(color.rgb, 1.0);
 
      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
   }

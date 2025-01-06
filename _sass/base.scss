@@ -207,6 +207,7 @@ figure {
   padding-bottom: 1em;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1em;
 
   figcaption {
     margin-top: 1em;
@@ -218,7 +219,6 @@ figure > img,
 figure > svg,
 figure > canvas {
   width: 100%;
-  margin-bottom: 1em;
   border-radius: 10px;
 }
 
@@ -233,25 +233,37 @@ figure.two-wide {
   justify-content: center;
   gap: 1em;
   margin-bottom: 1em;
-  img {
+  * {
     width: calc(50% - 0.5em);
   }
 }
 
-section.image-grid-4x4 {
+figure.multiple {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 1em;
+  * {
+    width: calc(50% - 0.5em);
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.image-grid-4x4 {
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
   gap: 2px;
   margin-bottom: 1em;
-  place-items: stretch stretch;
+  place-items: center center;
 
   * {
     margin: 0;
     padding: 0;
     width: 100%;
-    aspect-ratio: auto;
   }
 }
 

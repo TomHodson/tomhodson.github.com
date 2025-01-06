@@ -6,6 +6,8 @@ permalink: /projects/ceramics
 assets: /assets/projects/ceramics
 models: /assets/projects/ceramics/models
 
+img2024: /assets/images/2024/ceramics
+
 img:
     alt: 
     class: invertable
@@ -14,7 +16,13 @@ social_image: /assets/projects/ceramics/thumbnail.png
 model: /assets/projects/ceramics/pots/pots.glb
 ---
 
-## Pots and stuff
+## Pots
+
+<figure class="two-wide">
+<img src="{{page.img2024}}/bowls.jpeg">
+<img src="{{page.img2024}}/finished_pots.jpeg">
+<figcaption>Frilly plate complete with Camembert, though now we use it as a plate to rest spoons and spatulas while cooking.</figcaption>
+</figure>
 
 <figure>
 <outline-model-viewer model = "{{page.models}}/pots/pots.glb" materials=keep mode=1 camera='{"position":[-5.155,2.5,-9.456],"rotation":[-2.883,-0.4851,-3.019],"zoom":268,"target":[0,0,0]}' ambient-light="6" directional-light="0.8">
@@ -22,6 +30,24 @@ model: /assets/projects/ceramics/pots/pots.glb
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>
 <figcaption>A 3D scan of some pots.</figcaption>
+</figure>
+
+## Frilly Plate
+
+This is one of my more successful ones in that I both like how it looks and we have a good use for it. The only thing I would do differently is apply the glaze a little thinner, I applied it quite thick and it has given an incredible homogeneous surface finish, almost to the point that in real life it looks like someone printed a fake texture onto it. I would rather have the glaze show a bit more texture and variation. I particularly like the effects you get at the edges of the glaze on a piece. 
+
+<figure class="two-wide">
+<img src="{{page.img2024}}/frilly_plate_unglazed.jpeg">
+<img src="{{page.img2024}}/frilly_plate_finished.jpeg">
+<figcaption>Frilly plate complete with Camembert, though now we use it as a plate to rest spoons and spatulas while cooking.</figcaption>
+</figure>
+
+## Two Tone Cup
+
+I also like how this one came out, it's the result of double dipping glazes.
+
+<figure class="two-wide">
+<img src="{{page.img2024}}/two_tone_cup.jpeg">
 </figure>
 
 ## Soap Dispenser Tray
