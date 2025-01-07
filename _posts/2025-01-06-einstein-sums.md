@@ -12,6 +12,9 @@ assets:
 alt: An image of an index the expression for $\epsilon_{ijk}\partial_j u_k$ which in words would be the curl of u
 image_class: invertable
 
+load_klipse: true
+
+
 ---
 
 Just a short thought. Lately I've been starting to read though these [lecture notes on astrophysical fluid dynamics][notes] and this morning I came across [this nice blogpost][blogpost] about numpy's `einsum` function. Both reminded how lovely einstein summation is as a mathematical notation. 
@@ -85,9 +88,58 @@ The final trick is that this insertion of the metric in the middle of tensor con
 
 Now I've called these things hacks and tricks but they also connect to much deeper mathematical concepts such as [covariance and contravariance](https://en.wikipedia.org/wiki/Covariance_and_contravariance_of_vectors). This seems like it's usually the case with nice notation. It makes me think things like the relationship between the derivative operator $\tfrac{d}{dt}$ and and the infinitesimal $dt$.
 
+## `np.einsum`
+
+[`einsum`][einsum_docs] is a nice cross over between the theoretical math world and the get stuff done world of numerical programming. Because arrays in numpy know how many dimensions they have and how big they are they lend themselves naturally to the einstein summation syntax. The way this is implemented in numpy is that you pass your tensors to the function along with a special string that tells einsum how to contract the indices together. 
+
+Taking the simple matrix multiply again as a an example:
+
+\\[ A_{ik} = B_{ij} C_{jk} \\]
+
+Becomes:
+
+```python
+
+import numpy as np
+
+B = np.array([[0,1], [1,0]])
+C = np.array([[1,3], [2,4]])
+
+A = np.einsum("ij, jk", B, C)
+A
+```
+
+You can see how the `ij` are the indices of B, `jk` those of B and how this would generalise to more tensors or tensors with more dimensions. This is the `implicit` mode of einsum, in this mode it basically follows the normal einstein summation rules of contracting pairs of indices. And in those rules certain things are not allowed, the same index is not allowed to appear three times for example, nor can we express something like an elementwise multiplication of two matrices in normal einstein summation. To be fair such operations are relatively rare, so you can get around it by just writing "for this equation don't sum over `i`".
+
+But einsum has an explicit mode that lets use express some of these operations:
+
+```python
+import numpy as np
+B = np.array([[0,1], [1,0]])
+C = np.array([[1,3], [2,4]])
+
+np.einsum("ij, jk -> ik", B, C)
+```
+
+Using the `->` we can also express the indices of the output tensor. Using this we can express the element wise product of two matrices too:
+
+```python
+import numpy as np
+B = np.array([[0,1], [1,0]])
+C = np.array([[1,3], [2,4]])
+
+np.einsum("ij, ij -> ij", B, C)
+```
+
+which I guess would be equivalent to the equation:
+
+
+\\[ A_{ij} = B_{ij} C_{ij} \; \text{(No sum over indices)}\\]
+
 
 
 [notes]: https://arxiv.org/abs/1604.03835
 [blogpost]: https://einsum.joelburget.com/
+[einsum_docs]: https://numpy.org/doc/stable/reference/generated/numpy.einsum.html
 
 I used [this](https://viereck.ch/latex-to-svg/) to generate the thumbnail for this post.

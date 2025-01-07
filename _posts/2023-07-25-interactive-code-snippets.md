@@ -7,19 +7,7 @@ image: /assets/blog/REPL/repl.png
 thumbnail: /assets/blog/REPL/thumbnail.png
 image_class: invertable
 alt: A screenshot of a small javascript widget that lets you evaluate python code. It's showing some numpy code and its evaluated output.
-head: |
-    <link rel="stylesheet" type="text/css" href="/assets/klipse/codemirror.css">
-
-    <script>
-        window.klipse_settings = {
-        selector_pyodide: '.language-klipse-python', // css selector for the html elements to be klipsified
-        codemirror_options_in: {
-            theme: "jupyter",
-    },
-        };
-    </script>
-
-    <script src="/assets/klipse/klipse_plugin.min.js" defer></script>
+load_klipse: true
 ---
 
 On this excellent [personal site](http://lambdafunk.com/) I saw [Klipse](https://github.com/viebel/klipse), a little js library that lets you modify and execute code snippets in blogs. How cute!

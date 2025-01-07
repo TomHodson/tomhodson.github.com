@@ -38,8 +38,9 @@ const getCSSCustomProp = (propKey) => {
   return response;
 };
 
-const applySetting = (passedSetting) => {
-  let currentSetting = passedSetting || localStorage.getItem(STORAGE_KEY);
+const applySetting = () => {
+  let currentSetting =
+    localStorage.getItem(STORAGE_KEY) || getCSSCustomProp(COLOR_MODE_KEY);
 
   if (currentSetting) {
     document.documentElement.setAttribute(
@@ -47,6 +48,9 @@ const applySetting = (passedSetting) => {
       currentSetting
     );
   }
+  console.log(
+    `Mode Preference set on document.documentElement.getAttribute("data-user-color-scheme"): ${currentSetting}`
+  );
 };
 
 const toggleSetting = () => {
@@ -65,15 +69,28 @@ const toggleSetting = () => {
       break;
   }
 
+  console.log("Saving preference to localStorage:", currentSetting);
   localStorage.setItem(STORAGE_KEY, currentSetting);
-
-  return currentSetting;
 };
 
 modeToggleButton.addEventListener("click", (evt) => {
   evt.preventDefault();
 
-  applySetting(toggleSetting());
+  toggleSetting();
+  applySetting();
 });
+
+let localStorageSetting = localStorage.getItem(STORAGE_KEY);
+let defaultValue = getCSSCustomProp(COLOR_MODE_KEY);
+
+if (localStorageSetting) {
+  console.log(
+    `Night mode setting found in localStorage: ${localStorageSetting}`
+  );
+} else {
+  console.log(
+    `Night mode setting not found in localStorage. Set to value from css --color-mode key: ${defaultValue}`
+  );
+}
 
 applySetting();

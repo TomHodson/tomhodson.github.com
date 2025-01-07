@@ -20,7 +20,7 @@ collections:
 kramdown:
   syntax_highlighter: coderay
   syntax_highlighter_opts:
-    line_numbers: inline
+    line_numbers: false
 
 flexible_include:
   die_on_flexible_include_error: false

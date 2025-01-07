@@ -54,7 +54,7 @@
 <link rel="authorization_endpoint" href="https://indieauth.com/auth">
 
 <link rel="stylesheet" href="/assets/css/styles.css">
-<script src="/assets/js/index.js" async></script>
+<script src="/assets/js/index.js" defer></script>
 
 {% if page.mathjax %}
 <script>
@@ -67,8 +67,14 @@
     }
   };
   </script>
-<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" defer></script>
 {% endif %} 
+
+{% if page.load_klipse %}
+<link rel="stylesheet" type="text/css" href="/assets/klipse/codemirror.css">
+<script src="/assets/klipse/setup_klipse.js" defer></script>
+<script src="/assets/klipse/klipse_plugin.js" defer></script>
+{% endif %}
 
 <!-- Say hello to people in the console.  -->
 <script>
