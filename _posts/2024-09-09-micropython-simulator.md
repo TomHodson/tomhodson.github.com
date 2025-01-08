@@ -3,8 +3,9 @@ title: MicroPython Simulator
 layout: post
 excerpt: A simulator for my USB C Power supply project using Micropython running in websassembly.
 
-image: /assets/blog/micropython/simulated_display.png
-thumbnail: /assets/blog/micropython/simulated_display.png
+image: /assets/blog/micropython/simulated_display_transparent.png
+thumbnail: /assets/blog/micropython/simulated_display_transparent.png
+social_image: /assets/blog/micropython/simulated_display.png
 assets: /assets/blog/micropython
 alt: A 240x240 pixel (so low res) image of a slightly sci-fiesque looking circular display showing so linear and curved bars, 24.4 volts, in bigger font 213w and 8.7A.
 image_class: invertable
