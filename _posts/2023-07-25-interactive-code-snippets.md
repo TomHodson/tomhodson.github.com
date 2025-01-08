@@ -10,6 +10,8 @@ alt: A screenshot of a small javascript widget that lets you evaluate python cod
 load_klipse: true
 ---
 
+UPDATE: Since playing with klipse for a little while I'm not sure I would necessarily recommend it. I've run into quite a few issues getting it to work nicely.
+
 On this excellent [personal site](http://lambdafunk.com/) I saw [Klipse](https://github.com/viebel/klipse), a little js library that lets you modify and execute code snippets in blogs. How cute!
 
 ```klipse-python
