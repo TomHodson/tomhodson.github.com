@@ -233,7 +233,7 @@ figure.two-wide {
   justify-content: center;
   gap: 1em;
   margin-bottom: 1em;
-  * {
+  *:not(figcaption) {
     width: calc(50% - 0.5em);
   }
 }
@@ -244,7 +244,7 @@ figure.multiple {
   justify-content: center;
   gap: 1em;
   margin-bottom: 1em;
-  * {
+  *:not(figcaption) {
     width: calc(50% - 0.5em);
     margin: 0;
     padding: 0;
@@ -260,7 +260,7 @@ figure.multiple {
   margin-bottom: 1em;
   place-items: center center;
 
-  * {
+  *:not(figcaption) {
     margin: 0;
     padding: 0;
     width: 100%;
