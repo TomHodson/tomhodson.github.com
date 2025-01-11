@@ -17,7 +17,7 @@ layout: none
 		<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
 		{% assign feed_items = site.feed.post_limit | default: 10 %}
 		{% for post in site.posts limit:feed_items %}
-        {% unless post.draft %}
+        {% if post.draft == false or jekyll.environment == "development" %}
 			<item>
 				<title>{{ post.title | xml_escape }}</title>
 				<dc:creator>Tom Hodson</dc:creator>
@@ -39,7 +39,7 @@ layout: none
 				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
 
 			</item>
-        {% endunless %}
+        {% endif %}
 		{% endfor %}
 	</channel>
 </rss>

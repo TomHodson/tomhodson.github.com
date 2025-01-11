@@ -14,7 +14,7 @@ layout: none
   "items": [
     
     {% for post in site.posts limit:10 %}
-    {% unless post.draft %}
+    {% if post.draft == false or jekyll.environment == "development" %}
     {
       "id": "{{ post.url | prepend: site.baseurl | prepend: site.url }}",
       "url": "{{ post.url | prepend: site.baseurl | prepend: site.url }}",
@@ -22,7 +22,7 @@ layout: none
       "content_html": {{ post.content | jsonify  }},
       "date_published": "{{ post.date | date_to_rfc822 }}"
       }{% unless forloop.last %},{% endunless %}
-    {% endunless %}
+    {% endif %}
     {% endfor %}
   ]
 }

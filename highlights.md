@@ -25,7 +25,9 @@ Welcome to my little home on the web! Below you'll find recent blog posts, proje
 
 <hr class="heading">
 {% for post in site.posts limit:5 %}
+{% if post.draft == false or jekyll.environment == "development" %}
 {% include post_summary.html %}
+{% endif %}
 {% endfor %}
 <br>
 <a href = "/blog/" class = "highlights-more">More</a>
@@ -40,7 +42,9 @@ Welcome to my little home on the web! Below you'll find recent blog posts, proje
 <hr class="heading">
 {% assign projects = site.projects | sort_natural: "last_modified_at"%}
 {% for post in projects limit:5 %}
+{% if post.draft == false or jekyll.environment == "development" %}
 {% include project_summary.html %}
+{% endif %}
 {% endfor %}
 <a href = "/projects/" class = "highlights-more">More</a>
 </section>

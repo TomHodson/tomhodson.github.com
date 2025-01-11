@@ -18,5 +18,7 @@ social_image: /assets/projects/lego_adapters/thumbnail.png
 <hr class="heading">
 
 {% for post in site.projects %}
+{% if post.draft == false or jekyll.environment == "development" %}
 {% include project_summary.html %}
+{% endif %}
 {% endfor %}

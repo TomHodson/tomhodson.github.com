@@ -15,5 +15,7 @@ img:
 </section>
 <hr class="heading">
 {% for post in site.posts %}
+{% if post.draft == false or jekyll.environment == "development" %}
 {% include post_summary.html %}
+{% endif %}
 {% endfor %}

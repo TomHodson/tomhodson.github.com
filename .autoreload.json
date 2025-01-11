@@ -1,0 +1,10 @@
+{
+    "watch":  true,
+    "reload": "**/**.{html,js,css}",
+    "mount": [
+      {
+        "path":   "test_pages/",
+        "target": "/"
+      }
+    ]
+  }

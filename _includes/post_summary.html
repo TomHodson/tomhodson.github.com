@@ -2,7 +2,7 @@
 {% capture posttime %}{{post.date | date: '%s'}}{% endcapture %}
 
 
-{% if post.path contains '_drafts' or posttime > nowunix %}
+{% if post.draft or post.path contains '_drafts' or posttime > nowunix %}
 {% assign is_draft = true %}
 {% else %}
 {% assign is_draft = false %}
