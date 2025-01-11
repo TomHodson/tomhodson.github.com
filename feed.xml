@@ -1,0 +1,45 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+>
+	<channel>
+		<title>{{ site.name | xml_escape }}</title>
+		<description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>		
+		<sy:updatePeriod>{{ site.feed.update_period | default: "daily" | xml_escape }}</sy:updatePeriod>
+		<sy:updateFrequency>{{ site.feed.update_frequency | default: 1 | xml_escape }}</sy:updateFrequency>
+		<link>{{ site.url }}</link>
+		<atom:link href="{{ site.url }}/{{ page.path }}" rel="self" type="application/rss+xml" />
+		<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+		{% assign feed_items = site.feed.post_limit | default: 10 %}
+		{% for post in site.posts limit:feed_items %}
+        {% unless post.draft %}
+			<item>
+				<title>{{ post.title | xml_escape }}</title>
+				<dc:creator>Tom Hodson</dc:creator>
+				{% if post.excerpt %}
+					<description>
+                    {% if post.social_image %}
+				    <![CDATA[<img src="{{ site.url }}{{ post.social_image }}" alt="{{ post.alt }}"/>]]>
+                    {% endif %}
+                    {{ post.excerpt | xml_escape }}
+                    </description>
+                {% else %}
+                    <description>
+ Work a little, play a little, dream into summer, celebrate a great winter gone by, keep movin'... <br />]]>
+                    {{ post.excerpt | xml_escape }}
+                    </description>
+                {% endif %}
+				<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+				<link>{{ site.url }}{{ post.url }}</link>
+				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+
+			</item>
+        {% endunless %}
+		{% endfor %}
+	</channel>
+</rss>

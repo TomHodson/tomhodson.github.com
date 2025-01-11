@@ -1,8 +1,11 @@
 title: Tom Hodson
 description: Physics, Programming and Baking.
 url: https://thomashodson.com
-author:
-  twitter: T_Hodson
+
+feed:
+  posts_limit: 100
+  update_period: monthly
+  update_frequency: 1
 
 exclude: ["env/", ]
 host: 0.0.0.0
@@ -29,12 +32,10 @@ include:
   - node_modules
 
 plugins:
-  - jekyll-feed
+  # - jekyll-feed
   - jekyll-redirect-from
   - flexible_include
   - kramdown-syntax-coderay
   - jekyll-last-modified-at
 
 
-feed:
-  posts_limit: 100
