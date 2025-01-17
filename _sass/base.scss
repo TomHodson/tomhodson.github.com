@@ -387,9 +387,14 @@ img.invertable {
     --theme-bg-color: #222;
     --theme-subtle-outline: oklch(50% 0 50);
   }
-  img:not(.invertable) {
+
+  // Two main image classes are "invertable" i.e look good inverted
+  // and "no-dim" i.e don't get dimmed in night mode
+  // All other images get dimmed in night mode
+  img:not(.invertable):not(.no-dim) {
     opacity: 0.75;
   }
+
   svg.invertable,
   img.invertable {
     opacity: 1;
