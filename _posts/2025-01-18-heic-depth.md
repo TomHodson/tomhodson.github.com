@@ -1,5 +1,5 @@
 ---
-title: Undexpected Depths
+title: Unexpected Depths
 layout: post
 excerpt: Did you know iPhone portrait mode HEIC files have a depth map in them?
 draft: true

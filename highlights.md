@@ -24,11 +24,16 @@ Welcome to my little home on the web! Below you'll find recent blog posts, proje
 </section>
 
 <hr class="heading">
-{% for post in site.posts limit:5 %}
-{% if post.draft == false or jekyll.environment == "development" %}
-{% include post_summary.html %}
+{% if jekyll.environment == 'development' %}
+{% assign filtered_posts = site.posts %}
+{% else %}
+{% assign filtered_posts = site.posts | where: "draft", "false" %}
 {% endif %}
+
+{% for post in filtered_posts limit:5 %}
+{% include post_summary.html %}
 {% endfor %}
+
 <br>
 <a href = "/blog/" class = "highlights-more">More</a>
 </section>
