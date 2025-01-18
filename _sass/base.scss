@@ -36,6 +36,8 @@
   --theme-highlight-color-transparent: hsla(338, 75%, 60%, 33%);
   --theme-subtle-text-color: #606984;
 
+  --night-mode-fade-time: 0.5s;
+
   // constrain width and center
   --body-max-width: 900px;
   --body-width: min(100vw, 900px);
@@ -233,7 +235,7 @@ figure.two-wide {
   justify-content: center;
   gap: 1em;
   margin-bottom: 1em;
-  *:not(figcaption) {
+  > *:not(figcaption) {
     width: calc(50% - 0.5em);
   }
 }
@@ -244,7 +246,7 @@ figure.multiple {
   justify-content: center;
   gap: 1em;
   margin-bottom: 1em;
-  *:not(figcaption) {
+  > *:not(figcaption) {
     width: calc(50% - 0.5em);
     margin: 0;
     padding: 0;
@@ -260,7 +262,7 @@ figure.multiple {
   margin-bottom: 1em;
   place-items: center center;
 
-  *:not(figcaption) {
+  > *:not(figcaption) {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -362,15 +364,16 @@ body:not(.has-wc) .has-wc {
 }
 
 // Add transitions for things that will be affected by night mode
-body {
-  transition: background 500ms ease-in-out, color 200ms ease-in-out;
+body,
+a {
+  transition: background var(--night-mode-fade-time) ease-in-out,
+    color var(--night-mode-fade-time) ease-in-out;
 }
-img {
-  transition: opacity 500ms ease-in-out;
-}
-svg.invertable,
-img.invertable {
-  transition: filter 500ms ease-in-out;
+
+img,
+svg {
+  transition: opacity var(--night-mode-fade-time) ease-in-out,
+    filter var(--night-mode-fade-time) ease-in-out;
 }
 
 @mixin night-mode {
@@ -391,8 +394,13 @@ img.invertable {
   // Two main image classes are "invertable" i.e look good inverted
   // and "no-dim" i.e don't get dimmed in night mode
   // All other images get dimmed in night mode
-  img:not(.invertable):not(.no-dim) {
+  img:not(.invertable):not(.no-dim):not(.brighten) {
     opacity: 0.75;
+  }
+
+  svg.brighten,
+  img.brighten {
+    filter: brightness(2);
   }
 
   svg.invertable,

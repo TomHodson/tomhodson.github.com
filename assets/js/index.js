@@ -19,7 +19,7 @@ if (window.customElements) {
   document.querySelector("body").classList.add("has-wc");
 }
 
-const modeToggleButton = document.querySelector(".js-mode-toggle");
+const modeToggleButtons = document.querySelectorAll(".js-mode-toggle");
 const modeStatusElement = document.querySelector(".js-mode-status");
 
 const toggleSetting = () => {
@@ -42,9 +42,10 @@ const toggleSetting = () => {
   localStorage.setItem(STORAGE_KEY, currentSetting);
 };
 
-modeToggleButton.addEventListener("click", (evt) => {
-  evt.preventDefault();
-
-  toggleSetting();
-  applySetting();
+modeToggleButtons.forEach((m) => {
+  m.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    toggleSetting();
+    applySetting();
+  });
 });

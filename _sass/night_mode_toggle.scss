@@ -3,6 +3,7 @@
 }
 
 .user-toggle {
+  display: inline;
   padding-top: 0.5rem;
 }
 
@@ -17,7 +18,8 @@
   color: var(--theme-text-color);
   background: var(--theme-background-color);
   border: 1.5px solid var(--theme-text-color);
-  transition: background 500ms ease-in-out, color 200ms ease;
+  transition: background var(--night-mode-fade-time) ease-in-out,
+    color var(--night-mode-fade-time) ease;
 }
 
 .toggle-button__icon {
@@ -27,6 +29,6 @@
   flex-shrink: 0;
   margin: 0;
   transform: translateY(0px); /* Optical adjustment */
-  transition: filter 200ms ease-in-out;
+  transition: filter var(--night-mode-fade-time) ease-in-out;
   filter: var(--button-icon-filter);
 }

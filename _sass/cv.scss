@@ -43,7 +43,8 @@ summary.cv:before {
   left: 1rem;
   transform: rotate(0);
   transform-origin: 0.2rem 50%;
-  transition: 0.25s transform ease;
+  transition: 0.25s transform ease,
+    border-color var(--night-mode-fade-time) ease-in-out;
 }
 
 summary li {
@@ -90,6 +91,8 @@ div.details-container {
   margin-top: 1em;
 
   border-bottom: var(--theme-subtle-outline) 1px solid;
+  transition: border-color var(--night-mode-fade-time) ease-in-out,
+    opacity var(--night-mode-fade-time) ease-in-out;
   h2 {
     margin: 0px;
   }

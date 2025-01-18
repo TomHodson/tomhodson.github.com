@@ -1,0 +1,180 @@
+---
+title: Undexpected Depths
+layout: post
+excerpt: Did you know iPhone portrait mode HEIC files have a depth map in them?
+draft: true
+assets: /assets/blog/heic_depth_map
+
+thumbnail: /assets/blog/heic_depth_map/thumbnail.png
+social_image: /assets/blog/heic_depth_map/thumbnail.png
+
+alt: An image of the text "{...}" to suggest the idea of a template.
+
+head: |
+    <script async src="/node_modules/es-module-shims/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+    {
+        "imports": {
+        "three": "/node_modules/three/build/three.module.min.js",
+        "three/addons/": "/node_modules/three/examples/jsm/",
+        "lil-gui": "/node_modules/lil-gui/dist/lil-gui.esm.min.js"
+        }
+    }
+    </script>
+    <script src="/assets/js/projects.js" type="module"></script>
+    
+
+---
+
+You know how iPhones do this fake depth of field effect where they blur the background? Did you know that the depth information used to do that effect is stored in the file?
+
+```python
+# pip install pillow pillow-heif pypcd4
+
+from PIL import Image, ImageFilter
+from pillow_heif import HeifImagePlugin
+
+d = Path("wherever")
+
+img = Image.open(d / "test_image.heic")
+
+depth_im = img.info["depth_images"][0]
+pil_depth_im = depth_im.to_pillow()
+pil_depth_im.save(d / "depth.png")
+
+depth_array = np.asarray(depth_im)
+rgb_rescaled = img.resize(depth_array.shape[::-1])
+rgb_rescaled.save(d / "rgb.png")
+```
+
+<figure class="two-wide">
+<img src="{{page.assets}}/rgb.png">
+<img src="{{page.assets}}/depth.png">
+<figcaption> A lovely picture of my face and a depth map of it. </figcaption>
+</figure>
+
+
+Crazy! I had a play with projecting this into 3D to see what it would look like. I was too lazy to look deeply into how this should be interpreted geometrically, so initially I just pretended the image was taken from infinitely far away and then eyeballed the units. The fact that this looks at all reasonable makes me wonder if the depths are somehow reprojected to match that assumption. Otherwise you'd need to also know the properties of the lense that was used to take the photo.
+
+This handy `pypcd4` python library made outputting the data quite easy and three.js has a module for displaying point cloud data. You can see that why writing numpy code I tend to scatter `print(f"{array.shape = }, {array.dtype = }")` liberally throughout, it just makes keeping track of those arrays so much easier.
+
+```python
+from pypcd4 import PointCloud
+
+n, m = np_im.shape
+aspect = n / m
+x = np.linspace(0,2 * aspect,n)
+y = np.linspace(0,2,m)
+
+rgb_points = np.array(rgb_rescaled).reshape(-1, 3)
+print(f"{rgb_points.shape = }, {rgb_points.dtype = }")
+rgb_packed = PointCloud.encode_rgb(rgb_points).reshape(-1, 1)
+print(f"{rgb_packed.shape = }, {rgb_packed.dtype = }")
+
+print(np.min(np_im), np.max(np_im))
+
+mesh = np.array(np.meshgrid(x, y, indexing='ij'))
+
+xy_points = mesh.reshape(2,-1).T
+print(f"{xy_points.shape = }")
+
+z = np_im.reshape(-1, 1).astype(np.float64) / 255.0
+
+m = pil_depth_im.info["metadata"]
+range = m["d_max"] - m["d_min"]
+z = range * z + m["d_min"]
+
+print(f"{xyz_points.shape = }")
+xyz_rgb_points = np.concatenate([xy_points, z, rgb_packed], axis = -1)
+
+pc = PointCloud.from_xyzrgb_points(xyz_rgb_points)
+pc.save(d / "pointcloud.pcd")
+```
+
+Click and drag to spin me around. It didn't really capture my nose very well, I guess this is more a foreground/background kinda thing. 
+
+<canvas style ="width: 100%;" id="canvas-id-1"></canvas>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { DragControls } from "three/addons/controls/DragControls.js";
+import { PCDLoader } from 'three/addons/loaders/PCDLoader.js';
+import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+
+let canvas, scene, camera, renderer, gui, orbitControls;
+const d = 1;
+
+init();
+
+function init() {
+  canvas = document.getElementById('canvas-id-1');
+  const loader = new PCDLoader();
+  scene = new THREE.Scene();
+
+    loader.load( '{{page.assets}}/pointcloud.pcd', function ( points ) {
+    points.geometry.center();
+    // points.geometry.rotateZ( -Math.PI );
+    // points.geometry.rotateY( Math.PI/2 );
+
+    points.geometry.rotateZ( -Math.PI/2 );
+    // points.geometry.rotateY( Math.PI/2 );
+    points.name = 'depth_map';
+    scene.add( points );
+    scene.add( new THREE.AxesHelper( 1 ) );
+
+    points.material.color = new THREE.Color(0x999999);
+    points.material.size = 0.001
+
+    render();
+
+} );
+
+  // --- Scene ---
+  const aspect = canvas.clientWidth / canvas.clientHeight;
+  camera = new THREE.PerspectiveCamera( 30, aspect, 0.01, 40 );
+  camera.position.set( 0, 0, 5);
+  camera.lookAt(0, 0, 0);
+
+  // --- Renderer (use the existing canvas) ---
+  renderer = new THREE.WebGLRenderer({ alpha: true, canvas: canvas, antialias: true });
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight,);
+
+  // --- OrbitControls ---
+  orbitControls = new OrbitControls(camera, renderer.domElement);
+  orbitControls.addEventListener( 'change', render ); // use if there is no animation loop
+    // controls.minDistance = 0.5;
+    // controls.maxDistance = 10;
+//   orbitControls.enableRotate = false;  
+//   orbitControls.enablePan = false;
+//   orbitControls.enableDamping = true;
+//   orbitControls.dampingFactor = 0.05;
+
+
+  // --- Lights ---
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+  scene.add(ambientLight);
+
+  const dirLight = new THREE.DirectionalLight(0xffffff, 0.7);
+  dirLight.position.set(5, 5, 10);
+  scene.add(dirLight);
+
+  window.addEventListener('resize', onWindowResize, false);
+}
+
+function onWindowResize() {
+  const aspect = canvas.clientWidth / canvas.clientHeight;
+  camera.left   = -d * aspect;
+  camera.right  =  d * aspect;
+  camera.top    =  d;
+  camera.bottom = -d;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+}
+
+function render() {
+  renderer.render(scene, camera);
+}
+</script>
