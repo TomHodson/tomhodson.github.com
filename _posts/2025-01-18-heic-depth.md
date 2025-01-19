@@ -134,7 +134,7 @@ function init(canvas_id, url) {
   // --- Scene ---
   const aspect = canvas.clientWidth / canvas.clientHeight;
   let camera = new THREE.PerspectiveCamera( 30, aspect, 0.01, 40 );
-  camera.position.set( 0, 0, 5);
+  camera.position.set( -2, 2, 3);
   camera.lookAt(0, 0, 0);
 
   // --- Renderer (use the existing canvas) ---
