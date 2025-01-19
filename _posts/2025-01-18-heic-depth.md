@@ -38,18 +38,24 @@ d = Path("wherever")
 
 img = Image.open(d / "test_image.heic")
 
+img = Image.open(d / "test_image.heic")
+
 depth_im = img.info["depth_images"][0]
 pil_depth_im = depth_im.to_pillow()
 pil_depth_im.save(d / "depth.png")
-
 depth_array = np.asarray(depth_im)
+
 rgb_rescaled = img.resize(depth_array.shape[::-1])
 rgb_rescaled.save(d / "rgb.png")
+rgb_array = np.asarray(rgb_rescaled)
+
+print(pil_depth_im.info["metadata"])
+print(f"{depth_array.shape = }, {rgb_array.shape = }")
 ```
 
 <figure class="two-wide">
-<img src="{{page.assets}}/rgb.png">
-<img src="{{page.assets}}/depth.png">
+<img src="{{page.assets}}/rear_stereo/rgb.png">
+<img src="{{page.assets}}/rear_stereo/depth.png">
 <figcaption> A lovely picture of my face and a depth map of it. </figcaption>
 </figure>
 
@@ -61,24 +67,24 @@ This handy `pypcd4` python library made outputting the data quite easy and three
 ```python
 from pypcd4 import PointCloud
 
-n, m = np_im.shape
+n, m = rgb_array.shape[:2]
 aspect = n / m
+
 x = np.linspace(0,2 * aspect,n)
 y = np.linspace(0,2,m)
 
-rgb_points = np.array(rgb_rescaled).reshape(-1, 3)
+rgb_points = rgb_array.reshape(-1, 3)
 print(f"{rgb_points.shape = }, {rgb_points.dtype = }")
+
 rgb_packed = PointCloud.encode_rgb(rgb_points).reshape(-1, 1)
 print(f"{rgb_packed.shape = }, {rgb_packed.dtype = }")
-
-print(np.min(np_im), np.max(np_im))
 
 mesh = np.array(np.meshgrid(x, y, indexing='ij'))
 
 xy_points = mesh.reshape(2,-1).T
 print(f"{xy_points.shape = }")
 
-z = np_im.reshape(-1, 1).astype(np.float64) / 255.0
+z = depth_array.reshape(-1, 1).astype(np.float64) / 255.0
 
 m = pil_depth_im.info["metadata"]
 range = m["d_max"] - m["d_min"]
@@ -102,56 +108,45 @@ import { DragControls } from "three/addons/controls/DragControls.js";
 import { PCDLoader } from 'three/addons/loaders/PCDLoader.js';
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 
-let canvas, scene, camera, renderer, gui, orbitControls;
-const d = 1;
 
-init();
 
-function init() {
-  canvas = document.getElementById('canvas-id-1');
+init('canvas-id-1', '{{page.assets}}/rear_stereo/pointcloud.pcd');
+init('canvas-id-2', '{{page.assets}}/front_facing/pointcloud.pcd');
+
+function init(canvas_id, url) {
+  let render, gui, orbitControls;
+  let canvas = document.getElementById(canvas_id);
   const loader = new PCDLoader();
-  scene = new THREE.Scene();
+  let scene = new THREE.Scene();
+  scene.add( new THREE.AxesHelper( 1 ) );
 
-    loader.load( '{{page.assets}}/pointcloud.pcd', function ( points ) {
-    points.geometry.center();
-    // points.geometry.rotateZ( -Math.PI );
-    // points.geometry.rotateY( Math.PI/2 );
+    loader.load(url, function ( points ) {
+        points.geometry.center();
+        points.geometry.rotateZ( -Math.PI/2 );
+        points.name = 'depth_map';
+        scene.add( points );
+        points.material.color = new THREE.Color(0x999999);
+        points.material.size = 0.001
+        render();
 
-    points.geometry.rotateZ( -Math.PI/2 );
-    // points.geometry.rotateY( Math.PI/2 );
-    points.name = 'depth_map';
-    scene.add( points );
-    scene.add( new THREE.AxesHelper( 1 ) );
-
-    points.material.color = new THREE.Color(0x999999);
-    points.material.size = 0.001
-
-    render();
-
-} );
+    } );
 
   // --- Scene ---
   const aspect = canvas.clientWidth / canvas.clientHeight;
-  camera = new THREE.PerspectiveCamera( 30, aspect, 0.01, 40 );
+  let camera = new THREE.PerspectiveCamera( 30, aspect, 0.01, 40 );
   camera.position.set( 0, 0, 5);
   camera.lookAt(0, 0, 0);
 
   // --- Renderer (use the existing canvas) ---
-  renderer = new THREE.WebGLRenderer({ alpha: true, canvas: canvas, antialias: true });
+  let renderer = new THREE.WebGLRenderer({ alpha: true, canvas: canvas, antialias: true });
   renderer.setSize(canvas.clientWidth, canvas.clientHeight,);
+
+  render = () => renderer.render(scene, camera);
 
   // --- OrbitControls ---
   orbitControls = new OrbitControls(camera, renderer.domElement);
-  orbitControls.addEventListener( 'change', render ); // use if there is no animation loop
-    // controls.minDistance = 0.5;
-    // controls.maxDistance = 10;
-//   orbitControls.enableRotate = false;  
-//   orbitControls.enablePan = false;
-//   orbitControls.enableDamping = true;
-//   orbitControls.dampingFactor = 0.05;
+  orbitControls.addEventListener( 'change', render);
 
-
-  // --- Lights ---
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
   scene.add(ambientLight);
 
@@ -160,20 +155,28 @@ function init() {
   scene.add(dirLight);
 
   window.addEventListener('resize', onWindowResize, false);
-}
 
-function onWindowResize() {
-  const aspect = canvas.clientWidth / canvas.clientHeight;
-  camera.left   = -d * aspect;
-  camera.right  =  d * aspect;
-  camera.top    =  d;
-  camera.bottom = -d;
-  camera.updateProjectionMatrix();
+  function onWindowResize() {
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+  }
 
-  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-}
-
-function render() {
-  renderer.render(scene, camera);
 }
 </script>
+
+## Update
+
+After looking a bit more into this, I found the [Apple docs on capturing depth information](https://developer.apple.com/documentation/avfoundation/capturing-photos-with-depth) which explains that for phones with two or more front cameras, they use the difference in the two images to estimate depth, while the front facing camera on modern phones has [an IR camera](https://developer.apple.com/documentation/avfoundation/avcapturedevice/devicetype-swift.struct/builtintruedepthcamera) that uses a grid of dots to estimate true depth like the good old kinect sensor.
+
+So I had a go with the front facing camera too:
+
+<figure class="two-wide">
+<img src="{{page.assets}}/front_facing/rgb.png">
+<img src="{{page.assets}}/front_facing/depth.png">
+<figcaption> A lovely picture of my face and a depth map of it. </figcaption>
+</figure>
+
+The depth information, while lower resolution, is much better. My nose really pops in this one!
+
+<canvas style ="width: 100%;" id="canvas-id-2"></canvas>
