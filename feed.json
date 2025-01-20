@@ -2,25 +2,33 @@
 layout: none
 ---
 {
-  "version": "https://jsonfeed.org/version/1",
+  "version": "https://jsonfeed.org/version/1.1",
   "title": {{ site.title | jsonify }},
   "description": {% if site.description %}{{ site.description | jsonify }}{% endif %},
   "home_page_url": "{{ site.url }}",
   "feed_url": "{{ site.url }}/feed.json",
-  "favicon": "{{ site.url}}/favicon.ico",
-  "author": {
-    "name": "Tom Hodson"
-  },
+  "favicon": "{{ site.url}}/apple-touch-icon.png",
+  "icon": "{{ site.url}}/assets/images/android-chrome-512x512.png",
+  "user_comment": "Only you, dear reader of the raw json feed, will ever see this.",
+  "authors": [{
+    "name": "Tom Hodson",
+    "url": "{{ site.url }}",
+    "avatar": "{{ site.url }}/assets/images/avatar.jpeg"
+  }],
+  "language": "en",
   "items": [
     
-    {% for post in site.posts limit:10 %}
+    {% for post in site.posts limit:20 %}
     {% if post.draft == false or jekyll.environment == "development" %}
     {
       "id": "{{ post.url | prepend: site.baseurl | prepend: site.url }}",
       "url": "{{ post.url | prepend: site.baseurl | prepend: site.url }}",
+      {% if post.excerpt %}"summary": {{ post.excerpt | jsonify }},{% endif %}
+      {% if post.social_image %}"image": "{{ post.social_image | prepend: site.baseurl | prepend: site.url }}",{% endif %}
       "title": {{ post.title | jsonify }},
       "content_html": {{ post.content | jsonify  }},
-      "date_published": "{{ post.date | date_to_rfc822 }}"
+      "date_published": "{{ post.date | date_to_rfc822 }}",
+      "date_modified": "{{ post.last_modified_at | date_to_rfc822 }}"
       }{% unless forloop.last %},{% endunless %}
     {% endif %}
     {% endfor %}
