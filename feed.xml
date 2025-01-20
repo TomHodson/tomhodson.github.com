@@ -25,13 +25,13 @@ layout: none
 				{% if post.excerpt %}
 					<description>
                     {% if post.social_image %}
-				    <![CDATA[<img src="{{ site.url }}{{ post.social_image }}" alt="{{ post.alt }}"/>]]>
+				    <![CDATA[<img src="{{ site.url }}{{ post.social_image }}" alt="{{ post.alt }}"/><br><br>]]>
                     {% endif %}
-                    {{ post.excerpt | xml_escape }}
+                    {{ post.content | xml_escape }}
                     </description>
                 {% else %}
                     <description> 
-                    {{ post.excerpt | xml_escape }}
+                    {{ post.content | xml_escape }}
                     </description>
                 {% endif %}
 				<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
