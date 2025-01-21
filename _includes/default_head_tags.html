@@ -56,8 +56,10 @@
 <link rel="authorization_endpoint" href="https://indieauth.com/auth">
 
 <!-- Privacy Conscious Hit Counter -->
+{% unless jekyll.environment == "development" %}
 <script data-goatcounter="https://tomhodson.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+        async src="https://gc.zgo.at/count.js"></script>
+{% endunless %}
 
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script src="/assets/js/pre_page_load.js"></script>

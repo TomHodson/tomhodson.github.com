@@ -99,7 +99,12 @@ pc.save(d / "pointcloud.pcd")
 
 Click and drag to spin me around. It didn't really capture my nose very well, I guess this is more a foreground/background kinda thing. 
 
+<figure>
+<img class="no-wc" src="{{page.assets}}/rear_stereo/point_cloud_preview.png">
 <canvas style ="width: 100%;" id="canvas-id-1"></canvas>
+<figcaption class="no-wc">If you have JS enabled this is interactive.</figcaption>
+</figure>
+
 
 <script type="module">
 import * as THREE from "three";
@@ -162,6 +167,27 @@ function init(canvas_id, url) {
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
   }
 
+    // const elem = document.querySelector('#screenshot');
+    // elem.addEventListener('click', () => {
+    //   render();
+    //   canvas.toBlob((blob) => {
+    //     saveBlob(blob, `screencapture-${canvas.width}x${canvas.height}.png`);
+    //   });
+    // });
+     
+    // const saveBlob = (function() {
+    //   const a = document.createElement('a');
+    //   document.body.appendChild(a);
+    //   a.style.display = 'none';
+    //   return function saveData(blob, fileName) {
+    //      const url = window.URL.createObjectURL(blob);
+    //      console.log(url);
+    //      a.href = url;
+    //      a.download = fileName;
+    //      a.click();
+    //   };
+    // }());
+
 }
 </script>
 
@@ -179,4 +205,8 @@ So I had a go with the front facing camera too:
 
 The depth information, while lower resolution, is much better. My nose really pops in this one!
 
+<figure>
+<img class="no-wc" src="{{page.assets}}/front_facing/point_cloud_preview.png">
 <canvas style ="width: 100%;" id="canvas-id-2"></canvas>
+<figcaption class="no-wc">If you have JS enabled this is interactive.</figcaption>
+</figure>
