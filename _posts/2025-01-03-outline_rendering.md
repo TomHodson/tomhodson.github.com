@@ -22,7 +22,6 @@ head: |
         }
     }
     </script>
-    <script src="/assets/js/projects.js" type="module"></script>
 
 draft: true
 ---

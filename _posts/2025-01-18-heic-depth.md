@@ -9,21 +9,7 @@ social_image: /assets/blog/heic_depth_map/thumbnail.png
 
 alt: An image of the text "{...}" to suggest the idea of a template.
 
-head: |
-    <script async src="/node_modules/es-module-shims/dist/es-module-shims.js"></script>
-
-    <script type="importmap">
-    {
-        "imports": {
-        "three": "/node_modules/three/build/three.module.min.js",
-        "three/addons/": "/node_modules/three/examples/jsm/",
-        "lil-gui": "/node_modules/lil-gui/dist/lil-gui.esm.min.js"
-        }
-    }
-    </script>
-    <script src="/assets/js/projects.js" type="module"></script>
-    
-
+model_viewer: true
 ---
 
 You know how iPhones do this fake depth of field effect where they blur the background? Did you know that the depth information used to do that effect is stored in the file?
@@ -104,73 +90,8 @@ Click and drag to spin me around. It didn't really capture my nose very well, I 
 <point-cloud-viewer model="/assets/blog/heic_depth_map/rear_stereo/pointcloud.pcd" camera = '{"type":"perspective","position":[-3.598,-0.4154,1.971],"rotation":[0.2078,-1.06,0.1819],"zoom":1,"target":[0,0,0]}'>
 </point-cloud-viewer>
 <figcaption class="no-wc">If you have JS enabled this is interactive.</figcaption>
-<figcaption class="has-wc">An interactive point cloud view.</figcaption>
+<figcaption class="has-wc">An interactive point cloud view of the depth data from the rear facing camera of my phone.</figcaption>
 </figure>
-
-
-<script type="module">
-// import * as THREE from "three";
-// import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-// import { DragControls } from "three/addons/controls/DragControls.js";
-// import { PCDLoader } from 'three/addons/loaders/PCDLoader.js';
-// import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
-
-
-
-// init('canvas-id-1', '{{page.assets}}/rear_stereo/pointcloud.pcd');
-// init('canvas-id-2', '{{page.assets}}/front_facing/pointcloud.pcd');
-
-// function init(canvas_id, url) {
-//   let render, gui, orbitControls;
-//   let canvas = document.getElementById(canvas_id);
-//   const loader = new PCDLoader();
-//   let scene = new THREE.Scene();
-//   scene.add( new THREE.AxesHelper( 1 ) );
-
-//     loader.load(url, function ( points ) {
-//         points.geometry.center();
-//         points.geometry.rotateZ( -Math.PI/2 );
-//         points.name = 'depth_map';
-//         scene.add( points );
-//         points.material.color = new THREE.Color(0x999999);
-//         points.material.size = 0.001
-//         render();
-
-//     } );
-
-//   // --- Scene ---
-//   const aspect = canvas.clientWidth / canvas.clientHeight;
-//   let camera = new THREE.PerspectiveCamera( 30, aspect, 0.01, 40 );
-//   camera.position.set( -2, 2, 3);
-//   camera.lookAt(0, 0, 0);
-
-//   // --- Renderer (use the existing canvas) ---
-//   let renderer = new THREE.WebGLRenderer({ alpha: true, canvas: canvas, antialias: true });
-//   renderer.setSize(canvas.clientWidth, canvas.clientHeight,);
-
-//   render = () => renderer.render(scene, camera);
-
-//   // --- OrbitControls ---
-//   orbitControls = new OrbitControls(camera, renderer.domElement);
-//   orbitControls.addEventListener( 'change', render);
-
-//   const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-//   scene.add(ambientLight);
-
-//   const dirLight = new THREE.DirectionalLight(0xffffff, 0.7);
-//   dirLight.position.set(5, 5, 10);
-//   scene.add(dirLight);
-
-//   window.addEventListener('resize', onWindowResize, false);
-
-//   function onWindowResize() {
-//     camera.aspect = canvas.clientWidth / canvas.clientHeight;
-//     camera.updateProjectionMatrix();
-//     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-//   }
-
-// }
-</script>
 
 ## Update
 
@@ -181,7 +102,7 @@ So I had a go with the front facing camera too:
 <figure class="two-wide">
 <img src="{{page.assets}}/front_facing/rgb.png">
 <img src="{{page.assets}}/front_facing/depth.png">
-<figcaption> A lovely picture of my face and a depth map of it. </figcaption>
+<figcaption> A lovely picture of my face and a depth map of it.</figcaption>
 </figure>
 
 The depth information, while lower resolution, is much better. My nose really pops in this one!
@@ -191,5 +112,5 @@ The depth information, while lower resolution, is much better. My nose really po
 <point-cloud-viewer model="/assets/blog/heic_depth_map/front_facing/pointcloud.pcd" camera = '{"type":"perspective","position":[-3.682,0.3606,1.82],"rotation":[-0.1955,-1.104,-0.1751],"zoom":1,"target":[0,0,0]}'>
 </point-cloud-viewer>
 <figcaption class="no-wc">If you have JS enabled this is interactive.</figcaption>
-<figcaption class="has-wc">An interactive point cloud view.</figcaption>
+<figcaption class="has-wc">An interactive point cloud view of the depth from the front facing camera of an iPhone.</figcaption>
 </figure>
