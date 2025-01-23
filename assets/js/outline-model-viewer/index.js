@@ -12,8 +12,13 @@ import { FXAAShader } from "three/addons/shaders/FXAAShader.js";
 import { Timer } from "three/addons/Addons.js";
 
 import GUI from "lil-gui";
+import { componentHTML, setupThreeJS, serialiseCamera } from "./helpers.js";
 import { CustomOutlinePass } from "./CustomOutlinePass.js";
 import FindSurfaces from "./FindSurfaces.js";
+
+import { PointCloudViewer } from "./PointCloudViewer.js";
+
+customElements.define("point-cloud-viewer", PointCloudViewer);
 
 // Todo:
 // Swap in the version of this code that has a debug GUI behind a flag
@@ -59,26 +64,11 @@ function printGLTFScene(scene, maxDepth = 3, depth = 0, indent = 0) {
   });
 }
 
-const serialiseCamera = (camera, controls) => {
-  const position = Object.values(camera.position);
-  const extractXYZ = ({ _x, _y, _z }) => [_x, _y, _z];
-  const rotation = extractXYZ(camera.rotation);
-  const fixed = (l) => l.map((x) => parseFloat(x.toPrecision(4)));
-  return JSON.stringify({
-    position: fixed(position),
-    rotation: fixed(rotation),
-    zoom: camera.zoom,
-    target: fixed(Object.values(controls.target)),
-  });
-};
-
 export class OutlineModelViewer extends HTMLElement {
   constructor() {
     super();
-    this.isVisible = true; // Track visibility
+    this.isVisible = true;
     this.shadow = this.attachShadow({ mode: "open" });
-
-    // Mouse and raycaster
     this.raycaster = new THREE.Raycaster();
     this.mouse = new THREE.Vector2();
     this.intersectedObject = null; // Store currently intersected object
@@ -95,8 +85,7 @@ export class OutlineModelViewer extends HTMLElement {
     const mul = 2;
 
     let component_rect = this.getBoundingClientRect();
-
-    this.render(component_rect.height);
+    this.shadow.innerHTML = componentHTML(component_rect);
 
     const model_path = this.getAttribute("model");
     const spin = (this.getAttribute("spin") || "true") === "true";
@@ -491,87 +480,6 @@ export class OutlineModelViewer extends HTMLElement {
       onWindowResize();
     }
     document.addEventListener("fullscreenchange", onFullScreenChange);
-  }
-
-  render(height) {
-    this.shadow.innerHTML = `
-      <div id="container">
-      <span id = "clicked-item"></span>
-      <!-- <button id="fullscreen-btn">⛶</button> --!>
-      <canvas class = "object-viewer"></canvas>
-      </div>
-      <link rel="stylesheet" href="/node_modules/lil-gui/dist/lil-gui.min.css">
-      <style>
-
-        #container {
-          position: relative;
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          border-radius: inherit;
-        }
-
-        #clicked-item {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 10;
-            font-size: 0.7em;
-            background: none;
-            border: none;
-            color: var(--theme-text-color);
-            opacity: 50%;
-        }
-
-        #fullscreen-btn {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          z-index: 10;
-          font-size: 24px;
-          background: none;
-          border: none;
-          cursor: pointer;
-          color: var(--theme-text-color);
-        }
-
-        #fullscreen-btn:hover {
-          color: var(--theme-subtle-outline);
-        }
-
-        .lil-gui .title {height: 2em;}
-        .lil-gui.root {
-          margin-top: calc(${height}px - 2em);
-          width: 100%;
-          z-index: 1;
-          --background-color: none;
-          --text-color: var(--theme-text-color);
-          --title-background-color: none;
-          --title-text-color: var(--theme-text-color);
-          --widget-color: var(--theme-subtle-outline);
-          --hover-color: lightgrey;
-          --focus-color: lightgrey;
-          --number-color: #2cc9ff;
-          --string-color: #a2db3c;
-      }
-
-      .lil-gui button {
-        border: var(--theme-subtle-outline) 1px solid;
-      }
-
-      .lil-gui .controller.string input {
-        background-color: var(--theme-subtle-outline);
-        color: var(--theme-text-color);
-      }
-
-        canvas {
-          position: absolute;
-          width: 100%;
-          height: ${height}px;
-          border-radius: inherit;
-        }
-      </style>
-    `;
   }
 }
 

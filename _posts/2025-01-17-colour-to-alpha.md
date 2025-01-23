@@ -2,7 +2,6 @@
 title: Replacing an image colour with transparency
 layout: post
 excerpt: What happens if you convert an RGB image to RGBA by pretending it was sitting on a white background?
-draft: true
 
 images: /assets/blog/alpha_test
 thumbnail: /assets/blog/alpha_test/thumbnail.png

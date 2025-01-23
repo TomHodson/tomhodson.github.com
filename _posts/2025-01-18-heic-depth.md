@@ -101,94 +101,75 @@ Click and drag to spin me around. It didn't really capture my nose very well, I 
 
 <figure>
 <img class="no-wc" src="{{page.assets}}/rear_stereo/point_cloud_preview.png">
-<canvas style ="width: 100%;" id="canvas-id-1"></canvas>
+<point-cloud-viewer model="/assets/blog/heic_depth_map/rear_stereo/pointcloud.pcd" camera = '{"type":"perspective","position":[-3.598,-0.4154,1.971],"rotation":[0.2078,-1.06,0.1819],"zoom":1,"target":[0,0,0]}'>
+</point-cloud-viewer>
 <figcaption class="no-wc">If you have JS enabled this is interactive.</figcaption>
+<figcaption class="has-wc">An interactive point cloud view.</figcaption>
 </figure>
 
 
 <script type="module">
-import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { DragControls } from "three/addons/controls/DragControls.js";
-import { PCDLoader } from 'three/addons/loaders/PCDLoader.js';
-import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+// import * as THREE from "three";
+// import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+// import { DragControls } from "three/addons/controls/DragControls.js";
+// import { PCDLoader } from 'three/addons/loaders/PCDLoader.js';
+// import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 
 
 
-init('canvas-id-1', '{{page.assets}}/rear_stereo/pointcloud.pcd');
-init('canvas-id-2', '{{page.assets}}/front_facing/pointcloud.pcd');
+// init('canvas-id-1', '{{page.assets}}/rear_stereo/pointcloud.pcd');
+// init('canvas-id-2', '{{page.assets}}/front_facing/pointcloud.pcd');
 
-function init(canvas_id, url) {
-  let render, gui, orbitControls;
-  let canvas = document.getElementById(canvas_id);
-  const loader = new PCDLoader();
-  let scene = new THREE.Scene();
-  scene.add( new THREE.AxesHelper( 1 ) );
+// function init(canvas_id, url) {
+//   let render, gui, orbitControls;
+//   let canvas = document.getElementById(canvas_id);
+//   const loader = new PCDLoader();
+//   let scene = new THREE.Scene();
+//   scene.add( new THREE.AxesHelper( 1 ) );
 
-    loader.load(url, function ( points ) {
-        points.geometry.center();
-        points.geometry.rotateZ( -Math.PI/2 );
-        points.name = 'depth_map';
-        scene.add( points );
-        points.material.color = new THREE.Color(0x999999);
-        points.material.size = 0.001
-        render();
+//     loader.load(url, function ( points ) {
+//         points.geometry.center();
+//         points.geometry.rotateZ( -Math.PI/2 );
+//         points.name = 'depth_map';
+//         scene.add( points );
+//         points.material.color = new THREE.Color(0x999999);
+//         points.material.size = 0.001
+//         render();
 
-    } );
+//     } );
 
-  // --- Scene ---
-  const aspect = canvas.clientWidth / canvas.clientHeight;
-  let camera = new THREE.PerspectiveCamera( 30, aspect, 0.01, 40 );
-  camera.position.set( -2, 2, 3);
-  camera.lookAt(0, 0, 0);
+//   // --- Scene ---
+//   const aspect = canvas.clientWidth / canvas.clientHeight;
+//   let camera = new THREE.PerspectiveCamera( 30, aspect, 0.01, 40 );
+//   camera.position.set( -2, 2, 3);
+//   camera.lookAt(0, 0, 0);
 
-  // --- Renderer (use the existing canvas) ---
-  let renderer = new THREE.WebGLRenderer({ alpha: true, canvas: canvas, antialias: true });
-  renderer.setSize(canvas.clientWidth, canvas.clientHeight,);
+//   // --- Renderer (use the existing canvas) ---
+//   let renderer = new THREE.WebGLRenderer({ alpha: true, canvas: canvas, antialias: true });
+//   renderer.setSize(canvas.clientWidth, canvas.clientHeight,);
 
-  render = () => renderer.render(scene, camera);
+//   render = () => renderer.render(scene, camera);
 
-  // --- OrbitControls ---
-  orbitControls = new OrbitControls(camera, renderer.domElement);
-  orbitControls.addEventListener( 'change', render);
+//   // --- OrbitControls ---
+//   orbitControls = new OrbitControls(camera, renderer.domElement);
+//   orbitControls.addEventListener( 'change', render);
 
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-  scene.add(ambientLight);
+//   const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+//   scene.add(ambientLight);
 
-  const dirLight = new THREE.DirectionalLight(0xffffff, 0.7);
-  dirLight.position.set(5, 5, 10);
-  scene.add(dirLight);
+//   const dirLight = new THREE.DirectionalLight(0xffffff, 0.7);
+//   dirLight.position.set(5, 5, 10);
+//   scene.add(dirLight);
 
-  window.addEventListener('resize', onWindowResize, false);
+//   window.addEventListener('resize', onWindowResize, false);
 
-  function onWindowResize() {
-    camera.aspect = canvas.clientWidth / canvas.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-  }
+//   function onWindowResize() {
+//     camera.aspect = canvas.clientWidth / canvas.clientHeight;
+//     camera.updateProjectionMatrix();
+//     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+//   }
 
-    // const elem = document.querySelector('#screenshot');
-    // elem.addEventListener('click', () => {
-    //   render();
-    //   canvas.toBlob((blob) => {
-    //     saveBlob(blob, `screencapture-${canvas.width}x${canvas.height}.png`);
-    //   });
-    // });
-     
-    // const saveBlob = (function() {
-    //   const a = document.createElement('a');
-    //   document.body.appendChild(a);
-    //   a.style.display = 'none';
-    //   return function saveData(blob, fileName) {
-    //      const url = window.URL.createObjectURL(blob);
-    //      console.log(url);
-    //      a.href = url;
-    //      a.download = fileName;
-    //      a.click();
-    //   };
-    // }());
-
-}
+// }
 </script>
 
 ## Update
@@ -207,6 +188,8 @@ The depth information, while lower resolution, is much better. My nose really po
 
 <figure>
 <img class="no-wc" src="{{page.assets}}/front_facing/point_cloud_preview.png">
-<canvas style ="width: 100%;" id="canvas-id-2"></canvas>
+<point-cloud-viewer model="/assets/blog/heic_depth_map/front_facing/pointcloud.pcd" camera = '{"type":"perspective","position":[-3.682,0.3606,1.82],"rotation":[-0.1955,-1.104,-0.1751],"zoom":1,"target":[0,0,0]}'>
+</point-cloud-viewer>
 <figcaption class="no-wc">If you have JS enabled this is interactive.</figcaption>
+<figcaption class="has-wc">An interactive point cloud view.</figcaption>
 </figure>
