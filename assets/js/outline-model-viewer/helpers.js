@@ -75,7 +75,7 @@ function componentHTML(component_rect) {
   return `
       <div id="container">
       <span id = "clicked-item"></span>
-      <!-- <button id="fullscreen-btn">⛶</button> --!>
+      <button id="fullscreen-btn">⛶</button>
       <canvas class = "object-viewer"></canvas>
       </div>
       <link rel="stylesheet" href="/node_modules/lil-gui/dist/lil-gui.min.css">
@@ -103,8 +103,8 @@ function componentHTML(component_rect) {
 
         #fullscreen-btn {
           position: absolute;
-          top: 10px;
-          right: 10px;
+          top: 0.2em;
+          right: 0.3em;
           z-index: 10;
           font-size: 24px;
           background: none;
@@ -133,6 +133,10 @@ function componentHTML(component_rect) {
           --string-color: #a2db3c;
       }
 
+      .lil-gui div.title {
+        margin: 0.5em;
+        }
+
       .lil-gui button {
         border: var(--theme-subtle-outline) 1px solid;
       }
@@ -147,6 +151,25 @@ function componentHTML(component_rect) {
           width: 100%;
           height: ${height}px;
           border-radius: inherit;
+        }
+
+        #container.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: var(--theme-bg-color);
+            }
+        
+        #container.fullscreen canvas {
+            height: 100%;
+        }
+
+        #container.fullscreen .lil-gui.root {
+            margin-top: 0;
+            width: 200px;
         }
       </style>
     `;
@@ -203,6 +226,30 @@ function setupThreeJS(component) {
   component.gui.add(params, "printCamera").name("Print Viewport State");
   component.gui.add(params, "screenshot").name("Take Screenshot");
   component.gui.add(params, "resetCamera").name("Reset Viewport");
+
+  component.full_screen = false;
+  //   clone of original rect
+  component.original_rect = {
+    width: component_rect.width,
+    height: component_rect.height,
+  };
+
+  component.toggleFullScreen = () => {
+    component.full_screen = !component.full_screen;
+    if (component.full_screen) {
+      component.container.classList.add("fullscreen");
+    } else {
+      component.container.classList.remove("fullscreen");
+      component.canvas.height = component.original_rect.height;
+    }
+    component.canvas.removeAttribute("style");
+    component.canvas.removeAttribute("width");
+    component.canvas.removeAttribute("height");
+    component.onWindowResize();
+  };
+
+  const fullScreenButton = component.shadow.querySelector("#fullscreen-btn");
+  fullScreenButton.addEventListener("click", component.toggleFullScreen);
 
   return component;
 }

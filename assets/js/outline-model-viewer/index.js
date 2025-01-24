@@ -466,7 +466,8 @@ export class OutlineModelViewer extends HTMLElement {
 
     // const fullScreenButton = this.shadow.querySelector("#fullscreen-btn");
     // fullScreenButton.addEventListener("click", () => toggleFullScreen());
-    // window.addEventListener("resize", onWindowResize, false);
+
+    window.addEventListener("resize", onWindowResize, false);
 
     // Handle fullscreen change events triggerd through various means
     function onFullScreenChange() {
