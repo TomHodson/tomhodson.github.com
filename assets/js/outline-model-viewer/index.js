@@ -17,8 +17,10 @@ import { CustomOutlinePass } from "./CustomOutlinePass.js";
 import FindSurfaces from "./FindSurfaces.js";
 
 import { PointCloudViewer } from "./PointCloudViewer.js";
+import { VolumeViewer } from "./VolumeViewer.js";
 
 customElements.define("point-cloud-viewer", PointCloudViewer);
+customElements.define("volume-viewer", VolumeViewer);
 
 // Todo:
 // Swap in the version of this code that has a debug GUI behind a flag
