@@ -30,6 +30,8 @@ precision highp float; // Precision for floating point numbers.
 uniform sampler3D dataTexture; // Sampler for the volume data texture.
 // uniform sampler2D colorTexture; // Sampler for the color palette texture.
 uniform float samplingRate; // The sampling rate.
+uniform float clampMin; // Clamp values below this value to 0.
+uniform float clampMax; // Clamp values above this value to 1.
 uniform float threshold; // Threshold to use for isosurface-style rendering.
 uniform float alphaScale; // Scaling of the color alpha value.
 uniform bool invertColor; // Option to invert the color palette.
@@ -77,7 +79,10 @@ vec4 compose(vec4 color, vec3 entryPoint, vec3 rayDir, float samples, float tSta
     vec3 p = entryPoint + rayDir * t; // Current position.
 
     // Sample the volume data at the current position. 
-    float value = sampleData(p);      
+    float value = sampleData(p);  
+    value = value < clampMin ? 0. : value;   
+    value = value > clampMax ? 0. : value;
+    
 
     // Keep track of the maximum value.
     if (value > density) {

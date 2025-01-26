@@ -28,6 +28,7 @@ async function load_model_bytes_gzip(model_path, metadata_path, scene) {
   const ds = new DecompressionStream("gzip");
   const response = await fetch(model_path);
   const blob_in = await response.blob();
+  console.log("Compressed Model size", blob_in.size);
   const stream_in = blob_in.stream().pipeThrough(ds);
   const buffer = await new Response(stream_in).arrayBuffer();
   console.log("Decompressed Model size", buffer.byteLength);
@@ -94,6 +95,10 @@ function volumeMaterial(texture, renderProps) {
       //   colorTexture: { value: colorTexture }, // Color palette texture.
       cameraPosition: { value: new THREE.Vector3() }, // Current camera position.
       samplingRate: { value: renderProps.samplingRate }, // Sampling rate of the volume.
+
+      clampMin: { value: renderProps.clampMin }, // Clamp values below this value to 0.
+      clampMax: { value: renderProps.clampMax }, // Clamp values above this value to 1.
+
       threshold: { value: renderProps.threshold }, // Threshold for adjusting volume rendering.
       alphaScale: { value: renderProps.alphaScale }, // Alpha scale of volume rendering.
       invertColor: { value: renderProps.invertColor }, // Invert color palette.
@@ -131,6 +136,12 @@ export class VolumeViewer extends HTMLElement {
         .add(material.uniforms.samplingRate, "value", 0.1, 2.0, 0.1)
         .name("Sampling Rate");
       gui
+        .add(material.uniforms.clampMin, "value", 0.0, 1.0, 0.01)
+        .name("Clamp Min");
+      gui
+        .add(material.uniforms.clampMax, "value", 0.0, 1.0, 0.01)
+        .name("Clamp Max");
+      gui
         .add(material.uniforms.threshold, "value", 0.0, 1.0, 0.01)
         .name("Threshold");
       gui
@@ -141,6 +152,8 @@ export class VolumeViewer extends HTMLElement {
 
     const renderProps = {
       samplingRate: 1.0,
+      clampMin: 0.0,
+      clampMax: 1.0,
       threshold: 0.1,
       alphaScale: 1.0,
       invertColor: false,
