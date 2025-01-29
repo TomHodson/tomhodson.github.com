@@ -11,56 +11,81 @@ import {
   deserialiseControls,
 } from "./helpers.js";
 
+// See https://stackoverflow.com/questions/62003464/what-is-relation-between-type-and-format-of-texture
+// https://webgl2fundamentals.org/webgl/lessons/webgl-data-textures.html
+const dtypes = {
+  uint8: {
+    internalFormat: "R8",
+    format: THREE.RedFormat,
+    type: THREE.UnsignedByteType,
+    array_type: Uint8Array,
+  },
+  float16: {
+    internalFormat: "R16F",
+    format: THREE.RedFormat,
+    type: THREE.HalfFloatType,
+    array_type: Uint16Array,
+  },
+  float32: {
+    internalFormat: "R32F",
+    format: THREE.RedFormat,
+    type: THREE.FloatType,
+    array_type: Float32Array,
+  },
+};
+
 async function load_metadata(metadata_path) {
   console.log("Loading metadata from", metadata_path);
   const metadata_res = await fetch(metadata_path);
   return await metadata_res.json();
 }
 
-async function load_model_bytes(model_path) {
-  console.log("Loading model from", model_path);
-  const res = await fetch(model_path);
-  const buffer = await res.arrayBuffer();
-  return new Uint8Array(buffer); // Create an uint8-array-view from the file buffer.
-}
-
-async function load_model_bytes_gzip(model_path, metadata_path, scene) {
+async function load_model_compressed_bytes(model_path) {
+  const model_response = await fetch(model_path);
   const ds = new DecompressionStream("gzip");
-  const response = await fetch(model_path);
-  const blob_in = await response.blob();
+  const blob_in = await model_response.blob();
   console.log("Compressed Model size", blob_in.size);
   const stream_in = blob_in.stream().pipeThrough(ds);
   const buffer = await new Response(stream_in).arrayBuffer();
   console.log("Decompressed Model size", buffer.byteLength);
-  return new Uint8Array(buffer);
+  return buffer;
+}
+
+async function load_model_bytes_gzip(model_path, metadata_path) {
+  const [metadata, model_buffer] = await Promise.all([
+    load_metadata(metadata_path),
+    load_model_compressed_bytes(model_path),
+  ]);
+
+  const array_type = dtypes[metadata.dtype].array_type;
+  return [metadata, new array_type(model_buffer)];
 }
 
 async function load_model(model_path, metadata_path, scene) {
   // If the model path ends in ".gz", we assume that the model is compressed.
-  const model_promise = model_path.endsWith(".gz")
-    ? load_model_bytes_gzip(model_path, metadata_path, scene)
-    : load_model_bytes(model_path);
-
-  const [byteArray, metadata] = await Promise.all([
-    model_promise,
-    load_metadata(metadata_path),
-  ]);
+  const [metadata, model_data] = await load_model_bytes_gzip(
+    model_path,
+    metadata_path
+  );
 
   console.log("Loaded model with metadata", metadata);
   console.log("Model shape", metadata.shape);
   console.log("Model dtype", metadata.dtype);
 
   const texture = new THREE.Data3DTexture(
-    byteArray, // The data values stored in the pixels of the texture.
+    model_data, // The data values stored in the pixels of the texture.
     metadata.shape[2], // Width of texture.
     metadata.shape[1], // Height of texture.
     metadata.shape[0] // Depth of texture.
   );
+  texture.internalFormat = dtypes[metadata.dtype].internalFormat;
+  texture.format = dtypes[metadata.dtype].format;
+  texture.type = dtypes[metadata.dtype].type;
 
-  texture.format = THREE.RedFormat; // Our texture has only one channel (red).
-  texture.type = THREE.UnsignedByteType; // The data type is 8 bit unsighed integer.
   texture.minFilter = THREE.LinearFilter; // Linear filter for minification.
   texture.magFilter = THREE.LinearFilter; // Linear filter for maximization.
+  //   texture.minFilter = THREE.NearestFilter; // Nearest filter for minification.
+  //   texture.magFilter = THREE.NearestFilter; // Nearest filter for maximization.
 
   // Repeat edge values when sampling outside of texture boundaries.
   texture.wrapS = THREE.ClampToEdgeWrapping;
@@ -93,13 +118,16 @@ function volumeMaterial(texture, renderProps) {
     uniforms: {
       dataTexture: { value: texture }, // Volume data texture.
       //   colorTexture: { value: colorTexture }, // Color palette texture.
+      renderMode: { value: renderProps.renderMode }, // Rendering mode.
       cameraPosition: { value: new THREE.Vector3() }, // Current camera position.
       samplingRate: { value: renderProps.samplingRate }, // Sampling rate of the volume.
 
       clampMin: { value: renderProps.clampMin }, // Clamp values below this value to 0.
       clampMax: { value: renderProps.clampMax }, // Clamp values above this value to 1.
 
-      threshold: { value: renderProps.threshold }, // Threshold for adjusting volume rendering.
+      iso_threshold: { value: renderProps.iso_threshold }, // Threshold for adjusting volume rendering.
+      iso_width: { value: renderProps.iso_width }, // Threshold for adjusting volume rendering.
+
       alphaScale: { value: renderProps.alphaScale }, // Alpha scale of volume rendering.
       invertColor: { value: renderProps.invertColor }, // Invert color palette.
     },
@@ -127,11 +155,21 @@ export class VolumeViewer extends HTMLElement {
     const box = make_box();
     scene.add(box);
 
+    const renderModes = {
+      "Max Intensity": 0,
+      "Mean Intensity": 1,
+      "Min Intensity": 2,
+      Isosurface: 3,
+    };
+
     let material = null;
     load_model(model, model_metadata, scene).then(({ texture, metadata }) => {
       // Create the custom material with attached shaders.
-      material = volumeMaterial(texture, renderProps);
+      material = volumeMaterial(texture, presets.Default);
       box.material = material;
+      gui
+        .add(material.uniforms.renderMode, "value", renderModes)
+        .name("Render Mode");
       gui
         .add(material.uniforms.samplingRate, "value", 0.1, 2.0, 0.1)
         .name("Sampling Rate");
@@ -142,22 +180,75 @@ export class VolumeViewer extends HTMLElement {
         .add(material.uniforms.clampMax, "value", 0.0, 1.0, 0.01)
         .name("Clamp Max");
       gui
-        .add(material.uniforms.threshold, "value", 0.0, 1.0, 0.01)
-        .name("Threshold");
+        .add(material.uniforms.iso_threshold, "value", 0.0, 1.0, 0.01)
+        .name("Isosurface Threshold");
+      gui
+        .add(material.uniforms.iso_width, "value", 0.0, 0.05, 0.001)
+        .name("Isosurface Width");
       gui
         .add(material.uniforms.alphaScale, "value", 0.1, 2.0, 0.1)
         .name("Alpha Scale");
       gui.add(material.uniforms.invertColor, "value").name("Invert Color");
     });
 
-    const renderProps = {
-      samplingRate: 1.0,
-      clampMin: 0.0,
-      clampMax: 1.0,
-      threshold: 0.1,
-      alphaScale: 1.0,
-      invertColor: false,
+    const presets = {
+      Default: {
+        renderMode: 0,
+        samplingRate: 1.0,
+        clampMin: 0.0,
+        clampMax: 1.0,
+        iso_threshold: 0.1,
+        iso_width: 0.01,
+        alphaScale: 1.0,
+        invertColor: false,
+      },
+      "Air Pockets": {
+        alphaScale: 2,
+        clampMax: 1,
+        clampMin: 0,
+        invertColor: false,
+        iso_threshold: 0.06,
+        iso_width: 0.002,
+        renderMode: 3,
+        samplingRate: 1,
+      },
     };
+
+    // Add a button to print the current settings to the console
+    gui
+      .add(
+        {
+          printSettings: () =>
+            console.log(
+              Object.fromEntries(
+                Object.keys(presets.Default).map((key) => [
+                  key,
+                  material?.uniforms[key]?.value,
+                ])
+              )
+            ),
+        },
+        "printSettings"
+      )
+      .name("Print Current Settings");
+
+    // Add a dropdown to select a preset
+    let renderProps = {
+      presets: "Default",
+    };
+    gui
+      .add(renderProps, "preset", presets)
+      .onChange((preset) => {
+        Object.keys(preset).forEach((key) => {
+          if (material.uniforms[key]) {
+            material.uniforms[key].value = preset[key];
+          } else {
+            console.warn(`No uniform found for ${key}`);
+          }
+        });
+        gui.controllers.forEach((control) => control.updateDisplay());
+      })
+      .name("Presets");
 
     const render = () => renderer.render(scene, this.camera);
     this.render = render;
@@ -188,6 +279,8 @@ export class VolumeViewer extends HTMLElement {
       this.camera.updateProjectionMatrix();
       renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     };
+    this.onWindowResize();
+
     const timer = new Timer();
 
     const update = () => {

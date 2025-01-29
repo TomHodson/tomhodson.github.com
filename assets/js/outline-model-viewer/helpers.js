@@ -169,7 +169,7 @@ function componentHTML(component_rect) {
 
         #container.fullscreen .lil-gui.root {
             margin-top: 0;
-            width: 200px;
+            width: 50%;
         }
       </style>
     `;

@@ -29,10 +29,12 @@ precision highp float; // Precision for floating point numbers.
 
 uniform sampler3D dataTexture; // Sampler for the volume data texture.
 // uniform sampler2D colorTexture; // Sampler for the color palette texture.
+uniform int renderMode; // Rendering mode.
 uniform float samplingRate; // The sampling rate.
 uniform float clampMin; // Clamp values below this value to 0.
 uniform float clampMax; // Clamp values above this value to 1.
-uniform float threshold; // Threshold to use for isosurface-style rendering.
+uniform float iso_threshold; // Threshold to use for isosurface-style rendering.
+uniform float iso_width; // Threshold to use for isosurface-style rendering.
 uniform float alphaScale; // Scaling of the color alpha value.
 uniform bool invertColor; // Option to invert the color palette.
 
@@ -70,9 +72,15 @@ vec2 intersectAABB(vec3 rayOrigin, vec3 rayDir, vec3 boxMin, vec3 boxMax) {
 // Volume sampling and composition.
 // Note that the code is inserted based on the selected algorithm in the user interface.
 vec4 compose(vec4 color, vec3 entryPoint, vec3 rayDir, float samples, float tStart, float tEnd, float tIncr) {
-  // Composition of samples using maximum intensity projection.
   // Loop through all samples along the ray.
-  float density = 0.0;
+  float max_density = 0.0;
+  float min_density = 1.0;
+
+  float mean_density = 0.0;
+  int mean_samples = 0;
+
+  float iso_depth = 0.0;
+
   for (float i = 0.0; i < samples; i += 1.0) {
     // Determine the sampling position.
     float t = tStart + tIncr * i; // Current distance along ray.
@@ -83,17 +91,37 @@ vec4 compose(vec4 color, vec3 entryPoint, vec3 rayDir, float samples, float tSta
     value = value < clampMin ? 0. : value;   
     value = value > clampMax ? 0. : value;
     
-
-    // Keep track of the maximum value.
-    if (value > density) {
-      // Store the value if it is greater than the previous values.
-      density = value;
+    if (value > max_density) {
+      max_density = value;
+    }
+    if (value < min_density && value > 0.0) {
+        min_density = value;
+    }
+    if (value > 0.0) {
+        mean_density += value;
+        mean_samples += 1;
+    }
+    if (abs(value - iso_threshold) < iso_width && iso_depth == 0.0) {
+        iso_depth = 1.;
     }
 
-    // Early exit the loop when the maximum possible value is found or the exit point is reached. 
-    if (density >= 1.0 || t > tEnd) {
+    // Early exit if the exit point is reached. 
+    if (t > tEnd) {
       break;
     }
+  }
+
+  // Compute the final density value based on the selected rendering mode.
+  mean_density = mean_samples > 0 ? mean_density / float(mean_samples) : 0.0;
+  float density = 0.0;
+  if (renderMode == 0) {
+    density = max_density;
+  } else if (renderMode == 1) {
+    density = mean_density;
+  } else if (renderMode == 2) {
+    density = min_density;
+  } else if (renderMode == 3) {
+    density = iso_depth;
   }
 
   // Convert the found value to a color by sampling the color palette texture.

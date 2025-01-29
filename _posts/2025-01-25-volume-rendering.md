@@ -161,6 +161,8 @@ f.savefig("hist.svg")
 
 We could probably get away with clamping all the data from -1000 to -500 to one air value, which would free up a lot of our limited 0-225 for the more interesting stuff happening between -100 and 400. But I didn't really notice an issues with the quantisation so I didn't pursue this. 
 
+EDIT: After I implemented the iso-surface rendering mode and found that I could see interesting regions like my windpipe and inside my sinuses I wondered if having more density precision would help see them. So I using float16 or float32 textures but didn't see much improvement at the expense of doubling or quadrupling the file size, so I switched back to 8 bit values. 
+
 ## Viewing the Data
 
 For the viewer I mostly copied the code from [this excellent tutorial](https://observablehq.com/@mroehlig/3d-volume-rendering-with-webgl-three-js) and integrated it into my existing three.js helper methods.
