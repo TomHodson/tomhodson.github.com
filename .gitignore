@@ -16,3 +16,4 @@ package-lock.json
 *.fbx
 *.secret
 *.ipynb
+/scripts/dead-link-checker

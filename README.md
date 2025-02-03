@@ -24,6 +24,7 @@ A list of things to check once in a while to make sure I haven't broken them ina
 
 ## Validators
   - [blacklight](https://themarkup.org/blacklight)
+  - https://lens.rknight.me/
 
 ## Notes
 [Installation](https://jekyllrb.com/docs/installation/macos/)

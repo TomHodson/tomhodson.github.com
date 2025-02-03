@@ -13,7 +13,7 @@ head: |
 A list of kicad related resources and tools.
 
 
-## [JLCPCB](jlcpcb.com)
+## [JLCPCB](https://jlcpcb.com)
 
 - [SMT Assembly](https://jlcpcb.com/smt-assembly)
 - [Parts catalogue](https://jlcpcb.com/parts)

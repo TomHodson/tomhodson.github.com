@@ -30,7 +30,7 @@ That blog has an [rss feed](https://www.science.org/blogs/pipeline/feed), which 
 
 Playing around a bit more, adding in useragents, accepting cookies and following redirects, I eventually get back a page with a challenge that requires JS to run. This is the antithesis of how RSS should work!
 
-Ok so to fix this I came upon [RSSHub](https://docs.rsshub.app/en/) which is a kind of RSS proxy, it parses sites that don't have RSS feeds and generates them for you. I saw that this has pupeteer support so I'm hopping that I can use it to bypass the anti-crawler tactics science.org is using.
+Ok so to fix this I came upon [RSSHub](https://docs.rsshub.app/) which is a kind of RSS proxy, it parses sites that don't have RSS feeds and generates them for you. I saw that this has pupeteer support so I'm hopping that I can use it to bypass the anti-crawler tactics science.org is using.
 
 Anyway, for how here is a docker-compose.yml for both miniflux and RSSHub. What took me a while to figure out is that docker containers live in their own special network. So to subscribe to a selfhosted RSSHub feed you need to put something like "http://rsshub:1200/" where rsshub is the key to the image in the yaml file below.
 

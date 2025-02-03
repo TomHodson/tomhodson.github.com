@@ -60,9 +60,8 @@ After initially thinking I would do some kind of charging tray type design I eve
 
 This is what I've come up with so far, it's lasercut from 3mm ply (but I need to switch to 4mm because 3mm is a bit flimsy)
 
-<figure class="two-wide">
+<figure>
 <img src="{{page.img.src}}">
-<img src="/assets/images/2024/usbc_psu/case_test.jpeg">
 </figure>
 
 I've put a 240x240 pixel colour screen on the front to show metrics like total charge power, temperature and maybe daily energy use.

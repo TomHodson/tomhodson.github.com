@@ -60,8 +60,6 @@ parser = pe.compile(
 parser.match("[ a, b , c ]").groups()
 ```
 
-NB: there is a [branch of pe](https://github.com/goodmami/pe/blob/fix-6-autoignore/), which hopefully will be merged soon, that includes the ability to auto-ignore whitespace.
-
 We can now allow nested lists by changing the grammar slightly, we also add a hint to pe for what kind of python object to make from each rule:
 ```python
 import pe
