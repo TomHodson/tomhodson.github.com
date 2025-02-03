@@ -3,7 +3,6 @@ title: Volume Rendering
 layout: post
 excerpt: A had this old CT scan lying around from when I had my wisdom teeth removed so I thought I'd try rendering it.
 assets: /assets/blog/volume_rendering
-draft: true
 
 thumbnail: /assets/blog/volume_rendering/thumbnail.png
 social_image: /assets/blog/volume_rendering/thumbnail.png
@@ -13,17 +12,17 @@ alt: A volumetric render of a CT scan of my jaw.
 model_viewer: true
 ---
 
-As part of getting my wisdom teeth removed a few years ago, I had a CT scan of my jaw done to see where my wisdom teeth were and at what angle. Spoiler, a hilariously incorrect angle.
+As part of getting my wisdom teeth removed a few years ago, I had a CT scan of my jaw done to see where my wisdom teeth were and at what angle. I can only describe the agle they turned out to be as hilariously incorrect.
 
-A CT scan works by taking a bunch of 2D x-ray images from many angles. Each of those 2D images encodes information about the density of all the tissues that the beam had to pass through on the way from the source to the detector for that pixel. Using the magic of the [Radon transform][radon], you can take that collection of 2D images and compute a 3D density map of, in this case, my head. 
+Anyway, a CT scan works by taking a bunch of 2D x-ray images from many angles. Each of those 2D images encodes information about the density of all the tissues that the beam had to pass through on the way from the source to the detector for that pixel. Using the magic of the [Radon transform][radon], you can take that collection of 2D images and compute a 3D density map of, in this case, my head. 
 
-Being the nerd that I am, I asked if I could have the scan data and they very kindly burned it to a CD for me. At some point in the intervening years I copied the data from the CD to 'my various files I might need at some point place' and forgot about it.
+Being the nerd that I am, I asked if I could have the scan data and they very kindly burned it to a CD for me. At some point in the intervening years I copied the data from the CD to 'my various files I might need at some point' place and forgot about it.
 
 Since I've been playing around a lot with three.js lately I wondered how hard it would be to finally visualise the scan.
 
 [radon]: https://en.wikipedia.org/wiki/Radon_transform
 
-So as not to bury the lede, here's what I ended up with:
+So as not to bury the lede, here's what I currently have:
 
 <figure>
 <img class="no-wc invertable" src="{{page.assets}}/billboard.png">
@@ -32,11 +31,20 @@ So as not to bury the lede, here's what I ended up with:
 <figcaption class="no-wc">If you have JS enabled this is an interacive volume render.</figcaption>
 </figure>
 
-Read on if you want to know how I put this together.
+Open the settings to control the render mode, a ray is shot out from the camera through each pixel then through the volume:
+Max Intensity: each pixel is coloured based on the densest voxel it passed through.
+Mean Intensity: instead use the mean, ignoring empty space. 
+Min Intensity: same but use the minimum ignoring empty space.
+IsoSurface: Only consider data with within a certain width around a particular value.
+
+
+The default view should show my bones and teeth quite well, if you hit presets and choose "Air Pockets" you can just about see the outline of where the various air pockets inside my head are. Also my tongue for some reason.
+
+Read on if you want to know the techy side of how I put this together.
 
 ## Step 1: Extracting the data
 
-The file I got had a `.inv3` format and a quick google sent me to [this page][inv3_file_format] with a nice explanation of the file formt. it turns out it was encoded with an open source tool! Now I could probably have just installed InVesalius and exported the data that way but instead I went with just reading the file which was pretty easy because they chose quite a simple format. 
+The file on the CD was in a `.inv3` format. A quick google sent me to [this page][inv3_file_format] with a nice explanation of the file format. It turns out it was encoded with an open source tool! Now I could probably have just installed InVesalius and exported the data that way but instead I went with just reading the file which was pretty easy because they chose quite a simple format. 
 
 First step was to extract it:
 ```
@@ -58,7 +66,7 @@ which gave me these file:
 4.4M	surface_8.vtp
 ```
 
-From my quick skim of the file format page, `main.plist` has the main metadata, `matrix.dat` is the density data. I think `mask_n.dat` and `mask.plist` are basically an array of indices used to categorise each pixel in the raw scan, for example bone, soft tissue etc.I think all the `surface_n.*` pairs and the mask might be from when I was playing around with the tools inside InVesalius sometime in the distant past.
+From my quick skim of the file format page, `main.plist` has the main metadata, `matrix.dat` is the density data. I think `mask_n.dat` and `mask.plist` are basically an array of indices used to categorise each pixel in the raw scan, for example bone, soft tissue etc. I think all the `surface_n.*` pairs and the mask might be from when I was playing around with the tools inside InVesalius sometime in the distant past.
 
 For the rest of this I will just focus on matrix.dat and the metadata in main.plist.
 
@@ -159,20 +167,23 @@ f.savefig("hist.svg")
 <img class="invertable" src="{{page.assets}}/hist.svg">
 </figure>
 
-We could probably get away with clamping all the data from -1000 to -500 to one air value, which would free up a lot of our limited 0-225 for the more interesting stuff happening between -100 and 400. But I didn't really notice an issues with the quantisation so I didn't pursue this. 
+We could probably get away with clamping all the data from -1000 to -500 to one air value, which would free up a lot of our limited 0-225 for the more interesting stuff happening between -100 and 400. But I didn't really notice any issues with the quantisation so I didn't pursue this. 
 
-EDIT: After I implemented the iso-surface rendering mode and found that I could see interesting regions like my windpipe and inside my sinuses I wondered if having more density precision would help see them. So I using float16 or float32 textures but didn't see much improvement at the expense of doubling or quadrupling the file size, so I switched back to 8 bit values. 
+*EDIT*: After I implemented the iso-surface rendering mode and found that I could see interesting regions like my windpipe and inside my sinuses I wondered if having more density precision would help see them. So I using float16 or float32 textures but didn't see much improvement at the expense of doubling or quadrupling the file size, so I switched back to 8 bit values. 
 
-## Viewing the Data
+## Viewing the Data
 
-For the viewer I mostly copied the code from [this excellent tutorial](https://observablehq.com/@mroehlig/3d-volume-rendering-with-webgl-three-js) and integrated it into my existing three.js helper methods.
+For the viewer, the general idea is to load in the density data as a 4D texture in WebGL, then use a fragment shader (runs once for each pixel) to shoot out a ray through the volume, sampling along the way. At the end you decide how to colour the pixel based on the information collected from sampling the volume. 
 
-The basic idea is we: load the GZIPed file, extract it to raw bytes, load those bytes into a 3D texture according the metadata. 
+I copied most of the code from [this excellent tutorial](https://observablehq.com/@mroehlig/3d-volume-rendering-with-webgl-three-js) and integrated it into my existing three.js web components.
 
-We create a cube in the three.js scene with a custom material attached to it that just runs our custom shader code.
+In code we:
+    * load the GZIPed file
+    * decompress to raw bytes
+    * Load those bytes into a 3D texture according the metadata about its shape and datatype.
+    * Create a cube in the three.js scene with a custom material attached to it that runs our custom shader code.
 
-Then on the GPU side we have a simple vertex shade that just calculates the raw from the camera to the vertex. This 
-
+I'd like to play around with putting the point cloud of my face I made in the last blog post into the same scene but that's a project for another day!
 
 
 
