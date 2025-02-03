@@ -46,6 +46,7 @@ if Path(assets_dir).exists() \
     and questionary.confirm(f"Directory {assets_dir} already exists, change assets dir?").ask():
     assets_dir = questionary.text("Assets Directory: ", default=assets_dir).ask()
 
+git_branch = questionary.text("Branch: ", default=f"post/{id_from_title}").ask()
 
 draft = f"""---
 title: {answers['title']}
@@ -70,7 +71,7 @@ if not questionary.confirm("Create post?").ask():
     sys.exit()
 
 repo.git.checkout("main")
-repo.git.checkout("-b", f"post/{id_from_title}")
+repo.git.checkout("-b", git_branch)
 
 with open(f"_posts/{filename}", "w") as f:
     f.write(draft)
