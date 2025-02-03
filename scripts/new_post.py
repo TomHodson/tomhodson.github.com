@@ -1,0 +1,81 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#   "questionary",
+#   "GitPython",
+# ]
+# ///
+import datetime
+import sys
+from os import system
+from pathlib import Path
+
+import questionary
+from git import Repo
+
+repo = Repo.init(".")
+if repo.untracked_files or repo.is_dirty():
+    print("Repo is dirty, commit changes first.")
+    sys.exit()
+
+now = datetime.datetime.now()
+
+answers = questionary.form(
+    title = questionary.text("Title: "),
+    excerpt = questionary.text("Excerpt: "),
+    date = questionary.text("Date: ", default=now.strftime("%Y-%m-%d")),
+    libraries = questionary.checkbox(
+        "Load Libraries:",
+        choices=[
+            "mathjax",
+            "model_viewer",
+            "klipse",
+        ],
+    ),
+).ask()
+
+id_from_title = answers['title'].lower().replace(" ", "-")
+filename = f"{answers['date']}-{id_from_title}.md"
+filename = questionary.text("Filename: ", default=filename).ask()
+
+assets_dir = f"assets/blog/{id_from_title}"
+assets_dir = questionary.text("Assets Directory: ", default=assets_dir).ask()
+
+if Path(assets_dir).exists() \
+    and questionary.confirm(f"Directory {assets_dir} already exists, change assets dir?").ask():
+    assets_dir = questionary.text("Assets Directory: ", default=assets_dir).ask()
+
+
+draft = f"""---
+title: {answers['title']}
+layout: post
+excerpt: {answers['excerpt']}
+draft: true
+
+assets: /{assets_dir}
+thumbnail: /{assets_dir}/thumbnail.svg
+social_image: /{assets_dir}/thumbnail.png
+alt:
+image_class: invertable
+
+{'\n'.join(f'{k}: true' for k in answers['libraries'])}
+---
+
+"""
+print(draft)
+if not questionary.confirm("Create post?").ask():
+    sys.exit()
+
+with open(f"_posts/{filename}", "w") as f:
+    f.write(draft)
+print(f"Made new post at _posts/{filename}")
+
+if questionary.confirm(f"Create {assets_dir}").ask():
+    Path(assets_dir).mkdir(exist_ok=True)
+
+Path("highlights.md").touch()
+Path("blog.md").touch()
+
+url = f"http://localhost:4100/{now.strftime('%Y/%m/%d/')}{id_from_title}.html"
+system(f"open {url}")
