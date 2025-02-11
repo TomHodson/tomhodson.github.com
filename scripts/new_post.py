@@ -87,6 +87,7 @@ Path("blog.md").touch()
 
 url = f"http://localhost:4100/{now.strftime('%Y/%m/%d/')}{id_from_title}.html"
 system(f"open {url}")
+system(f"code _posts/{filename}")
 
 print(f"Now on new branch post/{id_from_title}")
 print("Make sure to edit, then commit and push changes.")
