@@ -48,6 +48,7 @@ if Path(assets_dir).exists() \
 
 git_branch = questionary.text("Branch: ", default=f"post/{id_from_title}").ask()
 
+newline = "\n"
 draft = f"""---
 title: {answers['title']}
 layout: post
@@ -60,7 +61,7 @@ social_image: /{assets_dir}/thumbnail.png
 alt:
 image_class: invertable
 
-{'\n'.join(f'{k}: true' for k in answers['libraries'])}
+{newline.join(f'{k}: true' for k in answers['libraries'])}
 ---
 
 """
