@@ -146,7 +146,8 @@ export class VolumeViewer extends HTMLElement {
   }
 
   connectedCallback() {
-    const { container, canvas, scene, renderer, gui } = setupThreeJS(this);
+    const { container, canvas, scene, renderer, gui, gui_buttons } =
+      setupThreeJS(this);
 
     const model = this.getAttribute("model");
     const model_metadata = this.getAttribute("model-metadata");
@@ -215,7 +216,7 @@ export class VolumeViewer extends HTMLElement {
     };
 
     // Add a button to print the current settings to the console
-    gui
+    gui_buttons
       .add(
         {
           printSettings: () =>
@@ -238,6 +239,7 @@ export class VolumeViewer extends HTMLElement {
     };
     gui
       .add(renderProps, "preset", presets)
+      .setValue("Default")
       .onChange((preset) => {
         Object.keys(preset).forEach((key) => {
           if (material.uniforms[key]) {
@@ -277,7 +279,7 @@ export class VolumeViewer extends HTMLElement {
     this.onWindowResize = () => {
       this.camera.aspect = canvas.clientWidth / canvas.clientHeight;
       this.camera.updateProjectionMatrix();
-      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
     };
     this.onWindowResize();
 

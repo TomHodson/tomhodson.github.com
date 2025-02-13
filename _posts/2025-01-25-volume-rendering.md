@@ -6,6 +6,7 @@ assets: /assets/blog/volume_rendering
 
 thumbnail: /assets/blog/volume_rendering/thumbnail.png
 social_image: /assets/blog/volume_rendering/thumbnail.png
+image_class: invertable
 
 alt: A volumetric render of a CT scan of my jaw.
 

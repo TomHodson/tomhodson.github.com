@@ -67,7 +67,7 @@ export class PointCloudViewer extends HTMLElement {
     this.onWindowResize = () => {
       this.camera.aspect = canvas.clientWidth / canvas.clientHeight;
       this.camera.updateProjectionMatrix();
-      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
     };
     const timer = new Timer();
 

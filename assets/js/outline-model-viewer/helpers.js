@@ -117,9 +117,10 @@ function componentHTML(component_rect) {
           color: var(--theme-subtle-outline);
         }
 
-        .lil-gui .title {height: 2em;}
-        .lil-gui.root {
-          margin-top: calc(${height}px - 2em);
+    .lil-gui .title {height: 2em;}
+    .lil-gui.root {
+          --height: 3em;
+          margin-top: calc(${height}px - var(--height));
           width: 100%;
           z-index: 1;
           --background-color: none;
@@ -132,6 +133,16 @@ function componentHTML(component_rect) {
           --number-color: #2cc9ff;
           --string-color: #a2db3c;
       }
+    .lil-gui.root.closed {
+        height: var(--height);
+    }
+
+      #container.fullscreen > .lil-gui {
+            background-color: rgba(1,1,1, 0.5);
+        }
+      #container.fullscreen > .lil-gui.closed {
+            background-color: unset;
+        }
 
       .lil-gui div.title {
         margin: 0.5em;
@@ -161,15 +172,32 @@ function componentHTML(component_rect) {
             height: 100%;
             z-index: 1;
             background: var(--theme-bg-color);
-            }
+        }
         
         #container.fullscreen canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
         }
 
         #container.fullscreen .lil-gui.root {
+            padding: 0.7em;
             margin-top: 0;
-            width: 50%;
+        }
+
+        #container.fullscreen .lil-gui.root > div.title {
+            margin: 0
+        }
+
+        .common-lil-gui-buttons .children {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            button {
+                padding: 0.2em;
+            }
         }
       </style>
     `;
@@ -223,9 +251,14 @@ function setupThreeJS(component) {
     },
   };
 
-  component.gui.add(params, "printCamera").name("Print Viewport State");
-  component.gui.add(params, "screenshot").name("Take Screenshot");
-  component.gui.add(params, "resetCamera").name("Reset Viewport");
+  let buttons = component.gui.addFolder("Actions");
+  buttons.open();
+  buttons.$title.style.display = "none";
+  buttons.domElement.classList.add("common-lil-gui-buttons");
+  buttons.add(params, "printCamera").name("Print Viewport State");
+  buttons.add(params, "screenshot").name("Take Screenshot");
+  buttons.add(params, "resetCamera").name("Reset Viewport");
+  component.gui_buttons = buttons;
 
   component.full_screen = false;
   //   clone of original rect
@@ -235,16 +268,21 @@ function setupThreeJS(component) {
   };
 
   component.toggleFullScreen = () => {
+    if (!component.container.requestFullscreen) {
+      console.log("Fullscreen not supported");
+      return;
+    }
     component.full_screen = !component.full_screen;
+
     if (component.full_screen) {
       component.container.classList.add("fullscreen");
+      component.container.requestFullscreen();
     } else {
       component.container.classList.remove("fullscreen");
-      component.canvas.height = component.original_rect.height;
+      component.canvas.style.height = component.original_rect.height + "px";
+      component.canvas.style.width = component.original_rect.width + "px";
+      document.exitFullscreen();
     }
-    component.canvas.removeAttribute("style");
-    component.canvas.removeAttribute("width");
-    component.canvas.removeAttribute("height");
     component.onWindowResize();
   };
 
