@@ -32,6 +32,7 @@
   --theme-model-line-color: #222;
   --theme-model-bg-color: #fcfcfc;
   --theme-subtle-outline: oklch(90% 0 50);
+  --theme-subtle-background: rgba(128, 128, 128, 0.05);
   --theme-highlight-color: hsl(338, 75%, 60%);
   --theme-highlight-color-transparent: hsla(338, 75%, 60%, 33%);
   --theme-subtle-text-color: #606984;
@@ -291,23 +292,42 @@ section.center {
   margin-bottom: 1em;
 }
 
-div.CodeRay,
-.wide-outside-parent {
-  // width: 100vw;
-  position: relative;
-  width: calc(
-    100vw - var(--body-margin) - var(--main-margin-left) -
-      var(--main-padding-left) - var(--main-padding-right)
-  );
-  pre {
-    white-space: pre-wrap;
+div.CodeRay {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
+    Courier New, Courier, monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 1em;
+  background-color: var(--theme-subtle-background);
+  border-radius: 5px;
+
+  // Override background colors from the theme.
+  span {
+    background-color: unset !important;
   }
-  .line-numbers {
-    // display: none;
-    margin-right: 1em;
-    opacity: 0.3;
-    a {
-      text-decoration: none;
+
+  pre {
+    text-wrap: auto;
+    margin: 0;
+  }
+
+  .wide-outside-parent {
+    // width: 100vw;
+    position: relative;
+    width: calc(
+      100vw - var(--body-margin) - var(--main-margin-left) -
+        var(--main-padding-left) - var(--main-padding-right)
+    );
+    pre {
+      white-space: pre-wrap;
+    }
+    .line-numbers {
+      // display: none;
+      margin-right: 1em;
+      opacity: 0.3;
+      a {
+        text-decoration: none;
+      }
     }
   }
 }
@@ -389,6 +409,7 @@ svg {
     --theme-text-color: #fcfcfc;
     --theme-bg-color: #222;
     --theme-subtle-outline: oklch(50% 0 50);
+    --theme-subtle-background: rgba(255, 255, 255, 0.05);
   }
 
   // Two main image classes are "invertable" i.e look good inverted
