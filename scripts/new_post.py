@@ -35,7 +35,14 @@ answers = questionary.form(
     ),
 ).ask()
 
-id_from_title = answers['title'].lower().replace(" ", "-")
+shorter_title = ""
+for word in answers['title'].split(" "):
+    if len(shorter_title) + len(word) < 100:
+        shorter_title += word + " "
+    else:
+        break
+
+id_from_title = shorter_title.lower().replace(" ", "-")
 filename = f"{answers['date']}-{id_from_title}.md"
 filename = questionary.text("Filename: ", default=filename).ask()
 
@@ -46,7 +53,7 @@ if Path(assets_dir).exists() \
     and questionary.confirm(f"Directory {assets_dir} already exists, change assets dir?").ask():
     assets_dir = questionary.text("Assets Directory: ", default=assets_dir).ask()
 
-git_branch = questionary.text("Branch: ", default=f"post/{id_from_title[:100]}").ask()
+git_branch = questionary.text("Branch: ", default=f"post/{id_from_title}").ask()
 
 newline = "\n"
 draft = f"""---
