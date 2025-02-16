@@ -21,8 +21,20 @@ if repo.untracked_files or repo.is_dirty():
 
 now = datetime.datetime.now()
 
+title = questionary.text("Title: ").ask()
+
+shorter_title = ""
+for word in title.split():
+    if len(shorter_title) + len(word) < 100:
+        shorter_title += word + " "
+    else:
+        break
+shorter_title = shorter_title.strip()
+
+id_from_title = shorter_title.lower().replace(" ", "-").replace(".", "").replace(",", "").replace(":", "")
+id_from_title = questionary.text("id_from_title: ", default=id_from_title).ask()
+
 answers = questionary.form(
-    title = questionary.text("Title: "),
     excerpt = questionary.text("Excerpt: "),
     date = questionary.text("Date: ", default=now.strftime("%Y-%m-%d")),
     libraries = questionary.checkbox(
@@ -35,14 +47,7 @@ answers = questionary.form(
     ),
 ).ask()
 
-shorter_title = ""
-for word in answers['title'].split(" "):
-    if len(shorter_title) + len(word) < 100:
-        shorter_title += word + " "
-    else:
-        break
 
-id_from_title = shorter_title.lower().replace(" ", "-")
 filename = f"{answers['date']}-{id_from_title}.md"
 filename = questionary.text("Filename: ", default=filename).ask()
 
@@ -57,7 +62,7 @@ git_branch = questionary.text("Branch: ", default=f"post/{id_from_title}").ask()
 
 newline = "\n"
 draft = f"""---
-title: {answers['title']}
+title: {title}
 layout: post
 excerpt: {answers['excerpt']}
 draft: true
