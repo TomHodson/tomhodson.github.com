@@ -46,7 +46,7 @@ if Path(assets_dir).exists() \
     and questionary.confirm(f"Directory {assets_dir} already exists, change assets dir?").ask():
     assets_dir = questionary.text("Assets Directory: ", default=assets_dir).ask()
 
-git_branch = questionary.text("Branch: ", default=f"post/{id_from_title}").ask()
+git_branch = questionary.text("Branch: ", default=f"post/{id_from_title[:100]}").ask()
 
 newline = "\n"
 draft = f"""---
