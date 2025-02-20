@@ -18,12 +18,13 @@ image_class: invertable
 
 [x] Detected the board on I2C at address 64 (0b1000000) which makes sense assuming the floating address pins have a pulldown and the address table from the datasheet:
 
-| A1  | A0  | SLAVE ADDRESS |
+| A1  | A0  |   ADDRESS    |
 |-----|-----|--------------|
 | GND | GND | 1000000      |
 | GND | VS+ | 1000001      |
 | GND | SDA | 1000010      |
 | GND | SCL | 1000011      |
+|     |     |              |
 | VS+ | GND | 1000100      |
 | VS+ | VS+ | 1000101      |
 | VS+ | SDA | 1000110      |
