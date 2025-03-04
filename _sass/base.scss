@@ -252,6 +252,9 @@ figure.multiple {
     margin: 0;
     padding: 0;
   }
+  > .wide {
+    width: calc(100% - 0.5em);
+  }
 }
 
 .image-grid-4x4 {
