@@ -47,53 +47,53 @@ q = Qube.from_dict({
 # depth controls how much of the tree is open when rendered as html.
 q.html(depth=100)
 ```
+
 <div class="output text_html">
-        <style>
-        pre#qubed-tree-555631 {
-            font-family: monospace;
-            white-space: pre;
-            font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,Courier,monospace;
-            font-size: 12px;
-            line-height: 1.4;
-            
-            details {
-                margin-left: 0;
-            }
+<style>
+pre#qubed-tree-555631 {
+    font-family: monospace;
+    white-space: pre;
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,Courier,monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    
+    details {
+        margin-left: 0;
+    }
 
-            summary {
-                list-style: none;
-                cursor: pointer;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                text-wrap: nowrap;
-                display: block;
-            }
+    summary {
+        list-style: none;
+        cursor: pointer;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        text-wrap: nowrap;
+        display: block;
+    }
 
-            summary:hover,span.leaf:hover {
-                background-color: #f0f0f0;
-            }
+    summary:hover,span.leaf:hover {
+        background-color: #f0f0f0;
+    }
 
-            details > summary::after {
-                content: ' ▲';
-            }
+    details > summary::after {
+        content: ' ▲';
+    }
 
-            details:not([open]) > summary::after {
-                content: " ▼";
-            }
+    details:not([open]) > summary::after {
+        content: " ▼";
+    }
 
-            .leaf {
-                text-overflow: ellipsis;
-                overflow: hidden;
-                text-wrap: nowrap;
-                display: block;
-            }
+    .leaf {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        text-wrap: nowrap;
+        display: block;
+    }
 
-            summary::-webkit-details-marker {
-              display: none; 
-              content: "";
-            }
+    summary::-webkit-details-marker {
+        display: none; 
+        content: "";
+    }
 
-        }
-        </style>
-        <pre class="qubed-tree" id="qubed-tree-555631"><details open=""><summary>root</summary><details open=""><summary>├── class=od</summary><details open=""><summary>│   ├── expver=0001</summary><span class="leaf">│   │   ├── param=1</span><span class="leaf">│   │   └── param=2</span></details><details open=""><summary>│   └── expver=0002</summary><span class="leaf">│       ├── param=1</span><span class="leaf">│       └── param=2</span></details></details><details open=""><summary>└── class=rd</summary><details open=""><summary>    ├── expver=0001</summary><span class="leaf">    │   ├── param=1</span><span class="leaf">    │   ├── param=2</span><span class="leaf">    │   └── param=3</span></details><details open=""><summary>    └── expver=0002</summary><span class="leaf">        ├── param=1</span><span class="leaf">        └── param=2</span></details></details></details></pre></div></div>
-</div>
+}
+</style>
+<pre class="qubed-tree" id="qubed-tree-555631"><details open=""><summary>root</summary><details open=""><summary>├── class=od</summary><details open=""><summary>│   ├── expver=0001</summary><span class="leaf">│   │   ├── param=1</span><span class="leaf">│   │   └── param=2</span></details><details open=""><summary>│   └── expver=0002</summary><span class="leaf">│       ├── param=1</span><span class="leaf">│       └── param=2</span></details></details><details open=""><summary>└── class=rd</summary><details open=""><summary>    ├── expver=0001</summary><span class="leaf">    │   ├── param=1</span><span class="leaf">    │   ├── param=2</span><span class="leaf">    │   └── param=3</span></details><details open=""><summary>    └── expver=0002</summary><span class="leaf">        ├── param=1</span><span class="leaf">        └── param=2</span></details></details></details></pre></div>
