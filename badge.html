@@ -1,0 +1,139 @@
+---
+title: Badge
+permalink: /badge/
+
+img:
+  src: /assets/images/avatar.jpeg
+  alt: A picture of me.
+---
+
+<!DOCTYPE html>
+<html class="" lang="en">
+  <head>
+    {% include default_head_tags.html %}
+    <style>
+.profile-pic-name {
+    display: flex;
+}
+
+img.qr {
+    width: 50vw;
+    height: 50vw;
+    z-index: 1;
+}
+
+.avatar {
+    width: 40vw;
+    height: 40vw;
+}
+
+header h1 {
+    font-size: 15vw;
+    margin-left: 5vw;
+}
+
+.professional-links {
+    margin-bottom: 10vh;
+}
+
+.user-toggle {
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    padding-top: 0px;
+}
+
+.card {
+    background: var(--theme-bg-color);
+    padding: 20px;
+    position: relative;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 25px;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    background: var(--theme-highlight-color);
+    height: 150%;
+    animation: rotBGimg 7s linear infinite;
+    transition: all 0.2s linear;
+  }
+  
+  @keyframes rotBGimg {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .card::after {
+    content: '';
+    position: absolute;
+    background: var(--theme-bg-color);
+    ;
+    inset: 10px;
+    border-radius: 15px;
+  }  
+  
+  
+    </style>
+  </head>
+  <body class = "">
+    <header class="h-card">
+      <div class="profile-pic-name">
+        <img
+          src="/assets/images/avatar.jpeg"
+          class="u-photo avatar"
+          alt="A picture of me."
+          height="175"
+          width="175"
+        />
+        <a class="p-name u-url u-uid" href="{{ site.url }}"
+          ><h1>Tom Hodson</h1></a
+        >
+      </div>
+      <p class="p-note bio">
+        <span>Maker, Baker</span>
+        <span>Programmer</span>
+        <span><a href="/thesis">Reformed&nbsp;Physicist</a></span>
+        <span><a href="https://ecmwf.int">RSE@ECMWF</a> </span>
+      </p>
+      <!-- <h2>Links</h2> -->
+      <p class="professional-links">
+        <a href="https://github.com/TomHodson" rel="me authn" class="u-url"
+          >@TomHodson {% include icons/github.svg %}</a
+        >
+        <a href="https://tech.lgbt/@Tomhodson" rel="me" class="u-url"
+          >tech.lgbt/@Tomhodson {% include icons/mastodon.svg %}</a
+        >
+        </p>
+      </div>
+
+      <div class = "card">
+        <img
+        src="/assets/badge/qr.svg"
+        class="qr invertable"
+        alt="A QR code pointing to this page"
+        height="175"
+        width="175"
+      />
+      </div>
+
+
+    <div class="user-toggle">
+        <div role="status" class="visually-hidden js-mode-status"></div>
+        <button class="toggle-button js-mode-toggle" aria-label="Night Mode Toggle">
+          <span class="toggle-button__icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+  </body>
+</html>
