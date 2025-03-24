@@ -1,0 +1,13 @@
+{
+  "name": "Tom Hodson's Website",
+  "short_name": "Tom's Site",
+  "start_url": "https://thomashodson.com/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
