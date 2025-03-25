@@ -12,8 +12,18 @@ img:
   <head>
     {% include default_head_tags.html %}
     <style>
+
+header {
+    height: 100vh;
+    justify-content: unset;
+}
+
 .profile-pic-name {
     display: flex;
+}
+
+p {
+    font-size: min(7vw, 3vh);
 }
 
 img.qr {
@@ -41,6 +51,7 @@ header h1 {
     top: 0px;
     left: 100%;
     padding-top: 0px;
+    transform: translate(calc(-100% - 0.5em), 0.5em);
 }
 
 .card {
@@ -52,6 +63,11 @@ header h1 {
     place-items: center;
     overflow: hidden;
     border-radius: 25px;
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, calc(-100% - 50px));
   }
   
   .card::before {
@@ -117,7 +133,9 @@ header h1 {
         </p>
       </div>
 
+      <a href = "/">
       <div class = "card">
+        
         <img
         src="/assets/badge/qr.svg"
         class="qr invertable"
@@ -126,6 +144,7 @@ header h1 {
         width="175"
       />
       </div>
+      </a>
 
 
     <div class="user-toggle">

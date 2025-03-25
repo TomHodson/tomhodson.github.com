@@ -1,8 +1,13 @@
+---
+layout: none
+---
 {
-  "name": "Tom Hodson's Website",
-  "short_name": "Tom's Site",
-  "start_url": "https://thomashodson.com/",
+  "name": "Tom Hodson's Website Badge",
+  "short_name": "Tom's Site Badge",
+  "start_url": "/badge",
+  "homepage_url": "https://thomashodson.com",
   "display": "standalone",
+  "manifest_version": 3,
   "icons": [
     {
       "src": "apple-touch-icon.png",
