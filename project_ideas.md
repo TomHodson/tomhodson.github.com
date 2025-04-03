@@ -9,6 +9,9 @@ mathjax: false
 
 # Project Ideas
 
+## Ferrofluid music thing
+Put that ferro fluid in a round bottom flask and put a coil nearby
+
 ## Laser Cut Projects
 
 - Laser cut things from [here](https://blogs.loc.gov/maps/2025/03/globe-gores/)
