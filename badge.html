@@ -14,32 +14,53 @@ img:
     <style>
 
 header {
+    display: flex;
     height: 100vh;
     justify-content: unset;
+    font-size: min(3vw, 3vh);
 }
 
-.profile-pic-name {
+.pic-name-text {
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60vh;
+    padding: 1rem;
+}
+
+.pic-name {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.card-container {
+    height: 30vh;
 }
 
 p {
-    font-size: min(7vw, 3vh);
+    font-size: 1rem;
 }
 
+.pic {
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid var(--theme-text-color);
+    transition: border-color var(--night-mode-fade-time) ease-in-out;
+    width: 40vw;
+    height: 40vw;
+  }
+
 img.qr {
-    width: 50vw;
-    height: 50vw;
+    --dimension: calc(0.6 * min(50vw, 100vh));
+    width: var(--dimension);
+    height: var(--dimension);
     z-index: 1;
 }
 
-.avatar {
-    width: 40vw;
-    height: 40vw;
-}
-
 header h1 {
-    font-size: 15vw;
-    margin-left: 5vw;
+    font-size: 3rem;
+    margin:0;
 }
 
 .professional-links {
@@ -55,25 +76,19 @@ header h1 {
 }
 
 .card {
-    background: var(--theme-bg-color);
     padding: 20px;
     position: relative;
-    display: flex;
+    display: inline-flex;
     place-content: center;
     place-items: center;
     overflow: hidden;
     border-radius: 25px;
-
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, calc(-100% - 50px));
   }
   
   .card::before {
     content: '';
     position: absolute;
-    width: 100px;
+    width: 30%;
     background: var(--theme-highlight-color);
     height: 150%;
     animation: rotBGimg 7s linear infinite;
@@ -98,16 +113,48 @@ header h1 {
     inset: 10px;
     border-radius: 15px;
   }  
+
+  #mastospan {
+    text-wrap: nowrap;
+  }
+
+  svg#svg1826 {
+    display: inline;
+  }
+
+  @media (orientation: landscape) {
+    header {
+      flex-direction: row;
+    }
+    .card-container {
+        width: 50vw;
+    }
+
+    .pic-name-text {
+        width: 50vw;
+        height: 100vh;
+    }
+
+    .pic-name {
+        align-items: center;
+    }
+    .pic {
+        --dimension: calc(0.6 * min(50vw, 100vh));
+        width: var(--dimension);
+        height: var(--dimension);
+    }
+  }
   
   
     </style>
   </head>
   <body class = "">
     <header class="h-card">
-      <div class="profile-pic-name">
+    <div class="pic-name-text">
+      <div class="pic-name">
         <img
           src="/assets/images/avatar.jpeg"
-          class="u-photo avatar"
+          class="u-photo pic"
           alt="A picture of me."
           height="175"
           width="175"
@@ -128,14 +175,15 @@ header h1 {
           >@TomHodson {% include icons/github.svg %}</a
         >
         <a href="https://tech.lgbt/@Tomhodson" rel="me" class="u-url"
-          >tech.lgbt/@Tomhodson {% include icons/mastodon.svg %}</a
+          ><span id="mastospan">tech.lgbt/@Tomhodson</span> {% include icons/mastodon.svg %}</a
         >
         </p>
       </div>
+      </div>
 
+      <div class="card-container">
       <a href = "/">
       <div class = "card">
-        
         <img
         src="/assets/badge/qr.svg"
         class="qr invertable"
@@ -145,6 +193,7 @@ header h1 {
       />
       </div>
       </a>
+      </div>
 
 
     <div class="user-toggle">

@@ -20,6 +20,7 @@ layout: none
     
     {% for post in site.posts limit:20 %}
     {% if post.draft == false or jekyll.environment == "development" %}
+    {% unless post.exclude_from_rss %}
     {
       "id": "{{ post.url | prepend: site.baseurl | prepend: site.url }}",
       "url": "{{ post.url | prepend: site.baseurl | prepend: site.url }}",
@@ -30,6 +31,7 @@ layout: none
       "date_published": "{{ post.date | date_to_rfc822 }}",
       "date_modified": "{{ post.last_modified_at | date_to_rfc822 }}"
       }{% unless forloop.last %},{% endunless %}
+    {% endunless %}
     {% endif %}
     {% endfor %}
   ]

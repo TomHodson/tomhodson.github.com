@@ -16,9 +16,10 @@ layout: none
 		<atom:link href="{{ site.url }}/{{ page.path }}" rel="self" type="application/rss+xml" />
 		<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
         <language>en-gb</language>
-		{% assign feed_items = site.feed.post_limit | default: 10 %}
-		{% for post in site.posts limit:feed_items %}
+        {% assign feed_items = site.feed.post_limit | default: 10 %}
+        {% for post in site.posts limit:feed_items %}
         {% if post.draft == false or jekyll.environment == "development" %}
+        {% unless post.exclude_from_rss %}
 			<item>
 				<title>{{ post.title | xml_escape }}</title>
 				<dc:creator>Tom Hodson</dc:creator>
@@ -37,11 +38,12 @@ layout: none
 				<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 				<link>{{ site.url }}{{ post.url }}</link>
 				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
-                <!-- {% if post.social_image %}
+            <!-- {% if post.social_image %}
                 <media:thumbnail width="250" height="250" url="{{ site.url }}{{ post.social_image }}"/>
                 {% endif %} -->
             </item>
+        {% endunless %}
         {% endif %}
-		{% endfor %}
+        {% endfor %}
 	</channel>
 </rss>
