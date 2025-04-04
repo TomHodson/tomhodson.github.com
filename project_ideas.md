@@ -9,8 +9,24 @@ mathjax: false
 
 # Project Ideas
 
-## Ferrofluid music thing
+## Ferrofluid music thing
+
 Put that ferro fluid in a round bottom flask and put a coil nearby
+
+## Battle ships
+
+What's the optimal battle ships placement and guessing strategy?
+Presumably the best battle ship placement strategy would be where you cheat and break your ships up into 1 pixel ships and then place them randomly.
+
+I guess the second best should be where you place them randomly using rejection sampling (try to place in random position, if you intersect with a previous placement try again).
+
+What's the best guessing strategy? If you're up against the cheater presumably you can't do better than random. But if you're up against the random but physically correct player, I guess the shape of the ships will rule out some configurations and give you and advantage.
+
+If you're up against a human placer then presumably you could do better by exploiting human placement patterns.
+
+Idea: Train a pixel-pixel model to take in a three state battle ship board where the cells are (Hit, Miss, Unknown). Draw examples from the physically correct and randomly mask them. Train with (x = masked board, y = unmasked boards) to try to get a prediction model for likely placement of ships given known squares.
+
+Extension: If you have a good prediction model, do you just choose the square predicted to be mostly likely to have a ship? Or do you iterate over every square and somehow measure how much knowing the value of that square would improve our confidence?
 
 ## Laser Cut Projects
 
