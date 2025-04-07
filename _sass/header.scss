@@ -139,4 +139,11 @@ header {
   nav a {
     margin-left: 1em;
   }
+
+  .light-dark-toggle {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    padding-top: 0!important;
+  }
 }

@@ -25,7 +25,7 @@ model: /assets/projects/ceramics/pots/pots.glb
 </figure>
 
 <figure>
-<outline-model-viewer model = "{{page.models}}/pots/pots.glb" materials=keep mode=1 camera='{"position":[-5.155,2.5,-9.456],"rotation":[-2.883,-0.4851,-3.019],"zoom":268,"target":[0,0,0]}' ambient-light="6" directional-light="0.8">
+<outline-model-viewer model = "{{page.models}}/pots/pots.glb" camera='{"type":"perspective","fov":30,"near":10,"far":10000,"position":[364.9,307.2,459.7],"rotation":[-0.5891,0.5833,0.3527],"zoom":250,"target":[0,0,0]}' materials=keep mode=1 ambient-light="6" directional-light="0.8">
     <img class="outline-model-poster no-wc" src = "{{page.models}}/pots/pots.png">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>

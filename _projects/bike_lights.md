@@ -13,10 +13,13 @@ social_image: /assets/projects/bike_lights/thumbnail.png
 model: /assets/projects/bike_lights/model
 
 ---
-<outline-model-viewer model = "/assets/projects/bike_lights/models/bigger.glb" camera='{"position":[-7.434,5.128,-6.379],"rotation":[-2.464,-0.7373,-2.646],"zoom":303.06369033128976,"target":[0,0,0]}'>
+
+<outline-model-viewer model = "/assets/projects/bike_lights/models/bigger.glb" camera='{"type":"perspective","fov":30,"near":10,"far":10000,"position":[848.5,470.2,-294.9],"rotation":[-2.131,0.9915,2.214],"zoom":303.06369033128976,"target":[0,0,0]}'>
     <img class="outline-model-poster no-wc" src = "/assets/projects/bike_lights/thumbnail.svg">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>
+
+
 
 I've been playing around with making dynamo bike lights for my bike for a while now. 
 

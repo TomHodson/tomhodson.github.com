@@ -9,6 +9,18 @@ mathjax: false
 
 # Project Ideas
 
+* Write some new firmware for the [DMM SAO](https://github.com/flummer/dmm-sao/blob/main/firmware/code.py) I got at the hackaday supercon.
+
+## 3D models of vertebrates
+https://www.morphosource.org/
+https://sketchfab.com/FloridaMuseum/models
+https://www.morphosource.org/concern/media/000727033?locale=en
+https://www.morphosource.org/concern/media/000658134?locale=en
+[Triangulation Theodolite By Hildebrand Freiberg, 1902](https://www.morphosource.org/concern/media/000657801?locale=en)
+[Cool Green Theodolite](https://www.morphosource.org/concern/media/000655681?locale=en)
+[Nice Lumbar](https://www.morphosource.org/concern/media/000532571?locale=en)
+[Shark Head](https://www.morphosource.org/concern/media/000677539?locale=en)
+
 ## Ferrofluid music thing
 
 Put that ferro fluid in a round bottom flask and put a coil nearby

@@ -15,16 +15,18 @@
     <main>
         <article class="h-entry">
             <section class="header">
-                <section class="title-date-container">
+                <section class="title-icon-container">
                     <h1 class = "p-name highlights">{{ page.title }}</h1>
-                    <time class="dt-label dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+                    <div class = "icon-container"></div>
                 </section>
                 <hr class="byline">
-                <section class="byline">
-                {{page.excerpt}}
-                </section>
             </section>
-            <summary style="display:none" class="p-summary">{{ page.excerpt }}</summary>
+            <section class="byline-time">
+                <section class="byline">
+                    {{page.excerpt}}
+                </section>
+                <time class="dt-label dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+            </section>
             <div class="e-content">
             {{ content }}
             </div>

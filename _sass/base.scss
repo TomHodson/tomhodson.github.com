@@ -44,6 +44,9 @@
   --body-width: min(100vw, 900px);
   --body-margin: calc((100vw - var(--body-width)) / 2);
 
+   // max 30px, min 30px, min happens at 375px
+   --title-font-size: clamp(20px, 20px * 100vw / 375px, 30px);
+
   --color-mode: "light";
   --color-dark: #141414;
   --color-dark-alpha: rgba(0, 0, 0, 0.1);
@@ -143,16 +146,28 @@ section.title-date-container {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  time {
-    text-align: right;
-    @include time-text;
-  }
+}
+
+section.title-icon-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+  
+
+section.byline-time {
+    display: flex;
+    time {
+        text-align: right;
+        @include time-text;
+    }
 }
 
 hr.byline {
   margin-top: 0.2em;
   margin-bottom: 0.5em;
 }
+
 section.byline {
   font-style: italic;
   margin-bottom: 2em;
@@ -386,9 +401,8 @@ body:not(.has-wc) .has-wc {
   position: absolute;
 }
 
-// Add transitions for things that will be affected by night mode
-body,
-a {
+// Add transitions for the background night mode
+* {
   transition: background var(--night-mode-fade-time) ease-in-out,
     color var(--night-mode-fade-time) ease-in-out;
 }

@@ -6,13 +6,14 @@ import { getSurfaceIdMaterial } from "./FindSurfaces.js";
 // Follows the structure of
 // 		https://github.com/mrdoob/three.js/blob/master/examples/jsm/postprocessing/OutlinePass.js
 class CustomOutlinePass extends Pass {
-  constructor(resolution, scene, camera, outlineColor) {
+  constructor(resolution, scene, camera, outlineColor, edgeThickness) {
     super();
 
     this.renderScene = scene;
     this.renderCamera = camera;
     this.resolution = new THREE.Vector2(resolution.x, resolution.y);
     this.outlineColor = outlineColor;
+    this.edgeThickness = edgeThickness; // If rendering at N times final size, set to N
 
     this.fsQuad = new FullScreenQuad(null);
     this.fsQuad.material = this.createOutlinePostProcessMaterial();
@@ -37,6 +38,12 @@ class CustomOutlinePass extends Pass {
   dispose() {
     this.surfaceBuffer.dispose();
     this.fsQuad.dispose();
+  }
+
+  updateEdgeThickness(edgeThickness) {
+    this.edgeThickness = edgeThickness;
+    console.log("Updating edge thickness to", this.edgeThickness);
+    this.fsQuad.material.uniforms.edgeThickness.value = edgeThickness;
   }
 
   updateMaxSurfaceId(maxSurfaceId) {
@@ -115,7 +122,14 @@ class CustomOutlinePass extends Pass {
 			uniform vec4 screenSize;
 			uniform vec3 outlineColor;
 			uniform vec3 multiplierParameters;
-      uniform int debugVisualize;
+
+            // How many pixels away to sample for edges
+            // Larger value give thicker lines
+            // If rendering at N times the final display size
+            // Set this to N for lines whose thickness doesn't depend on N
+            uniform int edgeThickness;
+
+            uniform int debugVisualize;
 
 			varying vec2 vUv;
 
@@ -153,15 +167,16 @@ class CustomOutlinePass extends Pass {
             float getSurfaceIdDiff(vec3 surfaceValue) {
                 float surfaceIdDiff = 0.0;
 
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(1, 0))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(0, 1))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-1, 0))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(0, -1))) ? 1.0 : 0.0;
+                int e = edgeThickness;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(e, 0))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(0, e))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-e, 0))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(0, -e))) ? 1.0 : 0.0;
 
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(1, 1))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(1, -1))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-1, 1))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-1, -1))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(e, e))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(e, -e))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-e, e))) ? 1.0 : 0.0;
+                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-e, -e))) ? 1.0 : 0.0;
 
                 return surfaceIdDiff;
             }
@@ -267,6 +282,7 @@ class CustomOutlinePass extends Pass {
         depthBuffer: {},
         surfaceBuffer: {},
         outlineColor: { value: new THREE.Color(this.outlineColor) },
+        edgeThickness: { value: this.edgeThickness },
         multiplierParameters: {
           value: new THREE.Vector3(0.9, 20, 0.5),
         },

@@ -26,8 +26,8 @@ export function deserialiseCamera(component) {
 
   const camera = new THREE.PerspectiveCamera(30, aspect, 0.01, 40);
 
-  if (!initial_camera_state) return;
-  if (initial_camera_state.type !== "perspective") return;
+  if (!initial_camera_state) return camera;
+  if (initial_camera_state.type !== "perspective") return camera;
   if (initial_camera_state.fov) camera.fov = initial_camera_state.fov;
   if (initial_camera_state.near) camera.near = initial_camera_state.near;
   if (initial_camera_state.far) camera.far = initial_camera_state.far;
@@ -227,6 +227,7 @@ function setupThreeJS(component) {
   component.renderer = new THREE.WebGLRenderer({
     canvas: component.canvas,
     alpha: true,
+    antialias: true,
   });
 
   component.renderer.setPixelRatio(window.devicePixelRatio);
@@ -288,6 +289,26 @@ function setupThreeJS(component) {
 
   const fullScreenButton = component.shadow.querySelector("#fullscreen-btn");
   fullScreenButton.addEventListener("click", component.toggleFullScreen);
+
+  component.hideUI = () => {
+    component.gui.hide();
+    component.shadow.querySelector("#fullscreen-btn").style.display = "none";
+    component.shadow.querySelector("#clicked-item").style.display = "none";
+    component.canvas.style.position = "static";
+  };
+
+  // // Handle fullscreen change events triggerd through various means
+  // function onFullScreenChange() {
+  //     if (document.fullscreenElement) {
+  //       canvas.style.height = "100%";
+  //       lil_gui.style.marginTop = "0";
+  //     } else {
+  //       canvas.style.height = canvas_height;
+  //       lil_gui.style.marginTop = lil_gui_margin_top;
+  //     }
+  //     onWindowResize();
+  //   }
+  //   document.addEventListener("fullscreenchange", onFullScreenChange);
 
   return component;
 }

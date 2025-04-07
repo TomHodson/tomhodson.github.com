@@ -84,11 +84,10 @@ There's an INA219 and a shunt resistor for current and voltage monitoring and a 
 
 For now I've broken the functionality for one channel out into a test board that I've sent off to JLCPB for manufacturing with and to be populated with SMT components. This ended up costing about 50 dollars for 5 boards. In future I want to have a go at doing the component placement and reflow myself. 
 
-<outline-model-viewer model = "{{page.assets}}/test_board.glb" materials=flat spin=true camera='{"position":[4.016,7.557,6.841],"rotation":[-0.8351,0.3753,0.3848],"zoom":241.86567243589988,"target":[0,0,0]}' ambient-light="5" directional-light="5">
+<outline-model-viewer model = "{{page.assets}}/test_board.glb" materials=flat spin=true camera='{"type":"perspective","fov":30,"near":100,"far":1000,"position":[200.3,404.2,-394.6],"rotation":[-2.344,0.3407,2.812],"zoom":241,"target":[0,0,0]}' ambient-light="5" directional-light="5">
     <img class="outline-model-poster no-wc" src = "{{page.img.src}}">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>
-
 And here's the board as it arrived in the post.
 
 <figure class="two-wide">
