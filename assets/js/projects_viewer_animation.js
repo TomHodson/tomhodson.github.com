@@ -18,33 +18,31 @@ if (inline_viewer) {
       inline_viewer.getBoundingClientRect().bottom;
 
     if (mode === "inline" && delta > margin) {
-      console.log(`Moving canvas to icon delta ${delta} ${window.scrollY}`);
+      console.log("moving to icon container");
       icon_container.appendChild(canvas);
       mode = "icon";
 
       original.autoRotate = controls.autoRotate;
       controls.autoRotate = true;
-
-      inline_viewer.onWindowResize();
       inline_viewer.updateEdgeThickness(0.5);
-      canvas.classList.add("revealed");
     }
 
     if (mode === "icon" && delta > 2 * margin) {
-      canvas.classList.add("revealed");
+      if (!canvas.classList.contains("revealed")) {
+        console.log("Adding revealed class");
+        canvas.classList.add("revealed");
+      }
     }
 
     if (mode === "icon" && delta < 0) {
-      console.log(
-        `Moving canvas to inline viewer delta ${delta} ${window.scrollY}`
-      );
+      console.log("moving to main content");
       inline_viewer.component.container.insertBefore(
         canvas,
         inline_viewer.component.gui.domElement
       );
       controls.autoRotate = original.autoRotate;
       mode = "inline";
-      inline_viewer.onWindowResize();
+      //   inline_viewer.onWindowResize();
       inline_viewer.updateEdgeThickness(1);
       canvas.classList.remove("revealed");
     }

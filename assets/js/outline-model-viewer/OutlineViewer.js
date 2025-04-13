@@ -80,18 +80,30 @@ export class OutlineModelViewer extends HTMLElement {
     );
     scene.add(ambientLight);
 
+    this.pixelRatio = window.devicePixelRatio;
+
+    console.log(`window.innerWidth ${window.innerWidth}`);
+    console.log(
+      `canvas.width ${canvas.width} canvas.clientWidth ${canvas.clientWidth}`
+    );
+    console.log(
+      `canvas.height ${canvas.height} canvas.clientHeight ${canvas.clientHeight}`
+    );
+    let width =
+      Math.min(canvas.clientWidth, window.innerWidth) * this.pixelRatio;
+
+    let height =
+      Math.min(canvas.clientHeight, window.innerHeight) * this.pixelRatio;
+    console.log(`width, height are ${[width, height]}`);
+
     // Set up post processing
     // Create a render target that holds a depthTexture so we can use it in the outline pass
     // See: https://threejs.org/docs/index.html#api/en/renderers/WebGLRenderTarget.depthBuffer
     const depthTexture = new THREE.DepthTexture();
-    const renderTarget = new THREE.WebGLRenderTarget(
-      canvas.width,
-      canvas.height,
-      {
-        depthTexture: depthTexture,
-        depthBuffer: true,
-      }
-    );
+    const renderTarget = new THREE.WebGLRenderTarget(width, height, {
+      depthTexture: depthTexture,
+      depthBuffer: true,
+    });
 
     // Initial render pass.
     const composer = new EffectComposer(renderer, renderTarget);
@@ -101,7 +113,7 @@ export class OutlineModelViewer extends HTMLElement {
 
     // Outline pass.
     const customOutline = new CustomOutlinePass(
-      new THREE.Vector2(canvas.width, canvas.height),
+      new THREE.Vector2(width, height),
       scene,
       camera,
       outline_color,
@@ -112,16 +124,13 @@ export class OutlineModelViewer extends HTMLElement {
 
     // Antialias pass.
     const effectFXAA = new ShaderPass(FXAAShader);
-    effectFXAA.uniforms["resolution"].value.set(
-      1.0 / canvas.width,
-      1.0 / canvas.height
-    );
-    // composer.addPass(effectFXAA);
+    effectFXAA.uniforms["resolution"].value.set(1.0 / width, 1.0 / height);
+    composer.addPass(effectFXAA);
 
     // Set over sampling ratio
     this.updateEdgeThickness(1);
     this.updatePixelRatio(window.devicePixelRatio);
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+    renderer.setSize(width, height, false);
 
     component.render = composer.render;
 
@@ -198,13 +207,13 @@ export class OutlineModelViewer extends HTMLElement {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log("Model Viewer Element is visible. Resuming rendering...");
+          //   console.log("Model Viewer Element is visible. Resuming rendering...");
           this.isVisible = true;
           update(); // Resume the loop
         } else {
-          console.log(
-            "Model Viewer Element is not visible. Pausing rendering..."
-          );
+          //   console.log(
+          //     "Model Viewer Element is not visible. Pausing rendering..."
+          //   );
           this.isVisible = false; // Pauses rendering
         }
       });
@@ -215,28 +224,41 @@ export class OutlineModelViewer extends HTMLElement {
 
     function onWindowResize() {
       // Update the internal dimensions of the canvas
-      canvas.width = canvas.clientWidth * element.pixelRatio;
-      canvas.height = canvas.clientHeight * element.pixelRatio;
+      console.log("onWindowResize triggered.");
+      console.log(`window.innerWidth ${window.innerWidth}`);
+      console.log(
+        `Current: canvas.width ${canvas.width} canvas.clientWidth ${canvas.clientWidth} element.pixelRatio ${element.pixelRatio}`
+      );
+      console.log(
+        `Current: canvas.height ${canvas.height} canvas.clientHeight ${canvas.clientHeight}`
+      );
+      let width =
+        Math.min(canvas.clientWidth, window.innerWidth) * element.pixelRatio;
+
+      let height =
+        Math.min(canvas.clientHeight, window.innerHeight) * element.pixelRatio;
+      console.log(`width and height are ${[width, height]}`);
+
+      canvas.width = width;
+      canvas.height = height;
 
       // Recompute the camera matrix
-      camera.aspect = canvas.width / canvas.height;
+      camera.aspect = width / height;
       camera.updateProjectionMatrix();
 
       // Resive the various render targets
-      renderer.setSize(canvas.width, canvas.height, false);
-      composer.setSize(canvas.width, canvas.height);
-      effectFXAA.setSize(canvas.width, canvas.height);
-      customOutline.setSize(canvas.width, canvas.height);
+      renderer.setSize(width, height, false);
+      composer.setSize(width, height);
+      effectFXAA.setSize(width, height);
+      customOutline.setSize(width, height);
 
       //
-      effectFXAA.uniforms["resolution"].value.set(
-        1.0 / canvas.width,
-        1.0 / canvas.height
-      );
+      effectFXAA.uniforms["resolution"].value.set(1.0 / width, 1.0 / height);
     }
 
     this.onWindowResize = onWindowResize;
-    onWindowResize();
+    const resizeObserver = new ResizeObserver(onWindowResize);
+    resizeObserver.observe(canvas);
 
     const uniforms = customOutline.fsQuad.material.uniforms;
     uniforms.debugVisualize.value = parseInt(this.getAttribute("mode")) || 0;
@@ -280,8 +302,6 @@ export class OutlineModelViewer extends HTMLElement {
       element.updatePixelRatio(value);
       element.onWindowResize();
     });
-
-    window.addEventListener("resize", onWindowResize, false);
   }
 }
 export default OutlineModelViewer;
