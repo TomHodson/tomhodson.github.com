@@ -5,15 +5,26 @@ footer {
   padding-left: 30px;
   padding-bottom: 10vh;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 0.5em;
-
   a {
     text-decoration: none;
   }
+
+  section.source-creds-lm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  section.webring {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5em;
+  }
 }
+
+
 
 @media only screen and (max-width: $horizontal_breakpoint),
   only screen and (max-height: $vertical_breakpoint) {
