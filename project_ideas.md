@@ -9,6 +9,14 @@ mathjax: false
 
 # Project Ideas
 
+* make something interactive using a custom server on my new server
+
+* Make a tiny rest server on an esp32
+
+* Do BAC to look at Hackney Marshes fire https://documentation.dataspace.copernicus.eu/APIs/openEO/openeo-community-examples/python/RankComposites/bap_composite.html
+
+* update the rendering general relativety page to fix mathjax
+
 * Write some new firmware for the [DMM SAO](https://github.com/flummer/dmm-sao/blob/main/firmware/code.py) I got at the hackaday supercon.
 
 ## 3D models of vertebrates
