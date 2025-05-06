@@ -128,7 +128,7 @@ export class OutlineModelViewer extends HTMLElement {
     composer.addPass(effectFXAA);
 
     // Set over sampling ratio
-    this.updateEdgeThickness(1);
+    this.updateEdgeThickness(1 / window.devicePixelRatio);
     this.updatePixelRatio(window.devicePixelRatio);
     renderer.setSize(width, height, false);
 
@@ -294,9 +294,11 @@ export class OutlineModelViewer extends HTMLElement {
         uniforms.debugVisualize.value = value;
       });
 
-    gui.add(params, "edgeThickness", 1, 10).onChange(function (value) {
-      element.updateEdgeThickness(value);
-    });
+    gui
+      .add(params, "edgeThickness", 1 / window.devicePixelRatio, 10)
+      .onChange(function (value) {
+        element.updateEdgeThickness(value);
+      });
 
     gui.add(params, "pixelRatio", 1, 8, 1).onChange(function (value) {
       element.updatePixelRatio(value);

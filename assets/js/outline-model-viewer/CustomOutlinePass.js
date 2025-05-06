@@ -172,12 +172,6 @@ class CustomOutlinePass extends Pass {
                 surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(0, e))) ? 1.0 : 0.0;
                 surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-e, 0))) ? 1.0 : 0.0;
                 surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(0, -e))) ? 1.0 : 0.0;
-
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(e, e))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(e, -e))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-e, e))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-e, -e))) ? 1.0 : 0.0;
-
                 return surfaceIdDiff;
             }
             
@@ -187,11 +181,6 @@ class CustomOutlinePass extends Pass {
 				depthDiff += abs(depth - getPixelDepth(-1, 0));
 				depthDiff += abs(depth - getPixelDepth(0, 1));
 				depthDiff += abs(depth - getPixelDepth(0, -1));
-
-                depthDiff += abs(depth - getPixelDepth(1, 1));
-                depthDiff += abs(depth - getPixelDepth(1, -1));
-                depthDiff += abs(depth - getPixelDepth(-1, 1));
-                depthDiff += abs(depth - getPixelDepth(-1, -1));
                 return depthDiff;
             }
 
@@ -231,8 +220,6 @@ class CustomOutlinePass extends Pass {
                     // Surface ID difference
                     gl_FragColor = vec4(vec3(surfaceValueDiff), 1.0);
                 }
-
-				if (surfaceValueDiff != 0.0) surfaceValueDiff = 1.0;
             
                 float outline;
                 vec4 outlineColor = vec4(outlineColor, 1.0);;

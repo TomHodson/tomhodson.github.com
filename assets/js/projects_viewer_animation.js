@@ -24,7 +24,6 @@ if (inline_viewer) {
 
       original.autoRotate = controls.autoRotate;
       controls.autoRotate = true;
-      inline_viewer.updateEdgeThickness(0.5);
     }
 
     if (mode === "icon" && delta > 2 * margin) {
@@ -42,8 +41,6 @@ if (inline_viewer) {
       );
       controls.autoRotate = original.autoRotate;
       mode = "inline";
-      //   inline_viewer.onWindowResize();
-      inline_viewer.updateEdgeThickness(1);
       canvas.classList.remove("revealed");
     }
 
