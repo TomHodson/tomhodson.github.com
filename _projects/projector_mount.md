@@ -4,6 +4,7 @@ layout: project
 excerpt: A mount for a projector underneath a shelf with a tilt swivel joint.
 permalink: /projects/projector_mount
 assets: /assets/projects/projector_mount
+date: 2023-01-31
 
 img:
     alt: A CAD model of a 3D printable mount for a common LED light onto a helmet.

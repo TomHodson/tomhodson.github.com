@@ -1,27 +1,61 @@
 ---
 title: Toni's Map
+layout: project
 excerpt: A going away present for my friend Toni.
 permalink: /projects/tonis-map/
 assets: /assets/blog/maps/icons
 img:
-    src: /assets/projects/tonis_map/thumbnail.png
-    class: invertable
-    alt: A black and white lineart map of London.
+  src: /assets/projects/tonis_map/thumbnail.png
+  class: invertable
+  alt: A black and white lineart map of London.
+date: 2023-09-06
 
 social_image: /assets/projects/tonis_map/thumbnail.png
+head: |
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet-simple-map-screenshoter"></script>
+  <script src="https://unpkg.com/file-saver/dist/FileSaver.js"></script>
+  <script src="/assets/js/domtoimage.min.js"></script>
 ---
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
-     <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
- integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
- crossorigin=""></script>
- <script src="https://unpkg.com/leaflet-simple-map-screenshoter"></script>
- <script src="https://unpkg.com/file-saver/dist/FileSaver.js"></script>
- <script src="/assets/js/domtoimage.min.js"></script>
+A last minute leaving gift idea for a friend inspired me to finish my first actual laser cut map. I used leaflet.js to overlay the names of some places we had visited together in London onto those nice Stamen Design map tiles from before.
 
+It was mostly made to be laser etched but you can see a crude web version here:
+
+<div id="map"></div>
+
+Now onto the lasing!
+
+<figure>
+<img src="/assets/blog/maps/fresh_off_the_press.jpeg">
+<figcaption>
+This is what it looks like straight off the laser cutter. The contrast is super washed out because the smoke from the cutting process darkens all the surrounding wood.
+</figcaption>
+</figure>
+
+I had a bunch of issues with getting that to work mostly based around the fact that these tiles are raster images that are intended for streaming to a zoomable and panable viewer on a screen. The design tradeoff of the maps don't quite make as much sense when you start transfering them to a static image. I did some hacks to use the tiles intended for a higher zoom level but you can only take that so far before the text starts getting unreadable.
+
+<figure>
+<img src="/assets/blog/maps/after_sanding.jpeg">
+<figcaption>
+To deal with the darkending from the smoke I sand the whole thing back with 80 grit sandpaper on an orbital sander. I did break a few small features off here and there but it's ok! 
+</figcaption>
+</figure>
+
+I think there is a better approach that involves getting raw OpenStreetMap data and rendering it directly using something like [QGIS and some kind of map style files](https://gis.stackexchange.com/questions/186808/how-to-create-high-quality-map-with-qgis-and-stamen-tiles) but that seems like a whole new deep rabbit hole I'm not ready to fall into just yet.
+
+<figure>
+<img src="/assets/blog/maps/the_final_reveal.jpeg">
+<figcaption>
+The final reveal!
+</figcaption>
+</figure>
 
  <style>
     .leaflet-pane {
@@ -29,10 +63,7 @@ social_image: /assets/projects/tonis_map/thumbnail.png
     }
 
     #map { 
-        /* height: 4100px;
-        width: 4102px; */
-    
-    height: 100%;
+    height: 300px;
     width: 100%;
     }
 
@@ -65,14 +96,9 @@ social_image: /assets/projects/tonis_map/thumbnail.png
     }
 
  </style>
-    
-    </head>
-    
-    <body>
-        <div id="map"></div>
 
-        <script>
-    let Stamen_TonerBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.{ext}', {
+<script>
+    let Stamen_TonerBackground = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_background/{z}/{x}/{y}.{ext}', {
     subdomains: 'abcd',
     minZoom: 0,
     maxZoom: 16,
@@ -80,17 +106,12 @@ social_image: /assets/projects/tonis_map/thumbnail.png
     ext: 'png',
     });
 
-    // Using detectRetina: false and manually adding @2x is a hack to export the retina tiles directly 
-    let Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}@2x.{ext}', {
+    // Using detectRetina: false and manually adding @2x is a hack to export the retina tiles directly
+    let Stamen_Toner = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_lines/{z}/{x}/{y}.{ext}', {
     subdomains: 'abcd',
     minZoom: 0,
     maxZoom: 16,
     ext: 'png',
-    maxNativeZoom: 13,
-    minNativeZoom: 13,
-    // tileSize: 512,
-    // zoomOffset: -1,
-    detectRetina: false,
     className: 'stamen'
     });
     const key = 'paglUJQl74h39APJmOFJ';
@@ -126,7 +147,7 @@ social_image: /assets/projects/tonis_map/thumbnail.png
     crossOrigin: true
     });
 
-    
+
 
     var baseMaps = {
     "Stamen Toner": Stamen_TonerBackground,
@@ -158,7 +179,7 @@ social_image: /assets/projects/tonis_map/thumbnail.png
     }
 
     let map = L.map('map', {
-        zoomSnap: 0.1,
+        // zoomSnap: 0.1,
     })
     map.addLayer(Stamen_Toner);
 
@@ -181,20 +202,20 @@ social_image: /assets/projects/tonis_map/thumbnail.png
         {ltlng : [51.55164580102093, -0.07479603558247123], name: "Red&nbsp;Hand"}, // From mike
         {ltlng : [51.548807269803135, -0.07664573558247124], name: "Vortex"}, // From mike
         {ltlng : [51.524667799040785, -0.09343089325258623], name: "Monohon"}, // From mike
-        
-        
-        
+
+
+
     ]
 
-    // places.forEach(place => 
+    // places.forEach(place =>
     //     L.marker(place.ltlng).addTo(map)
     //     .bindTooltip(place.name,  {
-    //         permanent: true, 
+    //         permanent: true,
     //         direction: 'right'
     //     }));
 
-    places.forEach(place => 
-        L.marker(place.ltlng, {icon: 
+    places.forEach(place =>
+        L.marker(place.ltlng, {icon:
             L.divIcon({
                 className: 'my-div-icon',
                 // html: `<div class="icon"><img class = "customIcon" src = "${assets}/${place.icon}"></img>${place.name}</div>`,
@@ -202,24 +223,24 @@ social_image: /assets/projects/tonis_map/thumbnail.png
         })}).addTo(map));
 
 
-	const ZoomViewer = L.Control.extend({
-		onAdd() {
-			const gauge = L.DomUtil.create('div');
-			gauge.style.width = '200px';
-			gauge.style.background = 'rgba(255,255,255,0.5)';
-			gauge.style.textAlign = 'left';
-			map.on('zoomstart zoom zoomend', (ev) => {
-				gauge.innerHTML = `Zoom level: ${map.getZoom()}`;
-			});
-			return gauge;
-		}
-	});
+    // const ZoomViewer = L.Control.extend({
+    // 	onAdd() {
+    // 		const gauge = L.DomUtil.create('div');
+    // 		gauge.style.width = '200px';
+    // 		gauge.style.background = 'rgba(255,255,255,0.5)';
+    // 		gauge.style.textAlign = 'left';
+    // 		map.on('zoomstart zoom zoomend', (ev) => {
+    // 			gauge.innerHTML = `Zoom level: ${map.getZoom()}`;
+    // 		});
+    // 		return gauge;
+    // 	}
+    // });
 
-	const zoomViewer = (new ZoomViewer()).addTo(map);
+    // const zoomViewer = (new ZoomViewer()).addTo(map);
 
 
     // const center = {lat: 51.53803381685164, lng: -0.09551626866416196};
-    // const zoom = 
+    // const zoom =
     // map.setView(center, 14.5);
 
     let bounds = L.latLngBounds()
@@ -229,12 +250,8 @@ social_image: /assets/projects/tonis_map/thumbnail.png
 
     map.on('zoomed', function() {
         var newzoom = '' + (2*(mymap.getZoom())) +'px';
-        
-        el.getElementsBy .css({'width':newzoom,'height':newzoom}); 
-    });
-    
-             </script>
-        
-    </body>
-</html>
 
+        el.getElementsBy .css({'width':newzoom,'height':newzoom});
+    });
+
+</script>

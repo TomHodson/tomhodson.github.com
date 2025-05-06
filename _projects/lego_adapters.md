@@ -4,12 +4,14 @@ layout: project
 excerpt: Adapters to use common components with lego technic.
 permalink: /projects/lego_adapters
 assets: /assets/projects/lego_adapters
+date: 2023-10-22
 
 img:
     alt: 
     class: invertable
 
 social_image: /assets/projects/lego_adapters/thumbnail.png
+draft: true
 ---
 
 I've been looking at using Lego as a way to quickly prototype ideas.

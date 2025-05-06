@@ -4,6 +4,7 @@ layout: project
 excerpt: A shelf to put your toothbrush charger on.
 permalink: /projects/toothbrush_shelf
 assets: /assets/projects/toothbrush_shelf
+date: 2023-11-16
 
 img:
     alt: A CAD model of a small shelf to put a toothbrush right above the charging socket so that the cabling can be hidden inside the shelf.
@@ -11,7 +12,7 @@ img:
 
 social_image: /assets/projects/toothbrush_shelf/thumbnail.png
 model: /assets/blog/toothbrush_shelf/model/toothbrush_shelf.glb
-
+draft: true
 
 ---
 <outline-model-viewer model = "{{page.model}}" camera='{"type":"perspective","fov":30,"near":10,"far":10000,"position":[364.9,307.2,459.7],"rotation":[-0.5891,0.5833,0.3527],"zoom":250,"target":[0,0,0]}'>

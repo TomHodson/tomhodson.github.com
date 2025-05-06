@@ -4,6 +4,7 @@ layout: project
 excerpt: A little modification to an IKEA thingy.
 permalink: /projects/bathroom_shelf
 assets: /assets/projects/bathroom_shelf
+date: 2023-12-17
 
 img:
     alt: A small bathroom shelf.
@@ -18,7 +19,8 @@ We got this [IKEA shower shelf thing][shelf] from Ikea which has two sticky pads
 <!-- {% include mastodon_post.html post_id = "111822564173512216" %} -->
 
 <outline-model-viewer model = "/assets/projects/bathroom_shelf/models/model.glb" camera='{"type":"perspective","fov":30,"near":10,"far":10000,"position":[364.9,307.2,459.7],"rotation":[-0.5891,0.5833,0.3527],"zoom":250,"target":[0,0,0]}'>
-    <img class="outline-model-poster hs-wc" src = "{{page.assets}}/thumbnail.svg">
+    <img class="outline-model-poster no-wc" src = "{{page.assets}}/thumbnail.svg">
+    <p class="has-wc">Loading model...</p>
 </outline-model-viewer>
 
 

@@ -63,3 +63,24 @@ section.header.sticky {
         left: 0%;
     }
 }
+
+  .under-construction {
+    position: relative;
+    display: inline-block; /* or block, as needed */
+  }
+  .under-construction::before {
+    content: "🔧";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background: #ffeb3b;            /* yellow triangle */
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    display: flex;
+    justify-content: flex-end;
+    font-size: 16px;
+    color: grey;                    /* wrench color */
+    text-shadow: 0 0 1px rgba(0,0,0,0.3);
+  }

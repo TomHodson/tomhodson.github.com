@@ -5,6 +5,7 @@ excerpt: Ongoing explorations in making pots!
 permalink: /projects/ceramics
 assets: /assets/projects/ceramics
 models: /assets/projects/ceramics/models
+date: 2025-01-01
 
 img2024: /assets/images/2024/ceramics
 

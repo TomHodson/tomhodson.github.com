@@ -1,16 +1,23 @@
 <article class="h-entry project" data-model="{{post.model}}">
     <a class="u-uid u-url photo" href="{{ post.url }}" aria-label="Project: {{ post.title }}">
     {% assign default_thumbnail = post.assets | append: '/thumbnail.min.svg' %}
+    {% if post.draft %}
+    <div class="under-construction">
+    {% endif %}
+
     <img class="u-photo {{post.img.class}}"
         src = "{{post.img.src | default: default_thumbnail}}" 
         alt="{{post.img.alt | smartify}}"
         width=128 height=128>
+    {% if post.draft %}
+    </div>
+    {% endif %}
     </a>
 
     <section class = "text">
     <section class="title-date-container">
         <h2 class="p-name blogroll-title"><a class="u-uid u-url" href="{{ post.url }}">{{ post.title }}</a></h2>
-        <time class="dt-modified" datetime="{{ post.last_modified_at | date_to_xmlschema }}">{{ post.last_modified_at | date: '%b %Y' }}</time>
+        <time class="dt-modified" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %Y' }}</time>
     </section> 
     <summary class="p-summary">{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}</summary>
     </section>

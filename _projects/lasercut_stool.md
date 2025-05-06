@@ -4,6 +4,7 @@ layout: project
 excerpt: A lasercut hexagonal wooden stool.
 permalink: /projects/lasercut_stool
 assets: /assets/projects/lasercut_stool
+date: 2023-08-29
 
 img:
     alt: A CAD model of the this hexagonal lasercut stool.
@@ -17,3 +18,8 @@ model: /assets/blog/weekend_builds_1/pot.glb
     <img class="outline-model-poster no-wc" src = "{{page.img.src}}">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>
+
+
+<figure>
+    <img src="{{ page.assets }}/sketch.jpg">
+</figure>

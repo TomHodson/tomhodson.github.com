@@ -4,6 +4,7 @@ layout: project
 excerpt: An ongoing quest to fix a problem I don't have.
 permalink: /projects/usbc_charging_station
 assets: /assets/projects/usbc_power_supply
+date: 2025-04-01
 
 img:
     src: /assets/projects/usbc_power_supply/thumbnail.svg
