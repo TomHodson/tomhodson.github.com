@@ -5,7 +5,7 @@ excerpt: Maybe the best birthday gift I've ever given or will ever give. A custo
 permalink: /projects/montys_map
 assets: /assets/projects/montys_map
 date: 2023-11-23
-draft: true
+draft: false
 
 img:
   alt:
