@@ -14,9 +14,6 @@ img:
 
 social_image: /assets/projects/downlight_bikelight/thumbnail.png
 model: /assets/projects/downlight_bikelight/models
-
-head: |
-  <script src="/assets/js/expand_img_tags.js" defer></script>
 ---
 I pulled this dying LED downlight out of my kitchen ceiling. 
 <figure>

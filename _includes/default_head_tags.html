@@ -66,12 +66,15 @@
 <!-- Privacy Conscious Hit Counter -->
 {% unless jekyll.environment == "development" %}
 <script data-goatcounter="https://tomhodson.goatcounter.com/count"
-        async src="https://gc.zgo.at/count.js"></script>
+        async src="/assets/js/goat_count.js"></script>
 {% endunless %}
 
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script src="/assets/js/pre_page_load.js"></script>
 <script src="/assets/js/index.js" defer></script>
+
+<!-- Add JS to expand images on click -->
+<script src="/assets/js/expand_img_tags.js" defer></script>
 
 {% if page.mathjax %}
 <script>
