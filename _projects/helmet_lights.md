@@ -11,6 +11,7 @@ img:
 
 social_image: /assets/projects/helmet_lights/thumbnail.png
 models: /assets/projects/helmet_lights/models
+date: 2023-01-01
 
 ---
 

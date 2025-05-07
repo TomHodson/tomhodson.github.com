@@ -12,7 +12,7 @@ img:
   src: /assets/projects/elegoo_mount/thumbnail.png
 
 social_image: /assets/projects/elegoo_mount/thumbnail.png
-draft: True
+draft: false
 ---
 
 This is just a quick mount for a [BIQU H2V2](https://biqu.equipment/products/biqu-h2-v2-0-extruder) hotend on an Elegoo Neptune 2.

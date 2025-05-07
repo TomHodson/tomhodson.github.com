@@ -45,7 +45,7 @@ Welcome to my little home on the web! Below you'll find recent blog posts, proje
     <span class="dt-label">Last Modified</span>
 </section>
 <hr class="heading">
-{% assign projects = site.projects | sort_natural: "last_modified_at"%}
+{% assign projects = site.projects | sort_natural: "date" | reverse %}
 {% for post in projects limit:5 %}
 {% if post.draft == false or jekyll.environment == "development" %}
 {% include project_summary.html %}
