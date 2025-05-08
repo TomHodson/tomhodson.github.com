@@ -40,3 +40,11 @@ Next job is to actually mount it!
 <figure>
 <img src="{{page.images}}/cad.jpeg" alt="Me holding the printed out new front ring in front of the CAD model on my laptop.">
 </figure>
+
+Current mounting status: janky.
+
+<figure class="multiple">
+<img src="{{page.images}}/front.jpeg" alt="A front shot of the light mounted on my bike very jankily with a bolt.">
+<img src="{{page.images}}/iso.jpeg" alt="An angled shot of the same.">
+<img src="{{page.images}}/side.jpeg" alt="A side shot of the same.">
+</figure>
