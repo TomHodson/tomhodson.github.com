@@ -5,7 +5,7 @@
     <div class="under-construction">
     {% endif %}
 
-    <img class="u-photo {{post.img.class}}"
+    <img class="u-photo {{post.img.class}} no-zoom"
         src = "{{post.img.src | default: default_thumbnail}}" 
         alt="{{post.img.alt | smartify}}"
         width=128 height=128>

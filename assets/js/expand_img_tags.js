@@ -2,6 +2,17 @@
 const style = document.createElement("style");
 style.textContent = `
   .fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--theme-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: zoom-out;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -11,28 +22,22 @@ style.textContent = `
     opacity: 1;
     pointer-events: auto;
   }
+
+  .fullscreen-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 100%; important!
+    height: 100%; important!
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  }
 `;
 document.head.appendChild(style);
 
 // Create and style fullscreen overlay container
 const fullscreenContainer = document.createElement("div");
 fullscreenContainer.className = "fullscreen-overlay";
-fullscreenContainer.style.position = "fixed";
-fullscreenContainer.style.top = 0;
-fullscreenContainer.style.left = 0;
-fullscreenContainer.style.width = "100vw";
-fullscreenContainer.style.height = "100vh";
-fullscreenContainer.style.background = "var(--theme-bg-color)";
-fullscreenContainer.style.display = "flex";
-fullscreenContainer.style.alignItems = "center";
-fullscreenContainer.style.justifyContent = "center";
-fullscreenContainer.style.zIndex = 9999;
-fullscreenContainer.style.cursor = "zoom-out";
 
 const fullscreenImage = document.createElement("img");
-fullscreenImage.style.maxWidth = "90vw";
-fullscreenImage.style.maxHeight = "90vh";
-fullscreenImage.style.boxShadow = "0 0 20px rgba(0,0,0,0.8)";
 fullscreenContainer.appendChild(fullscreenImage);
 
 document.body.appendChild(fullscreenContainer);
@@ -55,11 +60,12 @@ function exitFullscreen() {
 }
 
 // Attach listeners
-document.querySelectorAll("img").forEach((img) => {
+document.querySelectorAll("img:not(.no-zoom)").forEach((img) => {
   img.style.cursor = "zoom-in";
   img.addEventListener("click", () => {
     console.log("Image clicked:", img.src);
     fullscreenImage.src = img.src;
+    fullscreenImage.classList = img.classList;
     fullscreenContainer.classList.add("active");
     enterFullscreen(fullscreenContainer);
   });

@@ -13,11 +13,10 @@
 
 <a class="u-uid u-url" href="{{ post.url }}" aria-label="Blog Post: {{ post.title }}">
 <figure>
-<img class="u-photo" 
+<img
     src = "{{ post.thumbnail | default: post.image}}"
-    class = "{{ post.image_class }}"
+    class = "{{ post.image_class }} u-photo no-zoom"
     alt="{{post.alt | smartify}}"
-    width=128 height=128
     >
 </figure>
 </a>

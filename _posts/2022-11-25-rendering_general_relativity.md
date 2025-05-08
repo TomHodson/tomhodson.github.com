@@ -5,16 +5,25 @@ image: /assets/blog/rendering_general_relativity/spinning_earth.gif
 thumbnail: /assets/blog/rendering_general_relativity/thumbnail.gif
 alt: A spinning image of the earth but distorted as if it were a black hole.
 permalink: /blog/rendering_general_relativity
+excerpt: |
+    Let's do some raytracing through curved spacetime!
+mathjax: true
+assets: /assets/blog/rendering_general_relativity
 ---
-I wrote this jupyter notebook for a python course at Imperial, it's based on <https://rantonels.github.io/starless/>
 
-## Raytracing a Schwarzchild Black Hole
+<section class = "note">
+NB: Some of the images on this page are pngs at really low resolution, sorry about that! On my todo list is to re-render them as SVGs with the raster parts at a more appropriate dpi.
+</section>
+
+I wrote this jupyter notebook for a python course at Imperial, it's based on <https://rantonels.github.io/starless/>
 
 ### Raytracing
 
 We see physical objects when photons from sources of light travel along some path, possibly bouncing and scattering along the way before entering our eyes and forming an image on our retinas.
 
-![image.png](/assets/blog/rendering_general_relativity/492f76cf-b4df-4eab-bc84-3f7b14eae8fb.png)
+<figure>
+<img class = "invertable" src="{{page.assets}}/ray_tracing.png" alt="A hand drawn diagram showing how actual light goes from a source like the sun, bounces off an object and then hits your retina. With ray traving we instead shoot rays out of of the retina towards objects and often ignore light sources entirely.">
+</figure>
 
 Raytracing is a method for rendering images that does this in reverse, for each pixel in the image we shoot a light ray out of a point at a different angle. By calculating what that ray intersects with we can decide how to colour that pixel.
 
@@ -32,15 +41,21 @@ Once you\'re done with a question, check the answer before moving onto the next 
 
 ### Question 1
 
-The Schwarzchild metric is $$ds^2 = (1 - \tfrac{r_s}{r}) dt^2 - (1 - \tfrac{r_s}{r})^{-1} dr^2 - r^2 d\theta^2 - r^2 sin^2 \theta d\phi^2$$
+The Schwarzchild metric is 
 
-Where $r,\phi,\theta$ are our spherical polar coordinates and $r_s$ is the radius of the event horizon which we will mostly set to 1 for what followds. However it\'s useful to leave it in the numerics because $r_s = 0$ corresponds to the flat spacetime. This is also a useful way to debug your code, when $r_s = 0$$r_s = 0$ all your geodesics should be straight and you can do normal geometry on them.
+$$ ds^2 = (1 - \tfrac{r_s}{r}) dt^2 - (1 - \tfrac{r_s}{r})^{-1} dr^2 - r^2 d\theta^2 - r^2 sin^2 \theta d\phi^2 $$
 
-Prove that for a photon travelling through the Schwarzchild metric in the $\theta = \pi / 2$ plane, we can eliminate $t$ in the geodesic equation to arrive at a differential equation for $r(\phi)$:
+Where $r,\phi,\theta$ are our spherical polar coordinates and $r_s$ is the radius of the event horizon which we will mostly set to 1 for what follows. However it\'s useful to leave it in the numerics because $r_s = 0$ corresponds to the flat spacetime. This is also a useful way to debug your code, when $r_s = 0$$r_s = 0$ all your geodesics should be straight and you can do normal geometry on them.
 
-$$\tfrac{dr}{d\phi}^2 = a r^4 - (1 - r_s/r)(b r^4 + r^2)$$ for some constants $a$ and $b$.
+Prove that for a photon traveling through the Schwarzchild metric in the $\theta = \pi / 2$ plane, we can eliminate $t$ in the geodesic equation to arrive at a differential equation for $r(\phi)$:
 
-![image.png](/assets/blog/rendering_general_relativity/f048bed6-4356-40ab-b635-32378e9867c0.png)
+$$ \tfrac{dr}{d\phi}^2 = a r^4 - (1 - r_s/r)(b r^4 + r^2) $$
+
+ for some constants $a$ and $b$.
+
+<figure>
+<img class = "invertable" src="{{page.assets}}/geometry.png" alt="A diagram showing the polar coordinate system. There's a black hole at the left with the coordinate origin at its center. At the right we have the observer signified by a small eye. A ray takes a curved path from the eye to the origin. A point on that path is specified by a function r(theta) where r is the radial distance from the origin and theta is the angle measured anticlockwise from the horizontal.">
+</figure>
 
 ### Answer 1
 
@@ -66,27 +81,27 @@ $$\ddot{u} = -u (1 - \tfrac{3}{2} r_s u)$$
 
 ### Question 2
 
-i\) Recall that a 2nd order differential equation contains only derivatives like $\ddot{u}$ and $\dot{u}$ while a first order diff. eqn contains only terms like $\dot{u}$. Show that $\ddot{u} = -u (1 - \tfrac{3}{2} r_s u)$ can be written as two coupled first order equations by introducing a second variable.
+1\) Recall that a 2nd order differential equation contains only derivatives like $\ddot{u}$ and $\dot{u}$ while a first order diff. eqn contains only terms like $\dot{u}$. Show that $\ddot{u} = -u (1 - \tfrac{3}{2} r_s u)$ can be written as two coupled first order equations by introducing a second variable.
 
-ii\) Read the documentation for `scipy.integrate.solve_ivp`, can you figure out how part i) helps us to use `solve_ivp` on our problem?
+2\) Read the documentation for `scipy.integrate.solve_ivp`, can you figure out how part i) helps us to use `solve_ivp` on our problem?
 
 ### Answer for 2
 
-i\) Introduce a new variable $v = \dot{u}$ so $\dot{v} = \ddot{u}$, this seems a little too obvious but now we have two first order equations! $$v = \dot{u}$$ $$\dot{v} = -u (1 - \tfrac{3}{2} r_s u)$$
+1\) Introduce a new variable $v = \dot{u}$ so $\dot{v} = \ddot{u}$, this seems a little too obvious but now we have two first order equations! $$v = \dot{u}$$ $$\dot{v} = -u (1 - \tfrac{3}{2} r_s u)$$
 
-ii\) From the docs for `solve_ivp` we see that it can integrate equations of the form $\tfrac{dy}{dt} = f(t, y)$ with initial conditions $y(t_0) = y_0$ but crucially y can be of any dimension, so the trick is to write out coupled equations in a vector form, if we define: $$\vec{y} = (y_0, y_1) = (\dot{u}, u)$$ then we can write: $$\dot{y} = (\ddot{u}, \dot{u}) = (-y_1(1 - 3/2\; r_s y_1), y_0)$$
+2\) From the docs for `solve_ivp` we see that it can integrate equations of the form $\tfrac{dy}{dt} = f(t, y)$ with initial conditions $y(t_0) = y_0$ but crucially y can be of any dimension, so the trick is to write out coupled equations in a vector form, if we define: $$\vec{y} = (y_0, y_1) = (\dot{u}, u)$$ then we can write: $$\dot{y} = (\ddot{u}, \dot{u}) = (-y_1(1 - 3/2\; r_s y_1), y_0)$$
 
 Which is something we can integrate with `solve_ivp`
 
 ### Question 3
 
-i\) First write a function `geodesic(u, udot, phi_max)` using that takes initial conditions $(u_0, \dot{u}_0)$ and returns a trajectory $u(\phi)$ represented by a numpy array of $\phi$ values and one of $u$ values with $\phi$ between 0 and `phi_max`.
+1\) First write a function `geodesic(u, udot, phi_max)` using that takes initial conditions $(u_0, \dot{u}_0)$ and returns a trajectory $u(\phi)$ represented by a numpy array of $\phi$ values and one of $u$ values with $\phi$ between 0 and `phi_max`.
 
-ii\) Now write a function `phi_u_to_xy(phi, u)` that transforms from $(u, \phi)$ coordinates to (x,y) coordinates.
+2\) Now write a function `phi_u_to_xy(phi, u)` that transforms from $(u, \phi)$ coordinates to (x,y) coordinates.
 
-iii\) Plot a trajectory in $x,y$ space starting from $u = 2/3, \dot{u} = 2/9$ for phi. If all goes well you\'ll get a somewhat polygonal looking trajectory starting at $(x,y) = (1,0)$ and ending at $(0,0)$.
+3\) Plot a trajectory in $x,y$ space starting from $u = 2/3, \dot{u} = 2/9$ for phi. If all goes well you\'ll get a somewhat polygonal looking trajectory starting at $(x,y) = (1,0)$ and ending at $(0,0)$.
 
-iv\) Reduce the maximum step size to something more reasonable like 0.2 to get a smoother plot.
+4\) Reduce the maximum step size to something more reasonable like 0.2 to get a smoother plot.
 
 ### Hints for 3
 
@@ -132,17 +147,19 @@ s = 1.5
 ax.set(xlim = (-s,s), ylim = (-s,s));
 ```
 
-![](/assets/blog/rendering_general_relativity/0f12b32c75de49f0d1e862701613aba72aecd718.png)
+<figure>
+<img class = "invertable" src="{{page.assets}}/plot_1.png" alt="A simple plot showing a spiral originating from the right and spiraling into the center. This seems like about what we would expect. The units range from -1.5 to 1.5 in both axes.">
+</figure>
 
 ### Question 4
 
-i\) Note that the point $u = 0$ corresponds to $r = \infty$, so it makes sense to stop the simulation at $u = 0$ because physically it means the photon has completely escaped the black hole and has shot off into space. Search the docs for `solve_ivp` for a way to implement this early stopping. If you don\'t do this you will notice spurious solutions later where $u$ has gone past 0 to small negative values. You\'ll notice that you actually get some spurious solutions anway when u gets very small so instead of stopping the simulation at $u = 0$ stop it at some large value like $r = 100$ (Don\'t forget $r = 1/u$).
+1\) Note that the point $u = 0$ corresponds to $r = \infty$, so it makes sense to stop the simulation at $u = 0$ because physically it means the photon has completely escaped the black hole and has shot off into space. Search the docs for `solve_ivp` for a way to implement this early stopping. If you don\'t do this you will notice spurious solutions later where $u$ has gone past 0 to small negative values. You\'ll notice that you actually get some spurious solutions anway when u gets very small so instead of stopping the simulation at $u = 0$ stop it at some large value like $r = 100$ (Don\'t forget $r = 1/u$).
 
-ii\) Write a function `r_rdot_to_u_udot(r, rdot)` that converts from $(r, \dot{r})$ to $(u, \dot{u})$
+2\) Write a function `r_rdot_to_u_udot(r, rdot)` that converts from $(r, \dot{r})$ to $(u, \dot{u})$
 
-iii\) Use the above to plot geodesics with the initial values $r = 3/2$ and $\dot{r}$ ranging between $-1$ and $0.1$
+3\) Use the above to plot geodesics with the initial values $r = 3/2$ and $\dot{r}$ ranging between $-1$ and $0.1$
 
-iv\) Do another for $r = 3$ and $\dot{r}$ ranging between $-3$ and $-1$ but feel free to play around with the values.
+4\) Do another for $r = 3$ and $\dot{r}$ ranging between $-3$ and $-1$ but feel free to play around with the values.
 
 Once you get the plots from iii you\'ll see that the photons either fall into the singularity or escape to infinity depending on their initial conditions, the two regimes are separated by an unstable circular orbit called the photon sphere that lies at $r = \tfrac{3}{2}r_s$
 
@@ -210,7 +227,9 @@ ax.plot(1.5*np.cos(phi), 1.5*np.sin(phi), linestyle = '--', color = 'black', lab
 ax.legend();
 ```
 
-![](/assets/blog/rendering_general_relativity/9d35615c4cbdb89903468c3ae17a5bf24fa12d81.png)
+<figure>
+<img class = "invertable" src="{{page.assets}}/plot_2.png" alt="Similar to the previous plot but this time we show rays for  range of initial radial velocities, i.e the velocity points entirely outwards and not at all clockwise or anticlockwise.">
+</figure>
 
 ``` python
 r = 3 #The radius to shoot the rays from
@@ -238,13 +257,19 @@ ax.legend()
 
     <matplotlib.legend.Legend at 0x7f94be9ff110>
 
-![](/assets/blog/rendering_general_relativity/8a6fbeee2b0041e8ed1888baaeb2e211986b1179.png)
+<figure>
+<img class = "invertable" src="{{page.assets}}/plot_3.png" alt="Similar to the previous plot but with a wider range of velocities. The highest velocities just shoot off into space while the lower ones quickly get sucked in. There is a narrow range in the middle where the path just skims the surface and can get shot around almost 180 degrees. We'll see later than we can get the path to go around as many times as we like but the precision required gets more and more tight.">
+</figure>
 
 ### Question 5
 
-i\) We started off with $(\dot{u}, u)$ initial conditions and then moved to using $(\dot{r}, r)$. Now define $(\alpha, r)$ where $\alpha$ is the angle between the rays tangent and the horizontal. ![image.png](/assets/blog/rendering_general_relativity/8d458fb4-5e9b-4307-9028-27d0c74c6384.png)
+1\) We started off with $(\dot{u}, u)$ initial conditions and then moved to using $(\dot{r}, r)$. Now define $(\alpha, r)$ where $\alpha$ is the angle between the rays tangent and the horizontal. 
 
-ii\) What we\'re working towards is to determine if each ray goes to infinity or hits the event horizon and where. We\'re going to do this by taking advantage of `solve_ivp`\'s ability to tell us about events, we\'ve already used it to stop the simulation at $u = 0$. So let\'s define another event that fires if the ray hits the event horizon at u = 1, we\'ll then be able to classify rays into those that escaped and those that were captured by the black hole.
+<figure>
+<img class = "invertable" src="{{page.assets}}/triangles.png" alt="A diagram defining a new angle alpha which is the angle between the velocity vector v from the starting position (as opposed to the origin) and the current point. This is like a second polar coordinate system centered on the starting point but with alpha measured clockwise instead of anticlockwise as with the (r, theta) system.">
+</figure>
+
+2\) What we\'re working towards is to determine if each ray goes to infinity or hits the event horizon and where. We\'re going to do this by taking advantage of `solve_ivp`\'s ability to tell us about events, we\'ve already used it to stop the simulation at $u = 0$. So let\'s define another event that fires if the ray hits the event horizon at u = 1, we\'ll then be able to classify rays into those that escaped and those that were captured by the black hole.
 
 NB: if you pass `events = [f, g]` into `solve_ivp` then the solution will have a field `t_events` where `t_events[0]` contains t values at which $f(t,y) = 0$ and `t_events[1]` at which $g(t,y) = 0$
 
@@ -254,9 +279,25 @@ You\'ll see that the lines actually overshoot the event horizon and go a little 
 
 ### Answer 5
 
-i\) ![image.png](/assets/blog/rendering_general_relativity/43fa2d62-9c97-42e8-b542-b982c49ae718.png)
+1\) 
 
-ii\)
+<figure>
+<img class = "invertable" src="{{page.assets}}/triangles_2.png" alt="A version of the previous diagram with additional annotations. We want a relation between (dr/dt, r) and alpha. The projection of v onto the horizontal is dr, the vertical height is r dphi so the angle alpha is given by v sin(alpha) = dr / dphi">
+</figure>
+
+From looking at a diagram of the right triangle with $\alpha$ we can see that:
+
+$$ r d\phi  = v \sin(\alpha) $$
+
+and 
+
+$$ dr  = v \cos(\alpha) $$
+
+so 
+
+$$ \tfrac{dr}{d\phi}  = \tfrac{r}{\tan(\alpha)} $$
+
+2\)
 
 ``` python
 def escape(t, y): return y[1] - 1/100
@@ -315,7 +356,10 @@ axes[0].set(title = "Flat Spacetime")
 axes[1].set(title = "Schwarzchild Spacetime");
 ```
 
-![](/assets/blog/rendering_general_relativity/cd6669b208da91c056b6cdca855d5f8255552d07.png)
+<figure class="two-wide">
+<img class = "invertable" src="{{page.assets}}/flat_spacetime.png" alt="A plot showing various trajectories in a flat spacetime. Those that hit the even horizon are coloured red and those that escape to infinity are coloured blue.">
+<img class = "invertable" src="{{page.assets}}/curved_spacetime.png" alt="A plot showing various trajectories in a black hole spacetime. Those that hit the even horizon are coloured red and those that escape to infinity are coloured blue. In the curved spacetime many more rays eventually curve around and hit the event horizon because only in curved spacetime do photo path bend.">
+</figure>
 
 At this point we should stop and think about what this is. We\'re calculating geodesics emanating from an observer at some point outside the horizon. If we want to interpret what this means about how a black hole looks we have to be careful:
 
@@ -329,7 +373,9 @@ That being said, the above plots tell us two things about what black hole look l
 
 Now we\'re going to move out of this 2D plane into 3D, let\'s define $\alpha$ as before and also introduce $\beta$ which will measure rotation about the line between the observer and the origin and $\gamma$ which will be the value of $\phi$ when the ray intersected the event horizon.
 
-![image.png](/assets/blog/rendering_general_relativity/7e83cd46-c30d-453f-9f0a-7d8d12008263.png)
+<figure>
+<img class = "invertable" src="{{page.assets}}/alpha_beta.png" alt="A diagram showing the initial velocity angle alpha and a new angle gamma which is the value of phi when the ray hits the even horizon. Increasing alpha increases gamma. We also go into the third dimension but letting beta be the angle we rotate the whole plane around the horizontal origin ray by.">
+</figure>
 
 We\'ll cheat a bit, because of the high symmetry of the (non-rotating) black hole and the fact we\'re looking at it axially, all we really need to know is $\gamma(\alpha)$, $\beta$ just rotates everything. The rest is just coordinate transorms, incredible tedious ones at that.
 
@@ -378,9 +424,15 @@ axes[1].set(xlim = (0, 1), ylim = (0, 7), title = "Very close to the horizon, r_
 axes[0].set(xlim = (0, 0.07), ylim = (0, 7), title = "Far from the horizon, r_obs = 30");
 ```
 
-![](/assets/blog/rendering_general_relativity/aac29f42057d0bc98f60c12cc78168a1152e4e1f.png)
+<figure>
+<img class = "invertable" src="{{page.assets}}/impact_parameters_1.png" alt="A plot showing for initial velocity angles alpha, where the path hits the event horizon in terms of an angle beta. A line for both flat and curved spacetimes is shown. The takeaway is that for the curved spacetime when the angle alpha approaches the critical angle where it would escape we can start to see arbitrarily far around the back of the black hole. We see this effect in that beta grows without bound.">
+</figure>
 
-From the above we see that the functions are similar when the rays are travelling almost directly towards the centre of the hole but the black hole is visible for a much larger range of $\alpha$ than it would be in flat spacetime (If it were just a sphere rather than a gravitationally massive body).
+<figure>
+<img class = "invertable" src="{{page.assets}}/impact_parameters_2.png" alt="Same as the previous plot but this time for starting very close to the horizon. Now the difference between the flat and curved spacetime scenarios is less pronounced.">
+</figure>
+
+From the above we see that the functions are similar when the rays are traveling almost directly towards the centre of the hole but the black hole is visible for a much larger range of $\alpha$ than it would be in flat spacetime (If it were just a sphere rather than a gravitationally massive body).
 
 ## Question 7
 
@@ -388,7 +440,9 @@ Now we\'ll put together the funtion we computed in qustion 6 to render an image 
 
 We\'ll take the image below as our convention for how to put coordinates on a sphere though I\'ll be using radians instead of degrees in the code.
 
-![image.png](/assets/blog/rendering_general_relativity/59f43caa-b6a1-4a54-a0ef-e22d4ceacbc0.png)
+<figure>
+<img class = "invertable" src="{{page.assets}}/lat_lon.png" alt="A world map with lattitude labelled on the vertical going from -90 to 90 and longitude on the horizontal going from -180 to 180 degrees.">
+</figure>
 
 This code is not that interesting to write so I\'ll just give it to you, we load in an image (which you need to download from [here](https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Blue_Marble_2002.png/2560px-Blue_Marble_2002.png)) and then use an interpolater to get a function that maps lat,lon points to colors `earth([(lat0,lon0), (lat1,lon1)...]) -> [(r0, g0, b0), (r1, g1, b1)...]`
 
@@ -423,7 +477,9 @@ plt.imshow(earth(latv, lonv))
 
     <matplotlib.image.AxesImage at 0x7f94be82ad10>
 
-![](/assets/blog/rendering_general_relativity/d841a147427a6fcd54a723e07c0bef4cecc632b0.png)
+<figure>
+<img src="{{page.assets}}/real_map.png" alt="A satellite image of the earth with lat lon overlaid.">
+</figure>
 
 I\'m going to walk you through this a little bit because the process of rendering this image is a little fidly and look me a while to get right.
 
@@ -550,11 +606,15 @@ for axes, name, spacetime in zip(rows, ["Flat", "Schwarzchild"],[flat_gamma, sch
         a.set(title = name)
 ```
 
-    /Users/tom/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:17: RuntimeWarning: invalid value encountered in remainder
-    /Users/tom/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:16: RuntimeWarning: invalid value encountered in remainder
-      app.launch_new_instance()
 
-![](/assets/blog/rendering_general_relativity/ac7e08bc3d564713a14fb9d90f7344a87c623796.png)
+<figure>
+<img src="{{page.assets}}/final.png" alt="A render of the earth as a sphere. The columns show different angles and the top row shows flat spacetime while the bottom shows curved spacetime. In the curved spacetime, the earth appears bigger because the range of angles we can look in and see it increases. It alsp appears distorted at the edges because when we look at the 'surface' at a glancing angle we actually see many times around the object.">
+</figure>
 
+And just for kicks here an animated gif of the earth spinning with this weird spacetime distortion. The north and south poles are fully visible and spin oddly about their axis while areas we just should not be able to see 'swim' around them.
+
+<figure>
+<img src="{{page.assets}}/spinning_earth.gif" alt="An animated gif of the earth spinning with this weird spacetime distortion. The north and south poles are fully visible and spin oddly about their axis while areas we just should not be able to see swim around them.">
+</figure>
 ``` python
 ```
