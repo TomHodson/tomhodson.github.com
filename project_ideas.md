@@ -9,6 +9,10 @@ mathjax: false
 
 # Project Ideas
 
+* get https://www.feather.art/ and try out the line rendering for nice 3D annotations
+
+* small telegram/whatsapp server that you can forward an audio message to and get a transcription
+
 * make something interactive using a custom server on my new server
 
 * Make a tiny rest server on an esp32

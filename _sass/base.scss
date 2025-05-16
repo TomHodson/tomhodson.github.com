@@ -138,7 +138,7 @@ hr.byline {
 // Used for both blog and project summaries
 @mixin time-text {
   font-size: 0.75em;
-  color: var(--theme-subtle-text-color);
+  opacity: 0.8;
 }
 
 span.dt-label {
@@ -463,4 +463,14 @@ svg {
 
 [data-user-color-scheme="dark"] {
   @include night-mode;
+}
+
+@view-transition {
+    navigation: auto;
+  }
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        view-transition-name: unset !important;
+    }
 }

@@ -14,18 +14,19 @@
     {% include header.html %}
     <main>
         <article class="h-entry">
-            <section class="header">
+            <section class="header" style="view-transition-name: {{ page.slug }}">
                 <section class="title-icon-container">
                     <h1 class = "p-name highlights">{{ page.title }}</h1>
                     <div class = "icon-container"></div>
                 </section>
                 <hr class="byline">
-            </section>
-            <section class="byline-time">
-                <section class="byline">
-                    {{page.excerpt}}
+
+                <section class="byline-time">
+                    <section class="byline">
+                        {{page.excerpt}}
+                    </section>
+                    <time class="dt-label dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
                 </section>
-                <time class="dt-label dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
             </section>
             <div class="e-content">
             {{ content }}

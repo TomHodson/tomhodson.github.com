@@ -11,7 +11,7 @@
 
 <article class="h-entry blogroll {% if is_draft %}draft{%endif%}">
 
-<a class="u-uid u-url" href="{{ post.url }}" aria-label="Blog Post: {{ post.title }}">
+<a class="u-uid u-url" href="{{ post.url }}" aria-label="Blog Post: {{ post.title}}">
 <figure>
 <img
     src = "{{ post.thumbnail | default: post.image}}"
@@ -21,7 +21,7 @@
 </figure>
 </a>
 
-<section>
+<section style="view-transition-name: {{post.slug}}">
   <section class="title-date-container">
     <h2 class="p-name blogroll-title"><a class="u-uid u-url" href="{{ post.url }}">{{ post.title }}</a></h2>
     <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %Y' }}</time>
