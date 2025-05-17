@@ -14,8 +14,16 @@ img:
     <span class="dt-label">Date Posted</span>
 </section>
 <hr class="heading">
-{% for post in site.posts %}
-{% if post.draft == false or jekyll.environment == "development" %}
+
+{% assign draft_posts = site.posts | where: "draft", "true" %}
+{% assign published_posts = site.posts | where: "draft", "false" %}
+
+{% if jekyll.environment == 'development' %}
+{% for post in draft_posts %}
 {% include post_summary.html %}
+{% endfor %}
 {% endif %}
+
+{% for post in published_posts limit:5 %}
+{% include post_summary.html %}
 {% endfor %}

@@ -24,13 +24,17 @@ Welcome to my little home on the web! Below you'll find recent blog posts, proje
 </section>
 
 <hr class="heading">
+
+{% assign draft_posts = site.posts | where: "draft", "true" %}
+{% assign published_posts = site.posts | where: "draft", "false" %}
+
 {% if jekyll.environment == 'development' %}
-{% assign filtered_posts = site.posts %}
-{% else %}
-{% assign filtered_posts = site.posts | where: "draft", "false" %}
+{% for post in draft_posts %}
+{% include post_summary.html %}
+{% endfor %}
 {% endif %}
 
-{% for post in filtered_posts limit:5 %}
+{% for post in published_posts limit:5 %}
 {% include post_summary.html %}
 {% endfor %}
 
