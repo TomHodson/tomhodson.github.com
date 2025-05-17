@@ -121,6 +121,7 @@ main {
   }
 }
 
+
 hr.heading {
   width: 100%;
   margin-top: 0;
@@ -390,6 +391,10 @@ body:not(.has-wc) .has-wc {
   div.CodeRay {
     font-size: 0.8rem;
   }
+}
+
+.hidden {
+    display: none;
 }
 
 .visually-hidden {

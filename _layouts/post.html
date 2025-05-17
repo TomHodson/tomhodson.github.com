@@ -28,6 +28,9 @@
                     <time class="dt-label dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
                 </section>
             </section>
+            <div class="e-bridgy-mastodon-content hidden">
+                New blog post: {{ page.title }} - {{page.excerpt}}
+            </div>
             <div class="e-content">
             {{ content }}
             </div>
