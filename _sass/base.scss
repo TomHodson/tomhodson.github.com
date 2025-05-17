@@ -465,12 +465,8 @@ svg {
   @include night-mode;
 }
 
-@view-transition {
-    navigation: auto;
-  }
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        view-transition-name: unset !important;
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+      navigation: auto;
     }
 }
