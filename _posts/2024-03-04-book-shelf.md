@@ -7,7 +7,7 @@ excerpt: |
 image:
 thumbnail: /assets/blog/bookshelf/thumbnail.jpg
 assets: /assets/blog/bookshelf/
-alt: 
+alt: A render of a small bookshelf made of flat panels with some CAD books on it.
 head: <script type="module" src="/assets/js/model-viewer.js"></script>
 ---
 

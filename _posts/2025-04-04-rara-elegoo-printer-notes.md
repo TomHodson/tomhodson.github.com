@@ -7,7 +7,8 @@ exclude_from_rss: true
 assets: /assets/blog/rara-elegoo-printer-notes
 thumbnail: /assets/blog/rara-elegoo-printer-notes/thumbnail.jpg
 social_image: /assets/blog/rara-elegoo-printer-notes/thumbnail.jpg
-alt: A photo of the main circuit board in this 3D printer.
+alt: |
+    A photo of the main circuit board in this 3D printer. The board is red and there are a lot of wires everywhere some of which have clearly been added after market.
 ---
 
 ---

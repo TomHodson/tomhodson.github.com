@@ -4,6 +4,7 @@ layout: post
 thumbnail: /favicon/android-chrome-512x512.png
 excerpt: |
     Mostly a note to self so that I can check this when I forget late how it works.
+alt: The site favicon, built from a series of overlapping circles forming a diamond shape. 
 
 ---
 

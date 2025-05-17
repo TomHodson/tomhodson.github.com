@@ -6,7 +6,7 @@ excerpt: Finally testing boards I got back manufactured last year.
 assets: /assets/blog/usb-c-psu-monitor-board-bringup
 thumbnail: /assets/blog/usb-c-psu-monitor-board-bringup/thumbnail.jpg
 social_image: /assets/blog/usb-c-psu-monitor-board-bringup/thumbnail.jpg
-alt:
+alt: A photograph of a square of dark wood about 4cm by 4cm, in the center is a roughly 3cm diameter circle of orange acrylic behind which there is an lcd screen displaying some faked numbers "5.2v, 20w, 2.1A" in a vaguely sci-fi type font (it's called Gunship and was also used in the movie Walle). To the left there is a circular half filled bar intended to complete the sci-fi UI look.
 ---
 
 Quick recap of my [USB-C PSU build](/projects/usbc_charging_station): I have these USB-C supply boards from aliexpress that take 24v and supply up to 100W using the standard USB-C PD profiles. I designed this little board to add enable/disable with a mosfet and power monitoring with an INA219. In the end, many of these boards will go into a lasercut case with a Meanwell 240W 24V PSU and a microcontroller to turn some of them off if the combined draw gets too high.

@@ -6,7 +6,7 @@ excerpt: Instructions for a workshop I'm running/ran at Electromagnetic Field 20
 image: /assets/blog/emf2024/emf2024-logo-dark.svg
 thumbnail: 
 assets: /assets/blog/emf2024
-alt: 
+alt: The emf2024 logo which has a circle with a wavy line (AC current?) on the middle. An angular computery tree grows out the top and an organic natural looking tree grows out the bottom.
 
 redirect_from: /emf2024
 ---

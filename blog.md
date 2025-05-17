@@ -24,6 +24,6 @@ img:
 {% endfor %}
 {% endif %}
 
-{% for post in published_posts limit:5 %}
+{% for post in published_posts %}
 {% include post_summary.html %}
 {% endfor %}

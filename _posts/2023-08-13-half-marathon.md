@@ -6,6 +6,7 @@ excerpt: |
 image: /assets/blog/running/time_vs_distance.svg
 social_image: /assets/blog/running/time_vs_distance.png
 thumbnail: /assets/blog/running/half_thumbnail.svg
+alt: 
 image_class: invertable
 alt: A scatter graph of run time vs run distance for all my runs on strava. It shows that I mainly run between 5 and 6 min per kilometer, regardless of distance 
 ---

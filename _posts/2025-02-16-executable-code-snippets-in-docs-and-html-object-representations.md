@@ -6,7 +6,8 @@ excerpt: "It just looks so nice."
 assets: /assets/blog/executable-code-snippets-in-docs-and-html-object-representations
 thumbnail: /assets/blog/executable-code-snippets-in-docs-and-html-object-representations/thumbnail.png
 social_image: /assets/blog/executable-code-snippets-in-docs-and-html-object-representations/thumbnail.png
-alt:
+alt: | 
+    A screenshot of a tree diagram created using unicode bar characters. It starts at "root" and then fans out to "class=od" and class="rd" which themselves fan out to "expver=0001" and "expver=0002" and finally "param=1" and "param=2".
 image_class: invertable
 
 

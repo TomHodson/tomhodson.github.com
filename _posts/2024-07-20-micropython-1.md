@@ -6,14 +6,14 @@ excerpt: Embedded Programming is fun again!
 image: /assets/blog/micropython/xkcd.png
 thumbnail: /assets/blog/micropython/thumbnail.png
 assets: /assets/blog/micropython
-alt: A crudely edited version of XKCD 353, the one about python, but with a greek letter mu stuck in front of "python".
+alt: A crudely edited version of XKCD 353, the one about python (the programming language), but in this thumbnail you can only see the character saying 'you can fly, how?'.
 
 head: |
     <script src="/assets/blog/micropython/micropython.min.mjs" type="module"></script>
 ---
 
 <figure style="width:max(300px, 100%);">
-<img src="{{page.assets}}/xkcd.png" alt="The classic xkcd 353 about how python makes programming fun again."/>
+<img src="{{page.assets}}/xkcd.png" alt="A crudely edited version of XKCD 353, the one about python (the programming language), but with a greek letter mu stuck in front of 'python' to make it 'micropython'. A character looking up says 'you're flying how?' and the one in the air says 'micropython!'. Not shown but in the next panel it is explained that they did 'import antigravity'"/>
 <figcaption>
 <small><a href = "https://xkcd.com/353/">Original</a></small>
 </figcaption>

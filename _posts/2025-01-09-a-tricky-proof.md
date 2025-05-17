@@ -8,7 +8,7 @@ mathjax: true
 thumbnail: /assets/blog/astrophysical_fluids/line_element.svg
 social_image: /assets/blogs/astrophysical_fluids/thumbnail.png
 assets: 
-alt: 
+alt: A sketch of a vector V with arrows coming off both the top and bottom labelled u(x) and u(x+v) that is used in the post to show how a vector gets transported in a fluid.
 image_class: invertable
 
 ---

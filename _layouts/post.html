@@ -28,8 +28,13 @@
                     <time class="dt-label dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
                 </section>
             </section>
+
+            <!-- Hidden content to control how this gets posted to Mastodon -->
             <div class="e-bridgy-mastodon-content hidden">
                 New blog post: {{ page.title }} - {{page.excerpt}}
+                <img src = "{{ page.thumbnail | default: page.image}}"
+                    class = "u-featured"
+                    alt="{{page.alt | smartify}}">
             </div>
             <div class="e-content">
             {{ content }}

@@ -6,7 +6,7 @@ excerpt: I had a black and white image but I wanted a black image with the white
 thumbnail: /assets/blog/manipulate_pixels.png
 social_image: /assets/blog/manipulate_pixels.png
 assets: 
-alt: 
+alt: A screenshot of some python code showing the line "rgb_array = np.array(..." and then multiple that say "rgb_array = ...". To be honest this is kinda lazy but I wanted to have some kind of image for each blog post. You, oh reader of the alt text, are getting more out of me than someone who just looked at the picture. 
 image_class: invertable
 
 ---

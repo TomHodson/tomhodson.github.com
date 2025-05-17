@@ -7,7 +7,6 @@ images: /assets/blog/alpha_test
 thumbnail: /assets/blog/alpha_test/thumbnail.png
 social_image: /assets/blog/alpha_test/thumbnail.png
 
-# The alt text for both images.
 alt: An image of Mixtela's latest project, a pendant with a fluid simulation running on a LED matrix.
 image_class: no-dim
 mathjax: true

@@ -3,6 +3,7 @@ title: "Selfhosting: Miniflux and RSSHub"
 layout: post
 excerpt: Notes to self on selfhosting an RSS reader.
 thumbnail: /assets/blog/miniflux/thumbnail.png
+alt: A lazy screenshot of the miniflux homepage with the title and 'Unread(52)'
 image_class: invertable
 ---
 

@@ -7,7 +7,7 @@ assets: /assets/blog/heic_depth_map
 thumbnail: /assets/blog/heic_depth_map/thumbnail.png
 social_image: /assets/blog/heic_depth_map/thumbnail.png
 
-alt: An image of my face, half is a normal colour photgraph and half is a depth map in black and white.
+alt: An image of my face, half is a normal colour photograph and half is a depth map in black and white.
 
 model_viewer: true
 ---

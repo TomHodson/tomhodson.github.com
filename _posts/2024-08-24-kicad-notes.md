@@ -6,7 +6,7 @@ excerpt: A collection of Kicad related links and notes.
 image: /assets/blog/kicad/kicad.png
 thumbnail: /assets/blog/kicad/kicad.png
 assets: /assets/blog/kicad
-alt: 
+alt: A screenshot of some PCB traces from the PCB design program KiCAD. The traces are in red with white labels like "GND" and "5v". Some of the traces are for power and are very wide while others are just for signals and are very narrow.
 head: |
     <script type="module" src="/assets/js/kicanvas.js"></script>
 ---

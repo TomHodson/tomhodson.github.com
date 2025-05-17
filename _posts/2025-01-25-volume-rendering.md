@@ -8,7 +8,7 @@ thumbnail: /assets/blog/volume_rendering/thumbnail.png
 social_image: /assets/blog/volume_rendering/thumbnail.png
 image_class: invertable
 
-alt: A volumetric render of a CT scan of my jaw.
+alt: A volumetric render of a CT scan of my jaw. It looks like a kind of translucent human skull except the teeth are dark black because they're denser to x-rays, the bone is more greyish.
 
 model_viewer: true
 ---

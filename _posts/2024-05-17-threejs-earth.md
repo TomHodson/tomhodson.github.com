@@ -6,7 +6,7 @@ excerpt: A small earth renderer made using ThreeJS
 image:
 thumbnail: /assets/blog/sphere_geodesics/thumbnail.png
 assets: /assets/blog/sphere_geodesics/
-alt: 
+alt: A render of a 3D spherical earth.
 
 head: |
     <script async src="/node_modules/es-module-shims/dist/es-module-shims.js"></script>

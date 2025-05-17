@@ -6,6 +6,7 @@ excerpt: |
 
 image: /assets/blog/weekend_builds_1/stool.jpeg
 thumbnail: /assets/blog/weekend_builds_1/stool_thumbnail.jpeg
+alt: An image of a hexagonal stool made out of 6mm thick laser cut plywood.
 assets: /assets/blog/weekend_builds_1/
 head: <script type="module" src="/assets/js/model-viewer.js"></script>
 ---
