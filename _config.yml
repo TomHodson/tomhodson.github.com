@@ -22,9 +22,13 @@ collections:
     output: true
 
 kramdown:
-  syntax_highlighter: coderay
+  syntax_highlighter: rouge
   syntax_highlighter_opts:
     line_numbers: false
+    css_class: 'highlight'
+    span:
+      wrap: span
+
 
 flexible_include:
   die_on_flexible_include_error: false
@@ -36,7 +40,7 @@ plugins:
   # - jekyll-feed
   - jekyll-redirect-from
   - flexible_include
-  - kramdown-syntax-coderay
+  # - kramdown-syntax-coderay
   - jekyll-last-modified-at
 
 

@@ -9,6 +9,8 @@ mathjax: false
 
 # Project Ideas
 
+* Take on board some ideas from https://plainvanillaweb.com/index.html
+
 * get https://www.feather.art/ and try out the line rendering for nice 3D annotations
 
 * small telegram/whatsapp server that you can forward an audio message to and get a transcription

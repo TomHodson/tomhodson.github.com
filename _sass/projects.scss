@@ -31,6 +31,8 @@ article.project {
 }
 
 section.header {
+    width: 100%;
+
     h1 {
         font-size: clamp(20px, 20px * 100vw / 300px, 25px);
     }

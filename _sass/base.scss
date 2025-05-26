@@ -13,20 +13,49 @@
 @import "mastodon_timeline";
 @import "night_mode_toggle";
 @import "highlights";
-@import "tables"; // The syntax highlighting css
-// generated with rougify style bw > code_style_bw.scss
-// @import "code_style_bw";
-@import "code_style_github";
+@import "tables";
+
+@import "rouge_theme_github.scss";
 
 @import "d2";
 
-* {
-  box-sizing: border-box;
-  font-family: $font_stack;
-  text-rendering: geometricPrecision;
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+
 }
 
+@font-face {
+    font-family: "Inter";
+    src: url("/assets/fonts/Inter.woff2") format("woff2");
+    // font-weight: normal;
+    // font-style: normal;
+}
+
+// @font-face {
+//     font-family: "Inter";
+//     src: url("/assets/fonts/Inter.woff2") format("woff2");
+//     font-weight: normal;
+//     font-style: italic;
+//     font-variation-settings: "ital" 1;
+//     font-synthesis: none;
+// }
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url('/assets/fonts/SpaceGrotesk.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+
 :root {
+  --body-font: 'Inter', 'IBM Plex Sans', sans-serif;
+  --title-font: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif", HelveticaNeue-CondensedBlack;
+  --mono-font: "JetBrains Mono", "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace, monospace;
+
   --theme-text-color: #222;
   --theme-bg-color: #fcfcfc;
   --theme-model-line-color: #222;
@@ -34,7 +63,7 @@
   --theme-subtle-outline: oklch(90% 0 50);
   --theme-subtle-background: rgba(128, 128, 128, 0.05);
   --theme-highlight-color: hsl(338, 75%, 60%);
-  --theme-highlight-color-transparent: hsla(338, 75%, 60%, 33%);
+  --theme-highlight-color-transparent: hsla(338, 75%, 60%, 20%);
   --theme-subtle-text-color: #606984;
 
   --night-mode-fade-time: 0.5s;
@@ -71,9 +100,23 @@
   --border-color: var(--color-dark-alpha);
 }
 
+* {  
+    box-sizing: border-box; 
+    text-rendering: geometricPrecision;
+}
+
+h2 {
+     font-family: var(--body-font);
+        font-variation-settings: "wght" 700;
+}
+
 html {
   width: 100vw;
   scroll-behavior: smooth;
+  font-family: var(--body-font);
+  font-size: 0.9em;
+
+
 }
 
 body {
@@ -121,6 +164,22 @@ main {
   }
 }
 
+// All code both inline and block
+code {
+    font-family: var(--mono-font);
+    font-size: 0.9rem;
+}
+
+// Inline blocks
+:not(pre) > code {
+}
+
+
+// Block code
+pre.highlight code {
+}
+
+
 
 hr.heading {
   width: 100%;
@@ -164,6 +223,7 @@ section.title-icon-container {
 
 section.byline-time {
     display: flex;
+    justify-content: space-between;
     time {
         text-align: right;
         @include time-text;
@@ -184,7 +244,7 @@ section.byline {
 p,
 figcaption {
   font-size: 1em;
-  line-height: 1.3em;
+  line-height: 1.4em;
 }
 
 main :is(p, h1, h2, h3, h4, h5, h6) {
@@ -293,18 +353,17 @@ figure.multiple {
 }
 
 section.note {
-  a {
-    color: purple;
-  }
+
   p {
     margin: 0;
   }
   padding: 1em;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   background-color: var(--theme-highlight-color-transparent);
   border-radius: 10px;
-  color: black;
 }
 
 section.center {
@@ -314,14 +373,18 @@ section.center {
   margin-bottom: 1em;
 }
 
-div.CodeRay {
+
+
+div.highlighter-rouge {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
     Courier New, Courier, monospace;
   font-size: 12px;
   line-height: 1.4;
-  padding: 1em;
-  background-color: var(--theme-subtle-background);
   border-radius: 5px;
+
+  div.highlight {
+    padding: 1em;
+  }
 
   // Override background colors from the theme.
   span {
@@ -388,10 +451,12 @@ body:not(.has-wc) .has-wc {
   }
 
   // Make code a bit smaller so it doesn't wrap as much
-  div.CodeRay {
+  pre.highlight code {
     font-size: 0.8rem;
   }
 }
+
+
 
 .hidden {
     display: none;
@@ -430,11 +495,15 @@ svg {
   --button-color: var(--color-dark);
   --border-color: var(--color-light-alpha);
 
+  
+
+
   body {
     --theme-text-color: #fcfcfc;
     --theme-bg-color: #222;
     --theme-subtle-outline: oklch(50% 0 50);
     --theme-subtle-background: rgba(255, 255, 255, 0.05);
+    --theme-highlight-color-transparent: hsl(338, 85%, 21%);
   }
 
   // Two main image classes are "invertable" i.e look good inverted
@@ -463,11 +532,13 @@ svg {
 
   :root:not([data-user-color-scheme]) {
     @include night-mode;
+    // @import "rouge_theme_gruvbox.dark.scss";
   }
 }
 
 [data-user-color-scheme="dark"] {
   @include night-mode;
+  @import "rouge_theme_gruvbox.dark.scss";
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -42,3 +42,31 @@ span.icon {
 span.icon svg {
     width: .75em;
 }
+
+// aside details summary element
+// <details class="aside" markdown=1>
+// <summary>Why do we still have to bind in free-threaded python?</summary>
+// My understanding is that, even in free-threaded python, we still a need a mechanism to keep track of which threads are currently bound to the interpreter because the python garbage collector can only run when no threads are bound to the interpreter. Presumably this means we would need to be careful to give the GC a chance to run every now and then but I haven't looked deeply into this aspect.
+// </details>
+
+details.aside:open > summary {
+        margin-bottom: 0.5em;
+}
+
+details.aside {
+    summary {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+    }
+      
+
+    p {
+    margin: 0;
+    }
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: var(--theme-highlight-color-transparent);
+    border-radius: 10px;
+}

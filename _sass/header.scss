@@ -44,7 +44,7 @@ header {
 
   h1,
   h2 {
-    font-family: $title_font_stack;
+    font-family: var(--title-font);
   }
 
   a {
