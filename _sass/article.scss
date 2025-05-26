@@ -49,8 +49,17 @@ span.icon svg {
 // My understanding is that, even in free-threaded python, we still a need a mechanism to keep track of which threads are currently bound to the interpreter because the python garbage collector can only run when no threads are bound to the interpreter. Presumably this means we would need to be careful to give the GC a chance to run every now and then but I haven't looked deeply into this aspect.
 // </details>
 
-details.aside:open > summary {
+details.aside[open] > summary {
         margin-bottom: 0.5em;
+}
+
+details.aside[open] > summary::after {
+    content: "△";
+}
+
+details.aside > summary::after {
+    content: "▽";
+    color: var(--theme-highlight-color);
 }
 
 details.aside {
@@ -59,7 +68,6 @@ details.aside {
         justify-content: space-between;
         font-weight: 700;
     }
-      
 
     p {
     margin: 0;
