@@ -7,7 +7,7 @@ draft: False
 assets: /assets/blog/pyo3-smart-pointers
 thumbnail: /assets/blog/pyo3-smart-pointers/thumbnail.svg
 social_image: /assets/blog/pyo3-smart-pointers/thumbnail.png
-alt: An SVG of the text "Py<T>" with the T in orange.
+alt: An SVG of the text 'Py<T>' with the T in orange.
 image_class: invertable
 ---
 
