@@ -2,13 +2,17 @@
 title: Bind, Borrow, Deref
 layout: post
 excerpt: Safely sharing objects between Python and Rust using PyO3
+social_text: |
+    I'm working on a python package with a rust backend so I wrote a bit about PyO3's model of shared ownership between python and rust.
 draft: False
 
 assets: /assets/blog/pyo3-smart-pointers
 thumbnail: /assets/blog/pyo3-smart-pointers/thumbnail.svg
 social_image: /assets/blog/pyo3-smart-pointers/thumbnail.png
-alt: An SVG of the text 'Py<T>' with the T in orange.
+alt: An image of the text 'Py<T>' with the T in orange.
 image_class: invertable
+
+
 ---
 
 <section class="note" markdown=1>

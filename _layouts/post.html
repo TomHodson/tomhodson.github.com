@@ -30,9 +30,12 @@
             </section>
 
             <!-- Hidden content to control how this gets posted to Mastodon -->
+            {% capture default_mastodon_text %}
+            New blog post: {{ page.title }} - {{page.excerpt}}
+            {% endcapture %}
             <div class="e-bridgy-mastodon-content hidden">
-                New blog post: {{ page.title }} - {{page.excerpt}}
-                <img src = "{{ page.thumbnail | default: page.image}}"
+                {{ page.social_text | default_mastodon_text }}
+                <img src = "{{ page.social_image }}"
                     class = "u-featured"
                     alt="{{page.alt | smartify}}">
             </div>
