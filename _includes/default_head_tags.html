@@ -35,8 +35,8 @@
 <!-- Description tags -->
 {% if page.excerpt %}
 <!-- HTML Meta Tag Description -->
-<meta name="description" content="{{page.excerpt | strip_html | strip}}">
-<meta property="og:description" content="{{page.excerpt | strip_html | strip}}">
+<meta name="description" content="{{page.excerpt | strip_html | strip | xml_escape}}">
+<meta property="og:description" content="{{page.excerpt | strip_html | strip | xml_escape}}">
 {% endif %}
 
 <!-- Image preview tags -->
@@ -62,7 +62,7 @@
 
 <meta property="og:image" content="{{image | absolute_url}}">
   {% if alt %} <!-- Note og:image:alt must immediately follow og:image tag -->
-  <meta property="og:image:alt" content="{{alt | strip}}">
+  <meta property="og:image:alt" content="{{alt | xml_escape }}">
   {% endif %}
 {% endif %}
 

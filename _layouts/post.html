@@ -37,7 +37,7 @@
                 {{ page.social_text | default_mastodon_text }}
                 <img src = "{{ page.social_image }}"
                     class = "u-featured"
-                    alt="{{page.alt | smartify}}">
+                    alt="{{page.alt | xml_escape }}">
             </div>
             <div class="e-content">
             {{ content }}
@@ -46,8 +46,8 @@
         {% if page.commentid %}  
         <div id="comments" class="comments">
             <h2>Comments</h2>
-        {% endif %}
         </div>
+        {% endif %}
     </main>
     {% include footer.html %}
   </body>
