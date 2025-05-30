@@ -30,17 +30,12 @@ kramdown:
       wrap: span
 
 
-flexible_include:
-  die_on_flexible_include_error: false
-
 include:
   - node_modules
 
+
 plugins:
-  # - jekyll-feed
   - jekyll-redirect-from
-  - flexible_include
-  # - kramdown-syntax-coderay
   - jekyll-last-modified-at
 
 
