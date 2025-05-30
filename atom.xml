@@ -1,0 +1,42 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
+    <link href="{{ '/' | absolute_url }}" rel="alternate" type="text/html" hreflang="en" />
+    <updated>{{site.time | date_to_xmlschema }}</updated>
+    <id>{{ page.url | absolute_url | xml_escape }}</id>
+
+    <title type="html">Tom Hodson's Atom Feed</title>
+    <subtitle>{{ site.description | xml_escape }}</subtitle>
+
+    <icon>{{"/favicon.ico" | absolute_url | xml_escape }}</icon>
+    <logo>{{ "/apple-touch-icon.png" | absolute_url | xml_escape }}</logo>
+
+    <author>
+        <name>Tom Hodson</name>
+        <uri>{{ site.url | xml_escape }}</uri>
+    </author> 
+    {% assign feed_items = site.feed.post_limit | default: 10 %}
+    {% for post in site.posts limit:feed_items %}
+    {% if post.draft == false or jekyll.environment == "development" %}
+    {% unless post.exclude_from_rss %}
+    <entry xml:lang="en">
+        {% assign post_title = post.title | smartify | strip_html | normalize_whitespace | xml_escape %}
+        <title type="html">{{ post_title }}</title>
+        <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html" title="{{ post_title }}" />
+        <published>{{ post.date | date_to_xmlschema }}</published>
+        <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
+        <id>{{ post.id | absolute_url | xml_escape }}</id>
+        <summary type="html"><![CDATA[{{ post.excerpt | strip_html | normalize_whitespace }}]]></summary>
+        <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}"><![CDATA[{{ post.content | strip }}]]></content>
+        {% if post.social_image %}
+        <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{{ post.social_image | absolute_url | xml_escape }}" />
+        <media:content medium="image" url="{{ post.social_image | absolute_url | xml_escape }}" xmlns:media="http://search.yahoo.com/mrss/" />
+        {% endif %}
+    </entry>
+    {% endunless %}
+    {% endif %}
+    {% endfor %}
+</feed>

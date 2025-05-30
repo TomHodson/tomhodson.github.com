@@ -18,8 +18,7 @@ A list of things to check once in a while to make sure I haven't broken them ina
   - add humans.txt https://humanstxt.org/
   - fix the OG tags so that https://cards-dev.twitter.com/validator works
   - consider switching to using pandoc as a markdown renderer
-  - setup webmentions https://aarongustafson.github.io/jekyll-webmention_io/
-  - add a theme toggle button: https://whitep4nth3r.com/blog/best-light-dark-mode-theme-toggle-javascript/
+  - make the light dark mode toggle work without js
   - make sure the above works with the thesis section, will probably require stripping the html tag.
   - add json-ld metadata https://csvbase.com/blog/13
 
