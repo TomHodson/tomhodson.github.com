@@ -34,7 +34,7 @@
             New blog post: {{ page.title }} - {{page.excerpt}}
             {% endcapture %}
             <div class="e-bridgy-mastodon-content hidden">
-                {{ page.social_text | default_mastodon_text }}
+                {{ page.social_text | default: default_mastodon_text }}
                 <img src = "{{ page.social_image }}"
                     class = "u-featured"
                     alt="{{page.alt | xml_escape }}">
