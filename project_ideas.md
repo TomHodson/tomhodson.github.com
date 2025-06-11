@@ -9,6 +9,8 @@ mathjax: false
 
 # Project Ideas
 
+* Add stylised toon shading to the outline renderer. Ie take the dot product between the light direction and the normal direction, soft threshold it and then use either a shadow colour or a highlight colour.
+
 * Take on board some ideas from https://plainvanillaweb.com/index.html
 
 * get https://www.feather.art/ and try out the line rendering for nice 3D annotations
