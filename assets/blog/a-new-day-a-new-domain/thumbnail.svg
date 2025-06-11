@@ -10,8 +10,8 @@
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    sodipodi:docname="thumbnail.svg"
    inkscape:export-filename="thumbnail.png"
-   inkscape:export-xdpi="150"
-   inkscape:export-ydpi="150"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -68,10 +68,10 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.7632px;line-height:1.15;font-family:'Space Grotesk';-inkscape-font-specification:'Space Grotesk, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700;white-space:pre;shape-inside:url(#rect236-5);display:inline;fill:#000000;fill-opacity:1;stroke-width:2.592;stroke-miterlimit:4.9"><tspan
          x="34.386719"
          y="128.09907"
-         id="tspan763"><tspan
+         id="tspan780"><tspan
    style="fill:#9955ff"
-   id="tspan759">THOD</tspan>.<tspan
+   id="tspan776">THOD</tspan>.<tspan
    style="fill:#ff2a7f"
-   id="tspan761">DEV</tspan></tspan></text>
+   id="tspan778">DEV</tspan></tspan></text>
   </g>
 </svg>
