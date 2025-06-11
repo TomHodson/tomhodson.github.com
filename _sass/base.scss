@@ -148,6 +148,19 @@ main {
   }
 }
 
+// p.lead:first-child::first-letter, .blog-namespace > p.lead:first-child::first-letter
+div.e-content > p:first-of-type:first-child::first-letter  {
+  float: left;
+  color: var(--theme-highlight-color);
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 15px;
+  padding-left: 3px;
+  font-family: Baskerville,Georgia,"URW Bookman","Noto Serif","URW Palladio L","Times New Roman",Times,serif;
+//   font-family: "Space Grotesk";
+}
+
 // All code both inline and block
 code {
     font-family: var(--mono-font);
