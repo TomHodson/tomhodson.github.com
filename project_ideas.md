@@ -12,6 +12,9 @@ mathjax: false
 * add bot blocking https://blog.cloudflare.com/declaring-your-aindependence-block-ai-bots-scrapers-and-crawlers-with-a-single-click/
 
 * Add stylised toon shading to the outline renderer. Ie take the dot product between the light direction and the normal direction, soft threshold it and then use either a shadow colour or a highlight colour.
+     https://threejs.org/docs/#api/en/materials/MeshToonMaterial
+     https://gkjohnson.github.io/threejs-sandbox/conditional-lines/
+     https://threejs.org/docs/#examples/en/renderers/SVGRenderer
 
 * Take on board some ideas from https://plainvanillaweb.com/index.html
 
