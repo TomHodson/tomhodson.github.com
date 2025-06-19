@@ -9,6 +9,8 @@ mathjax: false
 
 # Project Ideas
 
+* a simple rust caching tile server to cache strava heatmap tiles
+
 * add bot blocking https://blog.cloudflare.com/declaring-your-aindependence-block-ai-bots-scrapers-and-crawlers-with-a-single-click/
 
 * Add stylised toon shading to the outline renderer. Ie take the dot product between the light direction and the normal direction, soft threshold it and then use either a shadow colour or a highlight colour.
