@@ -6,7 +6,7 @@ excerpt: I just registered thod.dev and bought my first VPS.
 assets: /assets/blog/a-new-day-a-new-domain
 thumbnail: /assets/blog/a-new-day-a-new-domain/thumbnail.svg
 social_image: /assets/blog/a-new-day-a-new-domain/thumbnail.png
-alt:
+alt: An image of the text 'thod.dev'.
 image_class: invertable
 ---
 

@@ -19,7 +19,7 @@ export function serialiseCamera(component) {
   });
 }
 
-// Todo alllow isometric camera
+// Todo allow isometric camera
 export function deserialiseCamera(component) {
   const { canvas, initial_camera_state } = component;
   const aspect = canvas.clientWidth / canvas.clientHeight;
@@ -62,8 +62,8 @@ const saveBlob = (function () {
 })();
 
 function takeScreenshot(component) {
-  const { canvas, render } = component;
-  render();
+  let { canvas, composer } = component;
+  composer.render(0);
   canvas.toBlob((blob) => {
     saveBlob(blob, `screencapture-${canvas.width}x${canvas.height}.png`);
   });

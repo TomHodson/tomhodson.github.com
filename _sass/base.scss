@@ -148,17 +148,24 @@ main {
   }
 }
 
-// p.lead:first-child::first-letter, .blog-namespace > p.lead:first-child::first-letter
-div.e-content > p:first-of-type:first-child::first-letter  {
-  float: left;
-  color: var(--theme-highlight-color);
-  font-size: 75px;
-  line-height: 60px;
-  padding-top: 4px;
-  padding-right: 15px;
-  padding-left: 3px;
-  font-family: Baskerville,Georgia,"URW Bookman","Noto Serif","URW Palladio L","Times New Roman",Times,serif;
-//   font-family: "Space Grotesk";
+// Make a fancy first letter and make sure the first paragraph is tall enough to fit it.
+div.e-content {
+     > p:first-of-type:first-child::first-letter  {
+        float: left;
+        color: var(--theme-highlight-color);
+        font-size: 75px;
+        line-height: 60px;
+        padding-top: 4px;
+        padding-right: 15px;
+        padding-left: 3px;
+        font-family: Baskerville,Georgia,"URW Bookman","Noto Serif","URW Palladio L","Times New Roman",Times,serif;
+        //   font-family: "Space Grotesk";
+    }
+
+    > p:first-of-type  {
+        min-height: 70px
+    }
+
 }
 
 // All code both inline and block

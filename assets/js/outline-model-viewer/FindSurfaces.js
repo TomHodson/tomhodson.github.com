@@ -138,13 +138,16 @@ export function getSurfaceIdMaterial() {
 
 function getVertexShader() {
   return `
-  varying vec2 v_uv;
-  varying vec4 vColor;
+  varying vec2 vUv;
+  varying vec4 vSurfaceIdNormal;
 
   void main() {
-     v_uv = uv;
-     vColor = vec4(color.rgb, 1.0);
+     vUv = uv;
 
+     // Save the surface id into the r channel and the normal into the gba channels 
+     mat4 matrixWorld = projectionMatrix * modelViewMatrix;
+     vec3 screenspace_normal = normalize( mat3(matrixWorld) * normal);
+     vSurfaceIdNormal = vec4(color.r, screenspace_normal);
      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
   }
   `;
@@ -152,16 +155,16 @@ function getVertexShader() {
 
 function getFragmentShader() {
   return `
-  varying vec2 v_uv;
-  varying vec4 vColor;
+  varying vec2 vUv;
+  varying vec4 vSurfaceIdNormal;
   uniform float maxSurfaceId;
 
   void main() {
     // Normalize the surfaceId when writing to texture
     // Surface ID needs rounding as precision can be lost in perspective correct interpolation 
     // - see https://github.com/OmarShehata/webgl-outlines/issues/9 for other solutions eg. flat interpolation.
-    float surfaceId = round(vColor.r) / maxSurfaceId;
-    gl_FragColor = vec4(surfaceId, 0.0, 0.0, 1.0);
+    float surfaceId = round(vSurfaceIdNormal.r) / maxSurfaceId;
+    gl_FragColor = vec4(surfaceId, vSurfaceIdNormal);
   }
   `;
 }

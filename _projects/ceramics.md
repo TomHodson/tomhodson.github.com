@@ -26,7 +26,7 @@ model: /assets/projects/ceramics/pots/pots.glb
 </figure>
 
 <figure>
-<outline-model-viewer model = "{{page.models}}/pots/pots.glb" camera='{"type":"perspective","fov":30,"near":10,"far":10000,"position":[364.9,307.2,459.7],"rotation":[-0.5891,0.5833,0.3527],"zoom":250,"target":[0,0,0]}' materials=keep mode=1 ambient-light="6" directional-light="0.8">
+<outline-model-viewer model = "{{page.models}}/pots/pots.glb" camera='{"type":"perspective","fov":30,"near":10,"far":10000,"position":[364.9,307.2,459.7],"rotation":[-0.5891,0.5833,0.3527],"zoom":250,"target":[0,0,0]}' materials=keep mode=2 ambient-light=4 directional-light=4>
     <img class="outline-model-poster no-wc" src = "{{page.models}}/pots/pots.png">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>
@@ -56,7 +56,7 @@ I also like how this one came out, it's the result of double dipping glazes.
 This was a bit of an experiment to see if I could make a kind of press mould by 3D printing it in two halves. You can see one half of the mold in the model below. Along with the soap dispensers that I was making it for. 
 
 <figure>
-<outline-model-viewer model = "{{page.models}}/soap_dispenser_tray/tray.glb" materials=keep mode=0 ambient-light="7" directional-light="7" camera = '{"position":[-3.493,4.932,-9.259],"rotation":[-2.652,-0.3214,-2.975],"zoom":223.15174865581577,"target":[0,0,0]}'>
+<outline-model-viewer model = "{{page.models}}/soap_dispenser_tray/tray.glb" materials=keep mode=0 ambient-light="5" directional-light="7" camera = '{"type":"perspective","fov":30,"near":10,"far":10000,"position":[364.9,307.2,459.7],"rotation":[-0.5891,0.5833,0.3527],"zoom":250,"target":[0,0,0]}'>
     <img class="outline-model-poster no-wc" src = "{{page.models}}/soap_dispenser_tray/tray.png">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>

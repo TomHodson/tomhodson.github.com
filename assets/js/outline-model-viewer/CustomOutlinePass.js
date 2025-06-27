@@ -18,20 +18,19 @@ class CustomOutlinePass extends Pass {
     this.fsQuad = new FullScreenQuad(null);
     this.fsQuad.material = this.createOutlinePostProcessMaterial();
 
-    // Create a buffer to surface ids
+    // Create a buffer for surface ids (r) and screen space normals (gb)
     const surfaceBuffer = new THREE.WebGLRenderTarget(
       this.resolution.x,
-      this.resolution.y
+      this.resolution.y,
+      {
+        format: THREE.RGBAFormat,
+        type: THREE.HalfFloatType,
+        // minFilter: THREE.NearestFilter,
+        // magFilter: THREE.NearestFilter,
+      }
     );
-    surfaceBuffer.texture.format = THREE.RGBAFormat;
-    surfaceBuffer.texture.type = THREE.HalfFloatType;
-    surfaceBuffer.texture.minFilter = THREE.NearestFilter;
-    surfaceBuffer.texture.magFilter = THREE.NearestFilter;
-    surfaceBuffer.texture.generateMipmaps = false;
-    surfaceBuffer.stencilBuffer = false;
-    this.surfaceBuffer = surfaceBuffer;
 
-    this.normalOverrideMaterial = new THREE.MeshNormalMaterial();
+    this.surfaceBuffer = surfaceBuffer;
     this.surfaceIdOverrideMaterial = getSurfaceIdMaterial();
   }
 
@@ -63,25 +62,31 @@ class CustomOutlinePass extends Pass {
   }
 
   render(renderer, writeBuffer, readBuffer) {
+    // Store the original values of writeBuffer.depthBuffer and renderScene.overrideMaterial
+    const originalDepthBufferValue = writeBuffer.depthBuffer;
+    const originalOverrideMaterialValue = this.renderScene.overrideMaterial;
+
     // Turn off writing to the depth buffer
     // because we need to read from it in the subsequent passes.
-    const depthBufferValue = writeBuffer.depthBuffer;
     writeBuffer.depthBuffer = false;
 
-    // 1. Re-render the scene to capture all suface IDs in a texture.
+    // 1. Re-render the scene to capture all surface IDs and normals in a texture.
     renderer.setRenderTarget(this.surfaceBuffer);
-    const overrideMaterialValue = this.renderScene.overrideMaterial;
-
     this.renderScene.overrideMaterial = this.surfaceIdOverrideMaterial;
     renderer.render(this.renderScene, this.renderCamera);
-    this.renderScene.overrideMaterial = overrideMaterialValue;
 
+    // Store the depth and scene colour from the previous pass
     this.fsQuad.material.uniforms["depthBuffer"].value =
       readBuffer.depthTexture;
-    this.fsQuad.material.uniforms["surfaceBuffer"].value =
-      this.surfaceBuffer.texture;
     this.fsQuad.material.uniforms["sceneColorBuffer"].value =
       readBuffer.texture;
+
+    // Store the normals and surface IDs from this pass
+    this.fsQuad.material.uniforms["surfaceBuffer"].value =
+      this.surfaceBuffer.texture;
+
+    // restore the original value of renderScene.overrideMaterial
+    this.renderScene.overrideMaterial = originalOverrideMaterialValue;
 
     // 2. Draw the outlines using the depth texture and normal texture
     // and combine it with the scene color
@@ -97,7 +102,7 @@ class CustomOutlinePass extends Pass {
     }
 
     // Reset the depthBuffer value so we continue writing to it in the next render.
-    writeBuffer.depthBuffer = depthBufferValue;
+    writeBuffer.depthBuffer = originalDepthBufferValue;
   }
 
   get vertexShader() {
@@ -105,6 +110,8 @@ class CustomOutlinePass extends Pass {
 			varying vec2 vUv;
 			void main() {
 				vUv = uv;
+
+                // Compute the position of this vertex
 				gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 			}
 			`;
@@ -112,16 +119,15 @@ class CustomOutlinePass extends Pass {
   get fragmentShader() {
     return `
 			#include <packing>
-			// The above include imports "perspectiveDepthToViewZ"
-			// and other GLSL functions from ThreeJS we need for reading depth.
+
 			uniform sampler2D sceneColorBuffer;
 			uniform sampler2D depthBuffer;
 			uniform sampler2D surfaceBuffer;
+
 			uniform float cameraNear;
 			uniform float cameraFar;
 			uniform vec4 screenSize;
 			uniform vec3 outlineColor;
-			uniform vec3 multiplierParameters;
 
             // How many pixels away to sample for edges
             // Larger value give thicker lines
@@ -153,10 +159,14 @@ class CustomOutlinePass extends Pass {
 				// vUv is current position
 				return readDepth(depthBuffer, vUv + screenSize.zw * vec2(x, y));
 			}
-			// "surface value" is either the normal or the "surfaceID"
-			vec3 getSurfaceValue(int x, int y) {
-				vec3 val = texture2D(surfaceBuffer, vUv + screenSize.zw * vec2(x, y)).rgb;
-				return val;
+			// get surfaceID at current point + (x, y) pixels
+			float getSurfaceValue(int x, int y) {
+				return texture2D(surfaceBuffer, vUv + screenSize.zw * vec2(x, y)).r;
+			}
+
+            // get normal at current point + (x, y) pixels
+            vec3 getNormal(int x, int y) {
+				return texture2D(surfaceBuffer, vUv + screenSize.zw * vec2(x, y)).gba;
 			}
 
 			float saturateValue(float num) {
@@ -164,15 +174,16 @@ class CustomOutlinePass extends Pass {
 			}
 
 
-            float getSurfaceIdDiff(vec3 surfaceValue) {
-                float surfaceIdDiff = 0.0;
-
+            float getSurfaceIdDiff(float surfaceValue) {
+                float surfaceIdDiff = 0.;
                 int e = edgeThickness;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(e, 0))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(0, e))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(-e, 0))) ? 1.0 : 0.0;
-                surfaceIdDiff += any(notEqual(surfaceValue, getSurfaceValue(0, -e))) ? 1.0 : 0.0;
-                return surfaceIdDiff;
+
+                surfaceIdDiff += abs(surfaceValue - getSurfaceValue(e, 0));
+                surfaceIdDiff += abs(surfaceValue - getSurfaceValue(0, e));
+                surfaceIdDiff += abs(surfaceValue - getSurfaceValue(-e, 0));
+                surfaceIdDiff += abs(surfaceValue - getSurfaceValue(0, -e));
+
+                return surfaceIdDiff == 0. ? 0. : 1.;
             }
             
             float getDepthDiff(float depth) {
@@ -197,66 +208,55 @@ class CustomOutlinePass extends Pass {
       
 
 			void main() {
+                // Get the scene colour from the previous pass
 				vec4 sceneColor = texture2D(sceneColorBuffer, vUv);
+
+                // Get the depth, normal and surfaceID for this pixel.
 				float depth = getPixelDepth(0, 0);
-				vec3 surfaceValue = getSurfaceValue(0, 0);
+                vec3 normal = getNormal(0, 0);
+				float surfaceId = getSurfaceValue(0, 0);
+                float alpha = 1.0 - float(surfaceId == 0.);
 
 				// Get the difference between depth of neighboring pixels and current.
-                float depthDiff = getDepthDiff(depth);
-
-				// Get the difference between surface values of neighboring pixels
-				// and current
-				float surfaceValueDiff = getSurfaceIdDiff(surfaceValue);
-				
-				// Apply multiplier & bias to each 
-				float depthBias = multiplierParameters.x;
-				float depthMultiplier = multiplierParameters.y;
-                float lerp =  multiplierParameters.z;
-
-				depthDiff = saturateValue(depthDiff * depthMultiplier);
-				depthDiff = pow(depthDiff, depthBias);
-
-                if (debugVisualize == 7) {
-                    // Surface ID difference
-                    gl_FragColor = vec4(vec3(surfaceValueDiff), 1.0);
-                }
+				float surfaceIdDiff = getSurfaceIdDiff(surfaceId);
             
-                float outline;
-                vec4 outlineColor = vec4(outlineColor, 1.0);;
+                float outline = saturateValue(surfaceIdDiff);
+                vec4 outlineColor = vec4(outlineColor, 1.0);
 
-                // Normal mode, use the surface ids to draw outlines and add the shaded scene in too
+                // If you want to do lighting yourself.
+                // float lighting = max((1. + dot(normal, vec3(0., 1., 0.))/2.), 0.);
+                // vec4 lighting_colour = vec4(vec3(lighting), 1.0);
+
                 if (debugVisualize == 0) {
-                    outline = saturateValue(surfaceValueDiff);
+                    // Normal mode, use the surface ids to draw outlines and add the shaded scene in too
                     gl_FragColor = vec4(mix(sceneColor, outlineColor, outline));
                 } 
-
-                // Depth mode, use the depth to draw outlines only at the outside
-                if (debugVisualize == 1) {
-                    outline = saturateValue(depthDiff);
-                    gl_FragColor = vec4(mix(sceneColor, outlineColor, outline));
-                } 
-
-				//Scene color no outline
-                if (debugVisualize == 2) {
-					gl_FragColor = sceneColor;
-				}
-				if (debugVisualize == 3) {
-					gl_FragColor = vec4(vec3(depth), 1.0);
-				}
-				if (debugVisualize == 4) {
-					// 4 visualizes the surfaceID buffer 
-					gl_FragColor = vec4(hash(surfaceValue), 1.0);
-				}
-				if (debugVisualize == 5) {
-					// Outlines only
-                    outline  = mix(surfaceValueDiff, depthDiff, lerp);
-                    outline = saturateValue(outline);
+                else if (debugVisualize == 1) {
+					// Only show outlines
 					gl_FragColor = mix(vec4(0,0,0,0), outlineColor, outline);
 				}
-                if (debugVisualize == 6) {
-                    // Depth difference
-                    gl_FragColor = vec4(vec3(depthDiff), 1.0);
+                else if (debugVisualize == 2) {
+                	// Only Scene color no outlines
+					gl_FragColor = sceneColor;
+				}
+                else if (debugVisualize == 3) {
+                    // Normal buffer
+                    gl_FragColor = vec4(normal, alpha);
                 }
+				else if (debugVisualize == 4) {
+                    // Depth buffer
+					gl_FragColor = vec4(vec3(depth), alpha);
+				}
+				else if (debugVisualize == 5) {
+					// Surface ID buffer 
+					gl_FragColor = vec4(hash(vec3(surfaceId)), alpha);
+				}
+                else if (debugVisualize == 6) {
+                    // Surface ID difference
+                    gl_FragColor = vec4(vec3(surfaceIdDiff), alpha);
+                }
+
+                
 			}
 			`;
   }
@@ -265,16 +265,20 @@ class CustomOutlinePass extends Pass {
     return new THREE.ShaderMaterial({
       uniforms: {
         debugVisualize: { value: 0 },
+
+        lighting_bias: { value: 0.0 },
+        lighting_power: { value: 1.0 },
+
+        // The buffers we'll use: colours, depth, surface ID
         sceneColorBuffer: {},
         depthBuffer: {},
         surfaceBuffer: {},
+
         outlineColor: { value: new THREE.Color(this.outlineColor) },
         edgeThickness: { value: this.edgeThickness },
-        multiplierParameters: {
-          value: new THREE.Vector3(0.9, 20, 0.5),
-        },
         cameraNear: { value: this.renderCamera.near },
         cameraFar: { value: this.renderCamera.far },
+
         screenSize: {
           value: new THREE.Vector4(
             this.resolution.x,

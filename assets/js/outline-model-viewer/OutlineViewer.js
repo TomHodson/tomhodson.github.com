@@ -65,18 +65,32 @@ export class OutlineModelViewer extends HTMLElement {
     const body = document.getElementsByTagName("body")[0];
     const style = window.getComputedStyle(body);
     const outline_color = style.getPropertyValue("--theme-model-line-color");
-    const model_color = style.getPropertyValue("--theme-model-bg-color");
+    const light_color = style.getPropertyValue("--theme-model-bg-color");
+    const dark_color = style.getPropertyValue("--theme-subtle-text-color");
 
+    const material_mode = element.getAttribute("materials") || "outlines";
+    if (material_mode === "outlines") {
+      scene.overrideMaterial = new THREE.MeshLambertMaterial({
+        color: light_color,
+        emissive: dark_color,
+      });
+    }
+
+    // Add the light as a child of the camera so that when Orbitcontrols moves the camera
+    // the light also moves
     const directionalLight = new THREE.DirectionalLight(
+      // const directionalLight = new THREE.PointLight(
       0xffffff,
-      this.getAttribute("directional-light") || 2
+      this.getAttribute("directional-light") || 3
     );
-    scene.add(directionalLight);
-    directionalLight.position.set(1.7, 1, -1);
+
+    directionalLight.position.set(1, 2, 2);
+    camera.add(directionalLight);
+    scene.add(camera);
 
     const ambientLight = new THREE.AmbientLight(
       0xffffff,
-      this.getAttribute("ambient-light") || 0.5
+      this.getAttribute("ambient-light") || 1
     );
     scene.add(ambientLight);
 
@@ -108,6 +122,7 @@ export class OutlineModelViewer extends HTMLElement {
     // Initial render pass.
     const composer = new EffectComposer(renderer, renderTarget);
     component.composer = composer;
+
     const pass = new RenderPass(scene, camera);
     composer.addPass(pass);
 
@@ -121,6 +136,8 @@ export class OutlineModelViewer extends HTMLElement {
     );
     composer.addPass(customOutline);
     this.customOutline = customOutline;
+
+    this.updatePixelRatio(4.0);
 
     // Antialias pass.
     const effectFXAA = new ShaderPass(FXAAShader);
@@ -141,9 +158,16 @@ export class OutlineModelViewer extends HTMLElement {
     dracoLoader.setDecoderPath("https://www.gstatic.com/draco/v1/decoders/");
     loader.setDRACOLoader(dracoLoader);
     const surfaceFinder = new FindSurfaces();
-    loader.load(model_path, (gltf) =>
-      load_gltf(this, scene, surfaceFinder, model_color, customOutline, gltf)
-    );
+    loader.load(model_path, (gltf) => {
+      gltf = load_gltf(
+        this,
+        scene,
+        surfaceFinder,
+        material_mode,
+        customOutline,
+        gltf
+      );
+    });
 
     // Set up orbital camera controls.
     let controls = new OrbitControls(camera, renderer.domElement);
@@ -268,9 +292,6 @@ export class OutlineModelViewer extends HTMLElement {
       ambientLight: parseFloat(ambientLight.intensity),
       directionalLight: parseFloat(directionalLight.intensity),
       mode: { Mode: uniforms.debugVisualize.value },
-      depthBias: uniforms.multiplierParameters.value.x,
-      depthMult: uniforms.multiplierParameters.value.y,
-      lerp: uniforms.multiplierParameters.value.z,
       edgeThickness: this.edgeThickness,
       pixelRatio: this.pixelRatio,
     };
@@ -279,16 +300,23 @@ export class OutlineModelViewer extends HTMLElement {
       controls.autoRotate = value;
     });
 
+    gui.add(params, "directionalLight", 0, 10).onChange((value) => {
+      directionalLight.intensity = value;
+    });
+
+    gui.add(params, "ambientLight", 0, 10).onChange((value) => {
+      ambientLight.intensity = value;
+    });
+
     gui
       .add(params.mode, "Mode", {
-        "Outlines + Shaded (default)": 0,
-        "Just Outlines": 5,
-        "Only outer outlines + shading": 1,
+        Normal: 0,
+        "Only show outlines": 1,
         "Only shading": 2,
-        "(Debug) SurfaceID buffer": 4,
-        "(Debug) Depth buffer": 3,
-        "(Debug) Depth Difference (external edges / outline)": 6,
-        "(Debug) SurfaceID Difference (internal edges)": 7,
+        "(Debug) Normal buffer": 3,
+        "(Debug) Depth buffer": 4,
+        "(Debug) SurfaceID buffer": 5,
+        "(Debug) SurfaceID Difference": 6,
       })
       .onChange(function (value) {
         uniforms.debugVisualize.value = value;

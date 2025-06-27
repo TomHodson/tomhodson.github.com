@@ -29,7 +29,7 @@ In doing so I realised that this downlight has an amusingly chonky heatsink and 
 
 So I made a front plate for it to turn it into a bicycle light. I think it suits the current cobbled together, solarpunky aesthetic of my bike.
 
-<outline-model-viewer model = "{{page.model}}/fbx_export.glb" camera='{"type":"perspective","fov":30,"near":10,"far":10000,"position":[848.5,470.2,-294.9],"rotation":[-2.131,0.9915,2.214],"zoom":300,"target":[0,0,0]}'>
+<outline-model-viewer model = "{{page.model}}/fbx_export.glb" camera='{"type":"perspective","fov":30,"near":0.1,"far":1000,"position":[2,1,-1],"rotation":[-2,1,2],"zoom":1,"target":[0,0,0]}' materials=outlines>
     <img class="outline-model-poster no-wc" src = "{{page.assets}}/thumbnail.svg">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>

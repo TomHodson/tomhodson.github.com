@@ -4,7 +4,7 @@ export function load_gltf(
   element,
   scene,
   surfaceFinder,
-  model_color,
+  material_mode,
   customOutline,
   gltf
 ) {
@@ -61,33 +61,10 @@ export function load_gltf(
         });
       }
 
-      // override materials for different purposes
-      // materials = outlines
-      // sets the material to be emissive to the background colour of the page
-      // This makes for nice two colour rendering with no shading
-
-      // material = flat overides all the materials to just be flat with the base colour
-
-      // material = keep uses whatever material is defined in the gltf
-
-      console.log(
-        `element.getAttribute("materials") ${element.getAttribute("materials")}`
-      );
-      const material_mode = element.getAttribute("materials") || "outlines";
-      if (material_mode === "outlines") {
-        node.material = new THREE.MeshStandardMaterial({
-          emissive: model_color,
-        });
-      } else if (material_mode === "flat") {
+      if (material_mode === "flat") {
         node.material = new THREE.MeshStandardMaterial({
           color: node.material.color,
         });
-      } else if (material_mode === "keep") {
-        // Do nothing, leave the material as set in the GLTF file
-      } else {
-        throw new Error(
-          "Invalid material mode, should be outlines, flat or keep."
-        );
       }
     }
   });
@@ -95,4 +72,6 @@ export function load_gltf(
   customOutline.updateMaxSurfaceId(surfaceFinder.surfaceId + 1);
   element.component.controls.update();
   element.component.composer.render();
+
+  return gltf;
 }

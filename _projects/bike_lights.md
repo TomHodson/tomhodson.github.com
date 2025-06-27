@@ -15,7 +15,7 @@ model: /assets/projects/bike_lights/model
 
 ---
 
-<outline-model-viewer model = "/assets/projects/bike_lights/models/bigger.glb" camera='{"type":"perspective","fov":30,"near":10,"far":10000,"position":[848.5,470.2,-294.9],"rotation":[-2.131,0.9915,2.214],"zoom":303.06369033128976,"target":[0,0,0]}'>
+<outline-model-viewer model = "/assets/projects/bike_lights/models/bigger.glb" camera='{"type":"perspective","fov":30,"near":0.1,"far":1000,"position":[1,1,1],"rotation":[-2,1,2],"zoom":0.5,"target":[0,0,0]}' ambient-light=2 directional-light=2>
     <img class="outline-model-poster no-wc" src = "/assets/projects/bike_lights/thumbnail.svg">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>

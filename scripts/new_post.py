@@ -14,10 +14,14 @@ from pathlib import Path
 import questionary
 from git import Repo
 
+make_new_branch = True
 repo = Repo.init(".")
 if repo.untracked_files or repo.is_dirty():
-    print("Repo is dirty, commit changes first.")
-    sys.exit()
+    print("Repo is dirty, you should really commit changes first.")
+    if questionary.confirm("Create post without branching?").ask():
+        make_new_branch = False
+    else: 
+        sys.exit()
 
 now = datetime.datetime.now()
 
@@ -58,7 +62,8 @@ if Path(assets_dir).exists() \
     and questionary.confirm(f"Directory {assets_dir} already exists, change assets dir?").ask():
     assets_dir = questionary.text("Assets Directory: ", default=assets_dir).ask()
 
-git_branch = questionary.text("Branch: ", default=f"post/{id_from_title}").ask()
+if make_new_branch:
+    git_branch = questionary.text("Branch: ", default=f"post/{id_from_title}").ask()
 
 newline = "\n"
 draft = f"""---
@@ -72,7 +77,6 @@ thumbnail: /{assets_dir}/thumbnail.svg
 social_image: /{assets_dir}/thumbnail.png
 alt:
 image_class: invertable
-
 {newline.join(f'{k}: true' for k in answers['libraries'])}
 ---
 
@@ -83,8 +87,9 @@ print(draft)
 if not questionary.confirm("Create post?").ask():
     sys.exit()
 
-repo.git.checkout("main")
-repo.git.checkout("-b", git_branch)
+if make_new_branch:
+    repo.git.checkout("main")
+    repo.git.checkout("-b", git_branch)
 
 with open(f"_posts/{filename}", "w") as f:
     f.write(draft)
@@ -102,5 +107,6 @@ url = f"http://localhost:4100/{now.strftime('%Y/%m/%d/')}{id_from_title}.html"
 print(f"Post served on localhost, open in browser to preview. {url}")
 system(f"code _posts/{filename}")
 
-print(f"Now on new branch post/{id_from_title}")
+if make_new_branch:
+    print(f"Now on new branch post/{id_from_title}")
 print("Make sure to edit, then commit and push changes.")
