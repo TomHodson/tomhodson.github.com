@@ -17,7 +17,7 @@ draft: false
 
 This is just a quick mount for a [BIQU H2V2](https://biqu.equipment/products/biqu-h2-v2-0-extruder) hotend on an Elegoo Neptune 2.
 
-<outline-model-viewer model = "{{page.assets}}/model.glb" camera='{"type":"perspective","fov":30,"near":10,"far":10000,"position":[364.9,307.2,459.7],"rotation":[-0.5891,0.5833,0.3527],"zoom":250,"target":[0,0,0]}'>
+<outline-model-viewer model = "{{page.assets}}/assembly/assembly.glb" camera='{"type":"perspective","fov":30,"near":10,"far":10000,"position":[364.9,307.2,459.7],"rotation":[-0.5891,0.5833,0.3527],"zoom":250,"target":[0,0,0]}' materials=flat ambient-light=2 directional-light=6>
     <img class="outline-model-poster no-wc" src = "{{page.assets}}/thumbnail.svg">
     <p class="has-wc">Loading model...</p>
 </outline-model-viewer>

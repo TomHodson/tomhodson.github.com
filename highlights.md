@@ -14,7 +14,7 @@ head: |
 
 
 ---
-Welcome to my little home on the web! Below you'll find recent blog posts, projects and mastodon toots. You'll also find links to the web version of my thesis <a href = "/thesis/4_Amorphous_Kitaev_Model/4.2_AMK_Methods.html#:~:text=Figure 1:,on the torus.">(with animations!)</a> and my <a href="/cv/">CV</a>. 
+Welcome to my little home on the web! It's something between a blog, a project site, a (public) personal wiki and a digital garden. On the left you can find the blog, projects, my CV and my PhD thesis which was about the weird stuff electrons do.
 
 <section class = "highlights">
 

@@ -41,7 +41,6 @@ class CustomOutlinePass extends Pass {
 
   updateEdgeThickness(edgeThickness) {
     this.edgeThickness = edgeThickness;
-    console.log("Updating edge thickness to", this.edgeThickness);
     this.fsQuad.material.uniforms.edgeThickness.value = edgeThickness;
   }
 
@@ -265,9 +264,6 @@ class CustomOutlinePass extends Pass {
     return new THREE.ShaderMaterial({
       uniforms: {
         debugVisualize: { value: 0 },
-
-        lighting_bias: { value: 0.0 },
-        lighting_power: { value: 1.0 },
 
         // The buffers we'll use: colours, depth, surface ID
         sceneColorBuffer: {},

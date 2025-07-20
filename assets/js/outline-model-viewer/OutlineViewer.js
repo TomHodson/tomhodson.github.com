@@ -40,16 +40,11 @@ export class OutlineModelViewer extends HTMLElement {
   updatePixelRatio(r) {
     this.pixelRatio = r;
     this.component.renderer.setPixelRatio(r);
-    this.customOutline.updateEdgeThickness(
-      this.pixelRatio * this.edgeThickness
-    );
   }
 
   updateEdgeThickness(t) {
     this.edgeThickness = t;
-    this.customOutline.updateEdgeThickness(
-      this.pixelRatio * this.edgeThickness
-    );
+    this.customOutline.updateEdgeThickness(this.edgeThickness);
   }
 
   connectedCallback() {
@@ -94,8 +89,6 @@ export class OutlineModelViewer extends HTMLElement {
     );
     scene.add(ambientLight);
 
-    this.pixelRatio = window.devicePixelRatio;
-
     console.log(`window.innerWidth ${window.innerWidth}`);
     console.log(
       `canvas.width ${canvas.width} canvas.clientWidth ${canvas.clientWidth}`
@@ -137,16 +130,15 @@ export class OutlineModelViewer extends HTMLElement {
     composer.addPass(customOutline);
     this.customOutline = customOutline;
 
-    this.updatePixelRatio(4.0);
-
     // Antialias pass.
     const effectFXAA = new ShaderPass(FXAAShader);
     effectFXAA.uniforms["resolution"].value.set(1.0 / width, 1.0 / height);
     composer.addPass(effectFXAA);
 
     // Set over sampling ratio
-    this.updateEdgeThickness(1 / window.devicePixelRatio);
-    this.updatePixelRatio(window.devicePixelRatio);
+    console.log("Updating edge thickness to 1 and pixel ratio to 2");
+    this.updateEdgeThickness(1.0);
+    this.updatePixelRatio(2.0);
     renderer.setSize(width, height, false);
 
     component.render = composer.render;
@@ -322,13 +314,11 @@ export class OutlineModelViewer extends HTMLElement {
         uniforms.debugVisualize.value = value;
       });
 
-    gui
-      .add(params, "edgeThickness", 1 / window.devicePixelRatio, 10)
-      .onChange(function (value) {
-        element.updateEdgeThickness(value);
-      });
+    gui.add(params, "edgeThickness", 1, 10).onChange(function (value) {
+      element.updateEdgeThickness(value);
+    });
 
-    gui.add(params, "pixelRatio", 1, 8, 1).onChange(function (value) {
+    gui.add(params, "pixelRatio", 1, 4, 1).onChange(function (value) {
       element.updatePixelRatio(value);
       element.onWindowResize();
     });

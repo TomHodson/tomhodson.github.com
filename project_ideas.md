@@ -7,7 +7,28 @@ excerpt: |
 mathjax: false
 ---
 
+# Project Todos
+
+buy a macbook air
+Setup sensor watch pro!
+Finish wiring on USB C power book
+Bolt together and test the new two radial fan 3d printer cooling end
+buy and antenna for ads-b pi
+flash new firmware for microscope
+print new test piece for bike holder
+use astropy to figure out where plane shadows are
+
+
+
+
 # Project Ideas
+
+* build an https://openscan.eu/ classic and use Photocatch or OpenScanCloud for the photogrammetry
+
+* write a blog post about the birthday printer
+* a little server to receive images and text and print them out
+* A little server to receive and save the output from ios automations and shares
+* A server to log the output from ios card usage
 
 * a simple rust caching tile server to cache strava heatmap tiles
 
@@ -17,6 +38,9 @@ mathjax: false
      https://threejs.org/docs/#api/en/materials/MeshToonMaterial
      https://gkjohnson.github.io/threejs-sandbox/conditional-lines/
      https://threejs.org/docs/#examples/en/renderers/SVGRenderer
+
+
+* beautiful graphs https://nodaysoff.run/
 
 * Take on board some ideas from https://plainvanillaweb.com/index.html
 
