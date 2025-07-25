@@ -22,6 +22,7 @@ use astropy to figure out where plane shadows are
 
 
 # Project Ideas
+* controllable 3D printer lighting for remote viewing
 
 * build an https://openscan.eu/ classic and use Photocatch or OpenScanCloud for the photogrammetry
 

@@ -7,6 +7,7 @@
 # ]
 # ///
 import datetime
+import re
 import sys
 from os import system
 from pathlib import Path
@@ -35,7 +36,7 @@ for word in title.split():
         break
 shorter_title = shorter_title.strip()
 
-id_from_title = shorter_title.lower().replace(" ", "-").replace(".", "").replace(",", "").replace(":", "")
+id_from_title = re.sub("[^0-9^a-z-]", "", shorter_title.lower().replace(" ", "-"))
 id_from_title = questionary.text("id_from_title: ", default=id_from_title).ask()
 
 answers = questionary.form(
