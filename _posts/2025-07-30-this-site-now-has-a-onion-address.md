@@ -36,11 +36,19 @@ header Onion-Location http://example.onion{path}
 You can also do it using a HTML, here I've used the jekyll `page.url` variable, which I can actually also evaluate inline look: `{{page.url}}`, to make the link point to whichever page you're currently on.
 
 ```html
+{% raw %}
 <meta 
     http-equiv="onion-location" 
     content="http://example.onion{{ page.url }}" 
 />
+{% endraw %}
 ```
+
+The net effect is that if you load my cleartext site in a Tor browser you'll get a little button suggesting you go to the onion site.
+
+<figure>
+<img src="{{page.assets}}/onion_location.png" alt="A screenshot of the area around the url bar of a tor browser opened to thomashodson.com showing that you get a purple button to the right that says '.onion available'">
+</figure>
 
 [Onion-Location]: https://community.torproject.org/onion-services/advanced/onion-location/
 [vanity address]: https://community.torproject.org/onion-services/advanced/vanity-addresses/
