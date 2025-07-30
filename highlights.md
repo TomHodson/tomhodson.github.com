@@ -9,8 +9,8 @@ img:
     src: /assets/images/avatar.jpeg
     alt: A picture of me.
 head: |
-    <link rel="stylesheet" href="/node_modules/@idotj/mastodon-embed-timeline/dist/mastodon-timeline.min.css">
-    <script src="/node_modules/@idotj/mastodon-embed-timeline/dist/mastodon-timeline.umd.js"></script>
+    <link rel="stylesheet" href="/assets/js/mastodon-timeline/mastodon-timeline.min.css">
+    <script src="/assets/js/mastodon-timeline/mastodon-timeline.umd.js"></script>
 
 
 ---
