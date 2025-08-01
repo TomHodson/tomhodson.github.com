@@ -11,7 +11,7 @@ image_class: invertable
 
 ---
 
-I was thinking about the UK's [online safety act], which, at best, is very poorly thought out legislation and, at worse, is a plot to further de-anonymise UK internet users. This got me thinking about VPNs and Tor which lead me to wonder how hard it is to serve a site through a .onion address. 
+I was thinking about the UK's new [online safety act], which, at best, is very poorly thought out legislation and, at worst, is a plot to further de-anonymise UK internet users. This got me thinking about VPNs and Tor which lead me to wonder how hard it is to serve a site through a .onion address. 
 
 Behold!
 
