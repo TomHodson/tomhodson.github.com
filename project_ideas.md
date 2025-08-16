@@ -23,6 +23,9 @@ use astropy to figure out where plane shadows are
 
 # Project Ideas
 
+* provision new VPS and follow this from the start:
+https://github.com/imthenachoman/How-To-Secure-A-Linux-Server?tab=readme-ov-file#installing-linux
+
 * Add a little round GC9A01 to the microscope pi to remote ip address, connection details etc
 https://github.com/juliannojungle/gc9a01-overlay
 https://github.com/raspberrypi/linux/blob/fbd8b3facb36ce888b1cdcf5f45a78475a8208f2/arch/arm/boot/dts/overlays/README#L1375-L1392
