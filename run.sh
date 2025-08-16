@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
+set -e 
+# https://jekyllrb.com/docs/installation/macos/
+# brew install chruby ruby-install
+# ruby-install ruby 3.4.1
 bundle install
-npm outdated
+# npm outdated
 echo Open http://0.0.0.0:4100
 echo Open http://mathmac.local:4100
 # bundle exec jekyll serve --draft --future --live --incremental --host 0.0.0.0
