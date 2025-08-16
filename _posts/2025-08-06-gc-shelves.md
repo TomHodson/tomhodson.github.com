@@ -5,7 +5,7 @@ excerpt: Shelves for Growing Communities
 draft: true
 
 assets: /assets/blog/gc-shelves
-thumbnail: /assets/blog/gc-shelves/thumbnail.svg
+thumbnail: /assets/blog/gc-shelves/thumbnail.png
 social_image: /assets/blog/gc-shelves/thumbnail.png
 alt:
 image_class: invertable
