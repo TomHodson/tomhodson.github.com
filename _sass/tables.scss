@@ -11,3 +11,7 @@ table {
     padding-right: 0.5em;
   }
 }
+
+meta.full-width-table ~ table {
+  width: 100%
+}
