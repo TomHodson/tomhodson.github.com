@@ -7,6 +7,9 @@ excerpt: |
 mathjax: false
 ---
 
+## Pages I like the design of 
+- https://lazybrush.dulnan.net/
+
 # Project Todos
 
 buy a macbook air
