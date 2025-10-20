@@ -1,4 +1,3 @@
-// Add this style block once to your document (or in a CSS file)
 const style = document.createElement("style");
 style.textContent = `
   .fullscreen-overlay {
@@ -24,16 +23,16 @@ style.textContent = `
   }
 
   .fullscreen-overlay img {
-    max-width: 90vw;
-    max-height: 90vh;
-    width: 100%; important!
-    height: 100%; important!
+    object-fit: contain;
+    max-width: 100vw;
+    max-height: 100vh;
+    // width: 100%; important!
+    // height: 100%; important!
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   }
 `;
 document.head.appendChild(style);
 
-// Create and style fullscreen overlay container
 const fullscreenContainer = document.createElement("div");
 fullscreenContainer.className = "fullscreen-overlay";
 
@@ -42,24 +41,6 @@ fullscreenContainer.appendChild(fullscreenImage);
 
 document.body.appendChild(fullscreenContainer);
 
-// Fullscreen API helpers
-function enterFullscreen(element) {
-  if (element.requestFullscreen) {
-    element.requestFullscreen();
-  } else if (element.webkitRequestFullscreen) {
-    element.webkitRequestFullscreen();
-  }
-}
-
-function exitFullscreen() {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else if (document.webkitExitFullscreen) {
-    document.webkitExitFullscreen();
-  }
-}
-
-// Attach listeners
 document.querySelectorAll("img:not(.no-zoom)").forEach((img) => {
   img.style.cursor = "zoom-in";
   img.addEventListener("click", () => {
@@ -67,12 +48,9 @@ document.querySelectorAll("img:not(.no-zoom)").forEach((img) => {
     fullscreenImage.src = img.src;
     fullscreenImage.classList = img.classList;
     fullscreenContainer.classList.add("active");
-    enterFullscreen(fullscreenContainer);
   });
 });
 
 fullscreenContainer.addEventListener("click", () => {
-  console.log("Exiting fullscreen");
   fullscreenContainer.classList.remove("active");
-  exitFullscreen();
 });
