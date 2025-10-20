@@ -22,6 +22,23 @@ head: |
 
 ---
 
+Current status: 
+    Lasercut case: Done subject to revisions.
+    Electronics: Done but not fully tested.
+    Software: Prototype version working.
+    Stress Testing: Todo.
+
+<figure class="multiple">
+<img src="{{page.assets}}/fusion_screenshot.png" alt="A 3D model of the power supply in CAD software. It's a lasercut box roughly the dimensions of a book. The front panel has a circular opening for a screen. The side panel on the left is removed showing a 24v PSU and extra electronics mounted inside.">
+<img src="{{page.assets}}/with_orange_pane.jpeg" alt="A similar image to the CAD model but this time its real life. The front panel is lasercut out of a nice piece of walnut I found somewhere and theres some orange acrylic making the screen cover.">
+<img src="{{page.assets}}/wiring.jpeg">
+<img src="{{page.assets}}/top_view.jpeg">
+<img src="{{page.assets}}/orange_screen_in_situ.jpg">
+<img src="/assets/images/2024/usbc_psu/pcb_top.jpeg">
+</figure>
+
+## Intro
+
 I'm kinda fascinated by USB-C. It has it's issues but I can't help but love this magical omni-cable that holds the promise of hundreds of watts of power and gigagbits per second of bandwidth. It's reversible, you can negotiate the supply voltage (PD), send power in either direction, pipe PCIe or DisplayPort and talk to the cable itself. 
 
 
@@ -118,7 +135,6 @@ In other posts I've described how I made this simulator the test out possible GU
 </figure>
 
 TODO: Add some knobs to the simulator so you can test different conditions such as overcurrent, overtemp, sleep, nightmode etc.
-
 <!-- <outline-model-viewer model = "{{page.model}}" true-color=true spin=false camera='{"position":[-6.425,8.003,-3.751],"rotation":[-2.016,-0.6378,-2.246],"zoom":6784.844370099355,"target":[0.1581,-0.01497,0.07167]}'>
     <img class="outline-model-poster no-wc" src = "{{page.img.src}}">
     <p class="has-wc">Loading model...</p>
