@@ -3,6 +3,9 @@ feed_title: Tom Hodson's Blog
 description: Physics, Programming and Baking.
 url: https://thomashodson.com
 
+# Removove the .html from links
+permalink: /:categories/:year/:month/:day/:title
+
 feed:
   posts_limit: 100
   update_period: monthly
