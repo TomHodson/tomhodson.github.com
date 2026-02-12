@@ -2,6 +2,7 @@
 title: Sums of the choose function and the Binomial Formula
 layout: post
 excerpt: A satisfying little exact formula.
+
 draft: false
 
 assets: /assets/blog/sums-of-the-choose-function-and-the-binomial-formula
