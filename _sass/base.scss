@@ -14,6 +14,7 @@
 @import "night_mode_toggle";
 @import "highlights";
 @import "tables";
+@import "code";
 
 @import "rouge_theme_github.scss";
 
@@ -377,7 +378,9 @@ section.center {
   margin-bottom: 1em;
 }
 
-
+details {
+  margin: 0.5em 0;
+}
 
 div.highlighter-rouge {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,

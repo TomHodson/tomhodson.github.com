@@ -188,16 +188,16 @@ code.highlighter-rouge {
     color: #800080;
   }
   .ne {
-    color: #990000;
+    color: var(--theme-highlight-color);
     font-weight: bold;
   }
   .nf,
   .fm {
-    color: #990000;
+    color: var(--theme-highlight-color);
     font-weight: bold;
   }
   .nl {
-    color: #990000;
+    color: var(--theme-highlight-color);
     font-weight: bold;
   }
   .nn {

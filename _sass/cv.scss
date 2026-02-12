@@ -1,117 +1,119 @@
-summary.cv {
-  margin-bottom: 0.7em;
-  margin-top: 0.7em;
-
-  padding-left: 2.2rem;
-  position: relative;
-
-  display: flex;
-  cursor: pointer;
-}
-
-details summary.cv::-webkit-details-marker {
-  display: none;
-}
-
-details[open] > summary:before {
-  transform: rotate(90deg);
-}
-
-//A little animation for the details opening
-details[open] summary ~ * {
-  animation: sweep 0.5s ease-in-out;
-}
-
-@keyframes sweep {
-  0% {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-summary.cv:before {
-  content: "";
-  border-width: 0.4rem;
-  border-style: solid;
-  border-color: transparent transparent transparent var(--theme-text-color);
-  position: absolute;
-  top: 0.2rem;
-  left: 1rem;
-  transform: rotate(0);
-  transform-origin: 0.2rem 50%;
-  transition: 0.25s transform ease,
-    border-color var(--night-mode-fade-time) ease-in-out;
-}
-
-summary li {
-  margin-bottom: 0em;
-}
-
-summary time {
-  width: 150px;
-  flex: 0 0 auto;
-}
-
-div.details-img {
-  padding-right: 20px;
-  padding-bottom: 20px;
-  width: 150px;
-  flex: 0 0 auto;
-}
-div.details-text p {
-  margin-top: 0px;
-  flex: 0 0 auto;
-}
-
-div.details-img img {
-  border-radius: 10px;
-  max-width: 100%;
-}
-
-summary h3 {
-  font-size: 1em;
-  margin: 0px;
-  flex: 0 1 auto;
-}
-
-div.details-container {
-  display: flex;
-  margin-left: 2.2rem;
-}
-
-.cv-title-container {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 1em;
-  margin-top: 1em;
-
-  border-bottom: var(--theme-subtle-outline) 1px solid;
-  transition: border-color var(--night-mode-fade-time) ease-in-out,
-    opacity var(--night-mode-fade-time) ease-in-out;
-  h2 {
-    margin: 0px;
-  }
-  a {
-    cursor: pointer;
-    text-decoration: None;
-    color: var(--theme-text-color);
-    font-size: 0.75em;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  div.details-container {
-    margin-left: 2.2rem;
-    flex-direction: column;
-    align-items: center;
-  }
-
+section.cv {
   summary.cv {
-    flex-direction: column;
+    margin-bottom: 0.7em;
+    margin-top: 0.7em;
+
+    padding-left: 2.2rem;
+    position: relative;
+
+    display: flex;
+    cursor: pointer;
+  }
+
+  details summary.cv::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] > summary:before {
+    transform: rotate(90deg);
+  }
+
+  //A little animation for the details opening
+  details[open] summary ~ * {
+    animation: sweep 0.5s ease-in-out;
+  }
+
+  @keyframes sweep {
+    0% {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  summary.cv:before {
+    content: "";
+    border-width: 0.4rem;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--theme-text-color);
+    position: absolute;
+    top: 0.2rem;
+    left: 1rem;
+    transform: rotate(0);
+    transform-origin: 0.2rem 50%;
+    transition: 0.25s transform ease,
+      border-color var(--night-mode-fade-time) ease-in-out;
+  }
+
+  summary li {
+    margin-bottom: 0em;
+  }
+
+  summary time {
+    width: 150px;
+    flex: 0 0 auto;
+  }
+
+  div.details-img {
+    padding-right: 20px;
+    padding-bottom: 20px;
+    width: 150px;
+    flex: 0 0 auto;
+  }
+  div.details-text p {
+    margin-top: 0px;
+    flex: 0 0 auto;
+  }
+
+  div.details-img img {
+    border-radius: 10px;
+    max-width: 100%;
+  }
+
+  summary h3 {
+    font-size: 1em;
+    margin: 0px;
+    flex: 0 1 auto;
+  }
+
+  div.details-container {
+    display: flex;
+    margin-left: 2.2rem;
+  }
+
+  .cv-title-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    margin-top: 1em;
+
+    border-bottom: var(--theme-subtle-outline) 1px solid;
+    transition: border-color var(--night-mode-fade-time) ease-in-out,
+      opacity var(--night-mode-fade-time) ease-in-out;
+    h2 {
+      margin: 0px;
+    }
+    a {
+      cursor: pointer;
+      text-decoration: None;
+      color: var(--theme-text-color);
+      font-size: 0.75em;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    div.details-container {
+      margin-left: 2.2rem;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    summary.cv {
+      flex-direction: column;
+    }
   }
 }

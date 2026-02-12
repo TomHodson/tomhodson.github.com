@@ -1,0 +1,14 @@
+
+div.code-cell {
+    margin: 0.5em 0;
+    border: 1px solid var(--theme-subtle-outline);
+    border-radius: 5px;
+    div.language-python {
+        border-bottom: inherit;
+        border-radius: 0;
+    }
+
+    div.language-plaintext {
+
+    }
+}
